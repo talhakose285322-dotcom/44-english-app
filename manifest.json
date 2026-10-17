@@ -1,0 +1,19 @@
+﻿{
+  "name": "44 - English Learning",
+  "short_name": "44",
+  "description": "İngilizce kelime öğrenme uygulaması",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111827",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
