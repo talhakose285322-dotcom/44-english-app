@@ -1,0 +1,53 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>Words 44</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121A5E"/>
+      <stop offset=".55" stop-color="#2B2B9C"/>
+      <stop offset="1" stop-color="#5A33C8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".45" cy=".72" r=".5">
+      <stop offset="0" stop-color="#8F5CFF" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#8F5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shine" cx=".3" cy="0" r=".8">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="s2" x1="196" y1="350" x2="258" y2="205" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#D9CCFF" stop-opacity=".85"/>
+    </linearGradient>
+    <linearGradient id="s3" x1="258" y1="205" x2="318" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C7B4FF" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#8B63F2" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="s4" x1="318" y1="350" x2="390" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9A72FF" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#CDB2FF" stop-opacity=".95"/>
+    </linearGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+    <clipPath id="sq"><rect width="512" height="512"/></clipPath>
+  </defs>
+  <g clip-path="url(#sq)">
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <rect width="512" height="512" fill="url(#glow)"/>
+    <rect width="512" height="512" fill="url(#shine)"/>
+  </g>
+  <g id="art">
+    <!-- soft violet glow under the W -->
+    <path d="M138 150 L196 350 L258 205 L318 350 L390 140" fill="none" stroke="#7B4DFF" stroke-opacity=".55" stroke-width="66" stroke-linecap="round" stroke-linejoin="round" filter="url(#blur)"/>
+    <!-- W: four overlapping rounded strokes, white on the left fading into violet on the right -->
+    <g fill="none" stroke-width="62" stroke-linecap="round">
+      <line x1="318" y1="350" x2="390" y2="140" stroke="url(#s4)"/>
+      <line x1="258" y1="205" x2="318" y2="350" stroke="url(#s3)"/>
+      <line x1="196" y1="350" x2="258" y2="205" stroke="url(#s2)"/>
+      <line x1="138" y1="150" x2="196" y2="350" stroke="#FFFFFF"/>
+    </g>
+    <!-- 44, bottom right -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" transform="translate(336 328) scale(1.2)">
+      <path d="M30 0 L0 42 L42 42 M30 0 L30 64"/>
+      <path d="M30 0 L0 42 L42 42 M30 0 L30 64" transform="translate(54 0)"/>
+    </g>
+  </g>
+</svg>

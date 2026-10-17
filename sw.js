@@ -1,12 +1,20 @@
-﻿const CACHE = "english-app-v8";
+﻿const CACHE = "english-app-v9";
 const FILES = ["./", "./index.html", "./manifest.json", "./icon.svg",
   "./vendor/pdfjs/pdf.min.mjs", "./vendor/pdfjs/pdf.worker.min.mjs",
-  "./icons/icon-180.png", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/favicon-32.png"];
+  "./icons/icon-180.png", "./icons/apple-touch-icon.png?v=9", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/favicon-32.png"];
+
+// A redirected response (e.g. a host redirecting /index.html to /) cannot be used for a navigation; store a clean copy.
+function clean(r) {
+  return r.redirected ? r.blob().then(b => new Response(b, { status: r.status, statusText: r.statusText, headers: r.headers })) : r;
+}
 
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE)
-      .then(cache => cache.addAll(FILES))
+      .then(cache => Promise.all(FILES.map(f => fetch(f, { cache: "reload" }).then(r => {
+        if (!r.ok) throw new Error(f + " " + r.status);
+        return Promise.resolve(clean(r)).then(c => cache.put(f, c));
+      }))))
       .then(() => self.skipWaiting())
   );
 });
@@ -34,10 +42,10 @@ self.addEventListener("fetch", event => {
       .then(response => {
         if (response.ok) {
           const copy = response.clone();
-          caches.open(CACHE).then(cache => cache.put(event.request, copy));
+          Promise.resolve(clean(copy)).then(c => caches.open(CACHE).then(cache => cache.put(event.request, c))).catch(() => {});
         }
         return response;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() => caches.match(event.request).then(r => r || (event.request.mode === "navigate" ? caches.match("./") : r)))
   );
 });
