@@ -1,5 +1,7 @@
-﻿const CACHE = "english-app-v2";
-const FILES = ["./", "./index.html", "./manifest.json", "./icon.svg"];
+﻿const CACHE = "english-app-v7";
+const FILES = ["./", "./index.html", "./manifest.json", "./icon.svg",
+  "./vendor/pdfjs/pdf.min.mjs", "./vendor/pdfjs/pdf.worker.min.mjs",
+  "./icons/icon-180.png", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/favicon-32.png"];
 
 self.addEventListener("install", event => {
   event.waitUntil(
