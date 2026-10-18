@@ -3042,22 +3042,49 @@ body.reading .sheet{max-width:740px}
 
   applyTheme();load();showAlert();build();if(S.smode==='wheel')setSmode('wheel');dailySnap();
   try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persisted().then(function(p){if(!p&&words.length)navigator.storage.persist()})}catch(e){}
+  // Read-only check for the update reloader below: true while a reload could lose something that lives only in memory
+  // (reader, article editor or PDF import, an open sheet, a study session with answers, or any screen but study/list/profile).
+  window.__44busy=function(){
+    if(['study','list','prof'].indexOf(view)<0)return true;
+    if(!document.getElementById('sheet').classList.contains('hide'))return true;
+    if(sess&&sess.n>0&&!sess.ended)return true;
+    if(openArt||editArt||draftArt||WB)return true;
+    return !!(PJOB&&!PJOB.stop&&!(PJOB.task&&PJOB.task.destroyed));
+  };
 })();
 </script>
 <script>if ('serviceWorker' in navigator && location.protocol !== 'file:') { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).then(function (reg) {
   // iOS keeps home-screen apps in memory; check for a new version whenever the app comes back to the foreground.
-  // When a new worker takes over, reload so the open page runs the new version too. To avoid interrupting work,
-  // reload only shortly after launch/resume; otherwise wait for the next resume. The first install (no previous worker) never reloads.
-  var sw = navigator.serviceWorker, hadController = !!sw.controller, resumedAt = Date.now(), pending = false, reloading = false;
-  function reloadOnce() { if (!reloading) { reloading = true; location.reload(); } }
+  // When a new worker takes over, a page that was kept in memory is still the old version and needs one reload.
+  // A page that has never been backgrounded was just fetched from the network, so it is already current.
+  // The reload only happens right after a return from at least 5 minutes in the background, before the user touches
+  // anything, and only when nothing is in progress (window.__44busy, a focused or edited field). Otherwise it stays
+  // pending for a later return; a fresh launch picks up the new version anyway. The first install never reloads.
+  var sw = navigator.serviceWorker, hadController = !!sw.controller, wasHidden = false, pending = false, reloading = false;
+  var hiddenAt = 0, resumedAt = 0, awayMs = 0, lastAct = 0;
+  ['pointerdown', 'keydown', 'input'].forEach(function (t) { document.addEventListener(t, function () { lastAct = Date.now(); }, true); });
+  function editing() {
+    var a = document.activeElement;
+    if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return true;
+    var f = document.querySelectorAll('textarea, input:not([type]), input[type=text], input[type=search], input[type=url], input[type=email], input[type=number]');
+    for (var i = 0; i < f.length; i++) if (f[i].value !== f[i].defaultValue) return true;
+    return false;
+  }
+  function tryReload() {
+    if (!pending || reloading || document.visibilityState !== 'visible') return;
+    if (awayMs < 300000 || Date.now() - resumedAt > 10000 || lastAct >= resumedAt) return;
+    try { if (window.__44busy && window.__44busy()) return; } catch (e) { return; }
+    if (editing()) return;
+    reloading = true; location.reload();
+  }
   sw.addEventListener('controllerchange', function () {
     if (!hadController) { hadController = true; return; }
-    if (Date.now() - resumedAt < 10000) reloadOnce(); else pending = true;
+    if (wasHidden) { pending = true; tryReload(); }
   });
   document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState !== 'visible') return;
-    resumedAt = Date.now();
-    if (pending) return reloadOnce();
+    if (document.visibilityState !== 'visible') { wasHidden = true; hiddenAt = Date.now(); return; }
+    resumedAt = Date.now(); awayMs = hiddenAt ? resumedAt - hiddenAt : 0;
+    tryReload();
     reg.update().catch(function(){});
   });
 }).catch(function(){})); }</script>

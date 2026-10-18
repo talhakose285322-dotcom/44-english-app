@@ -2,6 +2,7 @@
   "name": "Words 44 - English Learning",
   "short_name": "Words 44",
   "description": "İngilizce kelime öğrenme, okuma ve sözlük uygulaması",
+  "id": "./index.html",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
