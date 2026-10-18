@@ -3171,11 +3171,25 @@ body.reading .sheet{max-width:740px}
     if (!hadController) { hadController = true; return; }
     if (wasHidden) { pending = true; tryReload(); }
   });
+  // A release that changes only index.html brings no new worker, so a page kept in memory would stay old. The page's
+  // ETag (hash part only; the host adds an encoding suffix) is noted at launch and compared after a long absence;
+  // a different one marks the same pending reload, with the same conditions. A failed check changes nothing.
+  var tag0 = null;
+  function pageTag() {
+    return fetch(location.pathname, { method: 'HEAD', cache: 'no-store' }).then(function (r) {
+      var t = r.ok && r.headers.get('ETag'), m = t && t.match(/[0-9a-f]{16,}/i); return m ? m[0] : null;
+    }).catch(function () { return null; });
+  }
+  pageTag().then(function (t) { if (t && !tag0) tag0 = t; });
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState !== 'visible') { wasHidden = true; hiddenAt = Date.now(); return; }
     resumedAt = Date.now(); awayMs = hiddenAt ? resumedAt - hiddenAt : 0;
     tryReload();
     reg.update().catch(function(){});
+    if (awayMs >= 300000 && !pending) pageTag().then(function (t) {
+      if (!t) return; if (!tag0) { tag0 = t; return; }
+      if (t !== tag0) { pending = true; tryReload(); }
+    });
   });
 }).catch(function(){})); }</script>
 </body>
