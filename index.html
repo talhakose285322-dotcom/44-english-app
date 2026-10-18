@@ -210,6 +210,7 @@ nav button.on svg{background:var(--accent-soft)}
 .def i{color:var(--muted)}
 .rear .scroll{overflow-y:auto;flex:1;margin:-4px;padding:4px}
 #acts .btn,.wcard .acts .btn{padding:15px}
+#reveal{margin-top:16px;padding:15px}
 #acts .btn.yes,.wcard .btn.yes{background:var(--green);box-shadow:0 8px 20px -10px rgba(18,183,106,.8)}
 #acts .btn.no,.wcard .btn.no{background:var(--bad-soft);color:var(--bad)}
 .sumlist{text-align:left;background:var(--soft2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:0 0 16px;max-height:220px;overflow:auto;font-size:15px}
@@ -353,6 +354,24 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 .dsave{margin-top:12px}
 .dsrc{margin-top:16px;padding:6px 18px 12px}
 .dsrc summary{font-weight:600}
+.dtabs{max-width:280px;margin:0 0 14px}
+.trp{padding-top:14px}
+.trp .tbar{flex-wrap:nowrap}
+.trp .tbar .btn.main{width:auto;flex:1}
+.trp .seg{margin:0 0 4px}
+#tr-in{min-height:150px;font-size:16px;line-height:1.55}
+.trmeta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12.5px;margin:6px 0 0}
+.trout{background:var(--soft2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:130px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.6}
+.trout:empty::before{content:attr(data-ph);color:var(--muted)}
+.trst{font-size:14px;min-height:20px;margin:4px 0 0}
+.trst.bad{color:var(--bad)}
+.trst.ok{color:var(--good)}
+.trst .spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:trspin .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes trspin{to{transform:rotate(360deg)}}
+.trfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.trfoot span{color:var(--muted);font-size:13px}
+.trfoot .btn{padding:8px 14px;font-size:14px}
+@media (max-width:440px){.trkey{display:none}}
 
 /* ---- bottom sheet (word meaning) ---- */
 .sheet{position:fixed;left:0;right:0;bottom:calc(66px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--card);border-radius:var(--r-xl) var(--r-xl) 0 0;box-shadow:var(--sh3);border:1px solid var(--line);border-bottom:0;padding:22px 20px 18px;z-index:6;max-height:74vh;overflow:auto;animation:sheetIn .28s cubic-bezier(.2,.8,.2,1)}
@@ -417,6 +436,7 @@ body.reading .sheet{max-width:740px}
   </section>
 
   <section id="v-dict" class="hide">
+    <div class="seg dtabs"><button data-go="dict" class="on">Sözlük</button><button data-go="tr">Çeviri</button></div>
     <h1>Sözlük</h1>
     <p class="sub">İngilizce bir kelime ya da kısa bir ifade yaz: Türkçe anlamlarını, İngilizce tanımlarını, örnek cümleleri, kelime türünü ve telaffuzunu gör; istediğin anlamı kelimelerine ekle.</p>
     <form id="dq-f" class="dsearch" role="search"><input id="dq" type="search" list="dq-sug" placeholder="ör. approach, look after" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Sözlükte ara"><button class="btn main" id="dq-go" type="submit">Ara</button></form>
@@ -449,6 +469,24 @@ body.reading .sheet{max-width:740px}
     <button class='btn ghost' id='lfind' style='margin:10px 0;width:100%'>Sözlükte ara</button>
     <div id='lres'></div>
     <div id="list"></div>
+  </section>
+
+  <section id="v-tr" class="hide">
+    <div class="seg dtabs"><button data-go="dict">Sözlük</button><button data-go="tr" class="on">Çeviri</button></div>
+    <h1>Çeviri</h1>
+    <p class="sub">Bir cümleyi ya da paragrafı çevir. Sonuç makine çevirisidir; önemli metinlerde kontrol et.</p>
+    <div class="panel trp">
+      <div class="seg" id="trdir" role="radiogroup" aria-label="Çeviri yönü"><button data-d="en-tr" class="on">İngilizce → Türkçe</button><button data-d="tr-en">Türkçe → İngilizce</button></div>
+      <label for="tr-in" id="tr-inl">İngilizce metin</label>
+      <textarea id="tr-in" placeholder="Çevrilecek metni yaz ya da yapıştır" spellcheck="false"></textarea>
+      <div class="trmeta"><span id="tr-count">0 karakter</span><span class="trkey">Ctrl + Enter ile de çevirebilirsin</span></div>
+      <div class="tbar"><button class="btn main" id="tr-go">Çevir</button><button class="btn ghost" id="tr-clr">Temizle</button></div>
+      <div id="tr-st" class="trst" role="status" aria-live="polite"></div>
+      <label id="tr-outl">Türkçe çeviri</label>
+      <div id="tr-out" class="trout" data-ph="Çeviri burada görünecek." aria-live="polite"></div>
+      <div class="trfoot"><span id="tr-src"></span><button class="btn ghost" id="tr-copy" disabled>Kopyala</button></div>
+    </div>
+    <p class="note">Cihazında tarayıcının kendi çevirmeni hazırsa metin cihazdan çıkmadan çevrilir. Hazır değilse metin ücretsiz MyMemory servisine gönderilir: günde yaklaşık 5.000 karakter, bir seferde en fazla 4.000 karakter; uzun metinler sırayla parçalara bölünür. Çeviriler kaydedilmez.</p>
   </section>
 
   <section id="v-add" class="hide">
@@ -677,7 +715,7 @@ body.reading .sheet{max-width:740px}
     $("bar").style.width=(n?l/n*100:0)+"%";
     $("st1").textContent=l+" / "+n+" öğrenildi";
     $("st2").textContent=(queue.length+(cur?1:0))+" kart sırada, bugün "+(S.day===today()?S.n:0)+" tekrar";
-    $("sub").textContent=n?(du?du+' kelimenin tekrar zamanı geldi. ':'')+"Karta dokun, anlamı gör.":(words.length?'Bu koleksiyonda kelime yok.':"Henüz kelime yok.");
+    $("sub").textContent=n?(du?du+' kelimenin tekrar zamanı geldi. ':'')+"Kelimeyi hatırla, sonra cevabı göster.":(words.length?'Bu koleksiyonda kelime yok.':"Henüz kelime yok.");
     var lb=S.lastBackup||0,dd=Math.floor((Date.now()-lb)/864e5),r=$('remind');
     if(words.length&&dd>=7){
       r.className='remind';
@@ -690,6 +728,8 @@ body.reading .sheet{max-width:740px}
     if(dir==='tr')h+='<div class="meaning">'+esc(x.w)+'</div>'+(x.ph?'<p class="tr">'+esc(x.ph)+'</p>':'')+(x.m&&x.d?'<p class="def">'+(x.pos?'<i>'+esc(x.pos)+'</i> ':'')+esc(x.d)+'</p>':'');
     else h+='<div class="meaning">'+esc(x.m||x.d||'')+'</div>'+(x.m&&x.d?'<p class="def">'+(x.pos?'<i>'+esc(x.pos)+'</i> ':'')+esc(x.d)+'</p>':'');
     if(Array.isArray(x.alt)&&x.alt.length)h+='<p class="def"><b>Diğer anlamlar:</b> '+esc(x.alt.map(function(a){return a&&a.m||''}).filter(Boolean).join(' · '))+'</p>';
+    var syn=Array.isArray(x.syn)?x.syn.filter(Boolean).join(', '):typeof x.syn==='string'?x.syn.trim():'';
+    if(syn)h+='<p class="def"><b>Eş anlamlılar:</b> '+esc(syn)+'</p>';
     h+=(x.e?'<p class="ex">'+esc(x.e)+'</p>':'')+(x.t?'<p class="tr">'+esc(x.t)+'</p>':'');
     h+=(Array.isArray(x.x)?x.x:[]).map(function(q){return q&&q.e?'<p class="ex">'+esc(q.e)+'</p>'+(q.t?'<p class="tr">'+esc(q.t)+'</p>':''):''}).join('');
     if(x.note)h+='<p class="def"><b>Not:</b> '+esc(x.note)+'</p>';
@@ -715,10 +755,14 @@ body.reading .sheet{max-width:740px}
     var dir=p.dir==='tr'&&(cur.m||cur.d)?'tr':'en',done=sess.n,tot=done+queue.length+1;
     d.innerHTML='<div class="shead"><span>'+(Object.keys(sess.known).length+Object.keys(sess.rev).length)+' / '+sess.total+' kelime · '+ic('check','sm')+Object.keys(sess.known).length+' · '+ic('repeat','sm')+Object.keys(sess.rev).length+'</span><button class="btn ghost" id="endS">Bitir</button></div>'+
       '<div class="scene"><div class="flip" id="flip">'+
-      '<div class="face">'+(dir==='en'?'<button class="spk" id="spk">Dinle</button><div class="word">'+esc(cur.w)+'</div>'+(cur.pos?'<div class="hint"><i>'+esc(cur.pos)+'</i></div>':'')+'<div class="hint">Anlamı görmek için dokun</div>':'<div class="word" style="font-size:32px">'+esc(cur.m||cur.d)+'</div><div class="hint">İngilizcesini hatırla, sonra dokun</div>')+'</div>'+
+      '<div class="face">'+(dir==='en'?'<button class="spk" id="spk">Dinle</button><div class="word">'+esc(cur.w)+'</div>'+(cur.ph?'<div class="hint">'+esc(cur.ph)+'</div>':'')+(cur.pos?'<div class="hint"><i>'+esc(cur.pos)+'</i></div>':'')+'<div class="hint">Anlamını hatırla, sonra «Cevabı göster»e bas</div>':'<div class="word" style="font-size:32px">'+esc(cur.m||cur.d)+'</div><div class="hint">İngilizcesini hatırla, sonra «Cevabı göster»e bas</div>')+'</div>'+
       '<div class="face rear"><div class="scroll">'+cardBack(cur,dir)+'<button class="spk sm" id="spk1">Kelimeyi dinle</button> '+(cur.e?'<button class="spk sm" id="spk2">Cümleyi dinle</button>':'')+'</div></div></div></div>'+
-      '<div class="acts off" id="acts"><button class="btn no" id="no">Bilmiyorum</button><button class="btn yes" id="yes">Biliyorum</button></div>';
-    $("flip").onclick=function(e){if(e.target.closest('.spk'))return;flipped=!flipped;this.classList.toggle("back",flipped);if(flipped)$("acts").classList.remove("off")};
+      '<button class="btn main" id="reveal">Cevabı göster</button>'+
+      '<div class="acts hide" id="acts"><button class="btn no" id="no">Bilmiyorum</button><button class="btn yes" id="yes">Biliyorum</button></div>';
+    // the answer buttons appear only after the answer has been shown (button, tap on the card, or space bar)
+    function shown(){$("reveal").classList.add("hide");$("acts").classList.remove("hide")}
+    $("flip").onclick=function(e){if(e.target.closest('.spk'))return;flipped=!flipped;this.classList.toggle("back",flipped);if(flipped)shown()};
+    $("reveal").onclick=function(){if(!flipped){flipped=true;$("flip").classList.add("back")}shown()};
     if($("spk"))$("spk").onclick=function(e){e.stopPropagation();speak(cur.w)};
     $("spk1").onclick=function(e){e.stopPropagation();speak(cur.w)};
     var s2=$("spk2");if(s2)s2.onclick=function(e){e.stopPropagation();speak(cur.e)};
@@ -864,10 +908,8 @@ body.reading .sheet{max-width:740px}
 
   function show(v){
     view=v;if(v!=='read')leaveReader();
-    ['study','read','list','dict','add','prof'].forEach(function(k){
-      $("v-"+k).classList.toggle("hide",k!==v);
-      $("n-"+k).classList.toggle("on",k===v);
-    });
+    ['study','read','list','dict','tr','add','prof'].forEach(function(k){$("v-"+k).classList.toggle("hide",k!==v)});
+    ['study','read','list','dict','add','prof'].forEach(function(k){$("n-"+k).classList.toggle("on",k===(v==='tr'?'dict':v))});
     if(v==='list')renderList();if(v==='read')renderRead();if(v==='prof')renderProf();if(v==='add')renderBackup();$('sheet').classList.add('hide');
     if(v==='study'){if(S.smode==='wheel')setSmode('wheel');else build()}
     if(v==='dict'){dhistDraw();setTimeout(function(){if(!$('dq').value)$('dq').focus()},50)}
@@ -1442,92 +1484,198 @@ body.reading .sheet{max-width:740px}
     return (a>0?'… ':'')+s.slice(a>0?a+1:0,b>0?b:s.length).trim()+(b>0?' …':'');
   }
   function lemmas(w){
+    // Conservative guesses of a word's base form. Used ONLY to underline already-saved words in articles and to keep
+    // the looked-up word out of the context score. Dictionary lookups never trust these guesses.
     var k=w.toLowerCase().replace(/[’']s$/,'').replace(/[^a-z' -]/g,'').replace(/\s+/g,' ').trim(),o=[k];
-    if(k.indexOf(' ')>=0)return [k];
+    if(k.indexOf(' ')>=0||k.length<5)return [k]; // short words are never cut: bus, news, only, feed
+    function add(s){if(s&&s.length>=4&&o.indexOf(s)<0)o.push(s)}
     function dd(s){return /([b-df-hj-np-tv-z])\1$/.test(s)?s.slice(0,-1):null}
-    if(/ies$/.test(k))o.push(k.slice(0,-3)+'y');
-    if(/ied$/.test(k))o.push(k.slice(0,-3)+'y');
-    if(/ing$/.test(k)){var b=k.slice(0,-3);o.push(b,b+'e',dd(b))}
-    if(/ed$/.test(k)){o.push(k.slice(0,-2),k.slice(0,-1),dd(k.slice(0,-2)))}
-    if(/es$/.test(k))o.push(k.slice(0,-2));
-    if(/s$/.test(k)&&!/ss$/.test(k))o.push(k.slice(0,-1));
-    if(/ly$/.test(k))o.push(k.slice(0,-2));
-    var u=[];o.forEach(function(x){if(x&&x.length>1&&u.indexOf(x)<0)u.push(x)});return u.slice(0,5);
+    if(/(series|species)$/.test(k))return o;
+    if(/ies$/.test(k))add(k.slice(0,-3)+'y');
+    else if(/ied$/.test(k))add(k.slice(0,-3)+'y');
+    else if(/ing$/.test(k)){var b=k.slice(0,-3),d1=dd(b);if(d1&&d1.length>=3&&o.indexOf(d1)<0)o.push(d1);else{add(b);add(b+'e')}}
+    else if(/ed$/.test(k)){add(k.slice(0,-2));add(k.slice(0,-1));add(dd(k.slice(0,-2)))}
+    else if(/(s|x|z|ch|sh)es$/.test(k))add(k.slice(0,-2));
+    else if(/[^siu]s$/.test(k))add(k.slice(0,-1));
+    return o.slice(0,4);
   }
+  function wkey(w){return String(w||'').replace(/[’]/g,"'").replace(/\s+/g,' ').trim()}
   function dictLookup(w){
-    return cached('d:'+w.toLowerCase(),function(){
-      var c=lemmas(w),i=0;
-      function nx(){
-        if(i>=c.length)return Promise.resolve(null);
-        var q=c[i++];
-        return jget(DAPI+encodeURIComponent(q)).then(function(d){
-          if(!Array.isArray(d)||!d.length)return nx();
-          var r={w:d[0].word||q,ph:'',au:'',ms:[]};
-          d.forEach(function(en){
-            if(!r.ph&&en.phonetic)r.ph=en.phonetic;
-            (en.phonetics||[]).forEach(function(p){if(!r.ph&&p.text)r.ph=p.text;if(!r.au&&p.audio)r.au=p.audio});
-            (en.meanings||[]).forEach(function(m){r.ms.push({pos:m.partOfSpeech||'',defs:(m.definitions||[]).slice(0,6).map(function(x){return {d:x.definition,ex:x.example||''}}),syn:(m.synonyms||[]).slice(0,8),ant:(m.antonyms||[]).slice(0,6)})});
-          });
-          return r.ms.length?r:nx();
+    // dictionaryapi.dev: only the exact word. Another word's definitions are never returned as if they were this word's.
+    var k=wkey(w).toLowerCase();
+    return cached('d:'+k,function(){
+      if(!k)return Promise.resolve(null);
+      return jget(DAPI+encodeURIComponent(k)).then(function(d){
+        var es=(Array.isArray(d)?d:[]).filter(function(e){return String(e&&e.word||'').toLowerCase()===k});
+        if(!es.length)return null;
+        var r={w:es[0].word||k,ph:'',au:'',ms:[]};
+        es.forEach(function(en){
+          if(!r.ph&&en.phonetic)r.ph=en.phonetic;
+          (en.phonetics||[]).forEach(function(p){if(!r.ph&&p.text)r.ph=p.text;if(!r.au&&p.audio)r.au=p.audio});
+          (en.meanings||[]).forEach(function(m){r.ms.push({pos:m.partOfSpeech||'',defs:(m.definitions||[]).slice(0,6).map(function(x){return {d:x.definition,ex:x.example||''}}),syn:(m.synonyms||[]).slice(0,8),ant:(m.antonyms||[]).slice(0,6)})});
         });
-      }
-      return nx();
+        return r.ms.length?r:null;
+      });
     });
   }
   function define(w){return dictLookup(w).then(function(r){return r&&r.ms[0]&&r.ms[0].defs[0]?{w:r.w,pos:r.ms[0].pos,d:r.ms[0].defs[0].d,ex:r.ms[0].defs[0].ex}:null})}
   function cleanWiki(g){return g.replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g,'$1').replace(/'''?/g,'').replace(/\{\{[^}]*\}\}/g,'').replace(/\s+/g,' ').trim()}
+  // Inflection templates Wiktionary uses to say "this page is a form of LEMMA". Nothing else counts as a base form.
+  var INFL=/\{\{(en-)?(irregular plural of|plural of|simple past of|past of|past participle of|present participle of|ing form of|third-person singular of|comparative of|superlative of|infl of|inflection of)\|(?:en\|)?([^|}#]+)/g;
+  var INFLTR={'irregular plural of':'çoğulu','plural of':'çoğulu','simple past of':'geçmiş zaman biçimi','past of':'geçmiş zaman biçimi','past participle of':'üçüncü hâli (past participle)','present participle of':'-ing biçimi','ing form of':'-ing biçimi','third-person singular of':'üçüncü tekil şahıs biçimi','comparative of':'karşılaştırma biçimi','superlative of':'üstünlük biçimi','infl of':'çekimli biçimi','inflection of':'çekimli biçimi'};
+  // Spelling relations: offered as "did you mean", never merged.
+  var ALTRE=/\{\{(misspelling of|common misspelling of|alternative spelling of|alternative form of|nonstandard spelling of)\|en\|([^|}#]+)/g;
+  var OLDRE=/\b(archaic|obsolete|dated|rare|historical|ottoman|eskimiş|eski)\b/i;
   function trSenses(wt){
-    var i=wt.indexOf('==English==');if(i<0)return {s:[],sub:false,lem:''};
-    var rest=wt.slice(i+11),j=rest.search(/\n==[^=]/),en=j>=0?rest.slice(0,j):rest,out=[],g='',pos='';
+    var i=wt.indexOf('==English==');if(i<0)return null;
+    var rest=wt.slice(i+11),j=rest.search(/\n==[^=]/),en=j>=0?rest.slice(0,j):rest,out=[],g='',pos='',chk=false,own=0,forms=[],alts=[],m;
     en.split('\n').forEach(function(l){
-      var hm=l.match(/^===+\s*(Noun|Verb|Adjective|Adverb|Preposition|Conjunction|Pronoun|Interjection|Phrase|Idiom|Determiner|Numeral)\s*===+/);if(hm)pos=hm[1].toLowerCase();
-      var m=l.match(/\{\{trans-top(?:-see)?\|([^}]*)\}\}/);
-      if(m)g=m[1].split('|').filter(function(p){return !/^[a-z]+=/.test(p)})[0]||'';else if(/\{\{trans-top\}\}/.test(l))g='';
+      var hm=l.match(/^===+\s*(Noun|Verb|Adjective|Adverb|Preposition|Conjunction|Pronoun|Interjection|Phrase|Idiom|Determiner|Numeral|Proper noun)\s*===+/);if(hm)pos=hm[1].toLowerCase();
+      var tm=l.match(/\{\{(trans-top|trans-top-also|trans-top-see|checktrans-top)(\|[^}]*)?\}\}/);
+      if(tm){chk=tm[1]==='checktrans-top';g=chk?'':(tm[2]||'').slice(1).split('|').filter(function(p){return !/^[a-z]+=/.test(p)})[0]||''}
+      if(/\{\{(trans-bottom|checktrans-bottom)\}\}/.test(l)){g='';chk=false}
+      // a definition line that is not just "form of X" means the page is a word of its own
+      if(/^#+\s*[^:*\s]/.test(l)){INFL.lastIndex=0;ALTRE.lastIndex=0;if(!INFL.test(l)&&!ALTRE.test(l))own++}
       if(/^\*\s*Turkish\s*:/.test(l)){
-        var ts=[];l.replace(/\{\{tt?\+?(?:-check)?\|tr\|([^|}]+)/g,function(a,b){b=b.replace(/\[\[|\]\]/g,'').trim();if(b&&ts.indexOf(b)<0)ts.push(b);return a});
-        if(ts.length)out.push({g:cleanWiki(g),pos:pos,tr:ts});
+        var s={g:cleanWiki(g),pos:pos,tr:[],old:[],unc:[],chk:chk};
+        l.replace(/^\*\s*Turkish\s*:/,'').split(/,(?![^{]*\}\})/).forEach(function(p){
+          var tt=p.match(/\{\{(t\+?|tt\+?|t-check|t\+check)\|tr\|([^|}]+)/);if(!tt)return;
+          var word=tt[2].replace(/\[\[|\]\]/g,'').trim();if(!word)return;
+          var q=(p.match(/\{\{(?:q|qual|qualifier|i|gloss|lb)\|[^}]*\}\}/g)||[]).join(' ')+' '+(p.match(/\([^)]*\)/g)||[]).join(' ');
+          var list=/check/.test(tt[1])?s.unc:OLDRE.test(q)?s.old:s.tr;
+          if(list.indexOf(word)<0)list.push(word);
+        });
+        s.oldSense=OLDRE.test(s.g);
+        if(s.tr.length||s.old.length||s.unc.length)out.push(s);
       }
     });
-    var lem=(en.match(/\{\{(?:infl of|[a-z -]+ of)\|en\|([^|}#]+)/)||[])[1]||'';
-    return {s:out,sub:/\{\{see translation subpage/.test(en),lem:lem.trim()};
+    INFL.lastIndex=0;while((m=INFL.exec(en))){var lem=m[3].trim();if(lem&&!forms.some(function(f){return f.lemma===lem}))forms.push({lemma:lem,kind:INFLTR[m[2]]||'çekimli biçimi'})}
+    ALTRE.lastIndex=0;while((m=ALTRE.exec(en))){var a=m[2].trim();if(a&&alts.indexOf(a)<0)alts.push(a)}
+    // reliable senses first, then archaic/rare senses, then unchecked tables
+    out.forEach(function(s,k){s.i=k});
+    out.sort(function(a,b){return (a.chk-b.chk)||((a.oldSense?1:0)-(b.oldSense?1:0))||(a.i-b.i)});
+    return {s:out,sub:/\{\{see translation subpage/.test(en),forms:forms,alts:alts,own:own>0};
   }
   function wikiTR(w){
-    return cached('wk:'+w.toLowerCase(),function(){
-      var cands=lemmas(w),i=0,tried={};
-      function page(p){return jget(WKA+encodeURIComponent(p)).then(function(j){return j&&j.parse&&j.parse.wikitext||''})}
-      function tryPage(p,depth){
-        if(!p||tried[p]||depth>2)return Promise.resolve(null);tried[p]=1;
-        return page(p).then(function(wt){
-          if(!wt)return null;var r=trSenses(wt);
-          if(r.s.length)return {w:p,s:r.s};
-          if(r.sub)return page(p+'/translations').then(function(t2){var r2=trSenses(t2.indexOf('==English==')<0?'==English==\n'+t2:t2);return r2.s.length?{w:p,s:r2.s}:null});
-          if(r.lem)return tryPage(r.lem,depth+1);
-          return null;
-        });
-      }
-      function nx(){if(i>=cands.length)return Promise.resolve(null);return tryPage(cands[i++],0).then(function(r){return r||nx()})}
-      return nx();
+    // Wiktionary: the exact word's own page. If that page is only an inflected form ("plural of X"), the lemma's
+    // translations are attached separately as `base` and must be shown as belonging to X.
+    var k=wkey(w);
+    return cached('wk:'+k.toLowerCase(),function(){
+      function page(p){return jget(WKA+encodeURIComponent(p)).then(function(j){
+        var t=j&&j.parse;if(!t||!t.wikitext)return null;
+        return String(t.title||'').toLowerCase()===p.toLowerCase()?t.wikitext:null; // a redirect to another word is not this word
+      })}
+      function load(p){return page(p).then(function(wt){
+        var r=wt&&trSenses(wt);if(!r)return null;r.w=p;
+        // translations can be split between the page and its /translations subpage (e.g. run: Verb, Noun): merge them
+        if(r.sub)return page(p+'/translations').then(function(t2){var r2=t2&&trSenses(t2.indexOf('==English==')<0?'==English==\n'+t2:t2);if(r2)r.s=r.s.concat(r2.s);return r});
+        return r;
+      })}
+      var lc=k.toLowerCase();
+      return load(lc).then(function(r){return r||(lc!==k?load(k):null)}).then(function(r){
+        if(!r||r.s.some(isReliable)||!r.forms.length)return r;
+        var f=r.forms[0];
+        return load(f.lemma).then(function(b){if(b&&b.s.length)r.base={w:b.w,kind:f.kind,s:b.s};return r});
+      });
     });
   }
-  function mmTranslate(text){
-    return cached('mm:'+text,function(){
-      return jget('https://api.mymemory.translated.net/get?langpair=en|tr&q='+encodeURIComponent(text)).then(function(j){
+  function isReliable(s){return !s.chk&&!s.oldSense&&s.tr.length>0}
+  function wkView(r){
+    // What to show for a Wiktionary result: the word's own senses, or (only for a pure inflected form) its lemma's.
+    if(!r)return null;
+    if(r.s.length)return {s:r.s,of:''};
+    if(r.base&&!r.own)return {s:r.base.s,of:r.base.w,kind:r.base.kind};
+    return null;
+  }
+  function mmTranslate(text,pair){
+    // MyMemory, free and anonymous (about 5,000 characters a day; about 500 bytes per request). pair: 'en|tr' or 'tr|en'.
+    pair=pair==='tr|en'?'tr|en':'en|tr';
+    return cached('mm:'+pair+':'+text,function(){
+      return jget('https://api.mymemory.translated.net/get?langpair='+pair+'&q='+encodeURIComponent(text)).then(function(j){
         if(!j)throw new Error('mm');
-        var t=j.responseData&&j.responseData.translatedText||'';
-        if(j.quotaFinished||/MYMEMORY WARNING|QUOTA/i.test(t))throw fail('Günlük ücretsiz çeviri sınırı doldu (MyMemory).');
-        if(String(j.responseStatus)!=='200')throw new Error(j.responseDetails||'mm');
-        var alts=[];(j.matches||[]).forEach(function(m){var x=m&&m.translation&&String(m.translation).trim();if(x&&x.toLowerCase()!==t.toLowerCase()&&alts.indexOf(x)<0&&x.length<80)alts.push(x)});
+        var t=unent(j.responseData&&j.responseData.translatedText||'');
+        if(j.quotaFinished||/MYMEMORY WARNING|QUOTA/i.test(t))throw fail('Günlük ücretsiz çeviri sınırı doldu (MyMemory). Yarın tekrar dene.');
+        if(String(j.responseStatus)!=='200')throw fail('Makine çevirisi bu metni çeviremedi ('+(j.responseDetails||j.responseStatus)+').');
+        var alts=[];(j.matches||[]).forEach(function(m){var x=m&&m.translation&&unent(String(m.translation)).trim();if(x&&x.toLowerCase()!==t.toLowerCase()&&alts.indexOf(x)<0&&x.length<80)alts.push(x)});
         return {t:t,alts:alts.slice(0,4)};
       });
     });
   }
-  var TRL=null;
-  function localTranslator(){
-    // Chrome's built-in on-device translator (only where it is already available; never triggers a download by itself).
-    if(TRL)return TRL;
+  function unent(s){return String(s).replace(/&#39;|&apos;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&')}
+  var TRLS={};
+  function localTranslatorFor(src,tgt){
+    // Chrome's built-in on-device translator for one exact language pair. Used only where that pair is already
+    // available on this device; never triggers a model download by itself.
+    var k=src+'-'+tgt;if(TRLS[k])return TRLS[k];
     try{if(!('Translator' in self))return Promise.resolve(null)}catch(e){return Promise.resolve(null)}
-    TRL=Translator.availability({sourceLanguage:'en',targetLanguage:'tr'}).then(function(a){return a==='available'?Translator.create({sourceLanguage:'en',targetLanguage:'tr'}):null}).catch(function(){return null});
-    return TRL;
+    TRLS[k]=Translator.availability({sourceLanguage:src,targetLanguage:tgt}).then(function(a){return a==='available'?Translator.create({sourceLanguage:src,targetLanguage:tgt}):null}).catch(function(){return null});
+    return TRLS[k];
+  }
+  function localTranslator(){return localTranslatorFor('en','tr')}
+  function utf8len(s){try{return new TextEncoder().encode(s).length}catch(e){return unescape(encodeURIComponent(s)).length}}
+  function splitForMT(text,max){
+    // Splits text into pieces of at most `max` UTF-8 bytes: paragraphs, then sentences, then words.
+    // Returns segments in order: {t:'text to translate'} or {lit:'separator kept as is'}.
+    var segs=[];
+    String(text).replace(/\r\n?/g,'\n').split(/(\n[ \t]*\n[\s]*|\n)/).forEach(function(part,i){
+      if(i%2){if(segs.length)segs.push({lit:/\n[ \t]*\n/.test(part)?'\n\n':'\n'});return}
+      var p=part.replace(/[ \t]+/g,' ').trim();if(!p)return;
+      var sents=p.match(/[^.!?…]+(?:[.!?…]+["'”’)\]]*)?\s*/g)||[p],cur='',first=true;
+      function push(s){s=s.trim();if(!s)return;if(!first)segs.push({lit:' '});segs.push({t:s});first=false}
+      sents.forEach(function(s){
+        if(utf8len(cur+s)<=max){cur+=s;return}
+        push(cur);cur='';
+        if(utf8len(s)<=max){cur=s;return}
+        // one sentence longer than the limit: cut at word boundaries (a single over-long word is cut by characters)
+        s.split(/\s+/).forEach(function(w){
+          while(utf8len(w)>max){var n=w.length;while(utf8len(w.slice(0,n))>max)n--;push(cur);cur='';push(w.slice(0,n));w=w.slice(n)}
+          if(utf8len(cur+(cur?' ':'')+w)<=max)cur+=(cur?' ':'')+w;else{push(cur);cur=w}
+        });
+      });
+      push(cur);
+    });
+    while(segs.length&&segs[segs.length-1].lit!=null)segs.pop();
+    return segs;
+  }
+  var MTMAX=4000; // anonymous MyMemory allows about 5,000 characters a day in total
+  function mmChunked(t,pr){
+    // MyMemory for a whole text: split into parts of at most 450 bytes, sent one at a time in order. No retries.
+    if(t.length>MTMAX)return Promise.reject(fail('Metin çok uzun ('+t.length+' karakter). Ücretsiz makine çevirisi günde yaklaşık 5.000 karakterle sınırlı; en fazla '+MTMAX+' karakterlik bir bölüm seç.'));
+    var segs=splitForMT(t,450),n=segs.filter(function(s){return s.t!=null}).length,done=0,i=0;
+    function next(){
+      if(i>=segs.length)return Promise.resolve();
+      var s=segs[i++];if(s.t==null)return next();
+      return mmTranslate(s.t,pr.join('|')).then(function(r){s.out=r.t;done++;return next()},function(e){
+        var m=e&&e.k?e.k:'Makine çevirisine ulaşılamadı (internet bağlantısı?).';
+        throw fail(n>1?m+' '+done+' / '+n+' parça çevrilebildi; çeviri tamamlanmadı.':m);
+      });
+    }
+    return next().then(function(){return {t:segs.map(function(s){return s.t!=null?s.out:s.lit}).join(''),parts:n}});
+  }
+  // Machine-translation providers, tried in this order; the first one that can handle the language pair is used and,
+  // if it fails, the next one is tried. A provider: {label, prepare(pair)} where prepare resolves to null (cannot handle
+  // this pair here) or to a function text -> Promise<{t, parts}>. A paid provider (Google, DeepL, Microsoft) must be
+  // reached through our own server-side endpoint that holds the API key; keys must never be placed in this file.
+  var MT_PROVIDERS=[
+    {label:'tarayıcının kendi çevirmeni (cihaz içinde)',prepare:function(pr){return localTranslatorFor(pr[0],pr[1]).then(function(tr){
+      return tr&&function(t){return tr.translate(t).then(function(x){if(!x)throw new Error('empty');return {t:x,parts:1}})};
+    })}},
+    {label:'MyMemory (makine çevirisi)',prepare:function(pr){return Promise.resolve(function(t){return mmChunked(t,pr)})}}
+  ];
+  function translateText(text,dir){
+    // The single entry point for machine translation. dir: 'en-tr' or 'tr-en'.
+    // Result: {t, src (provider label), dir, parts}. Always a machine translation; callers must label it as such.
+    var t=String(text||'').trim(),pr=dir==='tr-en'?['tr','en']:['en','tr'],i=0,lastErr=null;dir=pr.join('-');
+    if(!t)return Promise.reject(fail('Çevrilecek metin yok.'));
+    function next(){
+      if(i>=MT_PROVIDERS.length)return Promise.reject(lastErr||fail('Makine çevirisi şu an kullanılamıyor.'));
+      var p=MT_PROVIDERS[i++];
+      return Promise.resolve().then(function(){return p.prepare(pr)}).then(function(run){
+        if(!run)return next();
+        return run(t).then(function(r){return {t:r.t,src:p.label+(r.parts>1?', '+r.parts+' parça':''),dir:dir,parts:r.parts}},function(e){lastErr=e;return next()});
+      },function(e){lastErr=e;return next()});
+    }
+    return next();
   }
   var STOPW={the:1,a:1,an:1,to:1,of:1,and:1,or:1,is:1,are:1,was:1,were:1,be:1,in:1,on:1,at:1,'for':1,'with':1,that:1,which:1,who:1,by:1,from:1,as:1,it:1,not:1,'this':1,something:1,someone:1,one:1,its:1,into:1,over:1,out:1,up:1,make:1,get:1};
   function toks(s){return (s.toLowerCase().match(/[a-z]{3,}/g)||[]).filter(function(t){return !STOPW[t]})}
@@ -1551,17 +1699,20 @@ body.reading .sheet{max-width:740px}
     return '';
   }
   function openWord(w,sent,ctx){
-    var me=sh={mode:'word',w0:w,w:w,sent:sent||'',ctx:ctx||{},m:'',d:'',pos:'',ph:'',au:'',str:'',msrc:'',dict:null,wk:null,mm:null,st:'',wT:false,mT:false,busy:0,claude:''};
+    var me=sh={mode:'word',w0:w,w:w,sent:sent||'',ctx:ctx||{},m:'',d:'',pos:'',ph:'',au:'',str:'',msrc:'',dict:null,dictOf:'',wk:null,mm:null,st:'',wT:false,mT:false,busy:0,claude:''};
     drawSheet();
     function done(){if(sh!==me)return;me.busy--;
-      if(!me.busy&&!me.wk&&!me.mm&&!me.mmTried){me.mmTried=true;me.busy++;mmTranslate(me.dict?me.dict.w:w).then(function(r){if(sh===me&&r&&r.t&&r.t.toLowerCase()!==(me.dict?me.dict.w:w).toLowerCase())me.mm=r},function(e){if(sh===me)me.st=(me.st?me.st+' ':'')+(e&&e.k?e.k:'Makine çevirisi alınamadı.')}).then(done);}
+      // the exact word has no English entry but Wiktionary confirms it is an inflected form: show the lemma's definitions, labeled
+      var v=wkView(me.wk);
+      if(!me.busy&&!me.dict&&v&&v.of&&!me.dictBaseTried){me.dictBaseTried=true;me.busy++;dictLookup(v.of).then(function(r){if(sh===me&&r){me.dict=r;me.dictOf=v.of;me.ph=me.ph||r.ph;me.au=me.au||r.au;pickDef(me)}},function(){}).then(done)}
+      if(!me.busy&&!me.dict&&!me.noDict&&me.st.indexOf('ulaşılamadı')<0){me.noDict=true;me.st+='“'+me.w0+'” için İngilizce sözlük kaydı bulunamadı. '}
       if(!me.busy)autoPick(me);
       refreshSheet();
     }
     me.busy+=2;
-    dictLookup(w).then(function(r){if(sh!==me)return;if(r){me.dict=r;if(!me.wT&&!me.wk)me.w=r.w;me.ph=r.ph;me.au=r.au;var m0=r.ms[0];if(m0&&m0.defs[0]&&!me.d){me.d=m0.defs[0].d;me.pos=m0.pos}}else me.st+='İngilizce tanım bulunamadı. '},
+    dictLookup(w).then(function(r){if(sh!==me)return;if(r){me.dict=r;me.ph=r.ph;me.au=r.au;pickDef(me)}},
       function(){if(sh===me)me.st+='İngilizce sözlüğe ulaşılamadı (internet bağlantısı?). '}).then(done);
-    wikiTR(w).then(function(r){if(sh!==me)return;if(r){me.wk=r;if(!me.wT)me.w=r.w}},
+    wikiTR(w).then(function(r){if(sh!==me)return;me.wk=r;var v=wkView(r);if(!me.wT)me.w=v&&v.of?v.of:(r?r.w:w)},
       function(){if(sh===me)me.st+='Vikisözlük’e ulaşılamadı. '}).then(done);
     if(window.claude&&claude.use&&sent){
       me.busy++;
@@ -1571,13 +1722,22 @@ body.reading .sheet{max-width:740px}
     if(sent)localTranslator().then(function(t){if(!t||sh!==me)return;return t.translate(sent).then(function(x){if(sh===me&&x){me.str=x;me.strsrc='tarayıcının kendi çevirmeni';refreshSheet()}})}).catch(function(){});
     refreshSheet();
   }
+  function pickDef(me){var m0=me.dict&&me.dict.ms[0];if(m0&&m0.defs[0]&&!me.d){me.d=m0.defs[0].d;me.pos=m0.pos}}
+  function sheetSenses(me){
+    var v=wkView(me.wk);if(!v)return null;
+    var rel=v.s.filter(isReliable),r=rankSenses(rel,me.sent,guessPos(me.w0,me.sent),me.w0);
+    // sure = only one reliable sense, or the sentence clearly points to one of them
+    var nd=me.dict?me.dict.ms.reduce(function(n,m){return n+m.defs.length},0):0;
+    // One translated sense is trusted only if the context supports it or the word has a single English sense:
+    // Wiktionary often translates just one of several senses (bank = banka, but nothing for the river bank).
+    var sure=(r.length===1&&(r[0].score>=1||(!!me.dict&&nd<=1)))||(r.length>1&&r[0].score>=1&&r[0].score>r[1].score);
+    return {v:v,r:r,sure:sure,old:v.s.filter(function(s){return !s.chk&&(s.oldSense||s.old.length)}),unc:v.s.filter(function(s){return s.chk||s.unc.length})};
+  }
   function autoPick(me){
-    // Pre-fill the most likely meaning from a real source. The user can tap another one or type their own.
+    // Pre-fill a meaning only when the source leaves no doubt. Machine translation is never pre-filled.
     if(me.mT||me.m)return;
-    var r=me.wk?rankSenses(me.wk.s,me.sent,guessPos(me.w0,me.sent),me.w0):[];
-    if(r.length){me.m=r[0].tr.slice(0,2).join(', ');me.msrc='Vikisözlük'}
-    else if(me.claude){me.m=me.claude;me.msrc='Claude'}
-    else if(me.mm){me.m=me.mm.t;me.msrc='MyMemory (makine çevirisi)'}
+    var x=sheetSenses(me);
+    if(x&&x.sure&&x.r[0]){me.m=x.r[0].tr.slice(0,2).join(', ');me.msrc='Vikisözlük'}
   }
   function openSent(t){
     var me=sh={mode:'sent',sent:t,tr:'',err:'',src:''};drawSheet();
@@ -1588,8 +1748,21 @@ body.reading .sheet{max-width:740px}
   }
   function sentTranslate(me,cb){
     me.err='';me.busy2=true;cb();
-    (window.claude&&claude.use?ask('Aşağıdaki İngilizce metni doğal Türkçeye çevir. Yalnızca JSON döndür: {"tr":"çeviri"} Metin: '+me.sent).then(function(r){return {t:r.tr,s:'Claude'}}):mmTranslate(me.sent).then(function(r){return {t:r.t,s:'MyMemory (makine çevirisi)'}}))
-      .then(function(r){if(sh!==me)return;me.busy2=false;me.tr=me.str=r.t;me.src=me.strsrc=r.s;cb()},function(e){if(sh!==me)return;me.busy2=false;me.err=e&&e.k?e.k:'Çeviri alınamadı (internet bağlantısı ya da günlük sınır).';cb()});
+    (window.claude&&claude.use?ask('Aşağıdaki İngilizce metni doğal Türkçeye çevir. Yalnızca JSON döndür: {"tr":"çeviri"} Metin: '+me.sent).then(function(r){return {t:r.tr,s:'Claude'}}):translateText(me.sent,'en-tr').then(function(r){return {t:r.t,s:r.src}}))
+      .then(function(r){if(sh!==me)return;me.busy2=false;me.tr=me.str=r.t;me.src=me.strsrc=r.s;if(me.mode==='word')me.trSaved=attachSentTr(me);cb()},function(e){if(sh!==me)return;me.busy2=false;me.err=e&&e.k?e.k:'Çeviri alınamadı (internet bağlantısı ya da günlük sınır).';cb()});
+  }
+  function attachSentTr(me){
+    // The word may already be saved with this article sentence as an example. Then fill that example's empty
+    // Turkish field with the translation the user just asked for. Never creates a word or an example and never
+    // overwrites an existing translation; meaning, collections, notes and progress are not touched.
+    var w=String(($('sh-w')&&$('sh-w').value)||me.w).trim().toLowerCase(),x=words.filter(function(y){return y.w.trim().toLowerCase()===w})[0];
+    if(!x||!me.sent||!me.str)return '';
+    var slot=x.e===me.sent?x:(Array.isArray(x.x)?x.x:[]).filter(function(q){return q&&q.e===me.sent})[0];
+    if(!slot)return '';
+    if(slot.t)return 'has';
+    slot.t=me.str;
+    if(!save()){slot.t='';return 'fail'}
+    return 'ok';
   }
   function drawSheet(){
     var s=$('sheet'),h='';
@@ -1606,7 +1779,7 @@ body.reading .sheet{max-width:740px}
       h+="<p class='note'>Kaynaklar: Vikisözlük/Wiktionary (CC BY-SA), dictionaryapi.dev, gerekirse MyMemory makine çevirisi. Bu servislere yalnızca kelime gönderilir; cümle yalnızca “Cümleyi çevir”e dokunursan gönderilir.</p>";
     }else{
       h+="<div class='shd'><div class='big' style='font-size:20px'>Seçili metin</div><button class='btn ghost' id='sh-x' aria-label='Kapat'>"+ic('x')+"</button></div><p class='ex' style='line-height:1.45;font-size:17px'>"+esc(sh.sent)+'</p>';
-      h+=sh.tr?'<p><b>'+esc(sh.tr)+'</b></p><p class="note">Çeviri: '+esc(sh.src)+'. Makine çevirisidir, kontrol et.</p>':sh.busy2?"<p class='note'>Çevriliyor…</p>":"<p class='note'>"+(sh.err?esc(sh.err)+'<br>':'')+"Çeviri için metin MyMemory’ye gönderilir (ücretsiz, günlük sınırlı).</p><button class='btn ghost' id='sh-tx'>Çevir</button>";
+      h+=sh.tr?'<p><b>'+esc(sh.tr)+'</b></p><p class="note">Çeviri: '+esc(sh.src)+'. Makine çevirisidir, kontrol et.</p>':sh.busy2?"<p class='note'>Çevriliyor…</p>":"<p class='note'>"+(sh.err?esc(sh.err)+'<br>':'')+"Çeviri için metin MyMemory’ye gönderilir (ücretsiz, günde yaklaşık 5.000 karakter). Uzun metinler sırasıyla parçalara bölünerek çevrilir.</p><button class='btn ghost' id='sh-tx'>Çevir</button>";
       h+="<div class='acts' style='margin-top:12px'><button class='btn ghost' id='sh-l'>Dinle</button></div>";
     }
     h+=sh.mode==='word'?'':"<div class='toast' id='sh-t'></div>";
@@ -1634,20 +1807,37 @@ body.reading .sheet{max-width:740px}
     if(document.activeElement!==$('sh-w'))$('sh-w').value=sh.w;
     if(document.activeElement!==$('sh-m'))$('sh-m').value=sh.m;
     $('sh-big').textContent=sh.w;$('sh-ph').textContent=sh.ph||'';
-    var h='';
-    if(sh.wk){
-      var r=rankSenses(sh.wk.s,sh.sent,guessPos(sh.w0,sh.sent),sh.w0),sure=r.length>1&&r[0].score>0&&r[0].score>r[1].score;
-      h+="<div class='tlab'>"+(sure?'Bu cümlede muhtemel anlam':r.length>1?'Anlamlar (bağlamdan emin olunamadı; uygun olanı seç)':'Türkçe anlam')+" · Vikisözlük</div>";
+    var h='',x=sheetSenses(sh);
+    if(x&&x.v.of)h+="<p class='note'>“"+esc(sh.w0)+"”, “"+esc(x.v.of)+"” kelimesinin "+esc(x.v.kind)+" (Vikisözlük). Aşağıdaki anlamlar “"+esc(x.v.of)+"” içindir.</p>";
+    if(x&&x.r.length){
+      var r=x.r;
+      h+="<div class='tlab'>"+(x.sure?(r.length===1?'Türkçe anlam':'Bu cümlede muhtemel anlam'):r.length===1?'Sözlükteki tek Türkçe çeviri — cümledeki anlam farklı olabilir':'Anlamlar — bağlamdan emin olunamadı, uygun olanı seç')+" · Vikisözlük</div>";
+      if(r.length===1&&!x.sure)h+="<p class='note'>Vikisözlük bu kelimenin yalnızca bir anlamının Türkçesini veriyor; başka anlamları da olabilir. Aşağıdaki İngilizce tanımlara bakarak seç ya da anlamı kendin yaz.</p>";
       h+="<div class='sense'>"+(r[0].g?"<i>"+esc(r[0].g)+"</i>":'')+"<div>"+r[0].tr.map(function(t){return chip(t,'Vikisözlük')}).join('')+"</div></div>";
-      if(r.length>1)h+="<details><summary>Diğer anlamlar ("+(r.length-1)+")</summary>"+r.slice(1).map(function(x){return "<div class='sense'>"+(x.g?"<i>"+esc(x.g)+"</i>":'')+"<div>"+x.tr.map(function(t){return chip(t,'Vikisözlük')}).join('')+"</div></div>"}).join('')+"</details>";
+      if(r.length>1)h+=(x.sure?"<details><summary>Diğer anlamlar ("+(r.length-1)+")</summary>":'')+r.slice(1).map(function(s){return "<div class='sense'>"+(s.g?"<i>"+esc(s.g)+"</i>":'')+"<div>"+s.tr.map(function(t){return chip(t,'Vikisözlük')}).join('')+"</div></div>"}).join('')+(x.sure?"</details>":'');
     }
+    if(x&&x.old.length)h+="<details><summary>Eski / nadir kullanımlar ("+x.old.length+")</summary>"+x.old.map(function(s){var t=s.oldSense?s.tr.concat(s.old):s.old;return "<div class='sense'>"+(s.g?"<i>"+esc(s.g)+"</i>":'')+"<div>"+t.map(function(t){return chip(t,'Vikisözlük (eski/nadir)')}).join('')+"</div></div>"}).join('')+"</details>";
+    if(x&&x.unc.length)h+="<details><summary>Kontrol edilmemiş çeviriler ("+x.unc.length+")</summary><p class='note'>Vikisözlük’te henüz doğrulanmamış; anlamı belirtilmemiş olabilir.</p>"+x.unc.map(function(s){var t=s.chk?s.tr.concat(s.unc):s.unc;return "<div class='sense'>"+(s.g?"<i>"+esc(s.g)+"</i>":'')+"<div>"+t.map(function(t){return chip(t,'Vikisözlük (kontrol edilmemiş)')}).join('')+"</div></div>"}).join('')+"</details>";
+    if(sh.wk&&sh.wk.own&&!sh.wk.s.length&&sh.wk.base)h+="<p class='note'>Vikisözlük’te “"+esc(sh.wk.w)+"” için Türkçe çeviri yok.</p><details><summary>İlgili kelime: “"+esc(sh.wk.base.w)+"” ("+esc(sh.wk.base.kind)+")</summary><p class='note'>Bu anlamlar “"+esc(sh.wk.base.w)+"” içindir; “"+esc(sh.wk.w)+"” için doğru olmayabilir.</p>"+sh.wk.base.s.filter(isReliable).map(function(s){return "<div class='sense'>"+(s.g?"<i>"+esc(s.g)+"</i>":'')+"<div>"+s.tr.map(function(t){return chip(t,'Vikisözlük (“'+sh.wk.base.w+'” için)')}).join('')+"</div></div>"}).join('')+"</details>";
     if(sh.claude)h+="<div class='tlab'>Claude önerisi</div><div>"+chip(sh.claude,'Claude')+"</div>";
-    if(sh.mm&&!sh.wk)h+="<div class='tlab'>Makine çevirisi · MyMemory (kontrol et)</div><div>"+[sh.mm.t].concat(sh.mm.alts).map(function(t){return chip(t,'MyMemory (makine çevirisi)')}).join('')+"</div>";
-    if(!h)h=sh.busy?"<p class='note'>Türkçe anlam aranıyor…</p>":"<p class='note'>Güvenilir bir Türkçe anlam bulunamadı. Anlamını aşağıya kendin yazabilirsin.</p>";
+    if(sh.mm)h+="<div class='tlab'>Makine çevirisi · MyMemory — sözlük kaydı değildir, kontrol et</div><div>"+[sh.mm.t].concat(sh.mm.alts).map(function(t){return chip(t,'MyMemory (makine çevirisi)')}).join('')+"</div>";
+    if(!x||!x.r.length){
+      if(sh.busy)h+="<p class='note'>Türkçe anlam aranıyor…</p>";
+      else{
+        if(!(sh.wk&&sh.wk.own&&sh.wk.base))h+="<p class='note'>Sözlükte güvenilir bir Türkçe anlam bulunamadı. Anlamını aşağıya kendin yazabilirsin.</p>";
+        if(!sh.mm)h+="<button class='btn ghost' id='sh-mm' style='padding:8px 12px;font-size:14px'>Makine çevirisi öner (MyMemory)</button>"+(sh.mmErr?"<p class='note'>"+esc(sh.mmErr)+"</p>":'');
+      }
+    }
+    if(sh.wk&&sh.wk.alts&&sh.wk.alts.length)h+="<p class='note'>Yazım notu (Vikisözlük): bunu mu demek istedin — "+sh.wk.alts.map(esc).join(', ')+"?</p>";
     $('sh-trb').innerHTML=h;markChips();
+    if($('sh-mm'))$('sh-mm').onclick=function(){
+      // optional, user-requested machine translation of the word only
+      var me=sh;this.disabled=true;this.textContent='Çevriliyor…';
+      mmTranslate(me.w).then(function(r){if(sh===me){if(r&&r.t&&r.t.toLowerCase()!==me.w.toLowerCase())me.mm=r;else me.mmErr='Makine çevirisi bir karşılık vermedi.'}},function(e){if(sh===me)me.mmErr=e&&e.k?e.k:'Makine çevirisi alınamadı.'}).then(function(){if(sh===me)refreshSheet()});
+    };
     var e='';
     if(sh.dict){
-      e+="<div class='tlab'>İngilizce tanımlar · dictionaryapi.dev"+(sh.au?" · <a href='"+escA(sh.au)+"' target='_blank' rel='noopener'>telaffuz kaydı</a>":'')+"</div>";
+      e+="<div class='tlab'>İngilizce tanımlar · dictionaryapi.dev"+(sh.dictOf?' · “'+esc(sh.dictOf)+'” kelimesi için':'')+(sh.au?" · <a href='"+escA(sh.au)+"' target='_blank' rel='noopener'>telaffuz kaydı</a>":'')+"</div>";
       sh.dict.ms.slice(0,3).forEach(function(m,i){
         e+="<div class='dpos'><i>"+esc(m.pos)+"</i>"+m.defs.slice(0,3).map(function(d,j){return "<button class='dchip"+(sh.d===d.d?' on':'')+"' data-di='"+i+":"+j+"'>"+esc(d.d)+(d.ex?"<span>“"+esc(d.ex)+"”</span>":'')+"</button>"}).join('')+(m.syn.length?"<span class='syn'>Eş anlamlılar: "+esc(m.syn.join(', '))+"</span>":'')+"</div>";
       });
@@ -1656,11 +1846,11 @@ body.reading .sheet{max-width:740px}
     $('sh-d').innerHTML=sh.d?'Kaydedilecek tanım: '+(sh.pos?'<i>'+esc(sh.pos)+'</i> ':'')+esc(sh.d):'';
     if($('sh-sx')){
       var me=sh;
-      $('sh-sx').innerHTML=me.str?"<p class='note'><b>"+esc(me.str)+"</b><br>Cümle çevirisi: "+esc(me.strsrc||'')+" (makine çevirisi, kontrol et)</p>":me.busy2?"<p class='note'>Cümle çevriliyor…</p>":"<button class='btn ghost' id='sh-tx' style='padding:8px 12px;font-size:14px'>Cümleyi çevir</button>"+(me.err?"<p class='note'>"+esc(me.err)+"</p>":'');
+      $('sh-sx').innerHTML=me.str?"<p class='note'><b>"+esc(me.str)+"</b><br>Cümle çevirisi: "+esc(me.strsrc||'')+" (makine çevirisi, kontrol et)</p>"+(me.trSaved==='ok'?"<p class='toast'>Çeviri, kayıtlı kelimedeki bu örnek cümleye eklendi.</p>":me.trSaved==='fail'?"<p class='note' style='color:var(--bad)'>Çeviri kayda eklenemedi (depolama sorunu); kayıt değiştirilmedi.</p>":me.trSaved==='has'?"<p class='note'>Kayıtlı örnek cümlenin zaten bir çevirisi var; değiştirilmedi.</p>":''):me.busy2?"<p class='note'>Cümle çevriliyor…</p>":"<button class='btn ghost' id='sh-tx' style='padding:8px 12px;font-size:14px'>Cümleyi çevir</button><p class='note'>Kaydetmeden önce çevirirsen cümlenin Türkçesi de örnek cümleyle birlikte kaydedilir.</p>"+(me.err?"<p class='note'>"+esc(me.err)+"</p>":'');
       if($('sh-tx'))$('sh-tx').onclick=function(){sentTranslate(me,refreshSheet)};
     }
     var x=words.filter(function(y){return y.w.toLowerCase()===String(sh.w).trim().toLowerCase()})[0];
-    $('sh-st').textContent=(sh.busy>0?'Aranıyor… ':'')+(x?'Bu kelime listende var ('+(x.m||x.d||'')+'). Kaydedersen ilerlemen korunur; farklı bir anlam seçersen ek anlam olarak eklenir. ':'')+(sh.busy>0?'':sh.st);
+    $('sh-st').textContent=(sh.busy>0?'Aranıyor… ':'')+(x?'Bu kelime listende var ('+(x.m||x.d||'')+')'+(cols(x).length?'; koleksiyonları: '+cols(x).join(', '):'; henüz bir koleksiyonda değil')+'. Kaydedersen yeni kayıt oluşmaz, ilerlemen korunur; başka bir koleksiyon seçip eklersen o koleksiyona da eklenir, farklı bir anlam seçersen ek anlam olarak saklanır. ':'')+(sh.busy>0?'':sh.st);
   }
   function sameMeaning(x,m){
     var have=[x.m].concat(Array.isArray(x.alt)?x.alt.map(function(a){return a&&a.m||''}):[]).join(',').toLowerCase().split(/[,;\/]/).map(function(s){return s.trim()}).filter(Boolean);
@@ -1709,7 +1899,7 @@ body.reading .sheet{max-width:740px}
       var art=$('art'),sel=window.getSelection();
       if(!art||!sel||sel.isCollapsed)return;
       var t=sel.toString().replace(/\s+/g,' ').trim();
-      if(t.indexOf(' ')<0||t.length>600||!art.contains(sel.anchorNode))return;
+      if(t.indexOf(' ')<0||t.length>MTMAX||!art.contains(sel.anchorNode))return;
       openSent(t);
     },700);
   });
@@ -1747,8 +1937,9 @@ body.reading .sheet{max-width:740px}
     drawDict();
     function fin(){if(DS!==me)return;me.pend--;
       if(!me.pend){
-        if(!me.wk&&me.err.indexOf('wk')<0&&!me.mmTried){me.mmTried=true;me.pend++;mmTranslate(me.dict?me.dict.w:q).then(function(r){if(DS===me&&r&&r.t&&r.t.toLowerCase()!==q.toLowerCase())me.mm=r},function(e){if(DS===me)me.mmErr=e&&e.k?e.k:'Makine çevirisi de alınamadı.'}).then(fin)}
-        if(!me.dict&&!me.wk&&!me.sugTried){me.sugTried=true;me.pend++;jget('https://api.datamuse.com/sug?max=8&s='+encodeURIComponent(q)).then(function(r){if(DS===me)me.sug=(r||[]).map(function(x){return x.word}).filter(function(w){return w&&w.toLowerCase()!==q.toLowerCase()})},function(){}).then(fin)}
+        var v=wkView(me.wk);
+        if(!me.dict&&v&&v.of&&!me.dictBaseTried){me.dictBaseTried=true;me.pend++;dictLookup(v.of).then(function(r){if(DS===me&&r){me.dict=r;me.dictOf=v.of}},function(){}).then(fin)}
+        if(!me.dict&&!(me.wk&&me.wk.s.length)&&!me.sugTried){me.sugTried=true;me.pend++;jget('https://api.datamuse.com/sug?max=8&s='+encodeURIComponent(q)).then(function(r){if(DS===me)me.sug=(r||[]).map(function(x){return x.word}).filter(function(w){return w&&w.toLowerCase()!==q.toLowerCase()})},function(){}).then(fin)}
         if(!me.d&&me.dict&&me.dict.ms[0]&&me.dict.ms[0].defs[0]){var d0=me.dict.ms[0].defs[0];me.d=d0.d;me.pos=me.dict.ms[0].pos;me.ex=d0.ex}
       }
       drawDict();
@@ -1756,7 +1947,7 @@ body.reading .sheet{max-width:740px}
     dictLookup(q).then(function(r){if(DS===me)me.dict=r},function(){if(DS===me)me.err.push('dict')}).then(fin);
     wikiTR(q).then(function(r){if(DS===me)me.wk=r},function(){if(DS===me)me.err.push('wk')}).then(fin);
   }
-  function dbase(){return DS.wk?DS.wk.w:DS.dict?DS.dict.w:DS.q}
+  function dbase(){var v=wkView(DS.wk);return v&&v.of?v.of:DS.q}
   function drawDict(){
     var me=DS,o=$('dres');if(!me){o.innerHTML='';return}
     var w=dbase(),ex=words.filter(function(x){return x.w.trim().toLowerCase()===w.toLowerCase()})[0],h='';
@@ -1765,26 +1956,33 @@ body.reading .sheet{max-width:740px}
     if(ex)h+="<p class='note'>Bu kelime listende var: <b>"+esc(ex.m||ex.d||'')+"</b>"+(Array.isArray(ex.alt)&&ex.alt.length?' (+'+ex.alt.length+' anlam)':'')+". Eklersen ilerlemen korunur; farklı bir anlam seçersen ek anlam olarak kaydedilir. <button class='btn ghost' id='d-edit' style='padding:4px 10px;font-size:13px'>Düzenle</button></p>";
     if(me.pend)h+="<p class='note'>Sözlüklerde aranıyor…</p>";
     // Turkish meanings
-    if(me.wk){
-      var g={};me.wk.s.forEach(function(s){var a=g[s.pos||'diğer']=g[s.pos||'diğer']||[],k=s.tr.join('|'),o=a.filter(function(x){return x.tr.join('|')===k})[0];if(o){if(s.g&&o.g.indexOf(s.g)<0)o.g=o.g?o.g+' · '+s.g:s.g}else a.push({g:s.g||'',tr:s.tr})});
-      h+="<div class='tlab'>Türkçe anlamlar · Vikisözlük — kaydetmek istediklerine dokun</div>";
-      Object.keys(g).forEach(function(p){
-        h+="<div class='dpos'><i>"+esc(p)+"</i>"+g[p].map(function(s){return "<div class='sense'>"+(s.g?"<i>"+esc(s.g)+"</i>":'')+"<div>"+s.tr.map(function(t){return "<button class='mchip"+(me.sel.indexOf(t)>=0?' on':'')+"' data-tr='"+escA(t)+"'>"+esc(t)+'</button>'}).join('')+"</div></div>"}).join('')+"</div>";
-      });
-    }else if(me.mm){
-      h+="<div class='tlab'>Makine çevirisi · MyMemory — sözlük kaydı değildir, kontrol et</div><div>"+[me.mm.t].concat(me.mm.alts).map(function(t){return "<button class='mchip"+(me.sel.indexOf(t)>=0?' on':'')+"' data-tr='"+escA(t)+"'>"+esc(t)+'</button>'}).join('')+"</div>";
-    }else if(!me.pend){
-      h+="<p class='note'>"+(me.err.indexOf('wk')>=0?'Vikisözlük’e ulaşılamadı (internet bağlantısı?).':'Vikisözlük’te bu kelime için Türkçe çeviri bulunamadı.')+(me.mmErr?' '+esc(me.mmErr):'')+" Anlamı aşağıya kendin yazabilirsin.</p>";
+    var v=wkView(me.wk),rel=v?v.s.filter(isReliable):[],old=v?v.s.filter(function(s){return !s.chk&&(s.oldSense||s.old.length)}):[],unc=v?v.s.filter(function(s){return s.chk||s.unc.length}):[];
+    function chipsOf(list){return list.map(function(t){return "<button class='mchip"+(me.sel.indexOf(t)>=0?' on':'')+"' data-tr='"+escA(t)+"'>"+esc(t)+'</button>'}).join('')}
+    function group(ss,pick){
+      // same Turkish translations under one word type are shown once, with their English glosses combined
+      var g={};ss.forEach(function(s){var t=pick(s);if(!t.length)return;var a=g[s.pos||'diğer']=g[s.pos||'diğer']||[],k=t.join('|'),o=a.filter(function(x){return x.tr.join('|')===k})[0];if(o){if(s.g&&o.g.indexOf(s.g)<0)o.g=o.g?o.g+' · '+s.g:s.g}else a.push({g:s.g||'',tr:t})});
+      return Object.keys(g).map(function(p){return "<div class='dpos'><i>"+esc(p)+"</i>"+g[p].map(function(s){return "<div class='sense'>"+(s.g?"<i>"+esc(s.g)+"</i>":'')+"<div>"+chipsOf(s.tr)+"</div></div>"}).join('')+"</div>"}).join('');
     }
+    if(v&&v.of)h+="<p class='note'>“"+esc(me.q)+"”, “"+esc(v.of)+"” kelimesinin "+esc(v.kind)+" (Vikisözlük). Aşağıdaki anlamlar “"+esc(v.of)+"” içindir.</p>";
+    if(rel.length)h+="<div class='tlab'>Türkçe anlamlar · Vikisözlük — kaydetmek istediklerine dokun"+(rel.length>1?' (birden çok anlam var, uygun olanı seç)':'')+"</div>"+group(rel,function(s){return s.tr});
+    if(old.length)h+="<details><summary>Eski / nadir kullanımlar</summary>"+group(old,function(s){return s.oldSense?s.tr.concat(s.old):s.old})+"</details>";
+    if(unc.length)h+="<details><summary>Kontrol edilmemiş çeviriler (Vikisözlük)</summary><p class='note'>Henüz doğrulanmamış; hangi anlama ait olduğu belirtilmemiş olabilir.</p>"+group(unc,function(s){return s.chk?s.tr.concat(s.unc):s.unc})+"</details>";
+    if(me.wk&&me.wk.own&&!me.wk.s.length&&me.wk.base)h+="<details><summary>İlgili kelime: “"+esc(me.wk.base.w)+"” ("+esc(me.wk.base.kind)+")</summary><p class='note'>Bu anlamlar “"+esc(me.wk.base.w)+"” içindir; “"+esc(me.q)+"” için doğru olmayabilir.</p>"+group(me.wk.base.s.filter(isReliable),function(s){return s.tr})+"</details>";
+    if(me.mm)h+="<div class='tlab'>Makine çevirisi · MyMemory — sözlük kaydı değildir, kontrol et</div><div>"+chipsOf([me.mm.t].concat(me.mm.alts))+"</div>";
+    if(!rel.length&&!me.pend){
+      h+="<p class='note'>"+(me.err.indexOf('wk')>=0?'Vikisözlük’e ulaşılamadı (internet bağlantısı?).':'Vikisözlük’te “'+esc(me.q)+'” için güvenilir bir Türkçe çeviri bulunamadı.')+(me.mmErr?' '+esc(me.mmErr):'')+" Anlamı aşağıya kendin yazabilirsin.</p>";
+      if(!me.mm)h+="<button class='btn ghost' id='d-mm' style='padding:8px 12px;font-size:14px'>Makine çevirisi öner (MyMemory)</button>";
+    }
+    if(me.wk&&me.wk.alts&&me.wk.alts.length)h+="<div class='tlab'>Yazım notu · Vikisözlük — bunu mu demek istedin?</div><div>"+me.wk.alts.map(function(s){return "<button class='mchip' data-q='"+escA(s)+"'>"+esc(s)+'</button>'}).join('')+'</div>';
     // English definitions
     if(me.dict){
-      h+="<div class='tlab'>İngilizce tanımlar ve örnekler · dictionaryapi.dev — kaydetmek istediğin tanıma dokun</div>";
+      h+="<div class='tlab'>İngilizce tanımlar ve örnekler · dictionaryapi.dev"+(me.dictOf?' · “'+esc(me.dictOf)+'” kelimesi için':'')+" — kaydetmek istediğin tanıma dokun</div>";
       me.dict.ms.forEach(function(m,i){
         h+="<div class='dpos'><i>"+esc(m.pos)+"</i>"+m.defs.map(function(d,j){return "<button class='dchip"+(me.d===d.d?' on':'')+"' data-di='"+i+":"+j+"'>"+(j+1)+". "+esc(d.d)+(d.ex?"<span>“"+esc(d.ex)+"”</span>":'')+"</button>"}).join('')+
           (m.syn.length?"<div class='syn'>Eş anlamlılar: "+m.syn.map(function(s){return "<a href='#' data-q='"+escA(s)+"'>"+esc(s)+'</a>'}).join(', ')+'</div>':'')+(m.ant&&m.ant.length?"<div class='syn'>Zıt anlamlılar: "+m.ant.map(function(s){return "<a href='#' data-q='"+escA(s)+"'>"+esc(s)+'</a>'}).join(', ')+'</div>':'')+"</div>";
       });
     }else if(!me.pend){
-      h+="<p class='note'>"+(me.err.indexOf('dict')>=0?'İngilizce sözlüğe ulaşılamadı (internet bağlantısı?).':'İngilizce sözlükte (dictionaryapi.dev) kayıt bulunamadı.')+"</p>";
+      h+="<p class='note'>"+(me.err.indexOf('dict')>=0?'İngilizce sözlüğe ulaşılamadı (internet bağlantısı?).':'İngilizce sözlükte (dictionaryapi.dev) “'+esc(me.q)+'” için kayıt bulunamadı.')+"</p>";
     }
     if(me.sug&&me.sug.length)h+="<div class='tlab'>Bunu mu demek istedin? · Datamuse önerileri (yaygın yazım hataları da çıkabilir)</div><div>"+me.sug.map(function(s){return "<button class='mchip' data-q='"+escA(s)+"'>"+esc(s)+'</button>'}).join('')+'</div>';
     h+="</div>";
@@ -1806,6 +2004,11 @@ body.reading .sheet{max-width:740px}
     }
     if($('d-au'))$('d-au').onclick=function(){try{new Audio(me.dict.au).play().catch(function(){speak(w)})}catch(e){speak(w)}};
     $('d-tts').onclick=function(){speak(w)};
+    if($('d-mm'))$('d-mm').onclick=function(){
+      // optional, user-requested machine translation of the searched word only
+      this.disabled=true;this.textContent='Çevriliyor…';
+      mmTranslate(me.q).then(function(r){if(DS===me){if(r&&r.t&&r.t.toLowerCase()!==me.q.toLowerCase())me.mm=r;else me.mmErr='Makine çevirisi bir karşılık vermedi.'}},function(e){if(DS===me)me.mmErr=e&&e.k?e.k:'Makine çevirisi alınamadı.'}).then(function(){if(DS===me){var y=scrollY;drawDict();window.scrollTo(0,y)}});
+    };
     if($('d-edit'))$('d-edit').onclick=function(){openEditor(ex)};
     o.onclick=function(e){
       var t=e.target.closest('[data-tr],[data-di],[data-q]');if(!t)return;
@@ -1821,7 +2024,7 @@ body.reading .sheet{max-width:740px}
     if(col==='__new'){col=$('d-cn').value.trim();if(!col){t.textContent='Yeni koleksiyonun adını yaz.';return}}
     if(!w){t.textContent='Kelime boş olamaz.';return}
     if(!m&&!me.d){t.textContent='Bir Türkçe anlam seç ya da yaz (ya da bir İngilizce tanım seç).';return}
-    var src=me.wk||me.mm?(me.mT?'kendi yazdığın':me.wk?'Vikisözlük':'MyMemory (makine çevirisi)'):'kendi yazdığın';
+    var mmT=me.mm?[me.mm.t].concat(me.mm.alts):[],src=me.mT||!me.sel.length?'kendi yazdığın':me.sel.some(function(t){return mmT.indexOf(t)>=0})?'MyMemory (makine çevirisi)':'Vikisözlük';
     var r=upsertWord({w:w,m:m,d:me.d,pos:me.pos,ph:me.dict&&me.dict.ph||'',e:me.ex,t:'',col:col,src:{type:'dictionary'},msrc:m?src:''});
     t.textContent=r.msg;if(!r.ok)return;
     t.style.color='var(--good)';
@@ -1835,6 +2038,51 @@ body.reading .sheet{max-width:740px}
     dsT=setTimeout(function(){jget('https://api.datamuse.com/sug?max=8&s='+encodeURIComponent(q),5000).then(function(r){if($('dq').value.trim()!==q)return;$('dq-sug').innerHTML=(r||[]).map(function(x){return "<option value='"+escA(x.word)+"'>"}).join('')},function(){})},280);
   };
   $('dhist').onclick=function(e){var b=e.target.closest('[data-q]');if(!b)return;$('dq').value=b.getAttribute('data-q');dsearch($('dq').value)};
+  // ---- Translation screen (Sözlük → Çeviri) ----
+  // Uses translateText(); a request is sent only when the user presses Çevir (or Ctrl+Enter).
+  var TRS={dir:'en-tr',seq:0,busy:false};
+  function trSt(msg,cls){var e=$('tr-st');e.className='trst'+(cls?' '+cls:'');e.innerHTML=msg}
+  function trClearOut(){$('tr-out').textContent='';$('tr-src').textContent='';$('tr-copy').disabled=true}
+  function trDraw(){
+    var en=TRS.dir==='en-tr';
+    Array.prototype.forEach.call($('trdir').querySelectorAll('button'),function(b){var on=b.getAttribute('data-d')===TRS.dir;b.classList.toggle('on',on);b.setAttribute('aria-checked',on?'true':'false');b.setAttribute('role','radio')});
+    $('tr-inl').textContent=en?'İngilizce metin':'Türkçe metin';
+    $('tr-outl').textContent=en?'Türkçe çeviri':'İngilizce çeviri';
+    var n=$('tr-in').value.length;$('tr-count').textContent=n+' karakter'+(n>MTMAX?' — ücretsiz çeviri için en fazla '+MTMAX:'');
+  }
+  function trGo(){
+    var t=$('tr-in').value.trim();
+    if(TRS.busy)return;
+    // never leave an older result on screen while a new one is requested or after a failure
+    trClearOut();
+    if(!t){trSt('Önce çevrilecek metni yaz.','bad');$('tr-in').focus();return}
+    var my=++TRS.seq,dir=TRS.dir;TRS.busy=true;$('tr-go').disabled=true;$('tr-go').textContent='Çevriliyor…';
+    trSt('<span class="spin" aria-hidden="true"></span>Çevriliyor…');
+    translateText(t,dir).then(function(r){
+      if(my!==TRS.seq)return;
+      $('tr-out').textContent=r.t;$('tr-src').textContent='Kaynak: '+r.src+' · Makine çevirisi, kontrol et.';$('tr-copy').disabled=false;
+      trSt('');
+    },function(e){
+      if(my!==TRS.seq)return;
+      trSt(esc(e&&e.k?e.k:'Çeviri yapılamadı. Bağlantını kontrol edip tekrar dene.'),'bad');
+    }).then(function(){if(my===TRS.seq){TRS.busy=false;$('tr-go').disabled=false;$('tr-go').textContent='Çevir'}});
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.dtabs [data-go]'),function(b){b.onclick=function(){var g=b.getAttribute('data-go');if(g!==view)show(g)}});
+  Array.prototype.forEach.call($('trdir').querySelectorAll('button'),function(b){b.onclick=function(){
+    var d=b.getAttribute('data-d');if(d===TRS.dir)return;
+    // a result in the other direction must not stay on screen as if it belonged to the new direction
+    TRS.dir=d;TRS.seq++;TRS.busy=false;$('tr-go').disabled=false;$('tr-go').textContent='Çevir';trClearOut();trSt('');trDraw();
+  }});
+  $('tr-go').onclick=trGo;
+  $('tr-in').oninput=trDraw;
+  $('tr-in').onkeydown=function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();trGo()}};
+  $('tr-clr').onclick=function(){TRS.seq++;TRS.busy=false;$('tr-go').disabled=false;$('tr-go').textContent='Çevir';$('tr-in').value='';trClearOut();trSt('');trDraw();$('tr-in').focus()};
+  $('tr-copy').onclick=function(){
+    var t=$('tr-out').textContent;if(!t)return;
+    function manual(){var r=document.createRange();r.selectNodeContents($('tr-out'));var s=getSelection();s.removeAllRanges();s.addRange(r);trSt('Otomatik kopyalanamadı; metin seçildi, elle kopyalayabilirsin.','bad')}
+    try{navigator.clipboard.writeText(t).then(function(){trSt('Çeviri kopyalandı.','ok')},manual)}catch(e){manual()}
+  };
+  trDraw();
   // ---- Random word wheel (Çalış → Çark) ----
   // The winner is chosen uniformly at random from the whole pool (all words or one collection); the wheel shows it
   // together with up to 11 other random words, then spins so that the pointer stops on the winner.
@@ -2400,7 +2648,7 @@ body.reading .sheet{max-width:740px}
       var d=el.querySelector('.vd'),e=el.querySelector('.ve');if(d)r.d=d.value;if(e)r.e=e.value;
     });
   }
-  function needsFix(r){return !r.m&&!r.d||!!r.unsure||!!r.enr}
+  function needsFix(r){return !r.m&&!r.d||!!r.unsure||!!r.enr||!!(r.cands&&!r.m)}
   function rowTags(r){
     var t=[];
     if(r.dup&&r.diff)t.push(["Listende farklı anlamla var (“"+(r.dup.m||r.dup.d||'')+"”). Seçili kalırsa bu anlam ek anlam olarak eklenir; mevcut anlam ve ilerleme korunur.",0]);
@@ -2410,6 +2658,7 @@ body.reading .sheet{max-width:740px}
     if(r.pos)t.push(['Tür: '+r.pos,0]);
     if(r.unsure)t.push(['Otomatik ayrıştırma emin değil; kontrol et.',1]);
     if(r.enr)t.push(['Eksik bilgi sözlükten tamamlandı ('+r.enr+'); kontrol et.',1]);
+    if(r.cands&&!r.m)t.push(['Sözlükte birden fazla olası anlam var'+(r.candOf?' (“'+r.candOf+'” için)':'')+'; aşağıdan uygun olanı seç.',1]);
     if(r.merged)t.push(['PDF’te birden fazla kez geçiyor; tek kayıtta birleştirildi.',0]);
     return t.map(function(x){return "<span class='tag"+(x[1]?' warn':'')+"'>"+esc(x[0])+'</span>'}).join('');
   }
@@ -2417,7 +2666,8 @@ body.reading .sheet{max-width:740px}
     var R=PV.rows,box=$('pv-rows'),lim=Math.min(R.length,PV.lim);
     box.innerHTML=R.slice(0,lim).map(function(r,i){
       return "<div class='vr' data-i='"+i+"'><input type='checkbox' class='vs' aria-label='Seç'><div class='vf'><input class='vw' placeholder='İngilizce kelime' autocapitalize='none' autocomplete='off'><input class='vm' placeholder='Türkçe anlam' autocomplete='off'>"+
-        (r.d?"<input class='vd full' placeholder='İngilizce tanım'>":'')+(r.e?"<input class='ve full' placeholder='Örnek cümle'>":'')+rowTags(r)+'</div></div>';
+        (r.d?"<input class='vd full' placeholder='İngilizce tanım'>":'')+(r.e?"<input class='ve full' placeholder='Örnek cümle'>":'')+rowTags(r)+
+        (r.cands&&!r.m?"<div class='full rc'>"+r.cands.map(function(c,k){return "<div class='sense'>"+(c.g?'<i>'+esc((c.pos?c.pos+' · ':'')+c.g)+'</i>':'')+"<button type='button' class='mchip' data-cc='"+k+"'>"+esc(c.tr.join(', '))+'</button></div>'}).join('')+'</div>':'')+'</div></div>';
     }).join('')+(R.length>lim?"<button class='btn ghost' id='pv-more' style='width:100%;margin-top:8px'>Daha fazla göster ("+(R.length-lim)+" satır daha)</button>":'')||"<p class='note'>Otomatik olarak kelime bulunamadı. Aşağıdaki satırlardan ya da PDF metninden ekleyebilirsin.</p>";
     // Values are assigned through the DOM, never inserted as HTML.
     Array.prototype.forEach.call(box.querySelectorAll('.vr'),function(el){
@@ -2426,6 +2676,13 @@ body.reading .sheet{max-width:740px}
     });
     if($('pv-more'))$('pv-more').onclick=function(){syncRows();PV.lim+=300;drawRows()};
     box.onchange=function(){syncRows();countSel()};
+    box.onclick=function(e){
+      var b=e.target.closest('[data-cc]');if(!b)return;
+      var el=b.closest('.vr'),r=R[+el.getAttribute('data-i')],c=r&&r.cands&&r.cands[+b.getAttribute('data-cc')];if(!c)return;
+      el.querySelector('.vm').value=c.tr.join(', ');el.querySelector('.vs').checked=true;
+      Array.prototype.forEach.call(el.querySelectorAll('[data-cc]'),function(x){x.classList.toggle('on',x===b)});
+      syncRows();r.enr='Vikisözlük (seçtiğin anlam)';countSel();
+    };
     countSel();
   }
   function countSel(){
@@ -2450,15 +2707,18 @@ body.reading .sheet{max-width:740px}
       return Promise.all([r.d?null:define(r.w).catch(function(){return null}),r.m?null:wikiTR(r.w).catch(function(){return null})]).then(function(a){
         var src=[];
         if(a[0]&&!r.d){r.d=a[0].d;if(!r.pos)r.pos=a[0].pos;src.push('dictionaryapi.dev')}
-        if(a[1]&&!r.m){r.m=a[1].s[0].tr.slice(0,3).join(', ');src.push('Vikisözlük')}
-        if(src.length){r.enr=src.join(' + ');if(!r.dup)r.sel=true}
+        if(a[1]&&!r.m){var v=wkView(a[1]),rel=v?v.s.filter(isReliable):[];
+          if(rel.length===1){r.m=rel[0].tr.slice(0,3).join(', ');src.push('Vikisözlük'+(v.of?' (“'+v.of+'” için)':''))}
+          else if(rel.length>1){r.cands=rel.slice(0,8).map(function(s){return {g:s.g,pos:s.pos,tr:s.tr.slice(0,3)}});r.candOf=v.of||''}}
+        // rows are not ticked automatically: the user confirms each one
+        if(src.length)r.enr=src.join(' + ');
         done++;if(done%10===0||done===list.length){msg('pv-t','Sözlükten tamamlanıyor: '+done+' / '+list.length);syncRowsKeep()}
       }).then(step);
     }
     function syncRowsKeep(){if(PV===pv){drawRows()}}
     Promise.all([step(),step(),step()]).then(function(){
       ENJ=null;if(PV!==pv)return;drawRows();
-      msg('pv-t',job.stop?'Durduruldu. '+done+' kelime işlendi.':'Bitti: '+done+' kelime sözlükte arandı. Doldurulan alanlar “kontrol et” ile işaretlendi.');
+      msg('pv-t',job.stop?'Durduruldu. '+done+' kelime işlendi.':'Bitti: '+done+' kelime sözlükte arandı. Doldurulan alanlar “kontrol et” ile işaretlendi; birden fazla olası anlamı olanlarda seçimi sen yap. Satırlar otomatik seçilmedi.');
     });
   }
   function drawVocab(){
