@@ -401,6 +401,8 @@ body.reading .sheet{max-width:740px}
 .dchip.on{background:var(--accent-soft);border-left-color:var(--accent)}
 .syn{display:block;font-size:13px;color:var(--muted);padding:4px 10px}
 .dmeta{font-size:13px;color:var(--muted);margin:8px 0 0}.dmeta span{opacity:.8}
+.dtrs{font-size:17px;line-height:1.5;color:var(--ink);margin:10px 0 0}.dtrs b{color:var(--accent)}.dtrs span{color:var(--muted);font-size:13px}.dtrs.none{font-size:15px;color:var(--muted)}
+.dtrs>div{margin-top:2px}.dtrs i{font-style:normal;font-size:13px;font-weight:700;color:var(--muted);margin-right:8px}.dtrs em{font-style:normal;color:var(--muted);font-size:15px}.dtrs>span{display:block;margin-top:2px}
 .dform{background:var(--accent-soft);border-radius:var(--r-sm);padding:10px 12px;margin:12px 0 4px;font-size:14.5px;line-height:1.55}
 .dform a{color:var(--accent);font-weight:700;text-decoration:none}.dform span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
 .derr{background:var(--bad-soft);border-radius:var(--r-sm);padding:12px 14px;margin:12px 0;font-size:14.5px;line-height:1.5}.derr .btn{margin-top:8px;padding:6px 12px;font-size:14px}
@@ -1738,6 +1740,29 @@ body.reading .sheet{max-width:740px}
       return go.then(function(sub){return wkBuild(p,wt,sub)});
     })});
   }
+  function twMeanings(w){
+    // Turkish Wiktionary (tr.wiktionary.org, CC BY-SA): the Turkish meanings its "İngilizce" section gives for an
+    // English word, as [{t, pos}] in page order; pos uses the English names (noun, verb, …) or '' when the heading is
+    // not a word type. Explanations longer than three words are left out. [] when the page or the section is missing.
+    var k=String(w||'').trim().toLowerCase(),TWPOS={ad:'noun','isim':'noun',eylem:'verb','fiil':'verb','sıfat':'adjective','belirteç':'adverb','zarf':'adverb',zamir:'pronoun',edat:'preposition','bağlaç':'conjunction','ünlem':'interjection'};
+    return cached('tw:'+k,function(){
+      if(!k)return Promise.resolve([]);
+      return jget('https://tr.wiktionary.org/w/api.php?action=parse&prop=wikitext&format=json&formatversion=2&origin=*&redirects=1&page='+encodeURIComponent(k)).then(function(j){
+        var t=j&&j.parse,wt=t&&t.wikitext||'',i=wt.indexOf('==İngilizce==');
+        if(i<0||String(t.title||'').toLowerCase()!==k)return [];
+        var r=wt.slice(i+13),e=r.search(/\n==[^=]/),out=[],pos='';
+        (e>=0?r.slice(0,e):r).split('\n').forEach(function(l){
+          var hm=l.match(/^===+\s*([^=]+?)\s*===+/);if(hm){pos=TWPOS[hm[1].toLocaleLowerCase('tr')]||'';return}
+          if(!/^#\s*[^:*#\s]/.test(l))return;
+          var s=l.replace(/^#\s*/,'').replace(/<ref[\s\S]*?(<\/ref>|\/>)/g,'').replace(/<[^>]+>/g,'').replace(/\{\{[^{}]*\}\}/g,'')
+            .replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g,'$1').replace(/'''?/g,'').replace(/\([^)]*\)/g,'');
+          s.split(/[,;]/).forEach(function(p){p=p.replace(/\s+/g,' ').replace(/^[\s.:-]+|[\s.:]+$/g,'');
+            if(p&&p.length<=40&&p.split(' ').length<=3&&!/[=\[\]{}|]/.test(p)&&!out.some(function(x){return x.pos===pos&&x.t.toLowerCase()===p.toLowerCase()}))out.push({t:p,pos:pos})});
+        });
+        return out;
+      });
+    });
+  }
   function dapiEntry(r){
     // dictionaryapi.dev result in the same shape (used only when Wiktionary is unavailable). No Turkish there.
     return {w:r.w,src:'dictionaryapi.dev',ipa:{any:r.ph},forms:[],alts:[],blocks:r.ms.map(function(m){return {pos:m.pos,defs:m.defs.map(function(d){return {d:d.d,lb:[],ex:d.ex?[d.ex]:[],syn:[],ant:[],old:false,tr:[]}}),syn:m.syn||[],ant:m.ant||[],der:[],rel:[],trx:[],tro:[]}})};
@@ -2101,6 +2126,11 @@ body.reading .sheet{max-width:740px}
     if(q.length>60||!/^[A-Za-z][A-Za-z' -]*$/.test(q)){$('dres').innerHTML="<div class='prev'>Lütfen İngilizce bir kelime ya da kısa bir ifade yaz (yalnızca harf, boşluk, kesme işareti ve tire).</div>";return}
     S.dhist=[q].concat((S.dhist||[]).filter(function(x){return x.toLowerCase()!==q.toLowerCase()})).slice(0,20);saveS();dhistDraw();
     var me=DS={q:q,own:null,dict:null,lem:[],err:{},pend:2,sug:null,sel:[],m:'',mT:false,d:'',pos:'',ex:'',xt:'',wv:'',ui:{},fq:{},view:[]};
+    // Turkish Wiktionary meanings: kept apart from the dictionary result and never counted in pend, so a slow or failed
+    // request only leaves them out. me.tw[word] is null while loading, then a list ([] when nothing / on failure).
+    me.tw={};me.twGet=function(w){var k=String(w).toLowerCase();if(k in me.tw)return;me.tw[k]=null;
+      twMeanings(k).then(function(l){me.tw[k]=l},function(){me.tw[k]=[]}).then(function(){if(DS===me)dkeep()})};
+    me.twGet(q);
     drawDict();
     function fin(){if(DS!==me)return;me.pend--;
       if(!me.pend&&!me.own&&!me.dict&&!me.err.wk&&!me.sugTried){me.sugTried=true;me.pend++;jget('https://api.datamuse.com/sug?max=8&s='+encodeURIComponent(q)).then(function(r){if(DS===me)me.sug=(r||[]).map(function(x){return x.word}).filter(function(w){return w&&w.toLowerCase()!==q.toLowerCase()})},function(){}).then(fin)}
@@ -2138,6 +2168,38 @@ body.reading .sheet{max-width:740px}
     var ph=phOf(own&&own.blocks.length?own:null)||(me.dict&&me.dict.ph)||'',fq=me.fq[w0.toLowerCase()];
     h+="<div class='dcard'><div class='shd'><div><div class='big'>"+esc(w0)+"</div><div class='ph'>"+esc(ph)+"</div></div>"+
       (me.dict&&me.dict.au?"<button class='btn ghost' id='d-au' title='Sözlükteki ses kaydı'>"+ic('volume')+" Kayıt</button>":'')+"<button class='btn ghost' id='d-tts' title='Cihazın sesiyle oku'>"+ic('speak')+" Oku</button></div>";
+    // Turkish equivalents right under the word, grouped by word type, each list in the order the sources give it.
+    // Main: translations tied to one of the entry's current senses (in sense order), then Turkish Wiktionary's meanings.
+    // Lighter, after them: translations from tables not tied to a shown sense (often rarer senses). Old / unchecked
+    // translations are never listed. At most four main ones per type; the rest join the lighter list.
+    var grp=[],trW='',nTr=0;
+    function addTr(pos,t,sec){
+      if(!t)return;var g=grp.filter(function(x){return x.pos===pos})[0];if(!g){g={pos:pos,l:[],r:[]};grp.push(g)}
+      function has(a){for(var i=0;i<a.length;i++)if(a[i].toLowerCase()===t.toLowerCase())return i;return -1}
+      if(has(g.l)>=0)return;
+      var j=has(g.r);if(j>=0){if(sec)return;g.r.splice(j,1);nTr--}
+      (sec?g.r:g.l).push(t);nTr++;
+    }
+    view.some(function(v){
+      if(v.role==='old')return false;
+      v.e.blocks.forEach(function(b){
+        b.defs.forEach(function(d){if(!d.old)d.tr.forEach(function(t){addTr(b.pos,t)})});
+        b.trx.forEach(function(x){x.tr.forEach(function(t){addTr(b.pos,t,true)})});
+      });
+      if(grp.length)trW=v.e.w;
+      return grp.length>0;
+    });
+    // then the Turkish Wiktionary meanings of the searched word (and of the base word whose translations are shown)
+    var twWs=[w0],nEn=nTr;if(trW&&trW.toLowerCase()!==w0.toLowerCase()){twWs.push(trW);me.twGet(trW)}
+    var twWait=twWs.some(function(w){return me.tw[w.toLowerCase()]===null});
+    // a Turkish Wiktionary meaning already listed under another word type is not repeated (its headings are sometimes wrong)
+    twWs.forEach(function(w){(me.tw[w.toLowerCase()]||[]).forEach(function(x){
+      if(!grp.some(function(g){return g.pos!==x.pos&&g.l.concat(g.r).some(function(t){return t.toLowerCase()===x.t.toLowerCase()})}))addTr(x.pos,x.t);
+    })});
+    if(grp.length)h+="<div class='dtrs'><b>Türkçe karşılığı</b>"+grp.map(function(g){var m=g.l.slice(0,4),r=g.l.slice(4).concat(g.r).slice(0,6);if(!m.length){m=r.splice(0,4)}
+        return "<div>"+(g.pos?"<i>"+esc(POSTR[g.pos]||g.pos)+"</i>":'')+m.map(esc).join(' · ')+(r.length?" <em>· "+r.map(esc).join(' · ')+"</em>":'')+"</div>"}).join('')+
+      "<span>"+(trW&&trW.toLowerCase()!==w0.toLowerCase()?"“"+esc(trW)+"” kelimesinin karşılıkları · ":'')+(nEn?'Vikisözlük':'')+(nEn&&nTr>nEn?' + ':'')+(nTr>nEn?'Türkçe Vikisözlük':'')+"</span></div>";
+    else if(!me.pend&&!twWait&&view.length)h+="<p class='dtrs none'><b>Türkçe karşılığı:</b> sözlük kaynaklarında bulunmuyor.</p>";
     if(fq!=null)h+="<p class='dmeta'>Kullanım sıklığı: <b>"+freqLabel(fq)+"</b> (milyon kelimede yaklaşık "+(fq>=10?Math.round(fq):fq.toFixed(1))+") · <span>Datamuse / Google Books Ngram</span></p>";
     // relation between the searched form and its base form(s)
     if(me.lem.length){
@@ -2233,11 +2295,39 @@ body.reading .sheet{max-width:740px}
       var key=p.slice(0,3).join(':'),u=me.ui[key]=me.ui[key]||{};
       if(t.hasAttribute('data-di')){if(me.d===d.d){me.d='';me.ex='';me.pos='';me.xt=''}else pickSense(vv.e,b,d,u);dkeep();return}
       if(t.hasAttribute('data-xt')){var xi=+p[3];u.xt=u.xt||[];u.xt[xi]={busy:true};dkeep();
-        translateText(d.ex[xi],'en-tr').then(function(r){u.xt[xi]={t:r.t,src:r.src}},function(er){u.xt[xi]={err:er&&er.k||'Makine çevirisi alınamadı.'}}).then(function(){if(DS===me)dkeep()});return}
+        translateText(d.ex[xi],'en-tr').then(function(r){XTC[d.ex[xi]]=u.xt[xi]={t:r.t,src:r.src}},function(er){u.xt[xi]={err:er&&er.k||'Makine çevirisi alınamadı.'}}).then(function(){if(DS===me)dkeep()});return}
       if(t.hasAttribute('data-dt')){u.dmt={busy:true};dkeep();
         translateText(d.d,'en-tr').then(function(r){u.dmt={t:r.t,src:r.src}},function(er){u.dmt={err:er&&er.k||'Makine çevirisi alınamadı.'}}).then(function(){if(DS===me)dkeep()});return}
       saveSense(vv.e,b,d,u);
     };
+    if(!me.pend&&view.length&&!me.autoX){me.autoX=true;autoXt(me)}
+  }
+  // Automatic Turkish for the first three example sentences shown, one at a time through translateText (the same
+  // machine translation as the "Türkçesi" button, labeled the same way). A sentence is translated once per session.
+  // After a failure the remaining ones are left to the button; once the daily MyMemory limit is reached nothing is
+  // tried automatically again in this session.
+  var XTC={},XTSTOP=false;
+  function autoXt(me){
+    var jobs=[];
+    me.view.forEach(function(v,vi){
+      if(v.role==='old'||!(v.role==='own'||v.open))return;
+      v.e.blocks.forEach(function(b,bi){
+        b.defs.map(function(d,k){return k}).filter(function(k){return !b.defs[k].old}).slice(0,8).forEach(function(k){
+          b.defs[k].ex.forEach(function(x,i){jobs.push({key:vi+':'+bi+':'+k,i:i,x:x})});
+        });
+      });
+    });
+    jobs=jobs.slice(0,3);
+    (function next(){
+      var j=jobs.shift();if(!j||DS!==me)return;
+      var u=me.ui[j.key]=me.ui[j.key]||{};u.xt=u.xt||[];
+      if(u.xt[j.i])return next();
+      if(XTC[j.x]){u.xt[j.i]=XTC[j.x];dkeep();return next()}
+      if(XTSTOP)return;
+      u.xt[j.i]={busy:true};dkeep();
+      translateText(j.x,'en-tr').then(function(r){XTC[j.x]=u.xt[j.i]={t:r.t,src:r.src};if(DS===me){dkeep();next()}},
+        function(e){if(e&&e.k&&/sınırı doldu/.test(e.k))XTSTOP=true;u.xt[j.i]=null;if(DS===me)dkeep()});
+    })();
   }
   function pickSense(e,b,d,u){
     var me=DS;me.d=d.d;me.pos=b.pos;me.ex=d.ex[0]||'';me.xt=u&&u.xt&&u.xt[0]&&u.xt[0].t||'';me.wv=e.w;me.ph=phOf(e);
