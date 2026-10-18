@@ -2549,12 +2549,66 @@ body.reading .sheet{max-width:740px}
     while(d.indexOf(new Date(t-i*864e5).toISOString().slice(0,10))>=0){c++;i++}
     return c;
   }
+  // ---- Account: Google sign-in through Supabase Auth ----
+  // Sign-in only for now: nothing is synced and no app data is read or written here. supabase-js keeps its session
+  // under its own localStorage key (sb-<project>-auth-token), which the backup does not include. Only the browser-safe
+  // publishable (anon) key belongs in this file; the Google client secret stays in the Supabase dashboard.
+  // The library is loaded only when needed: on the sign-in button, with a saved session, or on the return from Google.
+  var SB_URL='https://pamebquqyvlzpznfrrvt.supabase.co',SB_KEY='sb_publishable_n8lqUgWjGVlo0AGRvsXW2Q_FceME-db',SB_SKEY='sb-pamebquqyvlzpznfrrvt-auth-token',
+    SB_LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js',
+    SB_SRI='sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok',SB=null,AU={user:null,ready:false,busy:false,err:''};
+  function sbClient(){
+    if(SB)return SB;
+    if(!SB_KEY)return Promise.reject(fail('Google ile giriş henüz yapılandırılmadı.'));
+    SB=new Promise(function(ok,no){
+      if(window.supabase&&window.supabase.createClient)return ok();
+      var s=document.createElement('script');s.src=SB_LIB;s.integrity=SB_SRI;s.crossOrigin='anonymous';
+      s.onload=function(){ok()};s.onerror=function(){no(fail('Giriş servisi yüklenemedi (internet bağlantısı?).'))};document.head.appendChild(s);
+    }).then(function(){
+      var c=window.supabase.createClient(SB_URL,SB_KEY,{auth:{flowType:'pkce',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+      c.auth.onAuthStateChange(function(ev,ses){AU.user=ses&&ses.user||null;AU.ready=true;drawAcct()});
+      return c.auth.getSession().then(function(r){AU.user=r.data&&r.data.session&&r.data.session.user||null;if(r.error)AU.err=r.error.message||'';AU.ready=true;return c});
+    });
+    SB.catch(function(){SB=null});
+    return SB;
+  }
+  function acctInit(){
+    // Back from Google (?code=… or ?error=…): finish the sign-in, clean the address and show the profile.
+    var q=new URLSearchParams(location.search),back=q.has('code')||q.has('error');
+    if(q.has('error'))AU.err='Google ile giriş tamamlanamadı: '+(q.get('error_description')||q.get('error'));
+    var saved=false;try{saved=!!localStorage.getItem(SB_SKEY)}catch(e){}
+    if(!back&&!saved){AU.ready=true;return}
+    sbClient().catch(function(e){AU.err=AU.err||e.k||'';AU.ready=true}).then(function(){
+      if(back){try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}show('prof')}else drawAcct();
+    });
+  }
+  function drawAcct(){
+    var b=$('p-acct');if(!b)return;
+    var u=AU.user,h="<h2>Hesap</h2>";
+    if(u)h+="<p class='note'>Google hesabıyla giriş yapıldı: <b>"+esc(u.email||(u.user_metadata&&u.user_metadata.full_name)||'')+"</b></p><button class='btn ghost' id='p-out'>Çıkış yap</button>";
+    else if(!AU.ready)h+="<p class='note'>Hesap durumu kontrol ediliyor…</p>";
+    else h+="<p class='note'>Google hesabınla giriş yapabilirsin. Kelimelerin ve ilerlemen şimdilik yalnızca bu cihazda kalır; giriş yapmak onları değiştirmez.</p><button class='btn main' id='p-in'"+(AU.busy?' disabled':'')+">"+(AU.busy?'Google’a yönlendiriliyor…':'Google ile giriş yap')+"</button>";
+    if(AU.err)h+="<p class='note' style='color:var(--bad)'>"+esc(AU.err)+"</p>";
+    b.innerHTML=h;
+    if($('p-in'))$('p-in').onclick=function(){
+      AU.busy=true;AU.err='';drawAcct();
+      sbClient().then(function(c){return c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}})})
+        .then(function(r){if(r&&r.error)throw r.error})
+        .catch(function(e){AU.busy=false;AU.err=e&&(e.k||e.message)||'Giriş başlatılamadı.';drawAcct()});
+    };
+    if($('p-out'))$('p-out').onclick=function(){
+      // signs out on this device only; app data is not touched
+      sbClient().then(function(c){return c.auth.signOut({scope:'local'})}).then(function(r){if(r&&r.error)throw r.error;AU.user=null;drawAcct()},
+        function(e){AU.err=e&&(e.k||e.message)||'Çıkış yapılamadı.';drawAcct()});
+    };
+  }
   function renderProf(){
     var v=$('v-prof'),nm=S.name||'',cs={};
     var L=words.filter(function(x){return x.box>=3}).length;
     words.forEach(function(x){cols(x).forEach(function(c){cs[c]=1})});
     var st=[[words.length,'kelime'],[L,'öğrenilen'],[ART.length,'makale'],[Object.keys(cs).length,'kelime listesi'],[S.day===today()?S.n:0,'bugünkü tekrar'],[S.tot||0,'toplam tekrar'],[streak(),'gün serisi']];
-    v.innerHTML="<h1>Profil</h1><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p>";
+    v.innerHTML="<h1>Profil</h1><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel' id='p-acct'></div>";
+    drawAcct();
     $('p-n').value=nm;
     $('p-n').oninput=function(){S.name=this.value.trim();saveS();$('p-av').innerHTML=avHtml()};
     Array.prototype.forEach.call(v.querySelectorAll('[data-c]'),function(b){b.onclick=function(){S.avc=+b.getAttribute('data-c');saveS();renderProf()}});
@@ -3130,7 +3184,7 @@ body.reading .sheet{max-width:740px}
   setPmode('vocab');
   $('pf').onchange=function(){var f=this.files[0];this.value='';if(f)runPdf(f,pmode,'pstat')};
 
-  applyTheme();load();showAlert();build();if(S.smode==='wheel')setSmode('wheel');dailySnap();
+  applyTheme();load();showAlert();build();if(S.smode==='wheel')setSmode('wheel');dailySnap();acctInit();
   try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persisted().then(function(p){if(!p&&words.length)navigator.storage.persist()})}catch(e){}
   // Read-only check for the update reloader below: true while a reload could lose something that lives only in memory
   // (reader, article editor or PDF import, an open sheet, a study session with answers, or any screen but study/list/profile).
