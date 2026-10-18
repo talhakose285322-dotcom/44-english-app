@@ -402,6 +402,7 @@ body.reading .sheet{max-width:740px}
 .syn{display:block;font-size:13px;color:var(--muted);padding:4px 10px}
 .dmeta{font-size:13px;color:var(--muted);margin:8px 0 0}.dmeta span{opacity:.8}
 .dtrs{font-size:17px;line-height:1.5;color:var(--ink);margin:10px 0 0}.dtrs b{color:var(--accent)}.dtrs span{color:var(--muted);font-size:13px}.dtrs.none{font-size:15px;color:var(--muted)}
+.dspd{display:inline-flex;align-self:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}.dspd button{border:0;background:none;font:inherit;font-size:13px;padding:6px 10px;color:var(--muted);cursor:pointer}.dspd button.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
 .dtrs>div{margin-top:2px}.dtrs i{font-style:normal;font-size:13px;font-weight:700;color:var(--muted);margin-right:8px}.dtrs em{font-style:normal;color:var(--muted);font-size:15px}.dtrs>span{display:block;margin-top:2px}
 .dform{background:var(--accent-soft);border-radius:var(--r-sm);padding:10px 12px;margin:12px 0 4px;font-size:14.5px;line-height:1.55}
 .dform a{color:var(--accent);font-weight:700;text-decoration:none}.dform span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
@@ -819,11 +820,15 @@ body.reading .sheet{max-width:740px}
     else if(flipped&&e.key==='ArrowRight')answer(true);
     else if(flipped&&e.key==='ArrowLeft')answer(false);
   });
-  function speak(t){
+  function speak(t,rate){
+    // rate: optional (the dictionary's own speed); otherwise the speed from Settings. cancel() first, so only one plays.
     try{
-      var u=new SpeechSynthesisUtterance(t);u.lang=S.acc;u.rate=parseFloat(S.rate);
-      var vs=speechSynthesis.getVoices();
-      for(var i=0;i<vs.length;i++){if(vs[i].voiceURI===S.voice){u.voice=vs[i];u.lang=vs[i].lang;break}}
+      var u=new SpeechSynthesisUtterance(t);u.lang=S.acc;u.rate=rate||parseFloat(S.rate);
+      var vs=speechSynthesis.getVoices(),v=null;
+      for(var i=0;i<vs.length;i++){if(vs[i].voiceURI===S.voice){v=vs[i];break}}
+      // no voice chosen in Settings: an English voice for the chosen accent, else any English one
+      if(!v)v=vs.filter(function(x){return x.lang.replace('_','-')===S.acc})[0]||vs.filter(function(x){return /^en\b/i.test(x.lang)})[0]||null;
+      if(v){u.voice=v;u.lang=v.lang}
       speechSynthesis.cancel();speechSynthesis.speak(u);
     }catch(e){}
   }
@@ -2162,12 +2167,45 @@ body.reading .sheet{max-width:740px}
   }
   function dbase(){var v=DS.view&&DS.view[0];return v?v.e.w:DS.q}
   function dkeep(){var y=scrollY,had=!!$('d-c'),c=had?$('d-c').value:'',cn=$('d-cn')?$('d-cn').value:'',m=$('d-m')?$('d-m').value:null,w=$('d-w')?$('d-w').value:null;drawDict();if($('d-c')&&had){$('d-c').value=c;if(c==='__new'){$('d-cn').classList.remove('hide');$('d-cn').value=cn}if(m!==null&&DS.mT)$('d-m').value=m;if(w!==null&&DS.wv)$('d-w').value=w}window.scrollTo(0,y)}
+  // Dictionary reading speed (kept in the settings as S.drate; 0.6 until the user picks another).
+  var DRATES=[[0.6,'Yavaş'],[0.85,'Normal'],[1,'Hızlı']];
+  function drate(){var r=+S.drate;return DRATES.some(function(x){return x[0]===r})?r:0.6}
+  // "+ Listeye ekle": pick a list in the sheet; the word is saved through upsertWord, the same path as the save panel,
+  // so an existing word keeps its progress and only gains the list, and a list never gets the same word twice.
+  function openLists(me){
+    var v0=me.view&&me.view[0],w=dbase(),k=w.toLowerCase(),d='',pos='',e='',t='';
+    if(me.d){d=me.d;pos=me.pos;e=me.ex;t=me.xt}
+    else if(v0)v0.e.blocks.some(function(b,bi){return b.defs.some(function(x,i){
+      if(x.old)return false;var u=me.ui['0:'+bi+':'+i]||{};d=x.d;pos=b.pos;e=x.ex[0]||'';t=e&&u.xt&&u.xt[0]&&u.xt[0].t||'';return true})});
+    var g0=me.trs&&me.trs[0],m=me.sel.length?me.sel.join(', '):me.mT&&me.m?me.m:g0?g0.l.concat(g0.r).slice(0,3).join(', '):'';
+    var ph=(v0?phOf(v0.e):'')||(me.dict&&me.dict.ph)||'';
+    var ex=words.filter(function(x){return x.w.trim().toLowerCase()===k})[0],cs=allCols();
+    sh={mode:'lists'};var s=$('sheet');s.classList.remove('hide');s.scrollTop=0;
+    s.innerHTML="<div class='shd'><div class='big'>Listeye ekle</div><button class='btn ghost' id='ls-x' aria-label='Kapat'>"+ic('x')+"</button></div>"+
+      "<p class='note'><b>"+esc(w)+"</b>"+(m?' — '+esc(m):'')+"</p>"+
+      (cs.length?"<div>"+cs.map(function(c){var on=!!ex&&inCol(ex,c);return "<button class='mchip"+(on?' on':'')+"' data-col='"+escA(c)+"'"+(on?" disabled title='Bu listede zaten var'":'')+">"+esc(c)+(on?' ✓':'')+"</button>"}).join('')+"</div>":"<p class='note'>Henüz bir listen yok; aşağıdan yeni bir liste oluştur.</p>")+
+      "<label for='ls-n'>Yeni liste</label><input id='ls-n' autocomplete='off' placeholder='Yeni listenin adı'><div style='height:10px'></div>"+
+      "<button class='btn main' id='ls-new'>Yeni listeye ekle</button><div class='toast' id='ls-t'></div>";
+    function done(col){
+      var lt=$('ls-t');lt.style.color='var(--bad)';
+      if(!m&&!d){lt.textContent='Bu kelime için sözlükte anlam yok. Aşağıdaki “Kelimelerime ekle” bölümünde anlamını yazıp kaydedebilirsin.';return}
+      var r=upsertWord({w:w,m:m,d:d,pos:pos,ph:ph,e:e,t:t,col:col,src:{type:'dictionary'},msrc:m&&!me.mT?'Vikisözlük':m?'kendi yazdığın':''});
+      if(!r.ok){lt.textContent=r.msg;return}
+      lt.style.color='var(--good)';lt.textContent='✓ “'+w+'” “'+col+'” listesine eklendi.';
+      [].forEach.call(s.querySelectorAll('button,input'),function(x){x.disabled=true});
+      dkeep();setTimeout(function(){if(sh&&sh.mode==='lists')s.classList.add('hide')},1400);
+    }
+    $('ls-x').onclick=function(){s.classList.add('hide')};
+    [].forEach.call(s.querySelectorAll('[data-col]'),function(b){b.onclick=function(){done(b.getAttribute('data-col'))}});
+    $('ls-new').onclick=function(){var c=$('ls-n').value.trim();if(!c){$('ls-t').style.color='var(--bad)';$('ls-t').textContent='Yeni listenin adını yaz.';return}done(c)};
+  }
   function drawDict(){
     var me=DS,o=$('dres');if(!me){o.innerHTML='';return}
     var view=me.view=dview(me),w0=me.q,own=me.own,h='',anyTR=view.some(function(v){return hasTR(v.e)}),saved=function(w){return words.filter(function(x){return x.w.trim().toLowerCase()===w.toLowerCase()})[0]};
     var ph=phOf(own&&own.blocks.length?own:null)||(me.dict&&me.dict.ph)||'',fq=me.fq[w0.toLowerCase()];
     h+="<div class='dcard'><div class='shd'><div><div class='big'>"+esc(w0)+"</div><div class='ph'>"+esc(ph)+"</div></div>"+
-      (me.dict&&me.dict.au?"<button class='btn ghost' id='d-au' title='Sözlükteki ses kaydı'>"+ic('volume')+" Kayıt</button>":'')+"<button class='btn ghost' id='d-tts' title='Cihazın sesiyle oku'>"+ic('speak')+" Oku</button></div>";
+      "<button class='btn ghost' id='d-add' title='Kelimeyi bir listeye ekle'>＋ Listeye ekle</button><button class='btn ghost' id='d-tts' title='Cihazın sesiyle oku'>"+ic('speak')+" Oku</button>"+
+      "<span class='dspd' role='group' aria-label='Okuma hızı'>"+DRATES.map(function(r){return "<button data-rate='"+r[0]+"' class='"+(r[0]===drate()?'on':'')+"' aria-pressed='"+(r[0]===drate())+"'>"+r[1]+"</button>"}).join('')+"</span></div>";
     // Turkish equivalents right under the word, grouped by word type, each list in the order the sources give it.
     // Main: translations tied to one of the entry's current senses (in sense order), then Turkish Wiktionary's meanings.
     // Lighter, after them: translations from tables not tied to a shown sense (often rarer senses). Old / unchecked
@@ -2196,6 +2234,7 @@ body.reading .sheet{max-width:740px}
     twWs.forEach(function(w){(me.tw[w.toLowerCase()]||[]).forEach(function(x){
       if(!grp.some(function(g){return g.pos!==x.pos&&g.l.concat(g.r).some(function(t){return t.toLowerCase()===x.t.toLowerCase()})}))addTr(x.pos,x.t);
     })});
+    me.trs=grp;
     if(grp.length)h+="<div class='dtrs'><b>Türkçe karşılığı</b>"+grp.map(function(g){var m=g.l.slice(0,4),r=g.l.slice(4).concat(g.r).slice(0,6);if(!m.length){m=r.splice(0,4)}
         return "<div>"+(g.pos?"<i>"+esc(POSTR[g.pos]||g.pos)+"</i>":'')+m.map(esc).join(' · ')+(r.length?" <em>· "+r.map(esc).join(' · ')+"</em>":'')+"</div>"}).join('')+
       "<span>"+(trW&&trW.toLowerCase()!==w0.toLowerCase()?"“"+esc(trW)+"” kelimesinin karşılıkları · ":'')+(nEn?'Vikisözlük':'')+(nEn&&nTr>nEn?' + ':'')+(nTr>nEn?'Türkçe Vikisözlük':'')+"</span></div>";
@@ -2277,8 +2316,14 @@ body.reading .sheet{max-width:740px}
       $('d-c').onchange=function(){$('d-cn').classList.toggle('hide',this.value!=='__new');if(this.value==='__new')$('d-cn').focus()};
       $('d-s').onclick=dsave;
     }
-    if($('d-au'))$('d-au').onclick=function(){try{new Audio(me.dict.au).play().catch(function(){speak(w0)})}catch(e){speak(w0)}};
-    $('d-tts').onclick=function(){speak(w0)};
+    $('d-add').onclick=function(){openLists(me)};
+    $('d-tts').onclick=function(){speak(w0,drate())};
+    [].forEach.call(o.querySelectorAll('[data-rate]'),function(b){b.onclick=function(){
+      // the chosen speed is kept in the settings and used for the next words too
+      S.drate=+b.getAttribute('data-rate');saveS();
+      [].forEach.call(o.querySelectorAll('[data-rate]'),function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});
+      speak(w0,drate());
+    }});
     if($('d-re'))$('d-re').onclick=function(){dsearch(me.q)};
     if($('d-mm'))$('d-mm').onclick=function(){
       // optional, user-requested machine translation of the searched word only
