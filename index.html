@@ -2647,13 +2647,35 @@ body.reading .sheet{max-width:740px}
         function(e){AU.err=e&&(e.k||e.message)||'Çıkış yapılamadı.';drawAcct()});
     };
   }
+  // ---- Install as an app (Profile) ----
+  // Chrome/Edge (Android, computer) fire beforeinstallprompt when the app can be installed; the button then opens the
+  // browser's own install dialog. Elsewhere only the manual steps for that device are shown. Nothing is shown when the
+  // app already runs installed (standalone) or once it has been installed. App data is not involved.
+  var INS={ev:null,done:false};
+  function standalone(){try{return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){return false}}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();INS.ev=e;drawInstall()});
+  window.addEventListener('appinstalled',function(){INS.ev=null;INS.done=true;drawInstall()});
+  function drawInstall(){
+    var b=$('p-app');if(!b)return;
+    if(standalone()||INS.done){b.classList.add('hide');b.innerHTML='';return}
+    var ua=navigator.userAgent||'',ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),h="<h2>Uygulamayı yükle</h2>";
+    if(INS.ev)h+="<p class='note'>Words 44’ü bu cihaza uygulama olarak yükle; ana ekrandan ya da masaüstünden tek dokunuşla açılır. Kelimelerin aynı kalır.</p><button class='btn main' id='p-inst'>Uygulamayı Yükle</button>";
+    else if(ios)h+="<p class='note'><b>iPhone / iPad:</b> Safari’de aç, Paylaş simgesine dokun, “Ana Ekrana Ekle”yi seç.</p>";
+    else if(/Android/i.test(ua))h+="<p class='note'><b>Android:</b> Chrome’da aç, sağ üstteki üç noktaya dokun, “Uygulamayı yükle” ya da “Ana ekrana ekle”yi seç.</p>";
+    else h+="<p class='note'><b>Bilgisayar:</b> Chrome ya da Edge’de adres çubuğundaki yükleme simgesine tıkla ya da tarayıcı menüsünden “Uygulamayı yükle”yi seç.</p>";
+    b.innerHTML=h;b.classList.remove('hide');
+    if($('p-inst'))$('p-inst').onclick=function(){
+      var e=INS.ev;if(!e)return;INS.ev=null;
+      try{e.prompt();Promise.resolve(e.userChoice).then(function(c){if(c&&c.outcome==='accepted')INS.done=true;drawInstall()},drawInstall)}catch(er){drawInstall()}
+    };
+  }
   function renderProf(){
     var v=$('v-prof'),nm=S.name||'',cs={};
     var L=words.filter(function(x){return x.box>=3}).length;
     words.forEach(function(x){cols(x).forEach(function(c){cs[c]=1})});
     var st=[[words.length,'kelime'],[L,'öğrenilen'],[ART.length,'makale'],[Object.keys(cs).length,'kelime listesi'],[S.day===today()?S.n:0,'bugünkü tekrar'],[S.tot||0,'toplam tekrar'],[streak(),'gün serisi']];
-    v.innerHTML="<h1>Profil</h1><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel' id='p-acct'></div>";
-    drawAcct();
+    v.innerHTML="<h1>Profil</h1><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
+    drawInstall();drawAcct();
     $('p-n').value=nm;
     $('p-n').oninput=function(){S.name=this.value.trim();saveS();$('p-av').innerHTML=avHtml()};
     Array.prototype.forEach.call(v.querySelectorAll('[data-c]'),function(b){b.onclick=function(){S.avc=+b.getAttribute('data-c');saveS();renderProf()}});
