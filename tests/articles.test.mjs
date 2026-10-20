@@ -1,7 +1,7 @@
 // Articles: saving a pasted text, the reading progress kept while scrolling, and duplicate protection.
 import {test, before, after} from 'node:test';
 import assert from 'node:assert/strict';
-import {startServer, openBrowser, sleep} from './lib/browser.mjs';
+import {startServer, openBrowser} from './lib/browser.mjs';
 import {K, KA} from './lib/app.mjs';
 
 let srv, b;
@@ -33,7 +33,8 @@ test('yapıştırılan metin makale olarak kaydediliyor ve okuyucu açılıyor',
 
 test('kaydırınca okuma ilerlemesi saklanıyor', async () => {
   await b.ev('window.scrollTo(0,(document.documentElement.scrollHeight-innerHeight)/2)');
-  await sleep(1700);
+  // the app saves the reading position about 1.2 s after scrolling stops; wait until it is stored (slow machines)
+  await b.waitFor(`(function(){var a=JSON.parse(localStorage.getItem(${JSON.stringify(KA)})||'[]')[0];return !!a&&typeof a.pos==='number'})()`, 8000);
   const a = (await arts())[0];
   assert.ok(a.pos > 0.4 && a.pos < 0.6, 'ilerleme ~%50: ' + a.pos);
   assert.ok(a.readAt > 0, 'okuma zamanı');

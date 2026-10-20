@@ -2,7 +2,7 @@
 // small utilities. No npm packages: Node's own fetch/WebSocket/child_process only.
 // Every browser gets a fresh temporary profile that is deleted afterwards, so the user's Chrome profile and data are
 // never touched. Requests to anything but the local server are blocked, so tests run offline and repeatably.
-import {spawn} from 'node:child_process';
+import {spawn, spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -12,6 +12,20 @@ import {fileURLToPath} from 'node:url';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const FAKES = path.join(ROOT, 'tests', 'fakes');
 export const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// Every server/browser process a test file starts. If a test file ends without closing them (for example after a
+// failure), they are stopped when that file's process exits, so no child keeps the test run waiting.
+const children = new Set();
+function track(proc) { children.add(proc); proc.once('exit', () => children.delete(proc)); return proc; }
+function killTree(proc) {
+  if (proc.exitCode !== null || proc.signalCode !== null) return;
+  try {
+    // Chrome runs several child processes; end the whole tree of this one process only
+    if (process.platform === 'win32') spawnSync('taskkill', ['/PID', String(proc.pid), '/T', '/F'], {stdio: 'ignore'});
+    else process.kill(-proc.pid, 'SIGKILL');
+  } catch { try { proc.kill('SIGKILL'); } catch {} }
+}
+process.once('exit', () => { for (const p of children) killTree(p); });
 
 export function readApp() { return fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8'); }
 // The app's main script (one IIFE) and the service-worker registration script, as plain source text.
@@ -37,13 +51,13 @@ function freePort() {
 // yerel-sunucu.cjs on a free port; resolves once it answers.
 export async function startServer() {
   const port = await freePort();
-  const proc = spawn(process.execPath, [path.join(ROOT, 'yerel-sunucu.cjs')], {cwd: ROOT, env: {...process.env, PORT: String(port)}, stdio: 'ignore'});
+  const proc = track(spawn(process.execPath, [path.join(ROOT, 'yerel-sunucu.cjs')], {cwd: ROOT, env: {...process.env, PORT: String(port)}, stdio: 'ignore'}));
   const url = `http://127.0.0.1:${port}/`;
   for (let i = 0; i < 100; i++) {
-    try { const r = await fetch(url); if (r.ok) return {url, port, stop: () => proc.kill()}; } catch {}
+    try { const r = await fetch(url); if (r.ok) return {url, port, stop: () => killTree(proc)}; } catch {}
     await sleep(100);
   }
-  proc.kill();
+  killTree(proc);
   throw new Error('local server did not start');
 }
 
@@ -67,14 +81,17 @@ export async function openBrowser(opts = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'words44-test-'));
   // CI runners (Ubuntu) often cannot start Chrome's sandbox; only there, and only for these throwaway test browsers
   const ci = process.env.CI ? ['--no-sandbox'] : [];
-  const proc = spawn(findChrome(), ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + dir, ...ci,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--disable-extensions', 'about:blank'], {stdio: 'ignore'});
+  // own process group on Linux/macOS, so the whole browser can be ended at once (Windows uses taskkill /T)
+  const proc = track(spawn(findChrome(), ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + dir, ...ci,
+    '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--disable-extensions', '--disable-crash-reporter', 'about:blank'],
+    {stdio: 'ignore', detached: process.platform !== 'win32'}));
+  const exited = new Promise(r => proc.once('exit', r));
   let port = 0;
   for (let i = 0; i < 100 && !port; i++) {
     try { port = +fs.readFileSync(path.join(dir, 'DevToolsActivePort'), 'utf8').split('\n')[0]; } catch {}
     if (!port) await sleep(100);
   }
-  if (!port) { proc.kill(); throw new Error('Chrome did not start'); }
+  if (!port) { killTree(proc); throw new Error('Chrome did not start'); }
   let target;
   for (let i = 0; i < 50 && !target; i++) {
     try { target = (await (await fetch(`http://127.0.0.1:${port}/json/list`)).json()).find(t => t.type === 'page'); } catch {}
@@ -145,12 +162,28 @@ export async function openBrowser(opts = {}) {
   };
   b.storage = () => b.ev("(function(){var o={};for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);o[k]=localStorage.getItem(k)}return o})()");
   b.snapshots = () => b.ev("new Promise(function(r){var q=indexedDB.open('44-guvenlik',1);q.onsuccess=function(){try{var t=q.result.transaction('snaps','readonly').objectStore('snaps').getAll();t.onsuccess=function(){r(t.result||[])}}catch(e){r([])}};q.onerror=function(){r([])}})");
+  // Closing never throws: the test results stay what they are. Order: ask Chrome to quit (it then ends its child
+  // processes and releases the profile), wait for it, end the process tree if it does not quit, then delete the
+  // temporary profile. If that still fails, a clear warning is printed and b.cleanupError is set.
+  let closed = false;
   b.close = async () => {
+    if (closed) return; closed = true;
+    try {
+      const v = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();
+      const bws = new WebSocket(v.webSocketDebuggerUrl);
+      await new Promise((res, rej) => { bws.onopen = res; bws.onerror = rej; setTimeout(rej, 2000); });
+      bws.send(JSON.stringify({id: 1, method: 'Browser.close'}));
+    } catch {}
     try { ws.close(); } catch {}
-    proc.kill();
-    await sleep(300);
-    // only ever the temporary profile created above
-    if (dir.startsWith(os.tmpdir()) && path.basename(dir).startsWith('words44-test-')) fs.rmSync(dir, {recursive: true, force: true, maxRetries: 10, retryDelay: 200});
+    const quit = await Promise.race([exited.then(() => true), sleep(5000).then(() => false)]);
+    if (!quit) { killTree(proc); await Promise.race([exited, sleep(3000)]); }
+    // only ever the temporary profile created above, never a user's Chrome profile
+    if (!(dir.startsWith(os.tmpdir()) && path.basename(dir).startsWith('words44-test-'))) return;
+    try { fs.rmSync(dir, {recursive: true, force: true, maxRetries: 25, retryDelay: 200}); }
+    catch (e) {
+      b.cleanupError = e;
+      console.warn(`[words44-test] UYARI: geçici Chrome profili silinemedi (${e.code || e.message}): ${dir}`);
+    }
   };
   return b;
 }

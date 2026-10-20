@@ -27,6 +27,6 @@ jobs:
       - name: Chrome sürümü
         run: google-chrome --version
       - name: Testleri çalıştır
-        run: node --test
+        run: node --test --test-concurrency=4 --test-timeout=60000
         env:
           CHROME_PATH: /usr/bin/google-chrome
