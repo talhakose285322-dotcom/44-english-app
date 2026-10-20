@@ -15,6 +15,7 @@ permissions:
 jobs:
   claude:
     if: |
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) &&
       github.actor != 'claude[bot]' &&
       github.actor != 'github-actions[bot]' &&
       (
