@@ -56,7 +56,7 @@ export async function startServer() {
   const server = createServer((req, res) => {
     let pathname;
     try { pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname); } catch { res.writeHead(400).end(); return; }
-    const rel = pathname === '/' ? 'index.html' : pathname.replace(/^\\/+/, '');
+    const rel = pathname === '/' ? 'index.html' : pathname.split('/').filter(Boolean).join('/');
     const file = path.resolve(ROOT, rel);
     if (file !== ROOT && !file.startsWith(ROOT + path.sep)) { res.writeHead(403).end(); return; }
     fs.readFile(file, (err, data) => {
