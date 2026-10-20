@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import net from 'node:net';
+import {createServer} from 'node:http';
 import {fileURLToPath} from 'node:url';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -48,17 +49,25 @@ function freePort() {
   });
 }
 
-// yerel-sunucu.cjs on a free port; resolves once it answers.
+// A tiny in-process static server avoids relying on a separate local helper file.
 export async function startServer() {
   const port = await freePort();
-  const proc = track(spawn(process.execPath, [path.join(ROOT, 'yerel-sunucu.cjs')], {cwd: ROOT, env: {...process.env, PORT: String(port)}, stdio: 'ignore'}));
+  const types = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.woff2':'font/woff2','.pdf':'application/pdf'};
+  const server = createServer((req, res) => {
+    let pathname;
+    try { pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname); } catch { res.writeHead(400).end(); return; }
+    const rel = pathname === '/' ? 'index.html' : pathname.replace(/^\\/+/, '');
+    const file = path.resolve(ROOT, rel);
+    if (file !== ROOT && !file.startsWith(ROOT + path.sep)) { res.writeHead(403).end(); return; }
+    fs.readFile(file, (err, data) => {
+      if (err) { res.writeHead(err.code === 'ENOENT' ? 404 : 500).end(); return; }
+      res.writeHead(200, {'Content-Type': types[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control':'no-store'});
+      res.end(data);
+    });
+  });
+  await new Promise((resolve, reject) => { server.once('error', reject); server.listen(port, '127.0.0.1', resolve); });
   const url = `http://127.0.0.1:${port}/`;
-  for (let i = 0; i < 100; i++) {
-    try { const r = await fetch(url); if (r.ok) return {url, port, stop: () => killTree(proc)}; } catch {}
-    await sleep(100);
-  }
-  killTree(proc);
-  throw new Error('local server did not start');
+  return {url, port, stop: () => server.close()};
 }
 
 function findChrome() {
