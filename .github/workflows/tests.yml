@@ -1,0 +1,32 @@
+# Words 44 automatic tests: run on every pull request and on every push to main.
+# Node's own test runner and the Chrome that GitHub's Ubuntu runner already has; no npm packages, no secrets.
+# Supabase, speech and dictionary services are faked inside the tests, and all other outside requests are blocked.
+name: Testler
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Chrome sürümü
+        run: google-chrome --version
+      - name: Testleri çalıştır
+        run: node --test
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
