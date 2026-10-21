@@ -19,6 +19,26 @@ const EN = {
 {{en-noun}}
 # The act of drawing near.
 #: {{ux|en|The approach of winter was felt.}}
+`,
+  went: `==English==
+===Verb===
+{{en-verb}}
+# {{en-past of|go}}
+`,
+  go: `==English==
+===Verb===
+{{en-verb}}
+# To move or travel.
+`,
+  committed: `==English==
+===Verb===
+{{en-verb}}
+# {{en-past of|commit}}
+`,
+  commit: `==English===
+===Verb===
+{{en-verb}}
+# To carry out or pledge.
 `
 };
 const TR = {
