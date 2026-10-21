@@ -2620,13 +2620,14 @@ body.reading .sheet{max-width:740px}
   function acctInit(){
     // Handle OAuth callback errors from either query parameters or URL fragments.
     var q=new URLSearchParams(location.search),h=new URLSearchParams((location.hash||'').replace(/^#/,''));
-    var err=q.get('error_description')||q.get('error')||h.get('error_description')||h.get('error');
-    var back=q.has('code')||q.has('error')||h.has('error')||h.has('error_code');
-    if(err||h.has('error_code'))AU.err='Google ile giriş tamamlanamadı: '+(err||h.get('error_code'));
+    var err=q.get('error_description')||q.get('error')||q.get('error_code')||h.get('error_description')||h.get('error')||h.get('error_code');
+    var hashError=h.has('error')||h.has('error_code')||h.has('error_description');
+    var back=q.has('code')||q.has('error')||q.has('error_code')||hashError;
+    if(err)AU.err='Google ile giriş tamamlanamadı: '+err;
     var saved=false;try{saved=!!localStorage.getItem(SB_SKEY)}catch(e){}
     if(!back&&!saved){AU.ready=true;return}
     sbClient().catch(function(e){AU.err=AU.err||e.k||'';AU.ready=true}).then(function(){
-      if(back){try{history.replaceState(null,'',location.pathname)}catch(e){}show('prof')}else drawAcct();
+      if(back){try{history.replaceState(null,'',location.pathname+(hashError?'':location.hash))}catch(e){}show('prof')}else drawAcct();
     });
   }
   function drawAcct(){
