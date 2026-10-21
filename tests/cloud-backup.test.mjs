@@ -87,3 +87,14 @@ test('bozuk bulut yedeği reddedilir ve yerel veriler korunur', async () => {
   assert.equal(await b.ev("!!document.getElementById('rp-r')"), false);
   assert.deepEqual(b.errors, []);
 });
+
+test('buluta yedekleme başarısız olursa cihazdaki veriler korunur', async () => {
+  await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {tot: 4}, [KA]: []});
+  await signIn();
+  await b.ev("window.__sb.fail='upsert'");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('upload failed')");
+  assert.deepEqual((await words()).map(w => w.w), ['apple']);
+  assert.equal((await b.storage())[KS] && JSON.parse((await b.storage())[KS]).tot, 4);
+  assert.deepEqual(b.errors, []);
+});
