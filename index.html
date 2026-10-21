@@ -1034,7 +1034,7 @@ body.reading .sheet{max-width:740px}
     return r;
   }
   var pend=null;
-  function checkBackup(text,src){
+  function checkBackup(text,src,mergeOnly){
     var p=$('rprev');
     try{pend=parseBackup(text)}catch(e){pend=null;p.innerHTML="<div class='prev'><b style='color:var(--bad)'>"+esc(typeof e==='string'?e:'Yedek okunamadı.')+"</b><br>Mevcut verilerine dokunulmadı.</div>";return}
     var r=pend,dt=r.created?new Date(r.created):null,lv=r.vw.filter(function(x){return x.box>=3}).length;
@@ -1044,7 +1044,7 @@ body.reading .sheet{max-width:740px}
     if(r.skip)h+='Okunamayan '+r.skip+' kayıt atlanacak.<br>';
     h+='Şu an bu cihazda: '+words.length+' kelime, '+ART.length+' makale<br>';
     h+="<button class='btn yes' id='rp-m' style='width:100%'>Birleştir (mevcut verilerimi koru, yenileri ekle)</button>";
-    if(r.kind==='full')h+="<button class='btn no' id='rp-r' style='width:100%'>Tamamen değiştir (bu cihazdakinin yerine yedeği koy)</button>";
+    if(r.kind==='full'&&!mergeOnly)h+="<button class='btn no' id='rp-r' style='width:100%'>Tamamen değiştir (bu cihazdakinin yerine yedeği koy)</button>";
     h+="<button class='btn ghost' id='rp-x' style='width:100%'>Vazgeç</button></div>";
     p.innerHTML=h;
     $('rp-m').onclick=function(){restore('merge')};
@@ -2594,14 +2594,14 @@ body.reading .sheet{max-width:740px}
     while(d.indexOf(new Date(t-i*864e5).toISOString().slice(0,10))>=0){c++;i++}
     return c;
   }
-  // ---- Account: Google sign-in through Supabase Auth ----
-  // Sign-in only for now: nothing is synced and no app data is read or written here. supabase-js keeps its session
-  // under its own localStorage key (sb-<project>-auth-token), which the backup does not include. Only the browser-safe
-  // publishable (anon) key belongs in this file; the Google client secret stays in the Supabase dashboard.
+  // ---- Account: Google sign-in and explicit manual cloud backup through Supabase Auth ----
+  // The app remains usable without an account. Cloud backup is manual and only accesses the signed-in user's row.
+  // supabase-js keeps its session under its own localStorage key, which collect() does not include. Only the browser-safe
+  // publishable key belongs here; never put a service-role key or provider secret in client code.
   // The library is loaded only when needed: on the sign-in button, with a saved session, or on the return from Google.
   var SB_URL='https://pamebquqyvlzpznfrrvt.supabase.co',SB_KEY='sb_publishable_n8lqUgWjGVlo0AGRvsXW2Q_FceME-db',SB_SKEY='sb-pamebquqyvlzpznfrrvt-auth-token',
     SB_LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js',
-    SB_SRI='sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok',SB=null,AU={user:null,ready:false,busy:false,err:''};
+    SB_SRI='sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok',SB=null,AU={user:null,ready:false,busy:false,cloudBusy:false,err:'',cloudMsg:'',cloudBad:false};
   function sbClient(){
     if(SB)return SB;
     if(!SB_KEY)return Promise.reject(fail('Google ile giriş henüz yapılandırılmadı.'));
@@ -2630,9 +2630,15 @@ body.reading .sheet{max-width:740px}
   function drawAcct(){
     var b=$('p-acct');if(!b)return;
     var u=AU.user,h="<h2>Hesap</h2>";
-    if(u)h+="<p class='note'>Google hesabıyla giriş yapıldı: <b>"+esc(u.email||(u.user_metadata&&u.user_metadata.full_name)||'')+"</b></p><button class='btn ghost' id='p-out'>Çıkış yap</button>";
-    else if(!AU.ready)h+="<p class='note'>Hesap durumu kontrol ediliyor…</p>";
-    else h+="<p class='note'>Google hesabınla giriş yapabilirsin. Kelimelerin ve ilerlemen şimdilik yalnızca bu cihazda kalır; giriş yapmak onları değiştirmez.</p><button class='btn main' id='p-in'"+(AU.busy?' disabled':'')+">"+(AU.busy?'Google’a yönlendiriliyor…':'Google ile giriş yap')+"</button>";
+    if(u){
+      h+="<p class='note'>Google hesabıyla giriş yapıldı: <b>"+esc(u.email||(u.user_metadata&&u.user_metadata.full_name)||'')+"</b></p>";
+      h+="<p class='note'>Yedekleme yalnızca sen istediğinde yapılır. Geri yükleme mevcut verilerini birleştirir; otomatik olarak silmez.</p>";
+      h+="<button class='btn main' id='p-cloud-save'"+(AU.cloudBusy?' disabled':'')+">"+(AU.cloudBusy?'İşleniyor…':'Buluta yedekle')+"</button> ";
+      h+="<button class='btn ghost' id='p-cloud-load'"+(AU.cloudBusy?' disabled':'')+">Buluttan geri yükle</button> ";
+      h+="<button class='btn ghost' id='p-out'"+(AU.cloudBusy?' disabled':'')+">Çıkış yap</button>";
+    }else if(!AU.ready)h+="<p class='note'>Hesap durumu kontrol ediliyor…</p>";
+    else h+="<p class='note'>Google hesabınla giriş yapabilirsin. Uygulamayı giriş yapmadan da kullanabilirsin; kelimelerin ve ilerlemen bu cihazda kalır. Bulut yedekleme için giriş yap.</p><button class='btn main' id='p-in'"+(AU.busy?' disabled':'')+">"+(AU.busy?'Google’a yönlendiriliyor…':'Google ile giriş yap')+"</button>";
+    if(AU.cloudMsg)h+="<p class='note' style='color:"+(AU.cloudBad?'var(--bad)':'var(--good)')+"' role='status'>"+esc(AU.cloudMsg)+"</p>";
     if(AU.err)h+="<p class='note' style='color:var(--bad)'>"+esc(AU.err)+"</p>";
     b.innerHTML=h;
     if($('p-in'))$('p-in').onclick=function(){
@@ -2641,11 +2647,44 @@ body.reading .sheet{max-width:740px}
         .then(function(r){if(r&&r.error)throw r.error})
         .catch(function(e){AU.busy=false;AU.err=e&&(e.k||e.message)||'Giriş başlatılamadı.';drawAcct()});
     };
+    if($('p-cloud-save'))$('p-cloud-save').onclick=function(){cloudBackup('save')};
+    if($('p-cloud-load'))$('p-cloud-load').onclick=function(){cloudBackup('load')};
     if($('p-out'))$('p-out').onclick=function(){
       // signs out on this device only; app data is not touched
-      sbClient().then(function(c){return c.auth.signOut({scope:'local'})}).then(function(r){if(r&&r.error)throw r.error;AU.user=null;drawAcct()},
+      sbClient().then(function(c){return c.auth.signOut({scope:'local'})}).then(function(r){if(r&&r.error)throw r.error;AU.user=null;AU.cloudMsg='';AU.cloudBad=false;drawAcct()},
         function(e){AU.err=e&&(e.k||e.message)||'Çıkış yapılamadı.';drawAcct()});
     };
+  }
+  function cloudBackup(action){
+    if(AU.cloudBusy)return;
+    if(!AU.user||!AU.user.id){AU.cloudMsg='Bulut yedekleme için önce giriş yap.';AU.cloudBad=true;drawAcct();return}
+    var owner=AU.user.id;
+    AU.cloudBusy=true;AU.cloudMsg=action==='save'?'Yedek buluta kaydediliyor…':'Bulut yedeği kontrol ediliyor…';AU.cloudBad=false;AU.err='';drawAcct();
+    sbClient().then(function(c){
+      if(!AU.user||AU.user.id!==owner)throw new Error('Hesap değişti. Yeniden giriş yapıp tekrar dene.');
+      if(action==='save'){
+        var b=collect(),t=withStamp(b),data=JSON.stringify(b);
+        if(data.length>10*1024*1024)throw new Error('Yedek 10 MB sınırını aşıyor. Önce büyük dosyaları azalt.');
+        return c.from('cloud_backups').upsert({user_id:owner,data:data},{onConflict:'user_id'}).select('updated_at').single().then(function(r){
+          if(r&&r.error)throw r.error;
+          S.lastBackup=t;saveS();stats();renderBackup();
+          AU.cloudMsg='Bulut yedeği kaydedildi ('+b.counts.words+' kelime, '+b.counts.articles+' makale).';AU.cloudBad=false;
+        });
+      }
+      return c.from('cloud_backups').select('data,updated_at').eq('user_id',owner).maybeSingle().then(function(r){
+        if(r&&r.error)throw r.error;
+        if(!r||!r.data||typeof r.data.data!=='string'||!r.data.data.trim())throw new Error('Bu hesap için bulut yedeği bulunamadı.');
+        if(r.data.data.length>10*1024*1024)throw new Error('Bulut yedeği beklenen boyutu aşıyor; veriler değiştirilmedi.');
+        // Preview and validate using the same parser as file restore. Cloud restore is merge-only.
+        checkBackup(r.data.data,'bulut yedeği',true);
+        if(!pend)throw new Error('Bulut yedeği doğrulanamadı; mevcut verilerine dokunulmadı.');
+        AU.cloudMsg='Yedek doğrulandı. Önizlemede “Birleştir” seçeneğini kullanarak verileri güvenle ekleyebilirsin.';AU.cloudBad=false;
+      });
+    }).catch(function(e){
+      AU.cloudMsg=(e&&e.message)||'Bulut işlemi başarısız oldu. İnternet bağlantını ve hesap izinlerini kontrol et.';AU.cloudBad=true;
+    }).then(function(){
+      AU.cloudBusy=false;drawAcct();
+    });
   }
   // ---- Install as an app (Profile) ----
   // Chrome/Edge (Android, computer) fire beforeinstallprompt when the app can be installed; the button then opens the
