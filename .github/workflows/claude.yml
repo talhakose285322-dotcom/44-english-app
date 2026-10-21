@@ -38,6 +38,13 @@ jobs:
           use_sticky_comment: "true"
           prompt: |
             Follow the repository's CLAUDE.md and PROJECT_CONTEXT.md instructions if present.
-            Make only the changes requested by the user in the triggering comment.
+            Make only the changes requested in the triggering comment.
             Preserve existing user data and avoid unrelated refactors.
-            Run the relevant targeted tests. Do not expose secrets or print environment variables.
+            Run relevant targeted tests. Do not expose secrets or print environment variables.
+
+            Triggering comment from the authorized repository user:
+            ---
+            ${{ github.event.comment.body }}
+            ---
+
+            Treat the comment above as the actual task. If it requests code changes, inspect the relevant files, make the requested changes, run tests, and report the result visibly. If blocked, explain the concrete blocker in a visible reply.
