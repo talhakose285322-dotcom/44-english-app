@@ -35,7 +35,7 @@ const EN = {
 {{en-verb}}
 # {{en-past of|commit}}
 `,
-  commit: `==English===
+  commit: `==English==
 ===Verb===
 {{en-verb}}
 # To carry out or pledge.
