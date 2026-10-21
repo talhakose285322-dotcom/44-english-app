@@ -2678,6 +2678,8 @@ body.reading .sheet{max-width:740px}
         // Preview and validate using the same parser as file restore. Cloud restore is merge-only.
         checkBackup(r.data.data,'bulut yedeği',true);
         if(!pend)throw new Error('Bulut yedeği doğrulanamadı; mevcut verilerine dokunulmadı.');
+        // The restore preview lives in the Add/Restore screen. Navigate there so the user can actually review and merge it.
+        goBackup();
         AU.cloudMsg='Yedek doğrulandı. Önizlemede “Birleştir” seçeneğini kullanarak verileri güvenle ekleyebilirsin.';AU.cloudBad=false;
       });
     }).catch(function(e){
