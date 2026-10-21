@@ -57,6 +57,7 @@ test('buluttan geri yükleme doğrulanır ve yalnızca birleştirme sunar', asyn
   await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(cloudPayload())+",updated_at:new Date().toISOString()}");
   await b.ev("document.getElementById('p-cloud-load').click()");
   await b.waitFor("!!document.getElementById('rp-m')");
+  await b.waitFor("document.getElementById('n-add').classList.contains('on')");
   assert.equal(await b.ev("!!document.getElementById('rp-r')"), false, 'bulut yedeği mevcut verileri değiştirememeli');
   await b.ev("document.getElementById('rp-m').click()");
   await b.waitFor("document.getElementById('rprev').innerText.includes('Geri yükleme tamamlandı')");
