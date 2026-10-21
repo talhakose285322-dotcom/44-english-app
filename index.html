@@ -2664,7 +2664,7 @@ body.reading .sheet{max-width:740px}
       if(!AU.user||AU.user.id!==owner)throw new Error('Hesap değişti. Yeniden giriş yapıp tekrar dene.');
       if(action==='save'){
         var b=collect(),t=withStamp(b),data=JSON.stringify(b);
-        if(data.length>10*1024*1024)throw new Error('Yedek 10 MB sınırını aşıyor. Önce büyük dosyaları azalt.');
+        if(new Blob([data]).size>10*1024*1024)throw new Error('Yedek 10 MB sınırını aşıyor. Önce büyük dosyaları azalt.');
         return c.from('cloud_backups').upsert({user_id:owner,data:data},{onConflict:'user_id'}).select('updated_at').single().then(function(r){
           if(r&&r.error)throw r.error;
           S.lastBackup=t;saveS();stats();renderBackup();
@@ -2674,7 +2674,7 @@ body.reading .sheet{max-width:740px}
       return c.from('cloud_backups').select('data,updated_at').eq('user_id',owner).maybeSingle().then(function(r){
         if(r&&r.error)throw r.error;
         if(!r||!r.data||typeof r.data.data!=='string'||!r.data.data.trim())throw new Error('Bu hesap için bulut yedeği bulunamadı.');
-        if(r.data.data.length>10*1024*1024)throw new Error('Bulut yedeği beklenen boyutu aşıyor; veriler değiştirilmedi.');
+        if(new Blob([r.data.data]).size>10*1024*1024)throw new Error('Bulut yedeği beklenen boyutu aşıyor; veriler değiştirilmedi.');
         // Preview and validate using the same parser as file restore. Cloud restore is merge-only.
         checkBackup(r.data.data,'bulut yedeği',true);
         if(!pend)throw new Error('Bulut yedeği doğrulanamadı; mevcut verilerine dokunulmadı.');
