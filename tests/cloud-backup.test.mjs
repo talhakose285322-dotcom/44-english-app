@@ -75,3 +75,14 @@ test('bulut okuma hatasında yerel veriler değişmeden kalır', async () => {
   assert.deepEqual((await words()).map(w => w.w), ['apple']);
   assert.deepEqual(b.errors, []);
 });
+
+test('bozuk bulut yedeği reddedilir ve yerel veriler korunur', async () => {
+  await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {}, [KA]: []});
+  await signIn();
+  await b.ev("window.__sb.row={user_id:'user-1',data:'not-json',updated_at:new Date().toISOString()}");
+  await b.ev("document.getElementById('p-cloud-load').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('doğrulanamadı')");
+  assert.deepEqual((await words()).map(w => w.w), ['apple']);
+  assert.equal(await b.ev("!!document.getElementById('rp-r')"), false);
+  assert.deepEqual(b.errors, []);
+});
