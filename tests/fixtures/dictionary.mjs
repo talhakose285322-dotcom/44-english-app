@@ -22,7 +22,7 @@ const EN = {
 `
 };
 const TR = {
-  approach: `==İngilizce==
+  approach: `== İngilizce ==
 ===Ad===
 {{en-ad}}
 # [[yaklaşım]]
