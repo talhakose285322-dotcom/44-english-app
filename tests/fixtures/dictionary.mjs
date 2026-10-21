@@ -39,6 +39,16 @@ const EN = {
 ===Verb===
 {{en-verb}}
 # To carry out or pledge.
+`,
+  better: `==English==
+===Adjective===
+{{en-adj}}
+# {{en-comparative of|good}}
+`,
+  good: `==English==
+===Adjective===
+{{en-adj}}
+# Having positive qualities.
 `
 };
 const TR = {
