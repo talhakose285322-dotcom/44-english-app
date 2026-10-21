@@ -1753,9 +1753,9 @@ body.reading .sheet{max-width:740px}
     return cached('tw:'+k,function(){
       if(!k)return Promise.resolve([]);
       return jget('https://tr.wiktionary.org/w/api.php?action=parse&prop=wikitext&format=json&formatversion=2&origin=*&redirects=1&page='+encodeURIComponent(k)).then(function(j){
-        var t=j&&j.parse,wt=t&&t.wikitext||'',i=wt.indexOf('==İngilizce==');
-        if(i<0||String(t.title||'').toLowerCase()!==k)return [];
-        var r=wt.slice(i+13),e=r.search(/\n==[^=]/),out=[],pos='';
+        var t=j&&j.parse,wt=t&&t.wikitext||'',hm=wt.match(/(?:^|\n)[ \t]*==[ \t]*İngilizce[ \t]*==[ \t]*/);
+        if(!hm||String(t.title||'').toLowerCase()!==k)return [];
+        var r=wt.slice(hm.index+hm[0].length),e=r.search(/\n==[^=]/),out=[],pos='';
         (e>=0?r.slice(0,e):r).split('\n').forEach(function(l){
           var hm=l.match(/^===+\s*([^=]+?)\s*===+/);if(hm){pos=TWPOS[hm[1].toLocaleLowerCase('tr')]||'';return}
           if(!/^#\s*[^:*#\s]/.test(l))return;
