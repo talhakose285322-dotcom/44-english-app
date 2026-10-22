@@ -44,4 +44,11 @@ for (const privateName of ['index.backup.html', 'index (1).html', '.git']) {
     throw new Error(`Non-production file leaked into build: ${privateName}`);
   }
 }
+// Expose the exact packaged release to support lightweight update diagnostics.
+const release = html.match(/Words 44 · Sürüm (\d+\.\d+\.\d+)/);
+if (!release) throw new Error('Profile release version is missing');
+fs.writeFileSync(path.join(out, 'version.json'), JSON.stringify({
+  version: release[1],
+  builtAt: new Date().toISOString()
+}, null, 2) + '\n');
 console.log('Words 44 static build ready: dist/');
