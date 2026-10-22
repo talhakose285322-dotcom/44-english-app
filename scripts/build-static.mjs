@@ -5,8 +5,8 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = path.join(root, 'dist');
 const required = ['index.html', 'manifest.json', 'sw.js', 'icon.svg', 'icons', 'vendor'];
-// Public metadata and legal pages must be shipped with the application.
-const optionalPublic = ['privacy.html', 'robots.txt', 'sitemap.xml'];
+// Public landing page, metadata and legal pages must ship with the application.
+const optionalPublic = ['welcome.html', 'privacy.html', 'robots.txt', 'sitemap.xml'];
 
 for (const item of required) {
   if (!fs.existsSync(path.join(root, item))) {
@@ -38,6 +38,9 @@ for (const item of required) {
   if (!fs.existsSync(path.join(out, item))) {
     throw new Error(`Production output is missing: ${item}`);
   }
+}
+if (fs.existsSync(path.join(root, 'welcome.html')) && !fs.existsSync(path.join(out, 'welcome.html'))) {
+  throw new Error('Public landing page is missing from production output.');
 }
 for (const privateName of ['index.backup.html', 'index (1).html', '.git']) {
   if (fs.existsSync(path.join(out, privateName))) {
