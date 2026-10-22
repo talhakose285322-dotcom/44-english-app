@@ -1615,7 +1615,7 @@ body.reading .sheet{max-width:740px}
   // only ever taken from such an explicit "form of" template; it is never guessed from the spelling.
   var POSTR={noun:'isim',verb:'fiil',adjective:'sıfat',adverb:'zarf',preposition:'edat',conjunction:'bağlaç',pronoun:'zamir',interjection:'ünlem',phrase:'ifade',idiom:'deyim',determiner:'belirleyici',numeral:'sayı','proper noun':'özel isim',prefix:'ön ek',suffix:'son ek',particle:'parçacık',article:'tanımlık',contraction:'kısaltma',abbreviation:'kısaltma',participle:'ortaç'};
   var POSOF={verb:'fiilinin',adjective:'sıfatının',adverb:'zarfının',noun:'isminin'};
-  var FORMT=/^(en-)?(infl of|inflection of|plural of|irregular plural of|simple past of|past of|past participle of|present participle of|ing form of|third-person singular of|third person singular of|comparative of|superlative of|simple past and past participle of|past tense of)$/;
+  var FORMT=/^(en-)?(infl of|inflection of|plural of|irregular plural of|simple past of|past of|past participle of|present participle of|ing form of|third-person singular of|third person singular of|comparative of|superlative of|simple past and past participle of|past tense of|past tense and past participle of|en-past of|en-past participle of)$/;
   var OLDLB=/^(archaic|obsolete|dated|rare|historical|nonstandard|dialectal|dialect|Early Modern English|Middle English|poetic|eye dialect|proscribed|now rare|rare outside)$/i;
   function wkPage(p){
     // The page's wikitext, or null. A redirect to another word does not count as this word.
@@ -1631,9 +1631,9 @@ body.reading .sheet{max-width:740px}
     if(/comparative/.test(n)||/ (comparative|comd) /.test(t))return 'karşılaştırma (comparative) biçimi';
     if(/superlative/.test(n)||/ (superlative|supd) /.test(t))return 'üstünlük (superlative) biçimi';
     if(/plural/.test(n))return 'çoğul biçimi';
-    if(/ ed-form /.test(t)||/simple past and past participle/.test(n))return 'geçmiş zaman ve 3. hâl (past participle) biçimi';
+    if(/ ed-form /.test(t)||/simple past and past participle|past tense and past participle|en-past participle/.test(n))return 'geçmiş zaman ve 3. hâl (past participle) biçimi';
     if(/past participle/.test(n)||(/ past /.test(t)&&/ (part|ptcp|participle) /.test(t)))return '3. hâl (past participle) biçimi';
-    if(/ (spast|past) /.test(t)||/past/.test(n))return 'geçmiş zaman (past simple) biçimi';
+    if(/ (spast|past) /.test(t)||/past/.test(n)||/en-past/.test(n))return 'geçmiş zaman (past simple) biçimi';
     if(/present participle|ing form/.test(n)||/ (ing-form|ing) /.test(t)||(/ pres /.test(t)&&/ (part|ptcp) /.test(t)))return '-ing biçimi';
     if(/third.person/.test(n)||/ s-verb-form /.test(t)||/ 3 /.test(t))return '3. tekil şahıs (he/she/it) biçimi';
     if(/ (p|pl|plural) /.test(t))return 'çoğul biçimi';
