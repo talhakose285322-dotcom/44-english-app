@@ -1,5 +1,8 @@
 # Cloudflare Pages deployment
 
+> **Migration status:** Do not treat Cloudflare as production until the deployed `pages.dev` site serves the current GitHub `main` commit and the production domain is verified. Keep Netlify available until that check passes. The existence of a `pages.dev` URL alone does not prove GitHub auto-deploy is connected.
+
+
 Words 44 is a static PWA. This repository now includes a build script that creates a production-only `dist/` folder without changing the source app or the current Netlify setup.
 
 ## Cloudflare Pages settings
