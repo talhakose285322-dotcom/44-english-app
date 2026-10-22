@@ -26,6 +26,10 @@ jobs:
           node-version: 24
       - name: Chrome sürümü
         run: google-chrome --version
+      - name: Üretim paketini doğrula
+        run: |
+          node scripts/build-static.mjs
+          node -e "const fs=require('node:fs'); const v=JSON.parse(fs.readFileSync('dist/version.json','utf8')); if(!/^\\d+\\.\\d+\\.\\d+$/.test(v.version)) process.exit(1); console.log('Release:',v.version)"
       - name: Testleri çalıştır
         run: node --test --test-concurrency=4 --test-timeout=60000
         env:
