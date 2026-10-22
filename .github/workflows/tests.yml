@@ -31,6 +31,6 @@ jobs:
           node scripts/build-static.mjs
           node -e "const fs=require('node:fs'); const v=require('./dist/version.json'); const html=fs.readFileSync('./dist/index.html','utf8'); if(v.version.split('.').length!==3||!html.includes('Words 44 · Sürüm '+v.version)||!fs.existsSync('./dist/welcome.html')||!fs.existsSync('./dist/_headers')) process.exit(1); console.log('Release and update assets verified:',v.version)"
       - name: Testleri çalıştır
-        run: node --test --test-concurrency=4 --test-timeout=60000
+        run: node --test --test-concurrency=1 --test-timeout=60000
         env:
           CHROME_PATH: /usr/bin/google-chrome
