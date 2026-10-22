@@ -112,5 +112,5 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 - Doğrulanan: fcd2017 commit'inde üretim paketi doğrulaması ve tüm otomatik testler başarılı; GitHub Pages yedek yayını başarılı. Veri geri yükleme testleri bozuk/gelecek/eski biçimli yedekleri, birleştirmeyi, açık değiştirme onayını ve yalnız ayarlar varken güvenlik kopyasını kapsıyor.
 - Canlı GitHub Pages yedek sürümü 1.0.8; tanıtım, gizlilik ve kullanım koşulları sayfaları erişilebilir.
 - Önemli açık sorun: ana Cloudflare Pages `https://44-english-app.pages.dev/version.json` hâlâ 1.0.6 gösteriyor; GitHub Pages yedeği 1.0.8. Ana yayın güncel kodu sunana kadar sürüm eşleşmesi ve ana yayın otomatik dağıtımı tamamlanmış sayılmaz.
-- Veri şeması ve yedek davranışı DATA-SAFETY.md dosyasında belgelenmiştir. Restore öncesi koruma mantığı, yalnız ayarlar saklıyken de yedek alacak şekilde düzeltildi ve otomatik testten geçti.
+- Veri şeması ve yedek davranışı DATA-SAFETY.md dosyasında belgelenmiştir. Restore öncesi koruma mantığı, yalnız ayarlar saklıyken de yedek alacak şekilde düzeltildi ve otomatik testten geçti (fcd2017).
 - App Store/Google Play yayınları ve uçtan uca ödeme henüz doğrulanmış değil.
