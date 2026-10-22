@@ -1,0 +1,18 @@
+{
+  "name": "words-44-native-experiment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Experimental native wrapper build for Words 44; does not change the production web app.",
+  "scripts": {
+    "build:native-web": "node scripts/build-native-web.mjs",
+    "cap:sync": "npm run build:native-web && cap sync",
+    "android": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}
