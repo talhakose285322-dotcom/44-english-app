@@ -98,3 +98,30 @@ test('buluta yedekleme başarısız olursa cihazdaki veriler korunur', async () 
   assert.equal((await b.storage())[KS] && JSON.parse((await b.storage())[KS]).tot, 4);
   assert.deepEqual(b.errors, []);
 });
+
+test('boş cihaz mevcut bulut yedeğinin üzerine yazamaz', async () => {
+  await b.seed({[K]: [], [KS]: {}, [KA]: []});
+  await signIn();
+  const prior = cloudPayload();
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(prior)+",updated_at:new Date().toISOString()}");
+  await b.ev("window.__sb.calls=[]");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('Boş cihaz yedeğiyle üzerine yazılmadı')");
+  assert.equal((await b.ev("window.__sb.row.data")), prior);
+  assert.equal((await b.ev("window.__sb.calls")).includes('upsert'), false);
+  assert.deepEqual(b.errors, []);
+});
+
+test('mevcut bulut yedeğinin üzerine yazmak için onay istenir', async () => {
+  await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {}, [KA]: []});
+  await signIn();
+  const prior = cloudPayload();
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(prior)+",updated_at:new Date().toISOString()}");
+  await b.ev("window.__sb.calls=[]");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("window.__sb.calls.includes('select')");
+  await b.waitFor("window.__sb.calls.includes('upsert')===false && window.__sb.row.data==="+JSON.stringify(prior));
+  assert.ok(b.dialogs.some(x => x.includes('zaten bir bulut yedeği var')));
+  assert.equal((await b.ev("window.__sb.row.data")), prior);
+  assert.deepEqual(b.errors, []);
+});
