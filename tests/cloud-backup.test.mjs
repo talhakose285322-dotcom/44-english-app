@@ -157,3 +157,36 @@ test('yalnızca makale içeren bulut yedeği de boş cihaz tarafından ezilemez'
   assert.equal((await b.ev("window.__sb.calls")).includes('upsert'), false);
   assert.deepEqual(b.errors, []);
 });
+
+test('bulut birleştirmesi aynı kelimeyi çoğaltmaz, mevcut ilerlemeyi korur ve yeni anlamı ekler', async () => {
+  const localWord = {id: 'local-pear', w: 'pear', m: 'armut', box: 2, e: 'fruit', x: []};
+  const localArticle = {id: 'local-story', title: 'A story', text: 'A saved article'};
+  await b.seed({[K]: [localWord], [KS]: {}, [KA]: [localArticle]});
+  await signIn();
+  const payload = JSON.stringify({
+    format: '44-backup', version: 1, app: '44', created: new Date().toISOString(),
+    counts: {words: 1, articles: 1},
+    keys: {
+      [K]: [{id: 'cloud-pear', w: 'PEAR', m: 'cloud meaning', box: 0, e: 'pear tree', t: 'armut ağacı', x: [{e: 'fruit', t: 'meyve'}]}],
+      [KS]: {},
+      [KA]: [{id: 'cloud-story', title: 'A story', text: 'A saved article'}]
+    },
+    extra: {}, unreadable: {}
+  });
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(payload)+",updated_at:new Date().toISOString()}");
+  await b.ev("document.getElementById('p-cloud-load').click()");
+  await b.waitFor("!!document.getElementById('rp-m')");
+  await b.ev("document.getElementById('rp-m').click()");
+  await b.waitFor("document.getElementById('rprev').innerText.includes('Geri yükleme tamamlandı')");
+  const savedWords = await words();
+  const savedArticles = JSON.parse((await b.storage())[KA] || '[]');
+  assert.equal(savedWords.length, 1, 'aynı kelimenin ikinci kopyası eklenmemeli');
+  assert.equal(savedWords[0].id, 'local-pear', 'yerel kelimenin kimliği korunmalı');
+  assert.equal(savedWords[0].box, 2, 'yerel öğrenme seviyesi korunmalı');
+  assert.equal(savedWords[0].m, 'armut', 'yerel anlamın üzerine yazılmamalı');
+  assert.ok((savedWords[0].x || []).some(x => x.e === 'pear tree'), 'buluttaki yeni alternatif anlam eklenmeli');
+  assert.equal(savedArticles.length, 1, 'aynı başlık ve metindeki makale çoğaltılmamalı');
+  assert.equal(savedArticles[0].id, 'local-story', 'yerel makale kimliği korunmalı');
+  assert.deepEqual(b.errors, []);
+});
+
