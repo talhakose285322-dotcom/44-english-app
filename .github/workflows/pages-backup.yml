@@ -32,6 +32,9 @@ jobs:
           grep -q '../index.html' dist/welcome/index.html
           grep -q '../welcome.html' dist/welcome/index.html
           grep -q '../privacy.html' dist/welcome/index.html
+          grep -q '../terms.html' dist/welcome/index.html
+          test -s dist/terms.html
+          test -s dist/privacy.html
           test -s dist/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
