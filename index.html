@@ -1056,8 +1056,11 @@ body.reading .sheet{max-width:740px}
     p.scrollIntoView({block:'nearest'});
   }
   function safeguard(){
-    // Take a safety copy of the current data before changing anything. If that is impossible, download a file instead.
-    if(!words.length&&!ART.length&&!Object.keys(BLOCK).length)return Promise.resolve(true);
+    // Take a safety copy of any existing local data before changing anything, including settings-only data.
+    // If storage cannot be inspected, the in-memory word/article/error checks below remain a conservative fallback.
+    var hasStoredData=false;
+    try{hasStoredData=localStorage.length>0}catch(e){}
+    if(!hasStoredData&&!words.length&&!ART.length&&!Object.keys(BLOCK).length)return Promise.resolve(true);
     return snapAdd('geri yüklemeden önce').then(function(){return true},function(){
       return saveFile('44-otomatik-yedek-'+stamp()+'.json',JSON.stringify(collect())).then(function(){
         return confirm('Tarayıcıya güvenlik kopyası kaydedilemedi, bu yüzden mevcut verilerin dosya olarak indirildi. İndirme tamamlandıysa devam edilsin mi?');
