@@ -2673,7 +2673,21 @@ body.reading .sheet{max-width:740px}
       if(action==='save'){
         var b=collect(),t=withStamp(b),data=JSON.stringify(b);
         if(new Blob([data]).size>10*1024*1024)throw new Error('Yedek 10 MB sınırını aşıyor. Önce büyük dosyaları azalt.');
-        return c.from('cloud_backups').upsert({user_id:owner,data:data},{onConflict:'user_id'}).select('updated_at').single().then(function(r){
+        return c.from('cloud_backups').select('data,updated_at').eq('user_id',owner).maybeSingle().then(function(existing){
+          if(existing&&existing.error)throw existing.error;
+          if(existing&&existing.data&&typeof existing.data.data==='string'&&existing.data.data.trim()){
+            var prior=existing.data.data,hasSavedData=false;
+            try{
+              var oldBackup=JSON.parse(prior),oldKeys=oldBackup&&oldBackup.keys;
+              hasSavedData=!!(oldKeys&&((Array.isArray(oldKeys[KEY])&&oldKeys[KEY].length)||(Array.isArray(oldKeys[AK])&&oldKeys[AK].length)));
+            }catch(e){hasSavedData=true}
+            if(hasSavedData&&!b.counts.words&&!b.counts.articles){
+              throw new Error('Bu hesapta mevcut kelime veya makale içeren bir yedek var. Boş cihaz yedeğiyle üzerine yazılmadı; önce “Buluttan geri yükle” seçeneğini kullan.');
+            }
+            if(!confirm('Bu hesapta zaten bir bulut yedeği var. Yeni yedek onun üzerine yazacak. Devam etmek istiyor musun?'))throw new Error('Bulut yedeği değiştirilmedi.');
+          }
+          return c.from('cloud_backups').upsert({user_id:owner,data:data},{onConflict:'user_id'}).select('updated_at').single();
+        }).then(function(r){
           if(r&&r.error)throw r.error;
           S.lastBackup=t;saveS();stats();renderBackup();
           AU.cloudMsg='Bulut yedeği kaydedildi ('+b.counts.words+' kelime, '+b.counts.articles+' makale).';AU.cloudBad=false;
