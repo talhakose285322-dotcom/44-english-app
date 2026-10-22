@@ -22,6 +22,16 @@ for (const item of [...required, ...optionalPublic]) {
   }
 }
 
+// Also publish an extensionless-friendly /welcome/ route for hosts that don't map /welcome to welcome.html.
+const landingPage = path.join(out, 'welcome.html');
+if (fs.existsSync(landingPage)) {
+  const welcomeDir = path.join(out, 'welcome');
+  fs.mkdirSync(welcomeDir, {recursive: true});
+  const welcomeHtml = fs.readFileSync(landingPage, 'utf8')
+    .replace(/([\"'])\.\/index\.html\1/g, '$1../index.html$1');
+  fs.writeFileSync(path.join(welcomeDir, 'index.html'), welcomeHtml);
+}
+
 const html = fs.readFileSync(path.join(out, 'index.html'), 'utf8');
 for (const asset of ['manifest.json', 'sw.js', 'icons/apple-touch-icon.png', 'vendor/pdfjs/pdf.min.mjs', 'vendor/pdfjs/pdf.worker.min.mjs']) {
   if (!html.includes(asset) && asset !== 'sw.js') {
