@@ -26,7 +26,7 @@ if (!html.includes(registrationGuard)) {
 }
 html = html.replace(registrationGuard, "if (!window.Capacitor?.isNativePlatform?.() && 'serviceWorker' in navigator && location.protocol !== 'file:')");
 // Only the native staging output gets the bundled Capacitor auth bridge.
-html = html.replace('</body>', '<script src="./native-auth-bridge.js"></script>\\n</body>');
+html = html.replace('</body>', '<script src="./native-auth-bridge.js"></script>\n</body>');
 await writeFile(stagedIndex, html, 'utf8');
 await build({
   entryPoints: [new URL('./native-auth-bridge.js', import.meta.url).pathname],
