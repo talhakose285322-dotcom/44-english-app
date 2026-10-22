@@ -1,4 +1,4 @@
-﻿const CACHE = "english-app-v11";
+﻿const CACHE = "english-app-v12";
 // Only the app shell is required; a failed optional file must not block the update (iOS would keep the old worker).
 const CORE = ["./", "./index.html"];
 const FILES = ["./", "./index.html", "./manifest.json", "./icon.svg",
