@@ -6,15 +6,8 @@ let listening = false;
 let activeClient = null;
 
 function getClient() {
-  if (!clientPromise) {
-    clientPromise = Promise.resolve().then(() => {
-      if (typeof window.sbClient !== 'function') {
-        throw new Error('Words 44 auth client is not ready.');
-      }
-      return window.sbClient();
-    });
-  }
-  return clientPromise;
+  if (!activeClient) throw new Error('Words 44 auth client is not ready.');
+  return activeClient;
 }
 
 async function handleCallback(rawUrl) {
@@ -24,7 +17,7 @@ async function handleCallback(rawUrl) {
   if (authError) throw new Error(authError);
   const code = url.searchParams.get('code');
   if (!code) throw new Error('Google giriş dönüşünde yetkilendirme kodu bulunamadı.');
-  const client = await getClient();
+  const client = getClient();
   const { error } = await client.auth.exchangeCodeForSession(code);
   if (error) throw error;
   try { await Browser.close(); } catch {}
@@ -38,7 +31,8 @@ async function reportError(error) {
   }));
 }
 
-async function startGoogleSignIn(client) {\n  activeClient = client;
+async function startGoogleSignIn(client) {
+  activeClient = client;
   if (!listening) {
     listening = true;
     App.addListener('appUrlOpen', ({ url }) => {
@@ -49,10 +43,7 @@ async function startGoogleSignIn(client) {\n  activeClient = client;
   }
   const { data, error } = await client.auth.signInWithOAuth({
     provider: 'google',
-    options: {
-      redirectTo: CALLBACK_PREFIX,
-      skipBrowserRedirect: true
-    }
+    options: { redirectTo: CALLBACK_PREFIX, skipBrowserRedirect: true }
   });
   if (error) throw error;
   if (!data?.url) throw new Error('Google giriş sayfası oluşturulamadı.');
