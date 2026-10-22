@@ -84,3 +84,16 @@ test('eski dizi biçimli yedek içe aktarılırken mevcut yerel kelimeler korunu
   assert.equal(JSON.parse((await b.storage())[KS]).goal, 21);
   assert.deepEqual(b.errors, []);
 });
+
+test('yalnız ayarlar varken geri yükleme öncesi de güvenlik kopyası alınır', async () => {
+  await b.seed({[KS]: {goal: 23}});
+  await openRestore();
+  await pasteBackup(fullBackup({[K]: [{id: 'backup-pear', w: 'pear', m: 'armut', box: 0}], [KS]: {goal: 99}, [KA]: []}));
+  await b.waitFor("!!document.getElementById('rp-m')");
+  await b.ev("document.getElementById('rp-m').click()");
+  await b.waitFor("document.getElementById('rprev').innerText.includes('Geri yükleme tamamlandı')");
+  assert.ok((await b.snapshots()).some(x => x.why === 'geri yüklemeden önce'), 'ayar verisi de geri yükleme öncesi korunmalı');
+  assert.equal(JSON.parse((await b.storage())[KS]).goal, 23, 'birleştirme mevcut ayarı korumalı');
+  assert.ok((await words()).some(w => w.w === 'pear'));
+  assert.deepEqual(b.errors, []);
+});
