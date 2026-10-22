@@ -71,3 +71,16 @@ test('yedek birleştirmesi mevcut kelimeyi/ilerlemeyi korur, yeni kelimeyi ekler
   assert.ok((await b.snapshots()).some(x => x.why === 'geri yüklemeden önce'), 'geri yükleme öncesi otomatik kopya alınmalı');
   assert.deepEqual(b.errors, []);
 });
+
+test('eski dizi biçimli yedek içe aktarılırken mevcut yerel kelimeler korunur', async () => {
+  await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 2}], [KS]: {goal: 21}, [KA]: []});
+  await openRestore();
+  await b.ev(`document.getElementById('imp').value=${JSON.stringify(JSON.stringify([{id: 'legacy-pear', w: 'pear', m: 'armut', box: 0}]))};document.getElementById('impb').click()`);
+  await b.waitFor("!!document.getElementById('rp-m')");
+  assert.equal(await b.ev("!!document.getElementById('rp-r')"), false, 'eski biçim mevcut verinin yerine yazma seçeneği sunmamalı');
+  await b.ev("document.getElementById('rp-m').click()");
+  await b.waitFor("document.getElementById('rprev').innerText.includes('Geri yükleme tamamlandı')");
+  assert.deepEqual((await words()).map(w => w.w).sort(), ['apple', 'pear']);
+  assert.equal(JSON.parse((await b.storage())[KS]).goal, 21);
+  assert.deepEqual(b.errors, []);
+});
