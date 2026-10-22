@@ -1,0 +1,8 @@
+{
+  "appId": "com.words44.learning.preview",
+  "appName": "Words 44",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
