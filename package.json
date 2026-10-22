@@ -1,0 +1,17 @@
+{
+  "name": "words-44",
+  "version": "1.0.3",
+  "private": true,
+  "description": "Words 44 English learning app — Android preview packaging",
+  "scripts": {
+    "build:web": "node scripts/prepare-web.cjs",
+    "android:sync": "npm run build:web && cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}
