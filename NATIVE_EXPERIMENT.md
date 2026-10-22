@@ -41,3 +41,10 @@ Before a device test, add this exact redirect URL to Supabase Auth > URL Configu
 `com.words44.app://auth/callback`
 
 The generated Android project must also contain a matching VIEW/BROWSABLE intent filter for scheme `com.words44.app` (and host `auth` if the generated manifest constrains the host). Verify the generated manifest instead of assuming the default scheme is correct. Test Google success, cancellation, provider error, cold-start callback, existing session restore, and repeat login on a physical device. The smoke test only verifies that the bridge is bundled and includes the PKCE exchange path; it does not prove OAuth works end-to-end.
+
+
+## Repeatable Android deep-link setup
+
+After installing dependencies, initialize the native Android project once with `npx cap add android`. Then run `npm run cap:sync`; it stages the web assets, runs Capacitor sync, and invokes `scripts/configure-android-deeplink.mjs`. The script adds an idempotent VIEW/DEFAULT/BROWSABLE intent filter for `com.words44.app://auth/callback` to the generated `.MainActivity`. It fails closed if the Android project or expected activity is missing, rather than silently editing an unexpected file.
+
+This automation has been committed but not run in an Android SDK environment. Inspect the generated manifest and test the actual callback on a device before release.
