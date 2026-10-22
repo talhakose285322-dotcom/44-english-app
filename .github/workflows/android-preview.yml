@@ -16,6 +16,7 @@ on:
       - 'package-lock.json'
       - 'capacitor.config.ts'
       - 'scripts/prepare-web.cjs'
+      - 'scripts/set-android-version.cjs'
       - '.github/workflows/android-preview.yml'
 
 permissions:
