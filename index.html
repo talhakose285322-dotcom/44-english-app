@@ -2715,7 +2715,7 @@ body.reading .sheet{max-width:740px}
     var L=words.filter(function(x){return x.box>=3}).length;
     words.forEach(function(x){cols(x).forEach(function(c){cs[c]=1})});
     var st=[[words.length,'kelime'],[L,'öğrenilen'],[ART.length,'makale'],[Object.keys(cs).length,'kelime listesi'],[S.day===today()?S.n:0,'bugünkü tekrar'],[S.tot||0,'toplam tekrar'],[streak(),'gün serisi']];
-    v.innerHTML="<h1>Profil</h1><div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.0.4 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel' id='p-acct'></div>";
+    v.innerHTML="<h1>Profil</h1><div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.0.5 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel' id='p-acct'></div>";
     drawAcct();
     var hostLabel=$('p-host');if(hostLabel)hostLabel.textContent='· '+(location.hostname.endsWith('pages.dev')?'Cloudflare':location.hostname.endsWith('netlify.app')?'Netlify':'Web');
     $('p-n').value=nm;
@@ -3337,6 +3337,22 @@ body.reading .sheet{max-width:740px}
   // A release that changes only index.html brings no new worker, so a page kept in memory would stay old. The page's
   // ETag (hash part only; the host adds an encoding suffix) is noted at launch and compared after a long absence;
   // a different one marks the same pending reload, with the same conditions. A failed check changes nothing.
+  // Compare against the build's published release marker when available.
+  // This also works on hosts that omit ETag headers.
+  var runningVersion = '1.0.5';
+  function checkRelease() {
+    return fetch('./version.json?check=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) return null; return r.json(); })
+      .then(function (v) {
+        if (!v || !/^\\d+\\.\\d+\\.\\d+$/.test(v.version)) return;
+        var current = runningVersion.split('.').map(Number);
+        var latest = v.version.split('.').map(Number);
+        for (var i = 0; i < 3; i++) {
+          if (latest[i] > current[i]) { pending = true; tryReload(); return; }
+          if (latest[i] < current[i]) return;
+        }
+      }).catch(function () {});
+  }
   var tag0 = null;
   function pageTag() {
     return fetch(location.pathname, { method: 'HEAD', cache: 'no-store' }).then(function (r) {
@@ -3351,6 +3367,7 @@ body.reading .sheet{max-width:740px}
     reg.update().catch(function(){});
     // Check the deployed HTML after every foreground return, including short absences.
     // A changed page is reloaded only after a safe 5-minute idle interval.
+    if (awayMs >= 300000) checkRelease();
     if (awayMs >= 300000 && !pending) pageTag().then(function (t) {
       if (!t) return; if (!tag0) { tag0 = t; return; }
       if (t !== tag0) { pending = true; tryReload(); }
