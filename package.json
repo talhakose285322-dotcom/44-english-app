@@ -7,7 +7,7 @@
     "build:native-web": "node scripts/build-native-web.mjs",
     "cap:sync": "npm run build:native-web && cap sync",
     "android": "cap open android",
-    "test:native-web": "npm run build:native-web && node -e \"const fs=require('fs'); for (const f of ['dist/index.html','dist/manifest.json','dist/vendor/pdfjs']) if(!fs.existsSync(f)) process.exit(1); const h=fs.readFileSync('dist/index.html','utf8'); if(!h.includes('Capacitor?.isNativePlatform')) process.exit(2); console.log('Native staging smoke test passed')\""
+    "test:native-web": "npm run build:native-web && node scripts/test-native-web.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^7.4.3",
