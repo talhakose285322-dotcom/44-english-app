@@ -23,8 +23,8 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 
 ## Faz 1 — Veri güvenliği ve geri yükleme
 - [x] 1.1 Kelimeler, listeler, makaleler ve öğrenme ilerlemesi için veri şemasını belgele (DATA-SAFETY.md; kaynak kodda görülen yerel anahtarlar, IndexedDB kopyaları ve yedek biçimi).
-- [ ] 1.2 Veriyi ezebilecek işlemlerde açık onay ve güvenli hata davranışını test et.
-- [ ] 1.3 Bozuk/eksik/eski yedeklerde yerel verinin değişmeden kaldığını doğrula.
+- [x] 1.2 Veriyi ezebilecek işlemlerde açık onay ve güvenli hata davranışını test et (backup-restore.test.mjs: tam değiştirme onayını iptal etme ve veri koruma; bulut yedekleme hatası testleri).
+- [x] 1.3 Bozuk/eksik/eski yedeklerde yerel verinin değişmeden kaldığını doğrula (bozuk JSON, gelecek sürüm, eski dizi biçimi ve bulut yedeği hata senaryoları test edildi).
 - [ ] 1.4 Bulut yedeğinin yalnızca oturum açmış kullanıcının verisine eriştiğini doğrula.
 - [ ] 1.5 Dışa/içe aktarma akışını ve yedek biçiminin taşınabilirliğini kontrol et.
 - [ ] 1.6 Cihaz değişimi, hesap kaybı ve veri saklama sınırlarını açıkça anlat.
@@ -109,8 +109,8 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 ## Mevcut durum ve ilk iş
 - Tamamlanan işler yalnızca kanıtı görüldükten sonra işaretlenir.
 - Öncelik: Faz 0 — ana Cloudflare yayınının güncel commit'i sunmasını sağlamak; ardından Faz 1 veri güvenliği testlerine devam etmek.
-- Doğrulanan: c162c4a commit'inde üretim paketi doğrulaması ve tüm otomatik testler başarılı; GitHub Pages yedek yayını başarılı. ROADMAP.md ve DATA-SAFETY.md dokümantasyon commit'leri için otomatik testler yeniden çalışıyor.
+- Doğrulanan: fcd2017 commit'inde üretim paketi doğrulaması ve tüm otomatik testler başarılı; GitHub Pages yedek yayını başarılı. Veri geri yükleme testleri bozuk/gelecek/eski biçimli yedekleri, birleştirmeyi, açık değiştirme onayını ve yalnız ayarlar varken güvenlik kopyasını kapsıyor.
 - Canlı GitHub Pages yedek sürümü 1.0.8; tanıtım, gizlilik ve kullanım koşulları sayfaları erişilebilir.
 - Önemli açık sorun: ana Cloudflare Pages `https://44-english-app.pages.dev/version.json` hâlâ 1.0.6 gösteriyor; GitHub Pages yedeği 1.0.8. Ana yayın güncel kodu sunana kadar sürüm eşleşmesi ve ana yayın otomatik dağıtımı tamamlanmış sayılmaz.
-- Veri şeması ve yedek davranışı DATA-SAFETY.md dosyasında belgelenmiştir; bu dokümantasyon henüz uygulama testlerinin yerine geçmez.
+- Veri şeması ve yedek davranışı DATA-SAFETY.md dosyasında belgelenmiştir. Restore öncesi koruma mantığı, yalnız ayarlar saklıyken de yedek alacak şekilde düzeltildi ve otomatik testten geçti.
 - App Store/Google Play yayınları ve uçtan uca ödeme henüz doğrulanmış değil.
