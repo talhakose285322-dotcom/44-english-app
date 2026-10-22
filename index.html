@@ -3344,7 +3344,7 @@ body.reading .sheet{max-width:740px}
     return fetch('./version.json?check=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { if (!r.ok) return null; return r.json(); })
       .then(function (v) {
-        if (!v || !/^\\d+\\.\\d+\\.\\d+$/.test(v.version)) return;
+        if (!v || !/^\d+\.\d+\.\d+$/.test(v.version)) return;
         var current = runningVersion.split('.').map(Number);
         var latest = v.version.split('.').map(Number);
         for (var i = 0; i < 3; i++) {
