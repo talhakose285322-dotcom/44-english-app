@@ -5,6 +5,8 @@ import {fileURLToPath} from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = path.join(root, 'dist');
 const required = ['index.html', 'manifest.json', 'sw.js', 'icon.svg', 'icons', 'vendor'];
+// Public metadata and legal pages must be shipped with the application.
+const optionalPublic = ['privacy.html', 'robots.txt', 'sitemap.xml'];
 
 for (const item of required) {
   if (!fs.existsSync(path.join(root, item))) {
@@ -14,8 +16,10 @@ for (const item of required) {
 
 fs.rmSync(out, {recursive: true, force: true});
 fs.mkdirSync(out, {recursive: true});
-for (const item of required) {
-  fs.cpSync(path.join(root, item), path.join(out, item), {recursive: true});
+for (const item of [...required, ...optionalPublic]) {
+  if (fs.existsSync(path.join(root, item))) {
+    fs.cpSync(path.join(root, item), path.join(out, item), {recursive: true});
+  }
 }
 
 const html = fs.readFileSync(path.join(out, 'index.html'), 'utf8');
