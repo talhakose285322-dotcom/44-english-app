@@ -89,7 +89,7 @@ function findChrome() {
 export async function openBrowser(opts = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'words44-test-'));
   // CI runners (Ubuntu) often cannot start Chrome's sandbox; only there, and only for these throwaway test browsers
-  const ci = process.env.CI ? ['--no-sandbox'] : [];
+  const ci = process.env.CI ? ['--no-sandbox', '--disable-dev-shm-usage', '--no-zygote'] : [];
   // own process group on Linux/macOS, so the whole browser can be ended at once (Windows uses taskkill /T)
   const proc = track(spawn(findChrome(), ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + dir, ...ci,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--disable-extensions', '--disable-crash-reporter', 'about:blank'],
