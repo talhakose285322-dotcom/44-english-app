@@ -54,7 +54,11 @@ test('yedek birleştirmesi mevcut kelimeyi/ilerlemeyi korur, yeni kelimeyi ekler
     {id: 'backup-pear', w: 'pear', m: 'armut', box: 0}
   ], [KS]: {goal: 99, theme: 'dark'}, [KA]: []}));
   await b.waitFor("!!document.getElementById('rp-m')");
-  assert.equal(await b.ev("!!document.getElementById('rp-r')"), true, 'tam değiştirme seçeneği görünmeli ama otomatik uygulanmamalı');
+  assert.equal(await b.ev("!!document.getElementById('rp-r')"), true, 'tam değiştirme seçeneği görünmeli');
+  await b.ev("document.getElementById('rp-r').click()");
+  await b.waitFor("document.getElementById('rp-r')!==null");
+  assert.ok(b.dialogs.some(x => x.includes('değiştirilecek') && x.includes('güvenlik kopyası')), 'tam değiştirme açık onay istemeli');
+  assert.deepEqual((await words()).map(w => [w.w, w.box]), [['apple', 3]], 'onay verilmediğinde yerel veri değişmemeli');
   await b.ev("document.getElementById('rp-m').click()");
   await b.waitFor("document.getElementById('rprev').innerText.includes('Geri yükleme tamamlandı')");
   const saved = await words();
