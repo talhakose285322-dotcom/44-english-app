@@ -125,3 +125,35 @@ test('mevcut bulut yedeğinin üzerine yazmak için onay istenir', async () => {
   assert.equal((await b.ev("window.__sb.row.data")), prior);
   assert.deepEqual(b.errors, []);
 });
+
+
+test('onay verilirse mevcut bulut yedeği yerel verilerle değiştirilebilir', async () => {
+  await b.seed({[K]: [{id: 'local-orange', w: 'orange', m: 'portakal', box: 0}], [KS]: {}, [KA]: []});
+  await signIn();
+  const prior = cloudPayload();
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(prior)+",updated_at:new Date().toISOString()}");
+  await b.ev("window.confirm=()=>true");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('Bulut yedeği kaydedildi')");
+  const saved = JSON.parse(await b.ev("window.__sb.row.data"));
+  assert.equal(saved.keys[K][0].w, 'orange');
+  assert.deepEqual(b.errors, []);
+});
+
+test('yalnızca makale içeren bulut yedeği de boş cihaz tarafından ezilemez', async () => {
+  await b.seed({[K]: [], [KS]: {}, [KA]: []});
+  await signIn();
+  const prior = JSON.stringify({
+    format: '44-backup', version: 1, app: '44', created: new Date().toISOString(),
+    counts: {words: 0, articles: 1},
+    keys: {[K]: [], [KS]: {}, [KA]: [{id: 'cloud-story', title: 'A story', text: 'A saved article'}]},
+    extra: {}, unreadable: {}
+  });
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(prior)+",updated_at:new Date().toISOString()}");
+  await b.ev("window.__sb.calls=[]");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('Boş cihaz yedeğiyle üzerine yazılmadı')");
+  assert.equal(await b.ev("window.__sb.row.data"), prior);
+  assert.equal((await b.ev("window.__sb.calls")).includes('upsert'), false);
+  assert.deepEqual(b.errors, []);
+});
