@@ -36,3 +36,22 @@ test('production manifest icons and service-worker precache files all exist in d
     assert.ok(fs.existsSync(path.join(out, relativeAsset(item))), 'service-worker precache asset is missing from production build: ' + item);
   }
 });
+
+test('production release marker matches the version shown inside the app', () => {
+  const html = fs.readFileSync(path.join(out, 'index.html'), 'utf8');
+  const match = html.match(/Words 44 · Sürüm (\\d+\\.\\d+\\.\\d+)/);
+  assert.ok(match, 'app must expose a semantic release version');
+  const marker = JSON.parse(fs.readFileSync(path.join(out, 'version.json'), 'utf8'));
+  assert.equal(marker.version, match[1], 'version.json must match the actual app version');
+});
+
+test('backup build uses its own canonical host without changing the primary source files', () => {
+  const base = 'https://talhakose285322-dotcom.github.io/44-english-app';
+  for (const item of ['welcome.html', 'terms.html', 'privacy.html', 'sitemap.xml', 'robots.txt']) {
+    const file = path.join(out, item);
+    if (!fs.existsSync(file)) continue;
+    const body = fs.readFileSync(file, 'utf8');
+    assert.ok(!body.includes('https://44-english-app.pages.dev'), item + ' must not advertise the primary host on GitHub Pages');
+    if (item === 'sitemap.xml') assert.ok(body.includes(base), 'backup sitemap must point to the backup host');
+  }
+});
