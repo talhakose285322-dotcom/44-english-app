@@ -30,3 +30,14 @@ Before enabling sign-in in an APK/AAB, implement and test the native OAuth retur
 - Test restore against a disposable account/dataset first; confirm a cloud restore cannot silently replace non-empty local data.
 - A PWA installed from the old Netlify origin and an app opened from Cloudflare Pages are separate browser origins. They do not share origin storage or service-worker updates. Do not promise a cross-origin in-place update; provide an explicit, tested export/import or authenticated cloud-sync migration before asking users to switch.
 - Release gate: build an Android package on a machine with Android Studio/SDK, install it on a physical device, and verify Google login/callback, logout, offline launch, PDF import, local persistence after update, and cloud backup/restore. This repository branch is scaffolding only until that gate passes.
+
+
+## Native Google OAuth bridge (experimental, not release-ready)
+
+The native staging build now bundles a Capacitor `@capacitor/app` / `@capacitor/browser` bridge and routes the existing Google button through it only when running natively. The bridge requests the Supabase PKCE authorization URL, opens the system browser, listens for the `com.words44.app://auth/callback` deep link, and calls `exchangeCodeForSession(code)`. Web/PWA sign-in retains its existing redirect path. The bridge is staged into `dist/` only; production `index.html` remains unchanged.
+
+Before a device test, add this exact redirect URL to Supabase Auth > URL Configuration > Redirect URLs:
+
+`com.words44.app://auth/callback`
+
+The generated Android project must also contain a matching VIEW/BROWSABLE intent filter for scheme `com.words44.app` (and host `auth` if the generated manifest constrains the host). Verify the generated manifest instead of assuming the default scheme is correct. Test Google success, cancellation, provider error, cold-start callback, existing session restore, and repeat login on a physical device. The smoke test only verifies that the bridge is bundled and includes the PKCE exchange path; it does not prove OAuth works end-to-end.
