@@ -2602,6 +2602,7 @@ body.reading .sheet{max-width:740px}
   var SB_URL='https://pamebquqyvlzpznfrrvt.supabase.co',SB_KEY='sb_publishable_n8lqUgWjGVlo0AGRvsXW2Q_FceME-db',SB_SKEY='sb-pamebquqyvlzpznfrrvt-auth-token',
     SB_LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js',
     SB_SRI='sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok',SB=null,AU={user:null,ready:false,busy:false,cloudBusy:false,err:'',cloudMsg:'',cloudBad:false};
+  window.addEventListener('words44-native-auth-error',function(ev){AU.busy=false;AU.err=ev&&ev.detail&&ev.detail.message||'Google girişi tamamlanamadı.';drawAcct()});
   function sbClient(){
     if(SB)return SB;
     if(!SB_KEY)return Promise.reject(fail('Google ile giriş henüz yapılandırılmadı.'));
@@ -2617,6 +2618,7 @@ body.reading .sheet{max-width:740px}
     SB.catch(function(){SB=null});
     return SB;
   }
+  window.Words44GetAuthClient=sbClient;
   function acctInit(){
     // Handle OAuth callback errors from either query parameters or URL fragments.
     var q=new URLSearchParams(location.search),h=new URLSearchParams((location.hash||'').replace(/^#/,''));
@@ -2651,7 +2653,7 @@ body.reading .sheet{max-width:740px}
     b.innerHTML=h;
     if($('p-in'))$('p-in').onclick=function(){
       AU.busy=true;AU.err='';drawAcct();
-      sbClient().then(function(c){return c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}})})
+      sbClient().then(function(c){if(window.Capacitor?.isNativePlatform?.()&&window.Words44NativeAuth)return window.Words44NativeAuth.startGoogleSignIn(c);return c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}})})
         .then(function(r){if(r&&r.error)throw r.error})
         .catch(function(e){AU.busy=false;AU.err=e&&(e.k||e.message)||'Giriş başlatılamadı.';drawAcct()});
     };

@@ -1,0 +1,50 @@
+# Words 44 native packaging experiment
+
+This branch is intentionally separate from `main`. It adds only a Capacitor scaffold and a staging script; it does not modify the deployed web app.
+
+## Build preparation
+
+1. Install a current Node.js LTS release.
+2. Run `npm install`.
+3. Run `npm run build:native-web` to stage the existing app in `dist/`.
+4. Run `npx cap add android` once, then `npm run cap:sync` and `npm run android`.
+
+## Important limitations
+
+- This is **not** a Play Store-ready app and no APK/AAB has been built or tested here.
+- Android Studio and its Android SDK are required to compile and sign an Android package.
+- Authentication redirects, local storage, PDF import, offline behavior, and cloud backup must be tested in a real emulator/device before release.
+- The existing iPhone home-screen app and production web deployment are untouched.
+- Do not merge this branch into `main` until the native build and core flows have been tested.
+
+## Native Google sign-in is a release blocker
+
+The current app calls Supabase OAuth with `redirectTo: location.origin + location.pathname` and relies on the browser URL for the PKCE callback. In a Capacitor Android WebView that origin is not the deployed website origin, so **Google sign-in must not be considered working in a native package yet**.
+
+Before enabling sign-in in an APK/AAB, implement and test the native OAuth return flow using Capacitor's Browser/App plugins and a dedicated app URL scheme or verified HTTPS app link. Register that exact callback URL in Supabase Auth's allowed redirect URLs and configure the Android intent filter. The callback must return the PKCE code to the app and complete `exchangeCodeForSession`; do not place Supabase secret keys in the client. Keep the existing website redirect behavior unchanged.
+
+## Data safety and migration
+
+- Keep local-first use available; authentication should remain optional for basic study features.
+- Never clear localStorage or IndexedDB during packaging, login changes, app updates, or migration.
+- Test restore against a disposable account/dataset first; confirm a cloud restore cannot silently replace non-empty local data.
+- A PWA installed from the old Netlify origin and an app opened from Cloudflare Pages are separate browser origins. They do not share origin storage or service-worker updates. Do not promise a cross-origin in-place update; provide an explicit, tested export/import or authenticated cloud-sync migration before asking users to switch.
+- Release gate: build an Android package on a machine with Android Studio/SDK, install it on a physical device, and verify Google login/callback, logout, offline launch, PDF import, local persistence after update, and cloud backup/restore. This repository branch is scaffolding only until that gate passes.
+
+
+## Native Google OAuth bridge (experimental, not release-ready)
+
+The native staging build now bundles a Capacitor `@capacitor/app` / `@capacitor/browser` bridge and routes the existing Google button through it only when running natively. The bridge requests the Supabase PKCE authorization URL, opens the system browser, listens for the `com.words44.app://auth/callback` deep link, and calls `exchangeCodeForSession(code)`. Web/PWA sign-in retains its existing redirect path. The bridge is staged into `dist/` only; production `index.html` remains unchanged.
+
+Before a device test, add this exact redirect URL to Supabase Auth > URL Configuration > Redirect URLs:
+
+`com.words44.app://auth/callback`
+
+The generated Android project must also contain a matching VIEW/BROWSABLE intent filter for scheme `com.words44.app` (and host `auth` if the generated manifest constrains the host). Verify the generated manifest instead of assuming the default scheme is correct. Test Google success, cancellation, provider error, cold-start callback, existing session restore, and repeat login on a physical device. The smoke test only verifies that the bridge is bundled and includes the PKCE exchange path; it does not prove OAuth works end-to-end.
+
+
+## Repeatable Android deep-link setup
+
+After installing dependencies, initialize the native Android project once with `npx cap add android`. Then run `npm run cap:sync`; it stages the web assets, runs Capacitor sync, and invokes `scripts/configure-android-deeplink.mjs`. The script adds an idempotent VIEW/DEFAULT/BROWSABLE intent filter for `com.words44.app://auth/callback` to the generated `.MainActivity`. It fails closed if the Android project or expected activity is missing, rather than silently editing an unexpected file.
+
+This automation has been committed but not run in an Android SDK environment. Inspect the generated manifest and test the actual callback on a device before release.
