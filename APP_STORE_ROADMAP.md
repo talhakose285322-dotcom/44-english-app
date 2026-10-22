@@ -38,3 +38,20 @@ Bu belge, mevcut statik HTML/PWA uygulamasını koruyarak mağaza sürümlerine 
 
 ## Şu an yapılmayanlar
 Bu belge tek başına native uygulama üretmez, mağazaya yüklemez, Apple/Google hesaplarını veya imzalama anahtarlarını oluşturmaz. Bunlar ancak yapılandırma ve gerçek cihaz testlerinden sonra yapılmalıdır.
+
+## Otomatik güncelleme sözleşmesi (yayın öncesi kapı)
+
+### Web / yüklenmiş PWA
+- [x] Service Worker ile uygulama kabuğu önbelleği ve yeni worker geldiğinde devralma.
+- [x] Sürüm işareti (`version.json`) kontrolü ve uygulama meşgulken otomatik yenilemeyi erteleme.
+- [ ] Her yayın için sürüm işaretinin gerçekten değiştiğini ve üretim dağıtımının tamamlandığını doğrula.
+- [ ] iOS Safari ana ekranı, Android Chrome ana ekranı ve masaüstü tarayıcıda eski sürümden yeni sürüme yükseltme testi.
+- [ ] Güncelleme sırasında kelime listeleri, makaleler, açık çalışma oturumu ve çevrimdışı açılışın korunduğunu test et.
+
+### App Store / Google Play
+- [ ] Yerel iOS ve Android projelerini ayrı paketler olarak üret; web PWA'yı mağaza paketiyle karıştırma.
+- [ ] Sürüm numarası/build numarası ile web sürümünü eşleştir ve her yayın için mağaza derlemesi üret.
+- [ ] Yerel uygulama içindeki web içeriği güncelleniyorsa, kritik değişiklikleri mağaza kurallarına uygun şekilde yönet; native kod değişiklikleri için yeni mağaza sürümü gerektiğini kabul et.
+- [ ] İmzalama, gerçek cihaz testi, mağaza incelemesi ve kademeli yayın tamamlanmadan “tüm platformlarda güncel” ilan etme.
+
+**Yayın ilkesi:** GitHub'a commit atılması tek başına canlıya çıktığı anlamına gelmez. Üretim dağıtımı başarılı olmalı; web sürüm kontrolü ve ilgili platformun güncelleme yolu doğrulanmadan tamamlandı denmemelidir.
