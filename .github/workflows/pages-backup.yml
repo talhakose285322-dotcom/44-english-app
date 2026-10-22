@@ -28,6 +28,8 @@ jobs:
           node scripts/build-static.mjs
           touch dist/.nojekyll
           test -s dist/welcome.html
+          test -s dist/welcome/index.html
+          grep -q '../index.html' dist/welcome/index.html
           test -s dist/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
