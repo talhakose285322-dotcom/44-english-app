@@ -3349,6 +3349,8 @@ body.reading .sheet{max-width:740px}
     resumedAt = Date.now(); awayMs = hiddenAt ? resumedAt - hiddenAt : 0;
     tryReload();
     reg.update().catch(function(){});
+    // Check the deployed HTML after every foreground return, including short absences.
+    // A changed page is reloaded only after a safe 5-minute idle interval.
     if (awayMs >= 300000 && !pending) pageTag().then(function (t) {
       if (!t) return; if (!tag0) { tag0 = t; return; }
       if (t !== tag0) { pending = true; tryReload(); }
