@@ -70,3 +70,12 @@ test('Oku düğmesi varsayılan 0.6 hızla İngilizce sesle okuyor; seçilen hı
   assert.equal(JSON.parse((await b.storage())[K + '-s']).drate, 0.85);
   assert.deepEqual(b.errors, []);
 });
+
+test('çekimli biçimler Wikisözlük kalıplarından güvenilir kök kelimeye bağlanıyor', async () => {
+  for (const [form, lemma] of [['went', 'go'], ['committed', 'commit'], ['better', 'good']]) {
+    await b.ev(`document.getElementById('dq').value=${JSON.stringify(form)};document.getElementById('dq-go').click()`);
+    await b.waitFor(`document.querySelector('.dform')&&document.querySelector('.dform').innerText.includes(${JSON.stringify(lemma)})&&!/aranıyor/.test(document.getElementById('dres').innerText)`, 8000);
+    const relation = await b.ev("document.querySelector('.dform').innerText");
+    assert.match(relation, new RegExp(lemma));
+  }
+});
