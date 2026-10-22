@@ -44,6 +44,8 @@ jobs:
         run: npx cap add android
       - name: Sync web assets
         run: npx cap sync android
+      - name: Set Android version metadata
+        run: node scripts/set-android-version.cjs
       - name: Build debug APK
         working-directory: android
         run: ./gradlew assembleDebug
