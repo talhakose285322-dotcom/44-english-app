@@ -3,7 +3,7 @@ import { Browser } from '@capacitor/browser';
 
 const CALLBACK_PREFIX = 'com.words44.app://auth/callback';
 let listening = false;
-let clientPromise = null;
+let activeClient = null;
 
 function getClient() {
   if (!clientPromise) {
@@ -38,7 +38,7 @@ async function reportError(error) {
   }));
 }
 
-async function startGoogleSignIn(client) {
+async function startGoogleSignIn(client) {\n  activeClient = client;
   if (!listening) {
     listening = true;
     App.addListener('appUrlOpen', ({ url }) => {
