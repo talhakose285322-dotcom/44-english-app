@@ -1,6 +1,7 @@
 name: Native staging check
 
 on:
+  workflow_dispatch:
   push:
     branches: [android-capacitor-experiment]
   pull_request:
