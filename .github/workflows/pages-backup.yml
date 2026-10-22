@@ -35,6 +35,10 @@ jobs:
           grep -q '../terms.html' dist/welcome/index.html
           test -s dist/terms.html
           test -s dist/privacy.html
+          grep -q 'https://talhakose285322-dotcom.github.io/44-english-app/welcome.html' dist/welcome.html
+          grep -q 'https://talhakose285322-dotcom.github.io/44-english-app/terms.html' dist/terms.html
+          grep -q 'https://talhakose285322-dotcom.github.io/44-english-app/terms.html' dist/sitemap.xml
+          ! grep -q 'https://44-english-app.pages.dev' dist/sitemap.xml
           test -s dist/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
