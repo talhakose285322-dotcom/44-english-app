@@ -1,7 +1,7 @@
-﻿const CACHE = "english-app-v13";
+﻿const CACHE = "english-app-v14";
 // Only the app shell is required; a failed optional file must not block the update (iOS would keep the old worker).
 const CORE = ["./", "./index.html"];
-const FILES = ["./", "./index.html", "./manifest.json", "./icon.svg",
+const FILES = ["./", "./index.html", "./manifest.json", "./version.json", "./icon.svg",
   "./vendor/pdfjs/pdf.min.mjs", "./vendor/pdfjs/pdf.worker.min.mjs",
   "./icons/icon-180.png", "./icons/apple-touch-icon.png?v=9", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/favicon-32.png"];
 
