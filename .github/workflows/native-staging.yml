@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - run: npm run build:native-web
       - run: npx cap add android
       - run: npm run cap:sync
       - run: npm run test:native-web
