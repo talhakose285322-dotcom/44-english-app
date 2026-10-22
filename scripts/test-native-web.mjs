@@ -22,5 +22,7 @@ assert.equal(manifest.display, 'standalone', 'PWA manifest should preserve stand
 assert.ok(statSync('dist/vendor/pdfjs').isDirectory(), 'PDF.js runtime directory must be copied');
 const bridge = readFileSync('dist/native-auth-bridge.js', 'utf8');
 assert.ok(bridge.includes('appUrlOpen'), 'Bundled native bridge must listen for deep-link callbacks');
+assert.ok(bridge.includes('App.getLaunchUrl()'), 'Native bridge must handle OAuth callback when the app cold-starts');
+assert.ok(bridge.includes('Words44GetAuthClient'), 'Native bridge must be able to restore the auth client on cold start');
 assert.ok(bridge.includes('exchangeCodeForSession'), 'Bundled native bridge must exchange the PKCE code');
 console.log('Native staging smoke tests passed. These checks do not validate Android compilation or OAuth on a device.');
