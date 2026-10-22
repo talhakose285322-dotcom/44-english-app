@@ -14,7 +14,7 @@ on:
       - 'vendor/**'
       - 'package.json'
       - 'package-lock.json'
-      - 'capacitor.config.ts'
+      - 'capacitor.config.json'
       - 'scripts/prepare-web.cjs'
       - 'scripts/set-android-version.cjs'
       - '.github/workflows/android-preview.yml'
