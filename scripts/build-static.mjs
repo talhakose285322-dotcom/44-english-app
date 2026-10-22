@@ -30,4 +30,18 @@ for (const asset of ['manifest.json', 'sw.js', 'icons/apple-touch-icon.png', 've
     if (!sw.includes(asset)) throw new Error(`Production asset is not referenced by app or service worker: ${asset}`);
   }
 }
+// Prevent a successful-looking deployment if the generated entry point is stale or empty.
+if (Buffer.byteLength(html, 'utf8') < 50_000) {
+  throw new Error('Production index.html is unexpectedly small; refusing deployment.');
+}
+for (const item of required) {
+  if (!fs.existsSync(path.join(out, item))) {
+    throw new Error(`Production output is missing: ${item}`);
+  }
+}
+for (const privateName of ['index.backup.html', 'index (1).html', '.git']) {
+  if (fs.existsSync(path.join(out, privateName))) {
+    throw new Error(`Non-production file leaked into build: ${privateName}`);
+  }
+}
 console.log('Words 44 static build ready: dist/');
