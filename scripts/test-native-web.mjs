@@ -2,6 +2,11 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 
 const required = ['dist/index.html', 'dist/icon.svg', 'dist/icons', 'dist/manifest.json', 'dist/vendor/pdfjs', 'dist/native-auth-bridge.js'];
+const packageJson = JSON.parse(readFileSync('package.json', 'utf8'));
+assert.ok(packageJson.scripts['configure:android'], 'Android deep-link configuration command must exist');
+const manifestScript = readFileSync('scripts/configure-android-deeplink.mjs', 'utf8');
+assert.ok(manifestScript.includes('android:scheme="com.words44.app"'), 'Android manifest script must register the OAuth scheme');
+assert.ok(manifestScript.includes('android:host="auth"'), 'Android manifest script must constrain the OAuth host');
 for (const path of required) assert.ok(existsSync(path), `Missing staged runtime asset: ${path}`);
 
 const html = readFileSync('dist/index.html', 'utf8');
