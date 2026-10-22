@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101126">
+<meta name="description" content="Words 44 ile İngilizce kelimelerini öğren, kendi listelerini oluştur ve öğrendiklerini düzenli tekrar et.">
+<title>Words 44 — İngilizceni kelime kelime geliştir</title>
+<style>
+:root{color-scheme:dark;--bg:#0c0d1b;--panel:#15172a;--ink:#f7f7ff;--muted:#b4b7d0;--line:#ffffff1b;--accent:#9285ff;--accent2:#65d7ce}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#40338a55,transparent 40%),radial-gradient(ellipse at 0% 55%,#167e8050,transparent 38%),var(--bg);color:var(--ink);font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}.top{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.04em;font-size:1.18rem}.mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,#4b83ff,#7651e8 65%,#ad64ed);font-size:20px;font-weight:900;box-shadow:0 8px 28px #6654ee45}.nav{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:.92rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:14px;background:linear-gradient(120deg,#7767ff,#9a70ff);color:white;font-weight:750;box-shadow:0 10px 28px #7160ff30;transition:transform .18s,filter .18s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn.secondary{background:#ffffff0a;border:1px solid var(--line);box-shadow:none}.hero{padding:90px 0 76px;display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:7px 12px;border:1px solid #8e83ff55;border-radius:999px;background:#7565ff15;color:#d4d0ff;font-size:.82rem;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 12px var(--accent2)}h1{font-size:clamp(2.6rem,6vw,4.7rem);line-height:1.03;letter-spacing:-.065em;margin:23px 0 22px;max-width:700px}h1 span{background:linear-gradient(95deg,#a99cff,#65d7ce);background-clip:text;color:transparent}.lead{font-size:1.12rem;color:var(--muted);max-width:570px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 22px}.subnote{color:#9297b6;font-size:.86rem}.mock{padding:20px;border:1px solid #ffffff25;border-radius:28px;background:linear-gradient(145deg,#ffffff12,#ffffff04);box-shadow:0 30px 100px #0005;transform:rotate(1deg)}.mocktop{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.8rem;margin-bottom:18px}.pill{padding:5px 9px;background:#65d7ce18;border:1px solid #65d7ce40;border-radius:99px;color:#8ce9df}.mock h3{font-size:1.45rem;margin:0 0 5px}.mock p{margin:0;color:var(--muted);font-size:.9rem}.word{margin-top:18px;padding:17px;border-radius:17px;background:#0c0d1bbd;border:1px solid var(--line)}.word strong{font-size:1.12rem}.word small{display:block;color:var(--muted);margin-top:3px}.progress{height:6px;border-radius:9px;background:#ffffff15;margin-top:17px;overflow:hidden}.progress i{display:block;height:100%;width:68%;background:linear-gradient(90deg,#8e7dff,#65d7ce);border-radius:9px}.section{padding:72px 0}.sectionhead{max-width:650px;margin-bottom:30px}.kicker{color:var(--accent2);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.045em;margin:12px 0}.sectionhead p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{padding:23px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#ffffff0b,#ffffff04)}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#8c7bff1c;color:#c3baff;font-weight:900;font-size:1.15rem}.card h3{margin:17px 0 7px;font-size:1.08rem}.card p{margin:0;color:var(--muted);font-size:.94rem}.band{margin:25px 0 75px;padding:34px;border:1px solid #8e83ff45;border-radius:24px;background:linear-gradient(115deg,#7465ff20,#65d7ce0c);display:flex;justify-content:space-between;gap:25px;align-items:center}.band h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 8px}.band p{color:var(--muted);margin:0;max-width:600px}.footer{border-top:1px solid var(--line);padding:25px 0 35px;display:flex;justify-content:space-between;gap:15px;color:#9297b6;font-size:.84rem}.footer a{color:#d2d2e6}
+@media(max-width:760px){.nav a:not(.btn){display:none}.hero{grid-template-columns:1fr;padding:58px 0 40px;gap:35px}.mock{max-width:480px;transform:none}.grid{grid-template-columns:1fr}.section{padding:52px 0}.band{align-items:flex-start;flex-direction:column;padding:25px;margin-bottom:50px}.footer{flex-direction:column}.wrap{width:min(100% - 30px,1080px)}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+<a class="brand" href="./welcome.html" aria-label="Words 44 ana sayfa"><span class="mark">W</span><span>Words 44</span></a>
+<nav class="nav" aria-label="Ana menü"><a href="#ozellikler">Özellikler</a><a href="#nasil-calisir">Nasıl çalışır?</a><a class="btn" href="./index.html">Uygulamayı aç ↗</a></nav>
+</header>
+<main>
+<section class="wrap hero">
+<div>
+<div class="eyebrow"><span class="dot"></span> Kendi öğrenme düzenin, kendi hızın</div>
+<h1>İngilizceni <span>kelime kelime</span> geliştir.</h1>
+<p class="lead">Words 44; kelimelerini keşfetmen, kişisel listeler oluşturman ve öğrendiklerini tekrarlarla kalıcı hâle getirmen için tasarlanmış kişisel İngilizce çalışma alanın.</p>
+<div class="actions"><a class="btn" href="./index.html">Hemen başla <span aria-hidden="true">&nbsp;→</span></a><a class="btn secondary" href="#ozellikler">Özellikleri keşfet</a></div>
+<div class="subnote">Ücretsiz başlayabilirsin · Giriş yapmak zorunlu değil</div>
+</div>
+<div class="mock" aria-label="Words 44 çalışma ekranını temsil eden örnek kart">
+<div class="mocktop"><strong>WORDS 44 / ÇALIŞMA</strong><span class="pill">Günlük pratik</span></div>
+<h3>Bugün biraz daha öğren.</h3><p>Kısa tekrarlar, düzenli ilerleme.</p>
+<div class="word"><strong>improve</strong><small>geliştirmek · iyileştirmek</small><div class="progress"><i></i></div></div>
+<div class="word"><strong>consistent</strong><small>istikrarlı · tutarlı</small></div>
+<div class="word"><strong>opportunity</strong><small>fırsat · olanak</small></div>
+</div>
+</section>
+<section class="wrap section" id="ozellikler">
+<div class="sectionhead"><div class="kicker">Çalışma araçların</div><h2>Ezberlemekten fazlası.</h2><p>Kelime öğrenme sürecini kendi materyallerin ve sana uygun çalışma biçimiyle bir araya getir.</p></div>
+<div class="grid">
+<article class="card"><div class="icon">Aa</div><h3>Sözlük ve örnekler</h3><p>Kelimelerin anlamlarını incele, örnek cümlelerle kullanımını gör ve telaffuz hızını kendine göre ayarla.</p></article>
+<article class="card"><div class="icon">↻</div><h3>Kelime kartları</h3><p>Kartlarla kendini sına, bildiğin kelimeleri ayır ve tekrar çalışmalarını sürdür.</p></article>
+<article class="card"><div class="icon">＋</div><h3>Kişisel listeler</h3><p>Yeni kelimelerini kendi listelerine ekle; öğrendiklerini düzenli ve erişilebilir tut.</p></article>
+<article class="card"><div class="icon">▤</div><h3>Okuma alanı</h3><p>Makaleler üzerinden çalış, metindeki kelimelere odaklan ve okuma pratiğini kelime öğrenmeyle birleştir.</p></article>
+<article class="card"><div class="icon">PDF</div><h3>PDF’den çalışma</h3><p>Desteklenen PDF metinlerini içe aktararak kendi kaynakların üzerinden çalışmaya başla.</p></article>
+<article class="card"><div class="icon">☁</div><h3>Hesap ve yedek</h3><p>Giriş yapmadan kullanmaya başlayabilirsin. Google ile giriş, bulut yedekleme özelliklerine erişim sağlar.</p></article>
+</div>
+</section>
+<section class="wrap" id="nasil-calisir">
+<div class="band"><div><h2>Bugün bir kelimeyle başla.</h2><p>Words 44’ü tarayıcıda aç; sana uygun listeleri oluştur ve çalışma rutinini kendi hızında geliştir. Giriş yapmadan da başlayabilirsin.</p></div><a class="btn" href="./index.html">Words 44’ü aç ↗</a></div>
+</section>
+</main>
+<footer class="wrap footer"><span>© <span id="year"></span> Words 44</span><span>İngilizce öğrenme yolculuğun için kişisel çalışma alanı.</span><a href="./index.html">Uygulamaya geç</a></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
