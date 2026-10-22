@@ -39,7 +39,7 @@ test('production manifest icons and service-worker precache files all exist in d
 
 test('production release marker matches the version shown inside the app', () => {
   const html = fs.readFileSync(path.join(out, 'index.html'), 'utf8');
-  const match = html.match(/Words 44 · Sürüm (\\d+\\.\\d+\\.\\d+)/);
+  const match = html.match(/Words 44 · Sürüm (\d+\.\d+\.\d+)/);
   assert.ok(match, 'app must expose a semantic release version');
   const marker = JSON.parse(fs.readFileSync(path.join(out, 'version.json'), 'utf8'));
   assert.equal(marker.version, match[1], 'version.json must match the actual app version');
