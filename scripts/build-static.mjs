@@ -28,7 +28,9 @@ if (fs.existsSync(landingPage)) {
   const welcomeDir = path.join(out, 'welcome');
   fs.mkdirSync(welcomeDir, {recursive: true});
   const welcomeHtml = fs.readFileSync(landingPage, 'utf8')
-    .replace(/([\"'])\.\/index\.html\1/g, '$1../index.html$1');
+    .replace(/(["'])\.\/index\.html\1/g, '$1../index.html$1')
+    .replace(/(["'])\.\/welcome\.html\1/g, '$1../welcome.html$1')
+    .replace(/(["'])\.\/privacy\.html\1/g, '$1../privacy.html$1');
   fs.writeFileSync(path.join(welcomeDir, 'index.html'), welcomeHtml);
 }
 
