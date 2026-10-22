@@ -22,6 +22,17 @@ for (const item of [...required, ...optionalPublic]) {
   }
 }
 
+// Give the GitHub Pages backup its own canonical URLs and sitemap entries.
+// Source files keep Cloudflare as the primary production host; this rewrite is build-output-only.
+const backupBase = 'https://talhakose285322-dotcom.github.io/44-english-app';
+for (const item of ['welcome.html', 'privacy.html', 'terms.html', 'sitemap.xml', 'robots.txt']) {
+  const file = path.join(out, item);
+  if (fs.existsSync(file)) {
+    const original = fs.readFileSync(file, 'utf8');
+    fs.writeFileSync(file, original.replaceAll('https://44-english-app.pages.dev', backupBase));
+  }
+}
+
 // Also publish an extensionless-friendly /welcome/ route for hosts that don't map /welcome to welcome.html.
 const landingPage = path.join(out, 'welcome.html');
 if (fs.existsSync(landingPage)) {
