@@ -2627,7 +2627,12 @@ body.reading .sheet{max-width:740px}
     var saved=false;try{saved=!!localStorage.getItem(SB_SKEY)}catch(e){}
     if(!back&&!saved){AU.ready=true;return}
     sbClient().catch(function(e){AU.err=AU.err||e.k||'';AU.ready=true}).then(function(){
-      if(back){try{history.replaceState(null,'',location.pathname+(hashError?'':location.hash))}catch(e){}show('prof')}else drawAcct();
+      if(back){
+        // Supabase must consume the PKCE ?code before the callback URL is cleaned.
+        // Removing it here can race with detectSessionInUrl on iOS standalone Safari.
+        if(!q.has('code')){try{history.replaceState(null,'',location.pathname+(hashError?'':location.hash))}catch(e){}}
+        show('prof');
+      }else drawAcct();
     });
   }
   function drawAcct(){
