@@ -16,7 +16,7 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 - [x] 0.2 Sürüm numarası testini düzelt ve otomatik testleri yeşile getir (c162c4a; testler başarıyla tamamlandı).
 - [x] 0.3 version.json ile uygulama içindeki sürümün eşleştiğini doğrula (kaynak + üretim sürümü eşleşmezse build başarısız; bd97215 commit'inde otomatik test başarılı).
 - [x] 0.4 GitHub Pages yedek yayınını tamamla; tanıtım, gizlilik ve kullanım koşulları sayfalarını canlı adresten aç (c162c4a yayını başarılı; üç sayfa erişilebilir).
-- [ ] 0.5 Ana Cloudflare Pages yayın yöntemini ve GitHub main dalına otomatik dağıtımı doğrula; erişim engelini kaydet.
+- [x] 0.5 Ana Cloudflare Pages yayın yöntemini ve GitHub main dalına otomatik dağıtımı doğrula; 2026-10-23 tarihinde `version.json` (1.0.10), `sw.js` (english-app-v17) ve güncel `index.html` üretim adresinde doğrulandı.
 - [x] 0.6 Test hatası, yayın hatası ve dağıtım beklemesini birbirinden ayır (önceki Chrome başlatma hatası paralel test kaynak çakışmasıydı; sıralı çalıştırma ile testler geçti).
 
 Çıkış ölçütü: otomatik testler başarılı, sürüm bilgisi doğru, yedek yayın erişilebilir ve ana yayın yöntemi belgelenmiş.
