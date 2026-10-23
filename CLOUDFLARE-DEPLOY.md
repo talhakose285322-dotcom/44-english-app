@@ -6,6 +6,19 @@
 Words 44 is a static PWA. This repository now includes a build script that creates a production-only `dist/` folder without changing the source app or the current Netlify setup.
 
 
+## 24 Ekim 2026 — erişim ve yayın durumu (geliştirici bilgisayarının Türkiye bağlantısından ölçüldü)
+
+- `*.pages.dev` bu bağlantıda **SNI ile engelli**: TCP bağlanıyor, TLS el sıkışması kesiliyor; aynı Cloudflare IP'si
+  başka bir adla (`developers.cloudflare.com`) ve `*.workers.dev` adlarıyla yanıt veriyor. Sorun sitede değil, ağda.
+  Telefon operatörlerinde aynı engelin olup olmadığı ölçülmedi.
+- GitHub Pages yedeği her `main` push'unda otomatik yayımlanıyor ve güncel (1.0.10, hazır makaleler dahil).
+- Netlify (`symphonious-donut-1c09bc`) `1616b9e` (21 Ekim 21:11) sonrasında hiç yayımlamadı; sonraki commit yalnızca
+  test dosyası, yani neden kod değil Netlify'daki derleme ayarı/durumu.
+- Güncelleme kodu (network-first `sw.js`, `no-store` sürüm kontrolü, `_headers`) değişiklik gerektirmiyor. Ana ekran
+  uygulaması yalnızca kurulduğu adresten güncellenir; adres değişirse yerel veri yedek/geri yükleme ile taşınmalıdır.
+- Özel alan adı teknik olarak zorunlu değil: Netlify yeniden yayımlarsa ya da Cloudflare `workers.dev` kullanılırsa
+  güncelleme bu ağdan erişilebilir bir adresten gelir.
+
 ## 23 Ekim 2026 — doğrulanmış yayın uyuşmazlığı
 
 - Kaynak `main` dalında uygulama ve takip edilen `version.json` sürümü: **1.0.8**.
