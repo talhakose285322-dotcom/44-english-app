@@ -36,10 +36,10 @@ function createWindow() {
     try {
       const target = new URL(url);
       const isApp = target.protocol === "https:" && target.origin === APP_ORIGIN;
-      const isAuthHost = target.protocol === "https:" &&
-        (target.hostname === "accounts.google.com" ||
-          target.hostname === "pamebquqyvlzpznfrrvt.supabase.co");
-      if (!isApp && !isAuthHost) {
+      const isAuthOrigin =
+        target.origin === "https://accounts.google.com" ||
+        target.origin === "https://pamebquqyvlzpznfrrvt.supabase.co";
+      if (!isApp && !isAuthOrigin) {
         event.preventDefault();
         if (target.protocol === "https:") shell.openExternal(target.href);
       }
