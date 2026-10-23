@@ -59,8 +59,10 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
    olarak geliştirilmiştir. Bu yerel değişiklikler silinmez; `main` ile karşılaştırılmadan birleştirilmez.
 
 ## Şu an kim neyi düzenliyor
-- **Claude Code — `index.html`** (2026-10-23'ten itibaren): Word (.docx) makale yükleme, ardından hazır makaleler
-  kütüphanesinin ilk sürümü. Bu sürede ChatGPT `index.html`'de değişiklik yapmamalı. İş bitince bu satır güncellenir.
+- Şu an `index.html` üzerinde açık bir iş yok. Bitenler (2026-10-23, Claude Code): Word (.docx) yükleme
+  (`e77b59f`), hazır makale içerikleri `content/articles/` (`65813de`), okuyucuda hazır makaleler kütüphanesi
+  (`72c040a`; ilerleme/kayıtlar `kelimelerim-v1-lib` anahtarında). Yeni makale eklemek uygulama sürümü gerektirmez:
+  `content/articles/<id>/` + `node scripts/build-article-catalog.mjs`.
 
 ## Planlanan büyük özellikler
 - **Makale okuma ve içerik kütüphanesi:** Ortak içerik Cloudflare R2/CDN'de, metadata Supabase'de, CEFR seviye
