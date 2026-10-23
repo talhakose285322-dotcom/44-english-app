@@ -87,6 +87,18 @@ test('başka kullanıcıya ait bulut yedeği hesaba gösterilmez', async () => {
   assert.deepEqual(b.errors, []);
 });
 
+test('bulut isteği sırasında hesap değişirse başka hesabın yedeği işlenmez', async () => {
+  await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {}, [KA]: []});
+  await signIn();
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(cloudPayload())+",updated_at:new Date().toISOString()}");
+  await b.ev("window.__sb.beforeSelect=function(){window.__sb.signIn({id:'user-2',email:'other@example.com'})}");
+  await b.ev("document.getElementById('p-cloud-load').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('Hesap değişti')");
+  assert.deepEqual((await words()).map(w => w.w), ['apple']);
+  assert.equal(await b.ev("!!document.getElementById('rp-m')"), false);
+  assert.deepEqual(b.errors, []);
+});
+
 test('bulut okuma hatasında yerel veriler değişmeden kalır', async () => {
   await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {}, [KA]: []});
   await signIn();
