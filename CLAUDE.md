@@ -58,10 +58,14 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
    `index.html` değişiklikleri vardır (ör. e-postayla kodla giriş; `main`'de yok). `main`'deki bulut yedeği ayrı
    olarak geliştirilmiştir. Bu yerel değişiklikler silinmez; `main` ile karşılaştırılmadan birleştirilmez.
 
-## Planlanan büyük özellikler (geliştirmeye başlanmadı)
+## Şu an kim neyi düzenliyor
+- **Claude Code — `index.html`** (2026-10-23'ten itibaren): Word (.docx) makale yükleme, ardından hazır makaleler
+  kütüphanesinin ilk sürümü. Bu sürede ChatGPT `index.html`'de değişiklik yapmamalı. İş bitince bu satır güncellenir.
+
+## Planlanan büyük özellikler
 - **Makale okuma ve içerik kütüphanesi:** Ortak içerik Cloudflare R2/CDN'de, metadata Supabase'de, CEFR seviye
   sürümleri, mevcut okuyucu ve sözlüğün yeniden kullanımı. Ayrıntılar: `docs/ARTICLE_LIBRARY_PLAN.md`.
-  Öncelik sırası: önce merkezi güncelleme altyapısı tamamlanır. Bu plan için mevcut arayüz şimdilik değiştirilmez.
+  Kullanıcı onayıyla ilk sürüme başlandı (bkz. yukarı). Merkezi güncelleme ve erişim sorunu ayrı görev olarak sürüyor.
 
 ## 4. Ortak çalışma düzeni
 - ChatGPT ve Claude Code aynı projede çalışır; birbirlerinin geliştirmelerini silmez veya geri almaz.
