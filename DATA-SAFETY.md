@@ -38,7 +38,7 @@ Tam yedek biçimi:
 
 ## Bulut yedekleme
 
-Bulut yedekleme yerel saklamadan ayrıdır ve kullanıcı oturum açtığında kullanılabilir. Yedekleme/geri yükleme kullanıcı tarafından başlatılır; bu, cihazlar arası otomatik senkronizasyon anlamına gelmez. Bulut satırı kullanıcı kimliğiyle ilişkilendirilir. Bu davranışın güvenliği otomatik testlerle ve Supabase RLS politikalarıyla ayrıca doğrulanmalıdır.
+Bulut yedekleme yerel saklamadan ayrıdır ve kullanıcı oturum açtığında kullanılabilir. Yedekleme/geri yükleme kullanıcı tarafından başlatılır; bu, cihazlar arası otomatik senkronizasyon anlamına gelmez. Bulut satırı kullanıcı kimliğiyle ilişkilendirilir. Her bulut isteği yanıtından sonra aktif hesabın değişmediği kontrol edilir; hesap istek sürerken değişirse yanıt yerel geri yükleme önizlemesine aktarılmaz. Bu istemci kontrolü Supabase RLS politikalarının yerine geçmez; üretim RLS politikaları ayrıca doğrulanmalıdır. Bu davranışın güvenliği otomatik testlerle ve Supabase RLS politikalarıyla ayrıca doğrulanmalıdır.
 
 ## Veri güvenliği için değişmez kurallar
 
