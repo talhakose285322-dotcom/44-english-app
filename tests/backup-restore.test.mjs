@@ -97,3 +97,24 @@ test('yalnız ayarlar varken geri yükleme öncesi de güvenlik kopyası alını
   assert.ok((await words()).some(w => w.w === 'pear'));
   assert.deepEqual(b.errors, []);
 });
+
+test('yedek metni temiz tarayici depolamasina aktarilabilir', async () => {
+  await b.seed({[K]: [{id:'one',w:'apple',m:'elma',box:3}], [KS]: {goal:27}, [KA]: [{id:'art1',title:'Reading',text:'Short reading text'}]});
+  await openRestore();
+  await b.ev("document.getElementById('exp').click()");
+  await b.waitFor("document.getElementById('imp').value.includes('44-backup')");
+  const exported = await b.ev("document.getElementById('imp').value");
+  const backup = JSON.parse(exported);
+  assert.equal(backup.keys[K][0].box,3);
+  assert.equal(backup.keys[KA][0].title,'Reading');
+  await b.seed({});
+  await openRestore();
+  await b.ev("document.getElementById('imp').value="+JSON.stringify(exported)+";document.getElementById('impb').click()");
+  await b.waitFor("!!document.getElementById('rp-m')");
+  await b.ev("document.getElementById('rp-m').click()");
+  await b.waitFor("document.getElementById('rprev').innerText.includes('Geri yükleme tamamlandı')");
+  const saved=await b.storage();
+  assert.equal(JSON.parse(saved[K])[0].box,3);
+  assert.equal(JSON.parse(saved[KA])[0].text,'Short reading text');
+  assert.equal(JSON.parse(saved[KS]).goal,27);
+});
