@@ -50,6 +50,11 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
    `index.html` değişiklikleri vardır (ör. e-postayla kodla giriş; `main`'de yok). `main`'deki bulut yedeği ayrı
    olarak geliştirilmiştir. Bu yerel değişiklikler silinmez; `main` ile karşılaştırılmadan birleştirilmez.
 
+## Planlanan büyük özellikler (geliştirmeye başlanmadı)
+- **Makale okuma ve içerik kütüphanesi:** Ortak içerik Cloudflare R2/CDN'de, metadata Supabase'de, CEFR seviye
+  sürümleri, mevcut okuyucu ve sözlüğün yeniden kullanımı. Ayrıntılar: `docs/ARTICLE_LIBRARY_PLAN.md`.
+  Öncelik sırası: önce merkezi güncelleme altyapısı tamamlanır. Bu plan için mevcut arayüz şimdilik değiştirilmez.
+
 ## 4. Ortak çalışma düzeni
 - ChatGPT ve Claude Code aynı projede çalışır; birbirlerinin geliştirmelerini silmez veya geri almaz.
 - Kod değiştirmeden önce GitHub'daki son durum alınır: `git fetch`, `git log origin/main`, son Actions sonuçları,
