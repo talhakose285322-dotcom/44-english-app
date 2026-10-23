@@ -65,9 +65,9 @@ jobs:
       - name: Publish installers to a public GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: desktop-v1.0.9-build.${{ github.run_number }}
+          tag_name: desktop-v1.0.10-build.${{ github.run_number }}
           target_commitish: ${{ github.sha }}
-          name: Words 44 Desktop 1.0.9 (build ${{ github.run_number }})
+          name: Words 44 Desktop 1.0.10 (build ${{ github.run_number }})
           draft: false
           generate_release_notes: true
           files: installers/*
