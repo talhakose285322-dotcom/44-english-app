@@ -35,9 +35,13 @@ function createWindow() {
   win.webContents.on("will-navigate", (event, url) => {
     try {
       const target = new URL(url);
-      if (target.origin !== APP_ORIGIN && target.hostname !== "accounts.google.com" && target.hostname !== "pamebquqyvlzpznfrrvt.supabase.co") {
+      const isApp = target.protocol === "https:" && target.origin === APP_ORIGIN;
+      const isAuthHost = target.protocol === "https:" &&
+        (target.hostname === "accounts.google.com" ||
+          target.hostname === "pamebquqyvlzpznfrrvt.supabase.co");
+      if (!isApp && !isAuthHost) {
         event.preventDefault();
-        if (target.protocol === "https:") shell.openExternal(url);
+        if (target.protocol === "https:") shell.openExternal(target.href);
       }
     } catch (_) {
       event.preventDefault();
