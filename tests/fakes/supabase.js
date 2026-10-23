@@ -28,7 +28,7 @@
     auth:{
       onAuthStateChange:function(f){cb=f;return {data:{subscription:{unsubscribe:function(){}}}}},
       getSession:function(){return Promise.resolve({data:{session:user?{user:user}:null},error:null})},
-      signInWithOAuth:function(o){sb.calls.push('oauth:'+(o&&o.provider));return Promise.resolve({error:null})},
+      signInWithOAuth:function(o){sb.calls.push('oauth:'+(o&&o.provider)+':'+((o&&o.options&&o.options.queryParams&&o.options.queryParams.prompt)||''));return Promise.resolve({error:null})},
       signInWithOtp:function(o){sb.calls.push('otp:'+o.email);return sb.fail==='otp'?err('For security purposes, you can only request this after 37 seconds.'):Promise.resolve({data:{},error:null})},
       verifyOtp:function(o){sb.calls.push('verify:'+o.token);if(o.token!=='123456')return err('Token has expired or is invalid');
         var u={id:'u-email',email:o.email,app_metadata:{provider:'email',providers:['email']}};setTimeout(function(){sb.signIn(u)},0);
