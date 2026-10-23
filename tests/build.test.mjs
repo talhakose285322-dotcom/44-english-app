@@ -43,6 +43,8 @@ test('production release marker matches the version shown inside the app', () =>
   assert.ok(match, 'app must expose a semantic release version');
   const marker = JSON.parse(fs.readFileSync(path.join(out, 'version.json'), 'utf8'));
   assert.equal(marker.version, match[1], 'version.json must match the actual app version');
+  const tracked = JSON.parse(fs.readFileSync(path.join(root, 'version.json'), 'utf8'));
+  assert.equal(tracked.version, match[1], 'tracked version.json must match the actual app version');
 });
 
 test('backup build uses its own canonical host without changing the primary source files', () => {
