@@ -36,6 +36,15 @@ test('hesap açmadan uygulama kullanılabilir ve bulut düğmeleri gösterilmez'
   assert.deepEqual(b.errors, []);
 });
 
+test('Google girişinde hesap seçimi istenir', async () => {
+  await b.ev("document.getElementById('n-prof').click()");
+  await b.waitFor("!!document.getElementById('p-in')");
+  await b.ev("document.getElementById('p-in').click()");
+  await b.waitFor("window.__sb.calls.some(x=>x==='oauth:google:select_account')");
+  assert.ok((await b.ev("window.__sb.calls")).includes('oauth:google:select_account'));
+  assert.deepEqual(b.errors, []);
+});
+
 test('bulut yedeği yalnızca oturum açmış kullanıcının satırına kaydedilir', async () => {
   await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {tot: 3}, [KA]: []});
   await signIn();
