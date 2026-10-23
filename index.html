@@ -1313,7 +1313,7 @@ body.reading .sheet{max-width:740px}
       "<select id='lib-st' aria-label='Durum'><option value=''>Tüm durumlar</option><option value='new'>Okunmamış</option><option value='prog'>Devam eden</option><option value='done'>Tamamlanan</option></select>"+
       "<select id='a-sort' aria-label='Sırala'><option value='book'>Kitap sırası</option><option value='new'>En yeni</option><option value='lv'>Seviyeye göre</option><option value='ti'>Ada göre</option></select></div>"+
       "<div id='lib-list'></div>";
-    h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF ya da metin dosyası (.pdf, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,text/plain,application/pdf'><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
+    h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF, Word ya da metin dosyası (.pdf, .docx, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
     v.innerHTML=h;
     $('lib-q').value=LF.q;$('lib-src').value=LF.src;$('lib-lv').value=LF.lv;$('lib-st').value=LF.st;$('a-sort').value=srt;
     if($('lib-src').value!==LF.src)LF.src='';
@@ -1335,6 +1335,13 @@ body.reading .sheet{max-width:740px}
     $('a-f').onchange=function(){
       var f=this.files[0];if(!f)return;this.value='';
       if(/\.pdf$/i.test(f.name)||f.type==='application/pdf'){runPdf(f,'article','a-p');return}
+      if(/\.docx$/i.test(f.name)||f.type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
+        // Word: the text goes into the same box as a .txt file, then it is saved the usual way
+        var ds=statusFn('a-p',{stop:false});ds.html('Word dosyası okunuyor…');
+        docxText(f).then(function(t){$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();$('a-p').innerHTML=''},function(e){ds.error(e&&e.k||'Word dosyası okunamadı.')});
+        return;
+      }
+      if(/\.doc$/i.test(f.name)){statusFn('a-p',{stop:false}).error('Eski Word (.doc) biçimi desteklenmez. Dosyayı Word’de “.docx” olarak kaydedip tekrar dene.');return}
       var r=new FileReader();r.onload=function(){$('a-x').value=String(r.result);if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep()};r.readAsText(f);
     };
     $('a-s').onclick=function(){saveArticle(false)};
@@ -2772,6 +2779,49 @@ body.reading .sheet{max-width:740px}
     return st;
   }
   function readBuf(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(r.result)};r.onerror=function(){rej(fail('Dosya okunamadı.'))};r.readAsArrayBuffer(f)})}
+  // ---- Word (.docx) import ----
+  // A .docx file is a ZIP archive whose text is in word/document.xml. It is read with the browser's own
+  // DecompressionStream (no library) and turned into plain text only: one paragraph per block, headings marked with
+  // "## " as in PDF drafts. Nothing from the file is ever used as HTML.
+  async function docxText(f){
+    if(!f.size)throw fail('Dosya boş.');
+    if(f.size>MAXMB*1048576)throw fail('Dosya çok büyük ('+mb(f.size)+'). En fazla '+MAXMB+' MB desteklenir.');
+    var b=new Uint8Array(await readBuf(f)),dv=new DataView(b.buffer),bad='Bu dosya geçerli bir Word (.docx) belgesi değil ya da bozuk.';
+    if(b.length<22||dv.getUint32(0,true)!==0x04034b50)throw fail(bad);
+    var e=-1;for(var i=b.length-22;i>=Math.max(0,b.length-65557);i--){if(dv.getUint32(i,true)===0x06054b50){e=i;break}}
+    if(e<0)throw fail(bad);
+    var n=dv.getUint16(e+10,true),p=dv.getUint32(e+16,true),xml=null;
+    for(var k=0;k<n&&p+46<=b.length&&dv.getUint32(p,true)===0x02014b50;k++){
+      var meth=dv.getUint16(p+10,true),csz=dv.getUint32(p+20,true),nl=dv.getUint16(p+28,true),lo=dv.getUint32(p+42,true);
+      var name=new TextDecoder().decode(b.subarray(p+46,p+46+nl));p+=46+nl+dv.getUint16(p+30,true)+dv.getUint16(p+32,true);
+      if(name!=='word/document.xml')continue;
+      if(lo+30>b.length||dv.getUint32(lo,true)!==0x04034b50)throw fail(bad);
+      var at=lo+30+dv.getUint16(lo+26,true)+dv.getUint16(lo+28,true),raw=b.subarray(at,at+csz);
+      if(meth===0)xml=new TextDecoder().decode(raw);
+      else if(meth===8){
+        if(typeof DecompressionStream==='undefined')throw fail('Bu tarayıcı Word dosyalarını açamıyor. Tarayıcıyı güncelle ya da metni kopyalayıp yapıştır.');
+        try{xml=await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text()}catch(x){throw fail(bad)}
+      }else throw fail(bad);
+      break;
+    }
+    if(xml==null)throw fail(bad);
+    var doc=new DOMParser().parseFromString(xml,'application/xml');
+    if(doc.getElementsByTagName('parsererror').length)throw fail(bad);
+    var NS='http://schemas.openxmlformats.org/wordprocessingml/2006/main',ps=doc.getElementsByTagNameNS(NS,'p'),out=[];
+    function ownP(nd){while(nd&&!(nd.localName==='p'&&nd.namespaceURI===NS))nd=nd.parentNode;return nd}
+    for(var j=0;j<ps.length;j++){
+      var pe=ps[j],t='',all=pe.getElementsByTagNameNS(NS,'*');
+      for(var q=0;q<all.length;q++){
+        var x=all[q];if(ownP(x.parentNode)!==pe)continue; // text of a nested paragraph (text box) is read with that paragraph
+        if(x.localName==='t')t+=x.textContent;else if(x.localName==='tab')t+=' ';else if(x.localName==='br'||x.localName==='cr')t+='\n';
+      }
+      t=t.replace(/[ \t]+\n/g,'\n').trim();if(!t)continue;
+      var sty=pe.getElementsByTagNameNS(NS,'pStyle')[0],sv=sty&&ownP(sty)===pe?sty.getAttributeNS(NS,'val')||sty.getAttribute('w:val')||'':'';
+      out.push((/^(heading|title|başlık|baslik)/i.test(sv)?'## ':'')+t);
+    }
+    if(!out.length)throw fail('Word belgesinde metin bulunamadı.');
+    return out.join('\n\n');
+  }
   function pdfErr(e){
     if(e&&e.k)return e.k;
     var n=e&&e.name||'',m=e&&e.message||'';
