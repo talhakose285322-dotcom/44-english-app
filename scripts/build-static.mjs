@@ -74,6 +74,12 @@ for (const privateName of ['index.backup.html', 'index (1).html', '.git']) {
 // Expose the exact packaged release to support lightweight update diagnostics.
 const release = html.match(/Words 44 · Sürüm (\d+\.\d+\.\d+)/);
 if (!release) throw new Error('Profile release version is missing');
+// Fail a deployment when the tracked release marker disagrees with the app's visible version.
+// The generated dist/version.json also carries builtAt; the source marker is the version contract.
+const sourceRelease = JSON.parse(fs.readFileSync(path.join(root, 'version.json'), 'utf8'));
+if (sourceRelease.version !== release[1]) {
+  throw new Error(`Source version.json (${sourceRelease.version}) differs from app version (${release[1]})`);
+}
 fs.writeFileSync(path.join(out, 'version.json'), JSON.stringify({
   version: release[1],
   builtAt: new Date().toISOString()
