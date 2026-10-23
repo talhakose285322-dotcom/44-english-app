@@ -61,6 +61,16 @@ test('installed-app update check uses the same version as the release marker (no
   }
 });
 
+test('Cloudflare Worker config publishes exactly the production build output', () => {
+  // *.pages.dev is blocked on Turkish networks; the Worker (workers.dev) serves dist/ built from main.
+  // pages_build_output_dir must stay absent so the existing Pages project keeps ignoring this file.
+  const config = JSON.parse(fs.readFileSync(path.join(root, 'wrangler.jsonc'), 'utf8'));
+  assert.equal(config.assets && config.assets.directory, './dist');
+  assert.equal(config.main, undefined, 'static assets only, no Worker script');
+  assert.equal(config.pages_build_output_dir, undefined);
+  assert.ok(fs.existsSync(path.join(out, '_headers')), 'cache headers must ship with the assets');
+});
+
 test('backup build uses its own canonical host without changing the primary source files', () => {
   const base = 'https://talhakose285322-dotcom.github.io/44-english-app';
   for (const item of ['welcome.html', 'terms.html', 'privacy.html', 'sitemap.xml', 'robots.txt']) {
