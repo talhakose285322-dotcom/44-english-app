@@ -12,7 +12,7 @@ const relativeAsset = value => value.split('?')[0].startsWith('./') ? value.spli
 test('Cloudflare production build includes app runtime and excludes repo-only files', () => {
   const run = spawnSync(process.execPath, ['scripts/build-static.mjs'], {cwd: root, encoding: 'utf8'});
   assert.equal(run.status, 0, run.stderr || run.stdout);
-  for (const item of ['index.html', 'manifest.json', 'sw.js', 'icon.svg', 'icons/icon-192.png', 'vendor/pdfjs/pdf.min.mjs', 'vendor/pdfjs/pdf.worker.min.mjs']) {
+  for (const item of ['index.html', 'manifest.json', 'sw.js', 'icon.svg', 'icons/icon-192.png', 'vendor/pdfjs/pdf.min.mjs', 'vendor/pdfjs/pdf.worker.min.mjs', 'content/articles/catalog.json']) {
     assert.ok(fs.existsSync(path.join(out, item)), 'missing production asset: ' + item);
   }
   for (const item of ['tests', 'index.backup.html', 'index (1).html', 'CLOUDFLARE-DEPLOY.md']) {

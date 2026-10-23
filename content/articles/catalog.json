@@ -1,0 +1,133 @@
+{
+  "format": "words44-articles",
+  "version": 1,
+  "updated": "2026-10-23",
+  "levels": [
+    "A1",
+    "A2",
+    "B1",
+    "B2",
+    "C1",
+    "C2"
+  ],
+  "categories": {
+    "academic": "Akademik",
+    "science": "Bilim",
+    "technology": "Teknoloji",
+    "law": "Hukuk",
+    "economics": "Ekonomi",
+    "psychology": "Psikoloji",
+    "history": "Tarih",
+    "health": "Sağlık",
+    "environment": "Çevre",
+    "culture": "Kültür",
+    "other": "Diğer"
+  },
+  "articles": [
+    {
+      "id": "how-the-internet-moves-data",
+      "category": "technology",
+      "title": "How Does a Message Travel Across the Internet?",
+      "summary": "Bir mesaj internette nasıl yol alır? Paketler, IP adresleri, yönlendiriciler, DNS ve TCP.",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-23",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 79,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 132,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 172,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 219,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 248,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 247,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "what-is-inflation",
+      "category": "economics",
+      "title": "What Is Inflation?",
+      "summary": "Enflasyon nedir, nasıl ölçülür, neden olur ve merkez bankaları onu nasıl kontrol etmeye çalışır?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-23",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 104,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 144,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 194,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 259,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 258,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 258,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "why-we-sleep",
+      "category": "science",
+      "title": "Why Do We Sleep?",
+      "summary": "Neden uyuruz? Uyku evreleri, beynin gece yaptıkları ve uykusuzluğun etkileri.",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-23",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 87,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 137,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 171,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 215,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 231,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 253,
+          "minutes": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "how-the-internet-moves-data",
+  "level": "B1",
+  "title": "How Does a Message Travel Across the Internet?",
+  "paragraphs": [
+    "Every time you send a message, watch a video or open a website, data travels across the world, often in a fraction of a second. This works because the internet follows a few simple, shared rules.",
+    "Your device does not send data as one big block. It divides it into small packets, and each packet carries an IP address showing where it should go. The names that people use, such as a website name, are first changed into these numeric addresses by a system called DNS.",
+    "Routers then forward the packets from network to network. Each router decides the next step on its own, so packets from the same message may follow different routes. Between continents, most of this traffic runs through cables laid on the ocean floor.",
+    "At the destination, a set of rules called TCP checks that every packet has arrived, puts the packets in the correct order and asks again for any that went missing. Only then does the complete message appear, and the whole process usually feels instant."
+  ]
+}

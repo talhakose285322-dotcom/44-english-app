@@ -1,0 +1,11 @@
+{
+  "id": "how-the-internet-moves-data",
+  "level": "A2",
+  "title": "How Does a Message Travel Across the Internet?",
+  "paragraphs": [
+    "When you send a message or open a website, the data travels very fast, often in less than a second. But how does it find the right place?",
+    "First, your device breaks the data into small parts called packets. Each packet carries the address of the computer that must receive it. Every device on the internet has an address like this, called an IP address.",
+    "Machines called routers pass the packets along, from one network to the next. Packets from the same message can travel on different roads. Many of them go through long cables under the sea between countries.",
+    "When the packets arrive, the receiving device puts them back in the right order. If a packet is lost, it asks for it again. Then the full message appears on the screen."
+  ]
+}

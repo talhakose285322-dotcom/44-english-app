@@ -6,7 +6,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = path.join(root, 'dist');
 const required = ['index.html', 'manifest.json', 'sw.js', 'icon.svg', 'icons', 'vendor'];
 // Public landing page, metadata and legal pages must ship with the application.
-const optionalPublic = ['welcome.html', 'privacy.html', 'terms.html', 'robots.txt', 'sitemap.xml', '_headers'];
+const optionalPublic = ['welcome.html', 'privacy.html', 'terms.html', 'robots.txt', 'sitemap.xml', '_headers',
+  // ready-made articles and their catalog, read by the app at run time (scripts/build-article-catalog.mjs)
+  'content'];
 
 for (const item of required) {
   if (!fs.existsSync(path.join(root, item))) {

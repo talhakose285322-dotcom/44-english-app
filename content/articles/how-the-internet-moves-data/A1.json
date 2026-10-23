@@ -1,0 +1,11 @@
+{
+  "id": "how-the-internet-moves-data",
+  "level": "A1",
+  "title": "How Does a Message Travel Across the Internet?",
+  "paragraphs": [
+    "You send a message to a friend. It arrives in one second. How does it travel?",
+    "The computer cuts the message into small pieces. Each piece has an address. The address says where the piece must go.",
+    "Many machines help the pieces. These machines are called routers. They send each piece to the next machine, again and again.",
+    "At the end, your friend's phone gets all the pieces. It puts them together. Now your friend can read the message."
+  ]
+}

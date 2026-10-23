@@ -1,0 +1,11 @@
+{
+  "id": "how-the-internet-moves-data",
+  "level": "C2",
+  "title": "How Does a Message Travel Across the Internet?",
+  "paragraphs": [
+    "That a message, a film or an entire web page can traverse continents in a fraction of a second is now so commonplace that it scarcely registers as remarkable. Yet the internet owes this capability not to any central authority but to the voluntary adherence of countless independent networks to a shared body of protocols: conventions governing how data is addressed, conveyed and received.",
+    "Data is never dispatched as a single undifferentiated stream. It is first broken down into packets, each bearing the IP address of its destination, the numerical identifier that distinguishes every device on the network. Because humans navigate by memorable names rather than numerical strings, the Domain Name System (DNS) serves as a distributed directory, resolving a site's name into its corresponding address before a single packet is sent.",
+    "From there, packets are passed from router to router, each of which independently selects the next hop according to the destination address. One corollary is that packets from the same message may follow wholly divergent routes and arrive out of sequence. Popular imagination notwithstanding, intercontinental traffic travels overwhelmingly through fibre-optic cables laid along the seabed rather than by satellite.",
+    "On arrival, the Transmission Control Protocol (TCP) reconstitutes the original order, confirms that every packet is accounted for and solicits the retransmission of any that have gone astray. It is this conjunction of decentralised routing and meticulous reassembly that endows the internet with its characteristic robustness: when one pathway fails, traffic is simply rerouted along another."
+  ]
+}
