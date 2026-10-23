@@ -403,6 +403,7 @@ body.reading .sheet{max-width:740px}
 .dmeta{font-size:13px;color:var(--muted);margin:8px 0 0}.dmeta span{opacity:.8}
 .dtrs{font-size:17px;line-height:1.5;color:var(--ink);margin:10px 0 0}.dtrs b{color:var(--accent)}.dtrs span{color:var(--muted);font-size:13px}.dtrs.none{font-size:15px;color:var(--muted)}
 .dspd{display:inline-flex;align-self:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}.dspd button{border:0;background:none;font:inherit;font-size:13px;padding:6px 10px;color:var(--muted);cursor:pointer}.dspd button.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.libbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}.libbar .btn{padding:6px 12px;font-size:13.5px}.libbar .note{flex-basis:100%;margin:0}
 .dtrs>div{margin-top:2px}.dtrs i{font-style:normal;font-size:13px;font-weight:700;color:var(--muted);margin-right:8px}.dtrs em{font-style:normal;color:var(--muted);font-size:15px}.dtrs>span{display:block;margin-top:2px}
 .dform{background:var(--accent-soft);border-radius:var(--r-sm);padding:10px 12px;margin:12px 0 4px;font-size:14.5px;line-height:1.55}
 .dform a{color:var(--accent);font-weight:700;text-decoration:none}.dform span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
@@ -1195,7 +1196,7 @@ body.reading .sheet{max-width:740px}
   });
 
   var LV=['A1','A2','B1','B2','C1','C2'],srt=S.libSort||'book',colF='',editArt=null,ART=normArts(readKey(AK,true)||[]),openArt=null,sh=null,smp=null;
-  function saveA(){return writeKey(AK,ART.concat(BADA))}
+  function saveA(){libKeep();return writeKey(AK,ART.concat(BADA))}
   function ask(p){
     var g=smp?Promise.resolve(smp):(window.claude?claude.use('sample'):Promise.resolve(null));
     return g.then(function(s){if(!s)throw new Error('na');smp=s;return s(p,{modelTier:'quick'})}).then(function(r){var t=r.text;return JSON.parse(t.slice(t.indexOf('{'),t.lastIndexOf('}')+1))});
@@ -1218,7 +1219,83 @@ body.reading .sheet{max-width:740px}
     var h=hashText(text);
     return ART.filter(function(a){return artHash(a)===h})[0]||(src&&src.name?ART.filter(function(a){return !a.wb&&a.src&&a.src.name===src.name&&a.src.size===src.size})[0]:null);
   }
-  function byId(id){return ART.filter(function(x){return x.id===id})[0]}
+  function byId(id){if(LIB&&LIB.cur&&LIB.cur.id===id)return LIB.cur;return ART.filter(function(x){return x.id===id})[0]}
+  // ---- Ready-made article library (shared, read-only content) ----
+  // The catalog and the article texts are plain JSON files published with the site under content/articles/ (made by
+  // scripts/build-article-catalog.mjs). Only LIB_BASE points at them, so they can later move to a CDN/R2 bucket.
+  // A new article needs no app release. Articles open in the normal reader: word meanings, saving words to lists,
+  // translation and speech are the existing ones. Reading position, level, notes and the saved list live in their
+  // own key (kelimelerim-v1-lib); the user's own articles are never touched. Texts are shown as escaped plain text.
+  var LIB_BASE='./content/articles/',LIBK=KEY+'-lib',LIB={cat:null,err:'',busy:false,cur:null,para:null,q:'',c:'',lv:''};
+  function libData(){var d=readKey(LIBK,false)||{};if(!d.p||typeof d.p!=='object'||Array.isArray(d.p))d.p={};if(!Array.isArray(d.saved))d.saved=[];return d}
+  function libSafeId(id){return typeof id==='string'&&/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)&&id.length<=80}
+  function libLoad(){
+    if(LIB.cat||LIB.busy)return;LIB.busy=true;LIB.err='';
+    jget(LIB_BASE+'catalog.json',9000).then(function(c){if(!c||c.format!=='words44-articles'||!Array.isArray(c.articles))throw new Error('bad');LIB.cat=c})
+      .catch(function(){LIB.err='Hazır makaleler şu an yüklenemedi (internet bağlantısı?). Kendi makalelerin aşağıda.'})
+      .then(function(){LIB.busy=false;if(view==='read'&&!openArt)drawLib()});
+  }
+  function libLevels(a){return LV.filter(function(l){return a.levels&&a.levels[l]})}
+  function drawLib(){
+    var b=$('rl');if(!b)return;
+    if(!LIB.cat){b.innerHTML="<h2>Hazır makaleler</h2><p class='note'>"+esc(LIB.err||'Yükleniyor…')+"</p>";if(!LIB.err)libLoad();return}
+    var c=LIB.cat,cats=c.categories||{},used={};c.articles.forEach(function(a){used[a.category]=1});
+    b.innerHTML="<h2>Hazır makaleler</h2><p class='note'>"+c.articles.length+" makale. Seviyeni seç ve makaleyi aç; okurken seviyeyi değiştirebilirsin, konu aynı kalır.</p>"+
+      "<input id='rl-q' type='search' placeholder='Hazır makalelerde ara' autocomplete='off'><div class='fgrid'><select id='rl-c' aria-label='Kategori'><option value=''>Tüm kategoriler</option>"+
+      Object.keys(used).map(function(k){return "<option value='"+escA(k)+"'>"+esc(cats[k]||k)+"</option>"}).join('')+"<option value='saved'>Kaydettiklerim</option></select>"+
+      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-list'></div><div class='toast' id='rl-t'></div>";
+    $('rl-q').value=LIB.q;$('rl-c').value=LIB.c;$('rl-lv').value=LIB.lv;
+    $('rl-q').oninput=function(){LIB.q=this.value;drawRlList()};
+    $('rl-c').onchange=function(){LIB.c=this.value;drawRlList()};
+    $('rl-lv').onchange=function(){LIB.lv=this.value;drawRlList()};
+    drawRlList();
+  }
+  function drawRlList(){
+    var o=$('rl-list');if(!o||!LIB.cat)return;
+    var c=LIB.cat,cats=c.categories||{},d=libData(),q=LIB.q.trim().toLowerCase();
+    var L=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length&&(!LIB.c||(LIB.c==='saved'?d.saved.indexOf(a.id)>=0:a.category===LIB.c))&&(!LIB.lv||a.levels[LIB.lv])&&(!q||(a.title+' '+(a.summary||'')).toLowerCase().indexOf(q)>=0)});
+    o.innerHTML=L.length?L.map(function(a){
+      var p=d.p[a.id]||{},ls=libLevels(a),lv=LIB.lv&&a.levels[LIB.lv]?LIB.lv:p.lv&&a.levels[p.lv]?p.lv:ls.indexOf('B1')>=0?'B1':ls[0],m=a.levels[lv]||{};
+      var st=p.done?' · tamamlandı':p.pos>0.01?' · %'+Math.round(p.pos*100):'';
+      return "<div class='item'><div class='t' data-rl='"+escA(a.id)+"' data-lv='"+escA(lv)+"' style='cursor:pointer'><span>"+esc((cats[a.category]||a.category)+' · '+lv+' · '+(m.minutes||1)+' dk · seviyeler: '+ls.join(' ')+(d.saved.indexOf(a.id)>=0?' · ★':'')+st)+"</span><b>"+esc(a.title)+"</b><span>"+esc(a.summary||'')+"</span></div></div>";
+    }).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
+    Array.prototype.forEach.call(o.querySelectorAll('[data-rl]'),function(t){t.onclick=function(){libOpen(t.getAttribute('data-rl'),t.getAttribute('data-lv'))}});
+  }
+  function libOpen(id,lv,para){
+    var a0=LIB.cat&&LIB.cat.articles.filter(function(x){return x.id===id})[0];
+    if(!a0||!libSafeId(id)||!a0.levels||!a0.levels[lv])return;
+    jget(LIB_BASE+id+'/'+lv+'.json',9000).then(function(t){
+      if(!t||t.id!==id||!Array.isArray(t.paragraphs))throw new Error('bad');
+      var p=libData().p[id]||{};
+      var a={id:'lib:'+id,title:String(t.title||a0.title),text:t.paragraphs.map(String).join('\n\n'),lv:lv,lib:{id:id,levels:libLevels(a0),license:String(a0.license||'')},
+        pos:para==null?p.pos||0:0,note:p.note,done:!!p.done,readAt:p.readAt};
+      LIB.cur=a;LIB.para=para==null?null:para;openArt=a.id;$('sheet').classList.add('hide');renderRead();if(para==null)window.scrollTo(0,0);
+    }).catch(function(){var t=$('rl-t');if(t){t.style.color='var(--bad)';t.textContent='Makale yüklenemedi (internet bağlantısı?). Tekrar dene.'}});
+  }
+  function libKeep(){
+    // called from saveA(): the reader's own saves (position, notes, done) for a ready-made article go to its own key
+    var a=LIB&&LIB.cur;if(!a||!a.lib)return;
+    var d=libData(),o={lv:a.lv,pos:a.pos||0,readAt:a.readAt||0};if(a.done)o.done=true;if(a.note)o.note=a.note;
+    d.p[a.lib.id]=o;writeKey(LIBK,d);
+  }
+  function libPara(){var ch=$('art')?$('art').children:[],i=0;for(;i<ch.length;i++)if(ch[i].getBoundingClientRect().bottom>90)break;return Math.min(i,Math.max(0,ch.length-1))}
+  function libReader(a){
+    // the reader is the normal one; a ready-made article only adds a level switch and a save toggle, and cannot be edited
+    if($('edt'))$('edt').style.display='none';
+    var t=document.querySelector('#v-read .atitle');if(!t)return;
+    var sv=libData().saved.indexOf(a.lib.id)>=0,bar=document.createElement('div');bar.className='libbar';
+    bar.innerHTML="<span class='dspd' role='group' aria-label='Seviye'>"+a.lib.levels.map(function(l){return "<button data-llv='"+escA(l)+"' class='"+(l===a.lv?'on':'')+"' aria-pressed='"+(l===a.lv)+"'>"+esc(l)+"</button>"}).join('')+"</span>"+
+      "<button class='btn ghost' id='rl-sv'>"+(sv?'★ Kaydedildi':'☆ Kaydet')+"</button>"+(a.lib.license?"<p class='note'>"+esc(a.lib.license)+"</p>":'');
+    t.parentNode.insertBefore(bar,t.nextSibling);
+    Array.prototype.forEach.call(bar.querySelectorAll('[data-llv]'),function(x){x.onclick=function(){
+      var l=x.getAttribute('data-llv');if(l===a.lv)return;var i=libPara();saveProgress();libOpen(a.lib.id,l,i);
+    }});
+    $('rl-sv').onclick=function(){
+      var d=libData(),k=d.saved.indexOf(a.lib.id);if(k>=0)d.saved.splice(k,1);else d.saved.push(a.lib.id);
+      if(writeKey(LIBK,d))this.textContent=k>=0?'☆ Kaydet':'★ Kaydedildi';
+    };
+    if(LIB.para!=null){var i=LIB.para;LIB.para=null;requestAnimationFrame(function(){requestAnimationFrame(function(){var el=$('art')&&$('art').children[i];if(el)window.scrollTo(0,el.getBoundingClientRect().top+scrollY-90)})})}
+  }
   var draftArt=null,WB=null,LF={q:'',src:'',lv:'',st:''};
   function wordCount(t){return (t.match(/\S+/g)||[]).length}
   function applyTheme(){var r=document.documentElement;if(S.theme==='light'||S.theme==='dark')r.setAttribute('data-theme',S.theme);else r.removeAttribute('data-theme')}
@@ -1227,7 +1304,7 @@ body.reading .sheet{max-width:740px}
     if(editArt){leaveReader();drawEdit(v);return}
     if(WB){leaveReader();drawWB(v);return}
     var a=byId(openArt);
-    if(a){drawReader(v,a);return}
+    if(a){drawReader(v,a);if(a.lib)libReader(a);return}
     openArt=null;leaveReader();drawLibrary(v);
   }
   function leaveReader(){document.body.classList.remove('reading');$('rprog').style.width='0'}
@@ -1306,6 +1383,7 @@ body.reading .sheet{max-width:740px}
     var acs=[];ART.forEach(function(a){if(a.c&&acs.indexOf(a.c)<0)acs.push(a.c)});acs.sort();
     var last=ART.filter(function(a){return a.readAt&&!a.done&&a.pos>0.01}).sort(function(a,b){return b.readAt-a.readAt})[0];
     var h="<h1>Okuma kütüphanesi</h1><p class='sub'>"+ART.length+" makale"+(wbs.length?', '+wbs.length+' kitap':'')+". Kelimeye dokun: anlamını gör ve kelimelerine ekle.</p>";
+    h+="<div class='panel' id='rl'></div>";
     if(last)h+="<div class='item cont'><div class='t' data-o='"+escA(last.id)+"' style='cursor:pointer'><span>Kaldığın yerden devam et</span><b>"+esc(last.title)+"</b><span>"+progLabel(last)+(last.wb?' · '+esc(last.wb.title):'')+"</span></div></div>";
     h+="<input id='lib-q' type='search' placeholder='Makalelerde ara (başlık ya da metin)' autocomplete='off'>"+
       "<div class='fgrid'><select id='lib-src' aria-label='Kaynak'><option value=''>Tüm kaynaklar</option>"+wbs.map(function(w){return "<option value='wb:"+escA(w.id)+"'>Kitap: "+esc(w.title)+"</option>"}).join('')+"<option value='single'>Tekil makaleler</option>"+acs.map(function(c){return "<option value='c:"+escA(c)+"'>Koleksiyon: "+esc(c)+"</option>"}).join('')+"</select>"+
@@ -1315,6 +1393,7 @@ body.reading .sheet{max-width:740px}
       "<div id='lib-list'></div>";
     h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF, Word ya da metin dosyası (.pdf, .docx, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
     v.innerHTML=h;
+    drawLib();
     $('lib-q').value=LF.q;$('lib-src').value=LF.src;$('lib-lv').value=LF.lv;$('lib-st').value=LF.st;$('a-sort').value=srt;
     if($('lib-src').value!==LF.src)LF.src='';
     $('lib-q').oninput=function(){LF.q=this.value;drawLibList()};
