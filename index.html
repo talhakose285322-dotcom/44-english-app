@@ -2662,7 +2662,7 @@ body.reading .sheet{max-width:740px}
     b.innerHTML=h;
     if($('p-in'))$('p-in').onclick=function(){
       AU.busy=true;AU.err='';drawAcct();
-      sbClient().then(function(c){return c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}})})
+      sbClient().then(function(c){return c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname,queryParams:{prompt:'select_account'}}})})
         .then(function(r){if(r&&r.error)throw r.error})
         .catch(function(e){AU.busy=false;AU.err=e&&(e.k||e.message)||'Giriş başlatılamadı.';drawAcct()});
     };
