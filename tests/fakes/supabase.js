@@ -18,7 +18,7 @@
         if(!sb.row||Object.keys(st.filters).some(function(k){return sb.row[k]!==st.filters[k]}))return Promise.resolve({data:null,error:null});
         var o={};st.cols.split(',').forEach(function(k){k=k.trim();o[k]=sb.row[k]});return Promise.resolve({data:o,error:null})},
       upsert:function(o){st.up=o;return api},
-      single:function(){sb.calls.push('upsert');if(sb.fail==='upsert')return err('upload failed');
+      single:function(){sb.calls.push('upsert');if(sb.beforeUpsert){var hook=sb.beforeUpsert;sb.beforeUpsert=null;hook()}if(sb.fail==='upsert')return err('upload failed');
         sb.row={user_id:st.up.user_id,data:st.up.data,updated_at:new Date().toISOString()};
         return Promise.resolve({data:{updated_at:sb.row.updated_at},error:null})}
     };
