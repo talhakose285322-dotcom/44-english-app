@@ -5,6 +5,16 @@
 
 Words 44 is a static PWA. This repository now includes a build script that creates a production-only `dist/` folder without changing the source app or the current Netlify setup.
 
+
+## 23 Ekim 2026 — doğrulanmış yayın uyuşmazlığı
+
+- Kaynak `main` dalında uygulama ve takip edilen `version.json` sürümü: **1.0.8**.
+- Ana Cloudflare Pages `https://44-english-app.pages.dev/version.json` yanıtı: **1.0.6**, `builtAt: managed-by-git`.
+- GitHub Pages yedeği `https://talhakose285322-dotcom.github.io/44-english-app/version.json` yanıtı: **1.0.8**; derleme zaman damgası mevcut.
+- Bu sonuç, ana Cloudflare adresinin güncel `main` içeriğini **sunmadığını** kanıtlar. Tek başına GitHub bağlantısının neden çalışmadığını veya Cloudflare projesinin hangi kaynakla yayımlandığını göstermez.
+- Cloudflare hesabındaki **Workers & Pages → 44-english-app → Deployments** bölümünde son production deployment commit'ini, Git repository bağlantısını, production branch `main` değerini, build command `node scripts/build-static.mjs` ve output `dist` ayarlarını doğrula. Bağlantı yoksa Git entegrasyonunu kur; varsa yeni production deployment başlat. Bu hesap işlemleri yapılmış gibi raporlanmamalı.
+- Düzeltme sonrasında iki URL'nin `version.json` sürümü ve üretim `builtAt` alanı yeniden kontrol edilmeli; gerçek iPhone PWA güncellemesi ayrıca test edilmeli.
+
 ## Cloudflare Pages settings
 
 - **Connect repository:** `talhakose285322-dotcom/44-english-app`
