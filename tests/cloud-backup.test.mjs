@@ -222,3 +222,14 @@ test('bulut birleştirmesi aynı kelimeyi çoğaltmaz, mevcut ilerlemeyi korur v
   assert.deepEqual(b.errors, []);
 });
 
+test('bulut kaydı sırasında hesap değişirse işlem başarı gibi gösterilmez', async () => {
+  await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {}, [KA]: []});
+  await signIn();
+  await b.ev("window.__sb.beforeUpsert=function(){window.__sb.signIn({id:'user-2',email:'other@example.com'})}");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('Hesap değişti')");
+  const row = await b.ev("window.__sb.row");
+  assert.equal(row.user_id, 'user-1', 'başlatılan kayıt ilk hesabın kimliğiyle sınırlı kalmalı');
+  assert.ok(!(await b.ev("document.getElementById('p-acct').innerText.includes('Bulut yedeği kaydedildi')")), 'hesap değişiminden sonra başarı gösterilmemeli');
+  assert.deepEqual(b.errors, []);
+});
