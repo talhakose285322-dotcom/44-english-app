@@ -58,10 +58,13 @@ test('backup build uses its own canonical host without changing the primary sour
   }
 });
 
-test('landing page offers web access and truthful desktop PWA install instructions', () => {
+test('landing page offers web access and desktop installer links with truthful requirements', () => {
   const html = fs.readFileSync(path.join(out, 'welcome.html'), 'utf8');
   assert.ok(html.includes('id="bilgisayara-yukle"'), 'desktop installation section must exist');
   assert.ok(html.includes('Bilgisayara yükle'), 'landing page must link to desktop instructions');
   assert.ok(html.includes('Web’de kullan'), 'browser access must remain available');
-  assert.ok(html.includes('Ayrı bir Windows ya da macOS kurulum dosyası henüz sunulmuyor.'), 'must not imply native installers exist');
+  assert.ok(html.includes('https://github.com/talhakose285322-dotcom/44-english-app/releases/latest/download/Words44-Setup-1.0.9.exe'), 'Windows installer must link to the latest stable release asset');
+  assert.ok(html.includes('https://github.com/talhakose285322-dotcom/44-english-app/releases/latest/download/Words44-1.0.9-macOS.dmg'), 'macOS installer must link to the latest stable release asset');
+  assert.ok(html.includes('internet bağlantısı gerektirir'), 'desktop wrapper must disclose its internet requirement');
+  assert.ok(html.includes('Apple tarafından imzalanıp noter onayından geçirilmediği'), 'macOS signing status must be disclosed');
 });
