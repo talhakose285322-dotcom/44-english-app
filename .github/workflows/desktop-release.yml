@@ -57,7 +57,7 @@ jobs:
           path: installers
           merge-multiple: true
       - name: Generate SHA-256 checksums
-        run: cd installers && sha256sum * > SHA256SUMS
+        run: cd installers && sha256sum Words44* > SHA256SUMS
       - name: Publish installers to a public GitHub Release
         uses: softprops/action-gh-release@v2
         with:
