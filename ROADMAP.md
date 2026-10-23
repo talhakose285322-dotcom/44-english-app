@@ -106,11 +106,12 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 
 Çıkış ölçütü: ürün kullanımı ve ödeme isteği hakkında gerçek verilere dayanarak karar verilebiliyor.
 
-## Mevcut durum ve ilk iş
-- Tamamlanan işler yalnızca kanıtı görüldükten sonra işaretlenir.
-- Öncelik: Faz 0.5 — ana Cloudflare yayınının güncel commit'i sunmasını sağlamak; ardından Faz 1 veri güvenliği testlerine devam etmek.
-- Doğrulanan: bd97215 commit'inde üretim paketi doğrulaması ve tüm otomatik testler başarılı; GitHub Pages yedek yayını başarılı. Veri geri yükleme testleri bozuk/gelecek/eski biçimli yedekleri, birleştirmeyi, açık değiştirme onayını ve yalnız ayarlar varken güvenlik kopyasını kapsıyor.
-- Canlı GitHub Pages yedek sürümü 1.0.8; tanıtım, gizlilik ve kullanım koşulları sayfaları erişilebilir.
-- Önemli açık sorun (23 Ekim 2026 canlı kontrol): ana Cloudflare Pages `https://44-english-app.pages.dev/version.json` hâlâ 1.0.6 gösteriyor; GitHub Pages yedeği 1.0.8. Cloudflare kontrol panelinde üretim dalı ve Git entegrasyonu doğrulanmadan 0.5 tamamlanmış sayılmaz; adımlar CLOUDFLARE-DEPLOY.md'de kayıtlı.
-- Veri şeması ve yedek davranışı DATA-SAFETY.md dosyasında belgelenmiştir. Restore öncesi koruma mantığı, yalnız ayarlar saklıyken de yedek alacak şekilde düzeltildi ve otomatik testten geçti (fcd2017).
-- App Store/Google Play yayınları ve uçtan uca ödeme henüz doğrulanmış değil.
+## Mevcut durum ve sıradaki işler (23 Ekim 2026)
+- Tamamlanan işler yalnızca kanıtı görüldükten sonra işaretlenir; gerçek cihaz veya mağaza hesabı gerektiren işler otomatik testle tamamlanmış sayılmaz.
+- Yayın zinciri: ana Cloudflare Pages üretiminde `version.json` 1.0.10 ve service worker önbellek etiketi `english-app-v17` doğrulandı; GitHub Pages yedek yayını da güncel ana dala göre başarıyla çalıştı.
+- Otomatik test: son doğrulanmış çalıştırmada 49 test geçti, 0 hata; Google OAuth hesap seçimi isteği için regresyon testi eklendi.
+- Masaüstü: Words 44 Desktop 1.0.10 (build 14) kalıcı GitHub Release olarak yayımlandı. Windows ve macOS kurulum dosyaları ile SHA-256 toplamları eklendi. Masaüstü sarmalayıcısı web uygulamasını açtığı için internet bağlantısı gerektirir.
+- Veri şeması ve geri yükleme davranışı DATA-SAFETY.md içinde belgelenmiştir. Bozuk/gelecek/eski yedek, birleştirme, açık değiştirme onayı ve yalnız ayarlar varken güvenlik kopyası senaryoları otomatik test kapsamındadır.
+- Öncelik: 1.4 bulut yedeğinde kullanıcı izolasyonunu doğrulamak; ardından 2.1–2.4 web/PWA güncelleme ve veri güvenliği senaryoları.
+- Gerçek cihaz gerektiren açık işler: iPhone Google girişinde passkey/QR ve uygulamaya dönüş; Android Google girişi; iOS/Android PWA güncelleme davranışı. Google girişinde `prompt=select_account` istendi, ancak iPhone'da gerçek giriş yapılmadan sorun çözüldü kabul edilmeyecek.
+- Apple Developer hesabıyla imzalama/noterleme, App Store/Google Play test ve yayını henüz yapılmadı. Ödeme/abonelik sistemi de uçtan uca doğrulanmadı.
