@@ -11,11 +11,11 @@
   sb.signIn=function(u){user=u;cb&&cb('SIGNED_IN',{user:u})};
   function err(m){return Promise.resolve({data:null,error:{message:m}})}
   function table(){
-    var st={cols:'',up:null},api={
+    var st={cols:'',up:null,filters:{}},api={
       select:function(c){st.cols=c||'';return api},
-      eq:function(){return api},
+      eq:function(k,v){st.filters[k]=v;return api},
       maybeSingle:function(){sb.calls.push('select');if(sb.fail==='select')return err('network down');
-        if(!sb.row)return Promise.resolve({data:null,error:null});
+        if(!sb.row||Object.keys(st.filters).some(function(k){return sb.row[k]!==st.filters[k]}))return Promise.resolve({data:null,error:null});
         var o={};st.cols.split(',').forEach(function(k){k=k.trim();o[k]=sb.row[k]});return Promise.resolve({data:o,error:null})},
       upsert:function(o){st.up=o;return api},
       single:function(){sb.calls.push('upsert');if(sb.fail==='upsert')return err('upload failed');
