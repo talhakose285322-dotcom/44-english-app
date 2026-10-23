@@ -43,8 +43,16 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
 ## 3. Devam eden sorunlar
 1. iPhone ana ekran uygulamasının yeni sürümü alamaması (öncelik 1; bkz. `CLAUDE_HANDOFF.md`).
 2. iPhone'da Google OAuth dönüşü ve geçiş anahtarı/QR ekranı. Gerçek cihazda doğrulanmadan "düzeldi" denmez.
-3. Eski Netlify sitesi `v10`'da. Oradan kurulan uygulamalar güncellenmez. Yönlendirme yapılırsa o adresteki
-   kullanıcılar kendi verilerini göremez (veriler adrese göre ayrı tutulur). Bunun için ayrıca karar gerekir.
+3. Eski Netlify sitesi 21 Ekim'de durmuş: `index.html` = `1616b9e`, service worker `v10` (23 Ekim kontrolü).
+   Oradan ana ekrana kurulan uygulamalar yeni sürüm almaz. Yönlendirme yapılırsa o adresteki kullanıcılar kendi
+   verilerini göremez (veriler adrese göre ayrı tutulur). Bunun için ayrıca karar gerekir.
+   - **Erişim sorunu:** 23 Ekim'de geliştirici bilgisayarının ağından `*.pages.dev` adreslerine TLS bağlantısı
+     kurulamadı. DNS ve TCP çalışıyor, TLS el sıkışması takılıyor; `developers.cloudflare.com` açılıyor.
+     Kullanıcının telefonu aynı ağdaysa (aynı Wi-Fi ya da operatör) ana ekrandaki uygulama sunucuya ulaşamaz ve
+     önbellekteki eski sürümle açılmaya devam eder. Bunun çözümü kodda değil, alan adında (ör. özel alan adı).
+     Alan adı değişirse veriler adrese göre ayrı tutulduğu için yedekle taşınmaları gerekir.
+   - Bir sonraki adım: gerçek cihazda hangi adresin kurulu olduğunu ve o ağda `pages.dev`'in açılıp açılmadığını
+     doğrulamak.
 4. Taslak PR #22 (`android-capacitor-experiment`) açık. Birleştirilmemiş çok sayıda dal var.
 5. Claude Code'un yerel `pending-app-changes` dalı eski bir `main`'e (`7f4841f`) dayanır. Yerelde kaydedilmemiş
    `index.html` değişiklikleri vardır (ör. e-postayla kodla giriş; `main`'de yok). `main`'deki bulut yedeği ayrı
