@@ -27,7 +27,7 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 - [x] 1.3 Bozuk/eksik/eski yedeklerde yerel verinin değişmeden kaldığını doğrula (bozuk JSON, gelecek sürüm, eski dizi biçimi ve bulut yedeği hata senaryoları test edildi).
 - [ ] 1.4 Bulut yedeğinin yalnızca oturum açmış kullanıcının verisine eriştiğini doğrula.
 - [ ] 1.5 Dışa/içe aktarma akışını ve yedek biçiminin taşınabilirliğini kontrol et.
-- [ ] 1.6 Cihaz değişimi, hesap kaybı ve veri saklama sınırlarını açıkça anlat.
+- [x] 1.6 Cihaz değişimi, hesap kaybı ve veri saklama sınırlarını açıkça anlat (DATA-TRANSFER.md: JSON aktarımı, farklı alan adları, hesap erişimi, IndexedDB 15 kopya sınırı ve otomatik senkronizasyonun bulunmaması).
 
 Çıkış ölçütü: güncelleme veya geri yükleme kullanıcının verisini sessizce silmez ya da ezmez.
 
