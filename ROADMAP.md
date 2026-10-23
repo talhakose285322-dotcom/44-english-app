@@ -26,7 +26,7 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 - [x] 1.2 Veriyi ezebilecek işlemlerde açık onay ve güvenli hata davranışını test et (backup-restore.test.mjs: tam değiştirme onayını iptal etme ve veri koruma; bulut yedekleme hatası testleri).
 - [x] 1.3 Bozuk/eksik/eski yedeklerde yerel verinin değişmeden kaldığını doğrula (bozuk JSON, gelecek sürüm, eski dizi biçimi ve bulut yedeği hata senaryoları test edildi).
 - [ ] 1.4 Bulut yedeğinin yalnızca oturum açmış kullanıcının verisine eriştiğini doğrula.
-- [ ] 1.5 Dışa/içe aktarma akışını ve yedek biçiminin taşınabilirliğini kontrol et.
+- [x] 1.5 Dışa/içe aktarma akışını ve yedek biçiminin taşınabilirliğini kontrol et (83447e6: JSON dışa aktarımı ve temiz tarayıcı depolamasına içe aktarma; kelime, öğrenme kutusu, makale ve ayar korunumu otomatik testte başarılı. Gerçek cihaz aktarımı ayrıca Faz 2.5/7.6'da).
 - [x] 1.6 Cihaz değişimi, hesap kaybı ve veri saklama sınırlarını açıkça anlat (DATA-TRANSFER.md: JSON aktarımı, farklı alan adları, hesap erişimi, IndexedDB 15 kopya sınırı ve otomatik senkronizasyonun bulunmaması).
 
 Çıkış ölçütü: güncelleme veya geri yükleme kullanıcının verisini sessizce silmez ya da ezmez.
