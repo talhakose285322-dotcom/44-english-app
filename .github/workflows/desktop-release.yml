@@ -56,7 +56,9 @@ jobs:
         with:
           path: installers
           merge-multiple: true
-      - name: Publish installers to a draft GitHub Release
+      - name: Generate SHA-256 checksums
+        run: cd installers && sha256sum * > SHA256SUMS
+      - name: Publish installers to a public GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: desktop-v1.0.9-build.${{ github.run_number }}
