@@ -2678,6 +2678,7 @@ body.reading .sheet{max-width:740px}
     if(AU.cloudBusy)return;
     if(!AU.user||!AU.user.id){AU.cloudMsg='Bulut yedekleme için önce giriş yap.';AU.cloudBad=true;drawAcct();return}
     var owner=AU.user.id;
+    function assertSameOwner(){if(!AU.user||AU.user.id!==owner)throw new Error('Hesap değişti. Yeniden giriş yapıp tekrar dene.');}
     AU.cloudBusy=true;AU.cloudMsg=action==='save'?'Yedek buluta kaydediliyor…':'Bulut yedeği kontrol ediliyor…';AU.cloudBad=false;AU.err='';drawAcct();
     sbClient().then(function(c){
       if(!AU.user||AU.user.id!==owner)throw new Error('Hesap değişti. Yeniden giriş yapıp tekrar dene.');
@@ -2685,6 +2686,7 @@ body.reading .sheet{max-width:740px}
         var b=collect(),t=withStamp(b),data=JSON.stringify(b);
         if(new Blob([data]).size>10*1024*1024)throw new Error('Yedek 10 MB sınırını aşıyor. Önce büyük dosyaları azalt.');
         return c.from('cloud_backups').select('data,updated_at').eq('user_id',owner).maybeSingle().then(function(existing){
+          assertSameOwner();
           if(existing&&existing.error)throw existing.error;
           if(existing&&existing.data&&typeof existing.data.data==='string'&&existing.data.data.trim()){
             var prior=existing.data.data,hasSavedData=false;
@@ -2699,12 +2701,14 @@ body.reading .sheet{max-width:740px}
           }
           return c.from('cloud_backups').upsert({user_id:owner,data:data},{onConflict:'user_id'}).select('updated_at').single();
         }).then(function(r){
+          assertSameOwner();
           if(r&&r.error)throw r.error;
           S.lastBackup=t;saveS();stats();renderBackup();
           AU.cloudMsg='Bulut yedeği kaydedildi ('+b.counts.words+' kelime, '+b.counts.articles+' makale).';AU.cloudBad=false;
         });
       }
       return c.from('cloud_backups').select('data,updated_at').eq('user_id',owner).maybeSingle().then(function(r){
+        assertSameOwner();
         if(r&&r.error)throw r.error;
         if(!r||!r.data||typeof r.data.data!=='string'||!r.data.data.trim())throw new Error('Bu hesap için bulut yedeği bulunamadı.');
         if(new Blob([r.data.data]).size>10*1024*1024)throw new Error('Bulut yedeği beklenen boyutu aşıyor; veriler değiştirilmedi.');
