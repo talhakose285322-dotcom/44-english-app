@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: github-pages
+  group: words44-pages-backup-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
