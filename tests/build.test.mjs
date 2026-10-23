@@ -47,6 +47,20 @@ test('production release marker matches the version shown inside the app', () =>
   assert.equal(tracked.version, match[1], 'tracked version.json must match the actual app version');
 });
 
+test('installed-app update check uses the same version as the release marker (no repeated reloads)', () => {
+  // A lagging runningVersion makes every resumed page see a "newer" version.json and reload again after each long
+  // absence; it is bumped by hand together with version.json and the profile label, so keep the three in step.
+  for (const dir of [root, out]) {
+    const html = fs.readFileSync(path.join(dir, 'index.html'), 'utf8');
+    const shown = html.match(/Words 44 · Sürüm (\d+\.\d+\.\d+)/);
+    const running = html.match(/var runningVersion = '(\d+\.\d+\.\d+)'/);
+    const marker = JSON.parse(fs.readFileSync(path.join(dir, 'version.json'), 'utf8').replace(String.fromCharCode(65279), ''));
+    assert.ok(shown && running, 'profile version and update-check runningVersion must both exist in ' + dir);
+    assert.equal(running[1], shown[1], 'runningVersion must match the version shown in the app (' + dir + ')');
+    assert.equal(running[1], marker.version, 'runningVersion must match version.json (' + dir + ')');
+  }
+});
+
 test('backup build uses its own canonical host without changing the primary source files', () => {
   const base = 'https://talhakose285322-dotcom.github.io/44-english-app';
   for (const item of ['welcome.html', 'terms.html', 'privacy.html', 'sitemap.xml', 'robots.txt']) {

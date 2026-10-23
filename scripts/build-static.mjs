@@ -80,6 +80,12 @@ const sourceRelease = JSON.parse(fs.readFileSync(path.join(root, 'version.json')
 if (sourceRelease.version !== release[1]) {
   throw new Error(`Source version.json (${sourceRelease.version}) differs from app version (${release[1]})`);
 }
+// The installed app's update check compares the published version.json with runningVersion. If runningVersion lags
+// behind, every resumed page sees a "newer" release and reloads again after each long absence, so fail the build.
+const running = html.match(/var runningVersion = '(\d+\.\d+\.\d+)'/);
+if (!running || running[1] !== release[1]) {
+  throw new Error(`Update check runningVersion (${running ? running[1] : 'missing'}) differs from app version (${release[1]})`);
+}
 fs.writeFileSync(path.join(out, 'version.json'), JSON.stringify({
   version: release[1],
   builtAt: new Date().toISOString()
