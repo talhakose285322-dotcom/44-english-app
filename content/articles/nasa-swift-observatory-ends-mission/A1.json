@@ -1,0 +1,24 @@
+{
+  "id": "nasa-swift-observatory-ends-mission",
+  "level": "A1",
+  "title": "NASA’s Swift Telescope Ends Its Long Mission",
+  "paragraphs": [
+    "NASA has a space telescope called Swift. It looks for gamma-ray bursts. These are very big flashes of light in space.",
+    "Swift went into space in 2004. It was a two-year mission, but Swift worked for almost 22 years. Its last observation was on October 20.",
+    "Now Swift is too low. The air near Earth slows it down. Soon it will fall back to Earth. Swift gave scientists a lot of good data."
+  ],
+  "questions": [
+    {
+      "q": "When did Swift go into space?",
+      "a": "In 2004."
+    },
+    {
+      "q": "What did Swift look for?",
+      "a": "Gamma-ray bursts."
+    },
+    {
+      "q": "Why does Swift stop its work?",
+      "a": "It is too low and the air slows it down."
+    }
+  ]
+}

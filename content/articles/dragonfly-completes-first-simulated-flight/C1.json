@@ -1,0 +1,24 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "level": "C1",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "paragraphs": [
+    "Before NASA’s Dragonfly can fly on Titan, it has to survive a far more modest trial: a virtual one. The rotorcraft, destined for Saturn’s largest moon, has just completed its first simulated flight on a computer testbed at the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland, where the real hardware is being integrated and tested.",
+    "The exercise was anything but trivial. Running in real time on flight-like avionics, it reproduced most of the systems and manoeuvres the machine will rely on at Titan: autonomous separation from its backshell, a scan of the terrain for a safe landing site, a loop back and a final descent. Simulated feeds from the newly installed navigation cameras, inertial units and lidar, which measures altitude and slope and picks out hazards, were fed in. A custom emulator rendered Titan scenes in roughly 20 to 70 milliseconds to match the real exposure times.",
+    "Lead mobility engineer Zach Putnam described the first flight as “our most challenging flight”, with the tests confirming that the components cooperate. Because signals take a long time to cross the distance, Dragonfly cannot be steered from home. Next, the team will run the sequence on the genuine flight system and inject deliberate faults to see whether the autonomous responses hold. Launch is set for 2028 at the earliest, arrival in 2034, followed by about three years of hopping between sites."
+  ],
+  "questions": [
+    {
+      "q": "What does the phrase “anything but trivial” mean?",
+      "a": "The exercise was actually difficult and important."
+    },
+    {
+      "q": "What was the lidar the final piece for?",
+      "a": "The team’s full first-flight simulation."
+    },
+    {
+      "q": "What follows arrival at Titan?",
+      "a": "About three years of flying between sites."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "category": "news",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "summary": "NASA’nın Satürn’ün uydusu Titan’a gidecek Dragonfly dönel kanatlı aracı, Maryland’deki bir test düzeneğinde ilk “uçuşunu” benzetim olarak tamamladı.",
+  "published": "2026-10-25",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Dragonfly aracının Titan yüzeyindeki sanatsal çizimi (örnek görsel).",
+    "credit": "NASA/JHU-APL",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:Dragonfly_spacecraft_landing.png"
+  },
+  "sources": [
+    {
+      "title": "NASA Science: NASA’s Dragonfly Completes First Simulated Flight (23 Oct 2026)",
+      "url": "https://science.nasa.gov/blogs/dragonfly/2026/10/23/nasas-dragonfly-completes-first-simulated-flight/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "rotorcraft",
+      "tr": "dönel kanatlı hava aracı"
+    },
+    {
+      "w": "simulated",
+      "tr": "benzetim (simülasyon) yoluyla yapılan"
+    },
+    {
+      "w": "autonomously",
+      "tr": "kendi kendine, özerk biçimde"
+    },
+    {
+      "w": "lidar",
+      "tr": "lazerle mesafe ölçen sensör"
+    },
+    {
+      "w": "terrain",
+      "tr": "arazi"
+    },
+    {
+      "w": "descent",
+      "tr": "iniş"
+    },
+    {
+      "w": "validation",
+      "tr": "doğrulama"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "nasa-swift-observatory-ends-mission",
+  "level": "B2",
+  "title": "NASA’s Swift Telescope Ends Its Long Mission",
+  "paragraphs": [
+    "After nearly 22 years of work, NASA’s Neil Gehrels Swift Observatory has reached the end of its science mission. The telescope was built to study gamma-ray bursts, brief but enormously energetic flashes of light, and its combination of optical, ultraviolet and X-ray instruments allowed it to pinpoint a burst within moments of its detection. It launched on November 20, 2004, and was renamed in 2018 to honour its first principal investigator, Neil Gehrels, who had died.",
+    "The cause of the retirement is not a technical failure but physics. Swift’s orbit has decayed below 275 kilometres, where drag from the atmosphere is strong enough to prevent its telescopes from holding steady on a target. Its last observation was made on October 20, and the spacecraft is expected to re-enter the atmosphere within weeks. A mission designed to last two years therefore operated for more than ten times as long.",
+    "The scientific legacy is substantial: more than 2,000 bursts observed, more than 1,400 supernovae studied and roughly 7,000 published papers. In 2005 Swift detected the afterglow of a short burst for the first time, which supported the idea that such flashes come from merging neutron stars. Its principal investigator, S. Bradley Cenko, said Swift “was designed as a satellite dedicated to studying gamma-ray bursts.” NASA says other missions will now fill the gap."
+  ],
+  "questions": [
+    {
+      "q": "Why has Swift’s mission ended?",
+      "a": "Its orbit decayed and atmospheric drag stopped its telescopes from observing steadily."
+    },
+    {
+      "q": "What did Swift show in 2005?",
+      "a": "It detected the afterglow of a short gamma-ray burst for the first time, supporting the neutron-star merger idea."
+    },
+    {
+      "q": "Was the end caused by a technical failure?",
+      "a": "No, it was caused by the decaying orbit."
+    }
+  ]
+}

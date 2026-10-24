@@ -1,0 +1,24 @@
+{
+  "id": "nasa-swift-observatory-ends-mission",
+  "level": "C1",
+  "title": "NASA’s Swift Telescope Ends Its Long Mission",
+  "paragraphs": [
+    "Few spacecraft outlive their warranty by a factor of ten, but NASA’s Neil Gehrels Swift Observatory did precisely that. Launched on November 20, 2004, with a two-year primary mission, the telescope has now ended its science operations after almost 22 years, its final observation having been made on October 20. It is expected to re-enter the atmosphere within weeks.",
+    "The reason is the unforgiving arithmetic of low Earth orbit. Swift’s altitude has fallen below 275 kilometres, where atmospheric drag is strong enough to stop its instruments from staying locked on a target. Because the observatory was built to react to sudden events, its ability to slew rapidly and image a burst in optical, ultraviolet and X-ray light made it a pioneer of what astronomers call time-domain science.",
+    "The tally is remarkable: more than 2,000 gamma-ray bursts, over 1,400 supernovae, about 7,000 papers and an open archive of some 12 terabytes. In 2005 it caught the afterglow of a short burst for the first time, lending weight to the theory that such events arise when neutron stars collide. It also watched stars torn apart by black holes. Shawn Domagal-Goldman, head of NASA’s Astrophysics Division, called Swift “an incredible, lasting return on investment for the nation.” With the observatory gone, NASA intends to rely on its remaining missions to respond swiftly to the next cosmic surprise."
+  ],
+  "questions": [
+    {
+      "q": "What does “outlive their warranty by a factor of ten” mean here?",
+      "a": "Swift worked about ten times longer than the two years it was designed for."
+    },
+    {
+      "q": "What made Swift a pioneer?",
+      "a": "It could rapidly turn to and image bursts in several types of light."
+    },
+    {
+      "q": "How will NASA cover the loss of Swift?",
+      "a": "By using its remaining missions to respond quickly to cosmic events."
+    }
+  ]
+}

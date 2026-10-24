@@ -1,0 +1,24 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "level": "A2",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "paragraphs": [
+    "Dragonfly is a NASA rotorcraft, a flying machine with rotors. It will explore Titan, the biggest moon of Saturn, by flying from place to place. This week engineers finished its first simulated flight.",
+    "The test happened on a computer testbed at the Johns Hopkins Applied Physics Laboratory in Maryland. The computer sent fake data from cameras, motion sensors and a lidar, which measures the height and shape of the ground. In the simulation, Dragonfly left its backshell, looked for a safe place to land, turned around and came down slowly.",
+    "The team says this is the hardest flight Dragonfly will make. Everything on Titan must happen without help from Earth. The mission will launch in 2028 at the earliest and arrive in 2034."
+  ],
+  "questions": [
+    {
+      "q": "What does the lidar measure?",
+      "a": "The height and slope of the ground."
+    },
+    {
+      "q": "Where did the test happen?",
+      "a": "At the Johns Hopkins Applied Physics Laboratory in Maryland."
+    },
+    {
+      "q": "When will Dragonfly reach Titan?",
+      "a": "In 2034."
+    }
+  ]
+}

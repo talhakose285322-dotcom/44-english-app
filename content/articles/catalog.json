@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,162 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "dragonfly-completes-first-simulated-flight",
+      "category": "news",
+      "title": "Dragonfly Completes Its First Simulated Flight",
+      "summary": "NASA’nın Satürn’ün uydusu Titan’a gidecek Dragonfly dönel kanatlı aracı, Maryland’deki bir test düzeneğinde ilk “uçuşunu” benzetim olarak tamamladı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-25",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 75,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 123,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 197,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 209,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 229,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 242,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "dragonfly-completes-first-simulated-flight/image.jpg",
+        "alt": "Dragonfly aracının Titan yüzeyindeki sanatsal çizimi (örnek görsel).",
+        "credit": "NASA/JHU-APL",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:Dragonfly_spacecraft_landing.png"
+      },
+      "sources": [
+        {
+          "title": "NASA Science: NASA’s Dragonfly Completes First Simulated Flight (23 Oct 2026)",
+          "url": "https://science.nasa.gov/blogs/dragonfly/2026/10/23/nasas-dragonfly-completes-first-simulated-flight/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "rotorcraft",
+          "tr": "dönel kanatlı hava aracı"
+        },
+        {
+          "w": "simulated",
+          "tr": "benzetim (simülasyon) yoluyla yapılan"
+        },
+        {
+          "w": "autonomously",
+          "tr": "kendi kendine, özerk biçimde"
+        },
+        {
+          "w": "lidar",
+          "tr": "lazerle mesafe ölçen sensör"
+        },
+        {
+          "w": "terrain",
+          "tr": "arazi"
+        },
+        {
+          "w": "descent",
+          "tr": "iniş"
+        },
+        {
+          "w": "validation",
+          "tr": "doğrulama"
+        }
+      ]
+    },
+    {
+      "id": "nasa-swift-observatory-ends-mission",
+      "category": "news",
+      "title": "NASA’s Swift Telescope Ends Its Long Mission",
+      "summary": "NASA’nın Swift uzay teleskobu, yörüngesi alçaldığı için yaklaşık 22 yıllık görevini 20 Ekim’deki son gözlemiyle tamamladı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-25",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 73,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 136,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 199,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 221,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 224,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 230,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "nasa-swift-observatory-ends-mission/image.jpg",
+        "alt": "Swift uzay teleskobunun bilgisayarla çizilmiş bir görüntüsü (örnek görsel).",
+        "credit": "NASA E/PO, Sonoma State University / Aurore Simonnet",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:Nasa_swift_satellite.jpg"
+      },
+      "sources": [
+        {
+          "title": "NASA Science: NASA’s Swift Mission Ends, Leaves Behind Scientific Bonanza (23 Oct 2026)",
+          "url": "https://science.nasa.gov/missions/swift/nasas-swift-mission-ends/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "gamma-ray burst",
+          "tr": "gama ışını patlaması"
+        },
+        {
+          "w": "orbit",
+          "tr": "yörünge"
+        },
+        {
+          "w": "atmosphere",
+          "tr": "atmosfer"
+        },
+        {
+          "w": "drag",
+          "tr": "sürtünme (atmosferik direnç)"
+        },
+        {
+          "w": "observe",
+          "tr": "gözlemlemek"
+        },
+        {
+          "w": "re-enter",
+          "tr": "atmosfere yeniden girmek"
+        },
+        {
+          "w": "archive",
+          "tr": "arşiv"
+        }
+      ]
+    },
     {
       "id": "crew-12-returns-to-earth",
       "category": "news",

@@ -1,0 +1,24 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "level": "C2",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "paragraphs": [
+    "It may not have left the ground, but Dragonfly has, in a manner of speaking, taken its maiden flight. NASA’s rotorcraft, bound for Saturn’s moon Titan, has completed a simulated first flight on a computer testbed at the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland, where the real machine is being assembled and put through its paces.",
+    "The run was a dress rehearsal in everything but altitude. Executing in real time on flight-like avionics, it exercised most of the systems and manoeuvres needed at Titan: a self-directed separation from the backshell, a sweep of the terrain for a safe landing site, a turn back and a final descent. Synthetic data from the freshly installed navigation cameras, inertial units and lidar, which gauges altitude and slope and flags hazards, drove the sequence, while a graphics-processor emulator produced Titan scenes in about 20 to 70 milliseconds to mirror real exposure times. Lidar was the last piece of the puzzle.",
+    "Zach Putnam, the laboratory’s lead mobility engineer, called the first flight “our most challenging flight”, adding that the tests validate how everything works together. Next, the team intends to fly it on the actual flight system, try other profiles and deliberately break things to prove that Dragonfly can cope alone, since, as Putnam put it, “everything we do on Titan has to happen autonomously.” Launch is planned for 2028 at the earliest, with arrival in 2034 and roughly three years of exploration to follow."
+  ],
+  "questions": [
+    {
+      "q": "In what sense has Dragonfly taken its “maiden flight”?",
+      "a": "Only virtually, in a simulation."
+    },
+    {
+      "q": "What does “dress rehearsal in everything but altitude” imply?",
+      "a": "The test copied the real flight closely, but nothing left the ground."
+    },
+    {
+      "q": "Why will engineers deliberately inject faults?",
+      "a": "To prove the craft can respond correctly on its own."
+    }
+  ]
+}

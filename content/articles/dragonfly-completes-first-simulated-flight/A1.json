@@ -1,0 +1,24 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "level": "A1",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "paragraphs": [
+    "Dragonfly is a NASA flying machine. It will go to Titan. Titan is a moon of Saturn.",
+    "This week, Dragonfly made its first test flight on a computer. The test was at a lab in Maryland. The machine was not in the air. The flight was only a simulation.",
+    "The computer test went well. Dragonfly will fly alone on Titan, so engineers must test everything first. It will go to space in 2028 or later."
+  ],
+  "questions": [
+    {
+      "q": "Where will Dragonfly go?",
+      "a": "To Titan, a moon of Saturn."
+    },
+    {
+      "q": "Where was the test?",
+      "a": "At a lab in Maryland."
+    },
+    {
+      "q": "Was the test flight in the air?",
+      "a": "No, it was a computer simulation."
+    }
+  ]
+}
