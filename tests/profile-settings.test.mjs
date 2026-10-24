@@ -24,7 +24,7 @@ test('Ekle yalnızca kelime eklemeyi, Profil → Ayarlar ayarları ve yedeği g�
   assert.equal(await visible('p-set'), false);
   await b.ev("document.querySelector('#ptabs [data-pt=\"set\"]').click()");
   assert.equal(await visible('p-main'), false);
-  assert.deepEqual(await heads('p-set'), ['Ayarlar', 'Uygulama linki', 'Yedek', 'Yedekten geri yükle', 'Otomatik güvenlik kopyaları', 'Verilerin nerede saklanıyor?']);
+  assert.deepEqual(await heads('p-set'), ['Ayarlar', 'Uygulama linki', 'Yenilikler', 'Yedek', 'Yedekten geri yükle', 'Otomatik güvenlik kopyaları', 'Verilerin nerede saklanıyor?']);
   assert.match(await b.ev("document.getElementById('bk-info').innerText"), /1 kelime/, 'yedek bilgisi Ayarlar açılınca doluyor');
   assert.equal(await b.ev("document.getElementById('lk').value"), srv.url, 'uygulama linki çalıştığı adres');
   assert.deepEqual(b.errors, []);
