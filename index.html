@@ -2288,6 +2288,8 @@ body.reading .sheet{max-width:740px}
     [].forEach.call(s.querySelectorAll('[data-col]'),function(b){b.onclick=function(){done(b.getAttribute('data-col'))}});
     $('ls-new').onclick=function(){var c=$('ls-n').value.trim();if(!c){$('ls-t').style.color='var(--bad)';$('ls-t').textContent='Yeni listenin adını yaz.';return}done(c)};
   }
+  // Short by default: per word type the first DSHOW senses (the rest under "Diğer anlamlar"), DEXS examples per sense
+  var DSHOW=3,DEXS=2;
   function drawDict(){
     var me=DS,o=$('dres');if(!me){o.innerHTML='';return}
     var view=me.view=dview(me),w0=me.q,own=me.own,h='',anyTR=view.some(function(v){return hasTR(v.e)}),saved=function(w){return words.filter(function(x){return x.w.trim().toLowerCase()===w.toLowerCase()})[0]};
@@ -2353,9 +2355,9 @@ body.reading .sheet{max-width:740px}
       var key=vi+':'+bi+':'+k,u=me.ui[key]||{},s="<div class='dsense'><button class='dchip"+(me.d===d.d?' on':'')+"' data-di='"+key+"'><b class='dn'>"+n+".</b> <em>"+esc(lbText(d.lb))+"</em>"+esc(d.d)+"</button>";
       if(d.tr.length)s+="<div class='dtr'><span>Türkçe:</span>"+chipsOf(d.tr)+"</div>";
       else if(view[vi].e.src==='Vikisözlük')s+=u.dmt?mtOut(u.dmt,'Tanımın makine çevirisi — sözlük anlamı değildir'):"<button class='dlink' data-dt='"+key+"'>Tanımı çevir (makine çevirisi)</button>";
-      d.ex.forEach(function(x,i){var t=(u.xt||[])[i];s+="<div class='dex'>“"+esc(x)+"”"+(t?mtOut(t,'Türkçesi — makine çevirisi'):" <button class='dlink' data-xt='"+key+':'+i+"'>Türkçesi</button>")+"</div>"});
-      if(d.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(d.syn)+'</div>';
-      if(d.ant.length)s+="<div class='syn'>Zıt anlamlılar: "+links(d.ant)+'</div>';
+      d.ex.slice(0,DEXS).forEach(function(x,i){var t=(u.xt||[])[i];s+="<div class='dex'>“"+esc(x)+"”"+(t?mtOut(t,'Türkçesi — makine çevirisi'):" <button class='dlink' data-xt='"+key+':'+i+"'>Türkçesi</button>")+"</div>"});
+      if(d.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(d.syn.slice(0,5))+'</div>';
+      if(d.ant.length)s+="<div class='syn'>Zıt anlamlılar: "+links(d.ant.slice(0,5))+'</div>';
       s+="<div class='dsv'><button class='btn ghost' data-sv='"+key+"'>"+(d.tr.length?'Bu anlamı kaydet':'Bu anlamı seç')+"</button>"+(u.svm?"<span style='color:var(--"+(u.svm.ok?'good':'bad')+")'>"+esc(u.svm.msg)+"</span>":'')+"</div></div>";
       return s;
     }
@@ -2365,16 +2367,17 @@ body.reading .sheet{max-width:740px}
         var idx=b.defs.map(function(d,k){return k}),main=idx.filter(function(k){return !b.defs[k].old}),old=idx.filter(function(k){return b.defs[k].old}),n=0;
         if(v.role==='old'){main=old;old=[]}
         s+="<div class='dpos'><i>"+esc(b.pos)+"</i><span class='dpt'>"+esc(POSTR[b.pos]||'')+"</span>";
-        s+=main.slice(0,8).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('');
-        if(main.length>8)s+="<details><summary>Diğer anlamlar ("+(main.length-8)+")</summary>"+main.slice(8).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('')+"</details>";
+        s+=main.slice(0,DSHOW).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('');
+        if(main.length>DSHOW)s+="<details><summary>Diğer anlamlar ("+(main.length-DSHOW)+")</summary>"+main.slice(DSHOW).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('')+"</details>";
         if(old.length)s+="<details><summary>Eski / nadir anlamlar ("+old.length+")</summary>"+old.map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('')+"</details>";
-        if(b.trx.length)s+="<div class='tlab'>Türkçe karşılıklar · Vikisözlük (anlam grubuna göre)</div>"+b.trx.map(function(t){return "<div class='sense'>"+(t.g?"<i>"+esc(t.g)+"</i>":'')+"<div>"+chipsOf(t.tr)+"</div></div>"}).join('');
+        // already summed up under "Türkçe karşılığı" at the top; the full table by sense group stays one tap away
+        if(b.trx.length)s+="<details><summary>Anlam grubuna göre tüm Türkçe karşılıklar · Vikisözlük</summary>"+b.trx.map(function(t){return "<div class='sense'>"+(t.g?"<i>"+esc(t.g)+"</i>":'')+"<div>"+chipsOf(t.tr)+"</div></div>"}).join('')+"</details>";
         if(b.tro.length)s+="<details><summary>Kontrol edilmemiş / eski çeviriler</summary><p class='note'>Henüz doğrulanmamış ya da eskimiş olabilir.</p>"+b.tro.map(function(t){var l=t.tr.concat(t.old,t.unc);return "<div class='sense'>"+(t.g?"<i>"+esc(t.g)+"</i>":'')+"<div>"+chipsOf(l)+"</div></div>"}).join('')+"</details>";
-        if(b.syn&&b.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(b.syn.slice(0,12))+'</div>';
+        if(b.syn&&b.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(b.syn.slice(0,6))+'</div>';
         s+="</div>";
       });
       var fam=[];e.blocks.forEach(function(b){b.der.concat(b.rel).forEach(function(x){if(fam.indexOf(x)<0&&x.toLowerCase()!==e.w.toLowerCase())fam.push(x)})});
-      if(fam.length)s+="<div class='syn dfam'>Kelime ailesi · Vikisözlük: "+links(fam.slice(0,14))+(fam.length>14?' …':'')+"</div>";
+      if(fam.length)s+="<div class='syn dfam'>Kelime ailesi · Vikisözlük: "+links(fam.slice(0,8))+(fam.length>8?' …':'')+"</div>";
       s+="<p class='dsrc'>Kaynak: "+(e.src==='Vikisözlük'?"<a href='https://en.wiktionary.org/wiki/"+encodeURIComponent(e.w)+"' target='_blank' rel='noopener'>Vikisözlük</a> (CC BY-SA)":'dictionaryapi.dev')+"</p>";
       if(v.role==='own'&&view.length===1)return s;
       var f=me.fq[e.w.toLowerCase()],sum=v.role==='lemma'?"<b>"+esc(e.w)+"</b> · kök kelime"+(phOf(e)?' · '+esc(phOf(e)):'')+(f!=null?' · '+freqLabel(f):''):v.role==='old'?"“"+esc(e.w)+"” kelimesinin kendi anlamları (eski / nadir)":"<b>"+esc(e.w)+"</b> · bu biçimin kendi anlamları";
@@ -2446,8 +2449,8 @@ body.reading .sheet{max-width:740px}
     me.view.forEach(function(v,vi){
       if(v.role==='old'||!(v.role==='own'||v.open))return;
       v.e.blocks.forEach(function(b,bi){
-        b.defs.map(function(d,k){return k}).filter(function(k){return !b.defs[k].old}).slice(0,8).forEach(function(k){
-          b.defs[k].ex.forEach(function(x,i){jobs.push({key:vi+':'+bi+':'+k,i:i,x:x})});
+        b.defs.map(function(d,k){return k}).filter(function(k){return !b.defs[k].old}).slice(0,DSHOW).forEach(function(k){
+          b.defs[k].ex.slice(0,DEXS).forEach(function(x,i){jobs.push({key:vi+':'+bi+':'+k,i:i,x:x})});
         });
       });
     });

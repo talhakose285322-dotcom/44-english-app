@@ -20,6 +20,19 @@ const EN = {
 # The act of drawing near.
 #: {{ux|en|The approach of winter was felt.}}
 `,
+  // many senses: only the first three are shown at once, two examples each
+  run: `==English==
+===Verb===
+{{en-verb}}
+# To move swiftly on foot.
+#: {{ux|en|Run one.}}
+#: {{ux|en|Run two.}}
+#: {{ux|en|Run three.}}
+# To manage or direct.
+# To operate a machine.
+# To extend in a direction.
+# To be a candidate in an election.
+`,
   went: `==English==
 ===Verb===
 {{en-verb}}
