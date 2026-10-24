@@ -37,13 +37,17 @@ const topPara = () => b.ev("(function(){var ch=document.getElementById('art').ch
 test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtreleri çalışıyor', async () => {
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
   assert.equal((await cards()).length, Math.min(PAGE, CATALOG.articles.filter(a => !oldNews(a)).length), 'katalogdaki makaleler listede (ilk sayfa)');
+  // expected lists come from the catalog (newest first, first page), so new daily articles do not break the test
   await setCat('technology');
-  assert.deepEqual(await cards(), ['how-the-internet-moves-data@B1']);
+  assert.deepEqual(await cards(), CATALOG.articles.filter(a => a.category === 'technology').slice(0, PAGE).map(a => a.id + '@B1'));
+  assert.ok((await cards()).includes('how-the-internet-moves-data@B1'));
   await setCat('');
   await setSel('rl-lv', 'C2');
   assert.ok((await cards()).every(c => c.endsWith('@C2')), 'seçilen seviye kartlara geçiyor');
   await b.ev("(function(q){q.value='inflation';q.dispatchEvent(new Event('input'))})(document.getElementById('rl-q'))");
-  assert.deepEqual(await cards(), ['what-is-inflation@C2']);
+  const hit = a => a.levels.C2 && (a.title + ' ' + (a.summary || '')).toLowerCase().includes('inflation');
+  assert.deepEqual(await cards(), CATALOG.articles.filter(hit).slice(0, PAGE).map(a => a.id + '@C2'));
+  assert.ok((await cards()).includes('what-is-inflation@C2'));
   await b.ev("(function(q){q.value='';q.dispatchEvent(new Event('input'))})(document.getElementById('rl-q'))");
   await setSel('rl-lv', 'B1');
   assert.deepEqual(b.errors, []);

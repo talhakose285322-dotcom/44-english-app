@@ -1,0 +1,44 @@
+# Koruma: which files a pull request may change. Runs from main's copy of this file (pull_request_target) and never
+# checks out the pull request's code, so a pull request cannot change or skip this check.
+# - Daily news branches (news/...) may only add or change files under content/articles/.
+# - Any change under .github/ (workflows that run the tests and deploy) needs the "workflow-onay" label, which only
+#   the repository owner should add after reading the change.
+name: Koruma
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Değişen dosyaları denetle
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: |
+          set -euo pipefail
+          files=$(gh api --paginate "repos/$REPO/pulls/$PR/files" --jq '.[].filename')
+          printf 'Değişen dosyalar:\n%s\n' "$files"
+          if [[ "$HEAD_REF" == news/* ]]; then
+            other=$(printf '%s\n' "$files" | grep -v -E '^content/articles/' || true)
+            if [ -n "$other" ]; then
+              printf '::error::Haber PR’ı yalnızca content/articles/ altını değiştirebilir. Dışarıdaki dosyalar:\n%s\n' "$other"
+              exit 1
+            fi
+          fi
+          github_files=$(printf '%s\n' "$files" | grep -E '^\.github/' || true)
+          if [ -n "$github_files" ] && ! printf '%s' "$LABELS" | grep -q '"workflow-onay"'; then
+            printf '::error::.github/ altındaki dosyalar değişiyor; birleşmesi için depo sahibinin "workflow-onay" etiketini eklemesi gerekir:\n%s\n' "$github_files"
+            exit 1
+          fi
+          echo "Koruma denetimi geçti."
