@@ -90,15 +90,23 @@ export async function openBrowser(opts = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'words44-test-'));
   // CI runners (Ubuntu) often cannot start Chrome's sandbox; only there, and only for these throwaway test browsers
   const ci = process.env.CI ? ['--no-sandbox', '--disable-dev-shm-usage', '--no-zygote'] : [];
-  // own process group on Linux/macOS, so the whole browser can be ended at once (Windows uses taskkill /T)
-  const proc = track(spawn(findChrome(), ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + dir, ...ci,
-    '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--disable-extensions', '--disable-crash-reporter', 'about:blank'],
-    {stdio: 'ignore', detached: process.platform !== 'win32'}));
-  const exited = new Promise(r => proc.once('exit', r));
-  let port = 0;
-  for (let i = 0; i < 100 && !port; i++) {
-    try { port = +fs.readFileSync(path.join(dir, 'DevToolsActivePort'), 'utf8').split('\n')[0]; } catch {}
-    if (!port) await sleep(100);
+  // A busy CI runner now and then needed more than 10 s to start Chrome, failing a whole test file: wait up to 30 s,
+  // and if it still has not started, end it and try once more with an emptied profile folder.
+  let proc, exited, port = 0;
+  for (let attempt = 0; attempt < 2 && !port; attempt++) {
+    if (attempt) {
+      killTree(proc); await Promise.race([exited, sleep(3000)]);
+      try { fs.rmSync(dir, {recursive: true, force: true}); fs.mkdirSync(dir, {recursive: true}); } catch {}
+    }
+    // own process group on Linux/macOS, so the whole browser can be ended at once (Windows uses taskkill /T)
+    proc = track(spawn(findChrome(), ['--headless=new', '--remote-debugging-port=0', '--user-data-dir=' + dir, ...ci,
+      '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--disable-extensions', '--disable-crash-reporter', 'about:blank'],
+      {stdio: 'ignore', detached: process.platform !== 'win32'}));
+    exited = new Promise(r => proc.once('exit', r));
+    for (let i = 0; i < 300 && !port; i++) {
+      try { port = +fs.readFileSync(path.join(dir, 'DevToolsActivePort'), 'utf8').split('\n')[0]; } catch {}
+      if (!port) await sleep(100);
+    }
   }
   if (!port) { killTree(proc); throw new Error('Chrome did not start'); }
   let target;

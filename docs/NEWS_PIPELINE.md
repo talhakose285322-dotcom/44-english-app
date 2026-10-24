@@ -5,6 +5,9 @@ Bu belge, "Haberler" kategorisine her gün eklenen içeriğin nasıl hazırlanac
 PR'ı **auto-merge** ile açılır: `main` korumalıdır ve zorunlu `test` denetimi (katalog doğrulaması dahil tüm testler)
 geçmeden birleşmez; geçerse kullanıcı onayı beklemeden yayına girer. Yanlış bir haber, klasörü silen bir PR ile
 kaldırılır. Uygun haber yoksa o gün hiçbir şey yayımlanmaz; haber zorla üretilmez.
+Ayrıca zorunlu **Koruma** denetimi (`.github/workflows/guard.yml`, `main`'deki kopyadan çalışır) `news/` dallarının
+`content/articles/` dışında dosya değiştirmesine izin vermez; `.github/` altındaki her değişiklik depo sahibinin
+`workflow-onay` etiketini ister.
 
 ## Akış
 

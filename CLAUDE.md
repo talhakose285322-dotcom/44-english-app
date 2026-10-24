@@ -84,6 +84,10 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
 - Her geliştirme küçük, tek amaçlı ve açıklayıcı mesajlı commit'lerle kaydedilir.
 - Başarılı ve güvenli değişiklikler GitHub'a gönderilir. Push öncesi yalnızca ilgili dosyaların commit'te olduğu
   doğrulanır.
+- `main` korumalıdır: değişiklik PR ile gelir, zorunlu `test` ve **Koruma** denetimleri geçince (auto-merge) birleşir.
+  Koruma (`.github/workflows/guard.yml`, `main`'deki kopyadan çalışır) `news/` dallarına yalnızca `content/articles/`
+  altını değiştirtir; `.github/` altındaki her değişiklik depo sahibinin `workflow-onay` etiketini ister — bu etiketi
+  ajanlar eklemez.
 - Her değişiklikten sonra kısa bir özet verilir: ne değişti, commit SHA, CI sonucu, yayın durumu ve neyin
   doğrulanmadığı.
 - Gereksiz proje taraması, uzun planlama ve tekrar eden test/durum raporları yapılmaz.

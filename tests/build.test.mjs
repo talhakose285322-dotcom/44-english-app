@@ -103,3 +103,15 @@ test('landing page offers web access and desktop installer links with truthful r
   assert.ok(html.includes('internet bağlantısı gerektirir'), 'desktop wrapper must disclose its internet requirement');
   assert.ok(html.includes('Apple tarafından imzalanıp noter onayından geçirilmediği'), 'macOS signing status must be disclosed');
 });
+
+test('Koruma iş akışı main’deki kopyadan çalışıyor ve PR kodunu indirmiyor', () => {
+  // pull_request_target runs with the base branch's file; checking out the pull request there would let it run its code
+  const wf = fs.readFileSync(path.join(root, '.github', 'workflows', 'guard.yml'), 'utf8');
+  assert.match(wf, /^on:\s*\n\s+pull_request_target:/m);
+  assert.doesNotMatch(wf, /actions\/checkout|head\.sha/, 'never checks out the pull request');
+  const refs = wf.split('\n').filter(l => l.includes('pull_request.head.ref'));
+  assert.deepEqual(refs.map(l => l.trim().split(':')[0]), ['HEAD_REF'], 'the branch name reaches the script only through env');
+  assert.match(wf, /news\/\*[\s\S]*content\/articles\//, 'news branches limited to content/articles/');
+  assert.match(wf, /workflow-onay/, '.github changes need the owner label');
+  assert.match(wf, /permissions:\s*\n\s+contents: read\s*\n\s+pull-requests: read/, 'read-only token');
+});
