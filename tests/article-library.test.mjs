@@ -27,6 +27,8 @@ after(async () => { await b?.close(); srv?.stop(); });
 const cards = () => b.ev("[].map.call(document.querySelectorAll('#rl-list [data-rl]'),function(t){return t.getAttribute('data-rl')+'@'+t.getAttribute('data-lv')})");
 const lib = async () => JSON.parse((await b.storage())[LIBK] || '{}');
 const setSel = (id, v) => b.ev(`(function(s){s.value=${JSON.stringify(v)};s.dispatchEvent(new Event('change'))})(document.getElementById('${id}'))`);
+// categories are a row of chips; '' is Tümü
+const setCat = v => b.ev(`document.querySelector('#rl .rchip[data-rc=${JSON.stringify(v)}]').click()`);
 // the list shows 12 cards at a time and new articles come first: open more pages until the wanted card is there
 const showCard = id => b.ev(`(function(){for(var i=0;i<50&&!document.querySelector('#rl-list [data-rl=${JSON.stringify(id)}]');i++){var m=document.getElementById('rl-mb');if(!m)break;m.click()}return !!document.querySelector('#rl-list [data-rl=${JSON.stringify(id)}]')})()`);
 const artText = () => b.ev("document.getElementById('art').innerText");
@@ -35,9 +37,9 @@ const topPara = () => b.ev("(function(){var ch=document.getElementById('art').ch
 test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtreleri çalışıyor', async () => {
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
   assert.equal((await cards()).length, Math.min(PAGE, CATALOG.articles.filter(a => !oldNews(a)).length), 'katalogdaki makaleler listede (ilk sayfa)');
-  await setSel('rl-c', 'technology');
+  await setCat('technology');
   assert.deepEqual(await cards(), ['how-the-internet-moves-data@B1']);
-  await setSel('rl-c', '');
+  await setCat('');
   await setSel('rl-lv', 'C2');
   assert.ok((await cards()).every(c => c.endsWith('@C2')), 'seçilen seviye kartlara geçiyor');
   await b.ev("(function(q){q.value='inflation';q.dispatchEvent(new Event('input'))})(document.getElementById('rl-q'))");
@@ -51,16 +53,16 @@ test('kartlar kategori, seviye ve okuma süresiyle gösteriliyor; “Günün mak
   await setSel('rl-lv', '');
   const first = await b.ev("(function(c){return {cat:c.querySelector('.lc-cat').textContent,lv:c.getAttribute('data-lv'),on:[].map.call(c.querySelectorAll('.lc-lvs i.on'),function(i){return i.textContent}),n:c.querySelectorAll('.lc-lvs i').length,top:c.querySelector('.lc-top').innerText}})(document.querySelector('#rl-list .lcard'))");
   // the category filter is built from the catalog, so a real category label is one of its options
-  const catLabels = await b.ev("[].filter.call(document.querySelectorAll('#rl-c option'),function(o){return o.value&&o.value!=='saved'}).map(function(o){return o.textContent})");
+  const catLabels = await b.ev("[].filter.call(document.querySelectorAll('#rl .rchip'),function(o){var v=o.getAttribute('data-rc');return v&&v!=='saved'&&v!=='archive'}).map(function(o){return o.textContent})");
   assert.ok(catLabels.includes(first.cat), 'kategori etiketi: ' + first.cat);
   assert.equal(first.n, 6);
   assert.deepEqual(first.on, [first.lv], 'açılacak seviye vurgulu');
   assert.match(first.top, /\d+ dk okuma/);
   assert.match(await b.ev("document.querySelector('#rl-feat .lfeat').innerText"), /Günün makalesi/);
   assert.ok(await b.ev("!!document.querySelector('#rl-feat .lfeat[data-rl]')"), 'günün makalesi açılabilir');
-  await setSel('rl-c', 'technology');
+  await setCat('technology');
   assert.equal(await b.ev("document.getElementById('rl-feat').innerHTML"), '', 'filtre seçiliyken gösterilmiyor');
-  await setSel('rl-c', '');
+  await setCat('');
   assert.deepEqual(b.errors, []);
 });
 
@@ -99,9 +101,9 @@ test('kaydetme listesi ve son seviye hatırlanıyor; kendi makaleler aynı kalı
   await b.ev("document.getElementById('back').click()");
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=1");
   await setSel('rl-lv', '');
-  await setSel('rl-c', 'saved');
+  await setCat('saved');
   assert.deepEqual(await cards(), ['why-we-sleep@A2'], 'kaydedilen makale son seviyesiyle listeleniyor');
-  await setSel('rl-c', '');
+  await setCat('');
   assert.deepEqual(JSON.parse((await b.storage())[KA]), OWN);
   assert.ok(await b.ev("document.getElementById('lib-list').innerText.indexOf('My notes')>=0"), 'kendi kütüphanesi görünüyor');
   assert.deepEqual(b.errors, []);
@@ -128,8 +130,8 @@ test('haberler fotoğraf, fotoğraf sahibi, önemli kelimeler, anlama soruları 
   await b.ev("document.getElementById('n-read').click()");
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
   await setSel('rl-lv', '');
-  await setSel('rl-c', 'news');
-  assert.equal(await b.ev("document.querySelector('#rl-c option[value=\"news\"]').textContent"), 'Haberler');
+  await setCat('news');
+  assert.equal(await b.ev("document.querySelector('#rl .rchip[data-rc=\"news\"]').textContent"), 'Haberler');
   const news = CATALOG.articles.filter(a => a.category === 'news');
   assert.ok(news.length >= 1);
   assert.equal((await cards()).length, Math.min(PAGE, news.length));
