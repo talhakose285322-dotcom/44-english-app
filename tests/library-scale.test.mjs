@@ -27,6 +27,8 @@ after(async () => { await b?.close(); srv?.stop(); });
 
 const ids = () => b.ev("[].map.call(document.querySelectorAll('#rl-list [data-rl]'),function(t){return t.getAttribute('data-rl')})");
 const setSel = (id, v) => b.ev(`(function(s){s.value=${JSON.stringify(v)};s.dispatchEvent(new Event('change'))})(document.getElementById('${id}'))`);
+// categories are a row of chips; '' is Tümü
+const setCat = v => b.ev(`document.querySelector('#rl .rchip[data-rc=${JSON.stringify(v)}]').click()`);
 
 test('liste 12’şer gösteriliyor; “Daha fazla göster” kalanları açıyor; eski haberler ana listede yok', async () => {
   let shown = await ids();
@@ -44,13 +46,13 @@ test('liste 12’şer gösteriliyor; “Daha fazla göster” kalanları açıyo
 });
 
 test('“Haber arşivi” eski haberleri, “Haberler” bütün haberleri gösteriyor; arama arşivi de tarıyor; filtre değişince sayfa başa dönüyor', async () => {
-  await setSel('rl-c', 'archive');
+  await setCat('archive');
   assert.deepEqual(await ids(), ['old-news-a', 'old-news-b', 'old-news-c']);
-  await setSel('rl-c', 'news');
+  await setCat('news');
   const news = await ids();
   assert.equal(news.length, 12, 'ilk sayfa');
   assert.match(await b.ev("document.getElementById('rl-mb').textContent"), /\(3\)/, '12 güncel + 3 eski haber = 15');
-  await setSel('rl-c', '');
+  await setCat('');
   assert.equal((await ids()).length, 12, 'filtre değişince yine 12 kart');
   await b.ev("(function(q){q.value='harvest';q.dispatchEvent(new Event('input'))})(document.getElementById('rl-q'))");
   assert.deepEqual(await ids(), ['old-news-a'], 'arama arşivi de buluyor');
