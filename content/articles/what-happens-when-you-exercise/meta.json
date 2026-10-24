@@ -4,5 +4,12 @@
   "title": "What Happens to Your Body When You Exercise?",
   "summary": "Egzersiz yaptığımızda kalp, kaslar ve beyin nasıl tepki verir ve ne kadar hareket önerilir?",
   "published": "2026-10-24",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Parkta koşan bir kişi.",
+    "credit": "Andre Carrotflower",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ellicott_Creek_Trailway_-_20230404_-_37_-_jogger.jpg"
+  }
 }

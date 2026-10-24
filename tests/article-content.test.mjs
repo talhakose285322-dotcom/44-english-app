@@ -18,6 +18,8 @@ test('makale kataloğu güncel ve her makale tutarlı (aynı paragraf sayısı, 
   assert.ok(cat.articles.length >= 3, 'ilk sürümde en az 3 makale');
   for (const a of cat.articles) {
     assert.ok(a.license.trim() && a.summary.trim(), a.id + ': lisans ve özet');
+    // every ready-made article is illustrated: an openly licensed photo with its credit (checked by the build script)
+    assert.ok(a.image && a.image.credit && a.image.license, a.id + ': fotoğraf, sahibi ve lisansı');
     assert.deepEqual(Object.keys(a.levels), LEVELS, a.id + ': ilk makalelerin A1–C2 sürümleri var');
     const counts = LEVELS.map(lv => JSON.parse(fs.readFileSync(path.join(root, 'content/articles', a.id, lv + '.json'), 'utf8')).paragraphs.length);
     assert.equal(new Set(counts).size, 1, a.id + ': her seviyede aynı paragraf sayısı');

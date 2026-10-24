@@ -4,5 +4,12 @@
   "title": "Why Do Bees Matter?",
   "summary": "Arılar ve diğer tozlayıcılar gıdamız için neden önemli, onları neler tehdit ediyor ve nasıl korunabilirler?",
   "published": "2026-10-24",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir çiçekten nektar toplayan bal arısı.",
+    "credit": "John Severns",
+    "license": "Kamu malı",
+    "source": "https://commons.wikimedia.org/wiki/File:European_honey_bee_extracts_nectar.jpg"
+  }
 }

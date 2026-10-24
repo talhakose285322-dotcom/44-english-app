@@ -4,5 +4,12 @@
   "title": "How Does a Message Travel Across the Internet?",
   "summary": "Bir mesaj internette nasıl yol alır? Paketler, IP adresleri, yönlendiriciler, DNS ve TCP.",
   "published": "2026-10-23",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Mavi ışıklı sunucuların bulunduğu bir veri merkezi.",
+    "credit": "BalticServers.com",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg"
+  }
 }

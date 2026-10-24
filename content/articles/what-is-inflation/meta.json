@@ -4,5 +4,12 @@
   "title": "What Is Inflation?",
   "summary": "Enflasyon nedir, nasıl ölçülür, neden olur ve merkez bankaları onu nasıl kontrol etmeye çalışır?",
   "published": "2026-10-23",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Masada bir yığın madeni para.",
+    "credit": "Роман Рябенко",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_pile_of_Ukrainian_currency_coins.jpg"
+  }
 }
