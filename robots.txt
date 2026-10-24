@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://44-english-app.pages.dev/sitemap.xml
+Sitemap: https://words44.words44.workers.dev/sitemap.xml

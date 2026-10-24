@@ -71,15 +71,24 @@ test('Cloudflare Worker config publishes exactly the production build output', (
   assert.ok(fs.existsSync(path.join(out, '_headers')), 'cache headers must ship with the assets');
 });
 
-test('backup build uses its own canonical host without changing the primary source files', () => {
-  const base = 'https://talhakose285322-dotcom.github.io/44-english-app';
-  for (const item of ['welcome.html', 'terms.html', 'privacy.html', 'sitemap.xml', 'robots.txt']) {
-    const file = path.join(out, item);
-    if (!fs.existsSync(file)) continue;
-    const body = fs.readFileSync(file, 'utf8');
-    assert.ok(!body.includes('https://44-english-app.pages.dev'), item + ' must not advertise the primary host on GitHub Pages');
-    if (item === 'sitemap.xml') assert.ok(body.includes(base), 'backup sitemap must point to the backup host');
+test('primary build advertises the Worker host; backup build uses its own canonical host', () => {
+  const primary = 'https://words44.words44.workers.dev', base = 'https://talhakose285322-dotcom.github.io/44-english-app';
+  const pages = ['welcome.html', 'terms.html', 'privacy.html', 'sitemap.xml', 'robots.txt'];
+  for (const item of pages) {
+    const body = fs.readFileSync(path.join(out, item), 'utf8');
+    assert.ok(!body.includes(base) && !body.includes('44-english-app.pages.dev'), item + ' must advertise only the primary host');
+    if (item === 'sitemap.xml') assert.ok(body.includes(primary), 'primary sitemap must point to the Worker host');
   }
+  const backupOut = 'dist-backup-test';
+  try {
+    const run = spawnSync(process.execPath, ['scripts/build-static.mjs'], {cwd: root, encoding: 'utf8', env: {...process.env, WORDS44_SITE: 'backup', WORDS44_OUT: backupOut}});
+    assert.equal(run.status, 0, run.stderr || run.stdout);
+    for (const item of pages) {
+      const body = fs.readFileSync(path.join(root, backupOut, item), 'utf8');
+      assert.ok(!body.includes(primary), item + ' must not advertise the primary host on GitHub Pages');
+      if (item === 'sitemap.xml') assert.ok(body.includes(base), 'backup sitemap must point to the backup host');
+    }
+  } finally { fs.rmSync(path.join(root, backupOut), {recursive: true, force: true}); }
 });
 
 test('landing page offers web access and desktop installer links with truthful requirements', () => {

@@ -3,7 +3,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const out = path.join(root, 'dist');
+// WORDS44_OUT lets the tests build the backup variant elsewhere without touching dist/.
+const out = path.join(root, process.env.WORDS44_OUT || 'dist');
 const required = ['index.html', 'manifest.json', 'sw.js', 'icon.svg', 'icons', 'vendor'];
 // Public landing page, metadata and legal pages must ship with the application.
 const optionalPublic = ['welcome.html', 'privacy.html', 'terms.html', 'robots.txt', 'sitemap.xml', '_headers',
@@ -24,14 +25,17 @@ for (const item of [...required, ...optionalPublic]) {
   }
 }
 
-// Give the GitHub Pages backup its own canonical URLs and sitemap entries.
-// Source files keep Cloudflare as the primary production host; this rewrite is build-output-only.
+// Give the GitHub Pages backup its own canonical URLs and sitemap entries (WORDS44_SITE=backup, set by
+// pages-backup.yml). Source files keep the Cloudflare Worker as the primary host; this rewrite is build-output-only.
+const primaryBase = 'https://words44.words44.workers.dev';
 const backupBase = 'https://talhakose285322-dotcom.github.io/44-english-app';
-for (const item of ['welcome.html', 'privacy.html', 'terms.html', 'sitemap.xml', 'robots.txt']) {
-  const file = path.join(out, item);
-  if (fs.existsSync(file)) {
-    const original = fs.readFileSync(file, 'utf8');
-    fs.writeFileSync(file, original.replaceAll('https://44-english-app.pages.dev', backupBase));
+if (process.env.WORDS44_SITE === 'backup') {
+  for (const item of ['welcome.html', 'privacy.html', 'terms.html', 'sitemap.xml', 'robots.txt']) {
+    const file = path.join(out, item);
+    if (fs.existsSync(file)) {
+      const original = fs.readFileSync(file, 'utf8');
+      fs.writeFileSync(file, original.replaceAll(primaryBase, backupBase));
+    }
   }
 }
 

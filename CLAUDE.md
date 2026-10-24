@@ -11,7 +11,11 @@ Son doğrulama: 2026-10-23, bu dosya eklenmeden önce `main` = `43e1ec8`.
   `manifest.json`, `version.json` (`1.0.10`), `vendor/pdfjs/` (PDF okuma), `icons/`.
   Tanıtım ve yasal sayfalar: `welcome.html`, `privacy.html`, `terms.html`.
 - **Yayın:**
-  - Ana adres Cloudflare Pages: https://44-english-app.pages.dev (bkz. `CLOUDFLARE-DEPLOY.md`).
+  - Ana adres Cloudflare Worker: https://words44.words44.workers.dev (`wrangler.jsonc`; Cloudflare Workers Builds
+    her `main` push'unda `node scripts/build-static.mjs` + `npx wrangler deploy`). Kalıcı adres: ana ekran uygulaması
+    bu adrese bağlıdır, değişirse herkes yeniden kurar ve veriyi taşır.
+  - Cloudflare Pages https://44-english-app.pages.dev hâlâ `main`'den yayımlanıyor ama `*.pages.dev` Türkiye
+    ağlarında engelli; kullanıcıya verilmez (bkz. `CLOUDFLARE-DEPLOY.md`).
   - Yedek GitHub Pages (`pages-backup.yml`): https://talhakose285322-dotcom.github.io/44-english-app
   - Eski Netlify sitesi `symphonious-donut-1c09bc.netlify.app` güncellenmiyor (service worker `v10`'da kaldı).
 - **Masaüstü:** `desktop/` (Electron: `main.cjs`, `preload.cjs`, `package.json` `1.0.10`). `desktop-release.yml`
