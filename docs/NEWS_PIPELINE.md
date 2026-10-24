@@ -53,6 +53,9 @@ Ayrıca zorunlu **Koruma** denetimi (`.github/workflows/guard.yml`, `main`'deki 
   `extmetadata.LicenseShortName`). Lisans belirsizse görsel kullanılmaz.
 - Olayın kendi fotoğrafı yoksa konuyla ilgili bir görsel seçilir ve `alt` metninde "örnek görsel" diye belirtilir.
 - Dosya: `image.jpg`, Commons'ın 960 px küçük kopyası, en fazla 400 KB (doğrulama denetler).
+- **Her makalenin fotoğrafı farklıdır.** Seçmeden önce `content/articles/*/meta.json` içindeki `image.source` değerlerine
+  bak; aynı Commons sayfası ya da aynı dosya ikinci kez kullanılamaz (doğrulama reddeder). Benzer bir sahneyi de seçme
+  (ör. iki haber için iki kapsül fotoğrafı yerine biri kapsül, biri ekip ya da gezegen).
 - `image`: `alt` (Türkçe), `credit` (fotoğrafçı/kurum), `license` (ör. "Kamu malı (NASA)", "CC BY-SA 4.0"),
   `source` (Commons dosya sayfası, https).
 

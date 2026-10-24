@@ -100,3 +100,33 @@ test('haber doğrulaması: kaynak, lisanslı fotoğraf ve gerçekten farklı sev
     fs.rmSync(dir, {recursive: true, force: true});
   }
 });
+
+// two articles in one draft library, each with a photo (bytes and Commons page chosen by the caller)
+function twoArticles(a, b) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'words44-photos-'));
+  for (const [id, bytes, source] of [['first-one', ...a], ['second-one', ...b]]) {
+    const art = path.join(dir, 'content/articles', id);
+    fs.mkdirSync(art, {recursive: true});
+    fs.writeFileSync(path.join(art, 'image.jpg'), bytes);
+    fs.writeFileSync(path.join(art, 'meta.json'), JSON.stringify({id, category: 'science', title: 'T', summary: 'Ö', license: 'Özgün', published: '2026-10-25',
+      image: {file: 'image.jpg', alt: 'Bir fotoğraf', credit: 'X', license: 'CC0', source}}));
+    fs.writeFileSync(path.join(art, 'B1.json'), JSON.stringify({id, level: 'B1', title: 'T', paragraphs: ['One line here.']}));
+  }
+  return dir;
+}
+
+test('her makalenin fotoğrafı farklı: aynı Commons sayfası ya da aynı dosya ikinci kez kullanılamaz', () => {
+  const C = 'https://commons.wikimedia.org/wiki/File:';
+  const ok = twoArticles([Buffer.from('photo one'), C + 'A_bee.jpg'], [Buffer.from('photo two'), C + 'A_clock.jpg']);
+  assert.equal(buildCatalog(ok).articles.length, 2, 'farklı fotoğraflar kabul edilir');
+  const cases = [
+    ['aynı sayfa', twoArticles([Buffer.from('photo one'), C + 'A_bee.jpg'], [Buffer.from('photo two'), C + 'A_bee.jpg']), /already used by first-one/],
+    ['aynı sayfa, farklı yazım', twoArticles([Buffer.from('photo one'), C + 'A_bee.jpg'], [Buffer.from('photo two'), C + 'A%20bee.jpg']), /already used by first-one/],
+    ['aynı dosya, farklı sayfa', twoArticles([Buffer.from('same bytes'), C + 'A_bee.jpg'], [Buffer.from('same bytes'), C + 'Copy_of_bee.jpg']), /identical to the one used by first-one/]
+  ];
+  for (const [name, dir, re] of cases) {
+    assert.throws(() => buildCatalog(dir), re, name);
+    fs.rmSync(dir, {recursive: true, force: true});
+  }
+  fs.rmSync(ok, {recursive: true, force: true});
+});
