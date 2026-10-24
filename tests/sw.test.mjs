@@ -14,7 +14,9 @@ function load({fail = [], offline = false, existing = []} = {}) {
   for (const n of existing) store[n] = new Map();
   const cacheFor = n => (store[n] = store[n] || new Map(), {
     put: async (k, v) => { store[n].set(typeof k === 'string' ? k : k.url, v); },
-    match: async k => store[n].get(typeof k === 'string' ? k : k.url)
+    match: async k => store[n].get(typeof k === 'string' ? k : k.url),
+    keys: async () => [...store[n].keys()].map(url => ({url})),
+    delete: async k => store[n].delete(typeof k === 'string' ? k : k.url)
   });
   const caches = {
     open: async n => cacheFor(n),
@@ -72,4 +74,28 @@ test('sw.js: kurulum isteğe bağlı dosya hatasında durmuyor, zorunlu dosya ha
   // other sites and non-GET requests are not touched
   assert.equal(await s.run('fetch', req('https://en.wiktionary.org/w/api.php')), null);
   assert.equal(await s.run('fetch', {request: {method: 'POST', url: 'https://app.test/x'}}), null);
+});
+
+test('sw.js: makale fotoğrafları ayrı ve sınırlı önbellekte; en eskiler siliniyor, yeni sürüm fotoğrafları silmiyor', async () => {
+  const IMG = CODE.match(/const IMG = "([^"]+)", IMG_MAX = (\d+)/), name = IMG[1], max = +IMG[2];
+  assert.ok(!name.startsWith('english-app-'), 'sürüm temizliği fotoğraf önbelleğine dokunmamalı');
+  const s = load();
+  const req = u => ({request: {method: 'GET', url: u, mode: 'no-cors'}});
+  for (let i = 0; i < max + 5; i++) {
+    await s.run('fetch', req(`https://app.test/content/articles/news-${i}/image.jpg`));
+    await new Promise(r => setTimeout(r, 0));
+  }
+  await new Promise(r => setTimeout(r, 5));
+  const kept = [...s.store[name].keys()];
+  assert.equal(kept.length, max, 'en fazla ' + max + ' fotoğraf');
+  assert.ok(!kept.includes('https://app.test/content/articles/news-0/image.jpg') && kept.includes(`https://app.test/content/articles/news-${max + 4}/image.jpg`), 'en eskiler gitti, yeniler kaldı');
+  assert.ok(![...(s.store[CACHE] || new Map()).keys()].some(k => k.endsWith('.jpg')), 'fotoğraflar uygulama önbelleğine yazılmıyor');
+  // article texts still go to the app cache
+  await s.run('fetch', req('https://app.test/content/articles/news-1/B1.json'));
+  await new Promise(r => setTimeout(r, 5));
+  assert.ok(s.store[CACHE].has('https://app.test/content/articles/news-1/B1.json'));
+  // a new release removes the old app caches but keeps the photos
+  const a = load({existing: ['english-app-v17', CACHE, name]});
+  await a.run('activate');
+  assert.deepEqual(a.log.deleted, ['english-app-v17']);
 });

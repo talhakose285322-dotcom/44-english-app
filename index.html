@@ -1226,7 +1226,11 @@ body.reading .sheet{max-width:740px}
   // A new article needs no app release. Articles open in the normal reader: word meanings, saving words to lists,
   // translation and speech are the existing ones. Reading position, level, notes and the saved list live in their
   // own key (kelimelerim-v1-lib); the user's own articles are never touched. Texts are shown as escaped plain text.
-  var LIB_BASE='./content/articles/',LIBK=KEY+'-lib',LIB={cat:null,err:'',busy:false,cur:null,para:null,q:'',c:'',lv:''};
+  var LIB_BASE='./content/articles/',LIBK=KEY+'-lib',LIB={cat:null,err:'',busy:false,cur:null,para:null,q:'',c:'',lv:'',n:12};
+  // The list grows every day: it shows LIBPAGE cards at a time, and news older than LIBOLD days leaves the main list
+  // for "Haber arşivi" (still shown under "Haberler", in "Kaydettiklerim" and in search results).
+  var LIBPAGE=12,LIBOLD=30;
+  function libOld(a){return a.category==='news'&&!!a.published&&Date.now()-new Date(a.published+'T00:00:00Z').getTime()>LIBOLD*864e5}
   function libData(){var d=readKey(LIBK,false)||{};if(!d.p||typeof d.p!=='object'||Array.isArray(d.p))d.p={};if(!Array.isArray(d.saved))d.saved=[];return d}
   function libSafeId(id){return typeof id==='string'&&/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)&&id.length<=80}
   function libLoad(){
@@ -1242,18 +1246,25 @@ body.reading .sheet{max-width:740px}
     var c=LIB.cat,cats=c.categories||{},used={};c.articles.forEach(function(a){used[a.category]=1});
     b.innerHTML="<h2>Hazır makaleler</h2><p class='note'>"+c.articles.length+" makale. Seviyeni seç ve makaleyi aç; okurken seviyeyi değiştirebilirsin, konu aynı kalır.</p>"+
       "<input id='rl-q' type='search' placeholder='Hazır makalelerde ara' autocomplete='off'><div class='fgrid'><select id='rl-c' aria-label='Kategori'><option value=''>Tüm kategoriler</option>"+
-      Object.keys(used).map(function(k){return "<option value='"+escA(k)+"'>"+esc(cats[k]||k)+"</option>"}).join('')+"<option value='saved'>Kaydettiklerim</option></select>"+
-      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-feat'></div><div id='rl-list' class='lcards'></div><div class='toast' id='rl-t'></div>";
-    $('rl-q').value=LIB.q;$('rl-c').value=LIB.c;$('rl-lv').value=LIB.lv;
-    $('rl-q').oninput=function(){LIB.q=this.value;drawRlList()};
-    $('rl-c').onchange=function(){LIB.c=this.value;drawRlList()};
-    $('rl-lv').onchange=function(){LIB.lv=this.value;drawRlList()};
+      Object.keys(used).map(function(k){return "<option value='"+escA(k)+"'>"+esc(cats[k]||k)+"</option>"}).join('')+"<option value='saved'>Kaydettiklerim</option>"+(c.articles.some(libOld)?"<option value='archive'>Haber arşivi</option>":'')+"</select>"+
+      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-feat'></div><div id='rl-list' class='lcards'></div><div id='rl-more'></div><div class='toast' id='rl-t'></div>";
+    $('rl-q').value=LIB.q;$('rl-c').value=LIB.c;$('rl-lv').value=LIB.lv;if($('rl-c').value!==LIB.c)LIB.c='';
+    $('rl-q').oninput=function(){LIB.q=this.value;LIB.n=LIBPAGE;drawRlList()};
+    $('rl-c').onchange=function(){LIB.c=this.value;LIB.n=LIBPAGE;drawRlList()};
+    $('rl-lv').onchange=function(){LIB.lv=this.value;LIB.n=LIBPAGE;drawRlList()};
     drawRlList();
   }
   function drawRlList(){
     var o=$('rl-list');if(!o||!LIB.cat)return;
     var c=LIB.cat,cats=c.categories||{},d=libData(),q=LIB.q.trim().toLowerCase();
-    var L=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length&&(!LIB.c||(LIB.c==='saved'?d.saved.indexOf(a.id)>=0:a.category===LIB.c))&&(!LIB.lv||a.levels[LIB.lv])&&(!q||(a.title+' '+(a.summary||'')).toLowerCase().indexOf(q)>=0)});
+    var L=c.articles.filter(function(a){
+      if(!libSafeId(a.id)||!libLevels(a).length||(LIB.lv&&!a.levels[LIB.lv]))return false;
+      if(q&&(a.title+' '+(a.summary||'')).toLowerCase().indexOf(q)<0)return false;
+      if(LIB.c==='saved')return d.saved.indexOf(a.id)>=0;
+      if(LIB.c==='archive')return libOld(a);
+      if(LIB.c)return a.category===LIB.c;
+      return !!q||!libOld(a);
+    });
     function card(a,feat){
       var p=d.p[a.id]||{},ls=libLevels(a),lv=LIB.lv&&a.levels[LIB.lv]?LIB.lv:p.lv&&a.levels[p.lv]?p.lv:ls.indexOf('B1')>=0?'B1':ls[0],m=a.levels[lv]||{};
       var fresh=a.published&&(Date.now()-new Date(a.published+'T00:00:00Z').getTime())<7*864e5,prog=p.done?1:p.pos>0.01?p.pos:0;
@@ -1269,9 +1280,12 @@ body.reading .sheet{max-width:740px}
         (prog?"<span class='lc-bar'><i style='width:"+Math.round(prog*100)+"%'></i></span>":'')+"</div>";
     }
     // "article of the day": the same one for everybody on a given day, only while no filter is set
-    var f=$('rl-feat'),all=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length});
+    var f=$('rl-feat'),all=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length&&!libOld(a)});
     if(f){var fa=!LIB.c&&!LIB.lv&&!q&&all.length>1?all[Math.floor(Date.now()/864e5)%all.length]:null;f.innerHTML=fa?card(fa,true):''}
-    o.innerHTML=L.length?L.map(function(a){return card(a)}).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
+    o.innerHTML=L.length?L.slice(0,LIB.n).map(function(a){return card(a)}).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
+    var mo=$('rl-more'),rest=L.length-LIB.n;
+    if(mo){mo.innerHTML=rest>0?"<button class='btn ghost' id='rl-mb' style='width:100%;margin-top:12px'>Daha fazla göster ("+rest+")</button>":'';
+      if(rest>0)$('rl-mb').onclick=function(){LIB.n+=LIBPAGE;drawRlList()}}
     Array.prototype.forEach.call(document.querySelectorAll('#rl-list [data-rl],#rl-feat [data-rl]'),function(t){
       t.onclick=function(){libOpen(t.getAttribute('data-rl'),t.getAttribute('data-lv'))};
       t.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.onclick()}};
@@ -1340,7 +1354,7 @@ body.reading .sheet{max-width:740px}
   // regular form of it: from the ready-made articles at the chosen level, the user's own articles and the example
   // sentences saved with the words. The page opens in the normal reader with those words highlighted; it is stored
   // only when the user saves it as an own article.
-  var KWN=12,KW={busy:false,txt:{}};
+  var KWN=12,KWART=60,KW={busy:false,txt:{}};
   function kwForms(w){
     var k=String(w||'').toLowerCase().trim(),o=[];function add(x){if(x&&o.indexOf(x)<0)o.push(x)}
     add(k);if(!k||/\s/.test(k))return o;
@@ -1363,7 +1377,8 @@ body.reading .sheet{max-width:740px}
     var own=ART.map(function(a){return {src:'Makalen: '+a.title,text:a.text}});
     var cat=LIB.cat?Promise.resolve(LIB.cat):jget(LIB_BASE+'catalog.json',9000).then(function(c){if(c&&Array.isArray(c.articles))LIB.cat=c;return LIB.cat});
     return cat.then(function(c){
-      var L=(c&&c.articles||[]).filter(function(a){return libSafeId(a.id)&&a.levels&&a.levels[lv]});
+      // the newest KWART articles at this level (the catalog is newest first), so the work stays small as it grows
+      var L=(c&&c.articles||[]).filter(function(a){return libSafeId(a.id)&&a.levels&&a.levels[lv]}).slice(0,KWART);
       return Promise.all(L.map(function(a){
         var k=a.id+'/'+lv;if(KW.txt[k])return KW.txt[k];
         return jget(LIB_BASE+k+'.json',9000).then(function(t){var r={src:'Hazır makale: '+a.title,text:t&&Array.isArray(t.paragraphs)?t.paragraphs.join(' '):''};KW.txt[k]=r;return r},function(){return null});

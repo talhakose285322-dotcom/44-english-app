@@ -1,4 +1,11 @@
-﻿const CACHE = "english-app-v17";
+﻿const CACHE = "english-app-v18";
+// Article photos go to their own cache, which keeps only the IMG_MAX most recently stored ones: new photos arrive every
+// day and would otherwise fill the phone's storage. Its name does not start with "english-app-", so a new release does
+// not throw the photos away.
+const IMG = "words44-img", IMG_MAX = 40;
+function trimImg(cache) {
+  return cache.keys().then(keys => keys.length > IMG_MAX ? Promise.all(keys.slice(0, keys.length - IMG_MAX).map(k => cache.delete(k))) : null);
+}
 // Only the app shell is required; a failed optional file must not block the update (iOS would keep the old worker).
 const CORE = ["./", "./index.html"];
 const FILES = ["./", "./index.html", "./manifest.json", "./version.json", "./icon.svg",
@@ -42,12 +49,13 @@ self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
+  const img = /\/content\/articles\/[^/]+\/[^/]+\.(jpe?g|png|webp)$/i.test(url.pathname);
   event.respondWith(
     fetch(event.request)
       .then(response => {
         if (response.ok) {
           const copy = response.clone();
-          Promise.resolve(clean(copy)).then(c => caches.open(CACHE).then(cache => cache.put(event.request, c))).catch(() => {});
+          Promise.resolve(clean(copy)).then(c => caches.open(img ? IMG : CACHE).then(cache => cache.put(event.request, c).then(() => img ? trimImg(cache) : null))).catch(() => {});
         }
         return response;
       })
