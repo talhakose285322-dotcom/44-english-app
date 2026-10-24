@@ -1,0 +1,51 @@
+{
+  "id": "diet-drinks-and-water-weight-study",
+  "category": "news",
+  "title": "Diet Drinks or Water? A Two-Year Weight Study",
+  "summary": "İki yıllık bir araştırmaya göre kilo vermede diyet içecekler su kadar işe yarıyor; ama sonuçların sınırları var.",
+  "published": "2026-10-24",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Mavi bir bardakta maden suyu.",
+    "credit": "W.carter",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Blue_glass_with_carbonated_water.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (University of Liverpool): Diet drinks and water in long-term weight loss",
+      "url": "https://sciencedaily.com/releases/2026/10/261002080017.htm"
+    },
+    {
+      "title": "News-Medical: Diet drinks showed no clear weight-loss edge over water after two years",
+      "url": "https://www.news-medical.net/news/20261011/Diet-drinks-showed-no-clear-weight-loss-edge-over-water-after-two-years.aspx"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "diet drink",
+      "tr": "diyet (şekersiz) içecek"
+    },
+    {
+      "w": "sweetener",
+      "tr": "tatlandırıcı"
+    },
+    {
+      "w": "lose weight",
+      "tr": "kilo vermek"
+    },
+    {
+      "w": "participant",
+      "tr": "katılımcı"
+    },
+    {
+      "w": "funded by",
+      "tr": "tarafından finanse edilen"
+    },
+    {
+      "w": "evidence",
+      "tr": "kanıt"
+    }
+  ]
+}

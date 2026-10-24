@@ -118,3 +118,30 @@ test('katalog yüklenemezse açık bir mesaj çıkıyor ve kendi makaleler kulla
     assert.deepEqual(b2.errors, []);
   } finally { await b2.close(); s2.stop(); }
 });
+
+test('haberler fotoğraf, fotoğraf sahibi, önemli kelimeler, anlama soruları ve kaynaklarla açılıyor', async () => {
+  await b.ev("document.getElementById('n-read').click()");
+  await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
+  await setSel('rl-lv', '');
+  await setSel('rl-c', 'news');
+  assert.equal(await b.ev("document.querySelector('#rl-c option[value=\"news\"]').textContent"), 'Haberler');
+  const news = CATALOG.articles.filter(a => a.category === 'news');
+  assert.ok(news.length >= 1);
+  assert.equal((await cards()).length, news.length);
+  assert.ok(await b.ev("[].every.call(document.querySelectorAll('#rl-list .lcard'),function(c){return !!c.querySelector('img.lc-img')})"), 'her haber kartında fotoğraf var');
+  const n = news[0];
+  await b.ev(`document.querySelector('#rl-list [data-rl=${JSON.stringify(n.id)}]').click()`);
+  await b.waitFor("!!document.querySelector('.libbar')&&!!document.querySelector('.libx')", 10000);
+  const r = await b.ev("(function(){var f=document.querySelector('.libfig'),x=document.querySelector('.libx');return {img:f.querySelector('img').getAttribute('src'),cap:f.querySelector('figcaption').innerText,link:(f.querySelector('a')||{}).href||'',heads:[].map.call(x.querySelectorAll('h2'),function(h){return h.textContent}),qs:x.querySelectorAll('.lx-q').length,voc:x.querySelectorAll('[data-vw]').length,src:[].map.call(x.querySelectorAll('.lx-src a'),function(a){return a.href})}})()");
+  assert.equal(r.img, './content/articles/' + n.image.src);
+  assert.ok(r.cap.startsWith('Fotoğraf: ') && r.cap.includes(n.image.credit) && r.cap.includes(n.image.license), r.cap);
+  assert.equal(r.link, n.image.source);
+  assert.deepEqual(r.heads, ['Önemli kelimeler', 'Anlama soruları', 'Kaynaklar']);
+  assert.equal(r.voc, n.vocab.length);
+  assert.ok(r.qs >= 1);
+  assert.deepEqual(r.src, n.sources.map(s => s.url));
+  await b.ev("document.querySelector('.libx [data-vw]').click()");
+  await b.waitFor("!document.getElementById('sheet').classList.contains('hide')");
+  await b.ev("document.getElementById('sheet').classList.add('hide')");
+  assert.deepEqual(b.errors, []);
+});

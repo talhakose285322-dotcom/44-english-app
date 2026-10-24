@@ -1,0 +1,53 @@
+# Günlük seviyeli haberler — üretim kuralları
+
+Bu belge, "Haberler" kategorisine her gün eklenen içeriğin nasıl hazırlanacağını tanımlar. Günlük otomatik görev
+(Claude) ve elle haber ekleyen herkes bu kurallara uyar. Haberler **her zaman bir dal + PR ile** gelir; kullanıcı
+onaylamadan `main`'e girmez.
+
+## Akış
+
+1. `main`'den `news/YYYY-MM-DD` adlı dal aç.
+2. Güvenilir kaynaklardan (NASA, ESA, üniversite basın bültenleri, hakemli dergi haberleri, Reuters/AP/BBC gibi
+   ajanslar) son 3–7 günün gelişmelerini oku. Her olguyu en az bir birincil kaynaktan doğrula.
+3. Öğrenmeye uygun **1–3 haber** seç: bilim, uzay, teknoloji, sağlık araştırması, çevre, kültür, spor, ekonomi.
+   **Seçme:** savaş, terör, ölüm/felaket ayrıntıları, suç, seçim kampanyaları, tartışmalı siyasi figürler, tek bir
+   şirketin reklamı gibi duran haberler, doğrulanamayan iddialar.
+4. Her haber için `content/articles/<id>/` klasörü:
+   - `meta.json`: `category: "news"`, başlık (İngilizce), Türkçe özet, `published` (bugün), lisans
+     (`"Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44."`), `image`, `sources`, `vocab`.
+   - `A1.json` … `C2.json`: her seviyede **aynı sayıda paragraf** (3 önerilir) ve 3 anlama sorusu (`questions`).
+5. `node scripts/build-article-catalog.mjs` çalıştır, sonra
+   `node --test --test-concurrency=4 --test-timeout=60000`. Hata varsa düzelt; doğrulamayı gevşetme.
+6. Yalnızca yeni klasörleri ve `catalog.json`'u stage et, commit'le, dalı gönder, PR aç. PR açıklamasında her haberin
+   kaynaklarını ve görselin lisans sayfasını listele.
+
+## Metin
+
+- Haberin metni kaynaktan **kopyalanmaz**; olgular kendi cümlelerimizle yazılır. Doğrudan alıntı en fazla bir kısa
+  cümle ve tırnak içinde, kimin söylediği belirtilerek.
+- Sayılar, tarihler, adlar kaynakla birebir aynı olmalı. Emin olunmayan ayrıntı yazılmaz.
+- Seviyeler gerçekten farklı olmalı:
+  - **A1:** şimdiki/geçmiş zaman, kısa cümleler (ortalama ≤ 12 kelime, doğrulama bunu denetler), temel kelimeler, ~60–80 kelime.
+  - **A2:** basit bağlaçlar, ~90–120 kelime.
+  - **B1:** ayrıntı ve neden-sonuç, ~130–170 kelime.
+  - **B2:** karmaşık cümleler, alıntı, sınırlılıklar, ~160–200 kelime.
+  - **C1/C2:** gazete ve akademik dil, deyimler, yorum; ~170–220 kelime.
+  - A1 → B2 arasında her seviye bir öncekinden kısa olamaz (doğrulama denetler).
+- Araştırma haberlerinde sınırlılıklar (örneklem, finansman, tek çalışma olması) en az B1'den itibaren yazılır.
+- `vocab`: 5–8 önemli kelime ve Türkçe karşılığı. `questions`: seviyeye uygun 3 soru ve kısa cevap.
+
+## Görsel
+
+- Yalnızca **açık lisanslı** görsel: kamu malı (NASA, ESA'nın kamu malı olanları, ABD kamu kurumları), CC0, CC BY,
+  CC BY-SA. Ajans, gazete ya da stok sitesi fotoğrafı **kullanılmaz**.
+- Önerilen kaynak: Wikimedia Commons. Lisans, dosyanın Commons sayfasındaki bilgiden kontrol edilir (API
+  `extmetadata.LicenseShortName`). Lisans belirsizse görsel kullanılmaz.
+- Olayın kendi fotoğrafı yoksa konuyla ilgili bir görsel seçilir ve `alt` metninde "örnek görsel" diye belirtilir.
+- Dosya: `image.jpg`, Commons'ın 960 px küçük kopyası, en fazla 400 KB (doğrulama denetler).
+- `image`: `alt` (Türkçe), `credit` (fotoğrafçı/kurum), `license` (ör. "Kamu malı (NASA)", "CC BY-SA 4.0"),
+  `source` (Commons dosya sayfası, https).
+
+## Kimlik ve adlandırma
+
+- Klasör adı: küçük harf İngilizce kelimeler ve `-` (ör. `perseverance-sets-mars-driving-record`), en fazla 80 karakter.
+- Aynı olay için ikinci haber açılmaz; gelişme varsa yeni bir haber yazılır ve ilk haberden söz edilir.

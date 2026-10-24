@@ -9,13 +9,46 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 export const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
-export const CATEGORIES = {academic: 'Akademik', science: 'Bilim', technology: 'Teknoloji', law: 'Hukuk', economics: 'Ekonomi',
+export const CATEGORIES = {news: 'Haberler', academic: 'Akademik', science: 'Bilim', technology: 'Teknoloji', law: 'Hukuk', economics: 'Ekonomi',
   psychology: 'Psikoloji', history: 'Tarih', health: 'Sağlık', environment: 'Çevre', culture: 'Kültür', other: 'Diğer'};
+const IMAGE_MAX = 400 * 1024;
 // Reading speed of a learner at each level (words per minute), for the reading-time estimate.
 const WPM = {A1: 90, A2: 100, B1: 120, B2: 140, C1: 160, C2: 180};
 
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8').replace(/^﻿/, ''));
 const words = t => (t.match(/\S+/g) || []).length;
+const plain = t => typeof t === 'string' && t.trim() && !/<\s*[a-z!/]/i.test(t);
+const https = u => typeof u === 'string' && /^https:\/\/[^\s<>"']+$/.test(u);
+const sentenceLength = ps => { const s = ps.join(' ').split(/[.!?]+\s/).filter(x => x.trim()); return s.reduce((n, x) => n + words(x), 0) / Math.max(1, s.length); };
+
+// Optional extras (news and illustrated articles): a photo with its credit and licence, source links, key words and,
+// per level, comprehension questions. News must name its sources and have an openly licensed photo.
+function extras(meta, base, id, fail) {
+  const out = {};
+  if (meta.image !== undefined) {
+    const im = meta.image;
+    if (!im || !/^[a-z0-9-]+\.(jpg|jpeg|png|webp)$/.test(im.file || '')) fail('image.file must be a lowercase .jpg/.png/.webp name in the article folder');
+    const f = path.join(base, id, im.file);
+    if (!fs.existsSync(f)) fail(`image file ${im.file} is missing`);
+    if (fs.statSync(f).size > IMAGE_MAX) fail(`image ${im.file} is larger than ${IMAGE_MAX / 1024} KB; use a smaller copy`);
+    for (const k of ['alt', 'credit', 'license']) if (!plain(im[k])) fail(`image needs "${k}" as plain text`);
+    if (!https(im.source)) fail('image.source must be the https address of the photo’s page (its licence)');
+    out.image = {src: `${id}/${im.file}`, alt: im.alt, credit: im.credit, license: im.license, source: im.source};
+  }
+  if (meta.sources !== undefined) {
+    if (!Array.isArray(meta.sources) || !meta.sources.length || meta.sources.some(s => !s || !plain(s.title) || !https(s.url))) fail('sources must be a list of {title, url} with https addresses');
+    out.sources = meta.sources.map(s => ({title: s.title, url: s.url}));
+  }
+  if (meta.vocab !== undefined) {
+    if (!Array.isArray(meta.vocab) || meta.vocab.length > 12 || meta.vocab.some(v => !v || !plain(v.w) || !plain(v.tr))) fail('vocab must be up to 12 {w, tr} entries');
+    out.vocab = meta.vocab.map(v => ({w: v.w, tr: v.tr}));
+  }
+  if (meta.category === 'news') {
+    if (!out.sources) fail('news needs "sources"');
+    if (!out.image) fail('news needs an openly licensed "image"');
+  }
+  return out;
+}
 
 export function buildCatalog(root) {
   const base = path.join(root, 'content', 'articles'), list = [];
@@ -43,12 +76,22 @@ export function buildCatalog(root) {
       // the same paragraph count at every level keeps the reading position when the level is changed
       if (paras === null) paras = a.paragraphs.length;
       else if (a.paragraphs.length !== paras) fail(`${lv}.json has ${a.paragraphs.length} paragraphs, other levels have ${paras}`);
+      if (a.questions !== undefined && (!Array.isArray(a.questions) || a.questions.length > 5 || a.questions.some(q => !q || !plain(q.q) || !plain(q.a)))) fail(`${lv}.json questions must be up to 5 {q, a} entries`);
       const w = a.paragraphs.reduce((n, p) => n + words(p), 0);
       levels[lv] = {words: w, minutes: Math.max(1, Math.round(w / WPM[lv]))};
+      if (meta.category === 'news') levels[lv].sl = sentenceLength(a.paragraphs);
     }
     if (!Object.keys(levels).length) fail('no level files (A1.json … C2.json)');
+    const ex = extras(meta, base, id, fail);
+    if (meta.category === 'news') {
+      // the levels must really differ: A1 short and simple, each level up to B2 at least as long as the one before
+      if (!LEVELS.every(l => levels[l])) fail('news needs all six levels');
+      if (levels.A1.sl > 12) fail(`A1 sentences are too long (${levels.A1.sl.toFixed(1)} words on average, at most 12)`);
+      for (let i = 1; i < 4; i++) if (levels[LEVELS[i]].words < levels[LEVELS[i - 1]].words) fail(`${LEVELS[i]} is shorter than ${LEVELS[i - 1]}`);
+      for (const l of LEVELS) delete levels[l].sl;
+    }
     list.push({id, category: meta.category, title: meta.title, summary: meta.summary, license: meta.license,
-      published: meta.published, paragraphs: paras, levels});
+      published: meta.published, paragraphs: paras, levels, ...ex});
   }
   list.sort((a, b) => b.published.localeCompare(a.published) || a.title.localeCompare(b.title));
   return {format: 'words44-articles', version: 1, updated: list.reduce((m, a) => a.published > m ? a.published : m, ''),

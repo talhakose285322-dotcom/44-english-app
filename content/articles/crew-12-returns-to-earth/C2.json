@@ -1,0 +1,24 @@
+{
+  "id": "crew-12-returns-to-earth",
+  "level": "C2",
+  "title": "Astronauts Return After Seven Months in Space",
+  "paragraphs": [
+    "The four members of NASA’s SpaceX Crew-12 mission have returned to Earth after 237 days in orbit, their Crew Dragon capsule Freedom splashing down in the Pacific off Los Angeles on 8 October 2026 and bringing to a close a residency of more than seven months aboard the International Space Station.",
+    "In the months since their February launch, the crew had logged upwards of 160 million kilometres and more than 3,792 orbits. The complement, NASA’s Jessica Meir and Jack Hathaway, the European Space Agency’s Sophie Adenot and Roscosmos cosmonaut Andrey Fedyaev, paired two seasoned flyers with two rookies, an arrangement that exemplifies the station’s enduring, if increasingly time-limited, model of international collaboration.",
+    "Their research agenda spanned the cultivation of stem cells for cell-based therapies, the on-demand synthesis of intravenous fluids, capabilities of obvious consequence for any crew beyond the reach of resupply, and an inquiry into whether pneumonia-causing bacteria can inflict enduring cardiac damage. Meir undertook four spacewalks, raising her career tally to seven, and Adenot three, in the process becoming the first Frenchwoman to venture beyond the station’s hull."
+  ],
+  "questions": [
+    {
+      "q": "What does the phrase “increasingly time-limited” hint at?",
+      "a": "That the International Space Station will not operate for many more years."
+    },
+    {
+      "q": "Why are stem cells and intravenous fluids “of obvious consequence” beyond resupply?",
+      "a": "Crews that cannot receive supplies from Earth would have to produce medical materials themselves."
+    },
+    {
+      "q": "What is meant by “rookies” in the second paragraph?",
+      "a": "Astronauts on their first spaceflight."
+    }
+  ]
+}

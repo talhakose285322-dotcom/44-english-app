@@ -1,0 +1,47 @@
+{
+  "id": "crew-12-returns-to-earth",
+  "category": "news",
+  "title": "Astronauts Return After Seven Months in Space",
+  "summary": "Crew-12 ekibi, Uluslararası Uzay İstasyonu’nda 237 gün geçirdikten sonra Dünya’ya döndü.",
+  "published": "2026-10-24",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Kurtarma gemisine alınan bir Crew Dragon kapsülü; astronotlar içeride (Crew-4, 2022; örnek görsel).",
+    "credit": "NASA/Bill Ingalls",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:NASA%E2%80%99s_SpaceX_Crew-4_Splashdown_(NHQ202210140038).jpeg"
+  },
+  "sources": [
+    {
+      "title": "NASA: NASA’s SpaceX Crew-12 Splashes Down, Sets Briefing to Discuss Mission",
+      "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-12-splashes-down-sets-briefing-to-discuss-mission/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "astronaut",
+      "tr": "astronot"
+    },
+    {
+      "w": "crew",
+      "tr": "mürettebat, ekip"
+    },
+    {
+      "w": "splash down",
+      "tr": "denize iniş yapmak"
+    },
+    {
+      "w": "spacewalk",
+      "tr": "uzay yürüyüşü"
+    },
+    {
+      "w": "orbit",
+      "tr": "yörünge; yörüngede dolanmak"
+    },
+    {
+      "w": "experiment",
+      "tr": "deney"
+    }
+  ]
+}

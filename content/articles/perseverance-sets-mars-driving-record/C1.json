@@ -1,0 +1,24 @@
+{
+  "id": "perseverance-sets-mars-driving-record",
+  "level": "C1",
+  "title": "Mars Rover Sets a New Driving Record",
+  "paragraphs": [
+    "NASA’s Perseverance rover has claimed the record for the greatest distance driven on the surface of another world. On 11 October 2026, the 2,006th sol of its mission, its odometer reached 45.22 kilometres, edging past the 45.16 kilometres logged by Opportunity during its near fifteen-year exploration of Mars.",
+    "The milestone had been anticipated in August, but scientific curiosity intervened: the rover encountered a set of unusually pale rocks that merited closer inspection, and the detour postponed the record by around two months. Such pauses are part of the mission’s logic, which prioritises science over speed.",
+    "Engineers attribute much of the rover’s mobility to AutoNav, an autonomous system that images the terrain on the move, constructs a three-dimensional hazard map and charts its own course between waypoints selected on Earth, an approach the team describes as “thinking while driving”. Since touching down in Jezero Crater in 2021, Perseverance has also cached 29 samples of rock and regolith."
+  ],
+  "questions": [
+    {
+      "q": "Why does the article say pauses are “part of the mission’s logic”?",
+      "a": "Because the mission puts scientific study ahead of covering distance quickly."
+    },
+    {
+      "q": "What does the phrase “thinking while driving” refer to?",
+      "a": "AutoNav analysing the terrain and planning the route while the rover is moving."
+    },
+    {
+      "q": "What is regolith?",
+      "a": "The loose soil and broken rock on the surface of a planet."
+    }
+  ]
+}

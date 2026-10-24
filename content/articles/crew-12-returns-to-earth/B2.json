@@ -1,0 +1,24 @@
+{
+  "id": "crew-12-returns-to-earth",
+  "level": "B2",
+  "title": "Astronauts Return After Seven Months in Space",
+  "paragraphs": [
+    "After 237 days in orbit, the four astronauts of NASA’s SpaceX Crew-12 mission have returned safely to Earth. Their Crew Dragon capsule, named Freedom, splashed down in the Pacific Ocean off the coast of Los Angeles on the morning of 8 October 2026, ending more than seven months aboard the International Space Station.",
+    "Launched in mid-February, the crew covered more than 160 million kilometres and completed over 3,792 orbits of the planet. It was made up of NASA astronauts Jessica Meir and Jack Hathaway, the European Space Agency’s Sophie Adenot and Roscosmos cosmonaut Andrey Fedyaev; Meir and Fedyaev were on their second spaceflight, while Hathaway and Adenot were flying for the first time.",
+    "The team logged hundreds of hours of research, from producing stem cells for cell-based therapies and generating intravenous fluid on demand to studying how pneumonia-causing bacteria may cause long-term heart damage. Outside the station, Meir completed four spacewalks, bringing her career total to seven, and Adenot carried out three, becoming the first French woman to venture outside the orbiting laboratory."
+  ],
+  "questions": [
+    {
+      "q": "Why might generating intravenous fluid on demand be useful on long missions?",
+      "a": "Because astronauts far from Earth cannot easily receive medical supplies."
+    },
+    {
+      "q": "How many spacewalks has Jessica Meir done in her career?",
+      "a": "Seven."
+    },
+    {
+      "q": "Which two crew members were flying for the first time?",
+      "a": "Jack Hathaway and Sophie Adenot."
+    }
+  ]
+}

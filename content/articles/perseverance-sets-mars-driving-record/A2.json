@@ -1,0 +1,24 @@
+{
+  "id": "perseverance-sets-mars-driving-record",
+  "level": "A2",
+  "title": "Mars Rover Sets a New Driving Record",
+  "paragraphs": [
+    "Perseverance is a NASA rover, a robot vehicle that explores Mars. It landed in a large crater called Jezero in 2021.",
+    "On 11 October 2026, the rover broke an important record. It had driven 45.22 kilometres in total, more than any other vehicle on another world. The old record of 45.16 kilometres belonged to Opportunity, another NASA rover.",
+    "Perseverance can drive by itself. While it moves, it takes pictures, makes a 3D map and chooses a safe way. It has also collected 29 samples of rock and soil, which scientists hope to study."
+  ],
+  "questions": [
+    {
+      "q": "When did Perseverance land on Mars?",
+      "a": "In 2021."
+    },
+    {
+      "q": "Which rover had the old record?",
+      "a": "Opportunity, another NASA rover."
+    },
+    {
+      "q": "How many samples has it collected?",
+      "a": "29 samples of rock and soil."
+    }
+  ]
+}

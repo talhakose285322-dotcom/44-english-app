@@ -11,6 +11,7 @@
     "C2"
   ],
   "categories": {
+    "news": "Haberler",
     "academic": "Akademik",
     "science": "Bilim",
     "technology": "Teknoloji",
@@ -24,6 +25,158 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "crew-12-returns-to-earth",
+      "category": "news",
+      "title": "Astronauts Return After Seven Months in Space",
+      "summary": "Crew-12 ekibi, Uluslararası Uzay İstasyonu’nda 237 gün geçirdikten sonra Dünya’ya döndü.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 67,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 104,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 155,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 173,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 171,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 180,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "crew-12-returns-to-earth/image.jpg",
+        "alt": "Kurtarma gemisine alınan bir Crew Dragon kapsülü; astronotlar içeride (Crew-4, 2022; örnek görsel).",
+        "credit": "NASA/Bill Ingalls",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:NASA%E2%80%99s_SpaceX_Crew-4_Splashdown_(NHQ202210140038).jpeg"
+      },
+      "sources": [
+        {
+          "title": "NASA: NASA’s SpaceX Crew-12 Splashes Down, Sets Briefing to Discuss Mission",
+          "url": "https://www.nasa.gov/news-release/nasas-spacex-crew-12-splashes-down-sets-briefing-to-discuss-mission/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "astronaut",
+          "tr": "astronot"
+        },
+        {
+          "w": "crew",
+          "tr": "mürettebat, ekip"
+        },
+        {
+          "w": "splash down",
+          "tr": "denize iniş yapmak"
+        },
+        {
+          "w": "spacewalk",
+          "tr": "uzay yürüyüşü"
+        },
+        {
+          "w": "orbit",
+          "tr": "yörünge; yörüngede dolanmak"
+        },
+        {
+          "w": "experiment",
+          "tr": "deney"
+        }
+      ]
+    },
+    {
+      "id": "diet-drinks-and-water-weight-study",
+      "category": "news",
+      "title": "Diet Drinks or Water? A Two-Year Weight Study",
+      "summary": "İki yıllık bir araştırmaya göre kilo vermede diyet içecekler su kadar işe yarıyor; ama sonuçların sınırları var.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 61,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 117,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 152,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 181,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 193,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 197,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "diet-drinks-and-water-weight-study/image.jpg",
+        "alt": "Mavi bir bardakta maden suyu.",
+        "credit": "W.carter",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Blue_glass_with_carbonated_water.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (University of Liverpool): Diet drinks and water in long-term weight loss",
+          "url": "https://sciencedaily.com/releases/2026/10/261002080017.htm"
+        },
+        {
+          "title": "News-Medical: Diet drinks showed no clear weight-loss edge over water after two years",
+          "url": "https://www.news-medical.net/news/20261011/Diet-drinks-showed-no-clear-weight-loss-edge-over-water-after-two-years.aspx"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "diet drink",
+          "tr": "diyet (şekersiz) içecek"
+        },
+        {
+          "w": "sweetener",
+          "tr": "tatlandırıcı"
+        },
+        {
+          "w": "lose weight",
+          "tr": "kilo vermek"
+        },
+        {
+          "w": "participant",
+          "tr": "katılımcı"
+        },
+        {
+          "w": "funded by",
+          "tr": "tarafından finanse edilen"
+        },
+        {
+          "w": "evidence",
+          "tr": "kanıt"
+        }
+      ]
+    },
     {
       "id": "how-habits-form",
       "category": "psychology",
@@ -128,6 +281,84 @@
           "minutes": 1
         }
       }
+    },
+    {
+      "id": "perseverance-sets-mars-driving-record",
+      "category": "news",
+      "title": "Mars Rover Sets a New Driving Record",
+      "summary": "NASA’nın Perseverance aracı, başka bir gezegende en uzun yolu katetme rekorunu kırdı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 70,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 93,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 136,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 156,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 156,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 187,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "perseverance-sets-mars-driving-record/image.jpg",
+        "alt": "NASA’nın Perseverance aracı Mars’ta kendi fotoğrafını çekiyor (Mayıs 2025).",
+        "credit": "NASA/JPL-Caltech/MSSS",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:PIA26574-Mars-PerseveranceRover-Selfie-20250510.jpg"
+      },
+      "sources": [
+        {
+          "title": "EarthSky: NASA’s Perseverance rover on Mars sets off-world driving record",
+          "url": "https://earthsky.org/space/nasas-perseverance-rover-on-mars-sets-off-world-driving-record/"
+        },
+        {
+          "title": "NASA: Mars 2020 Perseverance mission",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "rover",
+          "tr": "keşif aracı"
+        },
+        {
+          "w": "record",
+          "tr": "rekor"
+        },
+        {
+          "w": "surface",
+          "tr": "yüzey"
+        },
+        {
+          "w": "distance",
+          "tr": "mesafe"
+        },
+        {
+          "w": "sample",
+          "tr": "örnek, numune"
+        },
+        {
+          "w": "route",
+          "tr": "rota, güzergâh"
+        }
+      ]
     },
     {
       "id": "what-happens-when-you-exercise",

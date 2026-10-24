@@ -1,0 +1,24 @@
+{
+  "id": "diet-drinks-and-water-weight-study",
+  "level": "C1",
+  "title": "Diet Drinks or Water? A Two-Year Weight Study",
+  "paragraphs": [
+    "Diet soft drinks occupy an awkward place in nutrition advice: they help people cut sugar, but they are often suspected of stimulating appetite and quietly sabotaging weight loss. A two-year randomised trial from the universities of Liverpool and Leeds, published in the British Journal of Nutrition, suggests those fears may be overstated.",
+    "In the SWITCH trial, 493 adults with overweight or obesity were assigned at random to drink either water or diet beverages containing aspartame, acesulfame-K or sucralose, within a structured behavioural weight-management programme. The final year was designed to test whether participants could sustain their results once that support had been withdrawn.",
+    "Among those who completed the study, the diet drink group had lost 4.8 kilograms and the water group 3.7 kilograms, a gap that was not statistically significant and which the authors interpret as evidence of equivalence. Caution is warranted, though: the research was funded by the American Beverage Association, albeit with the investigators retaining control of the analysis, it was conducted at a single site and it suffered considerable dropout. The findings also sit uneasily with World Health Organization guidance, which advises against relying on non-sugar sweeteners for weight control."
+  ],
+  "questions": [
+    {
+      "q": "Why do the authors speak of “equivalence” rather than an advantage for diet drinks?",
+      "a": "Because the difference between the groups was not statistically significant."
+    },
+    {
+      "q": "What was the purpose of the final year without support?",
+      "a": "To test whether participants could maintain their weight loss on their own."
+    },
+    {
+      "q": "How do the findings relate to WHO guidance?",
+      "a": "They appear to conflict with the WHO’s advice not to rely on non-sugar sweeteners for weight control."
+    }
+  ]
+}
