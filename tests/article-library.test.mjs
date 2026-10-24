@@ -38,6 +38,23 @@ test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtrele
   assert.deepEqual(b.errors, []);
 });
 
+test('kartlar kategori, seviye ve okuma süresiyle gösteriliyor; “Günün makalesi” yalnızca filtresizken var', async () => {
+  await setSel('rl-lv', '');
+  const first = await b.ev("(function(c){return {cat:c.querySelector('.lc-cat').textContent,lv:c.getAttribute('data-lv'),on:[].map.call(c.querySelectorAll('.lc-lvs i.on'),function(i){return i.textContent}),n:c.querySelectorAll('.lc-lvs i').length,top:c.querySelector('.lc-top').innerText}})(document.querySelector('#rl-list .lcard'))");
+  // the category filter is built from the catalog, so a real category label is one of its options
+  const catLabels = await b.ev("[].filter.call(document.querySelectorAll('#rl-c option'),function(o){return o.value&&o.value!=='saved'}).map(function(o){return o.textContent})");
+  assert.ok(catLabels.includes(first.cat), 'kategori etiketi: ' + first.cat);
+  assert.equal(first.n, 6);
+  assert.deepEqual(first.on, [first.lv], 'açılacak seviye vurgulu');
+  assert.match(first.top, /\d+ dk okuma/);
+  assert.match(await b.ev("document.querySelector('#rl-feat .lfeat').innerText"), /Günün makalesi/);
+  assert.ok(await b.ev("!!document.querySelector('#rl-feat .lfeat[data-rl]')"), 'günün makalesi açılabilir');
+  await setSel('rl-c', 'technology');
+  assert.equal(await b.ev("document.getElementById('rl-feat').innerHTML"), '', 'filtre seçiliyken gösterilmiyor');
+  await setSel('rl-c', '');
+  assert.deepEqual(b.errors, []);
+});
+
 test('makale seçilen seviyede normal okuyucuda açılıyor; kelimeye dokununca mevcut kelime paneli açılıyor', async () => {
   await b.ev("document.querySelector('#rl-list [data-rl=\"why-we-sleep\"]').click()");
   await b.waitFor("document.body.classList.contains('reading')&&!!document.querySelector('.libbar')", 10000);

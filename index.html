@@ -403,7 +403,7 @@ body.reading .sheet{max-width:740px}
 .dmeta{font-size:13px;color:var(--muted);margin:8px 0 0}.dmeta span{opacity:.8}
 .dtrs{font-size:17px;line-height:1.5;color:var(--ink);margin:10px 0 0}.dtrs b{color:var(--accent)}.dtrs span{color:var(--muted);font-size:13px}.dtrs.none{font-size:15px;color:var(--muted)}
 .dspd{display:inline-flex;align-self:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}.dspd button{border:0;background:none;font:inherit;font-size:13px;padding:6px 10px;color:var(--muted);cursor:pointer}.dspd button.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
-.libbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}.libbar .btn{padding:6px 12px;font-size:13.5px}.libbar .note{flex-basis:100%;margin:0}
+.libbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}.libbar .btn{padding:6px 12px;font-size:13.5px}.libbar .note{flex-basis:100%;margin:0}.lcards{display:grid;gap:12px;margin-top:12px}@media(min-width:720px){.lcards{grid-template-columns:1fr 1fr}}.lcard{position:relative;display:flex;flex-direction:column;gap:8px;padding:16px 16px 14px 20px;border:1px solid var(--line);border-radius:18px;background:var(--card);cursor:pointer;overflow:hidden;transition:transform .15s,box-shadow .15s}.lcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--cc)}.lcard:hover,.lcard:focus-visible{transform:translateY(-1px);box-shadow:0 8px 24px rgba(15,20,36,.08);outline:none}.lc-top,.lc-ft{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}.lc-ft{justify-content:space-between}.lc-cat{padding:3px 9px;border-radius:999px;font-weight:600;color:var(--cc);background:color-mix(in srgb,var(--cc) 13%,transparent)}.lc-lv{padding:3px 8px;border-radius:8px;font-weight:700;color:var(--accent);background:var(--accent-soft)}.lc-new{padding:3px 8px;border-radius:999px;font-weight:700;color:#fff;background:var(--cc)}.lc-sv{color:#F59E0B;font-size:15px}.lcard b{font-size:17px;line-height:1.3;color:var(--ink)}.lc-sum{font-size:14px;line-height:1.45;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.lc-lvs{display:flex;gap:4px}.lc-lvs i{font-style:normal;font-size:11px;font-weight:600;padding:2px 6px;border-radius:6px;color:var(--muted);border:1px solid var(--line)}.lc-lvs i.on{color:var(--accent);border-color:var(--accent)}.lc-lvs i.off{opacity:.35}.lc-st{font-weight:600;color:var(--cc)}.lc-bar{height:4px;border-radius:4px;background:var(--line);overflow:hidden}.lc-bar i{display:block;height:100%;background:var(--cc)}.lfeat{margin-top:12px;padding:20px 18px 16px 22px;background:linear-gradient(135deg,color-mix(in srgb,var(--cc) 14%,var(--card)),var(--card) 70%)}.lfeat b{font-size:20px}.lc-k{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--cc)}
 .dtrs>div{margin-top:2px}.dtrs i{font-style:normal;font-size:13px;font-weight:700;color:var(--muted);margin-right:8px}.dtrs em{font-style:normal;color:var(--muted);font-size:15px}.dtrs>span{display:block;margin-top:2px}
 .dform{background:var(--accent-soft);border-radius:var(--r-sm);padding:10px 12px;margin:12px 0 4px;font-size:14.5px;line-height:1.55}
 .dform a{color:var(--accent);font-weight:700;text-decoration:none}.dform span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
@@ -1243,7 +1243,7 @@ body.reading .sheet{max-width:740px}
     b.innerHTML="<h2>Hazır makaleler</h2><p class='note'>"+c.articles.length+" makale. Seviyeni seç ve makaleyi aç; okurken seviyeyi değiştirebilirsin, konu aynı kalır.</p>"+
       "<input id='rl-q' type='search' placeholder='Hazır makalelerde ara' autocomplete='off'><div class='fgrid'><select id='rl-c' aria-label='Kategori'><option value=''>Tüm kategoriler</option>"+
       Object.keys(used).map(function(k){return "<option value='"+escA(k)+"'>"+esc(cats[k]||k)+"</option>"}).join('')+"<option value='saved'>Kaydettiklerim</option></select>"+
-      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-list'></div><div class='toast' id='rl-t'></div>";
+      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-feat'></div><div id='rl-list' class='lcards'></div><div class='toast' id='rl-t'></div>";
     $('rl-q').value=LIB.q;$('rl-c').value=LIB.c;$('rl-lv').value=LIB.lv;
     $('rl-q').oninput=function(){LIB.q=this.value;drawRlList()};
     $('rl-c').onchange=function(){LIB.c=this.value;drawRlList()};
@@ -1254,13 +1254,29 @@ body.reading .sheet{max-width:740px}
     var o=$('rl-list');if(!o||!LIB.cat)return;
     var c=LIB.cat,cats=c.categories||{},d=libData(),q=LIB.q.trim().toLowerCase();
     var L=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length&&(!LIB.c||(LIB.c==='saved'?d.saved.indexOf(a.id)>=0:a.category===LIB.c))&&(!LIB.lv||a.levels[LIB.lv])&&(!q||(a.title+' '+(a.summary||'')).toLowerCase().indexOf(q)>=0)});
-    o.innerHTML=L.length?L.map(function(a){
+    function card(a,feat){
       var p=d.p[a.id]||{},ls=libLevels(a),lv=LIB.lv&&a.levels[LIB.lv]?LIB.lv:p.lv&&a.levels[p.lv]?p.lv:ls.indexOf('B1')>=0?'B1':ls[0],m=a.levels[lv]||{};
-      var st=p.done?' · tamamlandı':p.pos>0.01?' · %'+Math.round(p.pos*100):'';
-      return "<div class='item'><div class='t' data-rl='"+escA(a.id)+"' data-lv='"+escA(lv)+"' style='cursor:pointer'><span>"+esc((cats[a.category]||a.category)+' · '+lv+' · '+(m.minutes||1)+' dk · seviyeler: '+ls.join(' ')+(d.saved.indexOf(a.id)>=0?' · ★':'')+st)+"</span><b>"+esc(a.title)+"</b><span>"+esc(a.summary||'')+"</span></div></div>";
-    }).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
-    Array.prototype.forEach.call(o.querySelectorAll('[data-rl]'),function(t){t.onclick=function(){libOpen(t.getAttribute('data-rl'),t.getAttribute('data-lv'))}});
+      var fresh=a.published&&(Date.now()-new Date(a.published+'T00:00:00Z').getTime())<7*864e5,prog=p.done?1:p.pos>0.01?p.pos:0;
+      return "<div class='lcard"+(feat?' lfeat':'')+"' role='button' tabindex='0' style='--cc:"+(LCOL[a.category]||LCOL.other)+"' data-rl='"+escA(a.id)+"' data-lv='"+escA(lv)+"'>"+
+        (feat?"<span class='lc-k'>Günün makalesi</span>":'')+
+        "<span class='lc-top'><span class='lc-cat'>"+esc(cats[a.category]||a.category)+"</span><span class='lc-lv'>"+esc(lv)+"</span><span>"+(m.minutes||1)+" dk okuma</span>"+
+        (fresh?"<span class='lc-new'>Yeni</span>":'')+(d.saved.indexOf(a.id)>=0?"<span class='lc-sv' aria-label='Kaydedildi'>★</span>":'')+"</span>"+
+        "<b>"+esc(a.title)+"</b><span class='lc-sum'>"+esc(a.summary||'')+"</span>"+
+        "<span class='lc-ft'><span class='lc-lvs' aria-label='Seviyeler'>"+LV.map(function(l){return "<i class='"+(a.levels[l]?l===lv?'on':'':'off')+"'>"+l+"</i>"}).join('')+"</span>"+
+        (p.done?"<span class='lc-st'>Tamamlandı</span>":prog?"<span class='lc-st'>%"+Math.round(prog*100)+"</span>":'')+"</span>"+
+        (prog?"<span class='lc-bar'><i style='width:"+Math.round(prog*100)+"%'></i></span>":'')+"</div>";
+    }
+    // "article of the day": the same one for everybody on a given day, only while no filter is set
+    var f=$('rl-feat'),all=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length});
+    if(f){var fa=!LIB.c&&!LIB.lv&&!q&&all.length>1?all[Math.floor(Date.now()/864e5)%all.length]:null;f.innerHTML=fa?card(fa,true):''}
+    o.innerHTML=L.length?L.map(function(a){return card(a)}).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
+    Array.prototype.forEach.call(document.querySelectorAll('#rl-list [data-rl],#rl-feat [data-rl]'),function(t){
+      t.onclick=function(){libOpen(t.getAttribute('data-rl'),t.getAttribute('data-lv'))};
+      t.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.onclick()}};
+    });
   }
+  var LCOL={science:'#0E9F8E',technology:'#5B4CF0',economics:'#D97706',health:'#E11D48',history:'#A16207',environment:'#16A34A',
+    psychology:'#9333EA',law:'#475569',culture:'#DB2777',academic:'#2563EB',other:'#64748B'};
   function libOpen(id,lv,para){
     var a0=LIB.cat&&LIB.cat.articles.filter(function(x){return x.id===id})[0];
     if(!a0||!libSafeId(id)||!a0.levels||!a0.levels[lv])return;
