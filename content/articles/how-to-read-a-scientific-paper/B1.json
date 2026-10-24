@@ -1,0 +1,11 @@
+{
+  "id": "how-to-read-a-scientific-paper",
+  "level": "B1",
+  "title": "How to Read a Scientific Paper",
+  "paragraphs": [
+    "Scientific papers are the main way researchers share new knowledge. They can look difficult, but most of them follow a similar structure, and knowing this structure makes them much easier to read.",
+    "A paper usually begins with an abstract, a short summary of the whole study. The introduction then explains what is already known about the topic and which question the researchers wanted to answer.",
+    "The methods section describes exactly how the study was done, so that other scientists can repeat it. The results section presents the data, often in tables and figures, and the discussion explains what the results mean and what their limits are.",
+    "Experienced readers rarely read a paper from beginning to end. They start with the abstract, look at the figures, read the discussion and only then check the methods in detail. It is also important to be critical: How large was the sample? Was there a control group? Has the paper been peer-reviewed, and do other studies find the same result?"
+  ]
+}

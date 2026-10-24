@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-10-23",
+  "updated": "2026-10-24",
   "levels": [
     "A1",
     "A2",
@@ -24,6 +24,216 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "how-habits-form",
+      "category": "psychology",
+      "title": "How Do Habits Form?",
+      "summary": "Alışkanlıklar beynimizde nasıl oluşur, neden bu kadar güçlüdür ve yenisini nasıl kazanabiliriz?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 87,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 116,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 189,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 214,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 220,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 227,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "how-the-printing-press-changed-the-world",
+      "category": "history",
+      "title": "How the Printing Press Changed the World",
+      "summary": "Gutenberg’in matbaası kitapları nasıl ucuzlattı, okuryazarlığı ve fikirlerin yayılmasını nasıl değiştirdi?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 82,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 118,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 156,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 195,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 244,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 259,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "how-to-read-a-scientific-paper",
+      "category": "academic",
+      "title": "How to Read a Scientific Paper",
+      "summary": "Bilimsel bir makale hangi bölümlerden oluşur, hangi sırayla okunmalı ve nasıl eleştirel değerlendirilir?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 80,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 117,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 166,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 189,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 205,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 212,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "what-happens-when-you-exercise",
+      "category": "health",
+      "title": "What Happens to Your Body When You Exercise?",
+      "summary": "Egzersiz yaptığımızda kalp, kaslar ve beyin nasıl tepki verir ve ne kadar hareket önerilir?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 71,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 105,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 151,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 203,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 223,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 228,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "why-bees-matter",
+      "category": "environment",
+      "title": "Why Do Bees Matter?",
+      "summary": "Arılar ve diğer tozlayıcılar gıdamız için neden önemli, onları neler tehdit ediyor ve nasıl korunabilirler?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 74,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 119,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 166,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 189,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 216,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 233,
+          "minutes": 1
+        }
+      }
+    },
+    {
+      "id": "why-we-tell-stories",
+      "category": "culture",
+      "title": "Why Do Humans Tell Stories?",
+      "summary": "İnsanlar binlerce yıldır neden hikâye anlatır ve hikâyeler hafızamızı ve empatimizi nasıl etkiler?",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-24",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 74,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 111,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 155,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 195,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 221,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 228,
+          "minutes": 1
+        }
+      }
+    },
     {
       "id": "how-the-internet-moves-data",
       "category": "technology",
