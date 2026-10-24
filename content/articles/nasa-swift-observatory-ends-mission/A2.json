@@ -1,0 +1,24 @@
+{
+  "id": "nasa-swift-observatory-ends-mission",
+  "level": "A2",
+  "title": "NASA’s Swift Telescope Ends Its Long Mission",
+  "paragraphs": [
+    "NASA’s Neil Gehrels Swift Observatory is a space telescope. It was built to study gamma-ray bursts, which are very strong flashes of light from far away in space. Swift can turn very quickly and take pictures of a burst.",
+    "Swift started its work in 2004. NASA planned a mission of two years, but Swift worked more than ten times longer. Now its orbit is lower than 275 kilometres. The air is thicker there, so the telescope cannot look at one target steadily. Its last observation was on October 20, and Swift will probably fall into the atmosphere within weeks.",
+    "Swift watched more than 2,000 gamma-ray bursts and more than 1,400 exploding stars. Scientists have written about 7,000 papers with its data. NASA says it will use other telescopes to react quickly to new events in space."
+  ],
+  "questions": [
+    {
+      "q": "What was Swift built to study?",
+      "a": "Gamma-ray bursts."
+    },
+    {
+      "q": "Why can Swift not work any more?",
+      "a": "Its orbit is too low and the air stops it from looking steadily at targets."
+    },
+    {
+      "q": "About how many papers used Swift data?",
+      "a": "About 7,000."
+    }
+  ]
+}

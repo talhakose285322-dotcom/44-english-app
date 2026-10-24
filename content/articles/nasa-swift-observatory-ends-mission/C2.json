@@ -1,0 +1,24 @@
+{
+  "id": "nasa-swift-observatory-ends-mission",
+  "level": "C2",
+  "title": "NASA’s Swift Telescope Ends Its Long Mission",
+  "paragraphs": [
+    "It is rare for a spacecraft to exceed its design life tenfold, yet NASA’s Neil Gehrels Swift Observatory has done just that. Launched on November 20, 2004, to spend two years hunting gamma-ray bursts, it has now concluded its science mission, its last observation dating from October 20. Re-entry is expected within weeks.",
+    "What has finally grounded Swift is not a failed component but the slow erosion of its orbit. Having sunk below 275 kilometres, the observatory is buffeted by enough atmospheric drag that its telescopes can no longer hold a steady gaze. For an instrument whose whole purpose was to swing round within moments and fix on a fleeting flash, that is, in effect, the end of the road.",
+    "The balance sheet is formidable: over 2,000 bursts recorded, more than 1,400 supernovae examined, roughly 7,000 papers, and an archive of about 12 terabytes that remains public. In 2005 Swift captured the afterglow of a short burst for the first time, strengthening the view that such events stem from merging neutron stars. It also witnessed stars shredded by black holes and surveyed the whole sky in X-rays. NASA’s Shawn Domagal-Goldman called it “an incredible, lasting return on investment for the nation.” The agency says it will now stretch its other missions to cover the gap, a tall order for a telescope that was always one step ahead of the news."
+  ],
+  "questions": [
+    {
+      "q": "What actually ended Swift’s mission?",
+      "a": "The gradual decay of its orbit, which made steady pointing impossible."
+    },
+    {
+      "q": "What does “a tall order” suggest about replacing Swift?",
+      "a": "That replacing its capabilities will be difficult."
+    },
+    {
+      "q": "What did the 2005 observation support?",
+      "a": "The idea that short bursts come from merging neutron stars."
+    }
+  ]
+}

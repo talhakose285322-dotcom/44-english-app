@@ -1,0 +1,24 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "level": "B2",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "paragraphs": [
+    "NASA’s Dragonfly, a rotorcraft that will hop between sites on Saturn’s moon Titan, has completed its first simulated flight. The exercise took place on a computer testbed at the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland, where the spacecraft is being integrated and tested. Because it was a simulation, nothing actually left the ground.",
+    "Even so, the test was demanding. Running in real time on flight-like avionics, it covered most of the systems and manoeuvres the craft will need on Titan: separating autonomously from its backshell, scanning the terrain for a safe site, circling back and making the final descent. It used simulated data from the newly installed navigation cameras, inertial sensors and lidar, which gauges altitude and slope and spots hazards. A custom emulator rendered Titan scenes in about 20 to 70 milliseconds, matching the planned exposure times.",
+    "Zach Putnam, the lead mobility engineer at the laboratory, said the first flight is “our most challenging flight” and that the tests validate how the systems work together. The next steps are running the sequence on the actual flight system and deliberately injecting faults. Putnam stressed that “everything we do on Titan has to happen autonomously.” Dragonfly is scheduled to launch no earlier than 2028 and arrive in 2034."
+  ],
+  "questions": [
+    {
+      "q": "Why is the test called “simulated”?",
+      "a": "It was run on a computer testbed, not with the craft in the air."
+    },
+    {
+      "q": "Why must Dragonfly work autonomously?",
+      "a": "Because everything on Titan has to happen without direct control, as Putnam said."
+    },
+    {
+      "q": "What will engineers do to test its reactions?",
+      "a": "Inject faults deliberately."
+    }
+  ]
+}

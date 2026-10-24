@@ -1,0 +1,24 @@
+{
+  "id": "nasa-swift-observatory-ends-mission",
+  "level": "B1",
+  "title": "NASA’s Swift Telescope Ends Its Long Mission",
+  "paragraphs": [
+    "NASA has announced that the Neil Gehrels Swift Observatory has ended its science mission. The space telescope was designed to study gamma-ray bursts, short and extremely powerful flashes of light that come from distant parts of the universe. Swift carries optical, ultraviolet and X-ray telescopes, so it can quickly point at a burst and find out exactly where it happened.",
+    "The mission began in 2004 and was planned to last two years. In fact, Swift worked for more than ten times that long. Over the years its orbit slowly dropped, and it is now below 275 kilometres. At that height there is more drag from the thin upper atmosphere, which makes it impossible for the telescopes to stay steadily pointed at a target. The final observation took place on October 20, and the spacecraft is expected to re-enter the atmosphere within weeks.",
+    "Swift’s record is impressive. It observed more than 2,000 gamma-ray bursts, studied more than 1,400 supernovae and left an archive of about 12 terabytes of public data. Its results appear in about 7,000 scientific papers. NASA says it will keep looking for new ways to respond quickly to sudden cosmic events with the missions it still operates."
+  ],
+  "questions": [
+    {
+      "q": "What problem ended Swift’s science mission?",
+      "a": "Its orbit dropped too low, so atmospheric drag prevented steady observations."
+    },
+    {
+      "q": "How much longer than planned did Swift work?",
+      "a": "More than ten times longer."
+    },
+    {
+      "q": "What will NASA do now?",
+      "a": "Use its other missions to keep responding quickly to cosmic events."
+    }
+  ]
+}

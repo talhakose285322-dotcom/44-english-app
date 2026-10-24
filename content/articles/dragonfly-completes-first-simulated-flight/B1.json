@@ -1,0 +1,24 @@
+{
+  "id": "dragonfly-completes-first-simulated-flight",
+  "level": "B1",
+  "title": "Dragonfly Completes Its First Simulated Flight",
+  "paragraphs": [
+    "NASA’s Dragonfly mission has reached a new milestone: the rotorcraft has completed its first simulated flight. Dragonfly is designed to fly between several places on Titan, Saturn’s largest moon, to study its chemistry, geology and atmosphere. The test took place at the Johns Hopkins Applied Physics Laboratory in Laurel, Maryland, where the spacecraft is being assembled and tested.",
+    "The simulation ran in real time on flight-like computers. Fake data from the navigation cameras, motion sensors and a lidar were fed into the system. The lidar measures the height and slope of the ground and finds hazards. In the test, the rotorcraft separated from its backshell by itself, scanned the terrain for a safe landing site, circled back and made its final descent. Lidar was the last piece the team needed before it could try this complete sequence.",
+    "Engineer Zach Putnam explained that the first flight is the most challenging one, and that the tests show everything works together. Next, the team wants to run the same flight on the real flight system and add deliberate faults to check that Dragonfly reacts correctly. The mission is due to launch no earlier than 2028 and reach Titan in 2034."
+  ],
+  "questions": [
+    {
+      "q": "Why is the first flight the most challenging?",
+      "a": "It contains most of the systems and manoeuvres Dragonfly will use at Titan."
+    },
+    {
+      "q": "What did the lidar do in the test?",
+      "a": "It measured terrain height and slope and found hazards."
+    },
+    {
+      "q": "What will the team do next?",
+      "a": "Run the flight on the real system and test deliberate faults."
+    }
+  ]
+}
