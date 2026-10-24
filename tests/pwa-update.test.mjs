@@ -6,6 +6,8 @@ import {swRegScript} from './lib/browser.mjs';
 
 const CODE = swRegScript();
 const M = 60000;
+// a release that keeps the version number: the published marker says the same version as the running page
+const RUNNING = CODE.match(/var runningVersion = '([\d.]+)'/)[1];
 const tick = () => new Promise(r => setImmediate(r));
 
 // Runs the script once. Returns {reloads, heads} after the steps.
@@ -22,7 +24,7 @@ async function run(steps, {controller = true, busy = false, active = null, dirty
   const location = {protocol: 'https:', pathname: '/', reload: () => reloads++};
   // the release marker (version.json, same version number, a new builtAt per deploy) and the page's HEAD (ETag)
   const fetch = url => {
-    if (String(url).includes('version.json')) return headFail ? Promise.reject(new Error('net')) : Promise.resolve({ok: true, json: () => Promise.resolve({version: '1.0.10', builtAt: built})});
+    if (String(url).includes('version.json')) return headFail ? Promise.reject(new Error('net')) : Promise.resolve({ok: true, json: () => Promise.resolve({version: RUNNING, builtAt: built})});
     heads++; return headFail ? Promise.reject(new Error('net')) : Promise.resolve({ok: true, headers: {get: () => etag ? tag : null}});
   };
   const RealDate = Date;
