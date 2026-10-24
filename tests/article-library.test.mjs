@@ -27,6 +27,8 @@ after(async () => { await b?.close(); srv?.stop(); });
 const cards = () => b.ev("[].map.call(document.querySelectorAll('#rl-list [data-rl]'),function(t){return t.getAttribute('data-rl')+'@'+t.getAttribute('data-lv')})");
 const lib = async () => JSON.parse((await b.storage())[LIBK] || '{}');
 const setSel = (id, v) => b.ev(`(function(s){s.value=${JSON.stringify(v)};s.dispatchEvent(new Event('change'))})(document.getElementById('${id}'))`);
+// the list shows 12 cards at a time and new articles come first: open more pages until the wanted card is there
+const showCard = id => b.ev(`(function(){for(var i=0;i<50&&!document.querySelector('#rl-list [data-rl=${JSON.stringify(id)}]');i++){var m=document.getElementById('rl-mb');if(!m)break;m.click()}return !!document.querySelector('#rl-list [data-rl=${JSON.stringify(id)}]')})()`);
 const artText = () => b.ev("document.getElementById('art').innerText");
 const topPara = () => b.ev("(function(){var ch=document.getElementById('art').children,i=0;for(;i<ch.length;i++)if(ch[i].getBoundingClientRect().bottom>90)break;return i})()");
 
@@ -63,6 +65,7 @@ test('kartlar kategori, seviye ve okuma süresiyle gösteriliyor; “Günün mak
 });
 
 test('makale seçilen seviyede normal okuyucuda açılıyor; kelimeye dokununca mevcut kelime paneli açılıyor', async () => {
+  assert.ok(await showCard('why-we-sleep'), 'kart listede bulunuyor');
   await b.ev("document.querySelector('#rl-list [data-rl=\"why-we-sleep\"]').click()");
   await b.waitFor("document.body.classList.contains('reading')&&!!document.querySelector('.libbar')", 10000);
   assert.equal(await b.ev("document.querySelector('.atitle').textContent"), 'Why Do We Sleep?');
