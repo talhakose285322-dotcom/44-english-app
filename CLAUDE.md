@@ -87,7 +87,9 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
 - `main` korumalıdır: değişiklik PR ile gelir, zorunlu `test` ve **Koruma** denetimleri geçince (auto-merge) birleşir.
   Koruma (`.github/workflows/guard.yml`, `main`'deki kopyadan çalışır) `news/` dallarına yalnızca `content/articles/`
   altını değiştirtir; `.github/` altındaki her değişiklik depo sahibinin `workflow-onay` etiketini ister — bu etiketi
-  ajanlar eklemez.
+  ajanlar eklemez. `guard`'ın `main` kuralında zorunlu denetim olarak ekli olması gerekir (Settings → Branches);
+  bu ayarı yalnızca depo sahibi değiştirir. `gh api repos/<repo>/branches/main/protection/required_status_checks`
+  ile `contexts` içinde `test` ve `guard` görülmelidir.
 - Her değişiklikten sonra kısa bir özet verilir: ne değişti, commit SHA, CI sonucu, yayın durumu ve neyin
   doğrulanmadığı.
 - Gereksiz proje taraması, uzun planlama ve tekrar eden test/durum raporları yapılmaz.
