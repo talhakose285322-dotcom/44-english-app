@@ -4,5 +4,12 @@
   "title": "How to Read a Scientific Paper",
   "summary": "Bilimsel bir makale hangi bölümlerden oluşur, hangi sırayla okunmalı ve nasıl eleştirel değerlendirilir?",
   "published": "2026-10-24",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir mikroskobun göz mercekleri.",
+    "credit": "Shixart1985",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Close-up_of_the_ocular_lenses_of_a_microscope_with_a_blurry_background.jpg"
+  }
 }

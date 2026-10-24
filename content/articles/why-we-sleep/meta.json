@@ -4,5 +4,12 @@
   "title": "Why Do We Sleep?",
   "summary": "Neden uyuruz? Uyku evreleri, beynin gece yaptıkları ve uykusuzluğun etkileri.",
   "published": "2026-10-23",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Yatakta uyuyan bir köpek.",
+    "credit": "Mitch Barrie",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bella_in_her_natural_habitat_(20603247586).jpg"
+  }
 }

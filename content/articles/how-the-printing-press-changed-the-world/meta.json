@@ -4,5 +4,12 @@
   "title": "How the Printing Press Changed the World",
   "summary": "Gutenberg’in matbaası kitapları nasıl ucuzlattı, okuryazarlığı ve fikirlerin yayılmasını nasıl değiştirdi?",
   "published": "2026-10-24",
-  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44."
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir matbaa müzesinde ahşap baskı makinesi.",
+    "credit": "Wikielia",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Museum_of_typography.jpg"
+  }
 }
