@@ -1,12 +1,15 @@
 # Günlük seviyeli haberler — üretim kuralları
 
 Bu belge, "Haberler" kategorisine her gün eklenen içeriğin nasıl hazırlanacağını tanımlar. Günlük otomatik görev
-(Claude) ve elle haber ekleyen herkes bu kurallara uyar. Haberler **her zaman bir dal + PR ile** gelir; kullanıcı
-onaylamadan `main`'e girmez.
+(Claude) ve elle haber ekleyen herkes bu kurallara uyar. Haberler **her zaman bir dal + PR ile** gelir. Günlük görevin
+PR'ı **auto-merge** ile açılır: `main` korumalıdır ve zorunlu `test` denetimi (katalog doğrulaması dahil tüm testler)
+geçmeden birleşmez; geçerse kullanıcı onayı beklemeden yayına girer. Yanlış bir haber, klasörü silen bir PR ile
+kaldırılır. Uygun haber yoksa o gün hiçbir şey yayımlanmaz; haber zorla üretilmez.
 
 ## Akış
 
-1. `main`'den `news/YYYY-MM-DD` adlı dal aç.
+1. `main`'den `news/YYYY-MM-DD` adlı dal aç. Önce `content/articles/catalog.json`'daki son 30 günün haberlerine bak;
+   aynı olayı tekrar yazma.
 2. Güvenilir kaynaklardan (NASA, ESA, üniversite basın bültenleri, hakemli dergi haberleri, Reuters/AP/BBC gibi
    ajanslar) son 3–7 günün gelişmelerini oku. Her olguyu en az bir birincil kaynaktan doğrula.
 3. Öğrenmeye uygun **1–3 haber** seç: bilim, uzay, teknoloji, sağlık araştırması, çevre, kültür, spor, ekonomi.
@@ -16,10 +19,13 @@ onaylamadan `main`'e girmez.
    - `meta.json`: `category: "news"`, başlık (İngilizce), Türkçe özet, `published` (bugün), lisans
      (`"Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44."`), `image`, `sources`, `vocab`.
    - `A1.json` … `C2.json`: her seviyede **aynı sayıda paragraf** (3 önerilir) ve 3 anlama sorusu (`questions`).
-5. `node scripts/build-article-catalog.mjs` çalıştır, sonra
-   `node --test --test-concurrency=4 --test-timeout=60000`. Hata varsa düzelt; doğrulamayı gevşetme.
-6. Yalnızca yeni klasörleri ve `catalog.json`'u stage et, commit'le, dalı gönder, PR aç. PR açıklamasında her haberin
-   kaynaklarını ve görselin lisans sayfasını listele.
+5. `node scripts/build-article-catalog.mjs` çalıştır, sonra en az
+   `node --test --test-concurrency=1 tests/article-content.test.mjs tests/build.test.mjs` (tarayıcı varsa tüm
+   testler: `node --test --test-concurrency=4 --test-timeout=60000`). Hata varsa düzelt; doğrulamayı ve testleri
+   gevşetme. Düzeltilemeyen haber yayımlanmaz.
+6. Yalnızca yeni klasörleri ve `catalog.json`'u stage et (`git add -- <yol>`), commit'le, dalı gönder, PR aç ve
+   auto-merge'i aç. PR açıklamasında her haberin kaynaklarını ve görselin lisans sayfasını listele. `index.html`,
+   `sw.js`, testler ve diğer dosyalar haber görevinde değiştirilmez.
 
 ## Metin
 
