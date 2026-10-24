@@ -3657,11 +3657,18 @@ body.reading .sheet{max-width:740px}
   // Compare against the build's published release marker when available.
   // This also works on hosts that omit ETag headers.
   var runningVersion = '1.0.10';
+  // Every deploy writes a new builtAt into version.json, so a release is noticed even when the version number and
+  // the HTML's ETag do not change (the Cloudflare Worker sends no ETag). The build seen at launch is noted; a different
+  // one after a return marks the same pending reload, with the same conditions.
+  var build0 = null;
   function checkRelease() {
     return fetch('./version.json?check=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { if (!r.ok) return null; return r.json(); })
       .then(function (v) {
         if (!v || !/^\d+\.\d+\.\d+$/.test(v.version)) return;
+        var b = typeof v.builtAt === 'string' && /^\d{4}-\d\d-\d\dT/.test(v.builtAt) ? v.builtAt : null;
+        if (b && !build0) build0 = b;
+        else if (b && b !== build0) { pending = true; tryReload(); return; }
         var current = runningVersion.split('.').map(Number);
         var latest = v.version.split('.').map(Number);
         for (var i = 0; i < 3; i++) {
@@ -3677,6 +3684,7 @@ body.reading .sheet{max-width:740px}
     }).catch(function () { return null; });
   }
   pageTag().then(function (t) { if (t && !tag0) tag0 = t; });
+  checkRelease();
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState !== 'visible') { wasHidden = true; hiddenAt = Date.now(); return; }
     resumedAt = Date.now(); awayMs = hiddenAt ? resumedAt - hiddenAt : 0;

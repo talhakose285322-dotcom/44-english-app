@@ -9,8 +9,8 @@ const M = 60000;
 const tick = () => new Promise(r => setImmediate(r));
 
 // Runs the script once. Returns {reloads, heads} after the steps.
-async function run(steps, {controller = true, busy = false, active = null, dirty = false, headFail = false} = {}) {
-  let now = 1e9, reloads = 0, heads = 0, tag = '"aaaaaaaaaaaaaaaaaaaa-ssl-df"';
+async function run(steps, {controller = true, busy = false, active = null, dirty = false, headFail = false, etag = true} = {}) {
+  let now = 1e9, reloads = 0, heads = 0, tag = '"aaaaaaaaaaaaaaaaaaaa-ssl-df"', built = '2026-10-24T10:00:00.000Z';
   const on = m => (t, f) => (m[t] = m[t] || []).push(f), fire = (m, t) => (m[t] || []).forEach(f => f());
   const docL = {}, swL = {}, winL = {};
   const document = {visibilityState: 'visible', activeElement: active, addEventListener: on(docL),
@@ -20,7 +20,11 @@ async function run(steps, {controller = true, busy = false, active = null, dirty
     register: () => ({then: f => { f(reg); return {catch() {}}; }})}};
   const window = {addEventListener: on(winL), __44busy: () => busy};
   const location = {protocol: 'https:', pathname: '/', reload: () => reloads++};
-  const fetch = () => { heads++; return headFail ? Promise.reject(new Error('net')) : Promise.resolve({ok: true, headers: {get: () => tag}}); };
+  // the release marker (version.json, same version number, a new builtAt per deploy) and the page's HEAD (ETag)
+  const fetch = url => {
+    if (String(url).includes('version.json')) return headFail ? Promise.reject(new Error('net')) : Promise.resolve({ok: true, json: () => Promise.resolve({version: '1.0.10', builtAt: built})});
+    heads++; return headFail ? Promise.reject(new Error('net')) : Promise.resolve({ok: true, headers: {get: () => etag ? tag : null}});
+  };
   const RealDate = Date;
   globalThis.Date = {now: () => now};
   try {
@@ -32,6 +36,7 @@ async function run(steps, {controller = true, busy = false, active = null, dirty
       wait(ms) { now += ms; },
       newWorker() { fire(swL, 'controllerchange'); },
       deployHtml() { tag = '"bbbbbbbbbbbbbbbbbbbb-ssl-df"'; },
+      deployBuild() { built = '2026-10-24T18:00:00.000Z'; },
       touch() { fire(docL, 'pointerdown'); }
     });
   } finally { globalThis.Date = RealDate; }
@@ -71,4 +76,13 @@ test('ağ hatasında (HEAD başarısız) yenileme yok', async () => {
 test('ard arda dönüşlerde sonsuz yenileme yok', async () => {
   const r = await run(async a => { a.deployHtml(); for (let i = 0; i < 5; i++) await away(a); });
   assert.equal(r.reloads, 1);
+});
+test('ETag göndermeyen sunucuda (Cloudflare Worker) yeni yayın, version.json builtAt ile algılanır ve bir kez yenilenir', async () => {
+  const deploy = async a => { a.hide(); a.wait(6 * M); a.deployBuild(); await a.show(); };
+  assert.equal((await run(deploy, {etag: false})).reloads, 1);
+  assert.equal((await run(async a => away(a), {etag: false})).reloads, 0, 'yayın yoksa yenileme yok');
+  assert.equal((await run(async a => { a.hide(); a.wait(M); a.deployBuild(); await a.show(); }, {etag: false})).reloads, 0, 'kısa dönüşte yenilenmez');
+  assert.equal((await run(async a => { a.hide(); a.wait(M); a.deployBuild(); await a.show(); await away(a); }, {etag: false})).reloads, 1, 'sonraki uzun dönüşte yenilenir');
+  assert.equal((await run(async a => { a.deployBuild(); for (let i = 0; i < 5; i++) await away(a); }, {etag: false})).reloads, 1, 'sonsuz yenileme yok');
+  assert.equal((await run(async a => { a.hide(); a.wait(6 * M); a.deployBuild(); await a.show(); }, {etag: false, busy: true})).reloads, 0, 'iş sürüyorsa yenilenmez');
 });
