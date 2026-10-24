@@ -4,7 +4,12 @@ import {test, before, after} from 'node:test';
 import assert from 'node:assert/strict';
 import {startServer, openBrowser, sleep} from './lib/browser.mjs';
 import {K, KA} from './lib/app.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import {ROOT} from './lib/browser.mjs';
 
+// the real catalog: the library grows without app releases, so counts come from it rather than being fixed here
+const CATALOG = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'articles', 'catalog.json'), 'utf8'));
 const LIBK = K + '-lib';
 const OWN = [{id: 'own1', title: 'My notes', text: 'A text that belongs to the user and must stay as it is.', pos: 0.5}];
 let srv, b;
@@ -25,7 +30,7 @@ const topPara = () => b.ev("(function(){var ch=document.getElementById('art').ch
 
 test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtreleri çalışıyor', async () => {
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
-  assert.equal((await cards()).length, 3);
+  assert.equal((await cards()).length, CATALOG.articles.length, 'katalogdaki her makale listede');
   await setSel('rl-c', 'technology');
   assert.deepEqual(await cards(), ['how-the-internet-moves-data@B1']);
   await setSel('rl-c', '');

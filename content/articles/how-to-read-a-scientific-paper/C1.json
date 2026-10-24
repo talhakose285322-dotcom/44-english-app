@@ -1,0 +1,11 @@
+{
+  "id": "how-to-read-a-scientific-paper",
+  "level": "C1",
+  "title": "How to Read a Scientific Paper",
+  "paragraphs": [
+    "Peer-reviewed papers are the principal medium through which scientific findings enter the public record, and the ability to read them critically is increasingly important well beyond the laboratory. Their density can be daunting, but most follow a conventional structure that, once understood, makes them considerably more approachable.",
+    "The abstract condenses the study into a brief overview of its aims, methods and principal findings. The introduction situates the research within the existing literature, identifies a gap or unresolved problem and states the hypothesis or research question the authors intend to address.",
+    "The methods section should describe the design, participants or materials and analytical procedures in sufficient detail to permit replication. Results are then presented, typically with figures and statistical analyses, before the discussion interprets them, relates them to prior work and, ideally, sets out their limitations candidly.",
+    "Seasoned readers seldom proceed linearly. A common strategy is to read the abstract, scrutinise the figures and the discussion, and return to the methods only if the paper warrants closer attention. Reading critically also means interrogating the design: Was the sample large and representative enough? Were appropriate controls in place? Do the conclusions follow from the data, or do they overreach? And, crucially, has the finding been independently replicated?"
+  ]
+}
