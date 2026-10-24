@@ -68,6 +68,8 @@ test('Cloudflare Worker config publishes exactly the production build output', (
   assert.equal(config.assets && config.assets.directory, './dist');
   assert.equal(config.main, undefined, 'static assets only, no Worker script');
   assert.equal(config.pages_build_output_dir, undefined);
+  // pull requests run `wrangler preview`, which refuses to start without a previews block (an empty one is enough)
+  assert.deepEqual(config.previews, {}, 'previews block for pull-request preview builds');
   assert.ok(fs.existsSync(path.join(out, '_headers')), 'cache headers must ship with the assets');
 });
 

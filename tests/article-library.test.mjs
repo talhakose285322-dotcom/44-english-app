@@ -4,7 +4,12 @@ import {test, before, after} from 'node:test';
 import assert from 'node:assert/strict';
 import {startServer, openBrowser, sleep} from './lib/browser.mjs';
 import {K, KA} from './lib/app.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import {ROOT} from './lib/browser.mjs';
 
+// the real catalog: the library grows without app releases, so counts come from it rather than being fixed here
+const CATALOG = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'articles', 'catalog.json'), 'utf8'));
 const LIBK = K + '-lib';
 const OWN = [{id: 'own1', title: 'My notes', text: 'A text that belongs to the user and must stay as it is.', pos: 0.5}];
 let srv, b;
@@ -25,7 +30,7 @@ const topPara = () => b.ev("(function(){var ch=document.getElementById('art').ch
 
 test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtreleri çalışıyor', async () => {
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
-  assert.equal((await cards()).length, 3);
+  assert.equal((await cards()).length, CATALOG.articles.length, 'katalogdaki her makale listede');
   await setSel('rl-c', 'technology');
   assert.deepEqual(await cards(), ['how-the-internet-moves-data@B1']);
   await setSel('rl-c', '');
@@ -35,6 +40,23 @@ test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtrele
   assert.deepEqual(await cards(), ['what-is-inflation@C2']);
   await b.ev("(function(q){q.value='';q.dispatchEvent(new Event('input'))})(document.getElementById('rl-q'))");
   await setSel('rl-lv', 'B1');
+  assert.deepEqual(b.errors, []);
+});
+
+test('kartlar kategori, seviye ve okuma süresiyle gösteriliyor; “Günün makalesi” yalnızca filtresizken var', async () => {
+  await setSel('rl-lv', '');
+  const first = await b.ev("(function(c){return {cat:c.querySelector('.lc-cat').textContent,lv:c.getAttribute('data-lv'),on:[].map.call(c.querySelectorAll('.lc-lvs i.on'),function(i){return i.textContent}),n:c.querySelectorAll('.lc-lvs i').length,top:c.querySelector('.lc-top').innerText}})(document.querySelector('#rl-list .lcard'))");
+  // the category filter is built from the catalog, so a real category label is one of its options
+  const catLabels = await b.ev("[].filter.call(document.querySelectorAll('#rl-c option'),function(o){return o.value&&o.value!=='saved'}).map(function(o){return o.textContent})");
+  assert.ok(catLabels.includes(first.cat), 'kategori etiketi: ' + first.cat);
+  assert.equal(first.n, 6);
+  assert.deepEqual(first.on, [first.lv], 'açılacak seviye vurgulu');
+  assert.match(first.top, /\d+ dk okuma/);
+  assert.match(await b.ev("document.querySelector('#rl-feat .lfeat').innerText"), /Günün makalesi/);
+  assert.ok(await b.ev("!!document.querySelector('#rl-feat .lfeat[data-rl]')"), 'günün makalesi açılabilir');
+  await setSel('rl-c', 'technology');
+  assert.equal(await b.ev("document.getElementById('rl-feat').innerHTML"), '', 'filtre seçiliyken gösterilmiyor');
+  await setSel('rl-c', '');
   assert.deepEqual(b.errors, []);
 });
 
@@ -95,4 +117,31 @@ test('katalog yüklenemezse açık bir mesaj çıkıyor ve kendi makaleler kulla
     assert.ok(await b2.ev("document.getElementById('lib-list').innerText.indexOf('My notes')>=0"));
     assert.deepEqual(b2.errors, []);
   } finally { await b2.close(); s2.stop(); }
+});
+
+test('haberler fotoğraf, fotoğraf sahibi, önemli kelimeler, anlama soruları ve kaynaklarla açılıyor', async () => {
+  await b.ev("document.getElementById('n-read').click()");
+  await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
+  await setSel('rl-lv', '');
+  await setSel('rl-c', 'news');
+  assert.equal(await b.ev("document.querySelector('#rl-c option[value=\"news\"]').textContent"), 'Haberler');
+  const news = CATALOG.articles.filter(a => a.category === 'news');
+  assert.ok(news.length >= 1);
+  assert.equal((await cards()).length, news.length);
+  assert.ok(await b.ev("[].every.call(document.querySelectorAll('#rl-list .lcard'),function(c){return !!c.querySelector('img.lc-img')})"), 'her haber kartında fotoğraf var');
+  const n = news[0];
+  await b.ev(`document.querySelector('#rl-list [data-rl=${JSON.stringify(n.id)}]').click()`);
+  await b.waitFor("!!document.querySelector('.libbar')&&!!document.querySelector('.libx')", 10000);
+  const r = await b.ev("(function(){var f=document.querySelector('.libfig'),x=document.querySelector('.libx');return {img:f.querySelector('img').getAttribute('src'),cap:f.querySelector('figcaption').innerText,link:(f.querySelector('a')||{}).href||'',heads:[].map.call(x.querySelectorAll('h2'),function(h){return h.textContent}),qs:x.querySelectorAll('.lx-q').length,voc:x.querySelectorAll('[data-vw]').length,src:[].map.call(x.querySelectorAll('.lx-src a'),function(a){return a.href})}})()");
+  assert.equal(r.img, './content/articles/' + n.image.src);
+  assert.ok(r.cap.startsWith('Fotoğraf: ') && r.cap.includes(n.image.credit) && r.cap.includes(n.image.license), r.cap);
+  assert.equal(r.link, n.image.source);
+  assert.deepEqual(r.heads, ['Önemli kelimeler', 'Anlama soruları', 'Kaynaklar']);
+  assert.equal(r.voc, n.vocab.length);
+  assert.ok(r.qs >= 1);
+  assert.deepEqual(r.src, n.sources.map(s => s.url));
+  await b.ev("document.querySelector('.libx [data-vw]').click()");
+  await b.waitFor("!document.getElementById('sheet').classList.contains('hide')");
+  await b.ev("document.getElementById('sheet').classList.add('hide')");
+  assert.deepEqual(b.errors, []);
 });

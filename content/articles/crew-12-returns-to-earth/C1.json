@@ -1,0 +1,24 @@
+{
+  "id": "crew-12-returns-to-earth",
+  "level": "C1",
+  "title": "Astronauts Return After Seven Months in Space",
+  "paragraphs": [
+    "The four-person crew of NASA’s SpaceX Crew-12 mission is back on Earth after a 237-day stay in orbit. Their Crew Dragon spacecraft, Freedom, splashed down in the Pacific off the coast of Los Angeles on 8 October 2026, concluding a residency of more than seven months aboard the International Space Station.",
+    "Since launching in February, the crew had travelled upwards of 160 million kilometres and completed in excess of 3,792 orbits. The mission brought together NASA’s Jessica Meir and Jack Hathaway, the European Space Agency’s Sophie Adenot and Roscosmos cosmonaut Andrey Fedyaev, an international line-up typical of the station’s operations, combining two veterans and two first-time flyers.",
+    "Their scientific programme ranged from the production of stem cells for cell-based therapies and the on-demand generation of intravenous fluids, both relevant to future deep-space missions, to an investigation into whether pneumonia-causing bacteria can inflict lasting damage on the heart. Meir performed four spacewalks, taking her career total to seven, while Adenot conducted three, becoming the first French woman to venture outside the station."
+  ],
+  "questions": [
+    {
+      "q": "Why does the article say two of the experiments are relevant to deep-space missions?",
+      "a": "Because crews far from Earth would need to make medical treatments and supplies themselves."
+    },
+    {
+      "q": "What does “an international line-up typical of the station’s operations” suggest?",
+      "a": "That ISS crews usually combine astronauts from several countries and agencies."
+    },
+    {
+      "q": "What is the difference between a veteran and a first-time flyer here?",
+      "a": "A veteran has flown in space before; a first-time flyer had not."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "diet-drinks-and-water-weight-study",
+  "level": "C2",
+  "title": "Diet Drinks or Water? A Two-Year Weight Study",
+  "paragraphs": [
+    "Few staples of the modern diet attract as much ambivalence as the diet soft drink, simultaneously recommended as a means of cutting sugar and suspected of whetting the appetite and covertly frustrating weight loss. A two-year randomised trial conducted by researchers at the universities of Liverpool and Leeds, and published in the British Journal of Nutrition, suggests that the latter anxiety may be misplaced.",
+    "The SWITCH trial allocated 493 adults with overweight or obesity at random to water or to commercially available beverages sweetened with aspartame, acesulfame-K or sucralose, embedding both arms in a structured behavioural weight-management programme whose withdrawal in the final year served to test whether participants could sustain their results unaided.",
+    "Among completers, the diet-beverage arm had shed 4.8 kilograms and the water arm 3.7, a disparity that fell short of statistical significance and that the authors construe as evidence of equivalence rather than superiority. The conclusions nonetheless warrant circumspection: the study was underwritten by the American Beverage Association, notwithstanding the investigators’ assurances of analytical independence, confined to a single site and depleted by substantial attrition, and it sits awkwardly with World Health Organization guidance cautioning against reliance on non-sugar sweeteners for weight control."
+  ],
+  "questions": [
+    {
+      "q": "What does the word “ambivalence” in the first sentence refer to?",
+      "a": "The mixed view of diet drinks as both helpful for cutting sugar and suspected of harming weight loss."
+    },
+    {
+      "q": "What is meant by “attrition” in the final paragraph?",
+      "a": "Participants dropping out of the study over time."
+    },
+    {
+      "q": "Why does the article distinguish between equivalence and superiority?",
+      "a": "The data suggest diet drinks are about as effective as water, not that they are more effective."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "perseverance-sets-mars-driving-record",
+  "level": "C2",
+  "title": "Mars Rover Sets a New Driving Record",
+  "paragraphs": [
+    "NASA’s Perseverance rover has wrested from its predecessor the record for the greatest distance ever driven on the surface of another world. On 11 October 2026, the 2,006th sol of its mission, its cumulative tally stood at 45.22 kilometres, a whisker beyond the 45.16 kilometres amassed by Opportunity over almost fifteen years on Mars.",
+    "The record had been expected to fall in August, yet the rover’s itinerary yielded to scientific curiosity when it came upon an outcrop of conspicuously pale rocks; the ensuing investigation deferred the milestone by some two months, a reminder that on such missions distance is a by-product rather than an objective.",
+    "Much of the credit belongs to AutoNav, an autonomous system that images the terrain in motion, assembles a three-dimensional map of hazards and plots its own course between waypoints designated on Earth, a capability its engineers characterise as “thinking while driving”. “Perseverance is a better driver than the one that landed, and we’re not done,” remarked Mark Maimone of the robotic operations team. Since its descent into Jezero Crater in 2021, the rover has also cached 29 samples of rock and regolith."
+  ],
+  "questions": [
+    {
+      "q": "What does the article imply by calling distance “a by-product rather than an objective”?",
+      "a": "That the rover drives in order to reach scientifically interesting places, not to set records."
+    },
+    {
+      "q": "Which word in the first paragraph suggests the margin of the record was very small?",
+      "a": "“A whisker”, meaning by a tiny amount."
+    },
+    {
+      "q": "How does AutoNav divide the work between the rover and the team on Earth?",
+      "a": "The team chooses waypoints; the rover maps hazards and plans the route between them itself."
+    }
+  ]
+}

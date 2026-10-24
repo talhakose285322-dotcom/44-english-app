@@ -1,0 +1,24 @@
+{
+  "id": "perseverance-sets-mars-driving-record",
+  "level": "B1",
+  "title": "Mars Rover Sets a New Driving Record",
+  "paragraphs": [
+    "NASA’s Perseverance rover has set a new record for the longest distance driven on the surface of another world. On 11 October 2026, the 2,006th Martian day of its mission, its total distance reached 45.22 kilometres.",
+    "The previous record, 45.16 kilometres, was held by Opportunity, a NASA rover that explored Mars for almost fifteen years. Engineers had expected Perseverance to beat it in August, but the rover stopped to study some interesting light-coloured rocks, which delayed the record by about two months.",
+    "Much of the success comes from a system called AutoNav. As the rover drives, it takes images, builds a 3D map of possible dangers and plans its own route between points chosen by the team on Earth. Since landing in Jezero Crater in 2021, Perseverance has also collected 29 samples of rock and soil."
+  ],
+  "questions": [
+    {
+      "q": "Why was the record delayed?",
+      "a": "The rover stopped to study interesting light-coloured rocks."
+    },
+    {
+      "q": "What does AutoNav do?",
+      "a": "It builds a 3D map of dangers and plans the rover’s route while it drives."
+    },
+    {
+      "q": "How long did Opportunity explore Mars?",
+      "a": "For almost fifteen years."
+    }
+  ]
+}

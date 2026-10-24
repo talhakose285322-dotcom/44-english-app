@@ -79,3 +79,14 @@ test('çekimli biçimler Wikisözlük kalıplarından güvenilir kök kelimeye b
     assert.match(relation, new RegExp(lemma));
   }
 });
+
+test('uzun kayıtlar kısa gösteriliyor: kelime türü başına 3 anlam, anlam başına 2 örnek; kalanlar “Diğer anlamlar”da', async () => {
+  await search('run');
+  const shown = await b.ev("[].filter.call(document.querySelectorAll('#dres .dsense'),function(s){return !s.closest('details')}).length");
+  assert.equal(shown, 3, 'ilk bakışta 3 anlam');
+  assert.equal(await b.ev("document.querySelectorAll('#dres .dsense')[0].querySelectorAll('.dex').length"), 2, 'ilk anlamda 2 örnek');
+  const more = await b.ev("[].map.call(document.querySelectorAll('#dres details>summary'),function(s){return s.textContent}).filter(function(t){return /Diğer anlamlar/.test(t)})");
+  assert.deepEqual(more, ['Diğer anlamlar (2)']);
+  assert.match(await b.ev("document.getElementById('dres').textContent"), /candidate in an election/, 'gizlenen anlamlar sayfada, açılınca görünür');
+  assert.deepEqual(b.errors, []);
+});

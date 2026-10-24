@@ -55,3 +55,46 @@ test('yayın doğrulaması güvenli olmayan ya da tutarsız makaleleri reddediyo
   }
   fs.rmSync(ok, {recursive: true, force: true});
 });
+
+// a valid news draft: all six levels growing in length, short A1 sentences, sources and an openly licensed photo
+function newsDraft(mutate) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'words44-news-'));
+  const art = path.join(dir, 'content/articles/test-news');
+  fs.mkdirSync(art, {recursive: true});
+  fs.writeFileSync(path.join(art, 'photo.jpg'), Buffer.alloc(1000));
+  const meta = {id: 'test-news', category: 'news', title: 'Test', summary: 'Özet', license: 'Özgün', published: '2026-10-24',
+    image: {file: 'photo.jpg', alt: 'Bir fotoğraf', credit: 'NASA', license: 'Kamu malı', source: 'https://commons.wikimedia.org/wiki/File:X.jpg'},
+    sources: [{title: 'Kaynak', url: 'https://example.org/news'}], vocab: [{w: 'rover', tr: 'keşif aracı'}]};
+  const lv = {};
+  LEVELS.forEach((l, i) => { lv[l] = {id: 'test-news', level: l, title: 'Test', paragraphs: ['A short line. ' + 'more words here. '.repeat(i + 1)], questions: [{q: 'Why?', a: 'Because.'}]}; });
+  mutate(meta, lv, art);
+  fs.writeFileSync(path.join(art, 'meta.json'), JSON.stringify(meta));
+  for (const [k, v] of Object.entries(lv)) fs.writeFileSync(path.join(art, k + '.json'), JSON.stringify(v));
+  return dir;
+}
+
+test('haber doğrulaması: kaynak, lisanslı fotoğraf ve gerçekten farklı seviyeler zorunlu', () => {
+  const ok = newsDraft(() => {});
+  const a = buildCatalog(ok).articles[0];
+  assert.equal(a.image.src, 'test-news/photo.jpg');
+  assert.deepEqual(a.sources, [{title: 'Kaynak', url: 'https://example.org/news'}]);
+  assert.deepEqual(a.vocab, [{w: 'rover', tr: 'keşif aracı'}]);
+  fs.rmSync(ok, {recursive: true, force: true});
+  const bad = [
+    ['kaynak yok', m => { delete m.sources; }, /news needs "sources"/],
+    ['fotoğraf yok', m => { delete m.image; }, /news needs an openly licensed "image"/],
+    ['fotoğraf sahibi yok', m => { m.image.credit = ''; }, /credit/],
+    ['http kaynak', m => { m.sources[0].url = 'http://example.org'; }, /https/],
+    ['eksik fotoğraf dosyası', m => { m.image.file = 'nope.jpg'; }, /missing/],
+    ['çok büyük fotoğraf', (m, l, art) => { fs.writeFileSync(path.join(art, 'photo.jpg'), Buffer.alloc(500 * 1024)); }, /larger than/],
+    ['eksik seviye', (m, l) => { delete l.C2; }, /all six levels/],
+    ['uzun A1 cümleleri', (m, l) => { l.A1.paragraphs = ['This sentence in the easiest level goes on and on with far too many words for a beginner reader.']; }, /A1 sentences are too long/],
+    ['kısalan seviye', (m, l) => { l.B2.paragraphs = ['Short.']; }, /B2 is shorter than B1/],
+    ['HTML soru', (m, l) => { l.B1.questions = [{q: '<b>Why</b>', a: 'x'}]; }, /questions/]
+  ];
+  for (const [name, mutate, re] of bad) {
+    const dir = newsDraft(mutate);
+    assert.throws(() => buildCatalog(dir), re, name);
+    fs.rmSync(dir, {recursive: true, force: true});
+  }
+});

@@ -1,0 +1,24 @@
+{
+  "id": "perseverance-sets-mars-driving-record",
+  "level": "B2",
+  "title": "Mars Rover Sets a New Driving Record",
+  "paragraphs": [
+    "NASA’s Perseverance rover now holds the record for the greatest distance ever driven on another world. By 11 October 2026, the 2,006th sol, or Martian day, of its mission, it had covered 45.22 kilometres, narrowly overtaking the 45.16 kilometres achieved by its predecessor Opportunity.",
+    "Mission planners had originally expected the milestone to fall in August. However, the rover came across unusual light-coloured rocks that were too interesting to drive past, and the time spent examining them pushed the record back by roughly two months.",
+    "The team credits the rover’s autonomous navigation system, AutoNav, which captures images while driving, builds a three-dimensional map of hazards and plots a path between waypoints set by engineers on Earth. “Perseverance is a better driver than the one that landed, and we’re not done,” said Mark Maimone, a member of the robotic operations team. Since arriving in Jezero Crater in 2021, the rover has also gathered 29 rock and soil samples."
+  ],
+  "questions": [
+    {
+      "q": "By how much did Perseverance beat Opportunity’s record?",
+      "a": "By about 60 metres (45.22 km compared with 45.16 km)."
+    },
+    {
+      "q": "What did Mark Maimone mean by “a better driver than the one that landed”?",
+      "a": "The rover’s driving has improved since landing, partly thanks to better autonomous navigation."
+    },
+    {
+      "q": "Who sets the waypoints between which the rover plans its path?",
+      "a": "Engineers on Earth."
+    }
+  ]
+}

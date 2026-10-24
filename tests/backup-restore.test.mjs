@@ -13,8 +13,9 @@ before(async () => {
 after(async () => { await b?.close(); srv?.stop(); });
 
 async function openRestore() {
-  await b.ev("document.getElementById('n-add').click()");
-  await b.waitFor("!!document.getElementById('impb')");
+  // backup and restore live under Profil → Ayarlar
+  await b.ev("document.getElementById('n-prof').click();document.querySelector('#ptabs [data-pt=\"set\"]').click()");
+  await b.waitFor("!!document.getElementById('impb')&&!document.getElementById('p-set').classList.contains('hide')");
 }
 async function pasteBackup(value) {
   await b.ev(`document.getElementById('imp').value=${JSON.stringify(JSON.stringify(value))};document.getElementById('impb').click()`);

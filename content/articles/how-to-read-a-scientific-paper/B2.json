@@ -1,0 +1,11 @@
+{
+  "id": "how-to-read-a-scientific-paper",
+  "level": "B2",
+  "title": "How to Read a Scientific Paper",
+  "paragraphs": [
+    "Scientific papers are the primary way in which researchers report new findings, and learning to read them is a valuable skill for students and curious readers alike. Although they can seem dense, most papers follow a predictable structure that makes them easier to navigate.",
+    "The abstract summarises the entire study in a few hundred words. The introduction places the work in context by reviewing previous research and stating the specific question or hypothesis the authors set out to test.",
+    "In the methods section, the authors describe their procedures in enough detail for others to replicate the study. The results section reports what was found, usually supported by tables, graphs and statistical tests, while the discussion interprets those findings, compares them with earlier work and acknowledges the study’s limitations.",
+    "Rather than reading from start to finish, many experienced readers move strategically: abstract first, then figures, then discussion, and finally the methods if the paper seems relevant. A critical reader also asks whether the sample was large enough, whether there was an appropriate control group, whether the paper has been peer-reviewed and whether the results have been replicated by independent researchers."
+  ]
+}

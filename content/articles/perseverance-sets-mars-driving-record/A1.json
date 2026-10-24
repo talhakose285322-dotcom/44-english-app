@@ -1,0 +1,24 @@
+{
+  "id": "perseverance-sets-mars-driving-record",
+  "level": "A1",
+  "title": "Mars Rover Sets a New Driving Record",
+  "paragraphs": [
+    "Perseverance is a robot car on Mars. It is from NASA. It came to Mars in 2021.",
+    "On 11 October 2026, it had a new record. It drove more than 45 kilometres on Mars. No car went this far on another world before.",
+    "The rover can find its way. It takes photos and makes a map. Then it drives on a safe road. It also takes small rocks for scientists."
+  ],
+  "questions": [
+    {
+      "q": "Where is Perseverance?",
+      "a": "It is on Mars."
+    },
+    {
+      "q": "How far did it drive?",
+      "a": "More than 45 kilometres."
+    },
+    {
+      "q": "What does the rover take for scientists?",
+      "a": "Small rocks."
+    }
+  ]
+}

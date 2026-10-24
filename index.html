@@ -403,7 +403,7 @@ body.reading .sheet{max-width:740px}
 .dmeta{font-size:13px;color:var(--muted);margin:8px 0 0}.dmeta span{opacity:.8}
 .dtrs{font-size:17px;line-height:1.5;color:var(--ink);margin:10px 0 0}.dtrs b{color:var(--accent)}.dtrs span{color:var(--muted);font-size:13px}.dtrs.none{font-size:15px;color:var(--muted)}
 .dspd{display:inline-flex;align-self:center;border:1px solid var(--line);border-radius:999px;overflow:hidden}.dspd button{border:0;background:none;font:inherit;font-size:13px;padding:6px 10px;color:var(--muted);cursor:pointer}.dspd button.on{background:var(--accent-soft);color:var(--accent);font-weight:700}
-.libbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}.libbar .btn{padding:6px 12px;font-size:13.5px}.libbar .note{flex-basis:100%;margin:0}
+.libbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}.libbar .btn{padding:6px 12px;font-size:13.5px}.libbar .note{flex-basis:100%;margin:0}.lcards{display:grid;gap:12px;margin-top:12px}@media(min-width:720px){.lcards{grid-template-columns:1fr 1fr}}.lcard{position:relative;display:flex;flex-direction:column;gap:8px;padding:16px 16px 14px 20px;border:1px solid var(--line);border-radius:18px;background:var(--card);cursor:pointer;overflow:hidden;transition:transform .15s,box-shadow .15s}.lcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--cc)}.lcard:hover,.lcard:focus-visible{transform:translateY(-1px);box-shadow:0 8px 24px rgba(15,20,36,.08);outline:none}.lc-top,.lc-ft{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}.lc-ft{justify-content:space-between}.lc-cat{padding:3px 9px;border-radius:999px;font-weight:600;color:var(--cc);background:color-mix(in srgb,var(--cc) 13%,transparent)}.lc-lv{padding:3px 8px;border-radius:8px;font-weight:700;color:var(--accent);background:var(--accent-soft)}.lc-new{padding:3px 8px;border-radius:999px;font-weight:700;color:#fff;background:var(--cc)}.lc-sv{color:#F59E0B;font-size:15px}.lcard b{font-size:17px;line-height:1.3;color:var(--ink)}.lc-sum{font-size:14px;line-height:1.45;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.lc-lvs{display:flex;gap:4px}.lc-lvs i{font-style:normal;font-size:11px;font-weight:600;padding:2px 6px;border-radius:6px;color:var(--muted);border:1px solid var(--line)}.lc-lvs i.on{color:var(--accent);border-color:var(--accent)}.lc-lvs i.off{opacity:.35}.lc-st{font-weight:600;color:var(--cc)}.lc-bar{height:4px;border-radius:4px;background:var(--line);overflow:hidden}.lc-bar i{display:block;height:100%;background:var(--cc)}.lfeat{margin-top:12px;padding:20px 18px 16px 22px;background:linear-gradient(135deg,color-mix(in srgb,var(--cc) 14%,var(--card)),var(--card) 70%)}.lfeat b{font-size:20px}.lcard.limg{padding-top:0}.lc-img{display:block;width:calc(100% + 36px);margin:0 -16px 4px -20px;aspect-ratio:16/9;object-fit:cover;background:var(--line)}.lfeat.limg .lc-img{margin:0 -18px 6px -22px;width:calc(100% + 40px)}.lfeat.limg{padding-top:0}.libfig{margin:0 0 18px}.libfig img{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:16px;background:var(--line)}.libfig figcaption{margin-top:6px;font-size:12.5px;color:var(--muted)}.libfig a{color:inherit}.libx{margin:28px 0 8px;padding-top:18px;border-top:1px solid var(--line)}.libx h2{font-size:17px;margin:18px 0 10px}.lx-voc{display:flex;flex-wrap:wrap;gap:8px}.lx-voc .mchip b{margin-right:4px}.lx-q{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:8px 0;background:var(--card)}.lx-q summary{cursor:pointer;font-weight:600}.lx-q p{margin:8px 0 0;color:var(--ink2)}.lx-src{margin:0;padding-left:20px;font-size:14px}.lx-src li{margin:4px 0}.lx-src a{color:var(--accent)}.lc-k{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--cc)}
 .dtrs>div{margin-top:2px}.dtrs i{font-style:normal;font-size:13px;font-weight:700;color:var(--muted);margin-right:8px}.dtrs em{font-style:normal;color:var(--muted);font-size:15px}.dtrs>span{display:block;margin-top:2px}
 .dform{background:var(--accent-soft);border-radius:var(--r-sm);padding:10px 12px;margin:12px 0 4px;font-size:14.5px;line-height:1.55}
 .dform a{color:var(--accent);font-weight:700;text-decoration:none}.dform span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
@@ -471,7 +471,57 @@ body.reading .sheet{max-width:740px}
     </details>
   </section>
 
-  <section id='v-prof' class='hide'></section>
+  <section id='v-prof' class='hide'>
+    <h1>Profil</h1>
+    <div class="seg" id="ptabs"><button data-pt="me" class="on">Profil</button><button data-pt="set">Ayarlar</button></div>
+    <div id='p-main'></div>
+    <div id='p-set' class='hide'>
+    <div class="panel">
+      <h2>Ayarlar</h2>
+      <div class="row"><label for="s-acc">Aksan</label><select id="s-acc"><option value="en-US">Amerikan</option><option value="en-GB">İngiliz</option></select></div>
+      <div class="row"><label for="s-rate">Konuşma hızı</label><select id="s-rate"><option value="1">Normal</option><option value="0.8">Yavaş</option><option value="0.6">Çok yavaş</option></select></div>
+      <div class="row"><label for="s-voice">Ses</label><select id="s-voice"></select></div>
+      <div class="row"><label for="s-auto">Yeni kartta kelimeyi otomatik oku</label><input type="checkbox" id="s-auto"></div>
+      <div class="row"><label for="s-theme">Görünüm</label><select id="s-theme"><option value="">Cihaza göre</option><option value="light">Açık</option><option value="dark">Koyu</option></select></div>
+      <div class="row"><label for="s-goal">Günlük hedef</label><select id="s-goal"><option value="10">10 tekrar</option><option value="20">20 tekrar</option><option value="30">30 tekrar</option><option value="50">50 tekrar</option><option value="100">100 tekrar</option></select></div>
+      <p class="note">Sesler telefonunun kendi sesleridir. Daha iyi sesler için telefon ayarlarından İngilizce ses paketi indirebilirsin.</p>
+    </div>
+    <div class="panel">
+      <h2>Uygulama linki</h2>
+      <p class='note'>Uygulamayı güncellemek ya da başkasıyla paylaşmak için bu linki sakla.</p>
+      <input id='lk' readonly value='https://claude.ai/artifact/6XWNEkvEEyWYVgpoYcYQvR'>
+      <div style='height:10px'></div>
+      <button class='btn ghost' id='lkb'>Linki kopyala</button>
+      <div class='toast' id='t4'></div>
+    </div>
+    <div class="panel" id="bk">
+      <h2>Yedek</h2>
+      <p class="note">Tam yedek; kelimelerin, anlamlar, örnek cümleler, koleksiyonlar, makaleler, öğrenme ilerlemen, ayarların ve istatistiklerin hepsini içerir.</p>
+      <p class="note" id="bk-info"></p>
+      <button class="btn main" id="expf">Tam yedeği indir (.json)</button>
+      <div style="height:10px"></div>
+      <button class="btn ghost" id="exp" style="width:100%">Yedeği metin olarak kopyala</button>
+      <div class="toast" id="t3"></div>
+      <h2>Yedekten geri yükle</h2>
+      <p class="note">Önce yedek kontrol edilir ve ne yükleneceği gösterilir. Sen onay vermeden hiçbir şey değişmez. Yüklemeden önce mevcut verilerin otomatik olarak güvenlik kopyasına alınır.</p>
+      <label for="impf">Yedek dosyası seç</label><input type="file" id="impf" accept=".json,application/json,text/plain">
+      <textarea id="imp" placeholder="ya da yedek metnini buraya yapıştır" style="min-height:70px;margin-top:10px"></textarea>
+      <button class="btn ghost" id="impb" style="margin-top:10px;width:100%">Yedeği kontrol et</button>
+      <div id="rprev"></div>
+      <h2>Otomatik güvenlik kopyaları</h2>
+      <p class="note">Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda otomatik bir kopya alır (son 15 kopya tutulur). Bunlar yanlış bir geri yüklemeyi geri almak içindir; tarayıcı verilerini silersen bunlar da silinir.</p>
+      <div id="snaps"></div>
+    </div>
+    <div class="panel">
+      <h2>Verilerin nerede saklanıyor?</h2>
+      <p class="note">Verilerin varsayılan olarak <b>bu cihazda, bu tarayıcıda ve bu adreste</b> saklanır; cihazlar arasında <b>otomatik eşitlenmez</b>. İstersen Profil → Hesap bölümünden Google ile giriş yapıp “Buluta yedekle”yi seçerek yedeğini hesabına kaydedebilirsin. Bulut yedekleme yalnızca sen başlattığında çalışır.</p>
+      <p class="note">Şu durumlarda verilerini göremeyebilir ya da kaybedebilirsin: tarayıcı verilerini / site verilerini temizlersen, gizli sekmede kullanırsan, uygulamayı başka bir adresten ya da başka bir tarayıcıdan açarsan. iPhone’da Safari, ana ekrana eklenmemiş sitelerin verilerini bir süre kullanılmazsa silebilir; ana ekrana ekleyerek kullan.</p>
+      <p class="note">Telefon değiştirirken: Google ile giriş yapıp eski cihazda “Buluta yedekle”, yeni cihazda “Buluttan geri yükle” seçeneğini kullanabilir veya tam yedeği dosya olarak indirip yeni cihazda geri yükleyebilirsin. Buluttan geri yükleme önce önizleme açar; verilerin ancak sen “Birleştir”i onayladığında eklenir.</p>
+      <p class="note" id="persist"></p>
+      <button class="btn ghost hide" id="persistb" style="width:100%">Kalıcı depolama iste</button>
+    </div>
+    </div>
+  </section>
 
   <section id='v-read' class='hide'></section>
 
@@ -539,56 +589,6 @@ body.reading .sheet{max-width:740px}
       <div style='height:12px'></div>
       <button class="btn main" id="addN">Hepsini ekle</button>
       <div class="toast" id="t2"></div>
-    </div>
-    <div class="panel">
-      <h2>Ayarlar</h2>
-      <div class="row"><label for="s-acc">Aksan</label><select id="s-acc"><option value="en-US">Amerikan</option><option value="en-GB">İngiliz</option></select></div>
-      <div class="row"><label for="s-rate">Konuşma hızı</label><select id="s-rate"><option value="1">Normal</option><option value="0.8">Yavaş</option><option value="0.6">Çok yavaş</option></select></div>
-      <div class="row"><label for="s-voice">Ses</label><select id="s-voice"></select></div>
-      <div class="row"><label for="s-auto">Yeni kartta kelimeyi otomatik oku</label><input type="checkbox" id="s-auto"></div>
-      <div class="row"><label for="s-theme">Görünüm</label><select id="s-theme"><option value="">Cihaza göre</option><option value="light">Açık</option><option value="dark">Koyu</option></select></div>
-      <div class="row"><label for="s-goal">Günlük hedef</label><select id="s-goal"><option value="10">10 tekrar</option><option value="20">20 tekrar</option><option value="30">30 tekrar</option><option value="50">50 tekrar</option><option value="100">100 tekrar</option></select></div>
-      <p class="note">Sesler telefonunun kendi sesleridir. Daha iyi sesler için telefon ayarlarından İngilizce ses paketi indirebilirsin.</p>
-    </div>
-    <div class="panel">
-      <h2>Uygulama linki</h2>
-      <p class='note'>Uygulamayı güncellemek ya da başkasıyla paylaşmak için bu linki sakla.</p>
-      <input id='lk' readonly value='https://claude.ai/artifact/6XWNEkvEEyWYVgpoYcYQvR'>
-      <div style='height:10px'></div>
-      <button class='btn ghost' id='lkb'>Linki kopyala</button>
-      <div class='toast' id='t4'></div>
-    </div>
-    <div class="panel" id="bk">
-      <h2>Yedek</h2>
-      <p class="note">Tam yedek; kelimelerin, anlamlar, örnek cümleler, koleksiyonlar, makaleler, öğrenme ilerlemen, ayarların ve istatistiklerin hepsini içerir.</p>
-      <p class="note" id="bk-info"></p>
-      <button class="btn main" id="expf">Tam yedeği indir (.json)</button>
-      <div style="height:10px"></div>
-      <button class="btn ghost" id="exp" style="width:100%">Yedeği metin olarak kopyala</button>
-      <div class="toast" id="t3"></div>
-      <h2>Yedekten geri yükle</h2>
-      <p class="note">Önce yedek kontrol edilir ve ne yükleneceği gösterilir. Sen onay vermeden hiçbir şey değişmez. Yüklemeden önce mevcut verilerin otomatik olarak güvenlik kopyasına alınır.</p>
-      <label for="impf">Yedek dosyası seç</label><input type="file" id="impf" accept=".json,application/json,text/plain">
-      <textarea id="imp" placeholder="ya da yedek metnini buraya yapıştır" style="min-height:70px;margin-top:10px"></textarea>
-      <button class="btn ghost" id="impb" style="margin-top:10px;width:100%">Yedeği kontrol et</button>
-      <div id="rprev"></div>
-      <h2>Otomatik güvenlik kopyaları</h2>
-      <p class="note">Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda otomatik bir kopya alır (son 15 kopya tutulur). Bunlar yanlış bir geri yüklemeyi geri almak içindir; tarayıcı verilerini silersen bunlar da silinir.</p>
-      <div id="snaps"></div>
-    </div>
-    <div class="panel">
-      <h2>Verilerin nerede saklanıyor?</h2>
-      <p class="note">Verilerin varsayılan olarak <b>bu cihazda, bu tarayıcıda ve bu adreste</b> saklanır; cihazlar arasında <b>otomatik eşitlenmez</b>. İstersen Profil → Hesap bölümünden Google ile giriş yapıp “Buluta yedekle”yi seçerek yedeğini hesabına kaydedebilirsin. Bulut yedekleme yalnızca sen başlattığında çalışır.</p>
-      <p class="note">Şu durumlarda verilerini göremeyebilir ya da kaybedebilirsin: tarayıcı verilerini / site verilerini temizlersen, gizli sekmede kullanırsan, uygulamayı başka bir adresten ya da başka bir tarayıcıdan açarsan. iPhone’da Safari, ana ekrana eklenmemiş sitelerin verilerini bir süre kullanılmazsa silebilir; ana ekrana ekleyerek kullan.</p>
-      <p class="note">Telefon değiştirirken: Google ile giriş yapıp eski cihazda “Buluta yedekle”, yeni cihazda “Buluttan geri yükle” seçeneğini kullanabilir veya tam yedeği dosya olarak indirip yeni cihazda geri yükleyebilirsin. Buluttan geri yükleme önce önizleme açar; verilerin ancak sen “Birleştir”i onayladığında eklenir.</p>
-      <p class="note" id="persist"></p>
-      <button class="btn ghost hide" id="persistb" style="width:100%">Kalıcı depolama iste</button>
-    </div>
-    <div class="panel">
-      <h2>Telefona uygulama olarak ekle</h2>
-      <p class="note"><b>iPhone:</b> Safari’de aç, Paylaş simgesine dokun, “Ana Ekrana Ekle”yi seç.</p>
-      <p class="note"><b>Android:</b> Chrome’da aç, sağ üstteki üç noktaya dokun, “Ana ekrana ekle”yi seç.</p>
-      <p class="note">Kelimelerin bu cihazda saklanır. Tarayıcı verilerini silersen yerel kopya kaybolabilir; düzenli dosya yedeği al veya Profil → Hesap bölümünden isteğe bağlı bulut yedeklemesini kullan.</p>
     </div>
   </section>
 </main>
@@ -762,7 +762,7 @@ body.reading .sheet{max-width:740px}
       if(sess&&(sess.n>0||sess.ended)){summary();return}
       var none=!words.length,inCo=p.col?words.filter(function(x){return inCol(x,p.col)}).length:words.length;
       d.innerHTML='<div class="empty"><div class="eic">'+ic(none?'spark':'layers')+'</div><h1>'+(none?"Kelime ekle":inCo?"Çalışılacak kart yok":"Koleksiyon boş")+'</h1><p>'+
-        (none?"Ekle sekmesinden kelimelerini ekle ya da yedeğini geri yükle.":!inCo?"Bu koleksiyona henüz kelime eklenmemiş.":p.f==='due'?"Bu koleksiyonda tekrar zamanı gelen kelime yok. “Hepsi” ile istediğin kadar çalışabilirsin.":"Bu koleksiyondaki bütün kelimeleri öğrenmişsin. “Hepsi” ile istediğin kadar tekrar edebilirsin.")+
+        (none?"Ekle sekmesinden kelimelerini ekle ya da Profil → Ayarlar’dan yedeğini geri yükle.":!inCo?"Bu koleksiyona henüz kelime eklenmemiş.":p.f==='due'?"Bu koleksiyonda tekrar zamanı gelen kelime yok. “Hepsi” ile istediğin kadar çalışabilirsin.":"Bu koleksiyondaki bütün kelimeleri öğrenmişsin. “Hepsi” ile istediğin kadar tekrar edebilirsin.")+
         '</p>'+(none?'<button class="btn main" id="smp">Örnek kelimeleri ekle</button><div style="height:10px"></div><button class="btn ghost" id="gobk" style="width:100%">Yedekten geri yükle</button>':inCo?'<button class="btn main" id="again">Hepsini çalış</button>':'')+'</div>';
       var a=$("again");if(a)a.onclick=function(){SP().f='all';saveS();build()};
       if($('smp'))$('smp').onclick=function(){
@@ -933,7 +933,7 @@ body.reading .sheet{max-width:740px}
     view=v;if(v!=='read')leaveReader();
     ['study','read','list','dict','tr','add','prof'].forEach(function(k){$("v-"+k).classList.toggle("hide",k!==v)});
     ['study','read','list','dict','add','prof'].forEach(function(k){$("n-"+k).classList.toggle("on",k===(v==='tr'?'dict':v))});
-    if(v==='list')renderList();if(v==='read')renderRead();if(v==='prof')renderProf();if(v==='add')renderBackup();$('sheet').classList.add('hide');
+    if(v==='list')renderList();if(v==='read')renderRead();if(v==='prof'){renderProf();if(PT==='set')renderBackup()}$('sheet').classList.add('hide');
     if(v==='study'){if(S.smode==='wheel')setSmode('wheel');else build()}
     if(v==='dict'){dhistDraw();setTimeout(function(){if(!$('dq').value)$('dq').focus()},50)}
     window.scrollTo(0,0);
@@ -1128,7 +1128,7 @@ body.reading .sheet{max-width:740px}
   $('impb').onclick=function(){var t=$('imp').value.trim();if(!t){msg('t3','Önce bir yedek dosyası seç ya da metnini yapıştır.','var(--bad)');return}checkBackup(t,'')};
   $('impf').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){checkBackup(t,f.name)});this.value=''};
   $('fl').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){t=t.trim();if(t.charAt(0)==='['||t.charAt(0)==='{'){checkBackup(t,f.name);goBackup()}else{$('bulk').value=t;$('addN').click()}});this.value=''};
-  function goBackup(){if(view!=='add')show('add');setTimeout(function(){$('bk').scrollIntoView({block:'start'})},30)}
+  function goBackup(){profTab('set');if(view!=='prof')show('prof');setTimeout(function(){$('bk').scrollIntoView({block:'start'})},30)}
 
   // ---- Automatic safety copies (IndexedDB, same browser only) ----
   var DB=null;
@@ -1243,7 +1243,7 @@ body.reading .sheet{max-width:740px}
     b.innerHTML="<h2>Hazır makaleler</h2><p class='note'>"+c.articles.length+" makale. Seviyeni seç ve makaleyi aç; okurken seviyeyi değiştirebilirsin, konu aynı kalır.</p>"+
       "<input id='rl-q' type='search' placeholder='Hazır makalelerde ara' autocomplete='off'><div class='fgrid'><select id='rl-c' aria-label='Kategori'><option value=''>Tüm kategoriler</option>"+
       Object.keys(used).map(function(k){return "<option value='"+escA(k)+"'>"+esc(cats[k]||k)+"</option>"}).join('')+"<option value='saved'>Kaydettiklerim</option></select>"+
-      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-list'></div><div class='toast' id='rl-t'></div>";
+      "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-feat'></div><div id='rl-list' class='lcards'></div><div class='toast' id='rl-t'></div>";
     $('rl-q').value=LIB.q;$('rl-c').value=LIB.c;$('rl-lv').value=LIB.lv;
     $('rl-q').oninput=function(){LIB.q=this.value;drawRlList()};
     $('rl-c').onchange=function(){LIB.c=this.value;drawRlList()};
@@ -1254,20 +1254,42 @@ body.reading .sheet{max-width:740px}
     var o=$('rl-list');if(!o||!LIB.cat)return;
     var c=LIB.cat,cats=c.categories||{},d=libData(),q=LIB.q.trim().toLowerCase();
     var L=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length&&(!LIB.c||(LIB.c==='saved'?d.saved.indexOf(a.id)>=0:a.category===LIB.c))&&(!LIB.lv||a.levels[LIB.lv])&&(!q||(a.title+' '+(a.summary||'')).toLowerCase().indexOf(q)>=0)});
-    o.innerHTML=L.length?L.map(function(a){
+    function card(a,feat){
       var p=d.p[a.id]||{},ls=libLevels(a),lv=LIB.lv&&a.levels[LIB.lv]?LIB.lv:p.lv&&a.levels[p.lv]?p.lv:ls.indexOf('B1')>=0?'B1':ls[0],m=a.levels[lv]||{};
-      var st=p.done?' · tamamlandı':p.pos>0.01?' · %'+Math.round(p.pos*100):'';
-      return "<div class='item'><div class='t' data-rl='"+escA(a.id)+"' data-lv='"+escA(lv)+"' style='cursor:pointer'><span>"+esc((cats[a.category]||a.category)+' · '+lv+' · '+(m.minutes||1)+' dk · seviyeler: '+ls.join(' ')+(d.saved.indexOf(a.id)>=0?' · ★':'')+st)+"</span><b>"+esc(a.title)+"</b><span>"+esc(a.summary||'')+"</span></div></div>";
-    }).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
-    Array.prototype.forEach.call(o.querySelectorAll('[data-rl]'),function(t){t.onclick=function(){libOpen(t.getAttribute('data-rl'),t.getAttribute('data-lv'))}});
+      var fresh=a.published&&(Date.now()-new Date(a.published+'T00:00:00Z').getTime())<7*864e5,prog=p.done?1:p.pos>0.01?p.pos:0;
+      var img=libImg(a);
+      return "<div class='lcard"+(feat?' lfeat':'')+(img?' limg':'')+"' role='button' tabindex='0' style='--cc:"+(LCOL[a.category]||LCOL.other)+"' data-rl='"+escA(a.id)+"' data-lv='"+escA(lv)+"'>"+
+        (img?"<img class='lc-img' src='"+escA(img)+"' alt='"+escA(a.image.alt||'')+"' loading='lazy' decoding='async'>":'')+
+        (feat?"<span class='lc-k'>Günün makalesi</span>":'')+
+        "<span class='lc-top'><span class='lc-cat'>"+esc(cats[a.category]||a.category)+"</span><span class='lc-lv'>"+esc(lv)+"</span><span>"+(m.minutes||1)+" dk okuma</span>"+
+        (fresh?"<span class='lc-new'>Yeni</span>":'')+(d.saved.indexOf(a.id)>=0?"<span class='lc-sv' aria-label='Kaydedildi'>★</span>":'')+"</span>"+
+        "<b>"+esc(a.title)+"</b><span class='lc-sum'>"+esc(a.summary||'')+"</span>"+
+        "<span class='lc-ft'><span class='lc-lvs' aria-label='Seviyeler'>"+LV.map(function(l){return "<i class='"+(a.levels[l]?l===lv?'on':'':'off')+"'>"+l+"</i>"}).join('')+"</span>"+
+        (p.done?"<span class='lc-st'>Tamamlandı</span>":prog?"<span class='lc-st'>%"+Math.round(prog*100)+"</span>":'')+"</span>"+
+        (prog?"<span class='lc-bar'><i style='width:"+Math.round(prog*100)+"%'></i></span>":'')+"</div>";
+    }
+    // "article of the day": the same one for everybody on a given day, only while no filter is set
+    var f=$('rl-feat'),all=c.articles.filter(function(a){return libSafeId(a.id)&&libLevels(a).length});
+    if(f){var fa=!LIB.c&&!LIB.lv&&!q&&all.length>1?all[Math.floor(Date.now()/864e5)%all.length]:null;f.innerHTML=fa?card(fa,true):''}
+    o.innerHTML=L.length?L.map(function(a){return card(a)}).join(''):"<p class='note'>Bu seçimde makale yok.</p>";
+    Array.prototype.forEach.call(document.querySelectorAll('#rl-list [data-rl],#rl-feat [data-rl]'),function(t){
+      t.onclick=function(){libOpen(t.getAttribute('data-rl'),t.getAttribute('data-lv'))};
+      t.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t.onclick()}};
+    });
   }
+  // a photo is shown only from the article's own folder, and links only to https addresses
+  function libImg(a){var s=a&&a.image&&a.image.src;return typeof s==='string'&&s.indexOf(a.id+'/')===0&&/^[a-z0-9-]+\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/.test(s)?LIB_BASE+s:''}
+  function libUrl(u){return typeof u==='string'&&/^https:\/\/[^\s<>"']+$/.test(u)?u:''}
+  var LCOL={news:'#0284C7',science:'#0E9F8E',technology:'#5B4CF0',economics:'#D97706',health:'#E11D48',history:'#A16207',environment:'#16A34A',
+    psychology:'#9333EA',law:'#475569',culture:'#DB2777',academic:'#2563EB',other:'#64748B'};
   function libOpen(id,lv,para){
     var a0=LIB.cat&&LIB.cat.articles.filter(function(x){return x.id===id})[0];
     if(!a0||!libSafeId(id)||!a0.levels||!a0.levels[lv])return;
     jget(LIB_BASE+id+'/'+lv+'.json',9000).then(function(t){
       if(!t||t.id!==id||!Array.isArray(t.paragraphs))throw new Error('bad');
       var p=libData().p[id]||{};
-      var a={id:'lib:'+id,title:String(t.title||a0.title),text:t.paragraphs.map(String).join('\n\n'),lv:lv,lib:{id:id,levels:libLevels(a0),license:String(a0.license||'')},
+      var a={id:'lib:'+id,title:String(t.title||a0.title),text:t.paragraphs.map(String).join('\n\n'),lv:lv,lib:{id:id,levels:libLevels(a0),license:String(a0.license||''),img:libImg(a0),image:a0.image||null,
+          sources:Array.isArray(a0.sources)?a0.sources:[],vocab:Array.isArray(a0.vocab)?a0.vocab:[],questions:Array.isArray(t.questions)?t.questions:[]},
         pos:para==null?p.pos||0:0,note:p.note,done:!!p.done,readAt:p.readAt};
       LIB.cur=a;LIB.para=para==null?null:para;openArt=a.id;$('sheet').classList.add('hide');renderRead();if(para==null)window.scrollTo(0,0);
     }).catch(function(){var t=$('rl-t');if(t){t.style.color='var(--bad)';t.textContent='Makale yüklenemedi (internet bağlantısı?). Tekrar dene.'}});
@@ -1287,6 +1309,23 @@ body.reading .sheet{max-width:740px}
     bar.innerHTML="<span class='dspd' role='group' aria-label='Seviye'>"+a.lib.levels.map(function(l){return "<button data-llv='"+escA(l)+"' class='"+(l===a.lv?'on':'')+"' aria-pressed='"+(l===a.lv)+"'>"+esc(l)+"</button>"}).join('')+"</span>"+
       "<button class='btn ghost' id='rl-sv'>"+(sv?'★ Kaydedildi':'☆ Kaydet')+"</button>"+(a.lib.license?"<p class='note'>"+esc(a.lib.license)+"</p>":'');
     t.parentNode.insertBefore(bar,t.nextSibling);
+    var L=a.lib,im=L.image||{};
+    if(L.img){
+      var fig=document.createElement('figure');fig.className='libfig';var src=libUrl(im.source);
+      fig.innerHTML="<img src='"+escA(L.img)+"' alt='"+escA(im.alt||'')+"' decoding='async'><figcaption>Fotoğraf: "+
+        (src?"<a href='"+escA(src)+"' target='_blank' rel='noopener noreferrer'>"+esc(im.credit||'')+"</a>":esc(im.credit||''))+(im.license?' · '+esc(im.license):'')+"</figcaption>";
+      bar.parentNode.insertBefore(fig,bar.nextSibling);
+    }
+    // after the text: key words (tap = the usual word sheet), comprehension questions for this level, sources
+    var art=$('art'),srcs=L.sources.filter(function(s){return s&&libUrl(s.url)});
+    if(art&&(L.vocab.length||L.questions.length||srcs.length)){
+      var x=document.createElement('div');x.className='libx';
+      x.innerHTML=(L.vocab.length?"<h2>Önemli kelimeler</h2><div class='lx-voc'>"+L.vocab.map(function(v){return "<button class='mchip' data-vw='"+escA(String(v.w))+"'><b>"+esc(String(v.w))+"</b> "+esc(String(v.tr))+"</button>"}).join('')+"</div>":'')+
+        (L.questions.length?"<h2>Anlama soruları</h2>"+L.questions.map(function(q,i){return "<details class='lx-q'><summary>"+(i+1)+". "+esc(String(q.q))+"</summary><p>"+esc(String(q.a))+"</p></details>"}).join(''):'')+
+        (srcs.length?"<h2>Kaynaklar</h2><ul class='lx-src'>"+srcs.map(function(s){return "<li><a href='"+escA(s.url)+"' target='_blank' rel='noopener noreferrer'>"+esc(String(s.title))+"</a></li>"}).join('')+"</ul>":'');
+      art.parentNode.insertBefore(x,art.nextSibling);
+      Array.prototype.forEach.call(x.querySelectorAll('[data-vw]'),function(b){b.onclick=function(){openWord(b.getAttribute('data-vw'),'',{})}});
+    }
     Array.prototype.forEach.call(bar.querySelectorAll('[data-llv]'),function(x){x.onclick=function(){
       var l=x.getAttribute('data-llv');if(l===a.lv)return;var i=libPara();saveProgress();libOpen(a.lib.id,l,i);
     }});
@@ -2190,7 +2229,7 @@ body.reading .sheet{max-width:740px}
     var a=ART.filter(function(x){return x.id===id})[0];if(!a)return;
     var arts=a.c?ART.filter(function(x){return x.c===a.c}):[a],wds=a.c?words.filter(function(w){return inCol(w,a.c)}):[];
     var data=JSON.stringify({k:'kelime-paketi',articles:arts,words:wds}),name=(a.c||a.title).replace(/[^A-Za-z0-9ğüşöçıİĞÜŞÖÇ _-]/g,'')+'.json';
-    var fb=function(){try{navigator.clipboard.writeText(data);alert('Paket kopyalandı. Arkadaşına gönder. O da Ekle sekmesinde Yedekten yükle alanına yapıştırsın.')}catch(e){prompt('Metni kopyala:',data)}};
+    var fb=function(){try{navigator.clipboard.writeText(data);alert('Paket kopyalandı. Arkadaşına gönder. O da Profil → Ayarlar’daki “Yedekten geri yükle” alanına yapıştırsın.')}catch(e){prompt('Metni kopyala:',data)}};
     saveFile(name,data).catch(fb);
   }
   function fillCols(){
@@ -2288,6 +2327,8 @@ body.reading .sheet{max-width:740px}
     [].forEach.call(s.querySelectorAll('[data-col]'),function(b){b.onclick=function(){done(b.getAttribute('data-col'))}});
     $('ls-new').onclick=function(){var c=$('ls-n').value.trim();if(!c){$('ls-t').style.color='var(--bad)';$('ls-t').textContent='Yeni listenin adını yaz.';return}done(c)};
   }
+  // Short by default: per word type the first DSHOW senses (the rest under "Diğer anlamlar"), DEXS examples per sense
+  var DSHOW=3,DEXS=2;
   function drawDict(){
     var me=DS,o=$('dres');if(!me){o.innerHTML='';return}
     var view=me.view=dview(me),w0=me.q,own=me.own,h='',anyTR=view.some(function(v){return hasTR(v.e)}),saved=function(w){return words.filter(function(x){return x.w.trim().toLowerCase()===w.toLowerCase()})[0]};
@@ -2353,9 +2394,9 @@ body.reading .sheet{max-width:740px}
       var key=vi+':'+bi+':'+k,u=me.ui[key]||{},s="<div class='dsense'><button class='dchip"+(me.d===d.d?' on':'')+"' data-di='"+key+"'><b class='dn'>"+n+".</b> <em>"+esc(lbText(d.lb))+"</em>"+esc(d.d)+"</button>";
       if(d.tr.length)s+="<div class='dtr'><span>Türkçe:</span>"+chipsOf(d.tr)+"</div>";
       else if(view[vi].e.src==='Vikisözlük')s+=u.dmt?mtOut(u.dmt,'Tanımın makine çevirisi — sözlük anlamı değildir'):"<button class='dlink' data-dt='"+key+"'>Tanımı çevir (makine çevirisi)</button>";
-      d.ex.forEach(function(x,i){var t=(u.xt||[])[i];s+="<div class='dex'>“"+esc(x)+"”"+(t?mtOut(t,'Türkçesi — makine çevirisi'):" <button class='dlink' data-xt='"+key+':'+i+"'>Türkçesi</button>")+"</div>"});
-      if(d.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(d.syn)+'</div>';
-      if(d.ant.length)s+="<div class='syn'>Zıt anlamlılar: "+links(d.ant)+'</div>';
+      d.ex.slice(0,DEXS).forEach(function(x,i){var t=(u.xt||[])[i];s+="<div class='dex'>“"+esc(x)+"”"+(t?mtOut(t,'Türkçesi — makine çevirisi'):" <button class='dlink' data-xt='"+key+':'+i+"'>Türkçesi</button>")+"</div>"});
+      if(d.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(d.syn.slice(0,5))+'</div>';
+      if(d.ant.length)s+="<div class='syn'>Zıt anlamlılar: "+links(d.ant.slice(0,5))+'</div>';
       s+="<div class='dsv'><button class='btn ghost' data-sv='"+key+"'>"+(d.tr.length?'Bu anlamı kaydet':'Bu anlamı seç')+"</button>"+(u.svm?"<span style='color:var(--"+(u.svm.ok?'good':'bad')+")'>"+esc(u.svm.msg)+"</span>":'')+"</div></div>";
       return s;
     }
@@ -2365,16 +2406,17 @@ body.reading .sheet{max-width:740px}
         var idx=b.defs.map(function(d,k){return k}),main=idx.filter(function(k){return !b.defs[k].old}),old=idx.filter(function(k){return b.defs[k].old}),n=0;
         if(v.role==='old'){main=old;old=[]}
         s+="<div class='dpos'><i>"+esc(b.pos)+"</i><span class='dpt'>"+esc(POSTR[b.pos]||'')+"</span>";
-        s+=main.slice(0,8).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('');
-        if(main.length>8)s+="<details><summary>Diğer anlamlar ("+(main.length-8)+")</summary>"+main.slice(8).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('')+"</details>";
+        s+=main.slice(0,DSHOW).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('');
+        if(main.length>DSHOW)s+="<details><summary>Diğer anlamlar ("+(main.length-DSHOW)+")</summary>"+main.slice(DSHOW).map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('')+"</details>";
         if(old.length)s+="<details><summary>Eski / nadir anlamlar ("+old.length+")</summary>"+old.map(function(k){return sense(vi,bi,k,b,b.defs[k],++n)}).join('')+"</details>";
-        if(b.trx.length)s+="<div class='tlab'>Türkçe karşılıklar · Vikisözlük (anlam grubuna göre)</div>"+b.trx.map(function(t){return "<div class='sense'>"+(t.g?"<i>"+esc(t.g)+"</i>":'')+"<div>"+chipsOf(t.tr)+"</div></div>"}).join('');
+        // already summed up under "Türkçe karşılığı" at the top; the full table by sense group stays one tap away
+        if(b.trx.length)s+="<details><summary>Anlam grubuna göre tüm Türkçe karşılıklar · Vikisözlük</summary>"+b.trx.map(function(t){return "<div class='sense'>"+(t.g?"<i>"+esc(t.g)+"</i>":'')+"<div>"+chipsOf(t.tr)+"</div></div>"}).join('')+"</details>";
         if(b.tro.length)s+="<details><summary>Kontrol edilmemiş / eski çeviriler</summary><p class='note'>Henüz doğrulanmamış ya da eskimiş olabilir.</p>"+b.tro.map(function(t){var l=t.tr.concat(t.old,t.unc);return "<div class='sense'>"+(t.g?"<i>"+esc(t.g)+"</i>":'')+"<div>"+chipsOf(l)+"</div></div>"}).join('')+"</details>";
-        if(b.syn&&b.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(b.syn.slice(0,12))+'</div>';
+        if(b.syn&&b.syn.length)s+="<div class='syn'>Eş anlamlılar: "+links(b.syn.slice(0,6))+'</div>';
         s+="</div>";
       });
       var fam=[];e.blocks.forEach(function(b){b.der.concat(b.rel).forEach(function(x){if(fam.indexOf(x)<0&&x.toLowerCase()!==e.w.toLowerCase())fam.push(x)})});
-      if(fam.length)s+="<div class='syn dfam'>Kelime ailesi · Vikisözlük: "+links(fam.slice(0,14))+(fam.length>14?' …':'')+"</div>";
+      if(fam.length)s+="<div class='syn dfam'>Kelime ailesi · Vikisözlük: "+links(fam.slice(0,8))+(fam.length>8?' …':'')+"</div>";
       s+="<p class='dsrc'>Kaynak: "+(e.src==='Vikisözlük'?"<a href='https://en.wiktionary.org/wiki/"+encodeURIComponent(e.w)+"' target='_blank' rel='noopener'>Vikisözlük</a> (CC BY-SA)":'dictionaryapi.dev')+"</p>";
       if(v.role==='own'&&view.length===1)return s;
       var f=me.fq[e.w.toLowerCase()],sum=v.role==='lemma'?"<b>"+esc(e.w)+"</b> · kök kelime"+(phOf(e)?' · '+esc(phOf(e)):'')+(f!=null?' · '+freqLabel(f):''):v.role==='old'?"“"+esc(e.w)+"” kelimesinin kendi anlamları (eski / nadir)":"<b>"+esc(e.w)+"</b> · bu biçimin kendi anlamları";
@@ -2446,8 +2488,8 @@ body.reading .sheet{max-width:740px}
     me.view.forEach(function(v,vi){
       if(v.role==='old'||!(v.role==='own'||v.open))return;
       v.e.blocks.forEach(function(b,bi){
-        b.defs.map(function(d,k){return k}).filter(function(k){return !b.defs[k].old}).slice(0,8).forEach(function(k){
-          b.defs[k].ex.forEach(function(x,i){jobs.push({key:vi+':'+bi+':'+k,i:i,x:x})});
+        b.defs.map(function(d,k){return k}).filter(function(k){return !b.defs[k].old}).slice(0,DSHOW).forEach(function(k){
+          b.defs[k].ex.slice(0,DEXS).forEach(function(x,i){jobs.push({key:vi+':'+bi+':'+k,i:i,x:x})});
         });
       });
     });
@@ -2837,14 +2879,24 @@ body.reading .sheet{max-width:740px}
   }
   if(/[?&]yukle=1(&|$)/.test(location.search)){
     try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
-    setTimeout(function(){show('prof');var p=$('p-app');if(p&&!p.classList.contains('hide'))p.scrollIntoView({block:'center'})},0);
+    setTimeout(function(){profTab('me');show('prof');var p=$('p-app');if(p&&!p.classList.contains('hide'))p.scrollIntoView({block:'center'})},0);
   }
+  // Profile has two tabs: "Profil" (name, stats, install, account) and "Ayarlar" (voice/theme/goal, app link, backup,
+  // restore, safety copies, storage notes). The settings panels are static markup; the profile part is redrawn.
+  var PT='me';
+  function profTab(t){
+    PT=t==='set'?'set':'me';
+    $('p-main').classList.toggle('hide',PT!=='me');$('p-set').classList.toggle('hide',PT!=='set');
+    Array.prototype.forEach.call($('ptabs').querySelectorAll('[data-pt]'),function(b){b.classList.toggle('on',b.getAttribute('data-pt')===PT)});
+    if(PT==='set')renderBackup();
+  }
+  Array.prototype.forEach.call($('ptabs').querySelectorAll('[data-pt]'),function(b){b.onclick=function(){profTab(b.getAttribute('data-pt'));scrollTo(0,0)}});
   function renderProf(){
-    var v=$('v-prof'),nm=S.name||'',cs={};
+    var v=$('p-main'),nm=S.name||'',cs={};
     var L=words.filter(function(x){return x.box>=3}).length;
     words.forEach(function(x){cols(x).forEach(function(c){cs[c]=1})});
     var st=[[words.length,'kelime'],[L,'öğrenilen'],[ART.length,'makale'],[Object.keys(cs).length,'kelime listesi'],[S.day===today()?S.n:0,'bugünkü tekrar'],[S.tot||0,'toplam tekrar'],[streak(),'gün serisi']];
-    v.innerHTML="<h1>Profil</h1><div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.0.10 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
+    v.innerHTML="<div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.0.10 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
     drawInstall();drawAcct();
     var hostLabel=$('p-host');if(hostLabel)hostLabel.textContent='· '+((location.hostname.endsWith('pages.dev')||location.hostname.endsWith('workers.dev'))?'Cloudflare':location.hostname.endsWith('github.io')?'GitHub Pages':location.hostname.endsWith('netlify.app')?'Netlify':'Web');
     $('p-n').value=nm;
@@ -2854,6 +2906,8 @@ body.reading .sheet{max-width:740px}
       claude.use('user').then(function(u){return u&&u.me?u.me():null}).then(function(p){if(p&&p.name&&!S.name){S.name=p.name;saveS();renderProf()}}).catch(function(){});
     }
   }
+  // the address this copy runs from (the installed app updates from it), not a fixed link
+  $('lk').value=location.origin+location.pathname.replace(/index\.html$/,'');
   $('lkb').onclick=function(){var i=$('lk');i.select();try{navigator.clipboard.writeText(i.value).then(function(){$('t4').style.color='var(--good)';$('t4').textContent='Link kopyalandı.'},function(){$('t4').style.color='var(--muted)';$('t4').textContent='Linki elle kopyala.'})}catch(e){$('t4').textContent='Linki elle kopyala.'}};
   $('lplay').onclick=function(){SP().col=$('lcol').value;saveS();show('study')};
   $('lq').oninput=function(){LLIM=300;renderList()};$('lcol').onchange=renderList;$('lsort').onchange=renderList;$('scol').onchange=function(){SP().col=this.value;saveS();build()};
