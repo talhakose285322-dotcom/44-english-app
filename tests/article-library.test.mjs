@@ -10,6 +10,8 @@ import {ROOT} from './lib/browser.mjs';
 
 // the real catalog: the library grows without app releases, so counts come from it rather than being fixed here
 const CATALOG = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'articles', 'catalog.json'), 'utf8'));
+// the list shows 12 cards at a time and keeps news older than 30 days in the archive (tests/library-scale covers both)
+const PAGE = 12, oldNews = a => a.category === 'news' && Date.now() - new Date(a.published + 'T00:00:00Z').getTime() > 30 * 864e5;
 const LIBK = K + '-lib';
 const OWN = [{id: 'own1', title: 'My notes', text: 'A text that belongs to the user and must stay as it is.', pos: 0.5}];
 let srv, b;
@@ -30,7 +32,7 @@ const topPara = () => b.ev("(function(){var ch=document.getElementById('art').ch
 
 test('hazır makaleler kataloğu yükleniyor; kategori, seviye ve arama filtreleri çalışıyor', async () => {
   await b.waitFor("document.querySelectorAll('#rl-list [data-rl]').length>=3", 10000);
-  assert.equal((await cards()).length, CATALOG.articles.length, 'katalogdaki her makale listede');
+  assert.equal((await cards()).length, Math.min(PAGE, CATALOG.articles.filter(a => !oldNews(a)).length), 'katalogdaki makaleler listede (ilk sayfa)');
   await setSel('rl-c', 'technology');
   assert.deepEqual(await cards(), ['how-the-internet-moves-data@B1']);
   await setSel('rl-c', '');
@@ -127,7 +129,7 @@ test('haberler fotoğraf, fotoğraf sahibi, önemli kelimeler, anlama soruları 
   assert.equal(await b.ev("document.querySelector('#rl-c option[value=\"news\"]').textContent"), 'Haberler');
   const news = CATALOG.articles.filter(a => a.category === 'news');
   assert.ok(news.length >= 1);
-  assert.equal((await cards()).length, news.length);
+  assert.equal((await cards()).length, Math.min(PAGE, news.length));
   assert.ok(await b.ev("[].every.call(document.querySelectorAll('#rl-list .lcard'),function(c){return !!c.querySelector('img.lc-img')})"), 'her haber kartında fotoğraf var');
   const n = news[0];
   await b.ev(`document.querySelector('#rl-list [data-rl=${JSON.stringify(n.id)}]').click()`);
