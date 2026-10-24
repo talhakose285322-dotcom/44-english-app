@@ -471,7 +471,57 @@ body.reading .sheet{max-width:740px}
     </details>
   </section>
 
-  <section id='v-prof' class='hide'></section>
+  <section id='v-prof' class='hide'>
+    <h1>Profil</h1>
+    <div class="seg" id="ptabs"><button data-pt="me" class="on">Profil</button><button data-pt="set">Ayarlar</button></div>
+    <div id='p-main'></div>
+    <div id='p-set' class='hide'>
+    <div class="panel">
+      <h2>Ayarlar</h2>
+      <div class="row"><label for="s-acc">Aksan</label><select id="s-acc"><option value="en-US">Amerikan</option><option value="en-GB">İngiliz</option></select></div>
+      <div class="row"><label for="s-rate">Konuşma hızı</label><select id="s-rate"><option value="1">Normal</option><option value="0.8">Yavaş</option><option value="0.6">Çok yavaş</option></select></div>
+      <div class="row"><label for="s-voice">Ses</label><select id="s-voice"></select></div>
+      <div class="row"><label for="s-auto">Yeni kartta kelimeyi otomatik oku</label><input type="checkbox" id="s-auto"></div>
+      <div class="row"><label for="s-theme">Görünüm</label><select id="s-theme"><option value="">Cihaza göre</option><option value="light">Açık</option><option value="dark">Koyu</option></select></div>
+      <div class="row"><label for="s-goal">Günlük hedef</label><select id="s-goal"><option value="10">10 tekrar</option><option value="20">20 tekrar</option><option value="30">30 tekrar</option><option value="50">50 tekrar</option><option value="100">100 tekrar</option></select></div>
+      <p class="note">Sesler telefonunun kendi sesleridir. Daha iyi sesler için telefon ayarlarından İngilizce ses paketi indirebilirsin.</p>
+    </div>
+    <div class="panel">
+      <h2>Uygulama linki</h2>
+      <p class='note'>Uygulamayı güncellemek ya da başkasıyla paylaşmak için bu linki sakla.</p>
+      <input id='lk' readonly value='https://claude.ai/artifact/6XWNEkvEEyWYVgpoYcYQvR'>
+      <div style='height:10px'></div>
+      <button class='btn ghost' id='lkb'>Linki kopyala</button>
+      <div class='toast' id='t4'></div>
+    </div>
+    <div class="panel" id="bk">
+      <h2>Yedek</h2>
+      <p class="note">Tam yedek; kelimelerin, anlamlar, örnek cümleler, koleksiyonlar, makaleler, öğrenme ilerlemen, ayarların ve istatistiklerin hepsini içerir.</p>
+      <p class="note" id="bk-info"></p>
+      <button class="btn main" id="expf">Tam yedeği indir (.json)</button>
+      <div style="height:10px"></div>
+      <button class="btn ghost" id="exp" style="width:100%">Yedeği metin olarak kopyala</button>
+      <div class="toast" id="t3"></div>
+      <h2>Yedekten geri yükle</h2>
+      <p class="note">Önce yedek kontrol edilir ve ne yükleneceği gösterilir. Sen onay vermeden hiçbir şey değişmez. Yüklemeden önce mevcut verilerin otomatik olarak güvenlik kopyasına alınır.</p>
+      <label for="impf">Yedek dosyası seç</label><input type="file" id="impf" accept=".json,application/json,text/plain">
+      <textarea id="imp" placeholder="ya da yedek metnini buraya yapıştır" style="min-height:70px;margin-top:10px"></textarea>
+      <button class="btn ghost" id="impb" style="margin-top:10px;width:100%">Yedeği kontrol et</button>
+      <div id="rprev"></div>
+      <h2>Otomatik güvenlik kopyaları</h2>
+      <p class="note">Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda otomatik bir kopya alır (son 15 kopya tutulur). Bunlar yanlış bir geri yüklemeyi geri almak içindir; tarayıcı verilerini silersen bunlar da silinir.</p>
+      <div id="snaps"></div>
+    </div>
+    <div class="panel">
+      <h2>Verilerin nerede saklanıyor?</h2>
+      <p class="note">Verilerin varsayılan olarak <b>bu cihazda, bu tarayıcıda ve bu adreste</b> saklanır; cihazlar arasında <b>otomatik eşitlenmez</b>. İstersen Profil → Hesap bölümünden Google ile giriş yapıp “Buluta yedekle”yi seçerek yedeğini hesabına kaydedebilirsin. Bulut yedekleme yalnızca sen başlattığında çalışır.</p>
+      <p class="note">Şu durumlarda verilerini göremeyebilir ya da kaybedebilirsin: tarayıcı verilerini / site verilerini temizlersen, gizli sekmede kullanırsan, uygulamayı başka bir adresten ya da başka bir tarayıcıdan açarsan. iPhone’da Safari, ana ekrana eklenmemiş sitelerin verilerini bir süre kullanılmazsa silebilir; ana ekrana ekleyerek kullan.</p>
+      <p class="note">Telefon değiştirirken: Google ile giriş yapıp eski cihazda “Buluta yedekle”, yeni cihazda “Buluttan geri yükle” seçeneğini kullanabilir veya tam yedeği dosya olarak indirip yeni cihazda geri yükleyebilirsin. Buluttan geri yükleme önce önizleme açar; verilerin ancak sen “Birleştir”i onayladığında eklenir.</p>
+      <p class="note" id="persist"></p>
+      <button class="btn ghost hide" id="persistb" style="width:100%">Kalıcı depolama iste</button>
+    </div>
+    </div>
+  </section>
 
   <section id='v-read' class='hide'></section>
 
@@ -539,56 +589,6 @@ body.reading .sheet{max-width:740px}
       <div style='height:12px'></div>
       <button class="btn main" id="addN">Hepsini ekle</button>
       <div class="toast" id="t2"></div>
-    </div>
-    <div class="panel">
-      <h2>Ayarlar</h2>
-      <div class="row"><label for="s-acc">Aksan</label><select id="s-acc"><option value="en-US">Amerikan</option><option value="en-GB">İngiliz</option></select></div>
-      <div class="row"><label for="s-rate">Konuşma hızı</label><select id="s-rate"><option value="1">Normal</option><option value="0.8">Yavaş</option><option value="0.6">Çok yavaş</option></select></div>
-      <div class="row"><label for="s-voice">Ses</label><select id="s-voice"></select></div>
-      <div class="row"><label for="s-auto">Yeni kartta kelimeyi otomatik oku</label><input type="checkbox" id="s-auto"></div>
-      <div class="row"><label for="s-theme">Görünüm</label><select id="s-theme"><option value="">Cihaza göre</option><option value="light">Açık</option><option value="dark">Koyu</option></select></div>
-      <div class="row"><label for="s-goal">Günlük hedef</label><select id="s-goal"><option value="10">10 tekrar</option><option value="20">20 tekrar</option><option value="30">30 tekrar</option><option value="50">50 tekrar</option><option value="100">100 tekrar</option></select></div>
-      <p class="note">Sesler telefonunun kendi sesleridir. Daha iyi sesler için telefon ayarlarından İngilizce ses paketi indirebilirsin.</p>
-    </div>
-    <div class="panel">
-      <h2>Uygulama linki</h2>
-      <p class='note'>Uygulamayı güncellemek ya da başkasıyla paylaşmak için bu linki sakla.</p>
-      <input id='lk' readonly value='https://claude.ai/artifact/6XWNEkvEEyWYVgpoYcYQvR'>
-      <div style='height:10px'></div>
-      <button class='btn ghost' id='lkb'>Linki kopyala</button>
-      <div class='toast' id='t4'></div>
-    </div>
-    <div class="panel" id="bk">
-      <h2>Yedek</h2>
-      <p class="note">Tam yedek; kelimelerin, anlamlar, örnek cümleler, koleksiyonlar, makaleler, öğrenme ilerlemen, ayarların ve istatistiklerin hepsini içerir.</p>
-      <p class="note" id="bk-info"></p>
-      <button class="btn main" id="expf">Tam yedeği indir (.json)</button>
-      <div style="height:10px"></div>
-      <button class="btn ghost" id="exp" style="width:100%">Yedeği metin olarak kopyala</button>
-      <div class="toast" id="t3"></div>
-      <h2>Yedekten geri yükle</h2>
-      <p class="note">Önce yedek kontrol edilir ve ne yükleneceği gösterilir. Sen onay vermeden hiçbir şey değişmez. Yüklemeden önce mevcut verilerin otomatik olarak güvenlik kopyasına alınır.</p>
-      <label for="impf">Yedek dosyası seç</label><input type="file" id="impf" accept=".json,application/json,text/plain">
-      <textarea id="imp" placeholder="ya da yedek metnini buraya yapıştır" style="min-height:70px;margin-top:10px"></textarea>
-      <button class="btn ghost" id="impb" style="margin-top:10px;width:100%">Yedeği kontrol et</button>
-      <div id="rprev"></div>
-      <h2>Otomatik güvenlik kopyaları</h2>
-      <p class="note">Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda otomatik bir kopya alır (son 15 kopya tutulur). Bunlar yanlış bir geri yüklemeyi geri almak içindir; tarayıcı verilerini silersen bunlar da silinir.</p>
-      <div id="snaps"></div>
-    </div>
-    <div class="panel">
-      <h2>Verilerin nerede saklanıyor?</h2>
-      <p class="note">Verilerin varsayılan olarak <b>bu cihazda, bu tarayıcıda ve bu adreste</b> saklanır; cihazlar arasında <b>otomatik eşitlenmez</b>. İstersen Profil → Hesap bölümünden Google ile giriş yapıp “Buluta yedekle”yi seçerek yedeğini hesabına kaydedebilirsin. Bulut yedekleme yalnızca sen başlattığında çalışır.</p>
-      <p class="note">Şu durumlarda verilerini göremeyebilir ya da kaybedebilirsin: tarayıcı verilerini / site verilerini temizlersen, gizli sekmede kullanırsan, uygulamayı başka bir adresten ya da başka bir tarayıcıdan açarsan. iPhone’da Safari, ana ekrana eklenmemiş sitelerin verilerini bir süre kullanılmazsa silebilir; ana ekrana ekleyerek kullan.</p>
-      <p class="note">Telefon değiştirirken: Google ile giriş yapıp eski cihazda “Buluta yedekle”, yeni cihazda “Buluttan geri yükle” seçeneğini kullanabilir veya tam yedeği dosya olarak indirip yeni cihazda geri yükleyebilirsin. Buluttan geri yükleme önce önizleme açar; verilerin ancak sen “Birleştir”i onayladığında eklenir.</p>
-      <p class="note" id="persist"></p>
-      <button class="btn ghost hide" id="persistb" style="width:100%">Kalıcı depolama iste</button>
-    </div>
-    <div class="panel">
-      <h2>Telefona uygulama olarak ekle</h2>
-      <p class="note"><b>iPhone:</b> Safari’de aç, Paylaş simgesine dokun, “Ana Ekrana Ekle”yi seç.</p>
-      <p class="note"><b>Android:</b> Chrome’da aç, sağ üstteki üç noktaya dokun, “Ana ekrana ekle”yi seç.</p>
-      <p class="note">Kelimelerin bu cihazda saklanır. Tarayıcı verilerini silersen yerel kopya kaybolabilir; düzenli dosya yedeği al veya Profil → Hesap bölümünden isteğe bağlı bulut yedeklemesini kullan.</p>
     </div>
   </section>
 </main>
@@ -762,7 +762,7 @@ body.reading .sheet{max-width:740px}
       if(sess&&(sess.n>0||sess.ended)){summary();return}
       var none=!words.length,inCo=p.col?words.filter(function(x){return inCol(x,p.col)}).length:words.length;
       d.innerHTML='<div class="empty"><div class="eic">'+ic(none?'spark':'layers')+'</div><h1>'+(none?"Kelime ekle":inCo?"Çalışılacak kart yok":"Koleksiyon boş")+'</h1><p>'+
-        (none?"Ekle sekmesinden kelimelerini ekle ya da yedeğini geri yükle.":!inCo?"Bu koleksiyona henüz kelime eklenmemiş.":p.f==='due'?"Bu koleksiyonda tekrar zamanı gelen kelime yok. “Hepsi” ile istediğin kadar çalışabilirsin.":"Bu koleksiyondaki bütün kelimeleri öğrenmişsin. “Hepsi” ile istediğin kadar tekrar edebilirsin.")+
+        (none?"Ekle sekmesinden kelimelerini ekle ya da Profil → Ayarlar’dan yedeğini geri yükle.":!inCo?"Bu koleksiyona henüz kelime eklenmemiş.":p.f==='due'?"Bu koleksiyonda tekrar zamanı gelen kelime yok. “Hepsi” ile istediğin kadar çalışabilirsin.":"Bu koleksiyondaki bütün kelimeleri öğrenmişsin. “Hepsi” ile istediğin kadar tekrar edebilirsin.")+
         '</p>'+(none?'<button class="btn main" id="smp">Örnek kelimeleri ekle</button><div style="height:10px"></div><button class="btn ghost" id="gobk" style="width:100%">Yedekten geri yükle</button>':inCo?'<button class="btn main" id="again">Hepsini çalış</button>':'')+'</div>';
       var a=$("again");if(a)a.onclick=function(){SP().f='all';saveS();build()};
       if($('smp'))$('smp').onclick=function(){
@@ -933,7 +933,7 @@ body.reading .sheet{max-width:740px}
     view=v;if(v!=='read')leaveReader();
     ['study','read','list','dict','tr','add','prof'].forEach(function(k){$("v-"+k).classList.toggle("hide",k!==v)});
     ['study','read','list','dict','add','prof'].forEach(function(k){$("n-"+k).classList.toggle("on",k===(v==='tr'?'dict':v))});
-    if(v==='list')renderList();if(v==='read')renderRead();if(v==='prof')renderProf();if(v==='add')renderBackup();$('sheet').classList.add('hide');
+    if(v==='list')renderList();if(v==='read')renderRead();if(v==='prof'){renderProf();if(PT==='set')renderBackup()}$('sheet').classList.add('hide');
     if(v==='study'){if(S.smode==='wheel')setSmode('wheel');else build()}
     if(v==='dict'){dhistDraw();setTimeout(function(){if(!$('dq').value)$('dq').focus()},50)}
     window.scrollTo(0,0);
@@ -1128,7 +1128,7 @@ body.reading .sheet{max-width:740px}
   $('impb').onclick=function(){var t=$('imp').value.trim();if(!t){msg('t3','Önce bir yedek dosyası seç ya da metnini yapıştır.','var(--bad)');return}checkBackup(t,'')};
   $('impf').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){checkBackup(t,f.name)});this.value=''};
   $('fl').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){t=t.trim();if(t.charAt(0)==='['||t.charAt(0)==='{'){checkBackup(t,f.name);goBackup()}else{$('bulk').value=t;$('addN').click()}});this.value=''};
-  function goBackup(){if(view!=='add')show('add');setTimeout(function(){$('bk').scrollIntoView({block:'start'})},30)}
+  function goBackup(){profTab('set');if(view!=='prof')show('prof');setTimeout(function(){$('bk').scrollIntoView({block:'start'})},30)}
 
   // ---- Automatic safety copies (IndexedDB, same browser only) ----
   var DB=null;
@@ -2190,7 +2190,7 @@ body.reading .sheet{max-width:740px}
     var a=ART.filter(function(x){return x.id===id})[0];if(!a)return;
     var arts=a.c?ART.filter(function(x){return x.c===a.c}):[a],wds=a.c?words.filter(function(w){return inCol(w,a.c)}):[];
     var data=JSON.stringify({k:'kelime-paketi',articles:arts,words:wds}),name=(a.c||a.title).replace(/[^A-Za-z0-9ğüşöçıİĞÜŞÖÇ _-]/g,'')+'.json';
-    var fb=function(){try{navigator.clipboard.writeText(data);alert('Paket kopyalandı. Arkadaşına gönder. O da Ekle sekmesinde Yedekten yükle alanına yapıştırsın.')}catch(e){prompt('Metni kopyala:',data)}};
+    var fb=function(){try{navigator.clipboard.writeText(data);alert('Paket kopyalandı. Arkadaşına gönder. O da Profil → Ayarlar’daki “Yedekten geri yükle” alanına yapıştırsın.')}catch(e){prompt('Metni kopyala:',data)}};
     saveFile(name,data).catch(fb);
   }
   function fillCols(){
@@ -2837,14 +2837,24 @@ body.reading .sheet{max-width:740px}
   }
   if(/[?&]yukle=1(&|$)/.test(location.search)){
     try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
-    setTimeout(function(){show('prof');var p=$('p-app');if(p&&!p.classList.contains('hide'))p.scrollIntoView({block:'center'})},0);
+    setTimeout(function(){profTab('me');show('prof');var p=$('p-app');if(p&&!p.classList.contains('hide'))p.scrollIntoView({block:'center'})},0);
   }
+  // Profile has two tabs: "Profil" (name, stats, install, account) and "Ayarlar" (voice/theme/goal, app link, backup,
+  // restore, safety copies, storage notes). The settings panels are static markup; the profile part is redrawn.
+  var PT='me';
+  function profTab(t){
+    PT=t==='set'?'set':'me';
+    $('p-main').classList.toggle('hide',PT!=='me');$('p-set').classList.toggle('hide',PT!=='set');
+    Array.prototype.forEach.call($('ptabs').querySelectorAll('[data-pt]'),function(b){b.classList.toggle('on',b.getAttribute('data-pt')===PT)});
+    if(PT==='set')renderBackup();
+  }
+  Array.prototype.forEach.call($('ptabs').querySelectorAll('[data-pt]'),function(b){b.onclick=function(){profTab(b.getAttribute('data-pt'));scrollTo(0,0)}});
   function renderProf(){
-    var v=$('v-prof'),nm=S.name||'',cs={};
+    var v=$('p-main'),nm=S.name||'',cs={};
     var L=words.filter(function(x){return x.box>=3}).length;
     words.forEach(function(x){cols(x).forEach(function(c){cs[c]=1})});
     var st=[[words.length,'kelime'],[L,'öğrenilen'],[ART.length,'makale'],[Object.keys(cs).length,'kelime listesi'],[S.day===today()?S.n:0,'bugünkü tekrar'],[S.tot||0,'toplam tekrar'],[streak(),'gün serisi']];
-    v.innerHTML="<h1>Profil</h1><div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.0.10 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
+    v.innerHTML="<div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.0.10 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
     drawInstall();drawAcct();
     var hostLabel=$('p-host');if(hostLabel)hostLabel.textContent='· '+((location.hostname.endsWith('pages.dev')||location.hostname.endsWith('workers.dev'))?'Cloudflare':location.hostname.endsWith('github.io')?'GitHub Pages':location.hostname.endsWith('netlify.app')?'Netlify':'Web');
     $('p-n').value=nm;
@@ -2854,6 +2864,8 @@ body.reading .sheet{max-width:740px}
       claude.use('user').then(function(u){return u&&u.me?u.me():null}).then(function(p){if(p&&p.name&&!S.name){S.name=p.name;saveS();renderProf()}}).catch(function(){});
     }
   }
+  // the address this copy runs from (the installed app updates from it), not a fixed link
+  $('lk').value=location.origin+location.pathname.replace(/index\.html$/,'');
   $('lkb').onclick=function(){var i=$('lk');i.select();try{navigator.clipboard.writeText(i.value).then(function(){$('t4').style.color='var(--good)';$('t4').textContent='Link kopyalandı.'},function(){$('t4').style.color='var(--muted)';$('t4').textContent='Linki elle kopyala.'})}catch(e){$('t4').textContent='Linki elle kopyala.'}};
   $('lplay').onclick=function(){SP().col=$('lcol').value;saveS();show('study')};
   $('lq').oninput=function(){LLIM=300;renderList()};$('lcol').onchange=renderList;$('lsort').onchange=renderList;$('scol').onchange=function(){SP().col=this.value;saveS();build()};
