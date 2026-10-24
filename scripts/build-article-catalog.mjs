@@ -6,6 +6,7 @@
 // The same files can later be served from a CDN or R2 bucket; the app only reads them over HTTP.
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 
 export const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -52,6 +53,8 @@ function extras(meta, base, id, fail) {
 
 export function buildCatalog(root) {
   const base = path.join(root, 'content', 'articles'), list = [];
+  // every article has its own photo: the same Commons page or the same image file may not be used twice
+  const photoBySource = {}, photoByHash = {};
   for (const id of fs.readdirSync(base).filter(n => fs.statSync(path.join(base, n)).isDirectory()).sort()) {
     const where = `content/articles/${id}`, fail = m => { throw new Error(`${where}: ${m}`); };
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id) || id.length > 80) fail('folder name must be lowercase words joined by "-"');
@@ -83,6 +86,13 @@ export function buildCatalog(root) {
     }
     if (!Object.keys(levels).length) fail('no level files (A1.json … C2.json)');
     const ex = extras(meta, base, id, fail);
+    if (ex.image) {
+      const src = decodeURIComponent(ex.image.source).replace(/_/g, ' ').toLowerCase();
+      const hash = crypto.createHash('sha256').update(fs.readFileSync(path.join(base, id, meta.image.file))).digest('hex');
+      if (photoBySource[src]) fail(`photo ${ex.image.source} is already used by ${photoBySource[src]}; choose a different photo`);
+      if (photoByHash[hash]) fail(`photo file is identical to the one used by ${photoByHash[hash]}; choose a different photo`);
+      photoBySource[src] = id; photoByHash[hash] = id;
+    }
     if (meta.category === 'news') {
       // the levels must really differ: A1 short and simple, each level up to B2 at least as long as the one before
       if (!LEVELS.every(l => levels[l])) fail('news needs all six levels');
