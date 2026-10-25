@@ -26,7 +26,9 @@ Son doğrulama: 2026-10-23, bu dosya eklenmeden önce `main` = `43e1ec8`.
   `cloud_backups` (`data` metin, RLS ile kullanıcı başına).
 - **Veri (tarayıcıda):** `localStorage` anahtarları `kelimelerim-v1` (kelimeler), `kelimelerim-v1-s` (ayarlar ve
   istatistikler), `kelimelerim-v1-a` (makaleler), diğer `kelimelerim-v1-*`; `IndexedDB 44-guvenlik` (otomatik
-  güvenlik kopyaları).
+  güvenlik kopyaları); `IndexedDB 44-metin` (localStorage dolmaya başlayınca büyük makale metinleri; o makale
+  `kelimelerim-v1-a`'da `{text:'', xt:<uzunluk>}` yer tutucusuyla durur). İkisi de kullanıcı verisidir, silinmez.
+  Yedekler (`collect()`) metinler yüklenmeden alınmaz (`ready`).
 - **Diğer belgeler:** `ROADMAP.md`, `APP_STORE_ROADMAP.md`, `DATA-SAFETY.md`, `DATA-TRANSFER.md`.
 
 ## 2. Doğrulanmış son geliştirmeler (2026-10-23, GitHub üzerinden)
