@@ -1,0 +1,38 @@
+# Haber bildirimi: when a daily news pull request (news/...) is merged, the GitHub bot opens a short issue that
+# mentions the repository owner, so GitHub e-mails them (GitHub sends no e-mail about one's own actions, and the news
+# pull requests are opened with the owner's account). The issue is closed at once; the e-mail is still sent.
+# Runs from main's copy of this file (pull_request_target) and never checks out the pull request's code.
+name: Haber bildirimi
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  issues: write
+
+jobs:
+  notify:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'news/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Sahibine e-posta bildirimi
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          {
+            printf '@%s yeni haberler yayınlandı ve uygulamada.\n\n' "$OWNER"
+            printf 'Uygulama: https://words44.words44.workers.dev\n'
+            printf 'PR: %s\n\n' "$PR_URL"
+            printf '%s\n' "$PR_BODY"
+          } > body.md
+          url=$(gh issue create --repo "$REPO" --title "Yayınlandı: $PR_TITLE" --body-file body.md)
+          gh issue close "$url" --repo "$REPO" --reason completed
+          echo "Bildirim: $url"
