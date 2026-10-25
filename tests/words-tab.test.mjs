@@ -35,7 +35,7 @@ const addTab = () => b.ev("document.getElementById('n-list').click();document.qu
 
 test('alt menüde Ekle yok; Kelimeler iki bölmeli; liste tek satırlık ve durum etiketli; koleksiyon çipleri süzüyor', async () => {
   assert.equal(await b.ev("!!document.getElementById('n-add')||!!document.getElementById('v-add')"), false);
-  assert.deepEqual(await b.ev("[].map.call(document.querySelectorAll('nav button'),function(x){return x.textContent.trim()})"), ['Çalış', 'Makale', 'Kelimeler', 'Sözlük', 'Profil']);
+  assert.deepEqual(await b.ev("[].map.call(document.querySelectorAll('nav button'),function(x){return x.textContent.trim()})"), ['Çalış', 'Makaleler', 'Kelimeler', 'Sözlük', 'Profil']);
   await b.ev("document.getElementById('n-list').click()");
   assert.deepEqual(await b.ev("[].map.call(document.querySelectorAll('#ltabs button'),function(x){return x.textContent})"), ['Listelerim', 'Kelime ekle']);
   assert.deepEqual(await rows(), ['habitalışkanlıkYeni', 'budgetbütçeÖğrenildi', 'gardenbahçeÖğreniliyor 1/3']);
@@ -126,7 +126,7 @@ test('dosyadan: .txt kelime listesi eklenir; yedek dosyası geri yüklemeyi açm
   assert.deepEqual(b.errors, []);
 });
 
-test('ana sayfadaki “PDF ekle” Kelime ekle bölmesini açıyor; makale PDF’i için Makale sekmesine bağlantı var', async () => {
+test('ana sayfadaki “PDF ekle” Kelime ekle bölmesini açıyor; makale PDF’i için Makaleler sekmesine bağlantı var', async () => {
   await b.ev("document.getElementById('n-study').click()");
   await b.ev("document.getElementById('q-pdf').click()");
   assert.equal(await b.ev("!document.getElementById('v-list').classList.contains('hide')&&!document.getElementById('lt-add').classList.contains('hide')"), true);

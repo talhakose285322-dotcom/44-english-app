@@ -519,7 +519,7 @@ body.reading .sheet{max-width:740px}
         <li>Fotoğraftan makale: kitap ya da gazete sayfasının fotoğrafını çek, metni cihazında çıkarılsın.</li>
         <li>Makalenin sonunda “yeni kelimeler”: listende olmayan kelimeleri seç, anlamlarıyla tek seferde listene ekle.</li>
         <li>EPUB e-kitap ve altyazı (.srt, .vtt) dosyasından makale yükleme.</li>
-        <li>Makale sekmesi dört bölüm: Hazır makaleler, Kelimelerimle oluştur, Makale yükle, Makalelerim.</li>
+        <li>Makaleler sekmesi dört bölüm: Hazır makaleler, Kelimelerimle oluştur, Makale yükle, Makalelerim.</li>
         <li>Büyük kitaplar için daha geniş depolama; yer dolsa da makaleler kaybolmaz.</li>
         <li>Açıklama (i) düğmeleri.</li>
         <li>Kelimeler sekmesi yenilendi: Listelerim ve Kelime ekle tek yerde; tek satırlık liste, öğrenme durumu etiketi; aynı kelime iki kez eklenmez, yalnızca kelimeleri yazınca anlamları getirilir.</li>
@@ -598,7 +598,7 @@ body.reading .sheet{max-width:740px}
       <h2>PDF’den kelime listesi</h2>
       <p class="note" id="pm-note"></p>
       <p class="note">PDF bu cihazda işlenir, hiçbir yere yüklenmez. PDF dosyasının kendisi saklanmaz; yalnızca içinden çıkan metin kaydedilir.</p>
-      <p class="note">Makale ya da kitap PDF’i mi? <button class="btn ghost" id="pf-art" style="padding:4px 10px;font-size:13px">Makale sekmesinden yükle</button></p>
+      <p class="note">Makale ya da kitap PDF’i mi? <button class="btn ghost" id="pf-art" style="padding:4px 10px;font-size:13px">Makaleler sekmesinden yükle</button></p>
       <label for="pf">PDF dosyası seç</label><input type="file" id="pf" accept=".pdf,application/pdf">
       <div id="pstat"></div>
       <div id="pout"></div>
@@ -643,7 +643,7 @@ body.reading .sheet{max-width:740px}
 <nav>
   <div class="brand"><img src="./icon.svg" alt="" width="34" height="34">Words 44</div>
   <button id="n-study" class="on"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Çalış</button>
-  <button id='n-read'><svg viewBox='0 0 24 24'><path d='M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z'/><path d='M8 9h6M8 13h6'/></svg>Makale</button><button id="n-list"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Kelimeler</button>
+  <button id='n-read'><svg viewBox='0 0 24 24'><path d='M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z'/><path d='M8 9h6M8 13h6'/></svg>Makaleler</button><button id="n-list"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Kelimeler</button>
   <button id="n-dict"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>Sözlük</button><button id='n-prof'><svg viewBox='0 0 24 24'><circle cx='12' cy='8' r='4'/><path d='M4 21c0-4 4-6 8-6s8 2 8 6'/></svg>Profil</button>
 </nav>
 
@@ -3965,7 +3965,7 @@ body.reading .sheet{max-width:740px}
     if(sp&&sp.segs.filter(function(s){return !s.front}).length>=2){
       // A workbook with several articles: let the user review the proposed split.
       WB=mkWB(info,sp,blocks);draftArt=null;
-      if(box==='pstat')st.html('Kitap okundu: '+esc(info.name)+'. Makalelere ayırma önizlemesi Makale sekmesinde açıldı.');
+      if(box==='pstat')st.html('Kitap okundu: '+esc(info.name)+'. Makalelere ayırma önizlemesi Makaleler sekmesinde açıldı.');
       if(view!=='read')show('read');else renderRead();
       window.scrollTo(0,0);
       return;
