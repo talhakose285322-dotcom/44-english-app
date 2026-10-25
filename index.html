@@ -377,6 +377,11 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 .sheet{position:fixed;left:0;right:0;bottom:calc(66px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--card);border-radius:var(--r-xl) var(--r-xl) 0 0;box-shadow:var(--sh3);border:1px solid var(--line);border-bottom:0;padding:22px 20px 18px;z-index:6;max-height:74vh;overflow:auto;animation:sheetIn .28s cubic-bezier(.2,.8,.2,1)}
 .sheet::before{content:"";position:sticky;display:block;top:-14px;margin:-12px auto 10px;width:40px;height:5px;border-radius:9px;background:var(--line)}
 @keyframes sheetIn{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+#art .s.ra{background:color-mix(in srgb,var(--accent) 16%,transparent);border-radius:5px;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
+.rabar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:6;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;width:min(560px,calc(100% - 20px));padding:8px 10px;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,20,36,.18)}
+.rabar .tb{width:40px;height:40px}.rabar .tb.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.rabar .tb:disabled{opacity:.4}.ra-pos{font-size:13px;color:var(--muted);min-width:52px;text-align:center}
+@media (min-width:980px){.rabar{bottom:20px}}
+@media (max-width:520px){.rtool .bk-t{display:none}.rtool{gap:5px}.rtool .tb{width:38px;height:38px}}
 @media (min-width:980px){.sheet{bottom:20px;border-radius:var(--r-xl);border-bottom:1px solid var(--line);max-width:600px}}
 body.reading .sheet{max-width:740px}
 .sheet .big{font-family:var(--sans);font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.15}
@@ -501,6 +506,7 @@ body.reading .sheet{max-width:740px}
         <li>Hazır makaleler: her biri A1–C2 arası 6 seviyede ve fotoğraflı; “Günün makalesi”.</li>
         <li>Haberler: güncel haberler seviyelere göre; önemli kelimeler, anlama soruları ve kaynaklarla.</li>
         <li>Kelimelerimle makale oluştur: bir ya da birkaç kelime listesi seç, o kelimelerin geçtiği cümlelerden okuma sayfası.</li>
+        <li>Sesli okuma: makale cümle cümle, okunan cümle vurgulanarak sesli okunur; hız seçilebilir.</li>
         <li>Word (.docx) dosyasından makale yükleme.</li>
         <li>Sözlükte daha kısa, öz sonuçlar.</li>
         <li>Profil → Ayarlar: ayarlar, yedek ve geri yükleme tek yerde.</li>
@@ -689,7 +695,7 @@ body.reading .sheet{max-width:740px}
   function mk(w,m,e,t,i){return {id:Date.now().toString(36)+(i||0)+Math.random().toString(36).slice(2,5),w:w,m:m,e:e||"",t:t||"",box:0}}
   function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
   // Line icons (24px grid, stroke = currentColor), used instead of emoji so every screen shares one icon style.
-  var IC={check:'M20 6 9 17l-5-5',repeat:'M17 2l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v1a4 4 0 0 1-4 4H3',edit:'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z',
+  var IC={check:'M20 6 9 17l-5-5',play:'M7 4.5v15l12-7.5z',pause:'M8 5v14M16 5v14',prev:'M18 6v12l-9-6zM6 6v12',next:'M6 6v12l9-6zM18 6v12',repeat:'M17 2l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v1a4 4 0 0 1-4 4H3',edit:'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z',
     trash:'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6',x:'M18 6 6 18M6 6l12 12',share:'M4 12v8h16v-8M16 6l-4-4-4 4M12 2v13',arrowl:'M19 12H5M12 19l-7-7 7-7',arrowr:'M5 12h14M12 5l7 7-7 7',
     up:'M12 19V5M5 12l7-7 7 7',down:'M12 5v14M19 12l-7 7-7-7',moon:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z',volume:'M11 5 6 9H2v6h4l5 4V5ZM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14',
     speak:'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2ZM8 9h8M8 13h5',book:'M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14ZM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5',
@@ -836,15 +842,64 @@ body.reading .sheet{max-width:740px}
   });
   function speak(t,rate){
     // rate: optional (the dictionary's own speed); otherwise the speed from Settings. cancel() first, so only one plays.
-    try{
+    try{var u=utter(t,rate);speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}
+  }
+  function utter(t,rate){
+    {
       var u=new SpeechSynthesisUtterance(t);u.lang=S.acc;u.rate=rate||parseFloat(S.rate);
       var vs=speechSynthesis.getVoices(),v=null;
       for(var i=0;i<vs.length;i++){if(vs[i].voiceURI===S.voice){v=vs[i];break}}
       // no voice chosen in Settings: an English voice for the chosen accent, else any English one
       if(!v)v=vs.filter(function(x){return x.lang.replace('_','-')===S.acc})[0]||vs.filter(function(x){return /^en\b/i.test(x.lang)})[0]||null;
       if(v){u.voice=v;u.lang=v.lang}
+      return u;
+    }
+  }
+  // ---- Read aloud (reader) ----
+  // The article is read sentence by sentence (one utterance each: long utterances get cut off on some phones). The
+  // sentence being read is highlighted and kept in view. Pause stops after cancelling the current sentence and resumes
+  // from it (speechSynthesis.pause() does not work on Android). Leaving the reader or redrawing it stops reading.
+  var RA={on:false,i:0,tok:0},RARATES=[[0.6,'0.6×'],[0.8,'0.8×'],[1,'1×'],[1.2,'1.2×']];
+  function raRate(){var r=+S.rarate;return RARATES.some(function(x){return x[0]===r})?r:1}
+  function raSents(){return [].slice.call(document.querySelectorAll('#art .s'))}
+  function raMark(i){Array.prototype.forEach.call(document.querySelectorAll('#art .s.ra'),function(x){x.classList.remove('ra')});var el=raSents()[i];if(el)el.classList.add('ra');return el}
+  function raSay(){
+    var L=raSents();if(RA.i>=L.length){RA.i=Math.max(0,L.length-1);raPause();return}
+    var el=raMark(RA.i),me=++RA.tok;
+    var b=el.getBoundingClientRect();if(b.top<90||b.bottom>innerHeight-170)window.scrollTo(0,scrollY+b.top-innerHeight/3);
+    try{
+      var u=utter(el.textContent.trim(),raRate());
+      u.onend=function(){if(RA.on&&RA.tok===me){RA.i++;raSay()}};
+      u.onerror=function(e){if(RA.on&&RA.tok===me&&!(e&&/interrupted|canceled/.test(e.error||''))){RA.i++;raSay()}};
       speechSynthesis.cancel();speechSynthesis.speak(u);
-    }catch(e){}
+    }catch(e){raPause()}
+    raBar();
+  }
+  function raPlay(){if(!raSents().length)return;RA.on=true;raSay()}
+  function raPause(){RA.on=false;RA.tok++;try{speechSynthesis.cancel()}catch(e){}raBar()}
+  function raStop(){var was=RA.on||$('rabar');RA.on=false;RA.tok++;if(was)try{speechSynthesis.cancel()}catch(e){}raMark(-1);var b=$('rabar');if(b)b.remove()}
+  function raOpen(){
+    // start from the first sentence on screen
+    var L=raSents(),i=0;for(;i<L.length;i++)if(L[i].getBoundingClientRect().bottom>90)break;
+    RA.i=Math.min(i,Math.max(0,L.length-1));raPlay();
+  }
+  function raBar(){
+    var b=$('rabar');
+    if(!b){b=document.createElement('div');b.id='rabar';b.className='rabar';b.setAttribute('role','group');b.setAttribute('aria-label','Sesli okuma');document.body.appendChild(b)}
+    var n=raSents().length,rt=raRate();
+    b.innerHTML="<button class='tb' data-ra='prev' aria-label='Önceki cümle'"+(RA.i>0?'':' disabled')+">"+ic('prev')+"</button>"+
+      "<button class='tb main' data-ra='play' aria-label='"+(RA.on?'Duraklat':'Oynat')+"'>"+ic(RA.on?'pause':'play')+"</button>"+
+      "<button class='tb' data-ra='next' aria-label='Sonraki cümle'"+(RA.i<n-1?'':' disabled')+">"+ic('next')+"</button>"+
+      "<span class='ra-pos'>"+(n?RA.i+1:0)+" / "+n+"</span>"+
+      "<span class='dspd' role='group' aria-label='Okuma hızı'>"+RARATES.map(function(x){return "<button data-rr='"+x[0]+"' class='"+(x[0]===rt?'on':'')+"' aria-pressed='"+(x[0]===rt)+"'>"+x[1]+"</button>"}).join('')+"</span>"+
+      "<button class='tb' data-ra='close' aria-label='Sesli okumayı kapat'>"+ic('x')+"</button>";
+    Array.prototype.forEach.call(b.querySelectorAll('[data-ra]'),function(x){x.onclick=function(){
+      var k=x.getAttribute('data-ra');
+      if(k==='play'){if(RA.on)raPause();else raPlay()}
+      else if(k==='close')raStop();
+      else{RA.i=Math.max(0,Math.min(n-1,RA.i+(k==='next'?1:-1)));if(RA.on)raSay();else{raMark(RA.i);raBar()}}
+    }});
+    Array.prototype.forEach.call(b.querySelectorAll('[data-rr]'),function(x){x.onclick=function(){S.rarate=+x.getAttribute('data-rr');saveS();if(RA.on)raSay();else raBar()}});
   }
 
   function renderList(){
@@ -1614,16 +1669,17 @@ body.reading .sheet{max-width:740px}
     if(a){drawReader(v,a);if(a.lib)libReader(a);else if(a.kw)kwReader(a);return}
     openArt=null;leaveReader();drawLibrary(v);
   }
-  function leaveReader(){document.body.classList.remove('reading');$('rprog').style.width='0'}
+  function leaveReader(){raStop();document.body.classList.remove('reading');$('rprog').style.width='0'}
 
   // ---- Reader ----
   function progLabel(x){return x.done?'tamamlandı':x.pos>0.01?'%'+Math.round(x.pos*100)+' okundu':'okunmadı'}
   function pgLabel(a){return a.pg&&a.pg[0]?'PDF s. '+a.pg[0]+(a.pg[1]>a.pg[0]?'–'+a.pg[1]:''):''}
   function drawReader(v,a){
+    raStop();
     document.body.classList.add('reading');
     var sib=a.wb?ART.filter(function(x){return x.wb&&x.wb.id===a.wb.id}).sort(function(x,y){return (x.ord||0)-(y.ord||0)}):[],si=sib.indexOf(a);
     var meta=[wordCount(a.text)+' kelime',a.lv,pgLabel(a),a.src&&a.src.name&&!a.wb?'PDF: '+a.src.name:''].filter(Boolean).join(' · ');
-    v.innerHTML="<div class='rtool'><button class='btn ghost' id='back'>"+ic('arrowl')+" Kütüphane</button><span class='rpct' id='rpct'></span><button class='tb' id='r-fm' aria-label='Yazıyı küçült'>A−</button><button class='tb' id='r-fp' aria-label='Yazıyı büyüt'>A+</button><button class='tb' id='r-th' aria-label='Açık / koyu tema'>"+ic('moon')+"</button><button class='tb' id='edt' aria-label='Düzenle'>"+ic('edit')+"</button></div>"+
+    v.innerHTML="<div class='rtool'><button class='btn ghost' id='back' aria-label='Kütüphane'>"+ic('arrowl')+"<span class='bk-t'> Kütüphane</span></button><span class='rpct' id='rpct'></span><button class='tb' id='r-fm' aria-label='Yazıyı küçült'>A−</button><button class='tb' id='r-fp' aria-label='Yazıyı büyüt'>A+</button><button class='tb' id='r-th' aria-label='Açık / koyu tema'>"+ic('moon')+"</button><button class='tb' id='r-ra' aria-label='Sesli oku'>"+ic('volume')+"</button><button class='tb' id='edt' aria-label='Düzenle'>"+ic('edit')+"</button></div>"+
       (a.wb?"<p class='kicker'>"+esc(a.wb.title)+(si>=0?' · '+(si+1)+' / '+sib.length:'')+"</p>":'')+
       "<h1 class='atitle'>"+esc(a.title)+"</h1><p class='sub'>"+esc(meta)+"<br>Bir kelimeye dokun: anlamını gör ve kaydet. Birkaç kelime seç: çevirisini gör.</p>"+
       "<div class='art' id='art'>"+(a.xt!=null?"<p class='"+(a.lost?'derr':'note')+"'>"+(a.lost?'Bu makalenin metni bu tarayıcıda bulunamadı. Makalenin kaydı ve notların silinmedi; metni geri getirmek için yedeğini geri yükleyebilirsin.':'Metin yükleniyor…')+"</p>":artBody(a.text))+"</div>"+
@@ -1636,6 +1692,8 @@ body.reading .sheet{max-width:740px}
     var nt=0;$('r-note').oninput=function(){var t=this.value;clearTimeout(nt);nt=setTimeout(function(){if(t.trim())a.note=t;else delete a.note;if(saveA())msg('r-nt','Not kaydedildi.')},700)};
     $('r-done').onclick=function(){a.done=!a.done;if(a.done)a.doneAt=Date.now();saveA();var b=this;b.className='btn '+(a.done?'ghost':'main');b.innerHTML=a.done?ic('check')+' Tamamlandı (geri al)':'Okumayı tamamladım'};
     $('edt').onclick=function(){saveProgress();editArt=openArt;renderRead()};
+    $('r-ra').onclick=function(){if($('rabar'))raStop();else raOpen()};
+    if(a.xt!=null)$('r-ra').style.display='none';
     if(a.xt!=null)$('edt').style.display='none'; // text not loaded (or not found): editing would save an empty text
     $('back').onclick=function(){saveProgress();openArt=null;$('sheet').classList.add('hide');renderRead();window.scrollTo(0,0)};
     function font(dz){
