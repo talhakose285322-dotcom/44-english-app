@@ -510,7 +510,7 @@ body.reading .sheet{max-width:740px}
         <li>Sesli okuma: makale cümle cümle, okunan cümle vurgulanarak sesli okunur; hız seçilebilir.</li>
         <li>Fotoğraftan makale: kitap ya da gazete sayfasının fotoğrafını çek, metni cihazında çıkarılsın.</li>
         <li>Makalenin sonunda “yeni kelimeler”: listende olmayan kelimeleri seç, anlamlarıyla tek seferde listene ekle.</li>
-        <li>Word (.docx) dosyasından makale yükleme.</li>
+        <li>Word (.docx), EPUB e-kitap ve altyazı (.srt, .vtt) dosyasından makale yükleme.</li>
         <li>Sözlükte daha kısa, öz sonuçlar.</li>
         <li>Profil → Ayarlar: ayarlar, yedek ve geri yükleme tek yerde.</li>
         <li>Uygulamayı yükle düğmesi; güncellemeler kendiliğinden gelir.</li>
@@ -1830,7 +1830,7 @@ body.reading .sheet{max-width:740px}
     var h="<h1>Okuma kütüphanesi</h1><p class='sub'>Kelimeye dokun: anlamını gör ve kelimelerine ekle.</p>"+
       "<div class='seg rtabs' id='rtabs'>"+[['lib','Hazır makaleler'],['kw','Kelimelerimle oluştur'],['own','Makale yükle'],['mine','Makalelerim']].map(function(x){return "<button data-rt='"+x[0]+"' class='"+(x[0]===rt?'on':'')+"'>"+x[1]+"</button>"}).join('')+"</div>";
     h+="<div id='rt-lib'"+(rt==='lib'?'':" class='hide'")+"><div class='panel' id='rl'></div></div><div id='rt-kw'"+(rt==='kw'?'':" class='hide'")+"><div class='panel' id='kw'></div></div><div id='rt-own'"+(rt==='own'?'':" class='hide'")+">";
-    h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF, Word ya da metin dosyası (.pdf, .docx, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'>"+
+    h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF, Word, e-kitap, altyazı ya da metin dosyası (.pdf, .docx, .epub, .srt, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,.epub,.srt,.vtt,application/epub+zip,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'>"+
       "<div class='acts' id='a-ph'><button class='btn ghost' id='a-cb'>"+ic('camera')+" Fotoğraf çek</button><button class='btn ghost' id='a-gb'>"+ic('image')+" Fotoğraf seç</button></div>"+
       "<input type='file' id='a-ic' accept='image/*' capture='environment' hidden><input type='file' id='a-ig' accept='image/*' multiple hidden>"+
       "<p class='note'>Ders kitabı, gazete ya da çalışma kâğıdı sayfasının fotoğrafındaki İngilizce metin çıkarılır (bir seferde en fazla "+MAXPH+" fotoğraf). Tanıma bu cihazda yapılır, fotoğraf hiçbir yere gönderilmez. İlk kullanımda metin tanıma motoru indirilir (yaklaşık 5–20 MB).</p><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
@@ -1873,6 +1873,16 @@ body.reading .sheet{max-width:740px}
         // Word: the text goes into the same box as a .txt file, then it is saved the usual way
         var ds=statusFn('a-p',{stop:false});ds.html('Word dosyası okunuyor…');
         docxText(f).then(function(t){$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();$('a-p').innerHTML=''},function(e){ds.error(e&&e.k||'Word dosyası okunamadı.')});
+        return;
+      }
+      if(/\.epub$/i.test(f.name)||f.type==='application/epub+zip'){
+        var es=statusFn('a-p',{stop:false});es.html('E-kitap okunuyor…');
+        epubText(f).then(function(r){$('a-x').value=r.text;if(!$('a-t').value)$('a-t').value=r.title||f.name.replace(/\.[^.]+$/,'');keep();es.html('E-kitap okundu, yaklaşık '+wordCount(r.text)+' kelime. Metni kontrol et, sonra “Makaleyi kaydet”e dokun.')},function(e){es.error(e&&e.k||'E-kitap okunamadı.')});
+        return;
+      }
+      if(/\.(srt|vtt)$/i.test(f.name)){
+        var ss=statusFn('a-p',{stop:false});
+        readBuf(f).then(function(b){var t=subText(new TextDecoder().decode(b));$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();ss.html('Altyazı okundu, yaklaşık '+wordCount(t)+' kelime. Metni kontrol et, sonra “Makaleyi kaydet”e dokun.')}).catch(function(e){ss.error(e&&e.k||'Altyazı dosyası okunamadı.')});
         return;
       }
       if(/\.doc$/i.test(f.name)){statusFn('a-p',{stop:false}).error('Eski Word (.doc) biçimi desteklenmez. Dosyayı Word’de “.docx” olarak kaydedip tekrar dene.');return}
@@ -3372,27 +3382,34 @@ body.reading .sheet{max-width:740px}
   // A .docx file is a ZIP archive whose text is in word/document.xml. It is read with the browser's own
   // DecompressionStream (no library) and turned into plain text only: one paragraph per block, headings marked with
   // "## " as in PDF drafts. Nothing from the file is ever used as HTML.
-  async function docxText(f){
+  // A ZIP archive (Word, EPUB): the directory of entries, and a reader for one entry's text. bad: the message for a
+  // broken file. Entries are inflated only when asked for.
+  async function zipRead(f,bad){
     if(!f.size)throw fail('Dosya boş.');
     if(f.size>MAXMB*1048576)throw fail('Dosya çok büyük ('+mb(f.size)+'). En fazla '+MAXMB+' MB desteklenir.');
-    var b=new Uint8Array(await readBuf(f)),dv=new DataView(b.buffer),bad='Bu dosya geçerli bir Word (.docx) belgesi değil ya da bozuk.';
+    var b=new Uint8Array(await readBuf(f)),dv=new DataView(b.buffer),ents={};
     if(b.length<22||dv.getUint32(0,true)!==0x04034b50)throw fail(bad);
     var e=-1;for(var i=b.length-22;i>=Math.max(0,b.length-65557);i--){if(dv.getUint32(i,true)===0x06054b50){e=i;break}}
     if(e<0)throw fail(bad);
-    var n=dv.getUint16(e+10,true),p=dv.getUint32(e+16,true),xml=null;
+    var n=dv.getUint16(e+10,true),p=dv.getUint32(e+16,true);
     for(var k=0;k<n&&p+46<=b.length&&dv.getUint32(p,true)===0x02014b50;k++){
-      var meth=dv.getUint16(p+10,true),csz=dv.getUint32(p+20,true),nl=dv.getUint16(p+28,true),lo=dv.getUint32(p+42,true);
-      var name=new TextDecoder().decode(b.subarray(p+46,p+46+nl));p+=46+nl+dv.getUint16(p+30,true)+dv.getUint16(p+32,true);
-      if(name!=='word/document.xml')continue;
-      if(lo+30>b.length||dv.getUint32(lo,true)!==0x04034b50)throw fail(bad);
-      var at=lo+30+dv.getUint16(lo+26,true)+dv.getUint16(lo+28,true),raw=b.subarray(at,at+csz);
-      if(meth===0)xml=new TextDecoder().decode(raw);
-      else if(meth===8){
-        if(typeof DecompressionStream==='undefined')throw fail('Bu tarayıcı Word dosyalarını açamıyor. Tarayıcıyı güncelle ya da metni kopyalayıp yapıştır.');
-        try{xml=await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text()}catch(x){throw fail(bad)}
-      }else throw fail(bad);
-      break;
+      var nl=dv.getUint16(p+28,true),name=new TextDecoder().decode(b.subarray(p+46,p+46+nl));
+      ents[name]={meth:dv.getUint16(p+10,true),csz:dv.getUint32(p+20,true),lo:dv.getUint32(p+42,true)};
+      p+=46+nl+dv.getUint16(p+30,true)+dv.getUint16(p+32,true);
     }
+    async function text(name){
+      var x=ents[name];if(!x)return null;
+      if(x.lo+30>b.length||dv.getUint32(x.lo,true)!==0x04034b50)throw fail(bad);
+      var at=x.lo+30+dv.getUint16(x.lo+26,true)+dv.getUint16(x.lo+28,true),raw=b.subarray(at,at+x.csz);
+      if(x.meth===0)return new TextDecoder().decode(raw);
+      if(x.meth!==8)throw fail(bad);
+      if(typeof DecompressionStream==='undefined')throw fail('Bu tarayıcı bu dosyayı açamıyor. Tarayıcıyı güncelle ya da metni kopyalayıp yapıştır.');
+      try{return await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text()}catch(y){throw fail(bad)}
+    }
+    return {names:Object.keys(ents),text:text};
+  }
+  async function docxText(f){
+    var bad='Bu dosya geçerli bir Word (.docx) belgesi değil ya da bozuk.',z=await zipRead(f,bad),xml=await z.text('word/document.xml');
     if(xml==null)throw fail(bad);
     var doc=new DOMParser().parseFromString(xml,'application/xml');
     if(doc.getElementsByTagName('parsererror').length)throw fail(bad);
@@ -3410,6 +3427,56 @@ body.reading .sheet{max-width:740px}
     }
     if(!out.length)throw fail('Word belgesinde metin bulunamadı.');
     return out.join('\n\n');
+  }
+  // ---- EPUB e-book import ----
+  // An EPUB is a ZIP of XHTML chapters; META-INF/container.xml names the package file, whose spine gives the reading
+  // order. Only the text is taken (headings marked with "## "); nothing from the book is used as HTML. DRM-protected
+  // books cannot be read.
+  async function epubText(f){
+    var bad='Bu dosya geçerli bir EPUB e-kitabı değil ya da bozuk.',z=await zipRead(f,bad);
+    if(z.names.indexOf('META-INF/encryption.xml')>=0&&/EncryptedData/.test(await z.text('META-INF/encryption.xml')||''))throw fail('Bu e-kitap kopya korumalı (DRM). Korumalı kitaplar açılamaz.');
+    function xmlOf(t,type){var d=new DOMParser().parseFromString(t||'',type||'application/xml');return d.getElementsByTagName('parsererror').length?null:d}
+    var ct=xmlOf(await z.text('META-INF/container.xml')),rf=ct&&ct.getElementsByTagNameNS('*','rootfile')[0],op=rf&&rf.getAttribute('full-path');
+    var opf=op&&xmlOf(await z.text(op));if(!opf)throw fail(bad);
+    var base=op.indexOf('/')>=0?op.slice(0,op.lastIndexOf('/')+1):'',man={},out=[];
+    Array.prototype.forEach.call(opf.getElementsByTagNameNS('*','item'),function(it){man[it.getAttribute('id')]={href:it.getAttribute('href')||'',type:it.getAttribute('media-type')||''}});
+    function path(h){var ps=(base+decodeURIComponent(h.split('#')[0])).split('/'),o=[];ps.forEach(function(x){if(x==='..')o.pop();else if(x&&x!=='.')o.push(x)});return o.join('/')}
+    var refs=opf.getElementsByTagNameNS('*','itemref'),BLK='p,h1,h2,h3,h4,h5,h6,li,blockquote,pre,dt,dd,figcaption,td';
+    for(var i=0;i<refs.length;i++){
+      var m=man[refs[i].getAttribute('idref')];if(!m||!/html/i.test(m.type+m.href))continue;
+      var src=await z.text(path(m.href));if(src==null)continue;
+      var d=xmlOf(src,'application/xhtml+xml')||new DOMParser().parseFromString(src,'text/html'),body=d.getElementsByTagName('body')[0];if(!body)continue;
+      var bl=[].filter.call(body.querySelectorAll(BLK),function(el){return !el.querySelector(BLK)});
+      if(!bl.length)bl=[body];
+      bl.forEach(function(el){
+        var t=el.textContent.replace(/\s+/g,' ').trim();if(!t)return;
+        out.push((/^h[1-6]$/i.test(el.localName)&&t.length<150?'## ':'')+t);
+      });
+    }
+    if(!out.length)throw fail('E-kitapta metin bulunamadı.');
+    var ti=opf.getElementsByTagNameNS('*','title')[0];
+    return {text:out.join('\n\n'),title:ti?ti.textContent.trim():''};
+  }
+  // ---- Subtitles (.srt, .vtt) ----
+  // Cue numbers, times, styling tags and sound notes ([music], (laughs), ♪) are removed; the lines of a cue are joined
+  // and cues become paragraphs at a pause of 2.5 seconds or more (and at most 6 cues each).
+  function subText(src){
+    var t=String(src).replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n'),paras=[],cur=[],last=null;
+    function sec(x){var m=x.trim().match(/^(?:(\d+):)?(\d{1,2}):(\d{2})[,.](\d{1,3})/);return m?(+(m[1]||0))*3600+(+m[2])*60+(+m[3])+(+m[4])/1000:null}
+    t.split(/\n\s*\n/).forEach(function(blk){
+      var ls=blk.split('\n').map(function(l){return l.trim()}).filter(Boolean),k=0;
+      if(!ls.length||/^(WEBVTT|NOTE|STYLE|REGION)\b/.test(ls[0]))return;
+      while(k<ls.length&&ls[k].indexOf('-->')<0)k++;
+      if(k>=ls.length)return;
+      var tm=ls[k].split('-->'),st=sec(tm[0]),en=sec(tm[1]||'');
+      var line=ls.slice(k+1).map(function(l){return l.replace(/<[^>]*>/g,'').replace(/\{[^}]*\}/g,'').replace(/\[[^\]]*\]|\([^)]*\)|♪/g,'').replace(/^[-–—]\s*/,'').trim()}).filter(Boolean).join(' ').replace(/\s+/g,' ').trim();
+      if(!line)return;
+      if(cur.length&&(cur.length>=6||st!=null&&last!=null&&st-last>=2.5)){paras.push(cur.join(' '));cur=[]}
+      cur.push(line);if(en!=null)last=en;
+    });
+    if(cur.length)paras.push(cur.join(' '));
+    if(!paras.length)throw fail('Altyazı dosyasında metin bulunamadı.');
+    return paras.join('\n\n');
   }
   function pdfErr(e){
     if(e&&e.k)return e.k;

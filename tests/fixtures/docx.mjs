@@ -7,10 +7,10 @@ const W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 export function makeDocx(bodyXml, {store = false, document = true} = {}) {
   const files = [['[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"/>']];
   if (document) files.push(['word/document.xml', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="${W}"><w:body>${bodyXml}</w:body></w:document>`]);
-  return zip(files, store);
+  return makeZip(files, store);
 }
 
-function zip(files, store) {
+export function makeZip(files, store = false) {
   const locals = [], centrals = [];
   let offset = 0;
   for (const [name, text] of files) {
