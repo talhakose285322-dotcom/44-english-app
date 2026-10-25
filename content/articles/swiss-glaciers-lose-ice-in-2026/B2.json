@@ -1,0 +1,24 @@
+{
+  "id": "swiss-glaciers-lose-ice-in-2026",
+  "level": "B2",
+  "title": "Swiss Glaciers Lose More Ice in 2026",
+  "paragraphs": [
+    "Switzerland's glaciers lost more than 5 percent of their volume in 2026, according to the annual report of the Glacier Monitoring Switzerland network (GLAMOS), published on 1 October. Although the loss did not reach the record of 2022, it comes on top of earlier damage: in the past five years, the country has lost nearly 20 percent of its glacier ice.",
+    "The report points to a combination of factors. The winter of 2025 and 2026 was among the ten least snowy since measurements began, which left the ice poorly shielded, and a hot summer did the rest. From May to September, the freezing level climbed above 4,000 metres on 76 days, more than twice the usual figure and a Swiss record. Between July and September, the glaciers released about 2,200 billion litres of meltwater, over four times what Swiss households drink in a year.",
+    "Two small glaciers, Bella Tola and Griessfirn, vanished entirely, and the Rhône, Aletsch and Clariden glaciers saw their heaviest melt on record. As a monitoring report covering one country, it documents what happened in Switzerland, rather than explaining its causes in detail."
+  ],
+  "questions": [
+    {
+      "q": "How does 2026 compare with 2022?",
+      "a": "The loss in 2026 did not match the record of 2022."
+    },
+    {
+      "q": "What did the glaciers release between July and September?",
+      "a": "About 2,200 billion litres of meltwater."
+    },
+    {
+      "q": "What is the limit of this report?",
+      "a": "It covers one country and describes what happened rather than explaining all causes."
+    }
+  ]
+}

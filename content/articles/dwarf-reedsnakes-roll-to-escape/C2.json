@@ -1,0 +1,24 @@
+{
+  "id": "dwarf-reedsnakes-roll-to-escape",
+  "level": "C2",
+  "title": "Tiny Snakes Cartwheel Away From Danger",
+  "paragraphs": [
+    "What reads like a cartoon gag has now been put on a rigorous footing: a group of diminutive Southeast Asian snakes flees by cartwheeling, and a paper in Current Biology, led by Yosuke Kojima of Toho University in Japan, dissects the mechanics of the manoeuvre in some detail.",
+    "Having filmed 13 snakes of the genus Pseudorabdion, collected in Kubah National Park in Malaysia, along a track barely 20 centimetres wide, the team found that every one of them rolled when given a gentle tap, whereas six snakes of the genus Calamaria, enlisted as controls, never left the ground. The gait is built from a repeated \"stroke\": one flank is whipped earthwards while an arched stretch of the body swings down beside the head, and the animal alternates sides with each cycle. The dividend is a pace some four times that of ordinary slithering, delivered while the head holds a strikingly steady course, a feat of stabilisation that would not look out of place in a camera gimbal.",
+    "Yet the findings should not be oversold. The rolling was coaxed out in a laboratory rather than provoked by genuine predators, the sample is modest, and the evolutionary origins of the trick remain a puzzle. Kojima himself is candid about the unanswered questions: \"This mode of locomotion may require a lot of energy, but we don't yet know how long the snakes can sustain it.\""
+  ],
+  "questions": [
+    {
+      "q": "What does the comparison with a camera gimbal suggest?",
+      "a": "That the snakes keep their heads remarkably steady while the body rotates."
+    },
+    {
+      "q": "Why do the authors' findings call for restraint?",
+      "a": "The behaviour was induced in a lab, the sample is small and the evolution is unexplained."
+    },
+    {
+      "q": "What is the function of the six Calamaria snakes in the study?",
+      "a": "They served as controls and never rolled."
+    }
+  ]
+}

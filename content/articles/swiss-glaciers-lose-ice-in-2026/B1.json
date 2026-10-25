@@ -1,0 +1,24 @@
+{
+  "id": "swiss-glaciers-lose-ice-in-2026",
+  "level": "B1",
+  "title": "Swiss Glaciers Lose More Ice in 2026",
+  "paragraphs": [
+    "Switzerland's glaciers had another bad year. According to the annual report of the Glacier Monitoring Switzerland network (GLAMOS), they lost more than 5 percent of their total ice volume in 2026. The report was published on 1 October and is based on long-term measurements.",
+    "Two things caused the loss. First, the winter of 2025 and 2026 was among the ten with the least snow since records began, so the glaciers had little protection. Second, summer heatwaves pushed the freezing level above 4,000 metres on 76 days, which is more than twice the average and a new Swiss record.",
+    "Two small glaciers, Bella Tola in Valais and Griessfirn in Glarus, have disappeared completely. Over the last five years, Switzerland has lost nearly 20 percent of its glacier volume. Note that this is a monitoring report from one country, so it describes Switzerland and not all glaciers in the world."
+  ],
+  "questions": [
+    {
+      "q": "What kind of document is the source of the numbers?",
+      "a": "An annual monitoring report (GLAMOS)."
+    },
+    {
+      "q": "Why did the glaciers have little protection?",
+      "a": "The winter had very little snow."
+    },
+    {
+      "q": "Why can't we say this is true for all glaciers in the world?",
+      "a": "The report is about Switzerland only."
+    }
+  ]
+}

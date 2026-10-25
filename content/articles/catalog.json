@@ -182,6 +182,182 @@
       ]
     },
     {
+      "id": "swiss-glaciers-lose-ice-in-2026",
+      "category": "news",
+      "title": "Swiss Glaciers Lose More Ice in 2026",
+      "summary": "İsviçre'deki buzullar 2026'da hacimlerinin %5'inden fazlasını kaybetti; son beş yılda buz hacminin yaklaşık %20'si yok oldu.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-25",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 58,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 109,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 148,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 186,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 201,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 218,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "swiss-glaciers-lose-ice-in-2026/image.jpg",
+        "alt": "İsviçre'deki Rhône Buzulu ve çevresindeki çıplak kayalar. Örnek görsel: 2014'te çekilmiştir.",
+        "credit": "Roy Egloff",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:CH.VS.Obergoms_2014-06-30_Rhone-Glacier_6093_3x2-R_5K.jpg"
+      },
+      "sources": [
+        {
+          "title": "ETH Zurich: A devastating year for Switzerland's glaciers",
+          "url": "https://ethz.ch/en/news-and-events/eth-news/news/2026/10/devastating-year-for-switzerlands-glaciers.html"
+        },
+        {
+          "title": "GLAMOS 2026: Annual mass balance on Swiss glaciers in 2025/2026",
+          "url": "https://doi.org/10.18752/annualrep_2026"
+        },
+        {
+          "title": "ScienceDaily: Nearly 20% of Switzerland's glacier ice has vanished in just five years",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261022081316.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "glacier",
+          "tr": "buzul"
+        },
+        {
+          "w": "melt",
+          "tr": "erimek"
+        },
+        {
+          "w": "meltwater",
+          "tr": "erime suyu"
+        },
+        {
+          "w": "volume",
+          "tr": "hacim"
+        },
+        {
+          "w": "freezing level",
+          "tr": "donma seviyesi (0 °C'nin olduğu yükseklik)"
+        },
+        {
+          "w": "record",
+          "tr": "rekor, kayıt"
+        },
+        {
+          "w": "heatwave",
+          "tr": "sıcak hava dalgası"
+        }
+      ]
+    },
+    {
+      "id": "dwarf-reedsnakes-roll-to-escape",
+      "category": "news",
+      "title": "Tiny Snakes Cartwheel Away From Danger",
+      "summary": "Japon bilim insanları, küçük cüce kamış yılanlarının tehlikeden kaçarken yerde takla atarak yuvarlandığını ve bunun normal kayma hızının yaklaşık dört katı olduğunu gösterdi.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-25",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 61,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 110,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 169,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 198,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 215,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 232,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "dwarf-reedsnakes-roll-to-escape/image.jpg",
+        "alt": "Bir cüce kamış yılanı (Pseudorabdion longiceps). Örnek görsel: yılan çalışmadaki bireylerden biri değildir.",
+        "credit": "Scott Loarie (iNaturalist)",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pseudorabdion_longiceps_11280804.jpg"
+      },
+      "sources": [
+        {
+          "title": "Smithsonian Magazine: These snakes can cartwheel away from danger",
+          "url": "https://www.smithsonianmag.com/smart-news/these-snakes-can-cartwheel-away-from-danger-scientists-just-uncovered-how-the-slithering-creatures-perform-their-acrobatic-rolls-180989720/"
+        },
+        {
+          "title": "ScienceDaily (Toho University): These tiny snakes roll four times faster than they slither",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261023023718.htm"
+        },
+        {
+          "title": "Defector: Rolling snakes reinvent the wheel",
+          "url": "https://defector.com/rolling-snakes-reinvent-the-wheel"
+        },
+        {
+          "title": "Kojima et al., Current Biology (2026), doi:10.1016/j.cub.2026.08.057",
+          "url": "https://doi.org/10.1016/j.cub.2026.08.057"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "cartwheel",
+          "tr": "takla atmak, yan yuvarlanmak"
+        },
+        {
+          "w": "slither",
+          "tr": "sürünerek kaymak"
+        },
+        {
+          "w": "escape",
+          "tr": "kaçmak"
+        },
+        {
+          "w": "predator",
+          "tr": "avcı (yırtıcı hayvan)"
+        },
+        {
+          "w": "steady",
+          "tr": "sabit, dengeli"
+        },
+        {
+          "w": "sample",
+          "tr": "örneklem"
+        },
+        {
+          "w": "comparison",
+          "tr": "karşılaştırma"
+        }
+      ]
+    },
+    {
       "id": "crew-12-returns-to-earth",
       "category": "news",
       "title": "Astronauts Return After Seven Months in Space",

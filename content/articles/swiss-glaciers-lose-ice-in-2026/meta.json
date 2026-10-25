@@ -1,0 +1,59 @@
+{
+  "id": "swiss-glaciers-lose-ice-in-2026",
+  "category": "news",
+  "title": "Swiss Glaciers Lose More Ice in 2026",
+  "summary": "İsviçre'deki buzullar 2026'da hacimlerinin %5'inden fazlasını kaybetti; son beş yılda buz hacminin yaklaşık %20'si yok oldu.",
+  "published": "2026-10-25",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "İsviçre'deki Rhône Buzulu ve çevresindeki çıplak kayalar. Örnek görsel: 2014'te çekilmiştir.",
+    "credit": "Roy Egloff",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:CH.VS.Obergoms_2014-06-30_Rhone-Glacier_6093_3x2-R_5K.jpg"
+  },
+  "sources": [
+    {
+      "title": "ETH Zurich: A devastating year for Switzerland's glaciers",
+      "url": "https://ethz.ch/en/news-and-events/eth-news/news/2026/10/devastating-year-for-switzerlands-glaciers.html"
+    },
+    {
+      "title": "GLAMOS 2026: Annual mass balance on Swiss glaciers in 2025/2026",
+      "url": "https://doi.org/10.18752/annualrep_2026"
+    },
+    {
+      "title": "ScienceDaily: Nearly 20% of Switzerland's glacier ice has vanished in just five years",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261022081316.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "glacier",
+      "tr": "buzul"
+    },
+    {
+      "w": "melt",
+      "tr": "erimek"
+    },
+    {
+      "w": "meltwater",
+      "tr": "erime suyu"
+    },
+    {
+      "w": "volume",
+      "tr": "hacim"
+    },
+    {
+      "w": "freezing level",
+      "tr": "donma seviyesi (0 °C'nin olduğu yükseklik)"
+    },
+    {
+      "w": "record",
+      "tr": "rekor, kayıt"
+    },
+    {
+      "w": "heatwave",
+      "tr": "sıcak hava dalgası"
+    }
+  ]
+}
