@@ -125,7 +125,7 @@ summary{cursor:pointer;font-weight:600;font-size:14px;padding:8px 0;color:var(--
 .alert{background:var(--bad-soft);border:1px solid color-mix(in srgb,var(--bad) 30%,transparent);border-radius:var(--r);padding:12px 16px;margin:0 0 14px;font-size:14px}
 .alert b{color:var(--bad)}
 .alert .btn,.remind .btn{padding:9px 14px;font-size:14px;margin:8px 8px 0 0;width:auto;background:var(--card)}
-.remind{background:var(--warn-soft);border-radius:var(--r);padding:12px 16px;margin:0 0 14px;font-size:14px;color:var(--ink2)}
+.remind{position:relative;background:var(--warn-soft);border-radius:var(--r);padding:12px 44px 12px 16px;margin:0 0 14px;font-size:14px;color:var(--ink2)}.remind>.itip{position:absolute;top:8px;right:8px}.itip{position:relative;display:inline-grid;place-items:center;flex:none;width:24px;height:24px;padding:0;border-radius:50%;border:1.5px solid currentColor;background:none;color:var(--muted);font:700 13px/1 Georgia,serif;font-style:italic;cursor:pointer;vertical-align:middle}.itip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.itip .itip-b{display:none;position:absolute;z-index:40;top:calc(100% + 8px);right:-6px;width:min(280px,78vw);padding:12px 14px;border-radius:12px;background:var(--ink);color:var(--card);font-family:var(--sans);font-size:13.5px;line-height:1.45;font-weight:400;font-style:normal;letter-spacing:0;text-align:left;box-shadow:0 10px 28px rgba(0,0,0,.25);cursor:auto}.itip.open .itip-b{display:block}@media (hover:hover){.itip:hover .itip-b{display:block}}
 .seg{display:flex;background:var(--soft);border-radius:12px;padding:4px;margin:12px 0;gap:2px}
 .seg button{flex:1;border:0;background:none;color:var(--muted);padding:9px 8px;border-radius:9px;font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
 .seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(16,24,40,.12)}
@@ -751,7 +751,7 @@ body.reading .sheet{max-width:740px}
     var lb=S.lastBackup||0,dd=Math.floor((Date.now()-lb)/864e5),r=$('remind');
     if(words.length&&dd>=7){
       r.className='remind';
-      r.innerHTML=(lb?'Son yedeğini '+dd+' gün önce indirdin.':'Henüz yedek indirmedin.')+' Verilerin sadece bu tarayıcıda duruyor.<br><button class="btn ghost" id="rm-b">Şimdi yedekle</button>';
+      r.innerHTML=(lb?'Son yedeğini '+dd+' gün önce indirdin.':'Henüz yedek indirmedin.')+' Verilerin sadece bu tarayıcıda duruyor.<br><button class="btn ghost" id="rm-b">Şimdi yedekle</button>'+itip('Kelimelerin, makalelerin ve ilerlemen yalnızca bu cihazda saklanır. Tarayıcı verileri silinirse ya da telefon değişirse yedeğin yoksa kaybolurlar. Bu hatırlatma 7 günden uzun süre yedek almadığında çıkar; yedek aldığında 7 gün boyunca görünmez. Tüm yedek seçenekleri (dosya, bulut): Profil → Ayarlar.');
       $('rm-b').onclick=function(){downloadBackup()};
     }else{r.className='';r.innerHTML=''}
   }
@@ -993,6 +993,10 @@ body.reading .sheet{max-width:740px}
   $("s-voice").onchange=function(){S.voice=this.value;saveS();speak("Hello, nice to meet you")};
   fillVoices();try{speechSynthesis.onvoiceschanged=fillVoices}catch(e){}
   // ---- Backup and restore ----
+  // (i) info button: a short explanation in a bubble; opens on tap (phone) or hover (computer)
+  function itip(t){return "<button type='button' class='itip' aria-label='Bu ne işe yarar?' aria-expanded='false'>i<span class='itip-b' role='tooltip'>"+esc(t)+"</span></button>"}
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.itip');Array.prototype.forEach.call(document.querySelectorAll('.itip.open'),function(x){if(x!==b){x.classList.remove('open');x.setAttribute('aria-expanded','false')}});if(b&&!e.target.closest('.itip-b')){e.preventDefault();e.stopPropagation();var o=b.classList.toggle('open');b.setAttribute('aria-expanded',o)}},true);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')Array.prototype.forEach.call(document.querySelectorAll('.itip.open'),function(x){x.classList.remove('open');x.setAttribute('aria-expanded','false')})});
   function msg(id,t,c){var e=$(id);if(!e)return;e.style.color=c||'var(--good)';e.textContent=t}
   function stamp(){var d=new Date();function p(n){return(n<10?'0':'')+n}return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes())}
   function clone(v){return JSON.parse(JSON.stringify(v))}
