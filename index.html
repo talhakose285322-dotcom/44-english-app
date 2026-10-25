@@ -570,7 +570,7 @@ body.reading .sheet{max-width:740px}
     <h1>Kelimeler</h1>
     <div class='seg rtabs' id='ltabs'><button data-lt='list' class='on'>Listelerim</button><button data-lt='add'>Kelime ekle</button></div>
     <div id='lt-list'>
-    <p class="sub" id="lsub"></p>
+    <p class="sub" id="lsub-p"><span id="lsub"></span></p>
     <input id='lcq' type='search' class='hide' placeholder='Koleksiyon ara' autocomplete='off' aria-label='Koleksiyon ara' style='margin-bottom:8px'>
     <div id='lcards' class='rchips' role='group' aria-label='Koleksiyonlar'></div>
     <div class='lbar'><input id='lq' type='search' placeholder='Kelime ara' autocomplete='off' autocapitalize='none' aria-label='Kelime ara'><select id='lsort' aria-label='Sırala'><option value=''>Eklenme sırası</option><option value='new'>En yeni önce</option><option value='az'>A–Z</option><option value='hard'>Zorlandıklarım önce</option><option value='due'>Tekrar tarihine göre</option></select></div>
@@ -1137,6 +1137,12 @@ body.reading .sheet{max-width:740px}
     Array.prototype.forEach.call(document.querySelectorAll('#p-set h2'),function(h){
       if(h.textContent==='Otomatik güvenlik kopyaları')itipAdd(h,'Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda verilerinin bir kopyasını kendiliğinden alır; son 15 kopya tutulur. Yanlış bir geri yüklemeyi geri almak için listeden birini “Kontrol et” ile seçip geri dönebilirsin. Bu kopyalar da bu tarayıcıda durur: tarayıcı verileri silinirse onlar da silinir, dosya ya da bulut yedeğinin yerini tutmaz.');
       if(h.textContent==='Verilerin nerede saklanıyor?')itipAdd(h,'“Kalıcı depolama iste” düğmesi görünüyorsa, tarayıcıdan yer azaldığında bu uygulamanın verilerini silmemesini ister. iPhone’da en iyi koruma, uygulamayı ana ekrana ekleyerek kullanmak ve düzenli yedek almaktır.');
+    });
+    itipAdd($('lsub-p'),'Yeni: henüz doğru bilinmedi. Öğreniliyor 1/3, 2/3: kartlarda her doğru bilişte bir adım ilerler. Öğrenildi: üç adımı tamamladı; yine de aralıklarla tekrar sorulur. Bilemediğin kelime Yeni’ye döner. “Tekrar zamanı geldi”: bugün tekrar edilmesi gerekenler; Çalış sekmesinde sorulur. Koleksiyonlar kelimelerini gruplar; bir kelime birden çok koleksiyonda olabilir. Bir koleksiyonu kaldırmak kelimeleri silmez.');
+    Array.prototype.forEach.call(document.querySelectorAll('#lt-add h2'),function(h){
+      if(h.textContent==='Tek kelime')itipAdd(h,'Kelime listende zaten varsa eklenmez; istersen mevcut kelimeyi düzenlersin. Yazarken gelen öneri makine çevirisidir ve yalnızca “Kullan”a dokunursan yazılır. Daha ayrıntılı anlam ve örnekler için Sözlük’te ara, oradan kaydet.');
+      if(h.textContent==='PDF’den kelime listesi')itipAdd(h,'Kelime ve anlamı yan yana olan listeler en iyi sonucu verir (ör. “approach — yaklaşmak” ya da tablo). Kaydetmeden önce her satırı görüp düzeltebilirsin. Makale ya da kitap PDF’leri için Makaleler sekmesini kullan.');
+      if(h.textContent==='Toplu ekle')itipAdd(h,'Yalnızca kelimeleri yazarsan anlamları makine çevirisiyle getirilir (bir seferde en fazla 30 kelime) ve eklemeden önce kontrol etmen için gösterilir. Anlamını yazdığın satırlar hemen eklenir. Listende olan kelimeler atlanır; ilerlemeleri değişmez.');
     });
     itipAdd(document.querySelector('#cardsUI .stats'),'Her kelime 0–3 arası bir kutudadır. Bildiğinde bir üst kutuya geçer ve bir sonraki tekrarı daha geç gelir: 1, 3, 8, 20 gün sonra… Bilemediğinde kutu 0’a döner ve aynı gün yeniden sorulur. 3. kutuya ulaşan kelime “öğrenildi” sayılır. “Tekrarı gelenler” bugün zamanı gelmiş kelimeleri gösterir.');
   }
