@@ -1,0 +1,24 @@
+{
+  "id": "swiss-glaciers-lose-ice-in-2026",
+  "level": "A1",
+  "title": "Swiss Glaciers Lose More Ice in 2026",
+  "paragraphs": [
+    "Swiss glaciers are big rivers of ice. They are in the mountains. This year they lost a lot of ice.",
+    "The winter had little snow. The summer was very hot. In summer, it was warm even high in the mountains.",
+    "Two small glaciers are now gone. In five years, Switzerland lost nearly 20 percent of its glacier ice."
+  ],
+  "questions": [
+    {
+      "q": "Where are the glaciers?",
+      "a": "In the mountains of Switzerland."
+    },
+    {
+      "q": "How was the winter?",
+      "a": "It had little snow."
+    },
+    {
+      "q": "How much ice did Switzerland lose in five years?",
+      "a": "Nearly 20 percent."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "dwarf-reedsnakes-roll-to-escape",
+  "level": "B2",
+  "title": "Tiny Snakes Cartwheel Away From Danger",
+  "paragraphs": [
+    "Scientists have long known that some snakes can flee by rolling, but a new study in Current Biology, led by Yosuke Kojima of Toho University, is the first to describe in detail how dwarf reed snakes, which measure about 30 centimetres, manage it.",
+    "The team filmed 13 snakes of the genus Pseudorabdion, collected in Kubah National Park in Malaysia, on a 20-centimetre-wide track, using several cameras. Every one of them cartwheeled after a gentle tap, whereas six reed snakes from another genus, kept for comparison, never did. Each roll is built from a repeated \"stroke\": one side of the body whips towards the ground while an arched section swings down beside the head, and the snake alternates sides. The result is roughly four times faster than ordinary slithering, and the head stays steady and points in the direction of travel.",
+    "Several questions remain unanswered. The behaviour was provoked by taps in a laboratory rather than by real predators, only a small number of snakes were tested, and it is unclear how the ability evolved. \"This mode of locomotion may require a lot of energy, but we don't yet know how long the snakes can sustain it,\" Kojima said."
+  ],
+  "questions": [
+    {
+      "q": "How did the researchers trigger the rolling?",
+      "a": "With a gentle tap, in a laboratory."
+    },
+    {
+      "q": "What happened to the snakes of the other genus?",
+      "a": "None of the six rolled."
+    },
+    {
+      "q": "According to Kojima, what is still unknown?",
+      "a": "How long the snakes can keep rolling."
+    }
+  ]
+}
