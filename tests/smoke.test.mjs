@@ -35,9 +35,9 @@ test('uygulama hatasız açılıyor', async () => {
 });
 
 test('her sekme kendi ekranını gösteriyor', async () => {
-  for (const v of ['read', 'list', 'dict', 'add', 'prof', 'study']) {
+  for (const v of ['read', 'list', 'dict', 'prof', 'study']) {
     await b.ev(`document.getElementById('n-${v}').click()`);
-    const shown = await b.ev(`['study','read','list','dict','tr','add','prof'].filter(function(k){return !document.getElementById('v-'+k).classList.contains('hide')})`);
+    const shown = await b.ev(`['study','read','list','dict','tr','prof'].filter(function(k){return !document.getElementById('v-'+k).classList.contains('hide')})`);
     assert.deepEqual(shown, [v], `sekme ${v}`);
   }
   assert.deepEqual(b.errors, []);
