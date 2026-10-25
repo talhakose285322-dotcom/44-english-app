@@ -507,6 +507,7 @@ body.reading .sheet{max-width:740px}
         <li>Haberler: güncel haberler seviyelere göre; önemli kelimeler, anlama soruları ve kaynaklarla.</li>
         <li>Kelimelerimle makale oluştur: bir ya da birkaç kelime listesi seç, o kelimelerin geçtiği cümlelerden okuma sayfası.</li>
         <li>Sesli okuma: makale cümle cümle, okunan cümle vurgulanarak sesli okunur; hız seçilebilir.</li>
+        <li>Fotoğraftan makale: kitap ya da gazete sayfasının fotoğrafını çek, metni cihazında çıkarılsın.</li>
         <li>Word (.docx) dosyasından makale yükleme.</li>
         <li>Sözlükte daha kısa, öz sonuçlar.</li>
         <li>Profil → Ayarlar: ayarlar, yedek ve geri yükleme tek yerde.</li>
@@ -695,7 +696,7 @@ body.reading .sheet{max-width:740px}
   function mk(w,m,e,t,i){return {id:Date.now().toString(36)+(i||0)+Math.random().toString(36).slice(2,5),w:w,m:m,e:e||"",t:t||"",box:0}}
   function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
   // Line icons (24px grid, stroke = currentColor), used instead of emoji so every screen shares one icon style.
-  var IC={check:'M20 6 9 17l-5-5',play:'M7 4.5v15l12-7.5z',pause:'M8 5v14M16 5v14',prev:'M18 6v12l-9-6zM6 6v12',next:'M6 6v12l9-6zM18 6v12',repeat:'M17 2l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v1a4 4 0 0 1-4 4H3',edit:'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z',
+  var IC={check:'M20 6 9 17l-5-5',camera:'M4 8h3.5l2-3h5l2 3H20v11H4zM12 16.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7',image:'M4 5h16v14H4zM4 16l5-5 4 4 2-2 5 5M15.5 9.5h.01',play:'M7 4.5v15l12-7.5z',pause:'M8 5v14M16 5v14',prev:'M18 6v12l-9-6zM6 6v12',next:'M6 6v12l9-6zM18 6v12',repeat:'M17 2l4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v1a4 4 0 0 1-4 4H3',edit:'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z',
     trash:'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6',x:'M18 6 6 18M6 6l12 12',share:'M4 12v8h16v-8M16 6l-4-4-4 4M12 2v13',arrowl:'M19 12H5M12 19l-7-7 7-7',arrowr:'M5 12h14M12 5l7 7-7 7',
     up:'M12 19V5M5 12l7-7 7 7',down:'M12 5v14M19 12l-7 7-7-7',moon:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z',volume:'M11 5 6 9H2v6h4l5 4V5ZM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14',
     speak:'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2ZM8 9h8M8 13h5',book:'M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14ZM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5',
@@ -1754,7 +1755,10 @@ body.reading .sheet{max-width:740px}
     var h="<h1>Okuma kütüphanesi</h1><p class='sub'>Kelimeye dokun: anlamını gör ve kelimelerine ekle.</p>"+
       "<div class='seg rtabs' id='rtabs'>"+[['lib','Hazır makaleler'],['kw','Kelimelerimle oluştur'],['own','Makale yükle'],['mine','Makalelerim']].map(function(x){return "<button data-rt='"+x[0]+"' class='"+(x[0]===rt?'on':'')+"'>"+x[1]+"</button>"}).join('')+"</div>";
     h+="<div id='rt-lib'"+(rt==='lib'?'':" class='hide'")+"><div class='panel' id='rl'></div></div><div id='rt-kw'"+(rt==='kw'?'':" class='hide'")+"><div class='panel' id='kw'></div></div><div id='rt-own'"+(rt==='own'?'':" class='hide'")+">";
-    h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF, Word ya da metin dosyası (.pdf, .docx, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
+    h+="<div class='panel' id='a-new'><h2>Yeni makale ya da kitap</h2><p class='note'>PDF seçersen: tek makaleyse makale olarak, birçok makale içeren bir kitapsa makalelere ayrılmış olarak önizlenir. Sen onaylamadan hiçbir şey kaydedilmez.</p><label for='a-f'>PDF, Word ya da metin dosyası (.pdf, .docx, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'>"+
+      "<div class='acts' id='a-ph'><button class='btn ghost' id='a-cb'>"+ic('camera')+" Fotoğraf çek</button><button class='btn ghost' id='a-gb'>"+ic('image')+" Fotoğraf seç</button></div>"+
+      "<input type='file' id='a-ic' accept='image/*' capture='environment' hidden><input type='file' id='a-ig' accept='image/*' multiple hidden>"+
+      "<p class='note'>Ders kitabı, gazete ya da çalışma kâğıdı sayfasının fotoğrafındaki İngilizce metin çıkarılır (bir seferde en fazla "+MAXPH+" fotoğraf). Tanıma bu cihazda yapılır, fotoğraf hiçbir yere gönderilmez. İlk kullanımda metin tanıma motoru indirilir (yaklaşık 5–20 MB).</p><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
     h+="</div><div id='rt-mine'"+(rt==='mine'?'':" class='hide'")+"><p class='note'>"+ART.length+" makale"+(wbs.length?', '+wbs.length+' kitap':'')+"."+(ART.length?'':' Yüklediğin ya da kelimelerinle oluşturup kaydettiğin makaleler burada görünür.')+"</p>";
     if(last)h+="<div class='item cont'><div class='t' data-o='"+escA(last.id)+"' style='cursor:pointer'><span>Kaldığın yerden devam et</span><b>"+esc(last.title)+"</b><span>"+progLabel(last)+(last.wb?' · '+esc(last.wb.title):'')+"</span></div></div>";
     h+="<input id='lib-q' type='search' placeholder='Makalelerde ara (başlık ya da metin)' autocomplete='off'>"+
@@ -1799,6 +1803,8 @@ body.reading .sheet{max-width:740px}
       if(/\.doc$/i.test(f.name)){statusFn('a-p',{stop:false}).error('Eski Word (.doc) biçimi desteklenmez. Dosyayı Word’de “.docx” olarak kaydedip tekrar dene.');return}
       var r=new FileReader();r.onload=function(){$('a-x').value=String(r.result);if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep()};r.readAsText(f);
     };
+    $('a-cb').onclick=function(){$('a-ic').click()};$('a-gb').onclick=function(){$('a-ig').click()};
+    $('a-ic').onchange=$('a-ig').onchange=function(){var fl=[].slice.call(this.files);this.value='';if(fl.length)runPhotos(fl)};
     $('a-s').onclick=function(){saveArticle(false)};
   }
   function artItem(x){
@@ -3620,6 +3626,49 @@ body.reading .sheet{max-width:740px}
       }
     }finally{job.wk=null;try{await wk.terminate()}catch(e){}}
     return {texts:out,pages:lim,total:doc.numPages};
+  }
+
+  // ---- Photo → article: the English text in camera pictures or chosen images, recognised on this device ----
+  // The text goes into the article box (after any text already there) for the user to check; nothing is saved here.
+  var MAXPH=10;
+  function imgCanvas(f){
+    return new Promise(function(res,rej){
+      var u=URL.createObjectURL(f),im=new Image();
+      im.onload=function(){
+        var w=im.naturalWidth,h=im.naturalHeight,sc=Math.min(1,2400/Math.max(w,h)),cv=document.createElement('canvas');
+        cv.width=Math.max(1,Math.round(w*sc));cv.height=Math.max(1,Math.round(h*sc));cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
+        URL.revokeObjectURL(u);res(cv);
+      };
+      im.onerror=function(){URL.revokeObjectURL(u);rej(fail('Bu fotoğraf açılamadı ('+f.name+'). JPG ya da PNG bir fotoğraf dene.'))};
+      im.src=u;
+    });
+  }
+  async function runPhotos(fl){
+    if(PJOB){PJOB.stop=true;if(PJOB.task)PJOB.task.destroy()}
+    var job=PJOB={stop:false},st=statusFn('a-p',job),more=fl.length>MAXPH,out=[],cur=1;
+    fl=fl.slice(0,MAXPH);var n=fl.length;
+    try{
+      st('Metin tanıma motoru indiriliyor…',0);
+      var T=await tessLib();if(job.stop)return;
+      st('Dil verisi indiriliyor (ilk seferde birkaç MB sürebilir)…',0);
+      var wk=job.wk=await T.createWorker('eng',1,{logger:function(m){if(m&&m.status==='recognizing text')st('Metin tanınıyor: fotoğraf '+cur+' / '+n+' — %'+Math.round((m.progress||0)*100),(cur-1+(m.progress||0))/n)}});
+      try{
+        for(var i=0;i<n;i++){
+          if(job.stop)return;
+          cur=i+1;st('Fotoğraf hazırlanıyor: '+cur+' / '+n,i/n);
+          var cv=await imgCanvas(fl[i]),r=await wk.recognize(cv);
+          out.push(r&&r.data&&r.data.text||'');cv.width=cv.height=0;
+        }
+      }finally{job.wk=null;try{await wk.terminate()}catch(e){}}
+      if(job.stop)return;
+      var text=blocksText(ocrBlocks(out));
+      if(text.replace(/\s/g,'').length<20)throw fail('Fotoğrafta okunabilir İngilizce metin bulunamadı. Sayfayı düz tutup iyi ışıkta ve yakından çekerek tekrar dene.');
+      var x=$('a-x'),t=$('a-t');if(!x)return;
+      var had=x.value.trim();x.value=had?had+'\n\n'+text:text;
+      if(!t.value)t.value='Fotoğraftan makale';
+      x.dispatchEvent(new Event('input'));t.dispatchEvent(new Event('input'));
+      st.html('<b>'+n+' fotoğraf okundu</b>, yaklaşık '+wordCount(text)+' kelime (metin tanıma ile; hatalar olabilir). '+(had?'Metin, kutudaki metnin sonuna eklendi. ':'')+(more?'Yalnızca ilk '+MAXPH+' fotoğraf işlendi. ':'')+'Metni kontrol edip düzelt, sonra “Makaleyi kaydet”e dokun.');
+    }catch(e){if(!job.stop)st.error(e&&e.k||'Fotoğraftaki metin okunamadı.')}
   }
 
   async function runPdf(f,mode,box){
