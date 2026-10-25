@@ -23,11 +23,11 @@ before(async () => {
 });
 after(async () => { await b?.close(); srv?.stop(); fs.rmSync(dir, {recursive: true, force: true}); });
 
-const shown = () => b.ev("['lib','kw','own'].filter(function(k){return !document.getElementById('rt-'+k).classList.contains('hide')})");
+const shown = () => b.ev("['lib','kw','own','mine'].filter(function(k){return !document.getElementById('rt-'+k).classList.contains('hide')})");
 const tab = t => b.ev(`document.querySelector('#rtabs [data-rt="${t}"]').click()`);
 
 test('üç sekme var; hazır makaleler açık başlıyor; sekme değişince yalnızca o bölüm görünüyor', async () => {
-  assert.deepEqual(await b.ev("[].map.call(document.querySelectorAll('#rtabs [data-rt]'),function(x){return x.textContent})"), ['Hazır makaleler', 'Kelimelerimle oluştur', 'Makale yükle']);
+  assert.deepEqual(await b.ev("[].map.call(document.querySelectorAll('#rtabs [data-rt]'),function(x){return x.textContent})"), ['Hazır makaleler', 'Kelimelerimle oluştur', 'Makale yükle', 'Makalelerim']);
   assert.deepEqual(await shown(), ['lib']);
   assert.match(await b.ev("document.querySelector('#rl .rchip.on').textContent"), /Tümü/);
   await tab('kw');
@@ -35,8 +35,12 @@ test('üç sekme var; hazır makaleler açık başlıyor; sekme değişince yaln
   assert.ok(await b.ev("!!document.getElementById('kw-go')"));
   await tab('own');
   assert.deepEqual(await shown(), ['own']);
-  assert.match(await b.ev("document.getElementById('rt-own').innerText"), /Yeni makale ya da kitap[\s\S]*Makalelerim[\s\S]*My notes/, 'yükleme ve kendi makaleler aynı sekmede');
-  assert.equal(JSON.parse((await b.storage())[KS]).rtab, 'own');
+  assert.match(await b.ev("document.getElementById('rt-own').innerText"), /Yeni makale ya da kitap/);
+  assert.doesNotMatch(await b.ev("document.getElementById('rt-own').innerText"), /My notes/, 'kendi makaleler yükleme sekmesinde değil');
+  await tab('mine');
+  assert.deepEqual(await shown(), ['mine']);
+  assert.match(await b.ev("document.getElementById('rt-mine').innerText"), /1 makale[\s\S]*My notes/, 'kendi makaleler dördüncü sekmede');
+  assert.equal(JSON.parse((await b.storage())[KS]).rtab, 'mine');
   assert.deepEqual(JSON.parse((await b.storage())[KA]), OWN, 'kendi makaleler değişmedi');
   assert.deepEqual(b.errors, []);
 });
@@ -56,12 +60,13 @@ test('seçilen sekme makaleden dönünce ve yeniden açılınca hatırlanıyor; 
   await b.waitFor("/river flows quietly/.test(document.getElementById('a-x').value)", 20000);
   assert.deepEqual(await shown(), ['own'], 'önizleme yükleme sekmesinde');
   assert.deepEqual(JSON.parse((await b.storage())[KA]), OWN, 'onaylanmadan hiçbir şey kaydedilmedi');
-  // saving opens the new article; coming back, the upload tab (where it was added) is still the one shown
+  // saving opens the new article; coming back, it is listed in the Makalelerim tab
   await b.ev("document.getElementById('a-s').click()");
   await b.waitFor("document.body.classList.contains('reading')");
   await b.ev("document.getElementById('back').click()");
   await b.waitFor("!!document.getElementById('rtabs')");
-  assert.deepEqual(await shown(), ['own'], 'kaydettikten sonra aynı sekme');
+  assert.deepEqual(await shown(), ['mine'], 'kaydedilen makale Makalelerim sekmesinde');
+  assert.match(await b.ev("document.getElementById('rt-mine').innerText"), /2 makale/);
   assert.equal(JSON.parse((await b.storage())[KA]).length, 2);
   assert.deepEqual(b.errors, []);
 });
