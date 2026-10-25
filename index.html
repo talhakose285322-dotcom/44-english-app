@@ -381,6 +381,7 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 .rabar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:6;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;width:min(560px,calc(100% - 20px));padding:8px 10px;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,20,36,.18)}
 .rabar .tb{width:40px;height:40px}.rabar .tb.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.rabar .tb:disabled{opacity:.4}.ra-pos{font-size:13px;color:var(--muted);min-width:52px;text-align:center}
 @media (min-width:980px){.rabar{bottom:20px}}
+.rnw{margin-top:24px}.rnw .acts{flex-wrap:wrap}.rnw h2{font-size:17px}.nw-r{display:grid;grid-template-columns:minmax(80px,auto) 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.nw-r input{margin:0}.nw-r span{grid-column:1/-1;font-size:13px;color:var(--muted)}.rnw .good{color:var(--good)}
 @media (max-width:520px){.rtool .bk-t{display:none}.rtool{gap:5px}.rtool .tb{width:38px;height:38px}}
 @media (min-width:980px){.sheet{bottom:20px;border-radius:var(--r-xl);border-bottom:1px solid var(--line);max-width:600px}}
 body.reading .sheet{max-width:740px}
@@ -508,6 +509,7 @@ body.reading .sheet{max-width:740px}
         <li>Kelimelerimle makale oluştur: bir ya da birkaç kelime listesi seç, o kelimelerin geçtiği cümlelerden okuma sayfası.</li>
         <li>Sesli okuma: makale cümle cümle, okunan cümle vurgulanarak sesli okunur; hız seçilebilir.</li>
         <li>Fotoğraftan makale: kitap ya da gazete sayfasının fotoğrafını çek, metni cihazında çıkarılsın.</li>
+        <li>Makalenin sonunda “yeni kelimeler”: listende olmayan kelimeleri seç, anlamlarıyla tek seferde listene ekle.</li>
         <li>Word (.docx) dosyasından makale yükleme.</li>
         <li>Sözlükte daha kısa, öz sonuçlar.</li>
         <li>Profil → Ayarlar: ayarlar, yedek ve geri yükleme tek yerde.</li>
@@ -1684,7 +1686,7 @@ body.reading .sheet{max-width:740px}
       (a.wb?"<p class='kicker'>"+esc(a.wb.title)+(si>=0?' · '+(si+1)+' / '+sib.length:'')+"</p>":'')+
       "<h1 class='atitle'>"+esc(a.title)+"</h1><p class='sub'>"+esc(meta)+"<br>Bir kelimeye dokun: anlamını gör ve kaydet. Birkaç kelime seç: çevirisini gör.</p>"+
       "<div class='art' id='art'>"+(a.xt!=null?"<p class='"+(a.lost?'derr':'note')+"'>"+(a.lost?'Bu makalenin metni bu tarayıcıda bulunamadı. Makalenin kaydı ve notların silinmedi; metni geri getirmek için yedeğini geri yükleyebilirsin.':'Metin yükleniyor…')+"</p>":artBody(a.text))+"</div>"+
-      "<div class='rend'><button class='btn "+(a.done?'ghost':'main')+"' id='r-done' style='width:100%'>"+(a.done?ic('check')+' Tamamlandı (geri al)':'Okumayı tamamladım')+"</button>"+
+      "<div class='panel rnw' id='r-nw'></div><div class='rend'><button class='btn "+(a.done?'ghost':'main')+"' id='r-done' style='width:100%'>"+(a.done?ic('check')+' Tamamlandı (geri al)':'Okumayı tamamladım')+"</button>"+
       "<label for='r-note'>Notlarım</label><textarea id='r-note' placeholder='Bu makaleyle ilgili notların (otomatik kaydedilir)'></textarea><div class='toast' id='r-nt'></div>"+
       (sib.length>1?"<div class='acts'>"+(si>0?"<button class='btn ghost' data-o='"+escA(sib[si-1].id)+"'>"+ic('arrowl')+" Önceki</button>":'')+(si<sib.length-1?"<button class='btn yes' data-o='"+escA(sib[si+1].id)+"'>Sonraki "+ic('arrowr')+"</button>":'')+"</div>":'')+
       "</div><div style='height:260px'></div>";
@@ -1711,8 +1713,81 @@ body.reading .sheet{max-width:740px}
       openWord(t.textContent,trimSent(t.closest('.s').textContent.trim(),t.textContent),{art:a,el:t});
     };
     markKnown();
+    if(a.xt!=null)$('r-nw').remove();else drawNew(a);
     a.readAt=Date.now();saveA();
     requestAnimationFrame(function(){var mx=document.documentElement.scrollHeight-innerHeight;if(a.pos>0&&mx>0)window.scrollTo(0,a.pos*mx);readProg()});
+  }
+  // Basic everyday English words: never offered as "new words" of an article (inflected forms are matched with lemmas()).
+  var BASICW=null;
+  function basicW(){if(!BASICW){BASICW={};"a about above across act add afraid after afternoon again against age ago agree air all allow almost alone along already also always am among an and angry animal another answer any anyone anything appear apple area arm around arrive art as ask at aunt autumn away baby back bad bag ball bank be beach beautiful because become bed before begin behind believe below best better between big bike bird birthday bit black blue boat body book born both bottle bottom box boy bread break breakfast bring brother brown build bus business busy but buy by cake call came camera can car card care careful carry case cat catch cause centre center chair change cheap check child children choose city class clean clear climb clock close clothes cloud coffee cold colour color come common company computer cook cool corner cost could country course cousin cover cross cry cup cut dad dance dark daughter day dead dear decide deep did die different difficult dinner do doctor does dog door down draw dream dress drink drive drop dry during each ear early earth easy eat egg eight either else empty end enjoy enough even evening ever every everyone everything exam example excited expensive explain eye face fact fall family famous far farm fast father favourite favorite feel few field fight fill film find fine finish fire first fish five flat floor flower fly follow food foot football for forget form four free friend from front fruit full fun funny future game garden gave get girl give glad glass go good got great green grey gray ground group grow had hair half hand happen happy hard has hat have he head hear heart heavy hello help her here high hill him his history hold holiday home hope horse hospital hot hotel hour house how however huge hungry hurry hurt husband i ice idea if ill important in inside interest interesting into is island it its job join just keep key kid kill kind king kitchen know lake land language large last late later laugh lead learn least leave left leg less lesson let letter library lie life light like line list listen little live long look lose lot love low lunch machine made main make man many map market married matter may maybe me meal mean meet member message middle might milk mind minute miss moment money month more morning most mother mountain mouth move much mum music must my name near need never new news next nice night nine no nobody noise none nor north nose not note nothing notice now number of off offer office often oh old on once one only open or orange order other our out outside over own page paint pair paper parent park part party pass past pay pen people perhaps person phone photo pick picture piece place plan plant play please pocket point police poor popular possible post potato power present pretty price problem pull push put question quick quickly quiet quite radio rain read ready real really reason red remember rest restaurant rich ride right river road room round rule run sad safe said same sandwich save saw say school sea season seat second see seem sell send sentence seven several shall she ship shirt shoe shop short should shout show sick side simple since sing sister sit six size sky sleep slow slowly small smile snow so some someone something sometimes son song soon sorry sort sound south speak special spend sport spring stand star start station stay step still stop story street strong student study such sugar summer sun sure surprise swim table take talk tall taxi tea teach teacher team tell ten test than thank that the their them then there these they thing think third this those though three through throw ticket time tired to today together told tomorrow tonight too took top touch town toy train travel tree trip true try turn twelve twenty two type uncle under understand until up us use useful usually very visit voice wait wake walk wall want warm was wash watch water way we wear weather week weekend welcome well went were west what when where which while white who whole why wife will win window winter wish with without woman women wonderful word work world worry would write wrong year yellow yes yesterday yet you young your began became been being bought brought chose could did done drank drew drove eaten fell felt flew forgot found given goes going gone grew heard held kept knew known laid led lent lost meant men met paid ran rang rode rose sang sat seen sent shook shot shut slept sold spent spoke stood stole swam taken taught thought threw understood wore woke won wrote written children feet teeth mice people's able across actually also although anybody anywhere around asked became behind besides beyond certain certainly clearly close completely could each easily else especially everybody everywhere exactly finally fully generally hardly here herself himself itself just later least likely maybe mostly myself nearly nowhere often ourselves perhaps probably rather really recently simply soon still themselves therefore thus together towards toward unless upon whether whose within yourself mr mrs ms dr st etc ok okay".split(' ').forEach(function(w){BASICW[w]=1})}return BASICW}
+  // The article's words that are not in the user's list (nor basic words, numbers or names), most frequent first.
+  function newWordsOf(){
+    var mine={},bw=basicW(),o={},L=[];words.forEach(function(x){mine[x.w.trim().toLowerCase()]=1});
+    function inSet(set,k){return set[k]||lemmas(k).some(function(l){return set[l]})}
+    var known=0,seenK={};
+    Array.prototype.forEach.call(document.querySelectorAll('#art .w'),function(el){
+      var t=el.textContent.replace(/[’]/g,"'"),k=t.toLowerCase().replace(/'s$/,'');
+      if(!/^[a-z][a-z-]*[a-z]$/.test(k)||k.length<3)return; // also skips contractions (don't, it'll)
+      if(inSet(mine,k)){if(!seenK[k]){seenK[k]=1;known++}return}
+      if(inSet(bw,k))return;
+      var x=o[k];if(!x){x=o[k]={w:k,n:0,low:false,el:el};L.push(x)}
+      x.n++;if(!/^[A-Z]/.test(t)){if(!x.low)x.el=el;x.low=true}
+    });
+    // a word never written in lower case is most likely a name (London, Maria), even at the start of a sentence
+    L=L.filter(function(x){return x.low});
+    L.sort(function(a,b){return b.n-a.n});
+    return {list:L,known:known};
+  }
+  var NWMAX=40,NWPICK=20;
+  function drawNew(a){
+    var box=$('r-nw');if(!box)return;
+    var r=newWordsOf(),L=r.list.slice(0,NWMAX);
+    var h="<h2>Bu makaledeki yeni kelimeler"+itip('Makalede geçen, listende olmayan kelimeler. Çok sık kullanılan temel kelimeler, sayılar ve özel adlar sayılmaz. Seçtiklerinin anlamı makine çevirisiyle getirilir; kontrol edip düzelttikten sonra listene eklenir. Örnek cümle olarak makaledeki cümle kaydedilir.')+"</h2>"+
+      "<p class='note' id='nw-sum'>"+(r.list.length?'<b>'+r.list.length+' yeni kelime</b>':'Listende olmayan yeni kelime bulunamadı.')+(r.known?' · listendeki '+r.known+' kelime bu makalede geçiyor':'')+(r.list.length>NWMAX?' · en sık geçen '+NWMAX+' tanesi gösteriliyor':'')+"</p>";
+    if(L.length)h+="<div class='kw-words' id='nw-l'>"+L.map(function(x,i){return "<label class='kw-w'><input type='checkbox' value='"+i+"'> "+esc(x.w)+(x.n>1?" <span>×"+x.n+"</span>":'')+"</label>"}).join('')+"</div>"+
+      "<div class='acts'><button class='btn main' id='nw-go' disabled>Anlamlarını getir</button><button class='btn ghost' id='nw-all'>İlk "+Math.min(NWPICK,L.length)+" tanesini seç</button></div><div id='nw-p'></div>";
+    box.innerHTML=h;
+    if(!L.length)return;
+    var go=$('nw-go');
+    function picked(){return [].filter.call(box.querySelectorAll('#nw-l input'),function(i){return i.checked}).map(function(i){return L[+i.value]})}
+    function upd(){var n=picked().length;go.disabled=!n||n>NWPICK;go.textContent=n>NWPICK?'En fazla '+NWPICK+' kelime seç':n?'Anlamlarını getir ('+n+')':'Anlamlarını getir'}
+    $('nw-l').onchange=upd;
+    $('nw-all').onclick=function(){[].forEach.call(box.querySelectorAll('#nw-l input'),function(i,k){i.checked=k<NWPICK});upd()};
+    go.onclick=function(){nwFetch(a,picked())};
+  }
+  function nwFetch(a,P){
+    var p=$('nw-p'),me={};NWJOB=me;
+    $('nw-go').disabled=true;
+    var rows=P.map(function(x){var s=x.el.closest('.s');return {w:x.w,m:'',e:s?trimSent(s.textContent.trim(),x.w):'',err:false}}),i=0;
+    function step(){
+      if(NWJOB!==me||!$('nw-p'))return;
+      p.innerHTML="<div class='pst'>Anlamlar getiriliyor: "+i+" / "+rows.length+"</div>";
+      if(i>=rows.length)return nwPreview(a,rows);
+      var x=rows[i++];
+      translateText(x.w,'en-tr').then(function(t){var m=String(t.t||'').trim();if(m&&m.toLowerCase()!==x.w)x.m=m;else x.err=true},function(){x.err=true}).then(step);
+    }
+    step();
+  }
+  var NWJOB=null;
+  function nwPreview(a,rows){
+    var p=$('nw-p'),bad=rows.filter(function(x){return x.err}).length;
+    p.innerHTML="<p class='note'>Anlamlar makine çevirisidir; eklemeden önce kontrol et ve gerekirse düzelt."+(bad?' '+bad+' kelimenin anlamı bulunamadı; yazarsan eklenir, boş bırakırsan eklenmez.':'')+"</p>"+
+      rows.map(function(x,i){return "<div class='nw-r'><b>"+esc(x.w)+"</b><input data-nm='"+i+"' value='"+escA(x.m)+"' placeholder='Anlamını yaz' aria-label='"+escA(x.w)+" anlamı'><span>"+esc(x.e)+"</span></div>"}).join('')+
+      "<label for='nw-c'>Koleksiyon (isteğe bağlı)</label><input id='nw-c' list='dl-col' value='"+escA(a.c||'')+"' placeholder='Örn. "+escA(String(a.title||'').slice(0,40))+"'>"+
+      "<div class='acts'><button class='btn main' id='nw-add'>Listeme ekle</button><button class='btn ghost' id='nw-no'>Vazgeç</button></div><div class='toast' id='nw-t'></div>";
+    $('nw-no').onclick=function(){NWJOB=null;drawNew(a)};
+    $('nw-add').onclick=function(){
+      var cs=splitCols($('nw-c').value),mine={},n=0;words.forEach(function(x){mine[x.w.trim().toLowerCase()]=1});
+      rows.forEach(function(x,i){
+        var m=p.querySelector("[data-nm='"+i+"']").value.trim();
+        if(!m||mine[x.w])return;
+        var wd=mk(x.w,m,x.e,'',i);setCols(wd,cs);words.push(wd);mine[x.w]=1;n++;
+      });
+      if(!n){msg('nw-t','Eklenecek kelime yok: anlamları boş.','var(--bad)');return}
+      if(!save())return;
+      NWJOB=null;markKnown();drawNew(a);
+      var sm=$('nw-sum');if(sm)sm.insertAdjacentHTML('afterbegin',"<b class='good'>"+n+" kelime listene eklendi.</b> ");
+    };
   }
   function markKnown(){
     // Underline words that are already in the vocabulary.
