@@ -8,7 +8,7 @@ Son doğrulama: 2026-10-23, bu dosya eklenmeden önce `main` = `43e1ec8`.
 
 ## 1. Mimari (kaynak koddan doğrulandı)
 - **Web uygulaması (PWA):** `index.html` (CSS + JavaScript tek dosyada), `sw.js` (önbellek `english-app-v18`; makale fotoğrafları ayrı `words44-img`, en fazla 40),
-  `manifest.json`, `version.json` (`1.1.0`), `vendor/pdfjs/` (PDF okuma), `icons/`.
+  `manifest.json`, `version.json` (`1.2.0`), `vendor/pdfjs/` (PDF okuma), `icons/`.
   Tanıtım ve yasal sayfalar: `welcome.html`, `privacy.html`, `terms.html`.
 - **Yayın:**
   - Ana adres Cloudflare Worker: https://words44.words44.workers.dev (`wrangler.jsonc`; Cloudflare Workers Builds
