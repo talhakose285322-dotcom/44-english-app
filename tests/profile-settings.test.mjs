@@ -14,7 +14,8 @@ before(async () => {
 });
 after(async () => { await b?.close(); srv?.stop(); });
 
-const heads = id => b.ev(`[].map.call(document.querySelectorAll('#${id} h2'),function(h){return h.textContent})`);
+// heading text without an (i) info button that may follow it
+const heads = id => b.ev(`[].map.call(document.querySelectorAll('#${id} h2'),function(h){return h.firstChild.textContent.trim()})`);
 const visible = id => b.ev(`!document.getElementById('${id}').classList.contains('hide')`);
 
 test('Ekle yalnızca kelime eklemeyi, Profil → Ayarlar ayarları ve yedeği gösteriyor', async () => {

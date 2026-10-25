@@ -995,7 +995,20 @@ body.reading .sheet{max-width:740px}
   // ---- Backup and restore ----
   // (i) info button: a short explanation in a bubble; opens on tap (phone) or hover (computer)
   function itip(t){return "<button type='button' class='itip' aria-label='Bu ne işe yarar?' aria-expanded='false'>i<span class='itip-b' role='tooltip'>"+esc(t)+"</span></button>"}
-  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.itip');Array.prototype.forEach.call(document.querySelectorAll('.itip.open'),function(x){if(x!==b){x.classList.remove('open');x.setAttribute('aria-expanded','false')}});if(b&&!e.target.closest('.itip-b')){e.preventDefault();e.stopPropagation();var o=b.classList.toggle('open');b.setAttribute('aria-expanded',o)}},true);
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.itip');Array.prototype.forEach.call(document.querySelectorAll('.itip.open'),function(x){if(x!==b){x.classList.remove('open');x.setAttribute('aria-expanded','false')}});if(b&&!e.target.closest('.itip-b')){e.preventDefault();e.stopPropagation();var o=b.classList.toggle('open');b.setAttribute('aria-expanded',o);if(o)itipFit(b)}},true);
+  document.addEventListener('mouseover',function(e){var b=e.target.closest&&e.target.closest('.itip');if(b)itipFit(b)});
+  // the bubble opens to the left of its button; near a screen edge it is shifted back inside
+  function itipFit(b){var u=b.querySelector('.itip-b');if(!u)return;u.style.right='';var r=u.getBoundingClientRect(),m=8,d=0;if(!r.width)return;if(r.left<m)d=m-r.left;else if(r.right>innerWidth-m)d=innerWidth-m-r.right;if(d)u.style.right=(-6-d)+'px'}
+  // explanations for the parts that are not obvious at first sight
+  function itipAdd(el,t){if(el&&!el.querySelector(':scope>.itip'))el.insertAdjacentHTML('beforeend',' '+itip(t))}
+  function itipStatic(){
+    Array.prototype.forEach.call(document.querySelectorAll('#p-set h2'),function(h){
+      if(h.textContent==='Otomatik güvenlik kopyaları')itipAdd(h,'Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda verilerinin bir kopyasını kendiliğinden alır; son 15 kopya tutulur. Yanlış bir geri yüklemeyi geri almak için listeden birini “Kontrol et” ile seçip geri dönebilirsin. Bu kopyalar da bu tarayıcıda durur: tarayıcı verileri silinirse onlar da silinir, dosya ya da bulut yedeğinin yerini tutmaz.');
+      if(h.textContent==='Verilerin nerede saklanıyor?')itipAdd(h,'“Kalıcı depolama iste” düğmesi görünüyorsa, tarayıcıdan yer azaldığında bu uygulamanın verilerini silmemesini ister. iPhone’da en iyi koruma, uygulamayı ana ekrana ekleyerek kullanmak ve düzenli yedek almaktır.');
+    });
+    itipAdd(document.querySelector('#cardsUI .stats'),'Her kelime 0–3 arası bir kutudadır. Bildiğinde bir üst kutuya geçer ve bir sonraki tekrarı daha geç gelir: 1, 3, 8, 20 gün sonra… Bilemediğinde kutu 0’a döner ve aynı gün yeniden sorulur. 3. kutuya ulaşan kelime “öğrenildi” sayılır. “Tekrarı gelenler” bugün zamanı gelmiş kelimeleri gösterir.');
+  }
+  itipStatic();
   document.addEventListener('keydown',function(e){if(e.key==='Escape')Array.prototype.forEach.call(document.querySelectorAll('.itip.open'),function(x){x.classList.remove('open');x.setAttribute('aria-expanded','false')})});
   function msg(id,t,c){var e=$(id);if(!e)return;e.style.color=c||'var(--good)';e.textContent=t}
   function stamp(){var d=new Date();function p(n){return(n<10?'0':'')+n}return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes())}
@@ -1266,7 +1279,7 @@ body.reading .sheet{max-width:740px}
     Object.keys(used).forEach(function(k){if(order.indexOf(k)<0)order.push(k)});
     var chips=[['','Tümü']].concat(order.map(function(k){return [k,cats[k]||k]}),[['saved','Kaydettiklerim']],c.articles.some(libOld)?[['archive','Haber arşivi']]:[]);
     if(!chips.some(function(x){return x[0]===LIB.c}))LIB.c='';
-    b.innerHTML="<p class='note'>"+c.articles.length+" makale. Seviyeni seç ve makaleyi aç; okurken seviyeyi değiştirebilirsin, konu aynı kalır.</p>"+
+    b.innerHTML="<p class='note'>"+c.articles.length+" makale. Seviyeni seç ve makaleyi aç; okurken seviyeyi değiştirebilirsin, konu aynı kalır. "+itip('Her makale A1’den C2’ye 6 seviyede yazılmıştır; konu ve paragraflar aynı, dil zorluğu farklıdır. “Seviye: önerilen” seçiliyken kart, o makalede en son okuduğun seviyede, hiç okumadıysan B1’de açılır. Bir seviye seçersen bütün kartlar o seviyede açılır. Okurken üstteki A1–C2 düğmeleriyle seviye değiştirebilirsin; aynı paragrafta kalırsın.')+"</p>"+
       "<div class='rchips' role='group' aria-label='Kategori'>"+chips.map(function(x){return "<button class='rchip"+(x[0]===LIB.c?' on':'')+"' data-rc='"+escA(x[0])+"' aria-pressed='"+(x[0]===LIB.c)+"'>"+esc(x[1])+"</button>"}).join('')+"</div>"+
       "<div class='fgrid'><input id='rl-q' type='search' placeholder='Makale ara' autocomplete='off'>"+
       "<select id='rl-lv' aria-label='Seviye'><option value=''>Seviye: önerilen</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select></div><div id='rl-feat'></div><div id='rl-list' class='lcards'></div><div id='rl-more'></div><div class='toast' id='rl-t'></div>";
@@ -1450,7 +1463,7 @@ body.reading .sheet{max-width:740px}
     // chosen lists are remembered (S.kwcs); an older single choice (S.kwc) still counts
     var was=Array.isArray(S.kwcs)?S.kwcs:S.kwc&&S.kwc!=='__learn'?[S.kwc]:[],learn=S.kwc==='__learn'||!!S.kwlearn;
     if(!KW.pick)KW.pick={};
-    var h="<h2>Kelimelerimle makale oluştur</h2><p class='note'>Kelimelerinin geçtiği cümleler hazır makalelerden, kendi makalelerinden ve kaydettiğin örnek cümlelerden toplanır; kelimelerin vurgulu okunur.</p>"+
+    var h="<h2>Kelimelerimle makale oluştur "+itip('Liste seç: seçtiğin listelerdeki bütün kelimeler, seçtiğin sayıda makaleye bölünür; önce en az bildiklerin gelir ve her kelime bir makalede yer alır. Kelime seç: işaretlediğin kelimelerle (en fazla 40) tek makale oluşur. Cümleler hazır makalelerden, kendi makalelerinden ve kelimelerine eklediğin örnek cümlelerden gelir; birbirine bağlı bir hikâye değildir. Kaydetmezsen sayfa saklanmaz.')+"</h2><p class='note'>Kelimelerinin geçtiği cümleler hazır makalelerden, kendi makalelerinden ve kaydettiğin örnek cümlelerden toplanır; kelimelerin vurgulu okunur.</p>"+
       "<div class='seg' id='kw-m'><button data-km='lists' class='"+(mode==='lists'?'on':'')+"'>Liste seç</button><button data-km='words' class='"+(mode==='words'?'on':'')+"'>Kelime seç</button></div>";
     if(mode==='lists'){
       h+=(cs.length?"<div class='kw-cols' role='group' aria-label='Kelime listeleri'>"+cs.map(function(c){return "<label class='kw-col'><input type='checkbox' value='"+escA(c)+"'"+(was.indexOf(c)>=0?' checked':'')+"><span>"+esc(c)+"</span></label>"}).join('')+"</div><p class='note'>Liste seçmezsen tüm kelimelerin kullanılır.</p>":"<p class='note'>Henüz kelime listen yok; tüm kelimelerin kullanılır.</p>")+
