@@ -1014,6 +1014,7 @@ body.reading .sheet{max-width:740px}
   function stamp(){var d=new Date();function p(n){return(n<10?'0':'')+n}return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes())}
   function clone(v){return JSON.parse(JSON.stringify(v))}
   function collect(){
+    if(ART.some(function(a){return a.xt!=null&&!a.lost}))throw new Error('article texts are still loading');
     var keys={},extra={};
     keys[KEY]=words.concat(BADW);keys[SK]=S;keys[AK]=ART.concat(BADA);
     try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf(KEY+'-')===0&&k!==SK&&k!==AK)extra[k]=localStorage.getItem(k)}}catch(e){}
@@ -1029,7 +1030,8 @@ body.reading .sheet{max-width:740px}
     try{plain();return Promise.resolve()}catch(e){return Promise.reject(e)}
   }
   function withStamp(b){var t=Date.now();b.keys[SK]=Object.assign({},S,{lastBackup:t});return t}
-  function downloadBackup(){
+  function downloadBackup(){return ready(downloadBackupNow)}
+  function downloadBackupNow(){
     var b=collect(),t=withStamp(b),j=JSON.stringify(b);
     return saveFile('44-yedek-'+stamp()+'.json',j).then(function(){
       S.lastBackup=t;saveS();stats();renderBackup();
@@ -1038,7 +1040,8 @@ body.reading .sheet{max-width:740px}
   }
   $('expf').onclick=function(){downloadBackup()};
   function manual(j){$("imp").value=j;msg('t3','Kopyalanamadı. Kutudaki metnin tamamını elle kopyala ve sakla.','var(--muted)')}
-  $("exp").onclick=function(){
+  $("exp").onclick=function(){ready(copyBackup)};
+  function copyBackup(){
     var b=collect(),t=withStamp(b),j=JSON.stringify(b);
     try{navigator.clipboard.writeText(j).then(function(){S.lastBackup=t;saveS();renderBackup();msg('t3','Yedek panoya kopyalandı. Bir not ya da e-postaya yapıştırıp sakla.')},function(){manual(j)})}catch(e){manual(j)}
   };
@@ -1179,7 +1182,8 @@ body.reading .sheet{max-width:740px}
     })});
   }
   function snapList(){return tx('readonly',function(st){return st.getAll()}).then(function(a){return(a||[]).sort(function(x,y){return y.t-x.t})})}
-  function snapAdd(why){
+  function snapAdd(why){return ready(function(){return snapAddNow(why)})}
+  function snapAddNow(why){
     var b=collect(),rec={t:Date.now(),why:why,w:b.counts.words,a:b.counts.articles,data:JSON.stringify(b)};
     return tx('readwrite',function(st){st.add(rec)}).then(function(){
       return snapList().then(function(a){var old=a.slice(15);if(old.length)return tx('readwrite',function(st){old.forEach(function(x){st.delete(x.id)})})});
@@ -1219,14 +1223,58 @@ body.reading .sheet{max-width:740px}
     if(e.storageArea!==localStorage||(e.key!==KEY&&e.key!==SK&&e.key!==AK))return;
     if(e.newValue===null){showAlert();return} // removed elsewhere: keep this tab's copy in memory so it can still be backed up
     if(e.key===KEY){var r=readKey(KEY,true);if(r)words=normWords(r)}
-    if(e.key===AK){var a=readKey(AK,true);if(a)ART=normArts(a)}
+    if(e.key===AK){var a=readKey(AK,true);if(a){ART=normArts(a);HYD=hydrate()}}
     if(e.key===SK){var s=readKey(SK,false);if(s)S=Object.assign({},SDEF,s)}
     showAlert();
     if(view==='list')renderList();else if(view==='read'&&!editArt&&!WB)renderRead();else if(view==='prof')renderProf();else if(view==='add')renderBackup();else stats();
   });
 
   var LV=['A1','A2','B1','B2','C1','C2'],srt=S.libSort||'book',colF='',editArt=null,ART=normArts(readKey(AK,true)||[]),openArt=null,sh=null,smp=null;
-  function saveA(){libKeep();return writeKey(AK,ART.concat(BADA))}
+  // ---- Big article texts (IndexedDB '44-metin') ----
+  // localStorage holds about 5 MB per site and normally keeps everything, as before. When the article texts kept there
+  // grow past SPILLAT characters, or a save fails for lack of space, the texts of big articles (SPILLMIN+) are first
+  // written to IndexedDB and only then replaced in localStorage by a stub {text:'', xt:<length>}; the record itself
+  // (title, progress, notes, …) stays. At launch the stubs are filled back from IndexedDB. Backups, safety copies and the
+  // cloud copy wait for that (ready), so they always carry the full texts. A text that cannot be found stays a stub
+  // (a.lost, nothing is deleted) and the reader says so. The safety-copy database 44-guvenlik is not touched.
+  var TXDB=null,SPILL={},SPILLMIN=20000,SPILLAT=+window.__44spillAt||2500000,SPILLING=false,HYDDONE=false,HYD=Promise.resolve();
+  function txdb(){
+    return new Promise(function(res,rej){
+      if(TXDB)return res(TXDB);
+      try{var q=indexedDB.open('44-metin',1);q.onupgradeneeded=function(){q.result.createObjectStore('m',{keyPath:'id'})};
+        q.onsuccess=function(){TXDB=q.result;res(TXDB)};q.onerror=function(){rej(q.error)};q.onblocked=function(){rej(new Error('blocked'))};
+      }catch(e){rej(e)}
+    });
+  }
+  function txRun(mode,fn){return txdb().then(function(db){return new Promise(function(res,rej){var t=db.transaction('m',mode),out=fn(t.objectStore('m'));t.oncomplete=function(){res(out)};t.onerror=t.onabort=function(){rej(t.error)}})})}
+  function artOut(a){
+    if(a.xt!=null){if(!a.lost)return a;var c=Object.assign({},a);delete c.lost;return c}
+    if(SPILL[a.id]===a.text&&a.text){var o=Object.assign({},a);o.text='';o.xt=a.text.length;return o}
+    return a;
+  }
+  function artKept(){var n=0;ART.forEach(function(a){if(a.xt==null&&SPILL[a.id]!==a.text)n+=a.text.length});return n}
+  function spill(){
+    var big=ART.filter(function(a){return a.xt==null&&SPILL[a.id]!==a.text&&a.text.length>=SPILLMIN});
+    if(!big.length||SPILLING)return Promise.resolve(false);
+    SPILLING=true;var keep=big.map(function(a){return [a,a.text]});
+    return txRun('readwrite',function(st){keep.forEach(function(p){st.put({id:p[0].id,text:p[1]})})})
+      .then(function(){keep.forEach(function(p){SPILL[p[0].id]=p[1]});SPILLING=false;return saveA()},function(){SPILLING=false;return false});
+  }
+  function hydrate(){
+    var need=ART.filter(function(a){return a.xt!=null&&!a.lost});
+    need=need.filter(function(a){var t=SPILL[a.id];if(typeof t==='string'&&t.length===a.xt){a.text=t;delete a.xt;return false}return true});
+    if(!need.length){HYDDONE=true;return Promise.resolve()}
+    HYDDONE=false;
+    return txRun('readonly',function(st){var m={};need.forEach(function(a){var q=st.get(a.id);q.onsuccess=function(){m[a.id]=q.result&&q.result.text}});return m})
+      .then(function(m){need.forEach(function(a){var t=m[a.id];if(typeof t==='string'&&t.length===a.xt){a.text=t;SPILL[a.id]=t;delete a.xt}else a.lost=true})},
+        function(){need.forEach(function(a){a.lost=true})})
+      .then(function(){HYDDONE=true;if(typeof view!=='undefined'&&view==='read'&&!editArt&&!WB)renderRead()});
+  }
+  function ready(fn){return HYDDONE?Promise.resolve().then(fn):HYD.then(fn)}
+  function saveA(){libKeep();var ok=writeKey(AK,ART.map(artOut).concat(BADA));if(ok&&!SPILLING&&artKept()>SPILLAT)spill();return ok}
+  // a save that failed for lack of space: move big texts out, then try once more
+  function saveAOrSpill(){return saveA()?Promise.resolve(true):spill().then(function(ok){return ok===true})}
+  HYD=hydrate();
   function ask(p){
     var g=smp?Promise.resolve(smp):(window.claude?claude.use('sample'):Promise.resolve(null));
     return g.then(function(s){if(!s)throw new Error('na');smp=s;return s(p,{modelTier:'quick'})}).then(function(r){var t=r.text;return JSON.parse(t.slice(t.indexOf('{'),t.lastIndexOf('}')+1))});
@@ -1578,7 +1626,7 @@ body.reading .sheet{max-width:740px}
     v.innerHTML="<div class='rtool'><button class='btn ghost' id='back'>"+ic('arrowl')+" Kütüphane</button><span class='rpct' id='rpct'></span><button class='tb' id='r-fm' aria-label='Yazıyı küçült'>A−</button><button class='tb' id='r-fp' aria-label='Yazıyı büyüt'>A+</button><button class='tb' id='r-th' aria-label='Açık / koyu tema'>"+ic('moon')+"</button><button class='tb' id='edt' aria-label='Düzenle'>"+ic('edit')+"</button></div>"+
       (a.wb?"<p class='kicker'>"+esc(a.wb.title)+(si>=0?' · '+(si+1)+' / '+sib.length:'')+"</p>":'')+
       "<h1 class='atitle'>"+esc(a.title)+"</h1><p class='sub'>"+esc(meta)+"<br>Bir kelimeye dokun: anlamını gör ve kaydet. Birkaç kelime seç: çevirisini gör.</p>"+
-      "<div class='art' id='art'>"+artBody(a.text)+"</div>"+
+      "<div class='art' id='art'>"+(a.xt!=null?"<p class='"+(a.lost?'derr':'note')+"'>"+(a.lost?'Bu makalenin metni bu tarayıcıda bulunamadı. Makalenin kaydı ve notların silinmedi; metni geri getirmek için yedeğini geri yükleyebilirsin.':'Metin yükleniyor…')+"</p>":artBody(a.text))+"</div>"+
       "<div class='rend'><button class='btn "+(a.done?'ghost':'main')+"' id='r-done' style='width:100%'>"+(a.done?ic('check')+' Tamamlandı (geri al)':'Okumayı tamamladım')+"</button>"+
       "<label for='r-note'>Notlarım</label><textarea id='r-note' placeholder='Bu makaleyle ilgili notların (otomatik kaydedilir)'></textarea><div class='toast' id='r-nt'></div>"+
       (sib.length>1?"<div class='acts'>"+(si>0?"<button class='btn ghost' data-o='"+escA(sib[si-1].id)+"'>"+ic('arrowl')+" Önceki</button>":'')+(si<sib.length-1?"<button class='btn yes' data-o='"+escA(sib[si+1].id)+"'>Sonraki "+ic('arrowr')+"</button>":'')+"</div>":'')+
@@ -1588,6 +1636,7 @@ body.reading .sheet{max-width:740px}
     var nt=0;$('r-note').oninput=function(){var t=this.value;clearTimeout(nt);nt=setTimeout(function(){if(t.trim())a.note=t;else delete a.note;if(saveA())msg('r-nt','Not kaydedildi.')},700)};
     $('r-done').onclick=function(){a.done=!a.done;if(a.done)a.doneAt=Date.now();saveA();var b=this;b.className='btn '+(a.done?'ghost':'main');b.innerHTML=a.done?ic('check')+' Tamamlandı (geri al)':'Okumayı tamamladım'};
     $('edt').onclick=function(){saveProgress();editArt=openArt;renderRead()};
+    if(a.xt!=null)$('edt').style.display='none'; // text not loaded (or not found): editing would save an empty text
     $('back').onclick=function(){saveProgress();openArt=null;$('sheet').classList.add('hide');renderRead();window.scrollTo(0,0)};
     function font(dz){
       var mx=document.documentElement.scrollHeight-innerHeight,f=mx>0?scrollY/mx:0;
@@ -1695,7 +1744,7 @@ body.reading .sheet{max-width:740px}
     $('a-s').onclick=function(){saveArticle(false)};
   }
   function artItem(x){
-    return "<div class='item'><div class='t' data-o='"+escA(x.id)+"' style='cursor:pointer'><b>"+esc(x.title)+"</b><span>"+[wordCount(x.text)+' kelime',x.lv,x.c,progLabel(x),pgLabel(x)].filter(Boolean).map(esc).join(' · ')+"</span>"+(x.src&&x.src.name&&!x.wb?'<span>PDF: '+esc(x.src.name)+'</span>':'')+(x.note?'<span>'+ic('note','sm')+' not var</span>':'')+"</div><button class='ed' data-e='"+escA(x.id)+"' aria-label='Düzenle'>"+ic('edit')+"</button><button class='del' data-p='"+escA(x.id)+"' aria-label='Paylaş'>"+ic('share')+"</button><button class='del' data-d='"+escA(x.id)+"' aria-label='Sil'>"+ic('trash')+"</button></div>";
+    return "<div class='item'><div class='t' data-o='"+escA(x.id)+"' style='cursor:pointer'><b>"+esc(x.title)+"</b><span>"+[x.xt!=null?(x.lost?'metin bulunamadı':'yükleniyor…'):wordCount(x.text)+' kelime',x.lv,x.c,progLabel(x),pgLabel(x)].filter(Boolean).map(esc).join(' · ')+"</span>"+(x.src&&x.src.name&&!x.wb?'<span>PDF: '+esc(x.src.name)+'</span>':'')+(x.note?'<span>'+ic('note','sm')+' not var</span>':'')+"</div>"+(x.xt!=null?'':"<button class='ed' data-e='"+escA(x.id)+"' aria-label='Düzenle'>"+ic('edit')+"</button><button class='del' data-p='"+escA(x.id)+"' aria-label='Paylaş'>"+ic('share')+"</button>")+"<button class='del' data-d='"+escA(x.id)+"' aria-label='Sil'>"+ic('trash')+"</button></div>";
   }
   function drawLibList(){
     var box=$('lib-list');if(!box)return;
@@ -1751,9 +1800,11 @@ body.reading .sheet{max-width:740px}
     var a={id:newId(),title:n,text:t,lv:$('a-l').value,c:$('a-c').value.trim(),h:hashText(t),added:Date.now()};
     if(src)a.src=src;
     ART.unshift(a);
-    if(!saveA()){ART.shift();m.style.color='var(--bad)';m.textContent='Makale kaydedilemedi: tarayıcı depolaması dolu olabilir ('+Math.round(t.length/1024)+' KB metin). Daha kısa bir bölüm dene ya da eski makaleleri sil.';return}
-    // a saved upload is one of "Makalelerim": coming back from the reader shows that tab
-    draftArt=null;S.rtab='mine';saveS();openArt=a.id;renderRead();window.scrollTo(0,0);
+    saveAOrSpill().then(function(ok){
+      if(!ok){ART.splice(ART.indexOf(a),1);m.style.color='var(--bad)';m.textContent='Makale kaydedilemedi: tarayıcı depolaması dolu olabilir ('+Math.round(t.length/1024)+' KB metin). Daha kısa bir bölüm dene ya da eski makaleleri sil.';return}
+      // a saved upload is one of "Makalelerim": coming back from the reader shows that tab
+      draftArt=null;S.rtab='mine';saveS();openArt=a.id;renderRead();window.scrollTo(0,0);
+    });
   }
 
   // ---- Workbook review: one PDF -> many articles ----
@@ -1843,9 +1894,11 @@ body.reading .sheet{max-width:740px}
       added.push({id:newId(),title:s.title.trim()||('Bölüm '+(i+1)),text:tx,lv:WB.lv,c:WB.c.trim(),h:hashText(tx),added:t0+i,src:src,wb:wb,pg:segPages(s),ord:i+1});
     });
     var bak=ART.slice();ART=ART.concat(added);
-    if(!saveA()){ART=bak;msg(m,'Kaydedilemedi: tarayıcı depolaması dolu olabilir (yaklaşık '+Math.round(added.reduce(function(n,a){return n+a.text.length},0)/1024)+' KB metin). Hiçbir değişiklik yapılmadı. Eski makaleleri silmeyi ya da kitabı daha az bölümle almayı dene.','var(--bad)');return}
-    WB=null;LF={q:'',src:'wb:'+wb.id,lv:'',st:''};S.rtab='mine';saveS();renderRead();window.scrollTo(0,0);
-    var sb=$('lib-list');if(sb)sb.insertAdjacentHTML('beforebegin',"<div class='prev' id='wb-ok'><b style='color:var(--good)'>“"+esc(wb.title)+"” kitabından "+added.length+" makale kaydedildi.</b></div>");
+    saveAOrSpill().then(function(ok){
+      if(!ok){ART=bak;msg(m,'Kaydedilemedi: tarayıcı depolaması dolu olabilir (yaklaşık '+Math.round(added.reduce(function(n,a){return n+a.text.length},0)/1024)+' KB metin). Hiçbir değişiklik yapılmadı. Eski makaleleri silmeyi ya da kitabı daha az bölümle almayı dene.','var(--bad)');return}
+      WB=null;LF={q:'',src:'wb:'+wb.id,lv:'',st:''};S.rtab='mine';saveS();renderRead();window.scrollTo(0,0);
+      var sb=$('lib-list');if(sb)sb.insertAdjacentHTML('beforebegin',"<div class='prev' id='wb-ok'><b style='color:var(--good)'>“"+esc(wb.title)+"” kitabından "+added.length+" makale kaydedildi.</b></div>");
+    });
   }
 
   // ---- Word lookup sheet (free sources, no API keys) ----
@@ -3039,7 +3092,7 @@ body.reading .sheet{max-width:740px}
     var owner=AU.user.id;
     function assertSameOwner(){if(!AU.user||AU.user.id!==owner)throw new Error('Hesap değişti. Yeniden giriş yapıp tekrar dene.');}
     AU.cloudBusy=true;AU.cloudMsg=action==='save'?'Yedek buluta kaydediliyor…':'Bulut yedeği kontrol ediliyor…';AU.cloudBad=false;AU.err='';drawAcct();
-    sbClient().then(function(c){
+    ready(sbClient).then(function(c){
       if(!AU.user||AU.user.id!==owner)throw new Error('Hesap değişti. Yeniden giriş yapıp tekrar dene.');
       if(action==='save'){
         var b=collect(),t=withStamp(b),data=JSON.stringify(b);
