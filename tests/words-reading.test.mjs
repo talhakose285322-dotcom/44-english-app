@@ -98,3 +98,70 @@ test('birkaç liste birlikte seçilebiliyor; “yalnızca henüz öğrenmedikler
   assert.deepEqual(JSON.parse((await b.storage())[KS]).kwcs, ['Ekonomi', 'Okul'], 'seçim hatırlanıyor');
   assert.deepEqual(b.errors, []);
 });
+
+// a longer list: 15 words that all have their own example sentence, so every word gets a sentence
+const LONG = Array.from({length: 15}, (_, i) => {
+  const w = ['apple', 'river', 'window', 'garden', 'pencil', 'bridge', 'candle', 'forest', 'ladder', 'mirror', 'pillow', 'rocket', 'saddle', 'tunnel', 'violin'][i];
+  return {id: 'l' + i, w, m: '-', box: 0, c: 'Uzun', e: `The ${w} in this sentence number ${i + 1} is quite plain.`};
+});
+const reopen = async seed => {
+  await b.seed(seed);
+  await b.ev("document.getElementById('n-read').click()");
+  await b.waitFor("!!document.querySelector('#kw [data-km]')", 10000);
+  await sleep(300);
+};
+
+test('Liste seç: listedeki bütün kelimeler seçilen sayıda makaleye bölünüyor; önceki/sonraki ve hepsini kaydet çalışıyor', async () => {
+  await reopen({[K]: LONG, [KA]: OWN});
+  await pick(['Uzun']);
+  await b.ev("document.querySelector('#kw .kw-col input[value=\"Uzun\"]').dispatchEvent(new Event('change'))");
+  assert.match(await b.ev("document.getElementById('kw-info').textContent"), /15 kelime/);
+  await setSel('kw-n', '3');
+  assert.match(await b.ev("document.getElementById('kw-info').textContent"), /her makalede yaklaşık 5 kelime/);
+  assert.equal(await b.ev("document.getElementById('kw-go').textContent"), '3 makale oluştur');
+  await b.ev("document.getElementById('kw-go').click()");
+  await b.waitFor("!!document.querySelector('.kw-nav')", 15000);
+  assert.equal(await b.ev("document.querySelector('.atitle').textContent"), 'Kelimelerimle makale: Uzun (1/3)');
+  const seen = [];
+  for (let i = 0; i < 3; i++) {
+    assert.match(await b.ev("document.querySelector('.kw-nav b').textContent"), new RegExp(`Makale ${i + 1} / 3`));
+    // the page names the list words it covers ("N kelimen bu sayfada vurgulu: a, b, c.")
+    const note = await b.ev("document.querySelector('.libbar .note').textContent");
+    seen.push(...note.split('vurgulu: ')[1].split('.')[0].split(', '));
+    if (i < 2) { await b.ev("document.querySelector('.kw-nav [data-kn=\"1\"]').click()"); await b.waitFor(`document.querySelector('.atitle').textContent.indexOf('(${i + 2}/3)')>=0`); }
+  }
+  assert.deepEqual([...new Set(seen)].sort(), LONG.map(x => x.w).sort(), 'listedeki 15 kelimenin hepsi makalelerde, her biri bir kez');
+  assert.equal(seen.length, 15, 'bir kelime iki makalede yok');
+  assert.equal(await b.ev("document.querySelector('.kw-nav [data-kn=\"1\"]').disabled"), true, 'son makalede ileri yok');
+  await b.ev("document.querySelector('.kw-nav [data-kn=\"-1\"]').click()");
+  await b.waitFor("document.querySelector('.atitle').textContent.indexOf('(2/3)')>=0");
+  await b.ev("document.getElementById('kw-sa').click()");
+  assert.match(await b.ev("document.getElementById('kw-st').textContent"), /3 makale/);
+  const arts = JSON.parse((await b.storage())[KA]);
+  assert.equal(arts.length, 4, '3 makale + kendi makalesi');
+  assert.deepEqual(arts.slice(0, 3).map(a => a.title).sort(), ['(1/3)', '(2/3)', '(3/3)'].map(x => 'Kelimelerimle makale: Uzun ' + x));
+  await b.ev("document.getElementById('kw-sa').click()");
+  assert.equal(JSON.parse((await b.storage())[KA]).length, 4, 'ikinci kez basınca tekrar kaydetmiyor');
+  assert.deepEqual(b.errors, []);
+});
+
+test('Kelime seç: aranarak işaretlenen kelimelerle tek makale oluşuyor; seçim modu hatırlanıyor', async () => {
+  await reopen({[K]: LONG, [KA]: OWN});
+  await b.ev("document.querySelector('#kw [data-km=\"words\"]').click()");
+  assert.equal(await b.ev("document.querySelectorAll('#kw-wl input').length"), 15);
+  await b.ev("(function(q){q.value='riv';q.dispatchEvent(new Event('input'))})(document.getElementById('kw-ws'))");
+  assert.equal(await b.ev("document.querySelectorAll('#kw-wl input').length"), 1, 'arama süzüyor');
+  await b.ev("(function(i){i.checked=true;i.dispatchEvent(new Event('change'))})(document.querySelector('#kw-wl input'))");
+  await b.ev("(function(q){q.value='';q.dispatchEvent(new Event('input'))})(document.getElementById('kw-ws'))");
+  await b.ev("(function(i){i.checked=true;i.dispatchEvent(new Event('change'))})(document.querySelector('#kw-wl input[value=\"l13\"]'))");
+  assert.match(await b.ev("document.getElementById('kw-info').textContent"), /2 kelime seçildi/);
+  assert.equal(await b.ev("document.querySelector('#kw-wl input[value=\"l1\"]').checked"), true, 'arama değişince seçim kalıyor');
+  await b.ev("document.getElementById('kw-go').click()");
+  await b.waitFor("!!document.getElementById('kw-sv')", 15000);
+  assert.equal(await b.ev("document.querySelector('.atitle').textContent"), 'Kelimelerimle makale: Seçtiğim kelimeler');
+  assert.equal(await b.ev("!!document.querySelector('.kw-nav')"), false, 'tek makalede gezinme yok');
+  const marked = await b.ev("[].map.call(document.querySelectorAll('#art .w.kwm'),function(e){return e.textContent.toLowerCase()})");
+  assert.deepEqual([...new Set(marked)].sort(), ['river', 'tunnel']);
+  assert.equal(JSON.parse((await b.storage())[KS]).kwm, 'words');
+  assert.deepEqual(b.errors, []);
+});
