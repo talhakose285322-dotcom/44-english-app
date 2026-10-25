@@ -115,3 +115,15 @@ test('Koruma iş akışı main’deki kopyadan çalışıyor ve PR kodunu indirm
   assert.match(wf, /workflow-onay/, '.github changes need the owner label');
   assert.match(wf, /permissions:\s*\n\s+contents: read\s*\n\s+pull-requests: read/, 'read-only token');
 });
+
+test('Haber bildirimi yalnızca birleşen news/ PR’ında çalışıyor, PR kodunu indirmiyor ve sahibini etiketliyor', () => {
+  const wf = fs.readFileSync(path.join(root, '.github', 'workflows', 'news-notify.yml'), 'utf8');
+  assert.match(wf, /^on:\s*\n\s+pull_request_target:\s*\n\s+types: \[closed\]/m);
+  assert.match(wf, /if: github\.event\.pull_request\.merged == true && startsWith\(github\.event\.pull_request\.head\.ref, 'news\/'\)/);
+  assert.doesNotMatch(wf, /actions\/checkout|head\.sha/, 'never checks out the pull request');
+  assert.match(wf, /permissions:\s*\n\s+issues: write\s*\n\s*\n/, 'only issues may be written');
+  // pull request text reaches the script only through env, never inside run:
+  const run = wf.slice(wf.indexOf('run: |'));
+  assert.doesNotMatch(run, /\$\{\{/, 'no expressions inside the script');
+  assert.match(run, /'@%s [^']*' "\$OWNER"/, 'the owner is mentioned, so GitHub sends an e-mail');
+});
