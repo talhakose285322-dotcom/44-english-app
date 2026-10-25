@@ -50,6 +50,12 @@ test('açıklamalar gereken her yerde var ve açılan balon ekranın içinde kal
   await check('Hazır makaleler seviye', '#rl .note .itip', /Seviye: önerilen[\s\S]*B1/);
   await b.ev("document.querySelector('#rtabs [data-rt=\"kw\"]').click()");
   await check('Kelimelerimle oluştur', '#kw h2 .itip', /Liste seç[\s\S]*Kelime seç/);
+  await b.ev("document.getElementById('n-list').click()");
+  await check('Kelimeler durum etiketleri', '#lsub-p .itip', /Öğreniliyor 1\/3[\s\S]*Öğrenildi[\s\S]*Koleksiyonlar/);
+  await b.ev("document.querySelector('#ltabs [data-lt=\"add\"]').click()");
+  const add = await b.ev("[].map.call(document.querySelectorAll('#lt-add h2 .itip'),function(t){return t.parentNode.firstChild.textContent.trim()})");
+  assert.deepEqual(add, ['Tek kelime', 'PDF’den kelime listesi', 'Toplu ekle']);
+  await check('Tek kelime', '#lt-add h2 .itip', /zaten varsa eklenmez[\s\S]*Kullan/);
   await b.ev("document.getElementById('n-prof').click();document.querySelector('#ptabs [data-pt=\"set\"]').click()");
   const set = await b.ev("[].map.call(document.querySelectorAll('#p-set h2 .itip'),function(t){return t.parentNode.firstChild.textContent.trim()})");
   assert.deepEqual(set, ['Otomatik güvenlik kopyaları', 'Verilerin nerede saklanıyor?']);

@@ -18,8 +18,8 @@ after(async () => { await b?.close(); srv?.stop(); });
 const heads = id => b.ev(`[].map.call(document.querySelectorAll('#${id} h2'),function(h){return h.firstChild.textContent.trim()})`);
 const visible = id => b.ev(`!document.getElementById('${id}').classList.contains('hide')`);
 
-test('Ekle yalnızca kelime eklemeyi, Profil → Ayarlar ayarları ve yedeği gösteriyor', async () => {
-  assert.deepEqual(await heads('v-add'), ['Tek kelime', 'PDF’den içe aktar', 'Toplu ekle']);
+test('Kelimeler → Kelime ekle yalnızca kelime eklemeyi, Profil → Ayarlar ayarları ve yedeği gösteriyor', async () => {
+  assert.deepEqual(await heads('lt-add'), ['Tek kelime', 'PDF’den kelime listesi', 'Toplu ekle']);
   await b.ev("document.getElementById('n-prof').click()");
   assert.ok(await visible('p-main'), 'Profil sekmesi açık başlıyor');
   assert.equal(await visible('p-set'), false);

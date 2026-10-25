@@ -381,6 +381,17 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 .rabar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(74px + env(safe-area-inset-bottom,0px));z-index:6;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;width:min(560px,calc(100% - 20px));padding:8px 10px;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,20,36,.18)}
 .rabar .tb{width:40px;height:40px}.rabar .tb.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.rabar .tb:disabled{opacity:.4}.ra-pos{font-size:13px;color:var(--muted);min-width:52px;text-align:center}
 @media (min-width:980px){.rabar{bottom:20px}}
+#ltabs{margin:4px 0 14px}#lcards{padding-top:4px}#lcards .lc-n{font-weight:500;opacity:.65;margin-left:2px}#lcards .lnew{color:var(--accent);border-style:dashed}
+.lbar{display:flex;gap:8px;align-items:center;margin-bottom:8px}.lbar input{flex:1;min-width:0;margin:0}.lbar select{flex:none;width:auto;max-width:46%;margin:0}
+#list{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh1)}#list>.btn{border-radius:0;border-top:1px solid var(--line)}#list>.empty{padding:16px}
+.witem{border-bottom:1px solid var(--line)}.witem:last-of-type{border-bottom:0}.witem.open{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.wrow{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border:0;background:none;font:inherit;color:var(--ink);text-align:left;cursor:pointer}
+.wrow b{flex:none;max-width:46%;font-size:16px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wm{flex:1;min-width:0;color:var(--ink2);font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wst{flex:none;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}.wst.new{color:var(--muted);background:var(--soft)}.wst.mid{color:#E8701A;background:color-mix(in srgb,#F97316 15%,transparent)}.wst.ok{color:var(--good);background:color-mix(in srgb,var(--good) 15%,transparent)}
+.wdet{display:none;padding:0 14px 12px;font-size:13.5px;line-height:1.5;color:var(--muted)}.witem.open .wdet{display:block}.wdet span{display:block;margin:3px 0}.wdet .we{color:var(--ink2);font-size:14.5px}
+.wact{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wact .btn{padding:6px 12px;font-size:13.5px}
+.fsg{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);margin-top:6px}.fsg:empty{display:none}.fsg .btn{padding:4px 10px;font-size:13px}#b-pv .acts{flex-wrap:wrap}.fsg .bad{color:var(--bad)}
 .ins-tips{margin:10px 0 2px;padding-left:20px}.ins-tips li{margin:6px 0}.rnw{margin-top:24px}.rnw .acts{flex-wrap:wrap}.rnw h2{font-size:17px}.nw-r{display:grid;grid-template-columns:minmax(80px,auto) 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.nw-r input{margin:0}.nw-r span{grid-column:1/-1;font-size:13px;color:var(--muted)}.rnw .good{color:var(--good)}
 @media (max-width:520px){.rtool .bk-t{display:none}.rtool{gap:5px}.rtool .tb{width:38px;height:38px}}
 @media (min-width:980px){.sheet{bottom:20px;border-radius:var(--r-xl);border-bottom:1px solid var(--line);max-width:600px}}
@@ -508,9 +519,10 @@ body.reading .sheet{max-width:740px}
         <li>Fotoğraftan makale: kitap ya da gazete sayfasının fotoğrafını çek, metni cihazında çıkarılsın.</li>
         <li>Makalenin sonunda “yeni kelimeler”: listende olmayan kelimeleri seç, anlamlarıyla tek seferde listene ekle.</li>
         <li>EPUB e-kitap ve altyazı (.srt, .vtt) dosyasından makale yükleme.</li>
-        <li>Makale sekmesi dört bölüm: Hazır makaleler, Kelimelerimle oluştur, Makale yükle, Makalelerim.</li>
+        <li>Makaleler sekmesi dört bölüm: Hazır makaleler, Kelimelerimle oluştur, Makale yükle, Makalelerim.</li>
         <li>Büyük kitaplar için daha geniş depolama; yer dolsa da makaleler kaybolmaz.</li>
         <li>Açıklama (i) düğmeleri.</li>
+        <li>Kelimeler sekmesi yenilendi: Listelerim ve Kelime ekle tek yerde; tek satırlık liste, öğrenme durumu etiketi; aynı kelime iki kez eklenmez, yalnızca kelimeleri yazınca anlamları getirilir.</li>
       </ul>
       <p class="note" style="margin-top:12px"><b>Sürüm 1.1.0</b></p>
       <ul class="note" style="margin:0;padding-left:20px">
@@ -556,17 +568,53 @@ body.reading .sheet{max-width:740px}
 
   <section id="v-list" class="hide">
     <h1>Kelimeler</h1>
-    <p class="sub" id="lsub"></p>
+    <div class='seg rtabs' id='ltabs'><button data-lt='list' class='on'>Listelerim</button><button data-lt='add'>Kelime ekle</button></div>
+    <div id='lt-list'>
+    <p class="sub" id="lsub-p"><span id="lsub"></span></p>
     <input id='lcq' type='search' class='hide' placeholder='Koleksiyon ara' autocomplete='off' aria-label='Koleksiyon ara' style='margin-bottom:8px'>
-    <div id='lcards' class='cards'></div>
-    <input id='lq' type='search' placeholder='Kelime ara veya sözlükte bul' autocomplete='off' autocapitalize='none'>
+    <div id='lcards' class='rchips' role='group' aria-label='Koleksiyonlar'></div>
+    <div class='lbar'><input id='lq' type='search' placeholder='Kelime ara' autocomplete='off' autocapitalize='none' aria-label='Kelime ara'><select id='lsort' aria-label='Sırala'><option value=''>Eklenme sırası</option><option value='new'>En yeni önce</option><option value='az'>A–Z</option><option value='hard'>Zorlandıklarım önce</option><option value='due'>Tekrar tarihine göre</option></select></div>
     <select id='lcol' class='hide'></select>
-    <div class='row'><label for='lsort'>Sırala</label><select id='lsort'><option value=''>Eklenme sırası</option><option value='new'>En yeni önce</option><option value='az'>A–Z</option><option value='hard'>Zorlandıklarım önce</option><option value='due'>Tekrar tarihine göre</option></select></div>
     <div id='lcolbar'></div>
+    <button class='btn ghost hide' id='lfind' style='margin:0 0 10px;width:100%'>Sözlükte ara</button>
     <button class='btn main' id='lplay' style='margin:4px 0 12px'>Bu listeyi çalış</button>
-    <button class='btn ghost' id='lfind' style='margin:10px 0;width:100%'>Sözlükte ara</button>
     <div id='lres'></div>
     <div id="list"></div>
+    </div>
+    <div id='lt-add' class='hide'>
+    <div class="panel">
+      <h2>Tek kelime</h2>
+      <label for="f-w">İngilizce kelime</label><input id="f-w" autocapitalize="none" autocomplete="off">
+      <div class="fsg" id="f-sg" aria-live="polite"></div>
+      <label for="f-m">Türkçe anlamı</label><input id="f-m" autocomplete="off">
+      <label for="f-e">Örnek cümle (İngilizce)</label><input id="f-e" autocomplete="off">
+      <label for="f-t">Cümlenin Türkçesi</label><input id="f-t" autocomplete="off">
+      <label for='f-c'>Koleksiyon (isteğe bağlı)</label><input id='f-c' list='dl-col' autocomplete='off'><datalist id='dl-col'></datalist>
+      <div style="height:14px"></div>
+      <button class="btn main" id="add1">Kelimeyi ekle</button>
+      <div class="toast" id="t1"></div>
+    </div>
+    <div class="panel" id="pdfp">
+      <h2>PDF’den kelime listesi</h2>
+      <p class="note" id="pm-note"></p>
+      <p class="note">PDF bu cihazda işlenir, hiçbir yere yüklenmez. PDF dosyasının kendisi saklanmaz; yalnızca içinden çıkan metin kaydedilir.</p>
+      <p class="note">Makale ya da kitap PDF’i mi? <button class="btn ghost" id="pf-art" style="padding:4px 10px;font-size:13px">Makaleler sekmesinden yükle</button></p>
+      <label for="pf">PDF dosyası seç</label><input type="file" id="pf" accept=".pdf,application/pdf">
+      <div id="pstat"></div>
+      <div id="pout"></div>
+    </div>
+    <div class="panel">
+      <h2>Toplu ekle</h2>
+      <p class="note">Her satıra bir kelime yaz. Yalnızca kelimeleri yazarsan anlamları makine çevirisiyle getirilir ve eklemeden önce sana gösterilir. İstersen anlamı da yazabilirsin; parçaları | işaretiyle ayır:<br>kelime | anlam | örnek cümle | cümlenin Türkçesi<br>Listende zaten olan kelimeler eklenmez.</p>
+      <input id='b-c' list='dl-col' placeholder='Koleksiyon (isteğe bağlı)' autocomplete='off' style='margin-bottom:10px'><textarea id="bulk" placeholder="resilient&#10;habit | alışkanlık&#10;garden | bahçe | We planted roses in the garden. | Bahçeye gül diktik."></textarea>
+      <div style="height:12px"></div>
+      <label for='fl'>Ya da dosyadan yükle (.txt, .csv)</label><input type='file' id='fl' accept='.txt,.csv,.json,text/plain,application/json'>
+      <div style='height:12px'></div>
+      <button class="btn main" id="addN">Hepsini ekle</button>
+      <div class="toast" id="t2"></div>
+      <div id="b-pv"></div>
+    </div>
+    </div>
   </section>
 
   <section id="v-tr" class="hide">
@@ -587,39 +635,6 @@ body.reading .sheet{max-width:740px}
     <p class="note">Cihazında tarayıcının kendi çevirmeni hazırsa metin cihazdan çıkmadan çevrilir. Hazır değilse metin ücretsiz MyMemory servisine gönderilir: günde yaklaşık 5.000 karakter, bir seferde en fazla 4.000 karakter; uzun metinler sırayla parçalara bölünür. Çeviriler kaydedilmez.</p>
   </section>
 
-  <section id="v-add" class="hide">
-    <h1>Kelime ekle</h1>
-    <div class="panel">
-      <h2>Tek kelime</h2>
-      <label for="f-w">İngilizce kelime</label><input id="f-w" autocapitalize="none" autocomplete="off">
-      <label for="f-m">Türkçe anlamı</label><input id="f-m" autocomplete="off">
-      <label for="f-e">Örnek cümle (İngilizce)</label><input id="f-e" autocomplete="off">
-      <label for="f-t">Cümlenin Türkçesi</label><input id="f-t" autocomplete="off">
-      <label for='f-c'>Koleksiyon (isteğe bağlı)</label><input id='f-c' list='dl-col' autocomplete='off'><datalist id='dl-col'></datalist>
-      <div style="height:14px"></div>
-      <button class="btn main" id="add1">Kelimeyi ekle</button>
-      <div class="toast" id="t1"></div>
-    </div>
-    <div class="panel" id="pdfp">
-      <h2>PDF’den içe aktar</h2>
-      <div class="seg" id="pmode"><button data-m="vocab" class="on">Kelime listesi PDF’i</button><button data-m="article">Makale / okuma metni</button></div>
-      <p class="note" id="pm-note"></p>
-      <p class="note">PDF bu cihazda işlenir, hiçbir yere yüklenmez. PDF dosyasının kendisi saklanmaz; yalnızca içinden çıkan metin kaydedilir.</p>
-      <label for="pf">PDF dosyası seç</label><input type="file" id="pf" accept=".pdf,application/pdf">
-      <div id="pstat"></div>
-      <div id="pout"></div>
-    </div>
-    <div class="panel">
-      <h2>Toplu ekle</h2>
-      <p class="note">Her satıra bir kelime yaz. Parçaları | işaretiyle ayır:<br>kelime | anlam | örnek cümle | cümlenin Türkçesi<br>Cümle kısımları boş bırakılabilir.</p>
-      <input id='b-c' list='dl-col' placeholder='Koleksiyon (isteğe bağlı)' autocomplete='off' style='margin-bottom:10px'><textarea id="bulk" placeholder="resilient | dayanıklı | She is a resilient person. | O dayanıklı biri."></textarea>
-      <div style="height:12px"></div>
-      <label for='fl'>Ya da dosyadan yükle (.txt veya .json)</label><input type='file' id='fl' accept='.txt,.csv,.json,text/plain,application/json'>
-      <div style='height:12px'></div>
-      <button class="btn main" id="addN">Hepsini ekle</button>
-      <div class="toast" id="t2"></div>
-    </div>
-  </section>
 </main>
 
 <div id='rprog' aria-hidden='true'></div>
@@ -628,8 +643,8 @@ body.reading .sheet{max-width:740px}
 <nav>
   <div class="brand"><img src="./icon.svg" alt="" width="34" height="34">Words 44</div>
   <button id="n-study" class="on"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Çalış</button>
-  <button id='n-read'><svg viewBox='0 0 24 24'><path d='M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z'/><path d='M8 9h6M8 13h6'/></svg>Makale</button><button id="n-list"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Kelimeler</button>
-  <button id="n-dict"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>Sözlük</button><button id="n-add"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Ekle</button><button id='n-prof'><svg viewBox='0 0 24 24'><circle cx='12' cy='8' r='4'/><path d='M4 21c0-4 4-6 8-6s8 2 8 6'/></svg>Profil</button>
+  <button id='n-read'><svg viewBox='0 0 24 24'><path d='M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z'/><path d='M8 9h6M8 13h6'/></svg>Makaleler</button><button id="n-list"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Kelimeler</button>
+  <button id="n-dict"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>Sözlük</button><button id='n-prof'><svg viewBox='0 0 24 24'><circle cx='12' cy='8' r='4'/><path d='M4 21c0-4 4-6 8-6s8 2 8 6'/></svg>Profil</button>
 </nav>
 
 <script>
@@ -920,7 +935,9 @@ body.reading .sheet{max-width:740px}
     else if(so==='new')L.reverse();
     else if(so==='hard')L.sort(function(a,b){return a.box-b.box||(b.bad||0)-(a.bad||0)});
     else if(so==='due')L.sort(function(a,b){return (a.due||'0').localeCompare(b.due||'0')});
-    $("lsub").textContent=L.length+" / "+words.length+" kelime";
+    var lrn=L.filter(function(x){return x.box>=3}).length,td=today(),due=L.filter(function(x){return x.due&&x.due<=td}).length;
+    $("lsub").textContent=L.length+" kelime"+(L.length!==words.length?' (toplam '+words.length+')':'')+" · "+lrn+" öğrenildi"+(due?" · "+due+" tanesinin tekrar zamanı geldi":"");
+    $('lfind').classList.toggle('hide',!q);if(q)$('lfind').textContent='Sözlükte ara: “'+$('lq').value.trim()+'”';
     $('lcolbar').innerHTML=cf?"<div class='tbar'><button class='btn ghost' id='lc-ren'>Koleksiyonu yeniden adlandır</button><button class='btn ghost' id='lc-del'>Koleksiyonu kaldır</button></div>":'';
     if(cf){
       $('lc-ren').onclick=function(){var n=prompt('Yeni ad:',cf);if(!n||!n.trim()||n.trim()===cf)return;renameCol(cf,n.trim());fillCols();$('lcol').value=n.trim();renderList()};
@@ -928,18 +945,26 @@ body.reading .sheet{max-width:740px}
     }
     var h="",lim=Math.min(L.length,LLIM);
     L.slice(0,lim).forEach(function(x){
-      var dots="";for(var i=0;i<3;i++)dots+='<i class="'+(x.box>i?"f":"")+'"></i>';
+      // one line per word (word, meaning, status); a tap shows the example sentence, collections and actions
       var xc=cols(x),al=Array.isArray(x.alt)?x.alt.filter(function(a){return a&&a.m}).length:0;
-      h+='<div class="item"><div class="t"><b>'+esc(x.w)+'</b><span>'+esc(x.m||x.d||'')+(al?' (+'+al+' anlam)':'')+'</span>'+(xc.length?'<span>'+esc(xc.join(', '))+'</span>':'')+(x.src&&x.src.name?'<span>Kaynak: '+esc(x.src.name)+'</span>':x.src&&x.src.title?'<span>Kaynak: '+esc(x.src.title)+'</span>':'')+'<div class="dots">'+dots+'</div>'+(x.due?'<span>Sıradaki tekrar: '+(x.due<=today()?'bugün':esc(x.due))+'</span>':'')+'</div><button class="ed" data-ed="'+escA(x.id)+'" aria-label="Düzenle">'+ic('edit')+'</button><button class="del" data-id="'+escA(x.id)+'" aria-label="Sil">'+ic('trash')+'</button></div>';
+      var st=x.box>=3?['ok','Öğrenildi']:x.box>0?['mid','Öğreniliyor '+x.box+'/3']:['new','Yeni'];
+      h+='<div class="witem"><button class="wrow" aria-expanded="false"><b>'+esc(x.w)+'</b><span class="wm">'+esc(x.m||x.d||'')+'</span><span class="wst '+st[0]+'">'+st[1]+'</span></button><div class="wdet">'+
+        (x.e?'<span class="we">'+esc(x.e)+(x.t?'<br><i>'+esc(x.t)+'</i>':'')+'</span>':'')+
+        (al?'<span>+'+al+' anlam daha</span>':'')+(xc.length?'<span>Koleksiyon: '+esc(xc.join(', '))+'</span>':'')+
+        (x.src&&x.src.name?'<span>Kaynak: '+esc(x.src.name)+'</span>':x.src&&x.src.title?'<span>Kaynak: '+esc(x.src.title)+'</span>':'')+
+        (x.due?'<span>Sıradaki tekrar: '+(x.due<=today()?'bugün':esc(x.due))+'</span>':'')+
+        '<div class="wact"><button class="btn ghost" data-sp="'+escA(x.id)+'">'+ic('volume')+' Dinle</button><button class="btn ghost" data-ed="'+escA(x.id)+'">'+ic('edit')+' Düzenle</button><button class="btn ghost" data-del="'+escA(x.id)+'">'+ic('trash')+' Sil</button></div></div></div>';
     });
     if(L.length>lim)h+="<button class='btn ghost' id='lmore' style='width:100%'>Daha fazla göster ("+(L.length-lim)+")</button>";
     $("list").innerHTML=h||'<div class="empty"><p>Liste boş.</p></div>';
     if($('lmore'))$('lmore').onclick=function(){LLIM+=300;renderList()};
+    Array.prototype.forEach.call(document.querySelectorAll('#list .wrow'),function(b){b.onclick=function(){var o=b.parentNode.classList.toggle('open');b.setAttribute('aria-expanded',String(o))}});
+    Array.prototype.forEach.call(document.querySelectorAll('#list [data-sp]'),function(b){b.onclick=function(){var x=words.filter(function(y){return y.id===b.getAttribute('data-sp')})[0];if(x)speak(x.w)}});
     Array.prototype.forEach.call(document.querySelectorAll('#list [data-ed]'),function(b){b.onclick=function(){var x=words.filter(function(y){return y.id===b.getAttribute('data-ed')})[0];if(x)openEditor(x)}});
-    Array.prototype.forEach.call(document.querySelectorAll("#list .del"),function(b){
+    Array.prototype.forEach.call(document.querySelectorAll("#list [data-del]"),function(b){
       b.onclick=function(){
         if(!confirm("Bu kelime silinsin mi? İlerlemesi de silinir."))return;
-        words=words.filter(function(x){return x.id!==b.getAttribute("data-id")});
+        words=words.filter(function(x){return x.id!==b.getAttribute("data-del")});
         save();renderList();
       };
     });
@@ -1008,9 +1033,10 @@ body.reading .sheet{max-width:740px}
   }
 
   function show(v){
+    if(v==='add'){v='list';lTab('add')} // the word-adding panels are part of Kelimeler
     view=v;if(v!=='read')leaveReader();
-    ['study','read','list','dict','tr','add','prof'].forEach(function(k){$("v-"+k).classList.toggle("hide",k!==v)});
-    ['study','read','list','dict','add','prof'].forEach(function(k){$("n-"+k).classList.toggle("on",k===(v==='tr'?'dict':v))});
+    ['study','read','list','dict','tr','prof'].forEach(function(k){$("v-"+k).classList.toggle("hide",k!==v)});
+    ['study','read','list','dict','prof'].forEach(function(k){$("n-"+k).classList.toggle("on",k===(v==='tr'?'dict':v))});
     if(v==='list')renderList();if(v==='read')renderRead();if(v==='prof'){renderProf();if(PT==='set')renderBackup()}$('sheet').classList.add('hide');
     if(v==='study'){if(S.smode==='wheel')setSmode('wheel');else build()}
     if(v==='dict'){dhistDraw();setTimeout(function(){if(!$('dq').value)$('dq').focus()},50)}
@@ -1020,24 +1046,65 @@ body.reading .sheet{max-width:740px}
   $('n-prof').onclick=function(){show('prof')};
   $('n-read').onclick=function(){show('read')};
   $("n-list").onclick=function(){show("list")};
-  $("n-add").onclick=function(){show("add")};
+  // Kelimeler: Listelerim | Kelime ekle
+  function lTab(t){
+    ['list','add'].forEach(function(k){$('lt-'+k).classList.toggle('hide',k!==t)});
+    Array.prototype.forEach.call($('ltabs').querySelectorAll('[data-lt]'),function(b){b.classList.toggle('on',b.getAttribute('data-lt')===t)});
+  }
+  Array.prototype.forEach.call($('ltabs').querySelectorAll('[data-lt]'),function(b){b.onclick=function(){lTab(b.getAttribute('data-lt'))}});
   $("n-dict").onclick=function(){show("dict")};
 
+  function wordOf(w){var k=String(w).trim().toLowerCase();return words.filter(function(y){return y.w.trim().toLowerCase()===k})[0]}
   $("add1").onclick=function(){
-    var w=$("f-w").value.trim(),m=$("f-m").value.trim();
+    var w=$("f-w").value.trim(),m=$("f-m").value.trim(),o=wordOf(w);
     if(!w||!m){$("t1").style.color="var(--bad)";$("t1").textContent="Kelime ve anlamı gerekli.";return}
+    if(o){$("t1").style.color="var(--bad)";$("t1").textContent="“"+w+"” zaten listende. Eklenmedi; istersen düzenle.";$("t1").insertAdjacentHTML('beforeend'," <button class='btn ghost' id='t1-ed' style='padding:4px 10px;font-size:13px'>Düzenle</button>");$('t1-ed').onclick=function(){openEditor(o)};return}
     var nw=mk(w,m,$("f-e").value.trim(),$("f-t").value.trim());setCols(nw,splitCols($('f-c').value));words.push(nw);save();
-    ["f-w","f-m","f-e","f-t"].forEach(function(i){$(i).value=""});
+    ["f-w","f-m","f-e","f-t"].forEach(function(i){$(i).value=""});$('f-sg').innerHTML='';
     $("t1").style.color="var(--good)";$("t1").textContent="Eklendi: "+w;$("f-w").focus();
   };
+  // While a word is typed: a note if it is already in the list, else a machine-translated meaning to use if wanted.
+  var FSG=0,FSGK='';
+  $('f-w').oninput=function(){
+    clearTimeout(FSG);var w=this.value.trim(),k=w.toLowerCase(),box=$('f-sg'),o=wordOf(w);box.innerHTML='';FSGK=k;
+    if(!w)return;
+    if(o){box.innerHTML="<span class='bad'>Bu kelime zaten listende: “"+esc(o.m||o.d||'')+"”.</span>";return}
+    if(!/^[a-z][a-z' -]*$/i.test(w)||w.length<2||$('f-m').value.trim())return;
+    FSG=setTimeout(function(){
+      translateText(w,'en-tr').then(function(t){
+        var m=String(t.t||'').trim();if(FSGK!==k||!m||m.toLowerCase()===k||$('f-m').value.trim())return;
+        box.innerHTML="Öneri: <b></b> <small>(makine çevirisi)</small> <button class='btn ghost' id='f-use'>Kullan</button><button class='btn ghost' id='f-dict'>Sözlükte bak</button>";
+        box.querySelector('b').textContent=m;
+        $('f-use').onclick=function(){$('f-m').value=m;box.innerHTML='';$('f-m').focus()};
+        $('f-dict').onclick=function(){lookup(w)};
+      },function(){});
+    },700);
+  };
+  // Toplu ekle: one word per line. "word | meaning | sentence | translation" lines are added as written; a line with
+  // only a word gets a machine-translated meaning that is shown for checking first. Words already in the list (or
+  // twice in the box) are skipped.
+  var BULKMT=30,BJOB=null;
   $("addN").onclick=function(){
-    var lines=$("bulk").value.split("\n"),n=0;
-    lines.forEach(function(l,i){
+    var have={},n=0,dup=[],ask=[],cs=splitCols($('b-c').value);
+    words.forEach(function(x){have[x.w.trim().toLowerCase()]=1});
+    $("bulk").value.split("\n").forEach(function(l,i){
       var p=l.split("|").map(function(s){return s.trim()});
-      if(p.length>=2&&p[0]&&p[1]){var wd=mk(p[0],p[1],p[2],p[3],i);setCols(wd,splitCols($('b-c').value));for(var k=4;k<p.length;k+=2){if(p[k])wd.x=(wd.x||[]).concat([{e:p[k],t:p[k+1]||''}])}words.push(wd);n++}
+      if(!p[0])return;
+      var k=p[0].toLowerCase();if(have[k]){dup.push(p[0]);return}
+      have[k]=1;
+      if(p.length>=2&&p[1]){var wd=mk(p[0],p[1],p[2],p[3],i);setCols(wd,cs);for(var j=4;j<p.length;j+=2){if(p[j])wd.x=(wd.x||[]).concat([{e:p[j],t:p[j+1]||''}])}words.push(wd);n++}
+      else ask.push({w:p[0],m:'',e:p[2]||'',t:p[3]||'',err:false});
     });
-    if(n){save();$("bulk").value="";$("t2").style.color="var(--good)";$("t2").textContent=n+" kelime eklendi."}
-    else{$("t2").style.color="var(--bad)";$("t2").textContent="Satır bulunamadı. Biçim: kelime | anlam | cümle | çeviri"}
+    if(!n&&!ask.length){msg('t2',dup.length?'Bu kelimelerin hepsi zaten listende.':'Kelime bulunamadı. Her satıra bir kelime yaz.','var(--bad)');return}
+    if(n&&!save())return;
+    var info=(n?n+' kelime eklendi. ':'')+(dup.length?dup.length+' kelime zaten listende olduğu için eklenmedi ('+dup.slice(0,5).join(', ')+(dup.length>5?'…':'')+'). ':'');
+    msg('t2',info);$("bulk").value='';
+    if(!ask.length)return;
+    var more=ask.slice(BULKMT),rows=ask.slice(0,BULKMT),p=$('b-pv'),me={};BJOB=me;
+    if(more.length)$("bulk").value=more.map(function(x){return x.w}).join('\n');
+    mtFill(rows,function(){return BJOB===me},function(i,k){p.innerHTML="<div class='pst'>Anlamlar getiriliyor: "+i+" / "+k+"</div>"}).then(function(){
+      mtPreview(p,rows,'bp',cs.join(', '),'',function(k){BJOB=null;p.innerHTML='';fillCols();msg('t2',info+k+' kelime listene eklendi.'+(more.length?' Kalan '+more.length+' kelime kutuda; onlar için tekrar “Hepsini ekle”ye dokun.':''))},function(){BJOB=null;p.innerHTML=''});
+    });
   };
 
   var SDEF={acc:"en-US",rate:"1",auto:false,voice:"",day:"",n:0};
@@ -1070,6 +1137,12 @@ body.reading .sheet{max-width:740px}
     Array.prototype.forEach.call(document.querySelectorAll('#p-set h2'),function(h){
       if(h.textContent==='Otomatik güvenlik kopyaları')itipAdd(h,'Uygulama her gün ve her geri yüklemeden önce bu tarayıcıda verilerinin bir kopyasını kendiliğinden alır; son 15 kopya tutulur. Yanlış bir geri yüklemeyi geri almak için listeden birini “Kontrol et” ile seçip geri dönebilirsin. Bu kopyalar da bu tarayıcıda durur: tarayıcı verileri silinirse onlar da silinir, dosya ya da bulut yedeğinin yerini tutmaz.');
       if(h.textContent==='Verilerin nerede saklanıyor?')itipAdd(h,'“Kalıcı depolama iste” düğmesi görünüyorsa, tarayıcıdan yer azaldığında bu uygulamanın verilerini silmemesini ister. iPhone’da en iyi koruma, uygulamayı ana ekrana ekleyerek kullanmak ve düzenli yedek almaktır.');
+    });
+    itipAdd($('lsub-p'),'Yeni: henüz doğru bilinmedi. Öğreniliyor 1/3, 2/3: kartlarda her doğru bilişte bir adım ilerler. Öğrenildi: üç adımı tamamladı; yine de aralıklarla tekrar sorulur. Bilemediğin kelime Yeni’ye döner. “Tekrar zamanı geldi”: bugün tekrar edilmesi gerekenler; Çalış sekmesinde sorulur. Koleksiyonlar kelimelerini gruplar; bir kelime birden çok koleksiyonda olabilir. Bir koleksiyonu kaldırmak kelimeleri silmez.');
+    Array.prototype.forEach.call(document.querySelectorAll('#lt-add h2'),function(h){
+      if(h.textContent==='Tek kelime')itipAdd(h,'Kelime listende zaten varsa eklenmez; istersen mevcut kelimeyi düzenlersin. Yazarken gelen öneri makine çevirisidir ve yalnızca “Kullan”a dokunursan yazılır. Daha ayrıntılı anlam ve örnekler için Sözlük’te ara, oradan kaydet.');
+      if(h.textContent==='PDF’den kelime listesi')itipAdd(h,'Kelime ve anlamı yan yana olan listeler en iyi sonucu verir (ör. “approach — yaklaşmak” ya da tablo). Kaydetmeden önce her satırı görüp düzeltebilirsin. Makale ya da kitap PDF’leri için Makaleler sekmesini kullan.');
+      if(h.textContent==='Toplu ekle')itipAdd(h,'Yalnızca kelimeleri yazarsan anlamları makine çevirisiyle getirilir (bir seferde en fazla 30 kelime) ve eklemeden önce kontrol etmen için gösterilir. Anlamını yazdığın satırlar hemen eklenir. Listende olan kelimeler atlanır; ilerlemeleri değişmez.');
     });
     itipAdd(document.querySelector('#cardsUI .stats'),'Her kelime 0–3 arası bir kutudadır. Bildiğinde bir üst kutuya geçer ve bir sonraki tekrarı daha geç gelir: 1, 3, 8, 20 gün sonra… Bilemediğinde kutu 0’a döner ve aynı gün yeniden sorulur. 3. kutuya ulaşan kelime “öğrenildi” sayılır. “Tekrarı gelenler” bugün zamanı gelmiş kelimeleri gösterir.');
   }
@@ -1225,7 +1298,12 @@ body.reading .sheet{max-width:740px}
   function readFile(f,cb){var r=new FileReader();r.onload=function(){cb(String(r.result))};r.onerror=function(){msg('t3','Dosya okunamadı.','var(--bad)')};r.readAsText(f)}
   $('impb').onclick=function(){var t=$('imp').value.trim();if(!t){msg('t3','Önce bir yedek dosyası seç ya da metnini yapıştır.','var(--bad)');return}checkBackup(t,'')};
   $('impf').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){checkBackup(t,f.name)});this.value=''};
-  $('fl').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){t=t.trim();if(t.charAt(0)==='['||t.charAt(0)==='{'){checkBackup(t,f.name);goBackup()}else{$('bulk').value=t;$('addN').click()}});this.value=''};
+  $('fl').onchange=function(){var f=this.files[0];if(!f)return;readFile(f,function(t){t=t.trim();if(t.charAt(0)==='['||t.charAt(0)==='{'){
+    // a backup file: restoring it belongs to Profil → Ayarlar (with its preview and safety copy), only on request
+    msg('t2','Bu bir yedek dosyası gibi görünüyor. Yedekten geri yükleme Profil → Ayarlar’da, önizlemeyle yapılır.','var(--bad)');
+    $('t2').insertAdjacentHTML('beforeend'," <button class='btn ghost' id='t2-bk' style='padding:4px 10px;font-size:13px'>Yedekten geri yüklemeye git</button>");
+    $('t2-bk').onclick=function(){checkBackup(t,f.name);goBackup()};
+  }else{$('bulk').value=t;$('addN').click()}});this.value=''};
   function goBackup(){profTab('set');if(view!=='prof')show('prof');setTimeout(function(){$('bk').scrollIntoView({block:'start'})},30)}
 
   // ---- Automatic safety copies (IndexedDB, same browser only) ----
@@ -1765,35 +1843,48 @@ body.reading .sheet{max-width:740px}
   function nwFetch(a,P){
     var p=$('nw-p'),me={};NWJOB=me;
     $('nw-go').disabled=true;
-    var rows=P.map(function(x){var s=x.el.closest('.s');return {w:x.w,m:'',e:s?trimSent(s.textContent.trim(),x.w):'',err:false}}),i=0;
-    function step(){
-      if(NWJOB!==me||!$('nw-p'))return;
-      p.innerHTML="<div class='pst'>Anlamlar getiriliyor: "+i+" / "+rows.length+"</div>";
-      if(i>=rows.length)return nwPreview(a,rows);
-      var x=rows[i++];
-      translateText(x.w,'en-tr').then(function(t){var m=String(t.t||'').trim();if(m&&m.toLowerCase()!==x.w)x.m=m;else x.err=true},function(){x.err=true}).then(step);
-    }
-    step();
+    var rows=P.map(function(x){var s=x.el.closest('.s');return {w:x.w,m:'',e:s?trimSent(s.textContent.trim(),x.w):'',err:false}});
+    mtFill(rows,function(){return NWJOB===me&&!!$('nw-p')},function(i,n){p.innerHTML="<div class='pst'>Anlamlar getiriliyor: "+i+" / "+n+"</div>"}).then(function(){
+      mtPreview(p,rows,'nw',a.c||'',String(a.title||'').slice(0,40),function(n){
+        NWJOB=null;markKnown();drawNew(a);
+        var sm=$('nw-sum');if(sm)sm.insertAdjacentHTML('afterbegin',"<b class='good'>"+n+" kelime listene eklendi.</b> ");
+      },function(){NWJOB=null;drawNew(a)});
+    });
   }
   var NWJOB=null;
-  function nwPreview(a,rows){
-    var p=$('nw-p'),bad=rows.filter(function(x){return x.err}).length;
+  // Word rows [{w,m,e,t,err}] get a machine-translated meaning, one word at a time. alive() false = given up (the
+  // promise then never settles); prog(i,n) shows progress.
+  function mtFill(rows,alive,prog){
+    var i=0;
+    return new Promise(function(res){
+      (function step(){
+        if(!alive())return;
+        prog(i,rows.length);
+        if(i>=rows.length)return res(rows);
+        var x=rows[i++];
+        translateText(x.w,'en-tr').then(function(t){var m=String(t.t||'').trim();if(m&&m.toLowerCase()!==x.w.toLowerCase())x.m=m;else x.err=true},function(){x.err=true}).then(step);
+      })();
+    });
+  }
+  // The rows with editable meanings in box p (ids start with pf); "Listeme ekle" adds those with a meaning that are not
+  // in the list yet, then onAdd(count); "Vazgeç" calls onNo.
+  function mtPreview(p,rows,pf,col,colPh,onAdd,onNo){
+    var bad=rows.filter(function(x){return x.err}).length;
     p.innerHTML="<p class='note'>Anlamlar makine çevirisidir; eklemeden önce kontrol et ve gerekirse düzelt."+(bad?' '+bad+' kelimenin anlamı bulunamadı; yazarsan eklenir, boş bırakırsan eklenmez.':'')+"</p>"+
       rows.map(function(x,i){return "<div class='nw-r'><b>"+esc(x.w)+"</b><input data-nm='"+i+"' value='"+escA(x.m)+"' placeholder='Anlamını yaz' aria-label='"+escA(x.w)+" anlamı'><span>"+esc(x.e)+"</span></div>"}).join('')+
-      "<label for='nw-c'>Koleksiyon (isteğe bağlı)</label><input id='nw-c' list='dl-col' value='"+escA(a.c||'')+"' placeholder='Örn. "+escA(String(a.title||'').slice(0,40))+"'>"+
-      "<div class='acts'><button class='btn main' id='nw-add'>Listeme ekle</button><button class='btn ghost' id='nw-no'>Vazgeç</button></div><div class='toast' id='nw-t'></div>";
-    $('nw-no').onclick=function(){NWJOB=null;drawNew(a)};
-    $('nw-add').onclick=function(){
-      var cs=splitCols($('nw-c').value),mine={},n=0;words.forEach(function(x){mine[x.w.trim().toLowerCase()]=1});
+      "<label for='"+pf+"-c'>Koleksiyon (isteğe bağlı)</label><input id='"+pf+"-c' list='dl-col' value='"+escA(col)+"'"+(colPh?" placeholder='Örn. "+escA(colPh)+"'":'')+">"+
+      "<div class='acts'><button class='btn main' id='"+pf+"-add'>Listeme ekle</button><button class='btn ghost' id='"+pf+"-no'>Vazgeç</button></div><div class='toast' id='"+pf+"-t'></div>";
+    $(pf+'-no').onclick=onNo;
+    $(pf+'-add').onclick=function(){
+      var cs=splitCols($(pf+'-c').value),mine={},n=0;words.forEach(function(x){mine[x.w.trim().toLowerCase()]=1});
       rows.forEach(function(x,i){
-        var m=p.querySelector("[data-nm='"+i+"']").value.trim();
-        if(!m||mine[x.w])return;
-        var wd=mk(x.w,m,x.e,'',i);setCols(wd,cs);words.push(wd);mine[x.w]=1;n++;
+        var m=p.querySelector("[data-nm='"+i+"']").value.trim(),k=x.w.toLowerCase();
+        if(!m||mine[k])return;
+        var wd=mk(x.w,m,x.e,x.t||'',i);setCols(wd,cs);words.push(wd);mine[k]=1;n++;
       });
-      if(!n){msg('nw-t','Eklenecek kelime yok: anlamları boş.','var(--bad)');return}
+      if(!n){msg(pf+'-t','Eklenecek kelime yok: anlamları boş.','var(--bad)');return}
       if(!save())return;
-      NWJOB=null;markKnown();drawNew(a);
-      var sm=$('nw-sum');if(sm)sm.insertAdjacentHTML('afterbegin',"<b class='good'>"+n+" kelime listene eklendi.</b> ");
+      onAdd(n);
     };
   }
   function markKnown(){
@@ -3154,12 +3245,12 @@ body.reading .sheet{max-width:740px}
     words.forEach(function(x){cols(x).forEach(function(c){var o=g[c]||(g[c]={n:0,l:0,d:0});o.n++;if(x.box>=3)o.l++;if(x.due&&x.due<=t)o.d++})});
     cards=[['','Tüm kelimeler',words.length,words.filter(function(x){return x.box>=3}).length,215,words.filter(function(x){return x.due&&x.due<=t}).length]];
     Object.keys(g).sort().forEach(function(c){cards.push([c,c,g[c].n,g[c].l,hue(c),g[c].d])});
-    $('lcards').innerHTML=cards.map(function(c,i){return "<button class='card"+(cf===c[0]?' on':'')+"' data-i='"+i+"' data-n='"+escA(c[1].toLowerCase())+"' style='--c:"+(i?palOf(c[1]):'#5B4CF0')+"'><i class='cic'>"+ic(i?'layers':'book')+"</i><b>"+esc(c[1])+"</b><span>"+c[2]+" kelime, "+c[3]+" öğrenildi"+(c[5]?' · '+c[5]+' tekrar':'')+"</span><i class='cbar'><i style='width:"+(c[2]?Math.round(c[3]/c[2]*100):0)+"%'></i></i></button>"}).join('')+
-      "<button class='card add' id='lnew'><i class='cic'>"+ic('plus')+"</i><b>Yeni koleksiyon</b><span>Boş bir koleksiyon oluştur</span></button>";
+    $('lcards').innerHTML=cards.map(function(c,i){return "<button class='rchip"+(cf===c[0]?' on':'')+"' data-i='"+i+"' data-n='"+escA(c[1].toLowerCase())+"' aria-pressed='"+(cf===c[0])+"'>"+esc(i?c[1]:'Tümü')+" <span class='lc-n'>"+c[2]+"</span></button>"}).join('')+
+      "<button class='rchip lnew' id='lnew'>+ Yeni koleksiyon</button>";
     $('lcq').classList.toggle('hide',cards.length<6);
-    function cfil(){var q=$('lcq').value.trim().toLowerCase();Array.prototype.forEach.call($('lcards').querySelectorAll('.card[data-i]'),function(b){b.classList.toggle('hide',!!q&&b.getAttribute('data-i')!=='0'&&b.getAttribute('data-n').indexOf(q)<0)})}
+    function cfil(){var q=$('lcq').value.trim().toLowerCase();Array.prototype.forEach.call($('lcards').querySelectorAll('[data-i]'),function(b){b.classList.toggle('hide',!!q&&b.getAttribute('data-i')!=='0'&&b.getAttribute('data-n').indexOf(q)<0)})}
     $('lcq').oninput=cfil;cfil();
-    Array.prototype.forEach.call($('lcards').querySelectorAll('.card[data-i]'),function(b){b.onclick=function(){$('lcol').value=cards[+b.getAttribute('data-i')][0];renderList()}});
+    Array.prototype.forEach.call($('lcards').querySelectorAll('[data-i]'),function(b){b.onclick=function(){$('lcol').value=cards[+b.getAttribute('data-i')][0];renderList()}});
     $('lnew').onclick=newCol;
   }
   var AVC=['linear-gradient(135deg,#4C7DFF,#9A4DF2)','linear-gradient(135deg,#FF7AB8,#FF9A4D)','linear-gradient(135deg,#12B76A,#0EA5E9)','linear-gradient(135deg,#F59E0B,#EF4444)','linear-gradient(135deg,#8B5CF6,#EC4899)','linear-gradient(135deg,#475569,#0F172A)'];
@@ -3880,7 +3971,7 @@ body.reading .sheet{max-width:740px}
     if(sp&&sp.segs.filter(function(s){return !s.front}).length>=2){
       // A workbook with several articles: let the user review the proposed split.
       WB=mkWB(info,sp,blocks);draftArt=null;
-      if(box==='pstat')st.html('Kitap okundu: '+esc(info.name)+'. Makalelere ayırma önizlemesi Makale sekmesinde açıldı.');
+      if(box==='pstat')st.html('Kitap okundu: '+esc(info.name)+'. Makalelere ayırma önizlemesi Makaleler sekmesinde açıldı.');
       if(view!=='read')show('read');else renderRead();
       window.scrollTo(0,0);
       return;
@@ -4064,11 +4155,10 @@ body.reading .sheet{max-width:740px}
   }
   function setPmode(m){
     pmode=m;
-    Array.prototype.forEach.call($('pmode').querySelectorAll('button'),function(b){b.classList.toggle('on',b.getAttribute('data-m')===m)});
     $('pm-note').textContent=m==='vocab'?'İngilizce kelimeler ve Türkçe anlamları, tanımlar ya da örnek cümleler içeren bir PDF seç (ör. “approach — yaklaşmak”, “approach | to come closer | yaklaşmak”, numaralı listeler, basit tablolar). Kaydetmeden önce her şeyi kontrol edip düzeltebilirsin.':'İngilizce bir makale ya da birçok makale içeren bir okuma kitabı seç. Tek makale paragraflarıyla çıkarılır; kitaplar başlıklara göre makalelere ayrılır ve kaydetmeden önce her bölümü kontrol edip düzeltebilirsin.';
   }
-  Array.prototype.forEach.call($('pmode').querySelectorAll('button'),function(b){b.onclick=function(){setPmode(b.getAttribute('data-m'))}});
   setPmode('vocab');
+  $('pf-art').onclick=function(){S.rtab='own';saveS();show('read')};
   $('pf').onchange=function(){var f=this.files[0];this.value='';if(f)runPdf(f,pmode,'pstat')};
 
   applyTheme();load();showAlert();build();if(S.smode==='wheel')setSmode('wheel');dailySnap();acctInit();
