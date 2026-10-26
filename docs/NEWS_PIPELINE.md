@@ -51,6 +51,9 @@ Ayrıca zorunlu **Koruma** denetimi (`.github/workflows/guard.yml`, `main`'deki 
   CC BY-SA. Ajans, gazete ya da stok sitesi fotoğrafı **kullanılmaz**.
 - Önerilen kaynak: Wikimedia Commons. Lisans, dosyanın Commons sayfasındaki bilgiden kontrol edilir (API
   `extmetadata.LicenseShortName`). Lisans belirsizse görsel kullanılmaz.
+- Wikimedia çok sık istekte "429 Too Many Requests" döner ya da görsel yerine bir hata sayfası (HTML) indirir:
+  istekleri tek tek ve aralarında birkaç saniye bekleyerek gönder, her istekte User-Agent başlığı olsun; 429 gelirse
+  30–90 saniye bekleyip tekrar dene. İndirilen dosyanın gerçekten JPEG olduğunu (ör. `file image.jpg`) kontrol et.
 - Olayın kendi fotoğrafı yoksa konuyla ilgili bir görsel seçilir ve `alt` metninde "örnek görsel" diye belirtilir.
 - Dosya: `image.jpg`, Commons'ın 960 px küçük kopyası, en fazla 400 KB (doğrulama denetler).
 - **Her makalenin fotoğrafı farklıdır.** Seçmeden önce `content/articles/*/meta.json` içindeki `image.source` değerlerine
