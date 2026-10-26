@@ -1,0 +1,24 @@
+{
+  "id": "mmx-launches-toward-mars-moon-phobos",
+  "level": "C2",
+  "title": "Japan’s MMX Probe Sets Off for Mars’s Moon Phobos",
+  "paragraphs": [
+    "With the launch of its Martian Moons eXploration mission, JAXA has set in motion one of the more audacious robotic journeys of the decade. An H3 rocket lifted MMX from the Tanegashima Space Center at 04:41 local time on 20 October 2026, and ESA, one of the partner agencies, hailed a successful start.",
+    "Few places in the inner Solar System are as little understood as Phobos and Deimos. Whether they are captured asteroids or debris flung out by a colossal impact on Mars is a question that flybys have never settled, and the answer bears on how Mars, and rocky planets generally, took shape. MMX aims to be the first probe to orbit Phobos, the first to sample a moon other than ours, and the first to bring anything home from the Mars system.",
+    "The road ahead is long and, inevitably, uncertain. Arrival is pencilled in for August 2027; the 25-kilogram Idefix rover, which would weigh a mere 15 grams in Phobos’s negligible gravity, should be released in early 2029; and the main craft is due to touch down in 2030 and gather at least ten grams of regolith for return in 2031. As ESA’s Elliot Sefton-Nash put it, the samples are “a window to study the evolution of Mars and the Solar System.” Whether that window opens depends on years of flawless operation in deep space, where plans have a habit of changing."
+  ],
+  "questions": [
+    {
+      "q": "Why does the origin of Phobos and Deimos matter?",
+      "a": "It bears on how Mars and rocky planets took shape."
+    },
+    {
+      "q": "What would Idefix weigh on Phobos, and why?",
+      "a": "About 15 grams, because Phobos’s gravity is negligible."
+    },
+    {
+      "q": "What does the closing sentence warn about?",
+      "a": "That years of flawless deep-space operation are needed, and plans often change."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "mmx-launches-toward-mars-moon-phobos",
+  "level": "B1",
+  "title": "Japan’s MMX Probe Sets Off for Mars’s Moon Phobos",
+  "paragraphs": [
+    "On 20 October 2026, Japan’s space agency JAXA launched a spacecraft called MMX from the Tanegashima Space Center. The H3 rocket worked well, and the mission is now on its way to Mars. Its target is Phobos, a small moon that circles the planet.",
+    "Scientists do not know where Mars’s two moons come from. They may be asteroids that Mars pulled in with its gravity, or pieces thrown into space after a huge crash on Mars. A sample from Phobos could help answer the question.",
+    "MMX should arrive at Mars in August 2027. In early 2029 it will drop a small rover named Idefix on Phobos. In 2030 the main spacecraft will land and collect rock, and a capsule with at least ten grams of material should reach Earth in 2031. Japan leads the mission, with help from NASA, France, Germany and the European Space Agency. Of course, the plan is still ahead of us, and the long journey could meet problems."
+  ],
+  "questions": [
+    {
+      "q": "What do scientists not know about Mars’s moons?",
+      "a": "Where they come from."
+    },
+    {
+      "q": "What will the rover Idefix do and when?",
+      "a": "It will be dropped on Phobos in early 2029."
+    },
+    {
+      "q": "How much material should come back to Earth?",
+      "a": "At least ten grams, in 2031."
+    }
+  ]
+}

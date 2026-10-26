@@ -1,0 +1,55 @@
+{
+  "id": "mmx-launches-toward-mars-moon-phobos",
+  "category": "news",
+  "title": "Japan’s MMX Probe Sets Off for Mars’s Moon Phobos",
+  "summary": "Japonya'nın MMX uzay aracı 20 Ekim 2026'da Mars'ın uydusu Phobos'a doğru yola çıktı; amaç Phobos'tan örnek alıp 2031'de Dünya'ya getirmek.",
+  "published": "2026-10-26",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Mars’ın uydusu Phobos’un uzay aracı tarafından çekilmiş renkli fotoğrafı (örnek görsel).",
+    "credit": "NASA/JPL-Caltech/University of Arizona",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:Phobos_PIA10369.jpg"
+  },
+  "sources": [
+    {
+      "title": "ESA: MMX lifts off to Mars’s moon Phobos",
+      "url": "https://www.esa.int/ESA_Multimedia/Images/2026/10/MMX_lifts_off_to_Mars_s_moon_Phobos"
+    },
+    {
+      "title": "ESA: Mars moon lander set to launch on 19 October",
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Mars_moon_lander_set_to_launch_on_19_October"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "launch",
+      "tr": "fırlatmak; fırlatma"
+    },
+    {
+      "w": "moon",
+      "tr": "uydu, ay"
+    },
+    {
+      "w": "sample",
+      "tr": "örnek"
+    },
+    {
+      "w": "rover",
+      "tr": "gezgin araç"
+    },
+    {
+      "w": "gravity",
+      "tr": "yerçekimi"
+    },
+    {
+      "w": "asteroid",
+      "tr": "asteroit"
+    },
+    {
+      "w": "mission",
+      "tr": "görev"
+    }
+  ]
+}
