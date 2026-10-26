@@ -1,0 +1,24 @@
+{
+  "id": "mmx-launches-toward-mars-moon-phobos",
+  "level": "C1",
+  "title": "Japan’s MMX Probe Sets Off for Mars’s Moon Phobos",
+  "paragraphs": [
+    "Japan’s space agency JAXA has sent its Martian Moons eXploration mission, MMX, on its way. An H3 rocket carried the probe aloft from the Tanegashima Space Center at 04:41 local time on 20 October 2026, and the European Space Agency, a partner in the project, praised a successful launch.",
+    "The mission is built on a series of firsts. MMX is meant to be the first spacecraft to orbit Phobos, the first to take a sample from the surface of any moon beyond our own, and the first to return to Earth after visiting the Mars system. Behind this lies a genuine mystery: nobody knows whether Mars’s two small moons are captured asteroids or the leftovers of a giant impact on the planet itself.",
+    "The timetable is demanding. Arrival at Mars is expected in August 2027, the 25-kilogram Idefix rover is due to be released in early 2029, and the main craft should land on Phobos in 2030 to collect at least ten grams of material. In Phobos’s feeble gravity, the rover would weigh just 15 grams. The capsule is then due back on Earth in 2031, landing in Australia before the sample travels to Japan. Success is far from guaranteed: deep-space missions seldom run exactly to plan, and every date still depends on a long journey going smoothly."
+  ],
+  "questions": [
+    {
+      "q": "What two explanations exist for the origin of Mars’s moons?",
+      "a": "They are captured asteroids or leftovers of a giant impact on Mars."
+    },
+    {
+      "q": "Where will the sample capsule land before going to Japan?",
+      "a": "In Australia."
+    },
+    {
+      "q": "Why is success ‘far from guaranteed’?",
+      "a": "Deep-space missions seldom run exactly to plan and the dates rely on a smooth journey."
+    }
+  ]
+}

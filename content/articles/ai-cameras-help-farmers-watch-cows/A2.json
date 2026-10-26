@@ -1,0 +1,24 @@
+{
+  "id": "ai-cameras-help-farmers-watch-cows",
+  "level": "A2",
+  "title": "AI Cameras Help Farmers Watch Their Cows",
+  "paragraphs": [
+    "On some farms in Northern Ireland, artificial intelligence now helps to look after the animals. George McMaster has about 300 cows on his farm near Islandmagee. A camera in his milking room gives each cow an ID and records a short video of her every day.",
+    "A computer program then checks the videos. It looks for changes in each cow. Sometimes it finds a problem before a person can see it. His son Jack says the camera has found cows that looked fine to the family.",
+    "Other farmers use robots to milk their cows, or phone apps for their records. The people who make the apps say that AI should help the farmer, not decide for the farmer."
+  ],
+  "questions": [
+    {
+      "q": "How many cows does George McMaster have?",
+      "a": "About 300."
+    },
+    {
+      "q": "What does the camera give each cow?",
+      "a": "An ID."
+    },
+    {
+      "q": "What should AI do, according to the app makers?",
+      "a": "Help the farmer, not decide for the farmer."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "ai-cameras-help-farmers-watch-cows",
+  "level": "C1",
+  "title": "AI Cameras Help Farmers Watch Their Cows",
+  "paragraphs": [
+    "A BBC News report on farming in Northern Ireland suggests that artificial intelligence has moved from the laboratory to the milking parlour. On George McMaster’s farm near Islandmagee, a camera assigns each of his roughly 300 cows an ID, records a brief daily video and raises an alert when something changes, often before it is visible to the human eye.",
+    "His son Jack, who is taking over the business, says the technology has singled out cows that the family would never have considered lame. Catching a problem early, he argues, keeps animals in condition and increases milk output. Other farmers interviewed rely on robotic milking systems that cows enter at their leisure, on record-keeping apps that make inspections far easier, and on high-speed broadband, without which, one said, a farm shop with electronic payments would have been out of the question.",
+    "The picture is encouraging but one-sided. The article rests mainly on testimonies from farmers and developers, with no independent data on costs, yields or animal welfare. The creator of one app insists that the technology should merely advise: “We don’t want the AI making the decision for the farmer.”"
+  ],
+  "questions": [
+    {
+      "q": "What did the camera find that the family had missed?",
+      "a": "Cows that were lame."
+    },
+    {
+      "q": "Why does the text call the picture ‘one-sided’?",
+      "a": "It relies on testimonies from farmers and developers, without independent data."
+    },
+    {
+      "q": "What is the app creator’s view of AI?",
+      "a": "It should only advise the farmer, not decide."
+    }
+  ]
+}

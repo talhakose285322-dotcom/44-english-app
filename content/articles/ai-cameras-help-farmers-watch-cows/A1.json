@@ -1,0 +1,24 @@
+{
+  "id": "ai-cameras-help-farmers-watch-cows",
+  "level": "A1",
+  "title": "AI Cameras Help Farmers Watch Their Cows",
+  "paragraphs": [
+    "Some farmers now use AI cameras. The cameras watch the cows. George McMaster has a farm in Northern Ireland. He has about 300 cows.",
+    "A camera sees each cow every day. A computer looks at the video. It can find a sick cow early.",
+    "George’s son Jack likes this. He says the cows are happier. A farmer can also use a phone app. It keeps the farm papers in one place."
+  ],
+  "questions": [
+    {
+      "q": "Where is George McMaster’s farm?",
+      "a": "In Northern Ireland."
+    },
+    {
+      "q": "What does the camera see every day?",
+      "a": "Each cow."
+    },
+    {
+      "q": "What can the computer find early?",
+      "a": "A sick cow."
+    }
+  ]
+}

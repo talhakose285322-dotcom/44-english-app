@@ -1,0 +1,24 @@
+{
+  "id": "ai-cameras-help-farmers-watch-cows",
+  "level": "B2",
+  "title": "AI Cameras Help Farmers Watch Their Cows",
+  "paragraphs": [
+    "A BBC News report describes how artificial intelligence is spreading through dairy farming in Northern Ireland. On George McMaster’s farm near Islandmagee, a camera in the milking parlour gives each of his roughly 300 cows an ID, records a short daily video and flags changes, frequently before the human eye could notice them.",
+    "His son Jack, who is taking over the business, says the system has identified cows with a limp that the family would never have thought of as lame. Earlier treatment, he argues, keeps animals healthier and produces more milk. Elsewhere in the country, a farmer with 90 Jersey cows uses a robotic milking machine that cows enter when they choose, and credits improved broadband for making a farm shop with electronic payments possible.",
+    "The report is largely made up of farmers’ own accounts and offers no independent figures on costs, milk yields or animal health, so the benefits remain unproven. The developer of one farm-records app stressed that technology should only advise: “We don’t want the AI making the decision for the farmer.”"
+  ],
+  "questions": [
+    {
+      "q": "What does the system do with the daily video?",
+      "a": "It flags changes, often before the human eye could see them."
+    },
+    {
+      "q": "What does a farmer with 90 Jersey cows say helped his farm shop?",
+      "a": "Improved broadband."
+    },
+    {
+      "q": "Why are the benefits ‘unproven’?",
+      "a": "The report has no independent figures on costs, yields or animal health."
+    }
+  ]
+}

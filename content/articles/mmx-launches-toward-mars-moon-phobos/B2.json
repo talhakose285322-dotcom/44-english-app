@@ -1,0 +1,24 @@
+{
+  "id": "mmx-launches-toward-mars-moon-phobos",
+  "level": "B2",
+  "title": "Japan’s MMX Probe Sets Off for Mars’s Moon Phobos",
+  "paragraphs": [
+    "Japan’s space agency JAXA launched its Martian Moons eXploration mission, known as MMX, on 20 October 2026. An H3 rocket lifted the spacecraft from the Tanegashima Space Center at 04:41 local time, and the European Space Agency, one of the partners, called the launch a success.",
+    "If the plan works, MMX will be the first spacecraft to orbit Phobos and the first to collect a sample from the surface of a moon other than our own. It will also be the first mission to return to Earth from the Mars system. The origin of Mars’s two moons is still a puzzle: they could be captured asteroids, or debris from an ancient collision on Mars.",
+    "The schedule is long. The spacecraft should reach Mars in August 2027 and release a 25-kilogram rover, Idefix, in early 2029. Because Phobos has very weak gravity, the rover would weigh only about 15 grams there. The main craft should land and gather at least ten grams of material in 2030, and the sample capsule should come back in 2031. “The data and samples returned by MMX are a window to study the evolution of Mars and the Solar System,” said ESA’s project scientist, Elliot Sefton-Nash. Such a mission carries risks, and all dates depend on a flawless journey."
+  ],
+  "questions": [
+    {
+      "q": "Name two firsts that MMX hopes to achieve.",
+      "a": "It would be the first to orbit Phobos and the first to return from the Mars system (or to sample another moon)."
+    },
+    {
+      "q": "Why would the Idefix rover weigh only 15 grams?",
+      "a": "Phobos has very weak gravity."
+    },
+    {
+      "q": "Why does the text say the plan carries risks?",
+      "a": "The dates depend on a flawless journey."
+    }
+  ]
+}

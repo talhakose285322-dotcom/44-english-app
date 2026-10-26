@@ -1,0 +1,47 @@
+{
+  "id": "ai-cameras-help-farmers-watch-cows",
+  "category": "news",
+  "title": "AI Cameras Help Farmers Watch Their Cows",
+  "summary": "Kuzey İrlanda'daki bazı süt çiftlikleri, ineklerin sağlığını izlemek için yapay zekâlı kameralar kullanıyor; haber, yararların henüz bağımsız verilerle kanıtlanmadığını da gösteriyor.",
+  "published": "2026-10-26",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir süt sağım salonunda sağım düzeneğindeki inekler (örnek görsel).",
+    "credit": "Michael Barera (kırpılmıştır)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2022_Wisconsin_State_Fair_57_(Milking_Parlor).jpg"
+  },
+  "sources": [
+    {
+      "title": "BBC News: From agriculture to AI-griculture: How tech is changing farming",
+      "url": "https://www.bbc.co.uk/news/articles/cw80zk9k51j1o"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "herd",
+      "tr": "sürü"
+    },
+    {
+      "w": "milking parlour",
+      "tr": "sağım salonu"
+    },
+    {
+      "w": "flag",
+      "tr": "işaretlemek, uyarmak"
+    },
+    {
+      "w": "lame",
+      "tr": "topal"
+    },
+    {
+      "w": "broadband",
+      "tr": "geniş bant internet"
+    },
+    {
+      "w": "efficiency",
+      "tr": "verimlilik"
+    }
+  ]
+}
