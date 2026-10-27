@@ -1,0 +1,24 @@
+{
+  "id": "giant-fungus-d-rex-yunnan",
+  "level": "C2",
+  "title": "Scientists Name a Giant Fungus “D-rex”",
+  "paragraphs": [
+    "Few creatures can claim to have taken the throne after the dinosaurs fell, but a fungus nicknamed “D-rex” is now being cast in that role. In Frontiers in Fungal Biology, a team from the Kunming Institute of Botany describes Dianjunus rex, whose fruiting bodies rise to about 50 centimetres and weigh as much as 2.2 kilograms, the largest recorded in the phylum Ascomycota, which numbers more than 64,000 known species.",
+    "It lives on fallen wood and woody roots, often those of Chinese cork oak, in Yunnan’s forests, and it leaves the former record holder, Engleromyces goetzei, at 20 to 30 centimetres, firmly in the shade. Genetic analysis persuaded the authors to create a new family, Dianjunaceae, which a molecular clock places at around 65 million years old, roughly a million years after the mass extinction. Co-author Indunil Senanayake suggests that the disruption “may have created new ecological opportunities” for wood-decomposing fungi.",
+    "The crown, though, comes with fine print. It is awarded within Ascomycota alone, not to fungi at large, and the notion that height speeds the dispersal of spores in dense forests is conjecture, not demonstration; towering structures are costly, and only a clear payoff would have kept them in the lineage. Even so, the discovery cuts to the heart of a larger point: if so conspicuous a fungus escaped description until now, the unseen diversity of these forests must be considerable."
+  ],
+  "questions": [
+    {
+      "q": "What “crown” does D-rex hold, and what is its limit?",
+      "a": "Largest in Ascomycota, not among all fungi."
+    },
+    {
+      "q": "How did the researchers justify a new family?",
+      "a": "Genetic analysis supported creating Dianjunaceae."
+    },
+    {
+      "q": "What does the discovery imply about Yunnan’s forests?",
+      "a": "That much fungal diversity there remains undescribed."
+    }
+  ]
+}

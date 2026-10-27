@@ -1,0 +1,24 @@
+{
+  "id": "giant-jurassic-belemnite-wyoming",
+  "level": "A2",
+  "title": "A Chunky Sea Animal From the Age of Dinosaurs",
+  "paragraphs": [
+    "Scientists have named a new sea animal from the time of the dinosaurs. It is called Wyoteuthis linsterorum, and it belonged to a group called belemnites. These animals were relatives of modern squid and octopuses.",
+    "The animal lived about 160 million years ago in a shallow sea that covered part of Wyoming. Its hard inner part is about ten centimetres long and six centimetres wide. Most belemnites from the same place were much thinner, about one or two centimetres wide.",
+    "Only two fossils are known. One was found in the late 1990s and stayed in a museum drawer for years. The other was given to the same museum in 2019. The team used CT scans to look inside the fossils without breaking them."
+  ],
+  "questions": [
+    {
+      "q": "What group did the new animal belong to?",
+      "a": "The belemnites."
+    },
+    {
+      "q": "How wide is its hard inner part?",
+      "a": "About six centimetres."
+    },
+    {
+      "q": "How did the team look inside the fossils?",
+      "a": "They used CT scans."
+    }
+  ]
+}

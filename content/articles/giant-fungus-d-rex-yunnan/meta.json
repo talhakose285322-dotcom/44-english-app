@@ -1,0 +1,55 @@
+{
+  "id": "giant-fungus-d-rex-yunnan",
+  "category": "news",
+  "title": "Scientists Name a Giant Fungus “D-rex”",
+  "summary": "Çin’in Yunnan bölgesinde bulunan yeni mantar türü, torbalı mantarlar arasında bilinen en uzun meyve gövdesine sahip.",
+  "published": "2026-10-27",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "alt": "Odun üzerinde büyüyen bir Daldinia concentrica mantarı (örnek görsel; haberdeki tür değildir).",
+    "credit": "Joseph O’Brien, USDA Forest Service, Bugwood.org",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Daldinia_concentrica_1.jpg",
+    "file": "image.jpg"
+  },
+  "sources": [
+    {
+      "title": "Popular Science: When “T. rex” died, a new giant fungus named “D-rex” took over",
+      "url": "https://www.popsci.com/science/new-giant-fungus-d-rex/"
+    },
+    {
+      "title": "Discover Wildlife: Experts discover ancient, “extreme” species in Chinese forest",
+      "url": "https://www.discoverwildlife.com/plant-facts/fungi/dianjunus-rex-fungi-china"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "fungus",
+      "tr": "mantar"
+    },
+    {
+      "w": "forest",
+      "tr": "orman"
+    },
+    {
+      "w": "tall",
+      "tr": "uzun, yüksek"
+    },
+    {
+      "w": "species",
+      "tr": "tür"
+    },
+    {
+      "w": "weigh",
+      "tr": "ağırlığında olmak"
+    },
+    {
+      "w": "hypothesis",
+      "tr": "hipotez, varsayım"
+    },
+    {
+      "w": "extinction",
+      "tr": "neslin tükenmesi"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "giant-jurassic-belemnite-wyoming",
+  "level": "C1",
+  "title": "A Chunky Sea Animal From the Age of Dinosaurs",
+  "paragraphs": [
+    "A fossil that spent years in a museum drawer has turned out to be a new species. Wyoteuthis linsterorum, described this month in Papers in Palaeontology by researchers in the United States, the United Kingdom and New Zealand, is being billed as the “fattest” belemnite on record, an extinct relative of today’s squid and octopuses.",
+    "Roughly 160 million years ago, in the Late Jurassic, an inland sea covered much of present-day Wyoming. Its sediments have yielded countless belemnites, most with an internal guard five to ten centimetres long and barely one or two across. The new animal’s guard, by contrast, is about ten centimetres long and six wide, implying a creature of around sixty centimetres once its arms are included. CT scans, which probe fossils without damaging them, tied it to a lineage of belemnites that was believed to have died out millions of years earlier, a so-called relict.",
+    "The authors tread carefully on why it grew so stout. “A possible explanation is that their relatively large size gave them an advantage when hunting co-occurring smaller belemnites,” lead author Alexey Ippolitov said. Others suggest narrow ecological specialisation might explain its rarity. Neither idea has been tested, and with only two specimens known, both now at the Wyoming Dinosaur Center, caution is warranted: one find can reshape a family tree, but it cannot, on its own, settle questions of ecology."
+  ],
+  "questions": [
+    {
+      "q": "What does “relict” mean in this context?",
+      "a": "A lineage that survived after its family was thought to have died out."
+    },
+    {
+      "q": "Why were CT scans used?",
+      "a": "To study the fossils’ internal structure without damaging them."
+    },
+    {
+      "q": "Why does the author urge caution?",
+      "a": "Only two specimens exist, so ecological ideas are untested."
+    }
+  ]
+}
