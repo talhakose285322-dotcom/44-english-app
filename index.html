@@ -3358,7 +3358,11 @@ body.reading .sheet{max-width:740px}
             var prior=existing.data.data,hasSavedData=false;
             try{
               var oldBackup=JSON.parse(prior),oldKeys=oldBackup&&oldBackup.keys;
-              hasSavedData=!!(oldKeys&&((Array.isArray(oldKeys[KEY])&&oldKeys[KEY].length)||(Array.isArray(oldKeys[AK])&&oldKeys[AK].length)));
+              // Only a recognized current-format backup can be classified as empty. Legacy or unknown formats
+              // are treated as containing data so an empty device cannot overwrite them after a confirmation.
+              if(oldBackup&&oldBackup.format==='44-backup'&&oldKeys&&typeof oldKeys==='object'){
+                hasSavedData=!!((Array.isArray(oldKeys[KEY])&&oldKeys[KEY].length)||(Array.isArray(oldKeys[AK])&&oldKeys[AK].length));
+              }else hasSavedData=true;
             }catch(e){hasSavedData=true}
             if(hasSavedData&&!b.counts.words&&!b.counts.articles){
               throw new Error('Bu hesapta mevcut kelime veya makale içeren bir yedek var. Boş cihaz yedeğiyle üzerine yazılmadı; önce “Buluttan geri yükle” seçeneğini kullan.');
