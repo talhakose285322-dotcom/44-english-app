@@ -1,0 +1,24 @@
+{
+  "id": "giant-fungus-d-rex-yunnan",
+  "level": "B2",
+  "title": "Scientists Name a Giant Fungus “D-rex”",
+  "paragraphs": [
+    "A team at the Kunming Institute of Botany has described a fungus whose fruiting bodies can stand about 50 centimetres tall and weigh up to 2.2 kilograms. Named Dianjunus rex and nicknamed “D-rex”, it appears in Frontiers in Fungal Biology and is reported as the largest known species in the phylum Ascomycota, which contains more than 64,000 known species.",
+    "The fungus grows from fallen wood and woody roots, typically of Chinese cork oak, in forests across Yunnan, including both temperate conifer stands and tropical rainforest. The previous record holder in this group, Engleromyces goetzei, reaches 20 to 30 centimetres. Molecular-clock analysis places the origin of the new family, Dianjunaceae, about 65 million years ago. “For wood-associated decomposing fungi, such environmental disruption may have created new ecological opportunities,” said co-author Indunil Senanayake.",
+    "Several caveats apply. The size record covers only Ascomycota, and the suggestion that tall bodies help spread spores by wind in dense forests is a hypothesis; such structures are costly to build, so the trait would only have persisted if its benefits outweighed the cost. The link to the post-extinction forest is described as a possibility rather than an established finding."
+  ],
+  "questions": [
+    {
+      "q": "What does “largest” mean here?",
+      "a": "The largest known species in the phylum Ascomycota, not among all fungi."
+    },
+    {
+      "q": "How is the family’s age estimated?",
+      "a": "By molecular-clock analysis."
+    },
+    {
+      "q": "Why is the spore-dispersal idea uncertain?",
+      "a": "It is a hypothesis, and tall bodies are costly to produce."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "giant-jurassic-belemnite-wyoming",
+  "level": "B1",
+  "title": "A Chunky Sea Animal From the Age of Dinosaurs",
+  "paragraphs": [
+    "A team of researchers from the United States, the United Kingdom and New Zealand has described a new species of belemnite, an extinct relative of squid and octopuses. Named Wyoteuthis linsterorum, it lived around 160 million years ago, in the Late Jurassic, when an inland sea covered part of what is now Wyoming.",
+    "What makes the animal unusual is its shape. Its hard internal “guard” measures about ten centimetres long and six centimetres wide, far thicker than other belemnites from the same rocks, which were usually one or two centimetres across. The scientists estimate that the whole animal, including its arms, was about sixty centimetres long. CT scans showed that it belongs to an ancient family that experts thought had disappeared millions of years earlier.",
+    "The finding rests on very little material: only two specimens are known, both on display at the Wyoming Dinosaur Center. One was found in the late 1990s and stayed unstudied in a drawer; the other was donated in 2019. Because of this, the researchers’ ideas about how the animal lived are only suggestions."
+  ],
+  "questions": [
+    {
+      "q": "Why is the new belemnite unusual?",
+      "a": "Its hard guard is much thicker than that of other belemnites from the same place."
+    },
+    {
+      "q": "What did the CT scans show?",
+      "a": "The animal belongs to an old family that was thought to have disappeared earlier."
+    },
+    {
+      "q": "Why are the ideas about its life only suggestions?",
+      "a": "Only two specimens are known."
+    }
+  ]
+}

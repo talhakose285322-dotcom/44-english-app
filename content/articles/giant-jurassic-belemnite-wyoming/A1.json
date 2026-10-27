@@ -1,0 +1,24 @@
+{
+  "id": "giant-jurassic-belemnite-wyoming",
+  "level": "A1",
+  "title": "A Chunky Sea Animal From the Age of Dinosaurs",
+  "paragraphs": [
+    "Scientists found a new animal. It lived in the sea a very long time ago.",
+    "The animal lived about 160 million years ago. Its fossil is from Wyoming, in the United States. The animal looked like a small squid.",
+    "Its hard part is big and thick. It is about ten centimetres long. The scientists know only two fossils. They are in a museum now."
+  ],
+  "questions": [
+    {
+      "q": "How old is the animal?",
+      "a": "About 160 million years old."
+    },
+    {
+      "q": "Where is the fossil from?",
+      "a": "From Wyoming, in the United States."
+    },
+    {
+      "q": "How many fossils do scientists know?",
+      "a": "Two."
+    }
+  ]
+}

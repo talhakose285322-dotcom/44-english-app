@@ -1,0 +1,24 @@
+{
+  "id": "giant-jurassic-belemnite-wyoming",
+  "level": "B2",
+  "title": "A Chunky Sea Animal From the Age of Dinosaurs",
+  "paragraphs": [
+    "Palaeontologists have described a new species of belemnite, Wyoteuthis linsterorum, that they say is the “chunkiest” member of its group yet identified. The team, drawing on researchers in the United States, the United Kingdom and New Zealand, published the work in Papers in Palaeontology, with the University of Manchester issuing a press release.",
+    "The animal lived about 160 million years ago in the Late Jurassic seas that covered Wyoming. Its internal guard, the part most likely to fossilise, is roughly ten centimetres long and six wide, whereas typical belemnites from the same formation measure five to ten centimetres by one to two. The scientists estimate that, with its arms, the living animal reached about sixty centimetres. CT scanning revealed internal features linking it to a family of belemnites that had been thought to vanish millions of years before.",
+    "The study offers a cautious explanation for the size. “A possible explanation is that their relatively large size gave them an advantage when hunting co-occurring smaller belemnites,” said lead author Alexey Ippolitov. That remains speculation, however: the species is known from just two specimens, found in the late 1990s and donated in 2019, so its range, lifestyle and rarity cannot yet be tested."
+  ],
+  "questions": [
+    {
+      "q": "What does “chunkiest” refer to?",
+      "a": "The thickness of the animal’s internal guard compared with other belemnites."
+    },
+    {
+      "q": "What did CT scanning reveal?",
+      "a": "Features linking the species to a family thought to have vanished earlier."
+    },
+    {
+      "q": "Why is the hunting explanation uncertain?",
+      "a": "It is speculation based on only two specimens."
+    }
+  ]
+}

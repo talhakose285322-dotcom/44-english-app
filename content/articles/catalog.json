@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "giant-jurassic-belemnite-wyoming",
+      "category": "news",
+      "title": "A Chunky Sea Animal From the Age of Dinosaurs",
+      "summary": "Wyoming’de bulunan 160 milyon yıllık fosil, bilinen en “tombul” belemnit olan yeni bir türü tanıttı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-27",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 64,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 123,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 178,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 201,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 229,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 243,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "giant-jurassic-belemnite-wyoming/image.jpg",
+        "alt": "Bir Jurassic dönemi belemnit fosili (örnek görsel; Montana’dan başka bir tür).",
+        "credit": "James St. John",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pachyteuthis_densus_(fossil_belemnite)_(Swift_Formation,_Jurassic;_Carbon_County,_Montana,_USA)_1_(49075434606).jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (University of Manchester): Scientists discover a bizarre Jurassic “squid” unlike anything ever seen",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261019093434.htm"
+        },
+        {
+          "title": "Papers in Palaeontology: “The big chunky belemnite” (DOI 10.1002/spp2.70123)",
+          "url": "https://doi.org/10.1002/spp2.70123"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "fossil",
+          "tr": "fosil"
+        },
+        {
+          "w": "species",
+          "tr": "tür"
+        },
+        {
+          "w": "ancient",
+          "tr": "eski, kadim"
+        },
+        {
+          "w": "predator",
+          "tr": "avcı, yırtıcı"
+        },
+        {
+          "w": "scan",
+          "tr": "taramak; tarama"
+        },
+        {
+          "w": "specimen",
+          "tr": "örnek (numune)"
+        },
+        {
+          "w": "relict",
+          "tr": "kalıntı tür"
+        }
+      ]
+    },
+    {
+      "id": "giant-fungus-d-rex-yunnan",
+      "category": "news",
+      "title": "Scientists Name a Giant Fungus “D-rex”",
+      "summary": "Çin’in Yunnan bölgesinde bulunan yeni mantar türü, torbalı mantarlar arasında bilinen en uzun meyve gövdesine sahip.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-27",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 51,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 112,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 174,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 192,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 225,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 232,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "giant-fungus-d-rex-yunnan/image.jpg",
+        "alt": "Odun üzerinde büyüyen bir Daldinia concentrica mantarı (örnek görsel; haberdeki tür değildir).",
+        "credit": "Joseph O’Brien, USDA Forest Service, Bugwood.org",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Daldinia_concentrica_1.jpg"
+      },
+      "sources": [
+        {
+          "title": "Popular Science: When “T. rex” died, a new giant fungus named “D-rex” took over",
+          "url": "https://www.popsci.com/science/new-giant-fungus-d-rex/"
+        },
+        {
+          "title": "Discover Wildlife: Experts discover ancient, “extreme” species in Chinese forest",
+          "url": "https://www.discoverwildlife.com/plant-facts/fungi/dianjunus-rex-fungi-china"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "fungus",
+          "tr": "mantar"
+        },
+        {
+          "w": "forest",
+          "tr": "orman"
+        },
+        {
+          "w": "tall",
+          "tr": "uzun, yüksek"
+        },
+        {
+          "w": "species",
+          "tr": "tür"
+        },
+        {
+          "w": "weigh",
+          "tr": "ağırlığında olmak"
+        },
+        {
+          "w": "hypothesis",
+          "tr": "hipotez, varsayım"
+        },
+        {
+          "w": "extinction",
+          "tr": "neslin tükenmesi"
+        }
+      ]
+    },
     {
       "id": "ai-cameras-help-farmers-watch-cows",
       "category": "news",
