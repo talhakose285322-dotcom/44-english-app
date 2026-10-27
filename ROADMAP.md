@@ -115,3 +115,13 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 - Öncelik: 1.4 bulut yedeğinde kullanıcı izolasyonunu doğrulamak; ardından 2.1–2.4 web/PWA güncelleme ve veri güvenliği senaryoları.
 - Gerçek cihaz gerektiren açık işler: iPhone Google girişinde passkey/QR ve uygulamaya dönüş; Android Google girişi; iOS/Android PWA güncelleme davranışı. Google girişinde `prompt=select_account` istendi, ancak iPhone'da gerçek giriş yapılmadan sorun çözüldü kabul edilmeyecek.
 - Apple Developer hesabıyla imzalama/noterleme, App Store/Google Play test ve yayını henüz yapılmadı. Ödeme/abonelik sistemi de uçtan uca doğrulanmadı.
+
+
+## Faz 9 — Depolama ve öngörülebilir maliyet
+- [ ] 9.1 Kişisel içerik göndermeyen yerel depolama ölçümü ekle.
+- [ ] 9.2 1.000 / 10.000 / 50.000 kelimelik sentetik performans testlerini ekle.
+- [ ] 9.3 IndexedDB geçişini veri doğrulaması ve geri dönüş planıyla uygula.
+- [ ] 9.4 Artımlı senkronizasyonu RLS ve çakışma testleriyle ayrı aşamada geliştir.
+- [ ] 9.5 Bulut, trafik ve AI maliyet alarmlarını sağlayıcı panolarında doğrula.
+
+Ayrıntılı plan: STORAGE-SCALING.md.
