@@ -144,6 +144,20 @@ test('boş cihaz mevcut bulut yedeğinin üzerine yazamaz', async () => {
   assert.deepEqual(b.errors, []);
 });
 
+test('boş cihaz eski biçimli bulut yedeğini de ezemez', async () => {
+  await b.seed({[K]: [], [KS]: {}, [KA]: []});
+  await signIn();
+  // Legacy backup format: the older restore parser accepts a bare word array.
+  const prior = JSON.stringify([{id: 'legacy-pear', w: 'pear', m: 'armut', box: 0}]);
+  await b.ev("window.__sb.row={user_id:'user-1',data:"+JSON.stringify(prior)+",updated_at:new Date().toISOString()}");
+  await b.ev("window.__sb.calls=[]");
+  await b.ev("document.getElementById('p-cloud-save').click()");
+  await b.waitFor("document.getElementById('p-acct').innerText.includes('Boş cihaz yedeğiyle üzerine yazılmadı')");
+  assert.equal(await b.ev("window.__sb.row.data"), prior);
+  assert.equal((await b.ev("window.__sb.calls")).includes('upsert'), false);
+  assert.deepEqual(b.errors, []);
+});
+
 test('mevcut bulut yedeğinin üzerine yazmak için onay istenir', async () => {
   await b.seed({[K]: [{id: 'local-apple', w: 'apple', m: 'elma', box: 0}], [KS]: {}, [KA]: []});
   await signIn();
