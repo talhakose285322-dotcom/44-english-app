@@ -3324,8 +3324,19 @@ body.reading .sheet{max-width:740px}
     }else if(!AU.ready)h+="<p class='note'>Hesap durumu kontrol ediliyor…</p>";
     else h+="<p class='note'>Google hesabınla giriş yapabilirsin. Uygulamayı giriş yapmadan da kullanabilirsin; kelimelerin ve ilerlemen bu cihazda kalır. Bulut yedekleme için giriş yap.</p><button class='btn main' id='p-in'"+(AU.busy?' disabled':'')+">"+(AU.busy?'Google’a yönlendiriliyor…':'Google ile giriş yap')+"</button>";
     if(AU.cloudMsg)h+="<p class='note' style='color:"+(AU.cloudBad?'var(--bad)':'var(--good)')+"' role='status'>"+esc(AU.cloudMsg)+"</p>";
+    h+="<div class='dent' style='width:100%;text-align:left'><h3 style='font-size:15px;margin:10px 0 6px'>Cihaz depolaması</h3><p class='note'>Yalnızca bu cihazda ölçülür; kişisel veriler gönderilmez veya silinmez.</p><button class='btn ghost' id='p-storage-check' type='button'>Depolamayı ölç</button><p class='note' id='p-storage-result' role='status' aria-live='polite'></p></div>";
     if(AU.err)h+="<p class='note' style='color:var(--bad)'>"+esc(AU.err)+"</p>";
     b.innerHTML=h;
+    if($('p-storage-check'))$('p-storage-check').onclick=function(){
+      var out=$('p-storage-result'),btn=$('p-storage-check');if(!out||btn.disabled)return;btn.disabled=true;out.textContent='Ölçülüyor…';
+      var localBytes=null,totalBytes=null,quotaBytes=null;
+      try{var st=window.localStorage,n=0;for(var i=0;i<st.length;i++){var k=st.key(i),v=st.getItem(k);if(k!==null&&v!==null)n+=(k.length+v.length)*2}localBytes=n}catch(e){}
+      var p=(navigator.storage&&navigator.storage.estimate)?navigator.storage.estimate().catch(function(){return null}):Promise.resolve(null);
+      p.then(function(est){if(est&&Number.isFinite(est.usage)&&est.usage>=0)totalBytes=est.usage;if(est&&Number.isFinite(est.quota)&&est.quota>=0)quotaBytes=est.quota;
+        function fmt(n){if(n===null)return 'bilinmiyor';if(n<1024)return n+' B';var u=['KB','MB','GB','TB'],i=-1;do{n/=1024;i++}while(n>=1024&&i<u.length-1);return n.toFixed(1)+' '+u[i]}
+        var parts=['Bu uygulamanın localStorage tahmini: '+fmt(localBytes)+'.'];if(totalBytes!==null)parts.push('Tarayıcı toplamı (IndexedDB ve önbellek dahil olabilir): '+fmt(totalBytes)+'.');if(quotaBytes!==null)parts.push('Tarayıcı kotası: '+fmt(quotaBytes)+'.');if(totalBytes===null)parts.push('Tarayıcı toplam kullanımı bu cihazda ölçülemedi.');out.textContent=parts.join(' ');
+      }).catch(function(){out.textContent='Depolama ölçümü bu cihazda kullanılamıyor.'}).then(function(){btn.disabled=false},function(){btn.disabled=false});
+    };
     if($('p-in'))$('p-in').onclick=function(){
       AU.busy=true;AU.err='';drawAcct();
       sbClient().then(function(c){return c.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname,queryParams:{prompt:'select_account'}}})})
