@@ -1,0 +1,24 @@
+{
+  "id": "ancient-eclipse-reveals-earth-spin-speed",
+  "level": "C2",
+  "title": "A 2,700-Year-Old Eclipse Helps Measure Earth’s Spin",
+  "paragraphs": [
+    "It is a rare record-keeper whose brief note about the Sun vanishing still pays dividends 2,700 years on, but that is precisely what a total solar eclipse observed on 17 July 709 BCE at the court of the Lu state in China has done. A team led by Hisashi Hayakawa of Nagoya University, joined by colleagues from Britain, the United States and Japan, reports in The Astrophysical Journal Letters that the event, widely regarded as the earliest securely dated explicit written account of a total eclipse, can sharpen our understanding of both our planet and our star.",
+    "The decisive move was less celestial than cartographic. Previous work had pinned Qufu, the Lu capital, some 8 kilometres from its true position, with the awkward result that calculations based on existing rotation estimates ruled out totality there. By drawing on excavation reports and historical geography, the researchers corrected the coordinates and bracketed the gap between Earth’s rotation and uniform time at 20,264 to 21,204 seconds, a measure of how far the planet’s spin, braked chiefly by the Moon’s tidal friction, has drifted from a perfect clock.",
+    "The sky may have yielded a second dividend. A chronicle appended some seven centuries later describes the eclipsed Sun as “completely yellow above and below”, which the team tentatively reads as a description of the corona and, by extension, as a sign that the Sun was nearing the peak of its roughly 11-year cycle after the Homer Grand Minimum, a lull that ended around 717 BCE. As the authors concede, that reading stands on shifting ground, for the passage was written long after the event; the eclipse timing, by contrast, is considered sturdy enough to anchor rotation research."
+  ],
+  "questions": [
+    {
+      "q": "Why does the article call the decisive move 'cartographic'?",
+      "a": "Because correcting the location of Qufu, not new astronomy, solved the problem."
+    },
+    {
+      "q": "What does the measured figure of 20,264 to 21,204 seconds describe?",
+      "a": "The gap between Earth’s rotation and uniform time."
+    },
+    {
+      "q": "Which part of the study do the authors treat as more reliable: the eclipse timing or the corona reading?",
+      "a": "The eclipse timing."
+    }
+  ]
+}

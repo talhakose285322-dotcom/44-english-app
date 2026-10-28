@@ -1,0 +1,24 @@
+{
+  "id": "spiders-show-signs-of-two-sleep-stages",
+  "level": "B2",
+  "title": "Spiders May Sleep in Two Stages",
+  "paragraphs": [
+    "Sleep is usually linked to animals with large brains, but new research from the University of Bonn suggests that a tiny hunter may also have a structured night. Writing in the Proceedings of the National Academy of Sciences, the team describes what they call the first comprehensive experimental confirmation of regulated sleep in spiders.",
+    "The subject was the Australian jumping spider Portia fimbriata, a famously clever predator about the size of a one-euro coin. Individual spiders were kept in plastic dishes and filmed with infrared cameras over several days and nights under different lighting. Because spiders sense the world differently from people, the researchers first had to find a sound that triggered consistent reactions, which allowed them to tell true sleep from ordinary stillness.",
+    "The footage revealed two distinct stages. One resembled REM sleep, with eye movements and muscle twitches. Even so, the authors are cautious: brain activity was not recorded, so the stages were defined by behaviour alone, and similar movements do not necessarily involve the same processes as human REM sleep. Whether spiders dream therefore remains an open question, although the team now wants to compare other species and study how artificial light at night might affect their rest."
+  ],
+  "questions": [
+    {
+      "q": "What does the team call its result?",
+      "a": "The first comprehensive experimental confirmation of regulated sleep in spiders."
+    },
+    {
+      "q": "Why did the researchers search for a suitable sound?",
+      "a": "Spiders sense the world differently, so they needed a stimulus that produced consistent reactions."
+    },
+    {
+      "q": "What do the authors say about dreaming?",
+      "a": "The REM-like movements do not show that spiders dream; it remains an open question."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "spiders-show-signs-of-two-sleep-stages",
+  "level": "B1",
+  "title": "Spiders May Sleep in Two Stages",
+  "paragraphs": [
+    "Many people think that only birds and mammals have real sleep. A new study from the University of Bonn, published in the journal PNAS, suggests that some spiders may sleep in a surprisingly similar way. The researchers studied the Australian jumping spider Portia fimbriata, which is about as big as a one-euro coin.",
+    "Each spider lived alone in a small plastic dish, and infrared cameras recorded it for several days and nights. To check whether a resting spider was really asleep, the team played sounds and measured how quickly the animal reacted. They also looked for signs that spiders slept more after being disturbed.",
+    "The videos showed two different stages of sleep. In one stage, the spiders moved their eyes and their bodies twitched, which looks like REM sleep in humans. However, the scientists did not measure brain activity, so they identified sleep only from behaviour. They also stress that these movements do not prove that spiders dream."
+  ],
+  "questions": [
+    {
+      "q": "What did the researchers use to record the spiders?",
+      "a": "Infrared cameras."
+    },
+    {
+      "q": "Why did the team play sounds?",
+      "a": "To measure how quickly resting spiders reacted and to separate sleep from simple inactivity."
+    },
+    {
+      "q": "Why is the study limited?",
+      "a": "Brain activity was not measured, so sleep was identified only from behaviour."
+    }
+  ]
+}
