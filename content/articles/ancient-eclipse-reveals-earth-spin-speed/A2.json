@@ -1,0 +1,24 @@
+{
+  "id": "ancient-eclipse-reveals-earth-spin-speed",
+  "level": "A2",
+  "title": "A 2,700-Year-Old Eclipse Helps Measure Earth’s Spin",
+  "paragraphs": [
+    "Scientists from Nagoya University in Japan have studied a total solar eclipse from 709 BCE. Old Chinese books say that people saw it at the court of the Lu state. Many experts think it is the oldest eclipse with a clear written record.",
+    "There was a problem, though. The calculations put the old Lu capital, Qufu, about 8 kilometres from its real place. With that mistake, the numbers said the eclipse was not total there. The team used old maps and reports from archaeologists to find the right place, and then the story and the calculations agreed.",
+    "With the correct place, the scientists could measure how fast the Earth turned in the past. The Earth now turns more slowly than before, mainly because of the Moon. A later book also says the Sun looked yellow, and this may describe the Sun’s outer layer, the corona."
+  ],
+  "questions": [
+    {
+      "q": "Which university led the study?",
+      "a": "Nagoya University."
+    },
+    {
+      "q": "What was wrong in the old calculations?",
+      "a": "The old capital Qufu was put about 8 kilometres from its real place."
+    },
+    {
+      "q": "What may the yellow Sun in the later book describe?",
+      "a": "The Sun’s outer layer, the corona."
+    }
+  ]
+}

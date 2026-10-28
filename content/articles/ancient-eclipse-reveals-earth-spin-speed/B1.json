@@ -1,0 +1,24 @@
+{
+  "id": "ancient-eclipse-reveals-earth-spin-speed",
+  "level": "B1",
+  "title": "A 2,700-Year-Old Eclipse Helps Measure Earth’s Spin",
+  "paragraphs": [
+    "Most people see an eclipse as a short show in the sky, but scientists can also use very old ones as a kind of time machine. A team led by Hisashi Hayakawa at Nagoya University in Japan, with colleagues from Britain, the United States and Japan, has re-examined a total solar eclipse that took place on 17 July 709 BCE. It was recorded at the court of the Lu state in China and is thought to be the earliest securely dated written record of a total eclipse.",
+    "Earlier calculations had a problem: they placed the Lu capital, Qufu, about 8 kilometres from its real position, so the numbers suggested that the eclipse would not have been total there. By using excavation reports and historical geography, the team corrected the location. This allowed them to estimate how much Earth’s rotation differed from a perfectly regular clock, and they found a value between 20,264 and 21,204 seconds. Over thousands of years, the Moon’s tidal friction has slowed the planet’s spin.",
+    "The scientists also looked at a book written about seven centuries later, which says the Sun looked completely yellow. They think this may describe the solar corona and suggests that the Sun was active again after a quiet period. However, the passage was written long after the event, so the authors say this part of the result is uncertain."
+  ],
+  "questions": [
+    {
+      "q": "What is special about the eclipse of 709 BCE?",
+      "a": "It is thought to be the earliest securely dated written record of a total solar eclipse."
+    },
+    {
+      "q": "How did the team correct the problem with the old calculations?",
+      "a": "They used excavation reports and historical geography to fix the location of Qufu."
+    },
+    {
+      "q": "Why is the corona result uncertain?",
+      "a": "The passage was written about seven centuries after the eclipse."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "spiders-show-signs-of-two-sleep-stages",
+  "level": "C1",
+  "title": "Spiders May Sleep in Two Stages",
+  "paragraphs": [
+    "The idea that sleep is a privilege of large-brained animals is looking increasingly shaky. In a paper in the Proceedings of the National Academy of Sciences, researchers at the University of Bonn report what they describe as the first comprehensive experimental confirmation that spiders experience genuine, regulated sleep.",
+    "Their subject, the Australian jumping spider Portia fimbriata, is a coin-sized predator renowned for its cunning hunting tactics. Housed individually in plastic dishes, the animals were filmed with infrared cameras for days on end under varying light conditions. Since spiders perceive their surroundings so differently from humans, the team first had to identify a sound that provoked reliable responses, enabling them to distinguish deep rest from mere inactivity and to probe how readily the animals could be roused.",
+    "The recordings point to two separate stages of sleep, one of which features eye movements and muscle twitches reminiscent of human REM sleep. The authors are careful not to over-interpret this. Brain activity was never measured, so the stages rest on behaviour alone, and the similarity does not prove that the underlying processes are shared, let alone that spiders dream. Comparisons across species, between wild and laboratory animals, and studies of how artificial light at night disturbs sleep are the logical next steps."
+  ],
+  "questions": [
+    {
+      "q": "What was the main challenge posed by the way spiders perceive the world?",
+      "a": "Finding a sound stimulus that produced consistent responses."
+    },
+    {
+      "q": "On what basis were the two sleep stages defined?",
+      "a": "On behaviour alone, because brain activity was not measured."
+    },
+    {
+      "q": "Name one planned follow-up topic.",
+      "a": "Comparing species, wild versus lab animals, or the effect of artificial light at night."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "spiders-show-signs-of-two-sleep-stages",
+  "category": "news",
+  "title": "Spiders May Sleep in Two Stages",
+  "summary": "Bonn Üniversitesi'nin araştırmasına göre Avustralya'daki atlayan bir örümcek iki farklı uyku evresi gösteriyor; ama bilim insanları örümceklerin rüya gördüğünü söyleyemiyor.",
+  "published": "2026-10-28",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Gri bir yüzeyde duran Portia fimbriata cinsi atlayan bir örümcek (örnek görsel).",
+    "credit": "Charles Lam",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Portia_fimbriata_1.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (University of Bonn): Do spiders dream? Scientists just found a surprising clue",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261026225555.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "jumping spider",
+      "tr": "atlayan örümcek"
+    },
+    {
+      "w": "sleep stage",
+      "tr": "uyku evresi"
+    },
+    {
+      "w": "twitch",
+      "tr": "seğirmek, kasılmak"
+    },
+    {
+      "w": "infrared camera",
+      "tr": "kızılötesi kamera"
+    },
+    {
+      "w": "inactivity",
+      "tr": "hareketsizlik"
+    },
+    {
+      "w": "evidence",
+      "tr": "kanıt"
+    },
+    {
+      "w": "cautious",
+      "tr": "temkinli"
+    }
+  ]
+}

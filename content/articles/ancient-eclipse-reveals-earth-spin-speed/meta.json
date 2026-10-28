@@ -1,0 +1,51 @@
+{
+  "id": "ancient-eclipse-reveals-earth-spin-speed",
+  "category": "news",
+  "title": "A 2,700-Year-Old Eclipse Helps Measure Earth’s Spin",
+  "summary": "Çin'de MÖ 709'da kaydedilen bir güneş tutulması, eski bir şehrin konumundaki 8 km'lik hata düzeltilince Dünya'nın dönüşünü ve Güneş'in etkinliğini ölçmeye yardımcı oldu.",
+  "published": "2026-10-28",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Tam güneş tutulması sırasında Güneş'in etrafındaki korona (örnek görsel, 2024 tutulması).",
+    "credit": "Brucewaters",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2024_Total_Solar_Eclipse_Corona.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (Nagoya University): A 2,700-year-old solar eclipse just revealed something surprising about Earth",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261025073055.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "total solar eclipse",
+      "tr": "tam güneş tutulması"
+    },
+    {
+      "w": "chronicle",
+      "tr": "vakayiname, tarihçe"
+    },
+    {
+      "w": "rotation",
+      "tr": "dönüş"
+    },
+    {
+      "w": "corona",
+      "tr": "korona (Güneş'in dış tabakası)"
+    },
+    {
+      "w": "tidal friction",
+      "tr": "gelgit sürtünmesi"
+    },
+    {
+      "w": "excavation",
+      "tr": "kazı"
+    },
+    {
+      "w": "uncertain",
+      "tr": "belirsiz"
+    }
+  ]
+}

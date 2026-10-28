@@ -1,0 +1,24 @@
+{
+  "id": "spiders-show-signs-of-two-sleep-stages",
+  "level": "C2",
+  "title": "Spiders May Sleep in Two Stages",
+  "paragraphs": [
+    "For decades, sleep research has leaned heavily on animals whose brains resemble ours, so a study suggesting that a spider may cycle through distinct sleep stages is bound to raise eyebrows. Reporting in the Proceedings of the National Academy of Sciences, a team at the University of Bonn claims the first comprehensive experimental confirmation that spiders experience genuine, regulated sleep.",
+    "The protagonist is Portia fimbriata, an Australian jumping spider no larger than a one-euro coin yet celebrated for hunting strategies that border on the cunning. Individually housed in plastic dishes, the animals were observed under different lighting regimes by infrared cameras across several days and nights. Because spiders register their environment in ways that defy human intuition, the researchers had to find a sound that elicited dependable reactions before they could separate true sleep from idle stillness and test how easily sleepers were roused.",
+    "What emerged was a two-stage pattern, one phase marked by eye movements and muscle twitches that echo REM sleep. Yet the authors refuse to run ahead of their evidence: with no recordings of neural activity, the stages are defined purely by behaviour, and outward resemblance is no guarantee of shared mechanisms, still less of dreaming. The finding opens a promising line of inquiry, from comparisons between species and between wild and captive animals to the effects of artificial light at night on creatures that may need their rest more than we assumed."
+  ],
+  "questions": [
+    {
+      "q": "Why might the study 'raise eyebrows'?",
+      "a": "Because sleep research has focused on animals with brains like ours, and spiders are very different."
+    },
+    {
+      "q": "Why do the authors avoid claiming that spiders dream?",
+      "a": "They did not record brain activity, and similar movements do not prove shared mechanisms."
+    },
+    {
+      "q": "What further lines of inquiry do the authors suggest?",
+      "a": "Species comparisons, wild versus captive animals, and the effects of artificial light at night."
+    }
+  ]
+}

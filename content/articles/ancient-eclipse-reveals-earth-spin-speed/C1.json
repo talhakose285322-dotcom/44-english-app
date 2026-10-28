@@ -1,0 +1,24 @@
+{
+  "id": "ancient-eclipse-reveals-earth-spin-speed",
+  "level": "C1",
+  "title": "A 2,700-Year-Old Eclipse Helps Measure Earth’s Spin",
+  "paragraphs": [
+    "Few chroniclers can have imagined that a short entry about the Sun going dark would still be useful 2,700 years later. Yet a total solar eclipse recorded on 17 July 709 BCE, at the court of the Lu state in China, has just yielded fresh measurements of both Earth’s spin and the Sun’s behaviour. The work, led by Hisashi Hayakawa of Nagoya University with colleagues in Britain, the United States and Japan, appears in The Astrophysical Journal Letters, and the event is regarded as the earliest securely dated explicit written record of a total eclipse.",
+    "The breakthrough hinged on geography rather than astronomy. Earlier studies had misplaced Qufu, the Lu capital, by roughly 8 kilometres, which made the eclipse appear not to have been total there when computed from existing rotation estimates. After consulting excavation reports and historical geography, the team corrected the position and could pin down the offset between Earth’s rotation and uniform time to between 20,264 and 21,204 seconds, a figure that reflects the planet’s gradual slowing, driven chiefly by the Moon’s tidal friction.",
+    "A later addendum to the record, composed around seven centuries afterwards, describes the Sun as “completely yellow above and below”. The authors see in this a possible glimpse of the corona, hinting that the Sun was near the peak of its roughly 11-year cycle once the Homer Grand Minimum, which ended about 717 BCE, had passed. Such an inference is plausible but fragile, resting as it does on a text that postdates the event by generations."
+  ],
+  "questions": [
+    {
+      "q": "Why was the eclipse thought not to have been total at Qufu in earlier work?",
+      "a": "Qufu had been misplaced by about 8 kilometres."
+    },
+    {
+      "q": "What drives the gradual slowing of Earth’s spin, according to the article?",
+      "a": "Mainly the Moon’s tidal friction."
+    },
+    {
+      "q": "Why is the solar-activity inference described as fragile?",
+      "a": "It rests on a text written about seven centuries after the event."
+    }
+  ]
+}

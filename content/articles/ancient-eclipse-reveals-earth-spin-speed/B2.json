@@ -1,0 +1,24 @@
+{
+  "id": "ancient-eclipse-reveals-earth-spin-speed",
+  "level": "B2",
+  "title": "A 2,700-Year-Old Eclipse Helps Measure Earth’s Spin",
+  "paragraphs": [
+    "Ancient chronicles are rarely written with scientists in mind, yet a brief note about a total solar eclipse in 709 BCE has now helped researchers at Nagoya University in Japan to refine our picture of both the Earth and the Sun. The study, published in The Astrophysical Journal Letters, was led by Hisashi Hayakawa and involved colleagues from Britain, the United States and Japan.",
+    "The key step was a correction of about 8 kilometres in the supposed location of Qufu, the capital of the Lu state, where the eclipse was observed on 17 July. With the old position, calculations based on existing estimates of Earth’s rotation implied that the eclipse could not have been total there, which contradicted the record. Using excavation reports and historical geography, the team fixed the coordinates and derived a difference between Earth’s rotation and uniform time of between 20,264 and 21,204 seconds. Co-author Mitsuru Sôma said the new dataset “fixes coordinate errors in previous Earth rotation studies”.",
+    "A later addendum, written roughly seven centuries after the event, says the eclipsed Sun looked “completely yellow above and below”. The researchers read this as a possible description of the corona and conclude that the Sun was probably near the peak of its roughly 11-year cycle, after a quiet spell known as the Homer Grand Minimum. They admit, though, that this interpretation is uncertain because the passage is so much younger than the eclipse itself."
+  ],
+  "questions": [
+    {
+      "q": "What was wrong with the earlier position of Qufu?",
+      "a": "It was about 8 kilometres from the real location, which made the eclipse seem not total there."
+    },
+    {
+      "q": "What did Mitsuru Sôma say about the new dataset?",
+      "a": "That it fixes coordinate errors in previous Earth rotation studies."
+    },
+    {
+      "q": "Why do the authors call the corona interpretation uncertain?",
+      "a": "The passage was written roughly seven centuries after the eclipse."
+    }
+  ]
+}
