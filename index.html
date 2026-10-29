@@ -514,7 +514,15 @@ body.reading .sheet{max-width:740px}
     </div>
     <div class="panel" id="news-app">
       <h2>Yenilikler</h2>
-      <p class="note"><b>Sürüm 1.2.0</b></p>
+      <p class="note"><b>Sürüm 1.3.0</b></p>
+      <ul class="note" style="margin:0;padding-left:20px">
+        <li>Kelimeler sekmesi yenilendi: Listelerim ve Kelime ekle tek yerde; tek satırlık liste, öğrenme durumu etiketi; aynı kelime iki kez eklenmez, yalnızca kelimeleri yazınca anlamları getirilir.</li>
+        <li>PDF yükleme çok daha sağlam: makale kitapları başlıkları nasıl yazılmış olursa olsun makalelere ayrılır; iki sütunlu sayfalar, romanların süslü ilk harfleri, sondaki dizin ve kaynakça doğru işlenir.</li>
+        <li>Fotoğraftan makale: daha doğru metin tanıma, fotoğraf önizlemesi; okunamayan ya da Türkçe sayfada açık uyarı.</li>
+        <li>Makale yüklerken “Hangi dosyalar en iyi sonucu verir?” bilgi kutusu; Kelimeler sekmesinde açıklama (i) düğmeleri.</li>
+        <li>Her hafta yeni bir kategori makalesi (akademik, bilim, sağlık…).</li>
+      </ul>
+      <p class="note" style="margin-top:12px"><b>Sürüm 1.2.0</b></p>
       <ul class="note" style="margin:0;padding-left:20px">
         <li>Sesli okuma: makale cümle cümle, okunan cümle vurgulanarak sesli okunur; hız seçilebilir.</li>
         <li>Fotoğraftan makale: kitap ya da gazete sayfasının fotoğrafını çek, metni cihazında çıkarılsın.</li>
@@ -523,7 +531,6 @@ body.reading .sheet{max-width:740px}
         <li>Makaleler sekmesi dört bölüm: Hazır makaleler, Kelimelerimle oluştur, Makale yükle, Makalelerim.</li>
         <li>Büyük kitaplar için daha geniş depolama; yer dolsa da makaleler kaybolmaz.</li>
         <li>Açıklama (i) düğmeleri.</li>
-        <li>Kelimeler sekmesi yenilendi: Listelerim ve Kelime ekle tek yerde; tek satırlık liste, öğrenme durumu etiketi; aynı kelime iki kez eklenmez, yalnızca kelimeleri yazınca anlamları getirilir.</li>
       </ul>
       <p class="note" style="margin-top:12px"><b>Sürüm 1.1.0</b></p>
       <ul class="note" style="margin:0;padding-left:20px">
@@ -3446,7 +3453,7 @@ body.reading .sheet{max-width:740px}
     var L=words.filter(function(x){return x.box>=3}).length;
     words.forEach(function(x){cols(x).forEach(function(c){cs[c]=1})});
     var st=[[words.length,'kelime'],[L,'öğrenilen'],[ART.length,'makale'],[Object.keys(cs).length,'kelime listesi'],[S.day===today()?S.n:0,'bugünkü tekrar'],[S.tot||0,'toplam tekrar'],[streak(),'gün serisi']];
-    v.innerHTML="<div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.2.0 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
+    v.innerHTML="<div class='note' style='margin:10px 0 14px'>Words 44 · Sürüm 1.3.0 · <span id='p-mode'>"+(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true?'Yüklü uygulama':'Web sürümü')+"</span> <span id='p-host' style='opacity:.7'></span></div><div class='prof'><div class='av' id='p-av' style='background:"+avBg()+"'>"+avHtml()+"</div><div class='emo'>"+AVC.map(function(c,i){return "<button data-c='"+i+"' class='"+(i===(+S.avc||0)?'on':'')+"' style='background:"+c+"' aria-label='Profil rengi "+(i+1)+"'></button>"}).join('')+"</div></div><label for='p-n'>Adın</label><input id='p-n' autocomplete='off' placeholder='Adını yaz'><div class='grid2'>"+st.map(function(s){return "<div class='stat'><b>"+s[0]+"</b><span>"+s[1]+"</span></div>"}).join('')+"</div><p class='note'>Profilin ve istatistiklerin sadece bu cihazda saklanır.</p><div class='panel hide' id='p-app'></div><div class='panel' id='p-acct'></div>";
     drawInstall();drawAcct();
     var hostLabel=$('p-host');if(hostLabel)hostLabel.textContent='· '+((location.hostname.endsWith('pages.dev')||location.hostname.endsWith('workers.dev'))?'Cloudflare':location.hostname.endsWith('github.io')?'GitHub Pages':location.hostname.endsWith('netlify.app')?'Netlify':'Web');
     $('p-n').value=nm;
@@ -4358,7 +4365,7 @@ body.reading .sheet{max-width:740px}
   // a different one marks the same pending reload, with the same conditions. A failed check changes nothing.
   // Compare against the build's published release marker when available.
   // This also works on hosts that omit ETag headers.
-  var runningVersion = '1.2.0';
+  var runningVersion = '1.3.0';
   // Every deploy writes a new builtAt into version.json, so a release is noticed even when the version number and
   // the HTML's ETag do not change (the Cloudflare Worker sends no ETag). The build seen at launch is noted; a different
   // one after a return marks the same pending reload, with the same conditions.
