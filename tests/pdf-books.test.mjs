@@ -120,6 +120,32 @@ test('alt başlıklı tek makale tek makale kalıyor; başlıklar işaretli', as
   assert.deepEqual(b.errors, []);
 });
 
+test('roman: bölüm başındaki büyük süslü harf (drop cap) satırına geri ekleniyor', async () => {
+  const opening = ['It is a truth universally acknowledged that a reader in possession of a good book must be in want of time.', '‘My dear friend,’ said the reader one day, ‘have you heard that the library is open again at last?’'];
+  const s = await upload(await pdf('dropcap', () => opening.map((o, i) => `<div class=${i ? 'pb' : ''}><h2>Chapter ${i + 1}</h2><p class=dc>${o} ${para(6)}</p><p>${para(6)}</p><p>${para(6)}</p></div>`).join('') +
+    `<style>.dc::first-letter{float:left;font-size:46pt;line-height:1;margin:2pt 4pt 0 0}</style>`));
+  assert.deepEqual(articles(s).map(x => x.t), ['Chapter 1', 'Chapter 2']);
+  assert.ok(s[0].p.startsWith(opening[0].slice(0, 60)), s[0].p.slice(0, 80));
+  assert.ok(s[1].p.startsWith(opening[1].slice(0, 40)), s[1].p.slice(0, 80));
+  assert.doesNotMatch(s[0].p.slice(0, 240), /\s[IM][a-z]|[a-z][IM]\s/, 'harf başka bir kelimeye yapışmadı');
+  assert.deepEqual(b.errors, []);
+});
+
+test('resmî belge: asıl metin başlıkla aynı boyutta, sonda küçük puntolu dizin; “ARTICLE [II.]” ve tek cümlelik maddeler', async () => {
+  const arts = ['I.', 'II.', 'III.', '[I.]', '[II.]', '[III.]'];
+  const s = await upload(await pdf('charter', () => `<h1 style="font-size:20pt">THE CHARTER</h1><p style="font-size:8pt">${para(8)}</p>` +
+    arts.map((a, i) => `<p style="text-align:center;font-size:11pt">ARTICLE ${a}</p><p style="font-size:11pt">${i === 4 ? 'A short rule of the charter shall stand alone as one sentence for every member.' : `SECTION 1. ${para(6)}`}</p>`).join('') +
+    `<div class=pb><p style="font-size:14pt;text-align:center">INDEX TO THE CHARTER</p>` + Array.from({length: 120}, (_, i) => `<p style="font-size:7pt;margin:0">${W[i % W.length]} of the ${W[(i * 7) % W.length]} ........ ${1 + (i % 9)}</p>`).join('') + `</div>`));
+  const names = s.map(x => x.t);
+  assert.deepEqual(articles(s).map(x => x.t), arts.map(a => 'ARTICLE ' + a));
+  assert.equal(articles(s)[4].w, 15, 'tek cümlelik madde metniyle duruyor ve işaretli');
+  // the index is either left out of the text (it looks like a contents page) or an unticked closing part, never
+  // part of an article
+  assert.ok(articles(s).every(x => x.w < 160 && !/INDEX|\.{4}/.test(x.p)), 'dizin hiçbir makaleye girmedi');
+  if (names.includes('INDEX TO THE CHARTER')) assert.equal(s[names.indexOf('INDEX TO THE CHARTER')].on, false);
+  assert.deepEqual(b.errors, []);
+});
+
 test('taranmış (yalnızca görüntü) PDF: OCR önerisi; onaylanınca metin tanınıyor ve ünitelere ayrılıyor', async () => {
   // pages that are pictures of text: no selectable text in the PDF
   const img = n => `<div class=${n ? 'pb' : ''}><svg width="500" height="200"><rect width="500" height="200" fill="#eee"/><text x="20" y="40" font-size="20">Page ${n + 1} as a picture</text></svg></div>`;
