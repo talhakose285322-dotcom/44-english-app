@@ -1,0 +1,24 @@
+{
+  "id": "one-sauna-session-boosts-immune-cells",
+  "level": "A1",
+  "title": "One Sauna Session Sends White Blood Cells Surging",
+  "paragraphs": [
+    "Scientists in Finland studied the sauna. Fifty-one adults took part. They sat in a hot sauna for 30 minutes.",
+    "The scientists took blood from them. After the sauna, they had more white blood cells. White blood cells help the body fight germs.",
+    "The change was short. After 30 minutes, the numbers went back to normal."
+  ],
+  "questions": [
+    {
+      "q": "Where was the study?",
+      "a": "In Finland."
+    },
+    {
+      "q": "How long was the sauna?",
+      "a": "30 minutes."
+    },
+    {
+      "q": "What went back to normal?",
+      "a": "The numbers of white blood cells."
+    }
+  ]
+}

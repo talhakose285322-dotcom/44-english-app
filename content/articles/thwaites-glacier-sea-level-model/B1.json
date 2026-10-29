@@ -1,0 +1,24 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "level": "B1",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "paragraphs": [
+    "Thwaites Glacier in West Antarctica is one of the places scientists watch most closely, because its ice could raise sea levels around the world. A new study in Nature Communications, led by researchers at the University of California, Irvine, suggests the glacier may matter even more than expected.",
+    "Older computer models treated the place where the ice leaves the land as a narrow line. The new model treats it as a broad grounding zone, several kilometres wide, where the tides repeatedly push warm sea water underneath the ice. The team tested the model against more than twenty years of observations, including satellite radar images.",
+    "With this approach, Thwaites could add about 30 millimetres to global sea level by 2100, roughly double earlier projections. The result comes from one model, and the researchers note that the chance of losing a key underwater ridge depends on how wide the grounding zone really is. Other teams will need to repeat the work before the number can be trusted fully."
+  ],
+  "questions": [
+    {
+      "q": "How is the new model different?",
+      "a": "It treats the grounding zone as a wide area, not a narrow line."
+    },
+    {
+      "q": "What pushes warm water under the ice?",
+      "a": "The tides."
+    },
+    {
+      "q": "Why should we be careful with the result?",
+      "a": "It comes from one model and depends on the assumed width of the grounding zone."
+    }
+  ]
+}

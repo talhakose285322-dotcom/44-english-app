@@ -1,0 +1,24 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "level": "B2",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "paragraphs": [
+    "Thwaites Glacier, in West Antarctica, is often nicknamed the Doomsday Glacier, because its collapse would add significantly to global sea levels. A study published in Nature Communications by researchers at the University of California, Irvine, working with NASA's Jet Propulsion Laboratory, now suggests that earlier projections may have understated the risk.",
+    "The authors argue that conventional models miss important physics. Instead of treating the grounding line as a sharp boundary, they represent a grounding zone several kilometres wide, into which seawater is pumped by the tides and where it melts the ice from below. Calibrated against more than two decades of observations, including radar images from a constellation of small satellites, the model reproduces past changes that standard models fail to capture. According to the team, Thwaites could contribute up to about 30 millimetres to sea level by 2100, around twice earlier estimates, even without additional warming.",
+    "Some caution is in order. The study rests on a single, carefully calibrated model rather than an ensemble of them, and the reported 60 per cent chance that the glacier loses contact with the Mouginot Ridge by the end of the century assumes a grounding zone four to six kilometres wide. Independent teams will have to reproduce the findings."
+  ],
+  "questions": [
+    {
+      "q": "What do the authors say conventional models miss?",
+      "a": "The wide grounding zone where tides pump warm seawater under the ice."
+    },
+    {
+      "q": "What does the model suggest for 2100?",
+      "a": "Up to about 30 millimetres of sea-level contribution, around double earlier estimates."
+    },
+    {
+      "q": "Name one limitation.",
+      "a": "It is a single model, and the 60 per cent figure assumes a grounding zone four to six kilometres wide."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "one-sauna-session-boosts-immune-cells",
+  "category": "news",
+  "title": "One Sauna Session Sends White Blood Cells Surging",
+  "summary": "Finlandiya'da 51 yetişkinle yapılan küçük bir çalışmada tek bir 30 dakikalık sauna seansı kandaki akyuvar sayısını geçici olarak artırdı; uzun vadeli bir etki gösterilmedi.",
+  "published": "2026-10-29",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Ahşap bankları, taşlı ocağı ve kepçesi olan boş bir Fin sauna odası (örnek görsel).",
+    "credit": "Santeri Viinamäki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Finnish_sauna_20170826.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (University of Eastern Finland): A single sauna session sends immune cells surging through your body",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261027231021.htm"
+    },
+    {
+      "title": "MDLinx: A single sauna session sends immune cells surging",
+      "url": "https://www.mdlinx.com/news/a-single-sauna-session-sends-immune-cells-surging/784L6ZoSeZeQetn5icz50W"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "sauna",
+      "tr": "sauna"
+    },
+    {
+      "w": "white blood cell",
+      "tr": "akyuvar (beyaz kan hücresi)"
+    },
+    {
+      "w": "immune system",
+      "tr": "bağışıklık sistemi"
+    },
+    {
+      "w": "bloodstream",
+      "tr": "kan dolaşımı"
+    },
+    {
+      "w": "baseline",
+      "tr": "başlangıç düzeyi"
+    },
+    {
+      "w": "participant",
+      "tr": "katılımcı"
+    },
+    {
+      "w": "cold shower",
+      "tr": "soğuk duş"
+    }
+  ]
+}

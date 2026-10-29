@@ -1,0 +1,24 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "level": "C2",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "paragraphs": [
+    "Few pieces of ice have caused as much hand-wringing among climate scientists as Thwaites Glacier, the West Antarctic behemoth known colloquially as the \"Doomsday Glacier\". A paper in Nature Communications, led from the University of California, Irvine, with NASA's Jet Propulsion Laboratory, now contends that its likely contribution to sea level by 2100 is about double what earlier projections suggested.",
+    "The pivot is conceptual rather than computational. Conventional ice-sheet models collapse the grounding line into a thin boundary; the authors instead resolve a grounding zone several kilometres across, in which the ebb and flow of the tides ventilate warm seawater far beneath grounded ice and gnaw at it from below. Constrained by more than twenty years of observations, among them satellite radar scenes, the simulation recovers past changes that standard approaches underplay and arrives at a central figure of roughly 30 millimetres by 2100, with no additional warming required. As co-author Eric Rignot puts it, previous projections have lagged reality \"because of missing physics\".",
+    "Prudence nonetheless counsels against treating the number as settled. It rests on a single calibrated model rather than a broad ensemble, and the striking 60 per cent chance of the glacier slipping its moorings on the Mouginot Ridge presupposes a grounding zone four to six kilometres wide. Until independent groups reproduce the result, it is a provocative hypothesis, not a verdict."
+  ],
+  "questions": [
+    {
+      "q": "What is the conceptual pivot?",
+      "a": "Resolving a wide grounding zone instead of a thin grounding line."
+    },
+    {
+      "q": "Which quotation is attributed to Eric Rignot?",
+      "a": "Earlier projections lagged reality \"because of missing physics\"."
+    },
+    {
+      "q": "Why is the result not yet settled?",
+      "a": "It rests on one model and an assumed grounding-zone width, and needs independent reproduction."
+    }
+  ]
+}
