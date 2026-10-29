@@ -392,6 +392,7 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 .wdet{display:none;padding:0 14px 12px;font-size:13.5px;line-height:1.5;color:var(--muted)}.witem.open .wdet{display:block}.wdet span{display:block;margin:3px 0}.wdet .we{color:var(--ink2);font-size:14.5px}
 .wact{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wact .btn{padding:6px 12px;font-size:13.5px}
 .fsg{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);margin-top:6px}.fsg:empty{display:none}.fsg .btn{padding:4px 10px;font-size:13px}#b-pv .acts{flex-wrap:wrap}.fsg .bad{color:var(--bad)}
+.phpv{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px;margin:14px 0 2px}.phpv:empty{display:none}.phpv button{flex:none;width:84px;height:112px;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--soft);cursor:zoom-in}.phpv img{display:block;width:100%;height:100%;object-fit:cover}.phpv span{font-size:12.5px;color:var(--muted)}.phbig{display:block;width:100%;height:auto;border-radius:12px;margin-top:6px}
 .ins-tips{margin:10px 0 2px;padding-left:20px}.ins-tips li{margin:6px 0}.rnw{margin-top:24px}.rnw .acts{flex-wrap:wrap}.rnw h2{font-size:17px}.nw-r{display:grid;grid-template-columns:minmax(80px,auto) 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.nw-r input{margin:0}.nw-r span{grid-column:1/-1;font-size:13px;color:var(--muted)}.rnw .good{color:var(--good)}
 @media (max-width:520px){.rtool .bk-t{display:none}.rtool{gap:5px}.rtool .tb{width:38px;height:38px}}
 @media (min-width:980px){.sheet{bottom:20px;border-radius:var(--r-xl);border-bottom:1px solid var(--line);max-width:600px}}
@@ -1938,7 +1939,7 @@ body.reading .sheet{max-width:740px}
       "</ul></details><label for='a-f'>PDF, Word, e-kitap, altyazı ya da metin dosyası (.pdf, .docx, .epub, .srt, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,.epub,.srt,.vtt,application/epub+zip,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'>"+
       "<div class='acts' id='a-ph'><button class='btn ghost' id='a-cb'>"+ic('camera')+" Fotoğraf çek</button><button class='btn ghost' id='a-gb'>"+ic('image')+" Fotoğraf seç</button></div>"+
       "<input type='file' id='a-ic' accept='image/*' capture='environment' hidden><input type='file' id='a-ig' accept='image/*' multiple hidden>"+
-      "<p class='note'>Ders kitabı, gazete ya da çalışma kâğıdı sayfasının fotoğrafındaki İngilizce metin çıkarılır (bir seferde en fazla "+MAXPH+" fotoğraf). En iyi sonuç: iyi ışık, sayfa düz ve kadrajı dolduruyor; el yazısı ve Türkçe metin okunmaz. Tanıma bu cihazda yapılır, fotoğraf hiçbir yere gönderilmez. İlk kullanımda metin tanıma motoru indirilir (yaklaşık 5–20 MB).</p><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><label for='a-x'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
+      "<p class='note'>Ders kitabı, gazete ya da çalışma kâğıdı sayfasının fotoğrafındaki İngilizce metin çıkarılır (bir seferde en fazla "+MAXPH+" fotoğraf). En iyi sonuç: iyi ışık, sayfa düz ve kadrajı dolduruyor; el yazısı ve Türkçe metin okunmaz. Tanıma bu cihazda yapılır, fotoğraf hiçbir yere gönderilmez. İlk kullanımda metin tanıma motoru indirilir (yaklaşık 5–20 MB).</p><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><div id='a-phv' class='phpv'></div><label for='a-x' id='a-xl'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
     h+="</div><div id='rt-mine'"+(rt==='mine'?'':" class='hide'")+"><p class='note'>"+ART.length+" makale"+(wbs.length?', '+wbs.length+' kitap':'')+"."+(ART.length?'':' Yüklediğin ya da kelimelerinle oluşturup kaydettiğin makaleler burada görünür.')+"</p>";
     if(last)h+="<div class='item cont'><div class='t' data-o='"+escA(last.id)+"' style='cursor:pointer'><span>Kaldığın yerden devam et</span><b>"+esc(last.title)+"</b><span>"+progLabel(last)+(last.wb?' · '+esc(last.wb.title):'')+"</span></div></div>";
     h+="<input id='lib-q' type='search' placeholder='Makalelerde ara (başlık ya da metin)' autocomplete='off'>"+
@@ -1996,6 +1997,8 @@ body.reading .sheet{max-width:740px}
     $('a-cb').onclick=function(){$('a-ic').click()};$('a-gb').onclick=function(){$('a-ig').click()};
     $('a-ic').onchange=$('a-ig').onchange=function(){var fl=[].slice.call(this.files);this.value='';if(fl.length)runPhotos(fl)};
     $('a-s').onclick=function(){saveArticle(false)};
+    drawPhv();
+    $('a-x').addEventListener('input',function(){if(!this.value.trim()&&PHV.length){PHV=[];drawPhv()}});
   }
   function artItem(x){
     return "<div class='item'><div class='t' data-o='"+escA(x.id)+"' style='cursor:pointer'><b>"+esc(x.title)+"</b><span>"+[x.xt!=null?(x.lost?'metin bulunamadı':'yükleniyor…'):wordCount(x.text)+' kelime',x.lv,x.c,progLabel(x),pgLabel(x)].filter(Boolean).map(esc).join(' · ')+"</span>"+(x.src&&x.src.name&&!x.wb?'<span>PDF: '+esc(x.src.name)+'</span>':'')+(x.note?'<span>'+ic('note','sm')+' not var</span>':'')+"</div>"+(x.xt!=null?'':"<button class='ed' data-e='"+escA(x.id)+"' aria-label='Düzenle'>"+ic('edit')+"</button><button class='del' data-p='"+escA(x.id)+"' aria-label='Paylaş'>"+ic('share')+"</button>")+"<button class='del' data-d='"+escA(x.id)+"' aria-label='Sil'>"+ic('trash')+"</button></div>";
@@ -2057,7 +2060,7 @@ body.reading .sheet{max-width:740px}
     saveAOrSpill().then(function(ok){
       if(!ok){ART.splice(ART.indexOf(a),1);m.style.color='var(--bad)';m.textContent='Makale kaydedilemedi: tarayıcı depolaması dolu olabilir ('+Math.round(t.length/1024)+' KB metin). Daha kısa bir bölüm dene ya da eski makaleleri sil.';return}
       // a saved upload is one of "Makalelerim": coming back from the reader shows that tab
-      draftArt=null;S.rtab='mine';saveS();openArt=a.id;renderRead();window.scrollTo(0,0);
+      draftArt=null;PHV=[];S.rtab='mine';saveS();openArt=a.id;renderRead();window.scrollTo(0,0);
     });
   }
 
@@ -4013,9 +4016,26 @@ body.reading .sheet{max-width:740px}
       im.src=u;
     });
   }
+  // The photos whose text is in the article box (small copies in memory only; they are not saved with the article)
+  var PHV=[];
+  function phThumb(cv){
+    var k=Math.min(1,1200/Math.max(cv.width,cv.height)),c=document.createElement('canvas');
+    c.width=Math.max(1,Math.round(cv.width*k));c.height=Math.max(1,Math.round(cv.height*k));c.getContext('2d').drawImage(cv,0,0,c.width,c.height);
+    try{return c.toDataURL('image/jpeg',0.75)}catch(e){return ''}
+  }
+  function drawPhv(){
+    var box=$('a-phv'),lb=$('a-xl');if(!box)return;
+    lb.textContent=PHV.length?'Fotoğraftan okunan metin: fotoğrafla karşılaştırıp düzelt':'Ya da metni yapıştır';
+    box.innerHTML=PHV.length?PHV.map(function(u,i){return "<button type='button' data-ph='"+i+"' aria-label='Fotoğraf "+(i+1)+" (büyüt)'><img src='"+escA(u)+"' alt=''></button>"}).join('')+"<span>"+PHV.length+" fotoğraf · büyütmek için dokun</span>":'';
+    Array.prototype.forEach.call(box.querySelectorAll('[data-ph]'),function(b){b.onclick=function(){
+      var i=+b.getAttribute('data-ph'),sh=$('sheet');sh.classList.remove('hide');
+      sh.innerHTML="<div class='shd'><div class='big'>Fotoğraf "+(i+1)+" / "+PHV.length+"</div><button class='btn ghost' id='ph-x' aria-label='Kapat'>"+ic('x')+"</button></div><img class='phbig' src='"+escA(PHV[i])+"' alt='Fotoğraf "+(i+1)+"'>";
+      $('ph-x').onclick=function(){sh.classList.add('hide')};
+    }});
+  }
   async function runPhotos(fl){
     if(PJOB){PJOB.stop=true;if(PJOB.task)PJOB.task.destroy()}
-    var job=PJOB={stop:false},st=statusFn('a-p',job),more=fl.length>MAXPH,out=[],cur=1;
+    var job=PJOB={stop:false},st=statusFn('a-p',job),more=fl.length>MAXPH,out=[],cur=1,th=[];
     fl=fl.slice(0,MAXPH);var n=fl.length;
     try{
       st('Metin tanıma motoru indiriliyor…',0);
@@ -4027,7 +4047,7 @@ body.reading .sheet{max-width:740px}
           if(job.stop)return;
           cur=i+1;st('Fotoğraf hazırlanıyor: '+cur+' / '+n,i/n);
           var cv=await imgCanvas(fl[i]),r=await wk.recognize(cv);
-          out.push(r&&r.data&&r.data.text||'');cv.width=cv.height=0;
+          out.push(r&&r.data&&r.data.text||'');var tu=phThumb(cv);if(tu)th.push(tu);cv.width=cv.height=0;
         }
       }finally{job.wk=null;try{await wk.terminate()}catch(e){}}
       if(job.stop)return;
@@ -4036,6 +4056,7 @@ body.reading .sheet{max-width:740px}
       var put=function(){
         var x=$('a-x'),t=$('a-t');if(!x)return;
         var had=x.value.trim();x.value=had?had+'\n\n'+text:text;
+        PHV=(had?PHV:[]).concat(th);drawPhv();
         if(!t.value)t.value='Fotoğraftan makale';
         x.dispatchEvent(new Event('input'));t.dispatchEvent(new Event('input'));
         st.html('<b>'+n+' fotoğraf okundu</b>, yaklaşık '+wordCount(text)+' kelime (metin tanıma ile; hatalar olabilir). '+(had?'Metin, kutudaki metnin sonuna eklendi. ':'')+(more?'Yalnızca ilk '+MAXPH+' fotoğraf işlendi. ':'')+'Metni kontrol edip düzelt, sonra “Makaleyi kaydet”e dokun.');
