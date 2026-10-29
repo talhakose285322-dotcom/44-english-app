@@ -1,0 +1,37 @@
+# Words 44 in other browser engines: the app's main paths in Safari's engine (WebKit, as an iPhone 13) and in Firefox,
+# with Playwright (tests/cross-browser/smoke.mjs). The Chrome tests in "Testler" cover the details.
+# Playwright is installed only on GitHub's test machine, outside the repository (no package.json, no npm packages in
+# the project). All outside requests are answered "unavailable" inside the tests; no secrets.
+name: Tarayıcılar
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browsers-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browsers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Playwright (yalnızca test makinesine)
+        run: |
+          mkdir -p "$RUNNER_TEMP/pw" && cd "$RUNNER_TEMP/pw"
+          npm init -y > /dev/null
+          npm install --no-audit --no-fund playwright@1.52.0
+          npx playwright install --with-deps webkit firefox
+      - name: Safari motoru (WebKit) ve Firefox testleri
+        run: node --test --test-concurrency=1 --test-timeout=90000 tests/cross-browser/smoke.mjs
+        env:
+          PW_MODULE: ${{ runner.temp }}/pw/node_modules/playwright/index.mjs
