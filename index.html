@@ -3615,16 +3615,44 @@ body.reading .sheet{max-width:740px}
     try{return {doc:await task.promise,lib:P.lib}}
     catch(e){if(pwc)throw fail('Parola girilmediği için PDF açılmadı.');throw e}
   }
-  function pageLines(items){
+  // Two columns of running text (magazines, papers): an empty vertical band near the middle that almost no text
+  // crosses, with long prose lines on both sides. Tables (a word | its meaning) have short cells and are not split.
+  // Returns the x of the gutter, or null.
+  function colGutter(its){
+    if(its.length<20)return null;
+    var x0=Infinity,x1=-Infinity;its.forEach(function(i){if(i.x<x0)x0=i.x;if(i.x+i.w>x1)x1=i.x+i.w});
+    var W=x1-x0,best=null;if(!(W>0))return null;
+    for(var f=0.3;f<=0.7;f+=0.01){
+      var gx=x0+W*f,cross=0,l=0,r=0;
+      its.forEach(function(i){if(i.x<gx-1&&i.x+i.w>gx+1)cross++;else if(i.x+i.w<=gx+1)l++;else r++});
+      if(!best||cross<best.cross)best={gx:gx,cross:cross,l:l,r:r};
+    }
+    if(best.cross>its.length*0.08||best.l<its.length*0.25||best.r<its.length*0.25)return null;
+    function prose(side){
+      var rows={},n=0,full=0;
+      its.forEach(function(i){if(side?i.x>=best.gx-1:i.x+i.w<=best.gx+1){var k=Math.round(i.y);var o=rows[k]||(rows[k]={a:Infinity,b:-Infinity,s:''});o.a=Math.min(o.a,i.x);o.b=Math.max(o.b,i.x+i.w);o.s+=' '+i.s}});
+      var cw=side?x1-best.gx:best.gx-x0;
+      Object.keys(rows).forEach(function(k){var o=rows[k];n++;if(o.b-o.a>=cw*0.6&&o.s.trim().split(/\s+/).length>=5)full++});
+      return n>=5&&full>=n*0.5;
+    }
+    return prose(0)&&prose(1)?best.gx:null;
+  }
+  function pageLines(items,cols){
     var its=[];
     items.forEach(function(it){
       if(typeof it.str!=='string'||!it.str.trim()||!it.transform)return;
       var t=it.transform;its.push({s:it.str,x:t[4],y:t[5],w:it.width||0,z:Math.hypot(t[2],t[3])||it.height||10});
     });
-    its.sort(function(a,b){return b.y-a.y||a.x-b.x});
+    var gx=cols?colGutter(its):null;
+    if(gx!=null){
+      // the left column is read to the end before the right one; text across the gutter (a title) stays where it is
+      var colOf=function(i){return i.x+i.w<=gx+1?0:i.x>=gx-1?1:-1};
+      var wide=its.filter(function(i){return colOf(i)<0}),top=wide.length?Math.min.apply(null,wide.map(function(i){return i.y})):Infinity;
+      its.sort(function(a,b){var ka=colOf(a)<0||a.y>top?-1:colOf(a),kb=colOf(b)<0||b.y>top?-1:colOf(b);return ka-kb||b.y-a.y||a.x-b.x});
+    }else its.sort(function(a,b){return b.y-a.y||a.x-b.x});
     var lines=[],L=null;
     its.forEach(function(it){
-      if(L&&Math.abs(L.y-it.y)<=Math.max(2,Math.min(L.z,it.z)*0.45)){L.items.push(it);if(it.z>L.z)L.z=it.z}
+      if(L&&Math.abs(L.y-it.y)<=Math.max(2,Math.min(L.z,it.z)*0.45)&&(gx==null||(it.x+it.w<=gx+1)===(L.items[0].x+L.items[0].w<=gx+1))){L.items.push(it);if(it.z>L.z)L.z=it.z}
       else{L={y:it.y,z:it.z,items:[it]};lines.push(L)}
     });
     return lines.map(function(L){
@@ -3671,13 +3699,21 @@ body.reading .sheet{max-width:740px}
     if(!all.length)return [];
     var mz=med(all.map(function(l){return l.z})),gs=[];
     for(var i=1;i<all.length;i++)if(all[i].pi===all[i-1].pi){var g=all[i-1].y-all[i].y;if(g>0)gs.push(g)}
-    var mg=med(gs)||mz*1.3,paras=[],cur=null;
+    var mg=med(gs)||mz*1.3,ml=med(all.map(function(l){return l.t.length})),paras=[],cur=null;
     all.forEach(function(l,i){
       var p=all[i-1];l.h=l.z>=mz*1.18&&l.t.length<160;
-      var same=!!p&&l.h===p.h&&(l.pi===p.pi?(p.y-l.y)<=Math.max(mg,l.z*1.25)*1.35:!/[.!?:”"]\s*$/.test(p.t)&&!l.h);
+      // across a page break a paragraph goes on when its sentence is not finished, unless the last line is a short
+      // line on its own (a heading at the bottom of the page)
+      var same=!!p&&l.h===p.h&&(l.pi===p.pi?(p.y-l.y)<=Math.max(mg,l.z*1.25)*1.35:!/[.!?:”"]\s*$/.test(p.t)&&!l.h&&!(cur&&cur.n===1&&p.t.length<ml*0.6));
       if(same&&!l.h&&l.pi===p.pi&&l.x>p.x+mz*0.8&&/[.!?”"]\s*$/.test(p.t))same=false; // first-line indent starts a paragraph
       if(same&&l.h&&Math.abs(l.z-p.z)>0.6)same=false; // headings of different sizes stay separate
-      if(!same||!cur){cur={h:l.h,t:l.t,z:l.z,pg:l.pi+1,pe:l.pi+1,top:l.top};paras.push(cur)}else{cur.t=joinLine(cur.t,l.t);cur.pe=l.pi+1;if(l.z>cur.z)cur.z=l.z}
+      if(!same||!cur){cur={h:l.h,t:l.t,z:l.z,pg:l.pi+1,pe:l.pi+1,top:l.top,n:1};paras.push(cur)}else{cur.t=joinLine(cur.t,l.t);cur.pe=l.pi+1;cur.n++;if(l.z>cur.z)cur.z=l.z}
+    });
+    // Headings set only in bold (the same size as the text) are found from their shape: a line on its own, short,
+    // without final punctuation, followed by a real paragraph. Only when the document has no larger headings.
+    if(paras.filter(function(p){return p.h}).length<2)paras.forEach(function(p,i){
+      var nx=paras[i+1],t=p.t.trim();
+      if(!p.h&&p.n===1&&t.length<100&&t.split(/\s+/).length<=12&&/^[A-Z0-9“"‘']/.test(t)&&!/[.!?,;:…”"’)]$/.test(t)&&nx&&!nx.h&&nx.t.split(/\s+/).length>=20)p.h=true;
     });
     var tp=toc&&toc.pages||[];
     return paras.map(function(p){return {h:p.h,t:p.t.replace(/\s+/g,' ').trim(),z:p.z,pg:p.pg,pe:p.pe,top:p.top,toc:!!tp[p.pg-1]}});
@@ -3734,6 +3770,12 @@ body.reading .sheet{max-width:740px}
         var hs=lv[ks[j]];if(hs.length<2)continue;
         var num=hs.filter(function(i){return NUMH.test(body[i].t)}).length,top=hs.filter(function(i){return body[i].top}).length;
         if(hs.length>=3&&(num>=hs.length*0.6||top>=hs.length*0.6)){idx=hs;how=num>=hs.length*0.6?'numaralı başlıklara göre':'sayfa başındaki başlıklara göre'}
+        else if(hs.length>=3){
+          // headings neither numbered nor on new pages: a book of articles when every section is a real text
+          var wc=hs.map(function(st,k){var en=k+1<hs.length?hs[k+1]:body.length,n=0;for(var q=st+1;q<en;q++)n+=wordCount(body[q].t);return n});
+          var tot=wc.reduce(function(a,b){return a+b},0);
+          if(tot>=1000&&tot/wc.length>=100&&wc.filter(function(n){return n>=40}).length>=wc.length*0.8){idx=hs;how='başlıklara göre; tek makaleyse “Tek makale olarak al”'}
+        }
         break;
       }
     }
@@ -3932,7 +3974,7 @@ body.reading .sheet{max-width:740px}
       for(var p=1;p<=lim;p++){
         if(job.stop)return;
         var page=await doc.getPage(p),tc=await page.getTextContent();
-        raw.push(pageLines(tc.items));page.cleanup();
+        raw.push(pageLines(tc.items,mode==='article'));page.cleanup();
         st('Metin çıkarılıyor: sayfa '+p+' / '+lim,p/lim);
       }
       var meta=null;try{meta=await doc.getMetadata()}catch(e){}
