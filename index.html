@@ -2105,7 +2105,7 @@ body.reading .sheet{max-width:740px}
     box.innerHTML=WB.segs.map(function(s,i){
       var pg=segPages(s),txt=segText(s).replace(/^## /gm,'');
       return "<div class='segc"+(s.inc?'':' off')+"' data-s='"+i+"'><div class='sh'><input type='checkbox' class='wi' aria-label='Dahil et'"+(s.inc?' checked':'')+"><span class='num'>"+(i+1)+"</span><input class='wt' aria-label='Makale başlığı' autocomplete='off'></div>"+
-        "<div class='sm'>"+(pg[0]?'PDF s. '+pg[0]+(pg[1]>pg[0]?'–'+pg[1]:'')+' · ':'')+segWords(s)+" kelime"+(s.dup?" · <b style='color:var(--bad)'>zaten kayıtlı</b>":'')+(s.front?' · ön bölüm / içindekiler':'')+"</div>"+
+        "<div class='sm'>"+(pg[0]?'PDF s. '+pg[0]+(pg[1]>pg[0]?'–'+pg[1]:'')+' · ':'')+segWords(s)+" kelime"+(s.dup?" · <b style='color:var(--bad)'>zaten kayıtlı</b>":'')+(s.front?(s.back?' · son bölüm (dizin, kaynakça…)':' · ön bölüm / içindekiler'):'')+"</div>"+
         "<p class='spv'>"+esc(txt.slice(0,240))+(txt.length>240?'…':'')+"</p>"+
         "<div class='tbar'><button class='btn ghost' data-a='up'"+(i?'':' disabled')+" aria-label='Yukarı taşı'>"+ic('up')+"</button><button class='btn ghost' data-a='down'"+(i<WB.segs.length-1?'':' disabled')+" aria-label='Aşağı taşı'>"+ic('down')+"</button><button class='btn ghost' data-a='merge'"+(i?'':' disabled')+">Öncekiyle birleştir</button><button class='btn ghost' data-a='split'>Böl…</button></div><div class='spl'></div></div>";
     }).join('');
@@ -3643,6 +3643,10 @@ body.reading .sheet{max-width:740px}
       if(typeof it.str!=='string'||!it.str.trim()||!it.transform)return;
       var t=it.transform;its.push({s:it.str,x:t[4],y:t[5],w:it.width||0,z:Math.hypot(t[2],t[3])||it.height||10});
     });
+    // A drop cap (a big first letter of a chapter, two or more lines high) is put back in front of the line it begins:
+    // the highest line to its right within its height ("t is a truth" → "It is a truth").
+    var mzp=med(its.map(function(i){return i.z})),caps=its.filter(function(i){return /^[“"‘']?[A-Z]$/.test(i.s.trim())&&i.z>=mzp*1.8});
+    if(caps.length)its=its.filter(function(i){return caps.indexOf(i)<0});
     var gx=cols?colGutter(its):null;
     if(gx!=null){
       // the left column is read to the end before the right one; text across the gutter (a title) stays where it is
@@ -3654,6 +3658,12 @@ body.reading .sheet{max-width:740px}
     its.forEach(function(it){
       if(L&&Math.abs(L.y-it.y)<=Math.max(2,Math.min(L.z,it.z)*0.45)&&(gx==null||(it.x+it.w<=gx+1)===(L.items[0].x+L.items[0].w<=gx+1))){L.items.push(it);if(it.z>L.z)L.z=it.z}
       else{L={y:it.y,z:it.z,items:[it]};lines.push(L)}
+    });
+    caps.forEach(function(c){
+      var best=null;
+      lines.forEach(function(L){var x0=Math.min.apply(null,L.items.map(function(i){return i.x}));if(x0>c.x+c.w*0.5&&L.y>=c.y-c.z*0.15&&L.y<=c.y+c.z&&(!best||L.y>best.y))best=L});
+      if(best){var f=best.items.reduce(function(a,i){return i.x<a.x?i:a});best.items.push({s:c.s.trim(),x:f.x-0.02,y:best.y,w:0,z:best.z})}
+      else{lines.push({y:c.y,z:mzp,items:[{s:c.s.trim(),x:c.x,y:c.y,w:c.w,z:mzp}]});if(gx==null)lines.sort(function(a,b){return b.y-a.y})}
     });
     return lines.map(function(L){
       L.items.sort(function(a,b){return a.x-b.x});
@@ -3685,11 +3695,12 @@ body.reading .sheet{max-width:740px}
   // ---- Document structure: pages -> blocks (paragraphs/headings with page numbers) -> proposed articles ----
   var TOCL=/^(.{3,140}?)(?:[\s.·…_]*\.{2,}[\s.]*|\s+|\t)(\d{1,4})$/;
   function tocInfo(pages){
-    // A page is a table of contents when most of its lines end in a page number.
-    var titles=[],flags=pages.map(function(ls){
+    // A page is a table of contents when most of its lines end in a page number. Only the front of the document is
+    // used for titles: an index at the back has the same look but is not a list of the articles.
+    var front=Math.max(12,Math.ceil(pages.length*0.2)),titles=[],flags=pages.map(function(ls,pi){
       var m=ls.filter(function(l){return TOCL.test(l.t)&&/[A-Za-z]{3}/.test(l.t)});
       var is=m.length>=4&&m.length>=ls.length*0.5;
-      if(is)m.forEach(function(l){var x=l.t.match(TOCL);titles.push(x[1].replace(/[\s.·…_\t]+$/,'').trim())});
+      if(is&&pi<front)m.forEach(function(l){var x=l.t.match(TOCL);titles.push(x[1].replace(/[\s.·…_\t]+$/,'').trim())});
       return is;
     });
     return {pages:flags,titles:titles};
@@ -3706,9 +3717,13 @@ body.reading .sheet{max-width:740px}
       // line on its own (a heading at the bottom of the page)
       var same=!!p&&l.h===p.h&&(l.pi===p.pi?(p.y-l.y)<=Math.max(mg,l.z*1.25)*1.35:!/[.!?:”"]\s*$/.test(p.t)&&!l.h&&!(cur&&cur.n===1&&p.t.length<ml*0.6));
       if(same&&!l.h&&l.pi===p.pi&&l.x>p.x+mz*0.8&&/[.!?”"]\s*$/.test(p.t))same=false; // first-line indent starts a paragraph
+      // after a short line (a paragraph end or a heading) the next line starts a new block, except within a heading
+      // that wraps onto two lines; "Article 3", "Unit 4", "ARTICLE [II.]" always stand alone
+      if(same&&l.pi===p.pi&&((p.t.length<ml*0.6&&!/[,;\-–]$/.test(p.t)&&!(l.h&&p.h&&!/[.!?:]$/.test(p.t.trim())))||(ARTRE.test(p.t)&&p.t.length<40)))same=false;
       if(same&&l.h&&Math.abs(l.z-p.z)>0.6)same=false; // headings of different sizes stay separate
       if(!same||!cur){cur={h:l.h,t:l.t,z:l.z,pg:l.pi+1,pe:l.pi+1,top:l.top,n:1};paras.push(cur)}else{cur.t=joinLine(cur.t,l.t);cur.pe=l.pi+1;cur.n++;if(l.z>cur.z)cur.z=l.z}
     });
+    paras.forEach(function(p){if(p.h&&p.t.split(/\s+/).length>25)p.h=false});
     // Headings set only in bold (the same size as the text) are found from their shape: a line on its own, short,
     // without final punctuation, followed by a real paragraph. Only when the document has no larger headings.
     if(paras.filter(function(p){return p.h}).length<2)paras.forEach(function(p,i){
@@ -3729,25 +3744,38 @@ body.reading .sheet{max-width:740px}
     });
     return o;
   }
-  var ARTRE=/^(article|reading|text|passage|unit|chapter|lesson|part|story|topic|section|bölüm|ünite|okuma|metin|makale|konu)\s*(\d{1,3}|[ivxlc]{1,6})\b/i;
+  var ARTRE=/^(article|reading|text|passage|unit|chapter|lesson|part|story|topic|section|bölüm|ünite|okuma|metin|makale|konu)\.?\s*\[?(\d{1,3}|[ivxlc]{1,6})\b/i;
   var NUMH=/^\d{1,3}\s*[.):—–-]\s*\S/;
+  var BACKRE=/^(index|references|bibliography|works cited|glossary|answer key|answers|dizin|kaynakça|kaynaklar|cevap anahtarı)\b/i;
   function normT(s){return s.toLowerCase().replace(/[^a-z0-9ğüşöçı]+/g,' ').replace(/\s+/g,' ').trim()}
   function mkSegs(body,idx,how){
     var segs=[];
     if(idx[0]>0){var fr=body.slice(0,idx[0]);if(fr.reduce(function(n,b){return n+wordCount(b.t)},0)>=5)segs.push({title:'Giriş / ön bölüm',blocks:fr,inc:false,front:true,tpg:fr[0].pg})}
     idx.forEach(function(st,k){
       var en=k+1<idx.length?idx[k+1]:body.length,hb=body[st],title=hb.t,from=st+1;
-      // "Article 3" on its own line followed by the real title heading
-      if(ARTRE.test(title)&&title.length<30&&body[from]&&body[from].h&&from<en){title=title.replace(/[\s:.—–-]+$/,'')+' — '+body[from].t;from++}
+      // "Article 3" on its own line followed by the real title heading (short, not a sentence: a one-sentence text stays text)
+      var nb=body[from];
+      if(ARTRE.test(title)&&title.length<30&&nb&&nb.h&&from<en&&nb.t.split(/\s+/).length<=12&&!/[.!?]$/.test(nb.t.trim())){title=title.replace(/[\s:.—–-]+$/,'')+' — '+body[from].t;from++}
       var bl=body.slice(from,en);
       segs.push({title:title.replace(/^#+\s*/,''),blocks:bl,inc:true,tpg:hb.pg});
     });
-    segs.forEach(function(s){if(!s.front&&segWords(s)<25)s.inc=false});
+    // back matter after the last article (an index, references, a glossary) is a closing part, not ticked
+    var last=segs[segs.length-1];
+    if(last&&!last.front){
+      var bi=-1;last.blocks.some(function(b,k){if(k>0&&b.t.length<120&&(b.h||b.top||b.t.split(/\s+/).length<=8)&&BACKRE.test(b.t)){bi=k;return true}});
+      if(bi>0){var bk=last.blocks.slice(bi);last.blocks=last.blocks.slice(0,bi);segs.push({title:bk[0].t.replace(/^#+\s*/,''),blocks:bk.slice(1),inc:false,front:true,back:true,tpg:bk[0].pg})}
+    }
+    segs.forEach(function(s){if(!s.front&&segWords(s)<12)s.inc=false});
     return {segs:segs,how:how};
   }
   function splitDoc(bs,toc){
     var body=bs.filter(function(b){return !b.toc}),idx=[],how='';
     if(body.length<2)return null;
+    var all=body.reduce(function(n,b){return n+wordCount(b.t)},0);
+    function words(a,b){var n=0;for(var q=a;q<b;q++)n+=wordCount(body[q].t);return n}
+    // a split that leaves most of the text before its first article is not the document's structure (for example an
+    // index at the back that looks like a contents page)
+    function fine(ix){if(ix.length<2)return false;var f=words(0,ix[0]);return !(f>300&&f>all*0.3)}
     // 1) Table-of-contents titles that appear as headings in the text
     if(toc&&toc.titles.length>=2){
       var tn=toc.titles.map(normT).filter(function(t){return t.length>=3});
@@ -3755,12 +3783,19 @@ body.reading .sheet{max-width:740px}
         if(b.t.length>160||!(b.h||b.top))return;var n=normT(b.t);
         if(tn.some(function(t){return t===n||(t.length>=8&&(n.indexOf(t)===0||t.indexOf(n)===0)&&n.length>=6)}))idx.push(i);
       });
-      if(idx.length>=2)how='içindekiler sayfasına göre';else idx=[];
+      if(fine(idx))how='içindekiler sayfasına göre';else idx=[];
     }
-    // 2) "Article 3 …", "Unit 4 …", "Reading 5 …" headings
+    // 2) "Article 3 …", "Unit 4 …", "Reading 5 …" headings. With several kinds (Article and Section, Unit and
+    // Reading) the one that comes first is the top level; a finer one only when the top-level parts are very long.
     if(!idx.length){
-      body.forEach(function(b,i){if(b.t.length<160&&ARTRE.test(b.t)&&(b.h||b.top))idx.push(i)});
-      if(idx.length>=2)how='“Article / Unit / Reading N” başlıklarına göre';else idx=[];
+      var G={},order=[];
+      body.forEach(function(b,i){if(b.t.length<160&&ARTRE.test(b.t)&&(b.h||b.top)){var k=b.t.match(ARTRE)[1].toLowerCase();if(!G[k]){G[k]=[];order.push(k)}G[k].push(i)}});
+      var cand=order.map(function(k){return G[k]}).filter(function(g){return g.length>=2}),avg=function(g){return words(g[0],body.length)/g.length};
+      if(cand.length){
+        idx=cand[0];
+        if(cand.length>1&&avg(idx)>1500){var fn=cand.slice(1).filter(function(g){return g.length>idx.length&&avg(g)>=100})[0];if(fn)idx=fn}
+      }
+      if(fine(idx))how='“Article / Unit / Reading N” başlıklarına göre';else idx=[];
     }
     // 3) The largest repeated heading size, when those headings are numbered or start new pages
     if(!idx.length){
@@ -3769,12 +3804,12 @@ body.reading .sheet{max-width:740px}
       for(var j=0;j<ks.length;j++){
         var hs=lv[ks[j]];if(hs.length<2)continue;
         var num=hs.filter(function(i){return NUMH.test(body[i].t)}).length,top=hs.filter(function(i){return body[i].top}).length;
-        if(hs.length>=3&&(num>=hs.length*0.6||top>=hs.length*0.6)){idx=hs;how=num>=hs.length*0.6?'numaralı başlıklara göre':'sayfa başındaki başlıklara göre'}
+        if(hs.length>=3&&(num>=hs.length*0.6||top>=hs.length*0.6)&&fine(hs)){idx=hs;how=num>=hs.length*0.6?'numaralı başlıklara göre':'sayfa başındaki başlıklara göre'}
         else if(hs.length>=3){
           // headings neither numbered nor on new pages: a book of articles when every section is a real text
           var wc=hs.map(function(st,k){var en=k+1<hs.length?hs[k+1]:body.length,n=0;for(var q=st+1;q<en;q++)n+=wordCount(body[q].t);return n});
           var tot=wc.reduce(function(a,b){return a+b},0);
-          if(tot>=1000&&tot/wc.length>=100&&wc.filter(function(n){return n>=40}).length>=wc.length*0.8){idx=hs;how='başlıklara göre; tek makaleyse “Tek makale olarak al”'}
+          if(tot>=1000&&tot/wc.length>=100&&wc.filter(function(n){return n>=40}).length>=wc.length*0.8&&fine(hs)){idx=hs;how='başlıklara göre; tek makaleyse “Tek makale olarak al”'}
         }
         break;
       }
