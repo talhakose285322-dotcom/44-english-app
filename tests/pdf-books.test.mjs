@@ -160,6 +160,21 @@ test('taranmış (yalnızca görüntü) PDF: OCR önerisi; onaylanınca metin ta
   assert.deepEqual(b.errors, []);
 });
 
+test('taranmış Türkçe ya da okunamayan PDF: anlamsız metin önizlemeye gitmiyor, açık uyarı; istenirse gösteriliyor', async () => {
+  const img = n => `<div class=${n ? 'pb' : ''}><svg width="500" height="200"><rect width="500" height="200" fill="#eee"/><text x="20" y="40" font-size="20">Sayfa ${n + 1}</text></svg></div>`;
+  const s = await upload(await pdf('scanned-tr', [0, 1].map(img).join('')));
+  assert.equal(s, null);
+  await b.ev(`window.__ocr.texts=${JSON.stringify(['Hz. Omer bu konuda insanlar1 uyarm1s ve Allah1 zikretmenin gerekli oldugunu demistir.', 'Bu kitapta okuyucular icin onemli bilgiler vardir ve her bolum ayr1 bir konuyu anlat1r.'])}`);
+  await b.ev("document.getElementById('ocr-go').click()");
+  await b.waitFor("!!document.getElementById('ocr-any')", 30000);
+  assert.match(await b.ev("document.getElementById('a-p').textContent"), /Türkçe görünüyor[\s\S]*İngilizce bir belge seç[\s\S]*Hiçbir şey eklenmedi/);
+  assert.equal(await b.ev("document.getElementById('a-x').value"), '');
+  await b.ev("document.getElementById('ocr-any').click()");
+  await b.waitFor("document.getElementById('a-x').value!==''", 5000);
+  assert.match(await b.ev("document.getElementById('a-x').value"), /konuda/);
+  assert.deepEqual(b.errors, []);
+});
+
 test('kelime listesi PDF’i (iki sütunlu tablo) eskisi gibi kelime–anlam satırlarına ayrılıyor', async () => {
   const rows = [['approach', 'yaklaşmak'], ['measure', 'ölçmek'], ['achieve', 'başarmak'], ['journey', 'yolculuk'], ['resilient', 'dayanıklı'], ['habit', 'alışkanlık'],
     ['budget', 'bütçe'], ['harbour', 'liman'], ['repair', 'onarmak'], ['garden', 'bahçe'], ['inflation', 'enflasyon'], ['research', 'araştırma']];

@@ -93,3 +93,25 @@ test('metin tanıma çıktısı: boş satırsız paragraflar ayrılıyor, tipik 
     'In 2024, 12 students tried it for 5 weeks with the X1 app.');
   assert.deepEqual(b.errors, []);
 });
+
+test('okunamayan ya da Türkçe sayfa: anlamsız metin kutuya konmuyor, açık uyarı ve ipucu; istenirse yine de ekleniyor', async () => {
+  await b.seed({[K]: [], [KA]: []});
+  await open();
+  assert.match(await b.ev("document.getElementById('a-new').textContent"), /iyi ışık, sayfa düz[\s\S]*Türkçe metin okunmaz/);
+  // what a real photo of a Turkish page gave (shared by the user)
+  await b.ev(`window.__ocr.texts=${JSON.stringify(["F r11) al’ Cl¢ il Sank Hz 1Sa das) | 14ari | | : 2 I - ig res ga i l 11 i d ._; yapmaktan menetmistl. dors Te as E- BY k gUZt Iklerinl ziKretme Konusuiida uyall, : 4 cak gusciits ; fy i and Ax i ] lay 111 DAS K ASI IVD EeLuliil 211% i All D fluo vyg- 4 4 g 3 4 sr) q 4 : . AME Cul Fra ha lod mas uy al VOL Ul LAL LI 1 cittl Ona “Seni glyoct 1ldx pi db :\n1 1S1U Le RE Ler TE da bu konuy!\nE : <: 0 vivecedidll ledi. HZ. Umer \\Ia} Sa tt a i 1I.AMA0M 1 VAY A, : ! p KOPtEa**\" 7 : savalar Ciunl 11a . ~~ 1>votfmenl7z Oe ( 11. \\ UK :\n4 141i “Allah1 (CC) zikretmenlz gerel\nE- 115 am ; . as 1NvaAarivorulll LiL:\n3 ; Aanticiinda 1se S1Z1 uy al ly Ul vais BY  jpsanlan zikretm konusunda 1S¢ fe ft C FI EAN . 9 s tha Y | {O)) 1S] 4 hktir.” demistir Cenab-1 Hak'tan ibade iE LA (11 ern ~ \\ | 4X 1 0. hastalixi ph: cea lavet 1IstivOTUZ.\n4 da muvaffakiyet 15ULye & E i RE ha"])}`);
+  await b.setFiles('#a-ig', [file('tr.png', makePng(600, 800))]);
+  await b.waitFor("!!document.getElementById('ocr-any')", 15000);
+  assert.match(await b.ev("document.getElementById('a-p').textContent"), /Türkçe görünüyor[\s\S]*İngilizce bir sayfanın fotoğrafını çek[\s\S]*Hiçbir şey eklenmedi/);
+  assert.equal(await b.ev("document.getElementById('a-x').value"), '', 'kutu boş kaldı');
+  await b.ev("document.getElementById('ocr-any').click()");
+  assert.match(await b.ev("document.getElementById('a-x').value"), /konusunda/, 'istenince metin eklendi');
+  // unreadable, not Turkish: the share of readable words and how to take a better photo
+  await b.ev("document.getElementById('a-x').value='';window.__ocr.texts=['Tl1e qvick brovvn f0x jvmps ovr tl1e lazv d0g; Ixrt vvqp zzkt mmnr ptlk qrst vvbx.\\nXqz krr plmn ttrv qwz brrk vvn zxq lppt mrrq tkkl.']");
+  await b.setFiles('#a-ig', [file('blur.png', makePng(600, 800))]);
+  await b.waitFor("!!document.getElementById('ocr-any')", 15000);
+  assert.match(await b.ev("document.getElementById('a-p').textContent"), /yazı okunamadı[\s\S]*%\d+[\s\S]*iyi ışıkta çek[\s\S]*El yazısı/);
+  assert.equal(await b.ev("document.getElementById('a-x').value"), '');
+  assert.deepEqual(await arts(), []);
+  assert.deepEqual(b.errors, []);
+});
