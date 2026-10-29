@@ -33,12 +33,12 @@ test('galeriden seçilen fotoğrafların metni sırayla kutuya geliyor; büyük 
   assert.match(await b.ev("document.getElementById('a-new').textContent"), /Fotoğraf çek.*Fotoğraf seç.*en fazla 10 fotoğraf/s);
   assert.equal(await b.ev("document.getElementById('a-ic').getAttribute('capture')"), 'environment', 'kamera düğmesi arka kamerayı açar');
   await b.ev(`window.__ocr.texts=${JSON.stringify([PAGE1, PAGE2])}`);
-  await b.setFiles('#a-ig', [file('p1.png', makePng(3000, 1500)), file('p2.png', makePng(800, 600))]);
+  await b.setFiles('#a-ig', [file('p1.png', makePng(4000, 2000)), file('p2.png', makePng(800, 600))]);
   await b.waitFor("/2 fotoğraf okundu/.test(document.getElementById('a-p').textContent)", 15000);
   assert.equal(await b.ev("document.getElementById('a-x').value"),
     '## Unit 3\n\nThe city never sleeps at night. People walk and talk.\n\nMany shops stay open until late, and the streets are full of light.');
   assert.equal(await b.ev("document.getElementById('a-t').value"), 'Fotoğraftan makale');
-  assert.deepEqual(await b.ev('window.__ocr.sizes'), [[2400, 1200], [800, 600]]);
+  assert.deepEqual(await b.ev('window.__ocr.sizes'), [[3200, 1600], [800, 600]], 'en fazla 3200 px (iPhone tuval sınırının altında)');
   assert.equal(await b.ev('window.__ocr.langs'), 'eng');
   assert.equal(await b.ev('window.__ocr.terminated'), 1, 'tanıma motoru kapatıldı');
   assert.deepEqual(await arts(), [], 'henüz kaydedilmedi');
@@ -69,5 +69,27 @@ test('metin çıkmayan ya da açılamayan fotoğraf: açık uyarı, hiçbir şey
   assert.match(await b.ev("document.getElementById('a-p').textContent"), /Hiçbir veri değiştirilmedi/);
   assert.equal(await b.ev("document.getElementById('a-x').value"), '');
   assert.deepEqual(await arts(), []);
+  assert.deepEqual(b.errors, []);
+});
+
+test('metin tanıma çıktısı: boş satırsız paragraflar ayrılıyor, tipik karışmalar (js, fee], 8ood) yalnızca bilinen kelimeye düzeltiliyor', async () => {
+  await b.seed({[K]: [], [KA]: []});
+  await open();
+  // what Tesseract gives for a blurred photo: one line per printed line, no blank lines (the last line of a paragraph
+  // is short), some typical confusions; "natura]" stays, since "natural" is not in the basic word list
+  const raw = 'Unit 4 Healthy Habits\n' +
+    'Most people know that sleep and food are important, but few of us\n' +
+    'think about how a habit js formed.\n' +
+    'Scientists say there is a reward, like the 8ood feeling after a run,\n' +
+    'and you fee] it. The rule is clear], not natura].\n' +
+    'In 2024, 12 students tried it for 5 weeks with the X1 app.';
+  await b.ev(`window.__ocr.texts=${JSON.stringify([raw])}`);
+  await b.setFiles('#a-ig', [file('blur.png', makePng(600, 800))]);
+  await b.waitFor("/1 fotoğraf okundu/.test(document.getElementById('a-p').textContent)", 15000);
+  assert.equal(await b.ev("document.getElementById('a-x').value"),
+    '## Unit 4 Healthy Habits\n\n' +
+    'Most people know that sleep and food are important, but few of us think about how a habit is formed.\n\n' +
+    'Scientists say there is a reward, like the good feeling after a run, and you feel it. The rule is clear, not natura].\n\n' +
+    'In 2024, 12 students tried it for 5 weeks with the X1 app.');
   assert.deepEqual(b.errors, []);
 });
