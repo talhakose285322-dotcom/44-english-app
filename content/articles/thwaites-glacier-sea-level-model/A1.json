@@ -1,0 +1,24 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "level": "A1",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "paragraphs": [
+    "Thwaites is a big glacier in Antarctica. It is made of ice. It is very cold there.",
+    "Scientists made a new computer model. The model looks at warm sea water. The water goes under the ice.",
+    "The model says the glacier can melt faster. Then the sea can rise more. The scientists want more tests."
+  ],
+  "questions": [
+    {
+      "q": "Where is Thwaites?",
+      "a": "In Antarctica."
+    },
+    {
+      "q": "What did scientists make?",
+      "a": "A new computer model."
+    },
+    {
+      "q": "What goes under the ice?",
+      "a": "Warm sea water."
+    }
+  ]
+}

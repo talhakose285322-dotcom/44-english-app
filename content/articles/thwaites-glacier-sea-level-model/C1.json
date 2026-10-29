@@ -1,0 +1,24 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "level": "C1",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "paragraphs": [
+    "Thwaites Glacier, the Antarctic ice stream so often dubbed the \"Doomsday Glacier\", has long been a headache for modellers, and a new paper in Nature Communications suggests the headache may be worse than assumed. Researchers at the University of California, Irvine, working with NASA's Jet Propulsion Laboratory, report that the glacier's contribution to sea-level rise by 2100 could be roughly double previous projections.",
+    "The difference lies in how the model handles the grounding line. Rather than a sharp boundary between grounded and floating ice, the team represents a grounding zone several kilometres wide, where tidal movement repeatedly drives warm seawater beneath the ice and melts it from underneath. Tuned against more than two decades of observations, including satellite radar imagery, the simulation reproduces historical changes that conventional models understate. Its central estimate is about 30 millimetres of sea-level rise by 2100, even with no further warming. Co-author Eric Rignot argues that most projections have struggled to match the observed pace of loss \"because of missing physics\".",
+    "Yet the findings deserve scrutiny. They stem from one model, not a multi-model comparison, and the headline 60 per cent probability of the glacier unpinning from the Mouginot Ridge hinges on an assumed grounding-zone width of four to six kilometres. Independent replication will determine whether this is a genuine step forward or an outlier."
+  ],
+  "questions": [
+    {
+      "q": "What is the key modelling change?",
+      "a": "A wide grounding zone replaces a sharp grounding line."
+    },
+    {
+      "q": "What does the central estimate say?",
+      "a": "About 30 millimetres of sea-level rise by 2100 even without further warming."
+    },
+    {
+      "q": "Why should the 60 per cent figure be treated carefully?",
+      "a": "It depends on an assumed grounding-zone width of four to six kilometres."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "one-sauna-session-boosts-immune-cells",
+      "category": "news",
+      "title": "One Sauna Session Sends White Blood Cells Surging",
+      "summary": "Finlandiya'da 51 yetişkinle yapılan küçük bir çalışmada tek bir 30 dakikalık sauna seansı kandaki akyuvar sayısını geçici olarak artırdı; uzun vadeli bir etki gösterilmedi.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-29",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 55,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 105,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 167,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 206,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 195,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 207,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "one-sauna-session-boosts-immune-cells/image.jpg",
+        "alt": "Ahşap bankları, taşlı ocağı ve kepçesi olan boş bir Fin sauna odası (örnek görsel).",
+        "credit": "Santeri Viinamäki",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Finnish_sauna_20170826.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (University of Eastern Finland): A single sauna session sends immune cells surging through your body",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261027231021.htm"
+        },
+        {
+          "title": "MDLinx: A single sauna session sends immune cells surging",
+          "url": "https://www.mdlinx.com/news/a-single-sauna-session-sends-immune-cells-surging/784L6ZoSeZeQetn5icz50W"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "sauna",
+          "tr": "sauna"
+        },
+        {
+          "w": "white blood cell",
+          "tr": "akyuvar (beyaz kan hücresi)"
+        },
+        {
+          "w": "immune system",
+          "tr": "bağışıklık sistemi"
+        },
+        {
+          "w": "bloodstream",
+          "tr": "kan dolaşımı"
+        },
+        {
+          "w": "baseline",
+          "tr": "başlangıç düzeyi"
+        },
+        {
+          "w": "participant",
+          "tr": "katılımcı"
+        },
+        {
+          "w": "cold shower",
+          "tr": "soğuk duş"
+        }
+      ]
+    },
+    {
+      "id": "thwaites-glacier-sea-level-model",
+      "category": "news",
+      "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+      "summary": "Yeni bir bilgisayar modeline göre Antarktika'daki Thwaites Buzulu, 2100'e kadar deniz seviyesine eskiden tahmin edilenin yaklaşık iki katı katkı yapabilir; ancak sonuç tek bir modele dayanıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-29",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 55,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 108,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 166,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 206,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 220,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 225,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "thwaites-glacier-sea-level-model/image.jpg",
+        "alt": "Antarktika'da bir buzul dilinin kenarı ve altındaki koyu mavi deniz suyu (örnek görsel).",
+        "credit": "NASA",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:Thwaites_Glacier.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (UC Irvine): Antarctica's \"Doomsday Glacier\" could raise sea levels twice as much as predicted",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261027063701.htm"
+        },
+        {
+          "title": "Nature Communications: Sea-level contribution of Thwaites Glacier doubles in an observation-constrained ice-sheet model",
+          "url": "https://doi.org/10.1038/s41467-026-77976-1"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "glacier",
+          "tr": "buzul"
+        },
+        {
+          "w": "sea level",
+          "tr": "deniz seviyesi"
+        },
+        {
+          "w": "model",
+          "tr": "model (bilgisayar benzetimi)"
+        },
+        {
+          "w": "tide",
+          "tr": "gelgit"
+        },
+        {
+          "w": "melt",
+          "tr": "erimek"
+        },
+        {
+          "w": "ridge",
+          "tr": "sırt (yüksek kısım)"
+        },
+        {
+          "w": "projection",
+          "tr": "tahmin, öngörü"
+        }
+      ]
+    },
     {
       "id": "ancient-eclipse-reveals-earth-spin-speed",
       "category": "news",

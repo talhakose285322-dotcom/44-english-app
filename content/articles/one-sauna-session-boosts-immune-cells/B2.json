@@ -1,0 +1,24 @@
+{
+  "id": "one-sauna-session-boosts-immune-cells",
+  "level": "B2",
+  "title": "One Sauna Session Sends White Blood Cells Surging",
+  "paragraphs": [
+    "Saunas have a reputation in Finland as a cure for almost everything, yet scientific evidence about what they do to the immune system is still thin. A new study from the University of Eastern Finland, published in the journal Temperature, adds a small piece of data: 51 adults, with an average age of 50, spent 30 minutes in a Finnish sauna, interrupted by a brief cold shower.",
+    "Blood samples showed that circulating counts of all the white blood cell types measured, including neutrophils and lymphocytes, rose during the session and returned to baseline within half an hour. Average cytokine levels barely changed, although several of them moved in line with how much body temperature increased. According to the researchers, sauna heat may pull white blood cells out of tissues and into the bloodstream, where they are better placed to patrol for pathogens, an effect resembling the short-term response to exercise.",
+    "The authors are careful, however, not to overstate the findings. The study examined only the immediate effects of a single session, and because the cold shower was part of the routine, the results reflect the combination rather than heat alone. Nothing here proves that regular sauna use strengthens long-term immunity or reduces the risk of infection."
+  ],
+  "questions": [
+    {
+      "q": "What happened to cytokine levels on average?",
+      "a": "They barely changed."
+    },
+    {
+      "q": "How do the researchers explain the rise in white blood cells?",
+      "a": "Heat may move them from tissues into the bloodstream, similar to exercise."
+    },
+    {
+      "q": "Why can the results not be credited to heat alone?",
+      "a": "A cold shower was part of the routine."
+    }
+  ]
+}

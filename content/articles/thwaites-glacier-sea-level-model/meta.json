@@ -1,0 +1,55 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "category": "news",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "summary": "Yeni bir bilgisayar modeline göre Antarktika'daki Thwaites Buzulu, 2100'e kadar deniz seviyesine eskiden tahmin edilenin yaklaşık iki katı katkı yapabilir; ancak sonuç tek bir modele dayanıyor.",
+  "published": "2026-10-29",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Antarktika'da bir buzul dilinin kenarı ve altındaki koyu mavi deniz suyu (örnek görsel).",
+    "credit": "NASA",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:Thwaites_Glacier.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (UC Irvine): Antarctica's \"Doomsday Glacier\" could raise sea levels twice as much as predicted",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261027063701.htm"
+    },
+    {
+      "title": "Nature Communications: Sea-level contribution of Thwaites Glacier doubles in an observation-constrained ice-sheet model",
+      "url": "https://doi.org/10.1038/s41467-026-77976-1"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "glacier",
+      "tr": "buzul"
+    },
+    {
+      "w": "sea level",
+      "tr": "deniz seviyesi"
+    },
+    {
+      "w": "model",
+      "tr": "model (bilgisayar benzetimi)"
+    },
+    {
+      "w": "tide",
+      "tr": "gelgit"
+    },
+    {
+      "w": "melt",
+      "tr": "erimek"
+    },
+    {
+      "w": "ridge",
+      "tr": "sırt (yüksek kısım)"
+    },
+    {
+      "w": "projection",
+      "tr": "tahmin, öngörü"
+    }
+  ]
+}

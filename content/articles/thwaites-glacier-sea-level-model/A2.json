@@ -1,0 +1,24 @@
+{
+  "id": "thwaites-glacier-sea-level-model",
+  "level": "A2",
+  "title": "Thwaites Glacier Could Add More to Sea Level, Study Says",
+  "paragraphs": [
+    "Thwaites is a huge glacier in Antarctica. Some people call it the Doomsday Glacier. When its ice melts, the water goes into the sea.",
+    "Scientists from the University of California, Irvine, and NASA's Jet Propulsion Laboratory made a new computer model. Older models used a thin line where the ice meets the sea. The new model uses a wide zone instead, because tides push warm sea water far under the ice.",
+    "The model says the glacier may add about 30 millimetres to the sea by the year 2100. That is about double the older guesses. It is only one model, so other scientists need to test the result."
+  ],
+  "questions": [
+    {
+      "q": "What do some people call Thwaites?",
+      "a": "The Doomsday Glacier."
+    },
+    {
+      "q": "What do tides do in the new model?",
+      "a": "They push warm sea water far under the ice."
+    },
+    {
+      "q": "Why do other scientists need to test the result?",
+      "a": "It is only one model."
+    }
+  ]
+}
