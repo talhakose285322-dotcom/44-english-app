@@ -115,3 +115,31 @@ test('okunamayan ya da Türkçe sayfa: anlamsız metin kutuya konmuyor, açık u
   assert.deepEqual(await arts(), []);
   assert.deepEqual(b.errors, []);
 });
+
+test('önizleme: okunan metnin fotoğrafları kutunun üstünde, dokununca büyüyor; kutunun adı değişiyor; kaydedince temizleniyor', async () => {
+  await b.seed({[K]: [], [KA]: []});
+  await open();
+  assert.equal(await b.ev("document.getElementById('a-xl').textContent"), 'Ya da metni yapıştır');
+  assert.equal(await b.ev("document.querySelectorAll('#a-phv img').length"), 0);
+  await b.ev(`window.__ocr.texts=${JSON.stringify(['First page: the river runs through the old town and the people walk along it.', 'Second page: the market opens early in the morning and closes late at night.'])}`);
+  await b.setFiles('#a-ig', [file('s1.png', makePng(900, 1200)), file('s2.png', makePng(600, 800))]);
+  await b.waitFor("/2 fotoğraf okundu/.test(document.getElementById('a-p').textContent)", 15000);
+  assert.equal(await b.ev("document.querySelectorAll('#a-phv img').length"), 2);
+  assert.match(await b.ev("document.querySelector('#a-phv img').src"), /^data:image\/jpeg/);
+  assert.equal(await b.ev("document.getElementById('a-xl').textContent"), 'Fotoğraftan okunan metin: fotoğrafla karşılaştırıp düzelt');
+  await b.ev("document.querySelectorAll('#a-phv [data-ph]')[1].click()");
+  assert.equal(await b.ev("!document.getElementById('sheet').classList.contains('hide')&&!!document.querySelector('#sheet .phbig')"), true);
+  assert.match(await b.ev("document.querySelector('#sheet .big').textContent"), /Fotoğraf 2 \/ 2/);
+  await b.ev("document.getElementById('ph-x').click()");
+  assert.equal(await b.ev("document.getElementById('sheet').classList.contains('hide')"), true);
+  // the photos are not stored; after saving the box is a plain paste box again
+  await b.ev("document.getElementById('a-s').click()");
+  await b.waitFor("document.body.classList.contains('reading')");
+  const saved = await arts();
+  assert.equal(saved.length, 1);
+  assert.doesNotMatch(JSON.stringify(saved), /data:image/);
+  await b.ev("document.getElementById('back').click();document.querySelector('#rtabs [data-rt=\"own\"]').click()");
+  assert.equal(await b.ev("document.querySelectorAll('#a-phv img').length"), 0);
+  assert.equal(await b.ev("document.getElementById('a-xl').textContent"), 'Ya da metni yapıştır');
+  assert.deepEqual(b.errors, []);
+});
