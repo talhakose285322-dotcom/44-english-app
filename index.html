@@ -3476,9 +3476,24 @@ body.reading .sheet{max-width:740px}
   var PDFV='6.3.289',TESSV='7.0.0',MAXMB=80,MAXPAGES=1000,MAXOCR=30,PDFLIB=null,TESS=null,PJOB=null,PV=null,pmode='vocab';
   function fail(k){var e=new Error(k);e.k=k;return e}
   function mb(n){return (n/1048576).toFixed(1).replace('.',',')+' MB'}
+  // Safari (up to 18) cannot loop over a ReadableStream with "for await", which pdf.js uses to read a page's text
+  // (the PDF opened but every page failed with "undefined is not a function"). The missing part is added in the
+  // standard, reader-based way before pdf.js is loaded.
+  function streamIter(){
+    try{
+      if(typeof ReadableStream==='undefined'||ReadableStream.prototype[Symbol.asyncIterator])return;
+      var it=function(){
+        var rd=this.getReader(),o={next:function(){return rd.read().then(function(r){if(r.done)rd.releaseLock();return r})},
+          'return':function(v){return rd.cancel().catch(function(){}).then(function(){return {done:true,value:v}})}};
+        o[Symbol.asyncIterator]=function(){return o};return o;
+      };
+      ReadableStream.prototype[Symbol.asyncIterator]=it;if(!ReadableStream.prototype.values)ReadableStream.prototype.values=it;
+    }catch(e){}
+  }
   function pdfLib(){
     if(PDFLIB)return PDFLIB;
     if(!window.__imp)return Promise.reject(new Error('import'));
+    streamIter();
     var loc=new URL('vendor/pdfjs/',location.href).href,cdn='https://cdn.jsdelivr.net/npm/pdfjs-dist@'+PDFV+'/';
     function from(base,js){return window.__imp(js+'pdf.min.mjs').then(function(m){m.GlobalWorkerOptions.workerSrc=js+'pdf.worker.min.mjs';return {lib:m,base:base}})}
     PDFLIB=(location.protocol==='file:'?Promise.reject(new Error('file')):from(loc,loc)).catch(function(){return from(cdn,cdn+'legacy/build/')});

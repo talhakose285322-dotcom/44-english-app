@@ -127,3 +127,13 @@ test('Haber bildirimi yalnızca birleşen news/ PR’ında çalışıyor, PR kod
   assert.doesNotMatch(run, /\$\{\{/, 'no expressions inside the script');
   assert.match(run, /'@%s [^']*' "\$OWNER"/, 'the owner is mentioned, so GitHub sends an e-mail');
 });
+
+test('Tarayıcılar iş akışı: Playwright yalnızca test makinesine kuruluyor, depoya paket eklenmiyor; WebKit ve Firefox', () => {
+  const wf = fs.readFileSync(path.join(root, '.github', 'workflows', 'browsers.yml'), 'utf8');
+  assert.match(wf, /permissions:\s*\n\s+contents: read/);
+  assert.match(wf, /RUNNER_TEMP\/pw/, 'installed outside the repository');
+  assert.match(wf, /playwright@\d+\.\d+\.\d+/, 'an exact version');
+  assert.match(wf, /install --with-deps webkit firefox/);
+  assert.match(wf, /tests\/cross-browser\/smoke\.mjs/);
+  assert.equal(fs.existsSync(path.join(root, 'package.json')), false, 'the project stays without npm packages');
+});
