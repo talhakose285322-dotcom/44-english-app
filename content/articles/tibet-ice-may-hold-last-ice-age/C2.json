@@ -1,0 +1,24 @@
+{
+  "id": "tibet-ice-may-hold-last-ice-age",
+  "level": "C2",
+  "title": "Tibetan Ice May Preserve the Last Ice Age",
+  "paragraphs": [
+    "For decades the glaciers of the Tibetan Plateau were assumed to be relatively young archives, their pages torn out by warm spells since the end of the last ice age. A study in Science Advances, led by Ohio State University, now suggests that the Guliya ice cap in the northwest of the plateau may have kept some of the oldest pages intact.",
+    "The argument builds on two cores drilled 23 years apart, in 1992 and 2015, whose oxygen isotope signatures proved strikingly similar. As lead author Lonnie Thompson puts it, “reproducibility of the records within a given ice cap is extremely important.” Because ice cannot be dated by counting layers at such depths, the team searched for beryllium and chlorine isotopes that betray a reversal of Earth’s magnetic field more than 41,000 years ago, and then set the oxygen record against that of nearby Tibetan caves.",
+    "The upshot is an estimate that the record stretches well beyond 128,000 years, against the roughly 12,000 once presumed. Yet it remains just that: an inference from indirect markers, without a published margin of error, and so a hypothesis to be tested rather than a verdict. With funding from the US National Science Foundation, the authors plan to analyse further samples, which should show whether Guliya’s timeline holds."
+  ],
+  "questions": [
+    {
+      "q": "What had earlier work assumed about the age of the record?",
+      "a": "That it reached back only about 12,000 years."
+    },
+    {
+      "q": "Why did the team use isotopes linked to a magnetic reversal?",
+      "a": "Layer counting is not possible at such depths, so they needed a marker in time."
+    },
+    {
+      "q": "What is the author’s attitude to the 128,000-year estimate?",
+      "a": "It is a hypothesis to be tested, not yet a settled finding."
+    }
+  ]
+}

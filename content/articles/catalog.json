@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,174 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "oldest-known-shipwreck-found-off-turkey",
+      "category": "news",
+      "title": "Divers Find What May Be the World’s Oldest Shipwreck",
+      "summary": "Antalya'nın batısındaki Kekova açıklarında bulunan enkazın yaklaşık 4.500 yıllık, yani bilinen en eski batık olabileceği öne sürüldü; tarihleme geçici ve çalışma henüz hakem denetiminden geçmedi.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-30",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 69,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 112,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 174,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 204,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 211,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 235,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "oldest-known-shipwreck-found-off-turkey/image.jpg",
+        "alt": "Kekova'daki batık şehir kalıntıları, Antalya (örnek görsel; enkazın kendisi değildir).",
+        "credit": "JamesDavidShoots",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sunken_City_Ruins_in_Kekova.jpg"
+      },
+      "sources": [
+        {
+          "title": "The Conversation: World’s oldest shipwreck discovered off coast of Turkey",
+          "url": "https://theconversation.com/worlds-oldest-shipwreck-discovered-off-coast-of-turkey-294248"
+        },
+        {
+          "title": "ScienceDaily: Archaeologists may have just found the world’s oldest shipwreck",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261025073036.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "shipwreck",
+          "tr": "gemi enkazı"
+        },
+        {
+          "w": "amphora",
+          "tr": "amfora (iki kulplu antik küp)"
+        },
+        {
+          "w": "cargo",
+          "tr": "yük"
+        },
+        {
+          "w": "peer reviewed",
+          "tr": "hakem denetiminden geçmiş"
+        },
+        {
+          "w": "provisional",
+          "tr": "geçici"
+        },
+        {
+          "w": "barnacle",
+          "tr": "deniz kabuklusu (midye türü)"
+        },
+        {
+          "w": "residue",
+          "tr": "kalıntı"
+        }
+      ]
+    },
+    {
+      "id": "tibet-ice-may-hold-last-ice-age",
+      "category": "news",
+      "title": "Tibetan Ice May Preserve the Last Ice Age",
+      "summary": "Tibet'teki Guliya buz kütlesinden alınan örnekler, buzun son buzul çağından kalma ve 128.000 yıldan eski olabileceğini gösteriyor; yaş tahmini henüz dolaylı kanıtlara dayanıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-30",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 79,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 120,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 157,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 180,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 214,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 214,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "tibet-ice-may-hold-last-ice-age/image.jpg",
+        "alt": "Himalayaların kuzey yamaçlarından Tibet Platosu'na doğru akan buzullar, uzaydan görünüm (örnek görsel).",
+        "credit": "NASA Johnson Space Center",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:Glaciers_flow_downhill_from_the_Himalayas%E2%80%99_northern_slopes_onto_China%27s_Tibetan_Plateau_(iss074e0603582).jpg"
+      },
+      "sources": [
+        {
+          "title": "Ohio State University: Digging deep: Researchers find high-altitude glacier endured last ice age",
+          "url": "https://news.osu.edu/digging-deep-researchers-find-high-altitude-glacier-endured-last-ice-age/"
+        },
+        {
+          "title": "ScienceDaily: 128,000-year-old ice in Tibet could rewrite climate history",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261028232713.htm"
+        },
+        {
+          "title": "Science Advances (DOI): Additional evidence supports a timescale exceeding 100,000 years for the Guliya ice cap",
+          "url": "https://doi.org/10.1126/sciadv.aeh2912"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "ice cap",
+          "tr": "buz kütlesi"
+        },
+        {
+          "w": "ice core",
+          "tr": "buz karotu (buzdan alınan uzun örnek)"
+        },
+        {
+          "w": "ice age",
+          "tr": "buzul çağı"
+        },
+        {
+          "w": "isotope",
+          "tr": "izotop"
+        },
+        {
+          "w": "estimate",
+          "tr": "tahmin etmek; tahmin"
+        },
+        {
+          "w": "reproducible",
+          "tr": "tekrarlanabilir"
+        },
+        {
+          "w": "sample",
+          "tr": "örnek"
+        }
+      ]
+    },
     {
       "id": "one-sauna-session-boosts-immune-cells",
       "category": "news",
