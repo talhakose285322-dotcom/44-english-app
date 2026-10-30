@@ -39,7 +39,7 @@ test('galeriden seçilen fotoğrafların metni sırayla kutuya geliyor; büyük 
     '## Unit 3\n\nThe city never sleeps at night. People walk and talk.\n\nMany shops stay open until late, and the streets are full of light.');
   assert.equal(await b.ev("document.getElementById('a-t').value"), 'Fotoğraftan makale');
   assert.deepEqual(await b.ev('window.__ocr.sizes'), [[3200, 1600], [800, 600]], 'en fazla 3200 px (iPhone tuval sınırının altında)');
-  assert.equal(await b.ev('window.__ocr.langs'), 'eng');
+  assert.equal(await b.ev('window.__ocr.langs'), 'eng+tur', 'İngilizce ve Türkçe birlikte tanınıyor');
   assert.equal(await b.ev('window.__ocr.terminated'), 1, 'tanıma motoru kapatıldı');
   assert.deepEqual(await arts(), [], 'henüz kaydedilmedi');
   // another photo is added after the text that is already there
@@ -62,7 +62,7 @@ test('metin çıkmayan ya da açılamayan fotoğraf: açık uyarı, hiçbir şey
   await open();
   await b.ev("window.__ocr.texts=['  ~ ']");
   await b.setFiles('#a-ig', [file('blank.png', makePng(200, 200))]);
-  await b.waitFor("/okunabilir İngilizce metin bulunamadı/.test(document.getElementById('a-p').textContent)", 15000);
+  await b.waitFor("/Fotoğrafta okunabilir metin bulunamadı/.test(document.getElementById('a-p').textContent)", 15000);
   assert.equal(await b.ev("document.getElementById('a-x').value"), '');
   await b.setFiles('#a-ig', [file('bozuk.jpg', 'not an image')]);
   await b.waitFor("document.getElementById('a-p').textContent.indexOf('fotoğraf açılamadı (bozuk.jpg)')>=0", 15000);
@@ -94,15 +94,15 @@ test('metin tanıma çıktısı: boş satırsız paragraflar ayrılıyor, tipik 
   assert.deepEqual(b.errors, []);
 });
 
-test('okunamayan ya da Türkçe sayfa: anlamsız metin kutuya konmuyor, açık uyarı ve ipucu; istenirse yine de ekleniyor', async () => {
+test('okunamayan sayfa: anlamsız metin kutuya konmuyor, açık uyarı ve ipucu; istenirse yine de ekleniyor', async () => {
   await b.seed({[K]: [], [KA]: []});
   await open();
-  assert.match(await b.ev("document.getElementById('a-new').textContent"), /iyi ışık, sayfa düz[\s\S]*Türkçe metin okunmaz/);
-  // what a real photo of a Turkish page gave (shared by the user)
+  assert.match(await b.ev("document.getElementById('a-new').textContent"), /iyi ışık, sayfa düz[\s\S]*el yazısı okunmaz[\s\S]*Türkçe metin de okunur/);
+  // what a real photo of a Turkish page gave when only English was recognised (shared by the user): unreadable
   await b.ev(`window.__ocr.texts=${JSON.stringify(["F r11) al’ Cl¢ il Sank Hz 1Sa das) | 14ari | | : 2 I - ig res ga i l 11 i d ._; yapmaktan menetmistl. dors Te as E- BY k gUZt Iklerinl ziKretme Konusuiida uyall, : 4 cak gusciits ; fy i and Ax i ] lay 111 DAS K ASI IVD EeLuliil 211% i All D fluo vyg- 4 4 g 3 4 sr) q 4 : . AME Cul Fra ha lod mas uy al VOL Ul LAL LI 1 cittl Ona “Seni glyoct 1ldx pi db :\n1 1S1U Le RE Ler TE da bu konuy!\nE : <: 0 vivecedidll ledi. HZ. Umer \\Ia} Sa tt a i 1I.AMA0M 1 VAY A, : ! p KOPtEa**\" 7 : savalar Ciunl 11a . ~~ 1>votfmenl7z Oe ( 11. \\ UK :\n4 141i “Allah1 (CC) zikretmenlz gerel\nE- 115 am ; . as 1NvaAarivorulll LiL:\n3 ; Aanticiinda 1se S1Z1 uy al ly Ul vais BY  jpsanlan zikretm konusunda 1S¢ fe ft C FI EAN . 9 s tha Y | {O)) 1S] 4 hktir.” demistir Cenab-1 Hak'tan ibade iE LA (11 ern ~ \\ | 4X 1 0. hastalixi ph: cea lavet 1IstivOTUZ.\n4 da muvaffakiyet 15ULye & E i RE ha"])}`);
   await b.setFiles('#a-ig', [file('tr.png', makePng(600, 800))]);
   await b.waitFor("!!document.getElementById('ocr-any')", 15000);
-  assert.match(await b.ev("document.getElementById('a-p').textContent"), /Türkçe görünüyor[\s\S]*İngilizce bir sayfanın fotoğrafını çek[\s\S]*Hiçbir şey eklenmedi/);
+  assert.match(await b.ev("document.getElementById('a-p').textContent"), /yazı okunamadı[\s\S]*İngilizce ya da Türkçe[\s\S]*Hiçbir şey eklenmedi/);
   assert.equal(await b.ev("document.getElementById('a-x').value"), '', 'kutu boş kaldı');
   await b.ev("document.getElementById('ocr-any').click()");
   assert.match(await b.ev("document.getElementById('a-x').value"), /konusunda/, 'istenince metin eklendi');

@@ -392,6 +392,8 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 .wdet{display:none;padding:0 14px 12px;font-size:13.5px;line-height:1.5;color:var(--muted)}.witem.open .wdet{display:block}.wdet span{display:block;margin:3px 0}.wdet .we{color:var(--ink2);font-size:14.5px}
 .wact{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wact .btn{padding:6px 12px;font-size:13.5px}
 .fsg{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);margin-top:6px}.fsg:empty{display:none}.fsg .btn{padding:4px 10px;font-size:13px}#b-pv .acts{flex-wrap:wrap}.fsg .bad{color:var(--bad)}
+.apv-tr{padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5;color:var(--ink2);background:color-mix(in srgb,var(--accent) 6%,transparent)}.apv-tr .btn{margin-top:8px}.apv-lim{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}.apv-tr .bad{color:var(--bad)}.apv-or{margin-top:8px}.apv-or summary{cursor:pointer;font-weight:600}.apv-or div{max-height:240px;overflow-y:auto;font-size:14.5px;color:var(--muted)}
+.apv:empty{display:none}.apv{margin:14px 0 4px;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}.apv-h{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--soft2)}.apv-h span{font-size:12.5px;color:var(--muted)}.apv-b{max-height:420px;overflow-y:auto;padding:4px 16px 10px;font-family:var(--serif);font-size:16px;line-height:1.6;color:var(--ink)}.apv-b p{margin:10px 0}.apv-b .ah{font-size:18px;margin:16px 0 6px}.apv-t{font-size:20px;margin:12px 0 4px}.apv .tbar{padding:8px 12px;border-top:1px solid var(--line);margin:0}
 .phpv{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px;margin:14px 0 2px}.phpv:empty{display:none}.phpv button{flex:none;width:84px;height:112px;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--soft);cursor:zoom-in}.phpv img{display:block;width:100%;height:100%;object-fit:cover}.phpv span{font-size:12.5px;color:var(--muted)}.phbig{display:block;width:100%;height:auto;border-radius:12px;margin-top:6px}
 .ins-tips{margin:10px 0 2px;padding-left:20px}.ins-tips li{margin:6px 0}.rnw{margin-top:24px}.rnw .acts{flex-wrap:wrap}.rnw h2{font-size:17px}.nw-r{display:grid;grid-template-columns:minmax(80px,auto) 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.nw-r input{margin:0}.nw-r span{grid-column:1/-1;font-size:13px;color:var(--muted)}.rnw .good{color:var(--good)}
 @media (max-width:520px){.rtool .bk-t{display:none}.rtool{gap:5px}.rtool .tb{width:38px;height:38px}}
@@ -1927,6 +1929,8 @@ body.reading .sheet{max-width:740px}
   // ---- Library ----
   function wbList(){var g={},o=[];ART.forEach(function(a){if(a.wb&&a.wb.id&&!g[a.wb.id]){g[a.wb.id]=1;o.push(a.wb)}});return o}
   function drawLibrary(v){
+    // text typed or pasted but not saved yet survives a re-draw of the form
+    var form=!draftArt&&$('a-x')?{t:$('a-t').value,x:$('a-x').value,l:$('a-l').value,c:$('a-c').value}:null;
     var wbs=wbList(),lvs=[];ART.forEach(function(a){if(a.lv&&lvs.indexOf(a.lv)<0)lvs.push(a.lv)});lvs.sort();
     var acs=[];ART.forEach(function(a){if(a.c&&acs.indexOf(a.c)<0)acs.push(a.c)});acs.sort();
     var last=ART.filter(function(a){return a.readAt&&!a.done&&a.pos>0.01}).sort(function(a,b){return b.readAt-a.readAt})[0];
@@ -1946,7 +1950,7 @@ body.reading .sheet{max-width:740px}
       "</ul></details><label for='a-f'>PDF, Word, e-kitap, altyazı ya da metin dosyası (.pdf, .docx, .epub, .srt, .txt)</label><input type='file' id='a-f' accept='.txt,.md,.pdf,.docx,.epub,.srt,.vtt,application/epub+zip,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'>"+
       "<div class='acts' id='a-ph'><button class='btn ghost' id='a-cb'>"+ic('camera')+" Fotoğraf çek</button><button class='btn ghost' id='a-gb'>"+ic('image')+" Fotoğraf seç</button></div>"+
       "<input type='file' id='a-ic' accept='image/*' capture='environment' hidden><input type='file' id='a-ig' accept='image/*' multiple hidden>"+
-      "<p class='note'>Ders kitabı, gazete ya da çalışma kâğıdı sayfasının fotoğrafındaki İngilizce metin çıkarılır (bir seferde en fazla "+MAXPH+" fotoğraf). En iyi sonuç: iyi ışık, sayfa düz ve kadrajı dolduruyor; el yazısı ve Türkçe metin okunmaz. Tanıma bu cihazda yapılır, fotoğraf hiçbir yere gönderilmez. İlk kullanımda metin tanıma motoru indirilir (yaklaşık 5–20 MB).</p><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><div id='a-phv' class='phpv'></div><label for='a-x' id='a-xl'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
+      "<p class='note'>Ders kitabı, gazete ya da çalışma kâğıdı sayfasının fotoğrafındaki İngilizce metin çıkarılır (bir seferde en fazla "+MAXPH+" fotoğraf). En iyi sonuç: iyi ışık, sayfa düz ve kadrajı dolduruyor; el yazısı okunmaz. Türkçe metin de okunur ve istersen ücretsiz makine çevirisiyle İngilizceye çevrilir. Tanıma bu cihazda yapılır, fotoğraf hiçbir yere gönderilmez. İlk kullanımda metin tanıma motoru indirilir (yaklaşık 5–20 MB).</p><div id='a-p'></div><label for='a-t'>Başlık</label><input id='a-t'><label for='a-l'>Seviye</label><select id='a-l'><option value=''>Belirtilmemiş</option>"+LV.map(function(l){return '<option>'+l+'</option>'}).join('')+"</select><label for='a-c'>Koleksiyon (isteğe bağlı)</label><input id='a-c' list='dl-col' placeholder='Örn. Psikoloji'><div id='a-phv' class='phpv'></div><div id='a-pv' class='apv' aria-live='polite'></div><label for='a-x' id='a-xl'>Ya da metni yapıştır</label><textarea id='a-x' style='min-height:160px'></textarea><p class='note' id='a-xh'>Başlık için satırın başına “## ” yazabilirsin. Paragrafları boş satırla ayır.</p><div style='height:6px'></div><button class='btn main' id='a-s'>Makaleyi kaydet</button><div class='toast' id='a-m'></div></div>";
     h+="</div><div id='rt-mine'"+(rt==='mine'?'':" class='hide'")+"><p class='note'>"+ART.length+" makale"+(wbs.length?', '+wbs.length+' kitap':'')+"."+(ART.length?'':' Yüklediğin ya da kelimelerinle oluşturup kaydettiğin makaleler burada görünür.')+"</p>";
     if(last)h+="<div class='item cont'><div class='t' data-o='"+escA(last.id)+"' style='cursor:pointer'><span>Kaldığın yerden devam et</span><b>"+esc(last.title)+"</b><span>"+progLabel(last)+(last.wb?' · '+esc(last.wb.title):'')+"</span></div></div>";
     h+="<input id='lib-q' type='search' placeholder='Makalelerde ara (başlık ya da metin)' autocomplete='off'>"+
@@ -1971,41 +1975,45 @@ body.reading .sheet{max-width:740px}
     $('a-sort').onchange=function(){srt=this.value;S.libSort=srt;saveS();drawLibList()};
     if(last)v.querySelector('.cont [data-o]').onclick=function(){openArt=last.id;renderRead();window.scrollTo(0,0)};
     drawLibList();
+    if(form&&!draftArt){$('a-t').value=form.t;$('a-x').value=form.x;$('a-l').value=form.l;$('a-c').value=form.c}
     if(draftArt){
+      APV=true;
       $('a-t').value=draftArt.title;$('a-x').value=draftArt.text;$('a-l').value=draftArt.lv||'';$('a-c').value=draftArt.c||'';
       $('a-p').innerHTML="<div class='pst'>"+esc(draftArt.info||'')+"<br><button class='btn ghost' id='a-clr'>PDF metnini temizle</button>"+(draftArt.blocks&&draftArt.blocks.filter(function(b){return b.h}).length>=2?"<button class='btn ghost' id='a-split'>Birden çok makale mi? Başlıklara göre ayır</button>":'')+"</div>";
-      $('a-clr').onclick=function(){draftArt=null;renderRead()};
+      $('a-clr').onclick=function(){draftArt=null;APV=false;APE=false;APTR=null;$('a-x').value='';renderRead()};
       if($('a-split'))$('a-split').onclick=function(){var d=draftArt;WB=mkWB(d.pinfo,splitAll(d.blocks),d.blocks);draftArt=null;renderRead();window.scrollTo(0,0)};
     }
     function keep(){if(draftArt){draftArt.title=$('a-t').value;draftArt.text=$('a-x').value;draftArt.lv=$('a-l').value;draftArt.c=$('a-c').value}}
     $('a-t').oninput=$('a-x').oninput=$('a-l').onchange=$('a-c').oninput=keep;
     $('a-f').onchange=function(){
       var f=this.files[0];if(!f)return;this.value='';
+      if($('a-x').value.trim()&&!confirm('Kutuda kaydedilmemiş bir metin var. Yeni dosyanın metni onun yerine geçsin mi?'))return;
       if(/\.pdf$/i.test(f.name)||f.type==='application/pdf'){runPdf(f,'article','a-p');return}
       if(/\.docx$/i.test(f.name)||f.type==='application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
         // Word: the text goes into the same box as a .txt file, then it is saved the usual way
         var ds=statusFn('a-p',{stop:false});ds.html('Word dosyası okunuyor…');
-        docxText(f).then(function(t){$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();$('a-p').innerHTML=''},function(e){ds.error(e&&e.k||'Word dosyası okunamadı.')});
+        docxText(f).then(function(t){$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();$('a-p').innerHTML='';imported()},function(e){ds.error(e&&e.k||'Word dosyası okunamadı.')});
         return;
       }
       if(/\.epub$/i.test(f.name)||f.type==='application/epub+zip'){
         var es=statusFn('a-p',{stop:false});es.html('E-kitap okunuyor…');
-        epubText(f).then(function(r){$('a-x').value=r.text;if(!$('a-t').value)$('a-t').value=r.title||f.name.replace(/\.[^.]+$/,'');keep();es.html('E-kitap okundu, yaklaşık '+wordCount(r.text)+' kelime. Metni kontrol et, sonra “Makaleyi kaydet”e dokun.')},function(e){es.error(e&&e.k||'E-kitap okunamadı.')});
+        epubText(f).then(function(r){$('a-x').value=r.text;if(!$('a-t').value)$('a-t').value=r.title||f.name.replace(/\.[^.]+$/,'');keep();imported();es.html('E-kitap okundu, yaklaşık '+wordCount(r.text)+' kelime. Metni kontrol et, sonra “Makaleyi kaydet”e dokun.')},function(e){es.error(e&&e.k||'E-kitap okunamadı.')});
         return;
       }
       if(/\.(srt|vtt)$/i.test(f.name)){
         var ss=statusFn('a-p',{stop:false});
-        readBuf(f).then(function(b){var t=subText(new TextDecoder().decode(b));$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();ss.html('Altyazı okundu, yaklaşık '+wordCount(t)+' kelime. Metni kontrol et, sonra “Makaleyi kaydet”e dokun.')}).catch(function(e){ss.error(e&&e.k||'Altyazı dosyası okunamadı.')});
+        readBuf(f).then(function(b){var t=subText(new TextDecoder().decode(b));$('a-x').value=t;if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();imported();ss.html('Altyazı okundu, yaklaşık '+wordCount(t)+' kelime. Metni kontrol et, sonra “Makaleyi kaydet”e dokun.')}).catch(function(e){ss.error(e&&e.k||'Altyazı dosyası okunamadı.')});
         return;
       }
       if(/\.doc$/i.test(f.name)){statusFn('a-p',{stop:false}).error('Eski Word (.doc) biçimi desteklenmez. Dosyayı Word’de “.docx” olarak kaydedip tekrar dene.');return}
-      var r=new FileReader();r.onload=function(){$('a-x').value=String(r.result);if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep()};r.readAsText(f);
+      var r=new FileReader();r.onload=function(){$('a-x').value=String(r.result);if(!$('a-t').value)$('a-t').value=f.name.replace(/\.[^.]+$/,'');keep();imported()};r.readAsText(f);
     };
     $('a-cb').onclick=function(){$('a-ic').click()};$('a-gb').onclick=function(){$('a-ig').click()};
     $('a-ic').onchange=$('a-ig').onchange=function(){var fl=[].slice.call(this.files);this.value='';if(fl.length)runPhotos(fl)};
     $('a-s').onclick=function(){saveArticle(false)};
-    drawPhv();
-    $('a-x').addEventListener('input',function(){if(!this.value.trim()&&PHV.length){PHV=[];drawPhv()}});
+    drawPhv();drawApv();
+    $('a-x').addEventListener('input',function(){if(!this.value.trim()&&PHV.length){PHV=[];drawPhv()}if(APV)apvSoon()});
+    $('a-t').addEventListener('input',function(){if(APV)apvSoon()});
   }
   function artItem(x){
     return "<div class='item'><div class='t' data-o='"+escA(x.id)+"' style='cursor:pointer'><b>"+esc(x.title)+"</b><span>"+[x.xt!=null?(x.lost?'metin bulunamadı':'yükleniyor…'):wordCount(x.text)+' kelime',x.lv,x.c,progLabel(x),pgLabel(x)].filter(Boolean).map(esc).join(' · ')+"</span>"+(x.src&&x.src.name&&!x.wb?'<span>PDF: '+esc(x.src.name)+'</span>':'')+(x.note?'<span>'+ic('note','sm')+' not var</span>':'')+"</div>"+(x.xt!=null?'':"<button class='ed' data-e='"+escA(x.id)+"' aria-label='Düzenle'>"+ic('edit')+"</button><button class='del' data-p='"+escA(x.id)+"' aria-label='Paylaş'>"+ic('share')+"</button>")+"<button class='del' data-d='"+escA(x.id)+"' aria-label='Sil'>"+ic('trash')+"</button></div>";
@@ -2067,7 +2075,7 @@ body.reading .sheet{max-width:740px}
     saveAOrSpill().then(function(ok){
       if(!ok){ART.splice(ART.indexOf(a),1);m.style.color='var(--bad)';m.textContent='Makale kaydedilemedi: tarayıcı depolaması dolu olabilir ('+Math.round(t.length/1024)+' KB metin). Daha kısa bir bölüm dene ya da eski makaleleri sil.';return}
       // a saved upload is one of "Makalelerim": coming back from the reader shows that tab
-      draftArt=null;PHV=[];S.rtab='mine';saveS();openArt=a.id;renderRead();window.scrollTo(0,0);
+      draftArt=null;PHV=[];APV=false;APE=false;APTR=null;S.rtab='mine';saveS();openArt=a.id;renderRead();window.scrollTo(0,0);
     });
   }
 
@@ -3759,7 +3767,7 @@ body.reading .sheet{max-width:740px}
     return paras.map(function(p){return {h:p.h,t:p.t.replace(/\s+/g,' ').trim(),z:p.z,pg:p.pg,pe:p.pe,top:p.top,toc:!!tp[p.pg-1]}});
   }
   function blocksText(bs){return bs.filter(function(b){return !b.toc}).map(function(b){return (b.h?'## ':'')+b.t}).join('\n\n')}
-  function ocrBlocks(texts){
+  function ocrBlocks(texts,tr){
     var o=[];
     texts.forEach(function(tx,pi){
       tx.split(/\n\s*\n/).forEach(function(p,k){
@@ -3772,7 +3780,7 @@ body.reading .sheet{max-width:740px}
         });
         if(cur.length)parts.push(cur);
         parts.forEach(function(pl,q){
-          var t=ocrFix(pl.reduce(function(a,b){return a?joinLine(a,b):b},''));
+          var t=pl.reduce(function(a,b){return a?joinLine(a,b):b},'');if(!tr)t=ocrFix(t);
           if(t)o.push({h:t.length<100&&(ARTRE.test(t)||(!/[.!?,;:]$/.test(t)&&t.split(' ').length<=10&&/^[A-Z0-9]/.test(t))),t:t,z:0,pg:pi+1,pe:pi+1,top:k===0&&q===0,toc:false});
         });
       });
@@ -3782,16 +3790,25 @@ body.reading .sheet{max-width:740px}
   // How much of a recognised text reads as English: the share of its words that are common English words. Real English
   // text is at about 45–90 % (even a poor photo read 88 % right is above 40 %); an unreadable photo or a page in
   // another language is under 10 %. Very short texts are not judged. tr: the page looks Turkish.
-  var TRW={};'bu ve bir da de ile icin için gibi olarak daha cok çok kadar sonra once önce degil değil olan oldugu olduğu konusunda demistir demiştir etmis etmiş ise ki mi mı her hz allah ne nasıl nasil neden ama veya yani'.split(' ').forEach(function(w){TRW[w]=1});
+  var OCRTR={};'bu ve bir da de ile icin için gibi olarak daha cok çok kadar sonra once önce degil değil olan oldugu olduğu konusunda demistir demiştir etmis etmiş ise ki mi mı her hz allah ne nasıl nasil neden ama veya yani'.split(' ').forEach(function(w){OCRTR[w]=1});
+  // Turkish-looking words: Turkish letters, common Turkish words (this list and the vocabulary parser's TRW) or typical
+  // Turkish endings
+  function trWord(w){return /[çğışöü]/.test(w)||!!OCRTR[w]||!!TRW[w]||w.length>4&&/(lar|ler|dır|dir|dur|dür|tır|tir|tur|tür|mış|miş|muş|müş|yor|ında|inde|ından|inden|ları|leri|ması|mesi|lık|lik|luk|lük|sız|siz|suz|süz)$/.test(w)}
+  // Which language a recognised text is in, and whether it reads as text at all: the share of its words that are
+  // common English words (real English text: about 45–90 %) or Turkish-looking words (real Turkish text: well over
+  // half). Unreadable photos are low on both. Very short texts are not judged.
   function ocrCheck(t){
-    var bw=basicW(),ws=(t.match(/[A-Za-zÇĞİÖŞÜçğıöşü]+/g)||[]).filter(function(w){return w.length>=2}),k=0,tr=0;
-    ws.forEach(function(w){var l=w.toLowerCase();if(bw[l]||/^[a-z]+$/.test(l)&&lemmas(l).some(function(x){return bw[x]}))k++;if(TRW[l]||/[çğışöü]/.test(l))tr++});
-    var pct=ws.length?k/ws.length:1;
-    return {ok:ws.length<8||pct>=0.25,pct:Math.round(pct*100),tr:tr>=3||tr>=2&&tr>=ws.length*0.05};
+    var bw=basicW(),ws=(t.match(/[A-Za-zÇĞİÖŞÜçğıöşü]+/g)||[]).filter(function(w){return w.length>=2}),en=0,tr=0;
+    ws.forEach(function(w){var l=w.toLowerCase().replace(/\u0307/g,'');if(bw[l]||/^[a-z]+$/.test(l)&&lemmas(l).some(function(x){return bw[x]}))en++;if(trWord(l))tr++});
+    var n=ws.length||1,ep=en/n,tp=tr/n;
+    if(ws.length<8)return {ok:true,lang:tp>ep&&tr>=2?'tr':'en',pct:100};
+    var lang=ep>=0.25&&ep>=tp?'en':tp>=0.35?'tr':null;
+    return {ok:!!lang,lang:lang,pct:Math.round(Math.max(ep,tp)*100),tr:tp>ep};
   }
-  function ocrBad(q){
-    return q.tr?"<b class='bad'>Bu sayfa Türkçe görünüyor.</b><br>Metin tanıma İngilizce metinler içindir; Türkçe harfleri (ş, ğ, ı…) tanımadığı için sonuç anlamsız çıkar. İngilizce bir sayfanın fotoğrafını çek."
-      :"<b class='bad'>Fotoğraftaki yazı okunamadı.</b><br>Tanınan metnin yalnızca %"+q.pct+"’i anlamlı İngilizce görünüyor. Daha iyi sonuç için: iyi ışıkta çek, sayfayı düz ve kadrajı dolduracak şekilde tut, yalnızca basılı metnin olduğu kısmı çek. El yazısı ve süslü yazılar okunamaz.";
+  // pdf: scanned PDFs are read in English only, so a Turkish page there still gets the old answer
+  function ocrBad(q,pdf){
+    return pdf&&q.tr?"<b class='bad'>Bu sayfa Türkçe görünüyor.</b><br>Metin tanıma İngilizce metinler içindir; Türkçe harfleri (ş, ğ, ı…) tanımadığı için sonuç anlamsız çıkar. İngilizce bir sayfanın fotoğrafını çek."
+      :"<b class='bad'>Fotoğraftaki yazı okunamadı.</b><br>Tanınan metnin yalnızca %"+q.pct+"’i anlamlı İngilizce ya da Türkçe görünüyor. Daha iyi sonuç için: iyi ışıkta çek, sayfayı düz ve kadrajı dolduracak şekilde tut, yalnızca basılı metnin olduğu kısmı çek. El yazısı ve süslü yazılar okunamaz.";
   }
   // Typical OCR confusions in English text, fixed only when the result is a common word: "js" → "is", "fee]" → "feel",
   // "8ood" → "good", "natura]" → "natural". Numbers and words that are already right are left alone.
@@ -4045,9 +4062,62 @@ body.reading .sheet{max-width:740px}
     c.width=Math.max(1,Math.round(cv.width*k));c.height=Math.max(1,Math.round(cv.height*k));c.getContext('2d').drawImage(cv,0,0,c.width,c.height);
     try{return c.toDataURL('image/jpeg',0.75)}catch(e){return ''}
   }
+  // Imported text is shown as it will read (headings, paragraphs) in its own preview area; the paste box holds the
+  // text but stays hidden until "Metni düzenle". APV: preview shown; APE: editing the text.
+  var APV=false,APE=false,APT=0;
+  // APTR: Turkish text in the box: {state:'tr'|'busy'|'en', orig (Turkish before translation), src, i, n, msg}
+  var APTR=null;
+  function imported(lang){APV=true;APE=false;APTR=lang==='tr'?{state:'tr'}:null;drawApv()}
+  // Turkish → English with the existing free machine translation, one paragraph at a time ("## " headings kept). The
+  // free service takes about 5,000 characters a day; without the browser's own translator a text over MTMAX is not
+  // started. Nothing in the box changes unless every paragraph was translated.
+  function apvTranslate(){
+    var x=$('a-x'),src=x.value,parts=src.split(/\n\s*\n/).map(function(p){return p.trim()}).filter(Boolean),chars=parts.join('').replace(/^#{1,3} /gm,'').length;
+    if(!parts.length)return;
+    Promise.resolve().then(function(){return localTranslatorFor('tr','en')}).catch(function(){return null}).then(function(loc){
+      if(!loc&&chars>MTMAX){APTR={state:'tr',msg:'Metin '+chars+' karakter. Ücretsiz çeviri tek seferde en fazla '+MTMAX+' karakter çevirebilir (günde toplam yaklaşık 5.000). Metni kısaltıp ya da daha az fotoğrafla tekrar dene.'};drawApv();return}
+      APTR={state:'busy',i:0,n:parts.length,orig:src};APE=false;drawApv();
+      var out=[],from='';
+      (function next(i){
+        if(!APTR||APTR.state!=='busy')return;
+        if(i>=parts.length){x.value=out.join('\n\n');APTR={state:'en',orig:src,src:from};x.dispatchEvent(new Event('input'));drawApv();return}
+        APTR.i=i;drawApv();
+        var h=/^#{1,3} /.test(parts[i]),body=parts[i].replace(/^#{1,3} /,'');
+        translateText(body,'tr-en').then(function(r){from=r.src;out.push((h?'## ':'')+String(r.t).trim());next(i+1)},
+          function(e){APTR={state:'tr',msg:((e&&e.k)||'Çeviri yapılamadı.')+(i?' ('+i+' / '+parts.length+' paragraf çevrilmişti.)':'')+' Türkçe metin değiştirilmedi.'};drawApv()});
+      })(0);
+    });
+  }
+  function apvTrHtml(){
+    if(!APTR)return '';
+    if(APTR.state==='busy')return "<div class='apv-tr'>Çevriliyor… "+(APTR.i+1)+" / "+APTR.n+" paragraf</div>";
+    if(APTR.state==='tr')return "<div class='apv-tr'><b>Türkçe metin algılandı.</b> İstersen İngilizceye çevir; önce Türkçe metni düzeltebilirsin."+
+      (APTR.msg?"<br><span class='bad'>"+esc(APTR.msg)+"</span>":'')+
+      "<br><button type='button' class='btn main' id='apv-tren'>İngilizceye çevir</button><span class='apv-lim'>Ücretsiz makine çevirisi · tek seferde en fazla "+MTMAX.toLocaleString('tr')+" karakter, günde toplam yaklaşık 5.000</span></div>";
+    return "<div class='apv-tr'><b>İngilizceye çevrildi</b> ("+esc(APTR.src||'makine çevirisi')+"; hatalar olabilir). Kontrol edip düzelt."+
+      "<details class='apv-or'><summary>Türkçe asıl metin</summary><div>"+artBody(APTR.orig)+"</div></details>"+
+      "<button type='button' class='btn ghost' id='apv-trback'>Türkçe metne geri dön</button></div>";
+  }
+  function apvSoon(){clearTimeout(APT);APT=setTimeout(drawApv,300)}
+  function drawApv(){
+    var box=$('a-pv'),x=$('a-x'),lb=$('a-xl');if(!box||!x)return;
+    var on=APV&&!!x.value.trim();
+    x.classList.toggle('hide',on&&!APE);lb.classList.toggle('hide',on&&!APE);if($('a-xh'))$('a-xh').classList.toggle('hide',on&&!APE);
+    if(!on){box.innerHTML='';drawPhv();return}
+    var t=$('a-t').value.trim();
+    box.innerHTML="<div class='apv-h'><b>Önizleme</b><span>yaklaşık "+wordCount(x.value)+" kelime · kaydetmeden önce kontrol et</span></div>"+apvTrHtml()+
+      "<div class='apv-b'>"+(t?"<h3 class='apv-t'>"+esc(t)+"</h3>":'')+artBody(x.value)+"</div>"+
+      "<div class='tbar'><button type='button' class='btn ghost' id='apv-ed'>"+(APE?'Önizlemeye dön':'Metni düzenle')+"</button><button type='button' class='btn ghost' id='apv-x'>Metni temizle</button></div>";
+    lb.textContent=APE?'Metni düzenle (başlık için satır başına “## ”, paragraflar arasında boş satır)':(PHV.length?'Fotoğraftan okunan metin: fotoğrafla karşılaştırıp düzelt':'Ya da metni yapıştır');
+    $('apv-ed').onclick=function(){APE=!APE;drawApv();if(APE)$('a-x').focus()};
+    if($('apv-tren'))$('apv-tren').onclick=apvTranslate;
+    if($('apv-trback'))$('apv-trback').onclick=function(){if(!confirm('Türkçe metne dönülsün mü? İngilizce çeviride yaptığın değişiklikler kaybolur.'))return;x.value=APTR.orig;APTR={state:'tr'};x.dispatchEvent(new Event('input'));drawApv()};
+    if(APTR&&APTR.state==='busy'){$('apv-ed').disabled=true;$('apv-x').disabled=true}
+    $('apv-x').onclick=function(){if(!confirm('İçe aktarılan metin kutudan kaldırılsın mı? Hiçbir şey kaydedilmedi.'))return;var d=!!draftArt;draftArt=null;PHV=[];APV=false;APE=false;APTR=null;x.value='';$('a-p').innerHTML='';drawPhv();drawApv();if(d)renderRead()};
+  }
   function drawPhv(){
     var box=$('a-phv'),lb=$('a-xl');if(!box)return;
-    lb.textContent=PHV.length?'Fotoğraftan okunan metin: fotoğrafla karşılaştırıp düzelt':'Ya da metni yapıştır';
+    if(!APV)lb.textContent=PHV.length?'Fotoğraftan okunan metin: fotoğrafla karşılaştırıp düzelt':'Ya da metni yapıştır';
     box.innerHTML=PHV.length?PHV.map(function(u,i){return "<button type='button' data-ph='"+i+"' aria-label='Fotoğraf "+(i+1)+" (büyüt)'><img src='"+escA(u)+"' alt=''></button>"}).join('')+"<span>"+PHV.length+" fotoğraf · büyütmek için dokun</span>":'';
     Array.prototype.forEach.call(box.querySelectorAll('[data-ph]'),function(b){b.onclick=function(){
       var i=+b.getAttribute('data-ph'),sh=$('sheet');sh.classList.remove('hide');
@@ -4063,7 +4133,7 @@ body.reading .sheet{max-width:740px}
       st('Metin tanıma motoru indiriliyor…',0);
       var T=await tessLib();if(job.stop)return;
       st('Dil verisi indiriliyor (ilk seferde birkaç MB sürebilir)…',0);
-      var wk=job.wk=await T.createWorker('eng',1,{logger:function(m){if(m&&m.status==='recognizing text')st('Metin tanınıyor: fotoğraf '+cur+' / '+n+' — %'+Math.round((m.progress||0)*100),(cur-1+(m.progress||0))/n)}});
+      var wk=job.wk=await T.createWorker('eng+tur',1,{logger:function(m){if(m&&m.status==='recognizing text')st('Metin tanınıyor: fotoğraf '+cur+' / '+n+' — %'+Math.round((m.progress||0)*100),(cur-1+(m.progress||0))/n)}});
       try{
         for(var i=0;i<n;i++){
           if(job.stop)return;
@@ -4073,17 +4143,16 @@ body.reading .sheet{max-width:740px}
         }
       }finally{job.wk=null;try{await wk.terminate()}catch(e){}}
       if(job.stop)return;
-      var text=blocksText(ocrBlocks(out));
-      if(text.replace(/\s/g,'').length<20)throw fail('Fotoğrafta okunabilir İngilizce metin bulunamadı. Sayfayı düz tutup iyi ışıkta ve yakından çekerek tekrar dene.');
+      if(out.join('').replace(/\s/g,'').length<20)throw fail('Fotoğrafta okunabilir metin bulunamadı. Sayfayı düz tutup iyi ışıkta ve yakından çekerek tekrar dene.');
+      var q=ocrCheck(out.join('\n')),text=blocksText(ocrBlocks(out,q.lang==='tr'));
       var put=function(){
         var x=$('a-x'),t=$('a-t');if(!x)return;
         var had=x.value.trim();x.value=had?had+'\n\n'+text:text;
-        PHV=(had?PHV:[]).concat(th);drawPhv();
+        PHV=(had?PHV:[]).concat(th);drawPhv();imported(q.lang==='tr'||had&&APTR?'tr':'');
         if(!t.value)t.value='Fotoğraftan makale';
         x.dispatchEvent(new Event('input'));t.dispatchEvent(new Event('input'));
-        st.html('<b>'+n+' fotoğraf okundu</b>, yaklaşık '+wordCount(text)+' kelime (metin tanıma ile; hatalar olabilir). '+(had?'Metin, kutudaki metnin sonuna eklendi. ':'')+(more?'Yalnızca ilk '+MAXPH+' fotoğraf işlendi. ':'')+'Metni kontrol edip düzelt, sonra “Makaleyi kaydet”e dokun.');
+        st.html('<b>'+n+' fotoğraf okundu</b>, yaklaşık '+wordCount(text)+' kelime (metin tanıma ile; hatalar olabilir). '+(q.lang==='tr'?'<b>Türkçe metin algılandı</b>: istersen önizlemedeki “İngilizceye çevir” düğmesiyle çevir. ':'')+(had?'Metin, kutudaki metnin sonuna eklendi. ':'')+(more?'Yalnızca ilk '+MAXPH+' fotoğraf işlendi. ':'')+'Metni kontrol edip düzelt, sonra “Makaleyi kaydet”e dokun.');
       };
-      var q=ocrCheck(text);
       if(q.ok)put();
       else{st.html(ocrBad(q)+"<br>Hiçbir şey eklenmedi. <button class='btn ghost' id='ocr-any'>Yine de metni ekle</button>");$('ocr-any').onclick=put}
     }catch(e){if(!job.stop)st.error(e&&e.k||'Fotoğraftaki metin okunamadı.')}
@@ -4130,8 +4199,8 @@ body.reading .sheet{max-width:740px}
         if(r.total>r.pages)info.note='OCR yalnızca ilk '+r.pages+' sayfaya uygulandı.';
         if(mode==='vocab'){var ls=[];r.texts.forEach(function(t){t.split('\n').forEach(function(l){if(l.trim())ls.push(l.trim())})});finishVocab(info,ls,box);return}
         var go=function(){finishArticle(info,ocrBlocks(r.texts),box,null)},q=ocrCheck(r.texts.join('\n'));
-        if(q.ok)go();
-        else{st.html(ocrBad(q).replace('Fotoğraftaki','Taranmış sayfalardaki').replace('İngilizce bir sayfanın fotoğrafını çek.','İngilizce bir belge seç.')+"<br>Hiçbir şey eklenmedi. <button class='btn ghost' id='ocr-any'>Yine de metni göster</button>");$('ocr-any').onclick=go}
+        if(q.ok&&q.lang==='en')go();
+        else{st.html(ocrBad(q,true).replace('Fotoğraftaki','Taranmış sayfalardaki').replace('İngilizce bir sayfanın fotoğrafını çek.','İngilizce bir belge seç.')+"<br>Hiçbir şey eklenmedi. <button class='btn ghost' id='ocr-any'>Yine de metni göster</button>");$('ocr-any').onclick=go}
       }).catch(function(e){if(!job.stop)st.error(pdfErr(e))}).then(function(){job.task.destroy()});
     };
   }
