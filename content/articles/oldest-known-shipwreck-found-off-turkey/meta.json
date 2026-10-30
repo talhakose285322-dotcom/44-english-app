@@ -1,0 +1,55 @@
+{
+  "id": "oldest-known-shipwreck-found-off-turkey",
+  "category": "news",
+  "title": "Divers Find What May Be the World’s Oldest Shipwreck",
+  "summary": "Antalya'nın batısındaki Kekova açıklarında bulunan enkazın yaklaşık 4.500 yıllık, yani bilinen en eski batık olabileceği öne sürüldü; tarihleme geçici ve çalışma henüz hakem denetiminden geçmedi.",
+  "published": "2026-10-30",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Kekova'daki batık şehir kalıntıları, Antalya (örnek görsel; enkazın kendisi değildir).",
+    "credit": "JamesDavidShoots",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunken_City_Ruins_in_Kekova.jpg"
+  },
+  "sources": [
+    {
+      "title": "The Conversation: World’s oldest shipwreck discovered off coast of Turkey",
+      "url": "https://theconversation.com/worlds-oldest-shipwreck-discovered-off-coast-of-turkey-294248"
+    },
+    {
+      "title": "ScienceDaily: Archaeologists may have just found the world’s oldest shipwreck",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261025073036.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "shipwreck",
+      "tr": "gemi enkazı"
+    },
+    {
+      "w": "amphora",
+      "tr": "amfora (iki kulplu antik küp)"
+    },
+    {
+      "w": "cargo",
+      "tr": "yük"
+    },
+    {
+      "w": "peer reviewed",
+      "tr": "hakem denetiminden geçmiş"
+    },
+    {
+      "w": "provisional",
+      "tr": "geçici"
+    },
+    {
+      "w": "barnacle",
+      "tr": "deniz kabuklusu (midye türü)"
+    },
+    {
+      "w": "residue",
+      "tr": "kalıntı"
+    }
+  ]
+}

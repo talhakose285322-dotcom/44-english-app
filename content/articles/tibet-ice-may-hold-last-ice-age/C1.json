@@ -1,0 +1,24 @@
+{
+  "id": "tibet-ice-may-hold-last-ice-age",
+  "level": "C1",
+  "title": "Tibetan Ice May Preserve the Last Ice Age",
+  "paragraphs": [
+    "Ice that has sat undisturbed on a Tibetan plateau for longer than modern humans have kept records may now be yielding its secrets. A study in Science Advances, led by Ohio State University, argues that the Guliya ice cap in northwest Tibet preserves fragments of the last ice age, which would make it the oldest glacial archive recovered from the region.",
+    "The case rests on two ice cores drilled 23 years apart, in 1992 and 2015, whose oxygen isotope patterns turned out to be strikingly alike. Lead author Lonnie Thompson stresses that “reproducibility of the records within a given ice cap is extremely important.” To pin down the age, the team looked for beryllium and chlorine isotopes that mark a reversal of Earth’s magnetic field more than 41,000 years ago, and then compared the oxygen signals with records from nearby Tibetan caves.",
+    "Those comparisons point to a record reaching well beyond 128,000 years, a leap from the roughly 12,000 years that earlier work had assumed. The figure is nonetheless an inference rather than a direct date, and the published summaries offer no margin of error, so the claim should be read as promising rather than settled. Funded by the US National Science Foundation, the authors intend to test further samples for other climate indicators."
+  ],
+  "questions": [
+    {
+      "q": "Why do the two cores matter to the argument?",
+      "a": "Their similar oxygen isotope patterns suggest the climate signal is reproducible."
+    },
+    {
+      "q": "How was the magnetic reversal used?",
+      "a": "As a marker in time, detected through beryllium and chlorine isotopes."
+    },
+    {
+      "q": "Why is the claim described as promising rather than settled?",
+      "a": "Because the age is inferred from comparisons and has no stated margin of error."
+    }
+  ]
+}
