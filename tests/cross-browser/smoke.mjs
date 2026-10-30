@@ -2,7 +2,7 @@
 // tests/*.test.mjs cover the details; these check that the same app works in the other browser engines.
 // Run: node --test tests/cross-browser/smoke.mjs   (Playwright and its browsers must be installed; see the
 // "Tarayıcılar" workflow. PW_MODULE may point to a playwright module outside the repository.)
-import {describe, test, before, after} from 'node:test';
+import {describe, test, before, after, beforeEach} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -25,7 +25,9 @@ for (const engine of ENGINES) describe(engine, () => {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'w44-xb-'));
     srv = await startServer();
     browser = await pw[engine].launch();
-    ctx = await browser.newContext({...DEVICE[engine], acceptDownloads: true});
+    // service workers are blocked: in WebKit and Firefox a request made by the app's service worker is not routed below
+    // and would reach the real internet (the service worker itself is covered by the Chrome tests)
+    ctx = await browser.newContext({...DEVICE[engine], acceptDownloads: true, serviceWorkers: 'block'});
     for (const f of FAKES) await ctx.addInitScript(f);
     // nothing leaves the test machine: outside services answer "unavailable" (an aborted request would be reported by
     // WebKit as a page error even when the app handles it)
@@ -37,6 +39,7 @@ for (const engine of ENGINES) describe(engine, () => {
     await page.goto(srv.url);
   });
   after(async () => { await browser?.close(); srv?.stop(); if (dir) fs.rmSync(dir, {recursive: true, force: true}); });
+  beforeEach(() => { errors.length = 0; }); // an error is reported by the test it happened in, not by every later one
 
   const ev = expr => page.evaluate(expr);
   const waitFor = (expr, timeout = 10000) => page.waitForFunction(expr, null, {timeout});
