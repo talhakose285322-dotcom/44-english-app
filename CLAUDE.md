@@ -123,3 +123,29 @@ arayüz değişikliği yapılır.
   - Yalnızca adı verilen dosyalar stage edilir.
 - Gizli bilgiler: istemciye yalnızca Supabase publishable anahtarı girer. Service role anahtarı, OAuth client
   secret ve token'lar koda, belgelere ve sohbete yazılmaz.
+
+## 9. Kalıcı internet sitesi yol haritası (kalıcı talimat, 2026-10-31)
+Words 44 için kalıcı, güven veren bir tanıtım sitesi aşama aşama geliştirilir. Ayrıntılı iş listesi, çıkış
+ölçütleri ve **aktif aşama** `ROADMAP.md` → "Kalıcı internet sitesi yol haritası (W1–W7)" bölümündedir. Siteyle ilgili
+her işe başlamadan önce o bölüm okunur ve yalnızca aktif aşamanın işleri yapılır.
+
+Aşamalar (sırayla; bir aşamanın çıkış ölçütü sağlanmadan sonrakine geçilmez):
+1. **W1 Denetim:** mevcut site ile indirme, giriş, gizlilik ve kullanım koşulları sayfalarının denetimi.
+2. **W2 Tanıtım sitesi:** profesyonel, güven veren, uluslararası kullanıcılara da hitap eden yapı.
+3. **W3 İçerik:** gerçek uygulama ekran görüntüleri, doğru özellik açıklamaları, net indirme/kayıt çağrıları.
+4. **W4 Paketler:** ücretsiz ve ücretli paketleri tanıtan yapı (fiyat ve özellik uydurulmaz).
+5. **W5 Kalite:** mobil uyum, erişilebilirlik, performans, SEO ve sosyal medya önizlemeleri.
+6. **W6 Doğrulama:** giriş, indirme, yasal sayfalar ve tüm bağlantıların testi.
+7. **W7 Büyüme:** pazarlama, mahremiyete uygun ölçümleme ve müşteri kazanımı.
+
+Kurallar:
+- Bu bölüm ve ROADMAP'teki W bölümü, mevcut ortak çalışma kurallarını ve diğer yol haritalarını (Faz 0–8,
+  `APP_STORE_ROADMAP.md`) değiştirmez; onlarla çelişirse daha sıkı olan kural geçerlidir. W, Faz 6 (tanıtım, destek,
+  güven) ve Faz 8'in (lansman, büyüme) site tarafını ayrıntılandırır.
+- Uygulamanın mevcut tasarımı ve çalışan özellikleri bozulmaz; site işleri uygulama koduna (`index.html`, `sw.js`,
+  `manifest.json`) dokunmadan yapılır. Dokunmak gerekirse ayrı iş olarak kullanıcıya sorulur.
+- Gereksiz yeniden tasarım yapılmaz; ücretli araç, şablon, eklenti veya hizmet kullanıcı onayı olmadan kullanılmaz.
+- Yalnızca planlama ya da belge işi istendiğinde sitede veya uygulamada özellik değişikliği yapılmaz.
+- Git kuralları (bölüm 4 ve 8) aynen geçerlidir: korumalı `main` doğrudan değiştirilmez; her iş ayrı dal + PR ile gelir.
+- Bir aşamanın maddesi ancak kanıtı (test, ekran görüntüsü, canlı adres kontrolü) görülünce işaretlenir; aktif aşama
+  ROADMAP'teki "Durum" satırında güncellenir.

@@ -115,3 +115,74 @@ Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunula
 - Öncelik: 1.4 bulut yedeğinde kullanıcı izolasyonunu doğrulamak; ardından 2.1–2.4 web/PWA güncelleme ve veri güvenliği senaryoları.
 - Gerçek cihaz gerektiren açık işler: iPhone Google girişinde passkey/QR ve uygulamaya dönüş; Android Google girişi; iOS/Android PWA güncelleme davranışı. Google girişinde `prompt=select_account` istendi, ancak iPhone'da gerçek giriş yapılmadan sorun çözüldü kabul edilmeyecek.
 - Apple Developer hesabıyla imzalama/noterleme, App Store/Google Play test ve yayını henüz yapılmadı. Ödeme/abonelik sistemi de uçtan uca doğrulanmadı.
+
+## Kalıcı internet sitesi yol haritası (W1–W7)
+Eklenme: 2026-10-31. Kalıcı talimat `CLAUDE.md` bölüm 9'dadır. Bu bölüm Faz 6 ve Faz 8'in site tarafını ayrıntılandırır;
+yukarıdaki fazların maddeleri değişmez. Aşamalar sırayla yapılır; çıkış ölçütü sağlanmadan sonrakine geçilmez.
+
+**Durum:** Aktif aşama **W1**. Henüz hiçbir W maddesi başlamadı.
+
+Başlangıçta depoda bulunan site dosyaları (2026-10-31, `main`): `welcome.html` (tanıtım), `privacy.html`,
+`terms.html`, `robots.txt`, `sitemap.xml`, `_headers`. Uygulamanın ana adresi `https://words44.words44.workers.dev`
+(Cloudflare Worker), yedek adres GitHub Pages. Kendi alan adı henüz yok.
+
+### W1 — Mevcut sitenin denetimi
+- [ ] W1.1 Tanıtım, indirme, giriş, gizlilik ve kullanım koşulları sayfalarını canlı adreste aç; içerik, bağlantılar ve
+  görünümü kaydet (ekran görüntüsü + bulgu listesi).
+- [ ] W1.2 Sayfalardaki her iddiayı uygulamanın gerçek durumuyla karşılaştır (özellikler, platformlar, veri saklama,
+  ödeme). Doğru olmayan ya da eskimiş ifadeleri listele.
+- [ ] W1.3 Gizlilik ve koşulların gerçek veri akışıyla (yerel depolama, Supabase bulut yedeği, Google girişi, dış
+  servisler: sözlük, çeviri, metin tanıma motoru) uyumunu denetle; hukukçu görüşü gerektirenleri ayrıca işaretle.
+- [ ] W1.4 Teknik denetim: mobil görünüm, kırık bağlantılar, başlık/meta etiketleri, `robots.txt`/`sitemap.xml`
+  doğruluğu, yükleme hızı.
+- [ ] W1.5 Kalıcı adres kararı için seçenekleri yaz (kendi alan adı, mevcut adresler, PWA kurulu kullanıcıların veri
+  taşıması). Alan adını kullanıcı satın alır; karar kullanıcınındır.
+Çıkış ölçütü: önceliklendirilmiş bulgu listesi ve kalıcı adres kararı kullanıcıyla netleşmiş.
+
+### W2 — Profesyonel tanıtım sitesi
+- [ ] W2.1 Hedef kitleyi ve dilleri netleştir (öncelik: İngilizce öğrenen Türkçe konuşanlar; uluslararası ziyaretçiler
+  için İngilizce sürüm). Uygulamanın desteklemediği bir dil ya da kullanım vaat edilmez.
+- [ ] W2.2 Sayfa yapısını belirle: ana sayfa, özellikler, paketler, indirme/kurulum, SSS, iletişim/destek, gizlilik,
+  koşullar.
+- [ ] W2.3 Uygulamanın mevcut görsel dilini (renkler, yazı tipleri, ikon) kullan; yeni marka tasarımı icat etme.
+- [ ] W2.4 Ücretsiz ve statik barındırma ile çalış (mevcut Cloudflare Worker/GitHub Pages); ek ücretli araç yok.
+Çıkış ölçütü: sayfa yapısı ve metin taslağı kullanıcı tarafından onaylanmış; site önizleme adresinde açılıyor.
+
+### W3 — Gerçek içerik
+- [ ] W3.1 Ekran görüntülerini gerçek uygulamadan al (telefon ve masaüstü); taslak/maket görüntü kullanma.
+- [ ] W3.2 Özellik açıklamalarını yalnızca çalışan ve doğrulanmış özelliklerden yaz; sınırları açıkça belirt.
+- [ ] W3.3 Net çağrılar: "Tarayıcıda aç", "Ana ekrana ekle" (iPhone/Android adımları), masaüstü indirme, isteğe bağlı
+  hesap/giriş.
+Çıkış ölçütü: her özellik cümlesi uygulamada doğrulanabiliyor; her çağrı doğru yere gidiyor.
+
+### W4 — Ücretsiz ve ücretli paketler
+- [ ] W4.1 Ücretsiz paket: bugün çalışan ve çalıştırma maliyeti olmayan özellikler.
+- [ ] W4.2 Ücretli paket: yalnızca kararı verilmiş özellikler (ör. yapay zekâ destekli özellikler); hazır değilse
+  "yakında" olarak işaretlenir.
+- [ ] W4.3 Fiyat, deneme, yenileme, iptal ve iade koşulları Faz 5 kararları olmadan yayımlanmaz (Faz 5.4).
+Çıkış ölçütü: paket tablosu kullanıcı onaylı ve uygulamadaki gerçek durumla tutarlı.
+
+### W5 — Mobil uyum, erişilebilirlik, performans, SEO, paylaşım
+- [ ] W5.1 Telefon genişliğinde (≈390 px) yatay kaydırma yok; dokunma hedefleri yeterli.
+- [ ] W5.2 Erişilebilirlik: başlık sırası, alt metinler, renk kontrastı, klavye ile gezinme.
+- [ ] W5.3 Performans: optimize görseller, gereksiz betik yok; ücretsiz ölçüm araçlarıyla (ör. Lighthouse) ölç.
+- [ ] W5.4 SEO: sayfa başlıkları, açıklamalar, `sitemap.xml`, `robots.txt`, kanonik adresler, dil etiketleri.
+- [ ] W5.5 Sosyal medya önizlemeleri: Open Graph/Twitter etiketleri ve paylaşım görseli; paylaşım önizleme
+  araçlarıyla doğrula.
+Çıkış ölçütü: ölçüm sonuçları ve önizleme ekran görüntüleri kaydedilmiş; kritik sorun kalmamış.
+
+### W6 — Doğrulama
+- [ ] W6.1 Giriş (Google) akışını siteden ve uygulamadan dene; dönüş adresleri doğru.
+- [ ] W6.2 İndirme bağlantıları (masaüstü sürümleri, PWA kurulumu) çalışıyor; sürüm numaraları güncel.
+- [ ] W6.3 Gizlilik, koşullar ve iletişim sayfaları her sayfadan erişilebilir.
+- [ ] W6.4 Otomatik bağlantı/sayfa testi CI'da çalışıyor (Chrome ve Safari motoru).
+- [ ] W6.5 Gerçek iPhone ve Android'de kısa kontrol (kullanıcı); sonuç kaydedilir.
+Çıkış ölçütü: tüm bağlantı ve akışlar testli; gerçek cihaz sonucu kayıtlı.
+
+### W7 — Pazarlama, ölçümleme, müşteri kazanımı
+- [ ] W7.1 Mahremiyete uygun, kişisel veri toplamayan ölçümleme (ziyaret, kurulum, aktivasyon); gizlilik metnine
+  yansıtılır (Faz 6.4, 8.2).
+- [ ] W7.2 Ücretsiz kanallar: sosyal medya, öğretmen ve sınav toplulukları; günlük haberlerden içerik üretimi.
+- [ ] W7.3 Sahte etkileşim (bot beğeni/takip, satın alınmış takipçi) kullanılmaz.
+- [ ] W7.4 Küçük deneyler; maliyet ve sonuçlar kaydedilir (Faz 8.4).
+Çıkış ölçütü: ilk kullanıcı kazanımı verisiyle bir sonraki adıma karar verilebiliyor.
