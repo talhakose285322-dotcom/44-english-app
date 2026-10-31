@@ -1,0 +1,24 @@
+{
+  "id": "blood-vessel-clue-in-preeclampsia",
+  "level": "B1",
+  "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",
+  "paragraphs": [
+    "Preeclampsia is a pregnancy condition that raises blood pressure and affects about 2% to 8% of pregnancies worldwide. It can cause serious problems for mother and baby, and at the moment the only definite treatment is to deliver the baby and the placenta.",
+    "In a study published in the journal Circulation Research, researchers at the University of Manchester and Saint Mary's Hospital compared small arteries from pregnant women with and without preeclampsia. In the vessels of women with preeclampsia, the calcium signals that help arteries relax, called calcium sparks, were reduced by as much as 75% at normal pressures. The calcium stores in the cells also recovered badly.",
+    "The team then tested a peptide called HBD2. It did not fix the broken signal, but it relaxed the vessels by acting on another part of the same pathway. This suggests new targets for blood pressure treatments. However, the work was done on isolated vessels in the laboratory, the number of women studied was not reported, and more studies are needed to find out whether such drugs would be safe in pregnancy."
+  ],
+  "questions": [
+    {
+      "q": "How much were calcium sparks reduced?",
+      "a": "By as much as 75%."
+    },
+    {
+      "q": "What did the HBD2 peptide do?",
+      "a": "It relaxed the vessels through another part of the same pathway."
+    },
+    {
+      "q": "Why must we be careful with the result?",
+      "a": "The work was done on isolated vessels in a laboratory and more studies are needed."
+    }
+  ]
+}

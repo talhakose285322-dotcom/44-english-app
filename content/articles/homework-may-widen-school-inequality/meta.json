@@ -1,0 +1,51 @@
+{
+  "id": "homework-may-widen-school-inequality",
+  "category": "news",
+  "title": "Could Homework Widen the Gap Between Families?",
+  "summary": "Manchester Üniversitesi'nin yeni bir çalışması, ilkokul ödevlerinin ebeveynlerin zamanı ve imkânları farklı olduğu için aileler arasındaki eşitsizliği artırabileceğini söylüyor; ancak çalışma tek bir olaya dayanıyor.",
+  "published": "2026-10-31",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Masanın üzerinde kalemler, defter ve okul malzemeleri (örnek görsel).",
+    "credit": "TheUltimateGrass",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:School_Supplies.jpg"
+  },
+  "sources": [
+    {
+      "title": "University of Manchester: Primary school homework could be reinforcing educational inequality",
+      "url": "https://www.manchester.ac.uk/about/news/primary-school-homework-could-be-reinforcing-educational-inequality/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "homework",
+      "tr": "ev ödevi"
+    },
+    {
+      "w": "inequality",
+      "tr": "eşitsizlik"
+    },
+    {
+      "w": "private tutoring",
+      "tr": "özel ders"
+    },
+    {
+      "w": "commitment",
+      "tr": "bağlılık, ilgi"
+    },
+    {
+      "w": "resources",
+      "tr": "kaynaklar, imkânlar"
+    },
+    {
+      "w": "case study",
+      "tr": "vaka çalışması"
+    },
+    {
+      "w": "cultural capital",
+      "tr": "kültürel sermaye"
+    }
+  ]
+}
