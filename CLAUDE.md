@@ -92,6 +92,16 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
   ajanlar eklemez. `guard`'ın `main` kuralında zorunlu denetim olarak ekli olması gerekir (Settings → Branches);
   bu ayarı yalnızca depo sahibi değiştirir. `gh api repos/<repo>/branches/main/protection/required_status_checks`
   ile `contexts` içinde `test` ve `guard` görülmelidir.
+- **İnsan onayı (2026-10-31):** Yalnızca `content/articles/` altındaki içerik (günlük haber, haftalık makale) kontroller
+  geçince kendiliğinden birleşir. Uygulama kodu, testler, veritabanı (`supabase/`), otomasyon, `.claude/` ve belgeler
+  depo sahibinin incelemesi ve **`onay`** etiketi olmadan birleşemez (Koruma denetler). Ajanlar `onay` ve
+  `workflow-onay` etiketlerini eklemez, `gh pr merge --admin` kullanmaz, dal korumasını değiştirmez. Etiket yalnızca
+  depo sahibi eklediyse sayılır (bot, uygulama ya da iş akışı eklerse sayılmaz); onaydan sonra yeni commit gelirse
+  Koruma etiketi kaldırır ve yeniden onay gerekir.
+- **Claude Code güvenlik hook'u:** `.claude/settings.json` → `.claude/hooks/guard.mjs` yasak git/gh işlemlerini,
+  `pending-app-changes` dalındaki klasörde dosya düzenlemeyi ve gizli anahtar yazmayı işlemden önce engeller
+  (testi: `tests/hooks.test.mjs`). Hook çalışamazsa işlem durur. Tek güvenlik katmanı değildir; betik ya da başka
+  program içine gizlenen komutları göremez; yukarıdaki kurallar aynen geçerlidir.
 - Her değişiklikten sonra kısa bir özet verilir: ne değişti, commit SHA, CI sonucu, yayın durumu ve neyin
   doğrulanmadığı.
 - Gereksiz proje taraması, uzun planlama ve tekrar eden test/durum raporları yapılmaz.
