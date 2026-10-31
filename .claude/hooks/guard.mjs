@@ -73,7 +73,7 @@ function commandProblem(cmd, depth = 0) {
     }
     if (words.some(w => GH.test(w))) {
       const q = full; // label names may be quoted
-      if (/\bpr\s+merge\b/.test(p) && /--admin\b/.test(p)) return '`gh pr merge --admin` yasak: zorunlu kontrolleri atlar.';
+      if (/\bpr\s+merge\b/.test(p)) return '`gh pr merge` (--auto, --admin dahil her biçimi) yasak: PR\'ı yalnızca depo sahibi birleştirir.';
       if (/--add-label\b/.test(p) && APPROVAL_LABELS.some(l => new RegExp('(^|[\\s,="\'])' + l + '([\\s,"\']|$)').test(q))) return 'onay etiketlerini (workflow-onay, onay) yalnızca depo sahibi ekler.';
       if (/\bapi\b/.test(p) && /\/labels\b/.test(q) && APPROVAL_LABELS.some(l => new RegExp('(^|[^\\w-])' + l + '([^\\w-]|$)').test(q))) return 'onay etiketlerini (workflow-onay, onay) yalnızca depo sahibi ekler.';
       if (/\bapi\b/.test(p) && /(branches\/[^\s]+\/protection|\/rulesets)/.test(p) && /(-X|--method)\s*(PUT|PATCH|POST|DELETE)\b/i.test(p)) return 'dal koruması ve kural setleri yalnızca depo sahibi tarafından değiştirilir.';
