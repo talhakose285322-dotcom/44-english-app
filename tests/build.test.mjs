@@ -137,3 +137,15 @@ test('Tarayıcılar iş akışı: Playwright yalnızca test makinesine kuruluyor
   assert.match(wf, /tests\/cross-browser\/smoke\.mjs/);
   assert.equal(fs.existsSync(path.join(root, 'package.json')), false, 'the project stays without npm packages');
 });
+
+test('Canlı denetim: her sabah canlı sitede üç motor; sürüm ve haber kontrolü; sorun olunca sahibine bildirim', () => {
+  const wf = fs.readFileSync(path.join(root, '.github', 'workflows', 'live-check.yml'), 'utf8');
+  assert.match(wf, /schedule:\s*\n\s+- cron: '30 5 \* \* \*'/);
+  assert.match(wf, /permissions:\s*\n\s+contents: read\s*\n\s+issues: write/);
+  assert.match(wf, /ENGINES: chromium,webkit,firefox/);
+  assert.match(wf, /BASE_URL:/);
+  assert.match(wf, /version\.json[\s\S]*catalog\.json/, 'version and news are checked');
+  assert.match(wf, /if: failure\(\)[\s\S]*'@%s [^']*' "\$OWNER"/, 'the owner is mentioned on failure');
+  const run = wf.slice(wf.indexOf('if: failure()'));
+  assert.doesNotMatch(run.slice(run.indexOf('run: |')), /\$\{\{/, 'no expressions inside the failure script');
+});
