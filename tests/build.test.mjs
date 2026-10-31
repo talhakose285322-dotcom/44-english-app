@@ -146,10 +146,14 @@ test('Koruma betiği gerçekten çalıştırılınca: yalnızca içerik kendili�
   const script = block.filter(l => l.startsWith('          ') || !l.trim()).map(l => l.slice(10)).join('\n');
   // the check as GitHub runs it, with "gh api" answering the PR's file list, who added the label, and label removals
   const log = path.join((await import('node:os')).tmpdir(), 'w44-guard-' + process.pid + '.log');
-  const fakeGh = 'gh(){ case "$*" in *DELETE*) printf "%s\\n" "$*" >> "$DEL_LOG";; */events*) printf "%s\\n" "$FAKE_ACTOR";; *) printf "%s\\n" "$FAKE_FILES";; esac; }\n';
-  const guard = (files, labels, ref = 'feature', {actor = 'sahip', action = 'labeled'} = {}) => spawnSync('bash', ['-c', fakeGh + script], {
-    encoding: 'utf8', env: {...process.env, FAKE_FILES: files.join('\n'), LABELS: JSON.stringify(labels), HEAD_REF: ref, REPO: 'o/r', PR: '1',
-      OWNER: 'sahip', FAKE_ACTOR: actor, ACTION: action, DEL_LOG: log}}).status;
+  // the events answer is what the --jq filter prints: time, event id and who added the label, in the API's own order
+  const fakeGh = 'gh(){ case "$*" in *DELETE*) printf "%s\\n" "$*" >> "$DEL_LOG"; [ -z "$DELETE_FAILS" ];; */events*) printf "%s\\n" "$FAKE_EVENTS";; *) printf "%s\\n" "$FAKE_FILES";; esac; }\n';
+  const ev = (time, id, who) => [time, id, who].join('\t');
+  const runGuard = (files, labels, ref = 'feature', {actor = 'sahip', events = [ev('2026-10-31T10:00:00Z', 1, actor)], action = 'opened', sender = '', eventLabel = '', deleteFails = false} = {}) =>
+    spawnSync('bash', ['-c', fakeGh + script], {encoding: 'utf8', env: {...process.env, FAKE_FILES: files.join('\n'), LABELS: JSON.stringify(labels), HEAD_REF: ref,
+      REPO: 'o/r', PR: '1', OWNER: 'sahip', FAKE_EVENTS: events.join('\n'), ACTION: action, SENDER: sender, EVENT_LABEL: eventLabel, DEL_LOG: log,
+      DELETE_FAILS: deleteFails ? '1' : ''}});
+  const guard = (...a) => runGuard(...a).status;
   assert.equal(guard(['content/articles/a/meta.json', 'content/articles/catalog.json'], [], 'news/2026-11-01'), 0, 'haber kendiliğinden');
   assert.equal(guard(['content/articles/b/A1.json'], [], 'news/haftalik-2026-11-01'), 0, 'haftalık makale kendiliğinden');
   assert.equal(guard(['index.html'], []), 1, 'uygulama kodu onaysız');
@@ -171,4 +175,34 @@ test('Koruma betiği gerçekten çalıştırılınca: yalnızca içerik kendili�
   fs.rmSync(log, {force: true});
   assert.equal(guard(['content/articles/a/A1.json'], [], 'news/2026-11-01', {action: 'synchronize'}), 0, 'içerik yeni commit ile de geçer');
   assert.equal(fs.existsSync(log), false, 'etiket yokken silme yapılmaz');
+  // reopening the pull request also removes the approval
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'reopened'}), 1, 'yeniden açma onayı düşürür');
+  assert.match(fs.readFileSync(log, 'utf8'), /-X DELETE repos\/o\/r\/issues\/1\/labels\/onay/);
+  fs.rmSync(log, {force: true});
+  // a removal that fails stops the check, even where the content alone would pass
+  assert.equal(guard(['content/articles/a/A1.json'], ['onay'], 'feature', {action: 'synchronize'}), 0, 'silme başarılıysa içerik geçer');
+  const failed = runGuard(['content/articles/a/A1.json'], ['onay'], 'feature', {action: 'synchronize', deleteFails: true});
+  assert.equal(failed.status, 1, 'silinemeyen onay denetimi durdurur');
+  assert.match(failed.stdout, /onayı kaldırılamadı/);
+  fs.rmSync(log, {force: true});
+  // the newest "labeled" event decides by its time, not by the order the API lists them in
+  const owner = ev('2026-10-31T12:00:00Z', 7, 'sahip'), bot = ev('2026-10-31T09:00:00Z', 3, 'github-actions[bot]');
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {events: [owner, bot]}), 0, 'sahibin daha yeni etiketi geçerli');
+  const ownerOld = ev('2026-10-31T09:00:00Z', 3, 'sahip'), botNew = ev('2026-10-31T12:00:00Z', 7, 'github-actions[bot]');
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {events: [botNew, ownerOld]}), 1, 'botun daha yeni etiketi reddedilir');
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {events: [ev('2026-10-31T12:00:00Z', 9, 'baskasi'), ev('2026-10-31T12:00:00Z', 8, 'sahip')]}), 1, 'aynı saniyede olay numarası belirler');
+  // for the label of this very event, GitHub's sender is used, whatever the (possibly late) event list says
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'github-actions[bot]'}), 1, 'tetikleyen bot');
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'sahip', events: []}), 0, 'tetikleyen sahip, liste gecikmeli');
+  assert.equal(guard(['index.html'], ['onay', 'x'], 'feature', {action: 'labeled', eventLabel: 'x', sender: 'sahip', actor: 'claude[bot]'}), 1, 'başka etiketin göndereni onay sayılmaz');
+  // file names from the pull request cannot run workflow commands in the log
+  const evil = runGuard(['index.html', '::warning::sahte', '::add-mask::x'], []);
+  assert.equal(evil.status, 1);
+  const out = evil.stdout.split('\n'), tokens = out.filter(l => /^::stop-commands::stop-[0-9a-f]{32}$/.test(l));
+  assert.ok(tokens.length >= 1, 'komutlar kapatılıyor');
+  for (const name of ['::warning::sahte', '::add-mask::x']) {
+    const at = out.indexOf(name), stop = out.lastIndexOf(tokens[0], at), token = tokens[0].slice('::stop-commands::'.length);
+    assert.ok(stop >= 0 && stop < at && out.indexOf('::' + token + '::', at) > at, 'kapalıyken yazılıyor: ' + name);
+  }
+  assert.ok(out.some(l => l.startsWith('::error::Bu PR içerik dışı')), 'kendi hata satırı çalışıyor');
 });

@@ -6,7 +6,9 @@
 # - Anything outside content/articles/ (app code, tests, database, workflows, documents) needs the owner's "onay"
 #   label; only content merges on its own when the checks pass.
 # - An approval label counts only if the repository owner added it (not a bot, an app or a workflow token), and new
-#   commits remove it, so code added after the review is never merged with the old approval.
+#   commits remove it, so code added after the review is never merged with the old approval. Reopening the pull
+#   request removes it too, and if the removal fails the check fails.
+# - File names come from the pull request, so they are printed with workflow commands switched off.
 name: Koruma
 
 on:
@@ -32,36 +34,57 @@ jobs:
           LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
           ACTION: ${{ github.event.action }}
           OWNER: ${{ github.repository_owner }}
+          SENDER: ${{ github.event.sender.login }}
+          EVENT_LABEL: ${{ github.event.label.name }}
         run: |
           set -euo pipefail
-          # new commits after an approval: the approval is removed and has to be given again
-          if [ "$ACTION" = synchronize ]; then
+          # text from the pull request (file names) is printed with workflow commands switched off,
+          # so a file named "::error::..." cannot add annotations or other commands to the log
+          quoted() {
+            local t; t="stop-$(od -An -N16 -tx1 /dev/urandom | tr -d ' \n')"
+            printf '::stop-commands::%s\n%s\n::%s::\n' "$t" "$1" "$t"
+          }
+          # new commits or a reopened pull request: the approval is removed and has to be given again;
+          # if it cannot be removed, the check fails instead of going on
+          if [ "$ACTION" = synchronize ] || [ "$ACTION" = reopened ]; then
             for l in onay workflow-onay; do
               if printf '%s' "$LABELS" | grep -q "\"$l\""; then
-                gh api -X DELETE "repos/$REPO/issues/$PR/labels/$l" > /dev/null || true
-                printf '::warning::Yeni commit geldi; "%s" onayı kaldırıldı. Değişiklik yeniden incelenip onaylanmalı.\n' "$l"
+                if ! gh api -X DELETE "repos/$REPO/issues/$PR/labels/$l" > /dev/null; then
+                  printf '::error::"%s" onayı kaldırılamadı; eski onay geçerli sayılmasın diye denetim durduruldu.\n' "$l"
+                  exit 1
+                fi
+                printf '::warning::PR değişti (%s); "%s" onayı kaldırıldı. Değişiklik yeniden incelenip onaylanmalı.\n' "$ACTION" "$l"
               fi
             done
             LABELS='[]'
           fi
-          # a label counts only when the owner added it last
+          # a label counts only when the owner added it last: for the label of this very event GitHub names who
+          # added it (sender); otherwise the newest "labeled" event, sorted by time (then by event id), decides
           approved() {
             printf '%s' "$LABELS" | grep -q "\"$1\"" || return 1
-            who=$(gh api --paginate "repos/$REPO/issues/$PR/events" --jq ".[] | select(.event == \"labeled\" and .label.name == \"$1\") | .actor.login" | tail -n 1)
+            if [ "$ACTION" = labeled ] && [ "$EVENT_LABEL" = "$1" ]; then
+              who=$SENDER
+            else
+              who=$(gh api --paginate "repos/$REPO/issues/$PR/events" --jq ".[] | select(.event == \"labeled\" and .label.name == \"$1\") | [.created_at, .id, .actor.login] | @tsv" \
+                | sort -t "$(printf '\t')" -k1,1 -k2,2n | tail -n 1 | cut -f3)
+            fi
             if [ "$who" != "$OWNER" ]; then printf '::error::"%s" etiketi depo sahibi tarafından eklenmemiş (%s); onay sayılmaz.\n' "$1" "${who:-bilinmiyor}"; return 1; fi
           }
           files=$(gh api --paginate "repos/$REPO/pulls/$PR/files" --jq '.[].filename')
-          printf 'Değişen dosyalar:\n%s\n' "$files"
+          echo 'Değişen dosyalar:'
+          quoted "$files"
           if [[ "$HEAD_REF" == news/* ]]; then
             other=$(printf '%s\n' "$files" | grep -v -E '^content/articles/' || true)
             if [ -n "$other" ]; then
-              printf '::error::Haber PR’ı yalnızca content/articles/ altını değiştirebilir. Dışarıdaki dosyalar:\n%s\n' "$other"
+              echo '::error::Haber PR’ı yalnızca content/articles/ altını değiştirebilir. Dışarıdaki dosyalar:'
+              quoted "$other"
               exit 1
             fi
           fi
           github_files=$(printf '%s\n' "$files" | grep -E '^\.github/' || true)
           if [ -n "$github_files" ] && ! approved workflow-onay; then
-            printf '::error::.github/ altındaki dosyalar değişiyor; birleşmesi için depo sahibinin "workflow-onay" etiketini eklemesi gerekir:\n%s\n' "$github_files"
+            echo '::error::.github/ altındaki dosyalar değişiyor; birleşmesi için depo sahibinin "workflow-onay" etiketini eklemesi gerekir:'
+            quoted "$github_files"
             exit 1
           fi
           # Only plain content (daily news, weekly articles under content/articles/) may merge on its own once the
@@ -69,7 +92,8 @@ jobs:
           # ("workflow-onay" counts as approval too).
           not_content=$(printf '%s\n' "$files" | grep -v -E '^content/articles/' | grep -v -E '^$' || true)
           if [ -n "$not_content" ] && ! approved onay && ! approved workflow-onay; then
-            printf '::error::Bu PR içerik dışı dosyalar değiştiriyor (uygulama, test, veritabanı, otomasyon ya da belge); birleşmesi için depo sahibinin incelemesi ve "onay" etiketi gerekir:\n%s\n' "$not_content"
+            echo '::error::Bu PR içerik dışı dosyalar değiştiriyor (uygulama, test, veritabanı, otomasyon ya da belge); birleşmesi için depo sahibinin incelemesi ve "onay" etiketi gerekir:'
+            quoted "$not_content"
             exit 1
           fi
           echo "Koruma denetimi geçti."
