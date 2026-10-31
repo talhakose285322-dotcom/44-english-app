@@ -58,6 +58,9 @@ test('installed-app update check uses the same version as the release marker (no
     assert.ok(shown && running, 'profile version and update-check runningVersion must both exist in ' + dir);
     assert.equal(running[1], shown[1], 'runningVersion must match the version shown in the app (' + dir + ')');
     assert.equal(running[1], marker.version, 'runningVersion must match version.json (' + dir + ')');
+    const appv = html.match(/APPV='(\d+\.\d+\.\d+)'/);
+    assert.ok(appv, 'the error reports version APPV must exist in ' + dir);
+    assert.equal(appv[1], marker.version, 'APPV (sent with error reports) must match version.json (' + dir + ')');
   }
 });
 

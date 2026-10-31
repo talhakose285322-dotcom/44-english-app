@@ -85,7 +85,7 @@ function findChrome() {
 
 // opts: {origin, fakes: ['supabase', 'tts'], mobile: true, routes}
 // routes: [{match: url => bool, respond: url => ({status, body, type})}] answer matching outside requests with fixed
-// data (served with CORS allowed); every other outside request is still blocked.
+// data (served with CORS allowed, preflights answered); every other outside request is still blocked.
 export async function openBrowser(opts = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'words44-test-'));
   // CI runners (Ubuntu) often cannot start Chrome's sandbox; only there, and only for these throwaway test browsers
@@ -147,10 +147,13 @@ export async function openBrowser(opts = {}) {
     if (m.method === 'Fetch.requestPaused') {
       const u = m.params.request.url, route = (opts.routes || []).find(r => r.match(u));
       if (route) {
-        const r = route.respond(u), body = typeof r.body === 'string' ? r.body : JSON.stringify(r.body);
-        b.served.push(u);
+        // a CORS preflight (OPTIONS, for requests with their own headers) is allowed as a real API would allow it
+        const pre = m.params.request.method === 'OPTIONS';
+        const r = pre ? {status: 204, body: ''} : route.respond(u), body = typeof r.body === 'string' ? r.body : JSON.stringify(r.body);
+        if (!pre) b.served.push(u);
         b.send('Fetch.fulfillRequest', {requestId: m.params.requestId, responseCode: r.status || 200,
-          responseHeaders: [{name: 'Content-Type', value: r.type || 'application/json; charset=utf-8'}, {name: 'Access-Control-Allow-Origin', value: '*'}],
+          responseHeaders: [{name: 'Content-Type', value: r.type || 'application/json; charset=utf-8'}, {name: 'Access-Control-Allow-Origin', value: '*'},
+            {name: 'Access-Control-Allow-Headers', value: '*'}, {name: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS'}],
           body: Buffer.from(body, 'utf8').toString('base64')}).catch(() => {});
       }
       else if (opts.origin && u.startsWith(opts.origin) || u.startsWith('data:') || u.startsWith('blob:')) b.send('Fetch.continueRequest', {requestId: m.params.requestId}).catch(() => {});
