@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,162 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "blood-vessel-clue-in-preeclampsia",
+      "category": "news",
+      "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",
+      "summary": "Manchester'daki araştırmacılar, gebeliğe bağlı yüksek tansiyon hastalığı preeklampsisi olan kadınların küçük kan damarlarında gevşemeyi sağlayan kalsiyum sinyallerinin zayıfladığını buldu; çalışma laboratuvarda yapıldı ve ilaçlar için daha çok araştırma gerekiyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-31",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 60,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 115,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 180,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 231,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 231,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 232,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "blood-vessel-clue-in-preeclampsia/image.jpg",
+        "alt": "Tansiyon ölçme aleti ve manşonu (örnek görsel).",
+        "credit": "ML5 (İngilizce Vikipedi)",
+        "license": "Kamu malı",
+        "source": "https://commons.wikimedia.org/wiki/File:Sphygmomanometer%26Cuff.JPG"
+      },
+      "sources": [
+        {
+          "title": "University of Manchester: Blood pressure in pregnancy clue could open door to new treatments",
+          "url": "https://www.manchester.ac.uk/about/news/blood-pressure-pregnancy-clue-could-open-door-to-new-treatments/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "blood vessel",
+          "tr": "kan damarı"
+        },
+        {
+          "w": "pregnancy",
+          "tr": "gebelik, hamilelik"
+        },
+        {
+          "w": "blood pressure",
+          "tr": "tansiyon, kan basıncı"
+        },
+        {
+          "w": "artery",
+          "tr": "atardamar"
+        },
+        {
+          "w": "signal",
+          "tr": "sinyal"
+        },
+        {
+          "w": "treatment",
+          "tr": "tedavi"
+        },
+        {
+          "w": "peptide",
+          "tr": "peptit"
+        }
+      ]
+    },
+    {
+      "id": "homework-may-widen-school-inequality",
+      "category": "news",
+      "title": "Could Homework Widen the Gap Between Families?",
+      "summary": "Manchester Üniversitesi'nin yeni bir çalışması, ilkokul ödevlerinin ebeveynlerin zamanı ve imkânları farklı olduğu için aileler arasındaki eşitsizliği artırabileceğini söylüyor; ancak çalışma tek bir olaya dayanıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-10-31",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 62,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 114,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 174,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 222,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 223,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 225,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "homework-may-widen-school-inequality/image.jpg",
+        "alt": "Masanın üzerinde kalemler, defter ve okul malzemeleri (örnek görsel).",
+        "credit": "TheUltimateGrass",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:School_Supplies.jpg"
+      },
+      "sources": [
+        {
+          "title": "University of Manchester: Primary school homework could be reinforcing educational inequality",
+          "url": "https://www.manchester.ac.uk/about/news/primary-school-homework-could-be-reinforcing-educational-inequality/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "homework",
+          "tr": "ev ödevi"
+        },
+        {
+          "w": "inequality",
+          "tr": "eşitsizlik"
+        },
+        {
+          "w": "private tutoring",
+          "tr": "özel ders"
+        },
+        {
+          "w": "commitment",
+          "tr": "bağlılık, ilgi"
+        },
+        {
+          "w": "resources",
+          "tr": "kaynaklar, imkânlar"
+        },
+        {
+          "w": "case study",
+          "tr": "vaka çalışması"
+        },
+        {
+          "w": "cultural capital",
+          "tr": "kültürel sermaye"
+        }
+      ]
+    },
     {
       "id": "oldest-known-shipwreck-found-off-turkey",
       "category": "news",

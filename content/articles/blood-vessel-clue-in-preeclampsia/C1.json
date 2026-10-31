@@ -1,0 +1,24 @@
+{
+  "id": "blood-vessel-clue-in-preeclampsia",
+  "level": "C1",
+  "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",
+  "paragraphs": [
+    "Preeclampsia, which affects somewhere between 2% and 8% of pregnancies worldwide, remains a clinical puzzle: delivery of the baby and placenta is still the only definitive treatment. A study from the University of Manchester, published in Circulation Research, now identifies a previously unrecognised fault in how the mother's smallest blood vessels regulate their own relaxation.",
+    "Working with patients at Saint Mary's Hospital, the team pressurised small arteries from abdominal fatty tissue in the laboratory and compared those from women with and without preeclampsia. In the affected vessels, calcium sparks, the tiny signals that allow arteries to relax, were diminished by up to 75% at normal physiological pressures, and the cells' calcium stores were depleted and slow to recover. According to lead author Dr Stephanie Worton, the work reveals \"for the first time\" a major defect in this process.",
+    "Intriguingly, a peptide named HBD2 failed to restore the sparks yet relaxed the vessels through a different branch of the same pathway, hinting at alternative drug targets that might prolong pregnancy and reduce the need for early delivery. Caution is nonetheless warranted: the experiments were confined to isolated vessels, the press release does not state how many women took part, and the authors themselves call for further studies on whether such drugs would be safe in pregnancy. Funding came from Tommy's, the Alzheimer's Society, the British Heart Foundation and the NIHR Manchester BRC."
+  ],
+  "questions": [
+    {
+      "q": "What is the study's main new finding?",
+      "a": "A major defect in the calcium signalling that lets tiny maternal vessels relax."
+    },
+    {
+      "q": "How did HBD2 behave?",
+      "a": "It did not restore the sparks but relaxed the vessels by another route."
+    },
+    {
+      "q": "Why should the results be treated with caution?",
+      "a": "They come from isolated vessels, the sample size is unreported, and safety in pregnancy is untested."
+    }
+  ]
+}
