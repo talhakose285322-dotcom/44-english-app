@@ -3,6 +3,10 @@
 # - Daily news branches (news/...) may only add or change files under content/articles/.
 # - Any change under .github/ (workflows that run the tests and deploy) needs the "workflow-onay" label, which only
 #   the repository owner should add after reading the change.
+# - Anything outside content/articles/ (app code, tests, database, workflows, documents) needs the owner's "onay"
+#   label; only content merges on its own when the checks pass.
+# - An approval label counts only if the repository owner added it (not a bot, an app or a workflow token), and new
+#   commits remove it, so code added after the review is never merged with the old approval.
 name: Koruma
 
 on:
@@ -12,6 +16,7 @@ on:
 permissions:
   contents: read
   pull-requests: read
+  issues: write   # only to read who added a label and to remove a stale approval label
 
 jobs:
   guard:
@@ -25,8 +30,26 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+          ACTION: ${{ github.event.action }}
+          OWNER: ${{ github.repository_owner }}
         run: |
           set -euo pipefail
+          # new commits after an approval: the approval is removed and has to be given again
+          if [ "$ACTION" = synchronize ]; then
+            for l in onay workflow-onay; do
+              if printf '%s' "$LABELS" | grep -q "\"$l\""; then
+                gh api -X DELETE "repos/$REPO/issues/$PR/labels/$l" > /dev/null || true
+                printf '::warning::Yeni commit geldi; "%s" onayı kaldırıldı. Değişiklik yeniden incelenip onaylanmalı.\n' "$l"
+              fi
+            done
+            LABELS='[]'
+          fi
+          # a label counts only when the owner added it last
+          approved() {
+            printf '%s' "$LABELS" | grep -q "\"$1\"" || return 1
+            who=$(gh api --paginate "repos/$REPO/issues/$PR/events" --jq ".[] | select(.event == \"labeled\" and .label.name == \"$1\") | .actor.login" | tail -n 1)
+            if [ "$who" != "$OWNER" ]; then printf '::error::"%s" etiketi depo sahibi tarafından eklenmemiş (%s); onay sayılmaz.\n' "$1" "${who:-bilinmiyor}"; return 1; fi
+          }
           files=$(gh api --paginate "repos/$REPO/pulls/$PR/files" --jq '.[].filename')
           printf 'Değişen dosyalar:\n%s\n' "$files"
           if [[ "$HEAD_REF" == news/* ]]; then
@@ -37,8 +60,16 @@ jobs:
             fi
           fi
           github_files=$(printf '%s\n' "$files" | grep -E '^\.github/' || true)
-          if [ -n "$github_files" ] && ! printf '%s' "$LABELS" | grep -q '"workflow-onay"'; then
+          if [ -n "$github_files" ] && ! approved workflow-onay; then
             printf '::error::.github/ altındaki dosyalar değişiyor; birleşmesi için depo sahibinin "workflow-onay" etiketini eklemesi gerekir:\n%s\n' "$github_files"
+            exit 1
+          fi
+          # Only plain content (daily news, weekly articles under content/articles/) may merge on its own once the
+          # checks pass. App code, tests, database, workflows and documents need the owner's "onay" label
+          # ("workflow-onay" counts as approval too).
+          not_content=$(printf '%s\n' "$files" | grep -v -E '^content/articles/' | grep -v -E '^$' || true)
+          if [ -n "$not_content" ] && ! approved onay && ! approved workflow-onay; then
+            printf '::error::Bu PR içerik dışı dosyalar değiştiriyor (uygulama, test, veritabanı, otomasyon ya da belge); birleşmesi için depo sahibinin incelemesi ve "onay" etiketi gerekir:\n%s\n' "$not_content"
             exit 1
           fi
           echo "Koruma denetimi geçti."
