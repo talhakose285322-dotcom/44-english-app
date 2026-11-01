@@ -40,7 +40,7 @@ jobs:
           display_report: "true"
           claude_args: |
             --max-turns 8
-            --allowedTools "Bash(gh issue comment:*)"
+            --allowedTools "Bash(gh issue comment:*),Bash(gh pr create:*),Bash(gh pr view:*)"
           prompt: |
             Follow the repository's CLAUDE.md and PROJECT_CONTEXT.md instructions if present.
             Make only the changes requested in the triggering comment.
@@ -57,3 +57,7 @@ jobs:
             IMPORTANT: For issue_comment and pull_request_review_comment events, do not rely on the action's automatic report posting. After completing the task, post one concise, factual visible reply yourself using the GitHub CLI. Include the repository, current checkout branch (get it with git branch --show-current), what you actually did, and relevant test results. If no files changed, explicitly say so; if the task changed files, summarize those changes instead. Use:
             gh issue comment "${{ github.event.issue.number || github.event.pull_request.number }}" --repo "${{ github.repository }}" --body "<your factual report>"
             Do not claim tests passed unless you ran them. If posting fails, report the concrete error. Never post secrets.
+
+            PULL REQUEST RULE: When the requested task changes repository files on an issue-triggered run, create a draft pull request from the current task branch after targeted tests pass, using:
+            gh pr create --draft --fill --base main
+            Then include the resulting PR URL in your visible issue reply. Never merge a pull request, never add approval labels, and never deploy. If no files changed, do not create a PR. For pull_request_review_comment events, work only on the existing PR branch and do not create a second PR.
