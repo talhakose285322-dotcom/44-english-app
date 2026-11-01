@@ -75,7 +75,7 @@ while (true) {
       await writeFile(statePath, JSON.stringify(state, null, 2));
       const body = String(comment.body || "");
       const author = comment.user?.login || "";
-      if (author !== login || !/^\s*@local-claude-pro\\b/i.test(body)) continue;
+      if (author !== login || !/^\s*@local-claude-pro\b/i.test(body)) continue;
 
       const task = body.replace(/^\s*@local-claude-pro\s*/i, "").trim();
       if (!task) continue;
