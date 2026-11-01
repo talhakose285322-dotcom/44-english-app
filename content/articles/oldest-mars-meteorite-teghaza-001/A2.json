@@ -1,0 +1,24 @@
+{
+  "id": "oldest-mars-meteorite-teghaza-001",
+  "level": "A2",
+  "title": "One of the Oldest Mars Meteorites Ever Found",
+  "paragraphs": [
+    "Scientists have studied a very old rock from Mars. It is called Teghaza 001. It is pink and weighs nearly 800 grams. Someone found it in the Sahara Desert in 2022.",
+    "The team used a new method to measure its age. They looked at single tiny grains, so the rock was not destroyed. They found that it is more than 4.1 billion years old. It is one of the three oldest Mars rocks found on Earth.",
+    "The rock tells us that water changed it a very long time ago. This suggests that early Mars had a lively water cycle. Scientists found 13 places on Mars that could be its home, but they do not know the exact place."
+  ],
+  "questions": [
+    {
+      "q": "How much does the rock weigh?",
+      "a": "Nearly 800 grams."
+    },
+    {
+      "q": "Why did the method not destroy the rock?",
+      "a": "It used single tiny grains."
+    },
+    {
+      "q": "How many possible places on Mars did scientists find?",
+      "a": "13."
+    }
+  ]
+}

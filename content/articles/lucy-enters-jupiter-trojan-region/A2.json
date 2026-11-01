@@ -1,0 +1,24 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "level": "A2",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "paragraphs": [
+    "Lucy is a NASA spacecraft. It left Earth in October 2021. Now it has arrived at a new place in space. This place is a region of old rocks called the Jupiter Trojan asteroids.",
+    "Lucy is the first spacecraft to enter this region. The rocks are very far from each other, so Lucy can only see them as small points of light. The spacecraft is working well, and so are its instruments.",
+    "The first visit will be in August 2027, when Lucy flies past an asteroid called Eurybates. Later it will visit more asteroids. Scientists hope the old rocks will show how the planets began."
+  ],
+  "questions": [
+    {
+      "q": "Which region has Lucy entered?",
+      "a": "The region of the Jupiter Trojan asteroids."
+    },
+    {
+      "q": "Why does Lucy see the rocks only as points of light?",
+      "a": "The rocks are very far from each other."
+    },
+    {
+      "q": "When is the first visit?",
+      "a": "In August 2027."
+    }
+  ]
+}
