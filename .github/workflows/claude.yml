@@ -32,6 +32,7 @@ jobs:
           fetch-depth: 1
 
       - name: Run Claude Code
+        id: claude
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -51,3 +52,32 @@ jobs:
             ---
 
             Treat the comment above as the actual task. If it requests code changes, inspect the relevant files, make the requested changes, run tests, and report the result visibly. If blocked, explain the concrete blocker in a visible reply.
+
+      - name: Publish Claude's final response to the issue
+        if: always() && steps.claude.outputs.execution_file != ''
+        uses: actions/github-script@v7
+        env:
+          CLAUDE_EXECUTION_FILE: ${{ steps.claude.outputs.execution_file }}
+        with:
+          script: |
+            const fs = require('fs');
+            const turns = JSON.parse(fs.readFileSync(process.env.CLAUDE_EXECUTION_FILE, 'utf8'));
+            const result = [...turns].reverse().find(turn => turn.type === 'result');
+            const assistantText = turns
+              .filter(turn => turn.type === 'assistant')
+              .flatMap(turn => turn.message?.content ?? [])
+              .filter(item => item.type === 'text' && item.text)
+              .map(item => item.text.trim())
+              .filter(Boolean);
+            const response = (result?.result || assistantText.at(-1) || '').trim();
+            const issue_number = context.payload.issue?.number ?? context.payload.pull_request?.number;
+            if (!issue_number) throw new Error('Could not determine issue or pull request number.');
+            const body = response
+              ? `### Claude Code — final response\n\n${response}`
+              : 'Claude Code ran, but did not return a final text response. Check the Actions run summary for details.';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body
+            });
