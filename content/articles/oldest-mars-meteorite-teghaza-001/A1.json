@@ -1,0 +1,24 @@
+{
+  "id": "oldest-mars-meteorite-teghaza-001",
+  "level": "A1",
+  "title": "One of the Oldest Mars Meteorites Ever Found",
+  "paragraphs": [
+    "Scientists studied a rock from Mars. It is called Teghaza 001. It fell to Earth long ago.",
+    "A person found it in the Sahara Desert in 2022. The rock is pink. It is very old, more than four billion years old.",
+    "The rock shows that Mars had water long ago. Scientists do not know where on Mars it came from. They want to learn more."
+  ],
+  "questions": [
+    {
+      "q": "Where did people find the rock?",
+      "a": "In the Sahara Desert."
+    },
+    {
+      "q": "How old is the rock?",
+      "a": "More than four billion years old."
+    },
+    {
+      "q": "What did water do on Mars long ago?",
+      "a": "The rock shows Mars had water."
+    }
+  ]
+}

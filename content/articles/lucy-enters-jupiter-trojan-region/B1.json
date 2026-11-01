@@ -1,0 +1,24 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "level": "B1",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "paragraphs": [
+    "NASA’s Lucy spacecraft has become the first spacecraft to enter the Jupiter Trojan region, a part of space full of primitive bodies left over from the early Solar System. NASA reported the milestone on 28 October 2026, five years after the launch on 16 October 2021.",
+    "Lucy is now approaching a point called L4, where a group of Trojan asteroids travels ahead of Jupiter in its orbit. A second group, called L5, follows behind the planet. Because the asteroids are more than six million miles apart on average, they still look like tiny points of light. Engineers find the spacecraft’s position with radio signals and pictures of the stars around it.",
+    "The spacecraft is more than five times farther from the Sun than Earth is, and NASA says it and its instruments are working as expected. The first close encounter, with an asteroid named Eurybates, is planned for 11 August 2027. It will last only a few hours, so the team must prepare carefully."
+  ],
+  "questions": [
+    {
+      "q": "What did Lucy become the first spacecraft to do?",
+      "a": "Enter the Jupiter Trojan region."
+    },
+    {
+      "q": "Why do the asteroids look like points of light?",
+      "a": "They are more than six million miles apart on average."
+    },
+    {
+      "q": "When is the Eurybates flyby planned?",
+      "a": "On 11 August 2027."
+    }
+  ]
+}

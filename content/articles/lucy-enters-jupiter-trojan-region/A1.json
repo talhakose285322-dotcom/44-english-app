@@ -1,0 +1,24 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "level": "A1",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "paragraphs": [
+    "Lucy is a space robot from NASA. It left Earth in 2021. It has gone very far.",
+    "Now Lucy is near a group of old space rocks. The rocks are near Jupiter. No spacecraft went there before.",
+    "Lucy will visit some rocks in 2027. It will visit more rocks later. Scientists want to learn about the early Solar System."
+  ],
+  "questions": [
+    {
+      "q": "Who made Lucy?",
+      "a": "NASA."
+    },
+    {
+      "q": "When did Lucy leave Earth?",
+      "a": "In 2021."
+    },
+    {
+      "q": "What will Lucy visit in 2027?",
+      "a": "Some space rocks near Jupiter."
+    }
+  ]
+}

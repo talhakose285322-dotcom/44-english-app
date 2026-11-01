@@ -1,0 +1,24 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "level": "B2",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "paragraphs": [
+    "Five years after leaving Earth on 16 October 2021, NASA’s Lucy spacecraft has reached the Jupiter Trojan region, making it the first spacecraft ever to enter this collection of primitive bodies. The agency announced the milestone on 28 October 2026, after the probe had travelled more than 2.2 billion miles.",
+    "Lucy is closing in on Jupiter’s fourth Lagrange point, L4, where one swarm of Trojans leads the giant planet along its orbit, while a second swarm, L5, trails behind it. Both lie roughly 484 million miles from Jupiter, about as far as Jupiter is from the Sun. Since the objects are on average more than six million miles apart, they will appear only as points of light until the spacecraft gets close to its targets, and engineers are tracking its position with radio signals and images of the surrounding stars.",
+    "Although the spacecraft and its instruments are reported to be healthy, the real test lies ahead. The team plans flybys of Eurybates on 11 August 2027, Polymele in September 2027, Leucus in April 2028 and Orus in November 2028, followed by a gravity assist at Earth in 2030 and a visit to the binary pair Patroclus and Menoetius in March 2033. Each encounter is short, so careful planning matters."
+  ],
+  "questions": [
+    {
+      "q": "What distance has Lucy travelled, according to NASA?",
+      "a": "More than 2.2 billion miles."
+    },
+    {
+      "q": "How do engineers track Lucy’s position?",
+      "a": "With radio signals and images of the stars around it."
+    },
+    {
+      "q": "What is planned for 2030?",
+      "a": "A gravity assist at Earth."
+    }
+  ]
+}

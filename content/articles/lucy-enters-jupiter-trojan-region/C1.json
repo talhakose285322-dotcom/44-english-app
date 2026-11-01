@@ -1,0 +1,24 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "level": "C1",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "paragraphs": [
+    "Half a decade after its launch on 16 October 2021, NASA’s Lucy has crossed a threshold no spacecraft had reached before: it is the first to enter the Jupiter Trojan region, a reservoir of primitive bodies thought to be leftovers from the Solar System’s formation. The milestone, announced on 28 October 2026, comes after a journey of more than 2.2 billion miles.",
+    "The probe is approaching L4, the Lagrange point where one swarm of Trojans runs ahead of Jupiter, while the L5 swarm trails the planet. Both lie about 484 million miles from it, roughly Jupiter’s own distance from the Sun. The sheer emptiness of this region is striking: with Trojans more than six million miles apart on average, they remain mere specks of light until Lucy draws near, and engineers fix its position using radio signals and images of the stars around it.",
+    "Everything now hinges on a tightly packed schedule. Lucy is to fly past Eurybates on 11 August 2027, then Polymele in September 2027, Leucus in April 2028 and Orus in November 2028. A third and final gravity assist at Earth in 2030 will send it towards the trailing swarm and the binary pair Patroclus and Menoetius in March 2033. With each encounter lasting only hours, there is little room for error, though NASA reports that the spacecraft and its instruments are performing as expected."
+  ],
+  "questions": [
+    {
+      "q": "Why are the Trojans only specks of light for now?",
+      "a": "They are on average more than six million miles apart."
+    },
+    {
+      "q": "Which asteroids come first on the flyby schedule?",
+      "a": "Eurybates, in August 2027."
+    },
+    {
+      "q": "Why is there little room for error?",
+      "a": "Each encounter lasts only a few hours."
+    }
+  ]
+}

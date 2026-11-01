@@ -1,0 +1,24 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "level": "C2",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "paragraphs": [
+    "Five years on from its launch on 16 October 2021, NASA’s Lucy has done what no spacecraft has done before: it has entered the Jupiter Trojan region, a vast stretch of orbit populated by primitive bodies believed to be relics of the Solar System’s infancy. NASA marked the occasion on 28 October 2026, with the craft having covered more than 2.2 billion miles.",
+    "Lucy is closing on L4, the Lagrange point where one swarm of Trojans leads Jupiter around the Sun, while its counterpart, L5, lags behind. Both sit roughly 484 million miles from the planet, about Jupiter’s own distance from the Sun. For all their numbers, the asteroids are scattered so thinly, more than six million miles apart on average, that they remain pinpricks of light until the spacecraft is almost upon them; meanwhile, engineers pin down its whereabouts using radio signals and images of the stars.",
+    "The coming years promise a demanding itinerary: Eurybates on 11 August 2027, Polymele that September, Leucus in April 2028 and Orus in November 2028, before a final gravity assist at Earth in 2030 flings Lucy towards the trailing swarm and the binary Patroclus and Menoetius in March 2033. Each flyby is over in a matter of hours, leaving scant margin for error. Still, NASA says both the spacecraft and its instruments are functioning as expected, which is no small comfort for a mission so far from home."
+  ],
+  "questions": [
+    {
+      "q": "What is special about Lucy’s arrival?",
+      "a": "It is the first spacecraft to enter the Jupiter Trojan region."
+    },
+    {
+      "q": "Which two binary asteroids will Lucy visit in 2033?",
+      "a": "Patroclus and Menoetius."
+    },
+    {
+      "q": "What does NASA say about the spacecraft’s condition?",
+      "a": "It and its instruments are working as expected."
+    }
+  ]
+}
