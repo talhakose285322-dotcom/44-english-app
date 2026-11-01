@@ -182,6 +182,92 @@
       ]
     },
     {
+      "id": "what-makes-a-contract-binding",
+      "category": "law",
+      "title": "What Makes a Contract Binding?",
+      "summary": "Sözleşmeyi bağlayıcı yapan nedir? Teklif, kabul, karşılık, hukuki ehliyet ve sözleşme ihlalinde başvurulan yollar.",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-01",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 112,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 192,
+          "minutes": 2
+        },
+        "B1": {
+          "words": 246,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 301,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 295,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 318,
+          "minutes": 2
+        }
+      },
+      "image": {
+        "src": "what-makes-a-contract-binding/image.jpg",
+        "alt": "Masanın üzerinde imzalanmayı bekleyen bir sözleşme ve kalem.",
+        "credit": "Blogtrepreneur",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Legal_Contract_%26_Signature_-_Warm_Tones.jpg"
+      },
+      "sources": [
+        {
+          "title": "Cornell Law School Legal Information Institute — Contract",
+          "url": "https://www.law.cornell.edu/wex/contract"
+        },
+        {
+          "title": "Wikipedia — Contract",
+          "url": "https://en.wikipedia.org/wiki/Contract"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "offer",
+          "tr": "teklif"
+        },
+        {
+          "w": "acceptance",
+          "tr": "kabul"
+        },
+        {
+          "w": "consideration",
+          "tr": "karşılık (sözleşmede değer alışverişi)"
+        },
+        {
+          "w": "binding",
+          "tr": "bağlayıcı"
+        },
+        {
+          "w": "breach",
+          "tr": "ihlal, sözleşmeye aykırılık"
+        },
+        {
+          "w": "damages",
+          "tr": "tazminat"
+        },
+        {
+          "w": "capacity",
+          "tr": "ehliyet (hukuki işlem yapabilme)"
+        },
+        {
+          "w": "enforce",
+          "tr": "uygulatmak, yaptırım uygulamak"
+        }
+      ]
+    },
+    {
       "id": "blood-vessel-clue-in-preeclampsia",
       "category": "news",
       "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",

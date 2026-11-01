@@ -1,0 +1,25 @@
+{
+  "id": "what-makes-a-contract-binding",
+  "level": "B2",
+  "title": "What Makes a Contract Binding?",
+  "paragraphs": [
+    "At its simplest, a contract is a set of promises that the law will enforce. The idea is so familiar that people create contracts all the time without noticing: boarding a bus, downloading an app or hiring a plumber all involve an exchange of promises backed by legal consequences. What distinguishes a contract from a mere understanding is that a court can compel one party to answer for a broken promise.",
+    "Common-law jurisdictions generally ask whether a handful of elements are present. First, there must be an offer and a matching acceptance. A reply that alters the terms is treated as a counter-offer, which ends the original offer rather than accepting it. Second, there must be consideration: each side must give or promise something of value, which is why a purely gratuitous promise is usually unenforceable. Third, the parties must have intended to create legal relations. Commercial agreements are normally presumed to carry that intention, whereas domestic and social arrangements are not. Fourth, the parties need legal capacity, and the purpose of the agreement must be lawful.",
+    "Form is less important than many people assume. In a well-known American case from 1954, Lucy v. Zehmer, a court upheld an agreement that had been written on a restaurant napkin, because the essential elements were present. Certain categories of contract, however, must be in writing under statutes designed to prevent fraud.",
+    "Not every legal system shares these requirements. Many civil-law countries, and the UNIDROIT Principles of International Commercial Contracts, do not demand consideration and concentrate instead on the parties' agreement. When a breach occurs, the standard remedy is damages, which aim to place the injured party where it would have been had the contract been performed. Punitive damages are not awarded for breach of contract, and specific performance is reserved for exceptional cases."
+  ],
+  "questions": [
+    {
+      "q": "Why does a court treat a changed reply as a counter-offer?",
+      "a": "Because it does not match the original offer, so it ends that offer instead of accepting it."
+    },
+    {
+      "q": "What did the Lucy v. Zehmer case show?",
+      "a": "That an agreement written on a napkin can still be an enforceable contract."
+    },
+    {
+      "q": "What do damages aim to do?",
+      "a": "Put the injured party in the position it would have been in if the contract had been performed."
+    }
+  ]
+}
