@@ -54,9 +54,6 @@ jobs:
 
             Treat the comment above as the actual task. If it requests code changes, inspect the relevant files, make the requested changes, run tests, and report the result visibly. If blocked, explain the concrete blocker in a visible reply.
 
-            IMPORTANT: For issue_comment and pull_request_review_comment events, do not rely on the action's automatic report posting. After completing the task, post one concise visible reply yourself using the GitHub CLI:
-            REPO=''${{ github.repository }}''
-            ISSUE_NUMBER=''${{ github.event.issue.number || github.event.pull_request.number }}''
-            BRANCH="$(git branch --show-current)"
-            gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "Claude received the task in $REPO. Current checkout branch: $BRANCH. Task understood; no files were changed unless the task explicitly requested code changes."
-            Only post the reply after the task is complete. Never post secrets.
+            IMPORTANT: For issue_comment and pull_request_review_comment events, do not rely on the action's automatic report posting. After completing the task, post one concise, factual visible reply yourself using the GitHub CLI. Include the repository, current checkout branch (get it with git branch --show-current), what you actually did, and relevant test results. If no files changed, explicitly say so; if the task changed files, summarize those changes instead. Use:
+            gh issue comment "${{ github.event.issue.number || github.event.pull_request.number }}" --repo "${{ github.repository }}" --body "<your factual report>"
+            Do not claim tests passed unless you ran them. If posting fails, report the concrete error. Never post secrets.
