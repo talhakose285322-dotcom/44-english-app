@@ -48,9 +48,13 @@ if (process.env.ANTHROPIC_API_KEY) {
   process.exit(3);
 }
 
-const fetchComments = async () => JSON.parse(await gh(
-  "api", "--paginate", "--slurp", "--jq", "add", `repos/${repo}/issues/${issue}/comments`
-));
+// --slurp cannot be combined with --jq in current GitHub CLI releases.
+const fetchComments = async () => {
+  const pages = JSON.parse(await gh(
+    "api", "--paginate", "--slurp", `repos/${repo}/issues/${issue}/comments`
+  ));
+  return pages.flat();
+};
 let state;
 try { state = JSON.parse(await readFile(statePath, "utf8")); }
 catch { state = null; }
