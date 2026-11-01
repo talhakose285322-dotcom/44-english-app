@@ -38,7 +38,9 @@ jobs:
           # Use Claude Code Action's built-in GitHub App authentication.
           # Do not pass GITHUB_TOKEN here; it disables the built-in bot identity.
           display_report: "true"
-          claude_args: --max-turns 8
+          claude_args: |
+            --max-turns 8
+            --allowedTools "Bash(gh issue comment:*)"
           prompt: |
             Follow the repository's CLAUDE.md and PROJECT_CONTEXT.md instructions if present.
             Make only the changes requested in the triggering comment.
@@ -51,3 +53,7 @@ jobs:
             ---
 
             Treat the comment above as the actual task. If it requests code changes, inspect the relevant files, make the requested changes, run tests, and report the result visibly. If blocked, explain the concrete blocker in a visible reply.
+
+            IMPORTANT: For issue_comment and pull_request_review_comment events, do not rely on the action's automatic report posting. After completing the task, post one concise, factual visible reply yourself using the GitHub CLI. Include the repository, current checkout branch (get it with git branch --show-current), what you actually did, and relevant test results. If no files changed, explicitly say so; if the task changed files, summarize those changes instead. Use:
+            gh issue comment "${{ github.event.issue.number || github.event.pull_request.number }}" --repo "${{ github.repository }}" --body "<your factual report>"
+            Do not claim tests passed unless you ran them. If posting fails, report the concrete error. Never post secrets.
