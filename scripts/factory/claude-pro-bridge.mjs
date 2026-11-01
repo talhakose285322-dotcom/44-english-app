@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Local Claude Pro bridge (read-only prototype).
- * ChatGPT/user posts "@claude-pro <task>" on the configured GitHub issue.
+ * ChatGPT/user posts "@local-claude-pro <task>" on the configured GitHub issue.
  * This process polls comments and runs the locally authenticated Claude Code CLI.
  */
 import { execFile as execFileCallback } from "node:child_process";
@@ -49,7 +49,7 @@ if (process.env.ANTHROPIC_API_KEY) {
 }
 
 const fetchComments = async () => JSON.parse(await gh(
-  "api", "--paginate", `repos/${repo}/issues/${issue}/comments`
+  "api", "--paginate", "--slurp", "--jq", "add", `repos/${repo}/issues/${issue}/comments`
 ));
 let state;
 try { state = JSON.parse(await readFile(statePath, "utf8")); }
@@ -60,7 +60,7 @@ if (!state) {
   const newest = comments.reduce((n, c) => Math.max(n, Number(c.id)), 0);
   state = { lastSeenId: newest };
   await writeFile(statePath, JSON.stringify(state, null, 2));
-  console.log("Ready. Existing comments ignored; now add a NEW comment starting with @claude-pro.");
+  console.log("Ready. Existing comments ignored; now add a NEW comment starting with @local-claude-pro.");
 }
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -75,9 +75,9 @@ while (true) {
       await writeFile(statePath, JSON.stringify(state, null, 2));
       const body = String(comment.body || "");
       const author = comment.user?.login || "";
-      if (author !== login || !/^\\s*@claude-pro\\b/i.test(body)) continue;
+      if (author !== login || !/^\\s*@local-claude-pro\\b/i.test(body)) continue;
 
-      const task = body.replace(/^\\s*@claude-pro\\s*/i, "").trim();
+      const task = body.replace(/^\\s*@local-claude-pro\\s*/i, "").trim();
       if (!task) continue;
       console.log(`New task #${comment.id} from ${author}. Running Claude Code with Pro login (plan/read-only mode)…`);
       const prompt = [
@@ -92,8 +92,7 @@ while (true) {
       let answer;
       try {
         const raw = await run("claude", ["-p", prompt, "--permission-mode", "plan",
-          "--max-turns", "8", "--output-format", "json"],
-          { env: { ...process.env, ANTHROPIC_API_KEY: "" } });
+          "--max-turns", "8", "--output-format", "json"]);
         try {
           const parsed = JSON.parse(raw);
           answer = parsed.result || raw;
