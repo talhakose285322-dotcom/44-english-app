@@ -28,7 +28,7 @@ node scripts/factory/claude-pro-bridge.mjs --issue 95
 Keep this terminal open. The process polls every 10 seconds. Existing comments are ignored at startup. Add a **new** comment to Issue #95 beginning with:
 
 ```text
-@claude-pro Explain the current authentication flow. Do not change files.
+@local-claude-pro Explain the current authentication flow. Do not change files.
 ```
 
 The local CLI runs Claude Code in **plan/read-only mode** and posts its answer as an Issue comment. ChatGPT can then read that reply through GitHub.
@@ -39,5 +39,5 @@ The local CLI runs Claude Code in **plan/read-only mode** and posts its answer a
 - The computer must remain on, connected to the internet, and the bridge process must remain running.
 - This is a separate CLI run under the same Pro login, not a live connection to the existing VS Code conversation or its in-memory context.
 - Pro usage limits apply. The script does not opt into API credits and refuses to run when `ANTHROPIC_API_KEY` is set.
-- The bridge only accepts new `@claude-pro` comments authored by the GitHub account authenticated by `gh`.
+- The bridge only accepts new `@local-claude-pro` comments authored by the GitHub account authenticated by `gh`.
 - State is stored under the user's home directory in `.words44-claude-pro-bridge`, not in the repository.
