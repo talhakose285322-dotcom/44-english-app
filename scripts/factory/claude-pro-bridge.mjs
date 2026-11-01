@@ -75,9 +75,9 @@ while (true) {
       await writeFile(statePath, JSON.stringify(state, null, 2));
       const body = String(comment.body || "");
       const author = comment.user?.login || "";
-      if (author !== login || !/^\\s*@local-claude-pro\\b/i.test(body)) continue;
+      if (author !== login || !/^\s*@local-claude-pro\\b/i.test(body)) continue;
 
-      const task = body.replace(/^\\s*@local-claude-pro\\s*/i, "").trim();
+      const task = body.replace(/^\s*@local-claude-pro\s*/i, "").trim();
       if (!task) continue;
       console.log(`New task #${comment.id} from ${author}. Running Claude Code with Pro login (plan/read-only mode)…`);
       const prompt = [
@@ -88,7 +88,7 @@ while (true) {
         "GitHub repository: " + repo + "; task issue: #" + issue,
         "User task:",
         task
-      ].join("\\n\\n");
+      ].join("\n\n");
       let answer;
       try {
         const raw = await run("claude", ["-p", prompt, "--permission-mode", "plan",
@@ -106,7 +106,7 @@ while (true) {
         "İşlem: read-only / plan modu; dosya değişikliği yapılmadı.",
         "",
         String(answer).slice(0, 50000)
-      ].join("\\n");
+      ].join("\n");
       await gh("issue", "comment", String(issue), "--repo", repo, "--body", report);
       console.log("Reply posted for task #" + comment.id);
     }
