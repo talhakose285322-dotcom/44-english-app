@@ -146,13 +146,14 @@ test('Koruma betiği gerçekten çalıştırılınca: yalnızca içerik kendili�
   const script = block.filter(l => l.startsWith('          ') || !l.trim()).map(l => l.slice(10)).join('\n');
   // the check as GitHub runs it, with "gh api" answering the PR's file list, who added the label, and label removals
   const log = path.join((await import('node:os')).tmpdir(), 'w44-guard-' + process.pid + '.log');
-  // the events answer is what the --jq filter prints: time, event id and who added the label, in the API's own order
+  // the events answer is what the --jq filter prints: time, event id, labeled/unlabeled, who, and the app it came
+  // through ("-" for none), in the API's own order
   const fakeGh = 'gh(){ case "$*" in *DELETE*) printf "%s\\n" "$*" >> "$DEL_LOG"; [ -z "$DELETE_FAILS" ];; */events*) printf "%s\\n" "$FAKE_EVENTS";; *) printf "%s\\n" "$FAKE_FILES";; esac; }\n';
-  const ev = (time, id, who) => [time, id, who].join('\t');
+  const ev = (time, id, who, app = '-', event = 'labeled') => [time, id, event, who, app].join('\t');
   const runGuard = (files, labels, ref = 'feature', {actor = 'sahip', events = [ev('2026-10-31T10:00:00Z', 1, actor)], action = 'opened', sender = '', eventLabel = '', deleteFails = false} = {}) =>
     spawnSync('bash', ['-c', fakeGh + script], {encoding: 'utf8', env: {...process.env, FAKE_FILES: files.join('\n'), LABELS: JSON.stringify(labels), HEAD_REF: ref,
       REPO: 'o/r', PR: '1', OWNER: 'sahip', FAKE_EVENTS: events.join('\n'), ACTION: action, SENDER: sender, EVENT_LABEL: eventLabel, DEL_LOG: log,
-      DELETE_FAILS: deleteFails ? '1' : ''}});
+      DELETE_FAILS: deleteFails ? '1' : '', LABEL_RETRY_WAIT: '0'}});
   const guard = (...a) => runGuard(...a).status;
   assert.equal(guard(['content/articles/a/meta.json', 'content/articles/catalog.json'], [], 'news/2026-11-01'), 0, 'haber kendiliğinden');
   assert.equal(guard(['content/articles/b/A1.json'], [], 'news/haftalik-2026-11-01'), 0, 'haftalık makale kendiliğinden');
@@ -191,10 +192,23 @@ test('Koruma betiği gerçekten çalıştırılınca: yalnızca içerik kendili�
   const ownerOld = ev('2026-10-31T09:00:00Z', 3, 'sahip'), botNew = ev('2026-10-31T12:00:00Z', 7, 'github-actions[bot]');
   assert.equal(guard(['index.html'], ['onay'], 'feature', {events: [botNew, ownerOld]}), 1, 'botun daha yeni etiketi reddedilir');
   assert.equal(guard(['index.html'], ['onay'], 'feature', {events: [ev('2026-10-31T12:00:00Z', 9, 'baskasi'), ev('2026-10-31T12:00:00Z', 8, 'sahip')]}), 1, 'aynı saniyede olay numarası belirler');
-  // for the label of this very event, GitHub's sender is used, whatever the (possibly late) event list says
+  // for the label of this very event, a sender other than the owner is refused outright
   assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'github-actions[bot]'}), 1, 'tetikleyen bot');
-  assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'sahip', events: []}), 0, 'tetikleyen sahip, liste gecikmeli');
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'sahip'}), 0, 'tetikleyen sahip');
   assert.equal(guard(['index.html'], ['onay', 'x'], 'feature', {action: 'labeled', eventLabel: 'x', sender: 'sahip', actor: 'claude[bot]'}), 1, 'başka etiketin göndereni onay sayılmaz');
+  // an app acting with the owner's account (an AI assistant's GitHub connector) is not the owner's approval
+  const viaApp = runGuard(['index.html'], ['onay'], 'feature', {events: [ev('2026-10-31T12:00:00Z', 7, 'sahip', 'chatgpt-codex-connector')]});
+  assert.equal(viaApp.status, 1, 'uygulama üzerinden eklenen etiket');
+  assert.match(viaApp.stdout, /bir uygulama üzerinden \(chatgpt-codex-connector\)/);
+  assert.equal(guard(['.github/workflows/x.yml'], ['workflow-onay'], 'feature', {action: 'labeled', eventLabel: 'workflow-onay', sender: 'sahip',
+    events: [ev('2026-10-31T12:00:00Z', 7, 'sahip', 'chatgpt-codex-connector')]}), 1, 'gönderen sahip görünse de uygulama');
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {events: [ev('2026-10-31T09:00:00Z', 3, 'sahip', 'chatgpt-codex-connector'), ev('2026-10-31T12:00:00Z', 7, 'sahip')]}), 0, 'sonra sahibin kendisi eklediyse geçerli');
+  // the event list lagging behind: the newest entry for the label is a removal (or nothing) → never an approval
+  const lagging = runGuard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'sahip',
+    events: [ev('2026-10-31T09:00:00Z', 3, 'sahip'), ev('2026-10-31T10:00:00Z', 4, 'github-actions[bot]', '-', 'unlabeled')]});
+  assert.equal(lagging.status, 1, 'eski sahip etiketi + kaldırma: yeni ekleme görünmüyor');
+  assert.match(lagging.stdout, /olay listesinde görünmüyor/);
+  assert.equal(guard(['index.html'], ['onay'], 'feature', {action: 'labeled', eventLabel: 'onay', sender: 'sahip', events: []}), 1, 'liste boş');
   // file names from the pull request cannot run workflow commands in the log
   const evil = runGuard(['index.html', '::warning::sahte', '::add-mask::x'], []);
   assert.equal(evil.status, 1);
