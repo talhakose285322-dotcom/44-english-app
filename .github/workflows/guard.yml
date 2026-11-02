@@ -5,7 +5,8 @@
 #   the repository owner should add after reading the change.
 # - Anything outside content/articles/ (app code, tests, database, workflows, documents) needs the owner's "onay"
 #   label; only content merges on its own when the checks pass.
-# - An approval label counts only if the repository owner added it (not a bot, an app or a workflow token), and new
+# - An approval label counts only if the repository owner added it by hand (not a bot, a workflow token, or an app
+#   such as an AI assistant's GitHub connector acting with the owner's account), and new
 #   commits remove it, so code added after the review is never merged with the old approval. Reopening the pull
 #   request removes it too, and if the removal fails the check fails.
 # - File names come from the pull request, so they are printed with workflow commands switched off.
@@ -58,17 +59,28 @@ jobs:
             done
             LABELS='[]'
           fi
-          # a label counts only when the owner added it last: for the label of this very event GitHub names who
-          # added it (sender); otherwise the newest "labeled" event, sorted by time (then by event id), decides
+          # a label counts only when the owner added it last, by hand: the newest "labeled"/"unlabeled" event for it,
+          # sorted by time (then by event id), must be "labeled", by the owner, with no app in between
+          # (performed_via_github_app; an AI assistant's GitHub connector acts with the owner's account).
+          # The event list can lag a few seconds behind the event that started this run: while its newest entry is
+          # not a labeling yet, it is read again; if the labeling never shows, the check fails.
           approved() {
             printf '%s' "$LABELS" | grep -q "\"$1\"" || return 1
-            if [ "$ACTION" = labeled ] && [ "$EVENT_LABEL" = "$1" ]; then
-              who=$SENDER
-            else
-              who=$(gh api --paginate "repos/$REPO/issues/$PR/events" --jq ".[] | select(.event == \"labeled\" and .label.name == \"$1\") | [.created_at, .id, .actor.login] | @tsv" \
-                | sort -t "$(printf '\t')" -k1,1 -k2,2n | tail -n 1 | cut -f3)
+            if [ "$ACTION" = labeled ] && [ "$EVENT_LABEL" = "$1" ] && [ "$SENDER" != "$OWNER" ]; then
+              printf '::error::"%s" etiketi depo sahibi tarafından eklenmemiş (%s); onay sayılmaz.\n' "$1" "${SENDER:-bilinmiyor}"; return 1
             fi
+            local last kind who app tries=0
+            while :; do
+              last=$(gh api --paginate "repos/$REPO/issues/$PR/events" --jq ".[] | select((.event == \"labeled\" or .event == \"unlabeled\") and .label.name == \"$1\") | [.created_at, .id, .event, .actor.login, (.performed_via_github_app.slug // \"-\")] | @tsv" \
+                | sort -t "$(printf '\t')" -k1,1 -k2,2n | tail -n 1)
+              kind=$(printf '%s' "$last" | cut -f3)
+              if [ "$kind" = labeled ] || [ "$tries" -ge 5 ]; then break; fi
+              tries=$((tries + 1)); sleep "${LABEL_RETRY_WAIT:-5}"
+            done
+            who=$(printf '%s' "$last" | cut -f4); app=$(printf '%s' "$last" | cut -f5)
+            if [ "$kind" != labeled ]; then printf '::error::"%s" etiketinin eklenmesi GitHub olay listesinde görünmüyor; etiketi kaldırıp yeniden ekleyin.\n' "$1"; return 1; fi
             if [ "$who" != "$OWNER" ]; then printf '::error::"%s" etiketi depo sahibi tarafından eklenmemiş (%s); onay sayılmaz.\n' "$1" "${who:-bilinmiyor}"; return 1; fi
+            if [ "$app" != "-" ]; then printf '::error::"%s" etiketi sahibin hesabıyla ama bir uygulama üzerinden (%s) eklenmiş; yapay zekâ ya da başka bir uygulamanın eklediği etiket onay sayılmaz. Etiketi GitHub üzerinde kendiniz ekleyin.\n' "$1" "$app"; return 1; fi
           }
           files=$(gh api --paginate "repos/$REPO/pulls/$PR/files" --jq '.[].filename')
           echo 'Değişen dosyalar:'
