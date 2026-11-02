@@ -1,0 +1,24 @@
+{
+  "id": "trees-straighten-with-wood-muscles",
+  "level": "B2",
+  "title": "Trees Can Sense Their Shape and Straighten Up",
+  "paragraphs": [
+    "It has long been known that trees use light and gravity to grow upward. Research from the French institute INRAE, published in New Phytologist this year, adds a third ingredient: trees also sense their own shape and use that information to straighten their trunks, with the help of tissue that behaves much like opposing muscles.",
+    "The team grew young poplar trees on their sides for about ten days, until the stems had curved noticeably upward. They then moved the trees onto a horizontal platform that rotates slowly inside a sphere lit equally from all directions, which removed consistent cues from gravity and light. Over the following weeks, the stems straightened almost completely. Examination of the wood showed that tension wood had stopped forming on the upper side and that identical wood was now forming on the opposite side, pulling the stem back. Bruno Moulia, one of the researchers, described this as \"a genuine sensorimotor loop operating in the woody parts of trees\".",
+    "The authors suggest that the finding could help foresters select straighter trees, improve timber quality and develop cereal crops that are less likely to fall over before harvest. These applications are proposals rather than results, however. The report does not state how many trees were studied, only one young tree type was used, and the work was funded by French space and agroecology research bodies, so independent repetition would strengthen the conclusions."
+  ],
+  "questions": [
+    {
+      "q": "What new ingredient does the study add to how trees grow upward?",
+      "a": "Sensing their own shape."
+    },
+    {
+      "q": "What did the platform remove?",
+      "a": "Consistent cues from gravity and light."
+    },
+    {
+      "q": "Why are the practical uses uncertain?",
+      "a": "They are proposals; the sample size is not stated and only young poplars were used."
+    }
+  ]
+}
