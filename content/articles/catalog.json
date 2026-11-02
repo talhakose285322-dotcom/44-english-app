@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,178 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "trees-straighten-with-wood-muscles",
+      "category": "news",
+      "title": "Trees Can Sense Their Shape and Straighten Up",
+      "summary": "Fransız araştırmacılar, ağaçların kendi eğriliklerini hissedip karşıt taraflarda oluşan 'gerilim odunu' ile gövdelerini düzelttiğini buldu; sonuçların sınırları var.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-02",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 66,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 122,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 182,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 234,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 248,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 254,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "trees-straighten-with-wood-muscles/image.jpg",
+        "alt": "Colorado'da kavak ağaçlarından oluşan bir koru (örnek görsel).",
+        "credit": "Calibas",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Populus_angustifolia_CO.jpg"
+      },
+      "sources": [
+        {
+          "title": "INRAE: Newly discovered role of tension wood: the muscle trees use to correct their posture",
+          "url": "https://www.inrae.fr/en/news/newly-discovered-role-tension-wood-muscle-trees-use-correct-their-posture"
+        },
+        {
+          "title": "ScienceDaily: Scientists discover the hidden muscles trees use to straighten themselves",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261030003006.htm"
+        },
+        {
+          "title": "New Phytologist (Caulus et al.): Proprioception drives tension wood formation",
+          "url": "https://doi.org/10.1111/nph.71238"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "proprioception",
+          "tr": "kendi vücut/şekil duyusu"
+        },
+        {
+          "w": "tension wood",
+          "tr": "gerilim odunu"
+        },
+        {
+          "w": "trunk",
+          "tr": "gövde"
+        },
+        {
+          "w": "straighten",
+          "tr": "düzeltmek, doğrultmak"
+        },
+        {
+          "w": "gravity",
+          "tr": "yer çekimi"
+        },
+        {
+          "w": "replicate",
+          "tr": "(deneyi) tekrarlamak"
+        },
+        {
+          "w": "opposite",
+          "tr": "karşıt, zıt"
+        }
+      ]
+    },
+    {
+      "id": "crocodile-kin-survived-by-staying-warm",
+      "category": "news",
+      "title": "Warm Climates May Have Helped Crocodile Kin Outlast the Dinosaurs",
+      "summary": "UCL öncülüğündeki bir çalışmaya göre timsah akrabaları, sıcak iklimleri tercih etmeleri sayesinde asteroit sonrası sıcak bölgelerde sığınak bulmuş olabilir; bulgular modellere dayanıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-02",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 58,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 101,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 170,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 206,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 223,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 226,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "crocodile-kin-survived-by-staying-warm/image.jpg",
+        "alt": "Bir deniz timsahı (Crocodylus porosus) (örnek görsel).",
+        "credit": "H. Zell",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Crocodylus_porosus_-_Wilhelma.jpg"
+      },
+      "sources": [
+        {
+          "title": "UCL News: Keeping warm climates helped crocodiles outlast dinosaurs",
+          "url": "https://www.ucl.ac.uk/news/2026/oct/keeping-warm-climates-helped-crocodiles-outlast-dinosaurs"
+        },
+        {
+          "title": "ScienceDaily: The asteroid killed the dinosaurs. Why did crocodiles survive?",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261030002922.htm"
+        },
+        {
+          "title": "Science Advances (Chiarenza et al.): Climatic niche conservatism shapes crocodile-line archosaurs",
+          "url": "https://doi.org/10.1126/sciadv.aeg2217"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "asteroid",
+          "tr": "asteroit"
+        },
+        {
+          "w": "survive",
+          "tr": "hayatta kalmak"
+        },
+        {
+          "w": "extinct",
+          "tr": "nesli tükenmiş"
+        },
+        {
+          "w": "fossil",
+          "tr": "fosil"
+        },
+        {
+          "w": "refuge",
+          "tr": "sığınak"
+        },
+        {
+          "w": "equator",
+          "tr": "ekvator"
+        },
+        {
+          "w": "habitat",
+          "tr": "yaşam alanı"
+        }
+      ]
+    },
     {
       "id": "lucy-enters-jupiter-trojan-region",
       "category": "news",
