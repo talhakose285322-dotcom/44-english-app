@@ -36,3 +36,7 @@ Bunları yalnızca depo sahibi yapar. `main` koruma kuralları (`CLAUDE.md` böl
 ## 6. Bilgisayar kapalıyken
 Fabrika depo sahibinin bilgisayarında çalışır. Bilgisayar kapalıyken yazılan görevler GitHub'da bekler;
 bilgisayar açılınca işlenir.
+
+## 7. Sorun giderme
+- **Rapor gelmiyor:** Depo sahibinin bilgisayarının açık olduğunu ve fabrikanın çalıştığını kontrol edin.
+- **Rapor ❌ diyor:** PR onaylanmaz. Aynı issue'ya `@factory <düzeltme isteği>` yazın.
