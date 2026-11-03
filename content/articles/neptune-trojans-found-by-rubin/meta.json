@@ -1,0 +1,55 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "category": "news",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "summary": "Şili'deki Rubin Gözlemevi verileri, Neptün'ün yörüngesini paylaşan iki yeni kararlı asteroit ortaya çıkardı; bilinen kararlı örnek sayısı ikiye katlandı.",
+  "published": "2026-11-03",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Mavi gece gökyüzü altında Vera C. Rubin Gözlemevi (örnek görsel).",
+    "credit": "Rubin Observatory/NOIRLab/NSF/AURA/B. Quint",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vera_C._Rubin_Observatory,_iotw2229a_-_Night_Light.jpg"
+  },
+  "sources": [
+    {
+      "title": "The Astrophysical Journal Letters (IOP): Schwamb et al., first view of the Neptune Trojan L5 cloud with Rubin Observatory",
+      "url": "https://iopscience.iop.org/article/10.3847/2041-8213/aead9a"
+    },
+    {
+      "title": "Phys.org: Queen’s University Belfast students find Neptune’s elusive Trojan asteroids",
+      "url": "https://phys.org/news/2026-11-queen-university-belfast-students-neptune.html"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "asteroid",
+      "tr": "asteroit"
+    },
+    {
+      "w": "orbit",
+      "tr": "yörünge"
+    },
+    {
+      "w": "observatory",
+      "tr": "gözlemevi"
+    },
+    {
+      "w": "stable",
+      "tr": "kararlı"
+    },
+    {
+      "w": "candidate",
+      "tr": "aday"
+    },
+    {
+      "w": "faint",
+      "tr": "sönük, belli belirsiz"
+    },
+    {
+      "w": "survey",
+      "tr": "(gökyüzü) tarama"
+    }
+  ]
+}

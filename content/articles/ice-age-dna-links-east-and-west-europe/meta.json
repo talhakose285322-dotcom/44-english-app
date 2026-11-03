@@ -1,0 +1,55 @@
+{
+  "id": "ice-age-dna-links-east-and-west-europe",
+  "category": "news",
+  "title": "Ancient DNA Links Ice Age Europeans Across the Continent",
+  "summary": "Science Advances'te yayımlanan araştırma, yaklaşık 30.000 yıllık bir kadının genomu ve mağara çökeltilerindeki DNA ile Buzul Çağı Avrupası'nda doğu ve batı toplulukları arasında bağlantı olduğunu gösteriyor.",
+  "published": "2026-11-03",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "İspanya sınırına yakın Fransa’daki Isturitz Mağarası’nın girişi.",
+    "credit": "Krijun",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_entry_of_the_cave_of_Isturitz.jpg"
+  },
+  "sources": [
+    {
+      "title": "University of Vienna: Ancient human DNA reveals hidden connections across Ice Age Europe",
+      "url": "https://www.univie.ac.at/en/news/detail/ancient-human-dna-reveals-hidden-connections-across-ice-age-europe"
+    },
+    {
+      "title": "Science Advances: Early Gravettian genomic data from Western Europe reveal population movements before the LGM (Gelabert et al.)",
+      "url": "https://doi.org/10.1126/sciadv.aeh6128"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "ancestry",
+      "tr": "soy, atalar kökeni"
+    },
+    {
+      "w": "genome",
+      "tr": "genom"
+    },
+    {
+      "w": "sediment",
+      "tr": "tortul, çökelti"
+    },
+    {
+      "w": "Ice Age",
+      "tr": "Buzul Çağı"
+    },
+    {
+      "w": "isolated",
+      "tr": "yalıtılmış, ayrı kalmış"
+    },
+    {
+      "w": "refuge",
+      "tr": "sığınak"
+    },
+    {
+      "w": "remains",
+      "tr": "kalıntılar"
+    }
+  ]
+}

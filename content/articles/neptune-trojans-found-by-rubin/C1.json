@@ -1,0 +1,24 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "level": "C1",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "paragraphs": [
+    "Neptune shares its orbit with a retinue of small bodies known as Trojans, which hold positions roughly sixty degrees ahead of and behind the planet. More than thirty have been catalogued, yet the overwhelming majority belong to the leading cloud; the trailing cloud has long been a blind spot in the census.",
+    "The culprit was celestial geometry rather than any shortage of objects. For years, the trailing cloud lay across the glare of the Milky Way’s dense star fields, where faint, slow-moving specks are all but impossible to isolate. In 2025 it drifted clear of that backdrop and into the area covered by the Rubin Observatory in Chile, a facility built to photograph the sky again and again.",
+    "Mining early survey data, a team led by Meg Schwamb of Queen’s University Belfast confirmed two new Trojans, 2025 MH348 and 2025 NN80, whose orbits should remain stable over very long timescales, and flagged a third candidate, 2025 MD138. Published in The Astrophysical Journal Letters, the work doubles the known stable sample in the trailing cloud to four, and suggests that its members resemble their leading counterparts in surface properties. Caution is nonetheless in order: a handful of objects is a slender basis for generalisation, and the candidate rests on just 38 days of observations. The survey’s coming years should fill in the picture far more convincingly."
+  ],
+  "questions": [
+    {
+      "q": "What does “a blind spot in the census” suggest?",
+      "a": "An area where counting has been incomplete."
+    },
+    {
+      "q": "What made the trailing cloud visible in 2025?",
+      "a": "It drifted out of the Milky Way’s dense star fields and into the Rubin survey area."
+    },
+    {
+      "q": "Why does the author urge caution?",
+      "a": "Only a few objects were found, and the candidate has just 38 days of data."
+    }
+  ]
+}
