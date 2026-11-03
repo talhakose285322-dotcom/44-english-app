@@ -1,0 +1,24 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "level": "A2",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "paragraphs": [
+    "Neptune has small rocky companions called Trojans. They follow the same path around the Sun as the planet. Some travel ahead of Neptune, and some travel behind it.",
+    "The group behind Neptune was hard to study. For many years, it sat in front of the crowded centre of our galaxy, so there were too many bright stars in the way. In 2025, the group moved into a clearer part of the sky.",
+    "Scientists then used early data from the Rubin Observatory in Chile. They confirmed two new Trojans that stay on stable paths for a very long time. They also found one possible third object. Now four stable Trojans are known behind Neptune."
+  ],
+  "questions": [
+    {
+      "q": "Why was the group behind Neptune hard to study?",
+      "a": "It sat in front of the crowded centre of the galaxy, with too many bright stars."
+    },
+    {
+      "q": "What did the team use?",
+      "a": "Early data from the Rubin Observatory."
+    },
+    {
+      "q": "How many stable Trojans are known behind Neptune now?",
+      "a": "Four."
+    }
+  ]
+}

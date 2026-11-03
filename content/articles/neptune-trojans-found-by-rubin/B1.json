@@ -1,0 +1,24 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "level": "B1",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "paragraphs": [
+    "Neptune shares its orbit with a number of small bodies known as Trojans. They stay about sixty degrees ahead of or behind the planet. More than thirty are known, but most of them are in the group that leads Neptune. The trailing group has been much harder to study.",
+    "The reason is simple: for many years, the trailing group appeared in the same part of the sky as the dense centre of the Milky Way. Faint, slow-moving objects were lost among millions of stars. In 2025, the group finally moved far enough away from that crowded area to be seen.",
+    "A team led by Meg Schwamb at Queen’s University Belfast searched data from the Rubin Observatory in Chile, a new telescope built to scan the sky again and again. They confirmed two new Trojans, named 2025 MH348 and 2025 NN80, whose orbits should stay stable for a very long time. This doubles the number of known stable objects in the trailing group, from two to four. A third object is only a candidate, because it has been followed for just 38 days."
+  ],
+  "questions": [
+    {
+      "q": "Why was the trailing group hard to see before 2025?",
+      "a": "It appeared in front of the crowded centre of the Milky Way."
+    },
+    {
+      "q": "What did the team confirm?",
+      "a": "Two new Trojans with long-term stable orbits."
+    },
+    {
+      "q": "Why is the third object only a candidate?",
+      "a": "It has been followed for only 38 days."
+    }
+  ]
+}

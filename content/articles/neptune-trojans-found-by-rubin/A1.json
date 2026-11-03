@@ -1,0 +1,24 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "level": "A1",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "paragraphs": [
+    "Neptune is a planet far from the Sun. Some small rocks travel with it. They are called Trojans.",
+    "Scientists looked at new pictures. The pictures came from a big telescope in Chile. It is called the Rubin Observatory.",
+    "The team found two new Trojans. They also found one more that may be a Trojan. Before, scientists knew only two of this kind. Now they know four."
+  ],
+  "questions": [
+    {
+      "q": "Where is the Rubin Observatory?",
+      "a": "In Chile."
+    },
+    {
+      "q": "How many new Trojans did the team find?",
+      "a": "Two."
+    },
+    {
+      "q": "Is Neptune close to the Sun?",
+      "a": "No, it is far from the Sun."
+    }
+  ]
+}

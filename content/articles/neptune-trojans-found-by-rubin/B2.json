@@ -1,0 +1,24 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "level": "B2",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "paragraphs": [
+    "Neptune shares its orbit with a family of small bodies called Trojans, which keep roughly sixty degrees ahead of or behind the planet. Although more than thirty are known, the vast majority belong to the leading group; the trailing cloud has proved far more elusive.",
+    "The explanation is a matter of perspective. For many years, the trailing cloud lay across the dense star fields near the Milky Way’s plane, where faint, slow-moving objects are nearly impossible to pick out. In 2025 it drifted far enough from that region to overlap the area surveyed by the Rubin Observatory in Chile, a telescope designed to image the whole visible sky repeatedly.",
+    "Using early data from that survey, a team led by Meg Schwamb of Queen’s University Belfast confirmed two new long-term stable Trojans, 2025 MH348 and 2025 NN80, and flagged a third candidate, 2025 MD138. The result, published in The Astrophysical Journal Letters, doubles the known sample of stable objects in the trailing cloud to four. The authors add that the surfaces of the two clouds look similar. The sample remains tiny, however, and the candidate rests on only 38 days of observations, so firm conclusions about the cloud as a whole must wait for the survey’s later years."
+  ],
+  "questions": [
+    {
+      "q": "What does “elusive” mean here?",
+      "a": "Hard to find or catch."
+    },
+    {
+      "q": "Why did the trailing cloud become visible in 2025?",
+      "a": "It moved far enough from the crowded star fields to overlap the Rubin survey area."
+    },
+    {
+      "q": "Why should the conclusions be treated carefully?",
+      "a": "The sample is tiny and the third object has only 38 days of observations."
+    }
+  ]
+}
