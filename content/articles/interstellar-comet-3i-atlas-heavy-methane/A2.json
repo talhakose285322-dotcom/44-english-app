@@ -1,0 +1,24 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "level": "A2",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "paragraphs": [
+    "A comet called 3I/ATLAS is visiting our solar system. It is only the third object we know that comes from another star. Scientists used the Webb space telescope to study the gas around it.",
+    "They found methane gas. The methane had a lot of heavy hydrogen, which is called deuterium. The amount was higher than in any methane measured in our solar system.",
+    "Scientists think this means the ice formed in a place that was extremely cold. The comet may have been born around another star, but they cannot be sure yet."
+  ],
+  "questions": [
+    {
+      "q": "What is the comet's name?",
+      "a": "3I/ATLAS."
+    },
+    {
+      "q": "What did scientists find in the methane?",
+      "a": "A lot of heavy hydrogen, called deuterium."
+    },
+    {
+      "q": "Are scientists sure where the comet was born?",
+      "a": "No, they cannot be sure yet."
+    }
+  ]
+}

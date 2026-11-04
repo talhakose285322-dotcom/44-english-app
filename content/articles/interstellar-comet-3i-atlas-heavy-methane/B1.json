@@ -1,0 +1,24 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "level": "B1",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "paragraphs": [
+    "Scientists have studied the interstellar comet 3I/ATLAS with the James Webb Space Telescope and found something unusual in its gas. A team led by Nathan Roth of American University and NASA's Goddard Space Flight Center measured how much heavy hydrogen, or deuterium, is in the comet's methane.",
+    "About 3.2 percent of the hydrogen in the methane was deuterium. That is much higher than anything measured in methane inside our solar system, and about three times the amount found earlier in the comet's water. Webb made the observations in December 2025, when the comet was about 2.4 times as far from the Sun as Earth is.",
+    "The team says this suggests the methane ice formed in an extremely cold place, perhaps around another star, where cosmic rays could help produce heavy hydrogen. However, the signal is faint, and the researchers had to remove light from other gases. The result gives a possible story, not a certain birthplace."
+  ],
+  "questions": [
+    {
+      "q": "Which telescope made the observations?",
+      "a": "The James Webb Space Telescope."
+    },
+    {
+      "q": "How does the methane compare with the comet's water?",
+      "a": "Its heavy hydrogen share is about three times higher."
+    },
+    {
+      "q": "Why is the result not certain?",
+      "a": "The signal is faint and the birthplace is only a possible explanation."
+    }
+  ]
+}
