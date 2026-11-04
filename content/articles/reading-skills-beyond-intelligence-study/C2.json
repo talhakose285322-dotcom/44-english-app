@@ -1,0 +1,24 @@
+{
+  "id": "reading-skills-beyond-intelligence-study",
+  "level": "C2",
+  "title": "Two Overlooked Skills Predict Children's Reading Success",
+  "paragraphs": [
+    "The comfortable assumption that a child who stumbles over words must simply be less clever is, according to a sweeping new analysis, ripe for retirement. Led by Dr. Daniel Hajovsky of Texas A&M University, with colleagues from the University of Kansas, St. John's University, Montclair State University and Temple University, the work folds roughly 50,000 correlations from 137 cognitive and achievement test batteries into one statistical model, and appears in the Journal of Intelligence.",
+    "What emerges is a more nuanced portrait. Auditory processing, the knack of hearing and separating the sounds within spoken words, and comprehension-knowledge, the store of vocabulary and background understanding a child brings to a page, outperformed every other ability in predicting reading. General intelligence kept a seat at the table but a considerably less prominent one than earlier research had granted it, visual processing proved immaterial, and memory, reasoning and processing speed served as supporting actors.",
+    "Hajovsky's message is that reading difficulty is not a verdict on ability but often the signature of one skill awaiting support. Yet a meta-analysis is only as sturdy as the tests it pools, its associations are correlational rather than causal, and the report we consulted is silent on funding. Teachers and parents would therefore do well to treat the findings as a prompt for closer diagnosis, not as a guarantee that strengthening a single skill will, by itself, unlock fluent reading."
+  ],
+  "questions": [
+    {
+      "q": "What does \"ripe for retirement\" suggest about the old assumption?",
+      "a": "It should be abandoned."
+    },
+    {
+      "q": "What role did general intelligence play in the findings?",
+      "a": "It was linked to reading, but less prominently than earlier research suggested."
+    },
+    {
+      "q": "Why should the findings not be treated as a guaranteed fix?",
+      "a": "They are correlational and depend on pooled test data, so they do not prove that one skill will unlock reading."
+    }
+  ]
+}

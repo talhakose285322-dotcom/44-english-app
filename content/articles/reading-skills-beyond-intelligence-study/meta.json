@@ -1,0 +1,55 @@
+{
+  "id": "reading-skills-beyond-intelligence-study",
+  "category": "news",
+  "title": "Two Overlooked Skills Predict Children's Reading Success",
+  "summary": "Texas A&M öncülüğündeki geniş bir analiz, çocukların okuma başarısını en iyi sesleri ayırt etme ve kelime/bilgi birikiminin öngördüğünü, genel zekânın etkisinin düşündüğümüzden küçük olduğunu gösterdi.",
+  "published": "2026-11-04",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Kütüphanede üst üste dizilmiş kitaplar (örnek görsel).",
+    "credit": "Abhi Sharma",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Books_HD_(8314929977).jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (Texas A&M University): Scientists identify two overlooked skills that predict reading success",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261102202845.htm"
+    },
+    {
+      "title": "Journal of Intelligence: Toward a Consensus Model of Cognitive–Reading Achievement Relations Using Meta-Structural Equation Modeling",
+      "url": "https://doi.org/10.3390/jintelligence13080104"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "auditory processing",
+      "tr": "işitsel işleme (sesleri ayırt etme)"
+    },
+    {
+      "w": "vocabulary",
+      "tr": "kelime hazinesi"
+    },
+    {
+      "w": "predict",
+      "tr": "önceden tahmin etmek"
+    },
+    {
+      "w": "struggle",
+      "tr": "zorlanmak"
+    },
+    {
+      "w": "background knowledge",
+      "tr": "ön bilgi"
+    },
+    {
+      "w": "correlation",
+      "tr": "korelasyon, ilişki"
+    },
+    {
+      "w": "meta-analysis",
+      "tr": "meta-analiz"
+    }
+  ]
+}

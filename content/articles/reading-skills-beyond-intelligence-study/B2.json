@@ -1,0 +1,24 @@
+{
+  "id": "reading-skills-beyond-intelligence-study",
+  "level": "B2",
+  "title": "Two Overlooked Skills Predict Children's Reading Success",
+  "paragraphs": [
+    "It is a common assumption that children who struggle to read are less intelligent than their classmates. A large analysis led by Dr. Daniel Hajovsky of Texas A&M University, with colleagues from the University of Kansas, St. John's University, Montclair State University and Temple University, challenges that view. Published in the Journal of Intelligence, it pooled about 50,000 correlations from 137 cognitive and achievement test batteries into a single model.",
+    "Two abilities stood out as the most reliable predictors of reading: auditory processing, the skill of recognising and distinguishing the sounds of spoken words, and comprehension-knowledge, the store of vocabulary and background knowledge a child has accumulated. General intelligence did show a connection to reading, but a considerably weaker one than some earlier work had implied, while visual processing had no meaningful relationship with it. Memory, reasoning and processing speed contributed in supporting roles.",
+    "According to Hajovsky, reading difficulties are not a sign of low ability and often reflect one particular skill that needs support. The findings should nonetheless be read with care. A meta-analysis depends on the quality and variety of the tests it combines, and the associations it reveals are correlational, so they cannot establish that training one skill will directly improve reading. The report we read does not mention funding."
+  ],
+  "questions": [
+    {
+      "q": "What type of study is this?",
+      "a": "A large analysis combining data from many earlier test batteries."
+    },
+    {
+      "q": "How did general intelligence compare with the two main predictors?",
+      "a": "Its link to reading was weaker."
+    },
+    {
+      "q": "Why is it wrong to say that training one skill will definitely improve reading?",
+      "a": "The findings are correlational and do not show cause and effect."
+    }
+  ]
+}

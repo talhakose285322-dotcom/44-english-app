@@ -1,0 +1,24 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "level": "C2",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "paragraphs": [
+    "Few visitors from beyond our solar system have been scrutinised as closely as 3I/ATLAS, only the third interstellar object ever recognised, and a new analysis of James Webb Space Telescope data has added an intriguing chapter. Led by Nathan Roth of American University and NASA's Goddard Space Flight Center, the study in Nature Astronomy focuses on the comet's methane.",
+    "Observing the comet's coma on 22 and 23 December 2025, when it was some 2.4 times farther from the Sun than Earth is, the team found that about 3.2 percent of the hydrogen in that methane is deuterium. This is roughly 13 times the figure associated with comet 67P, a likely native of our own system, and about triple the ratio previously recorded in 3I/ATLAS's water. The authors do not mince words: the value \"exceeds any other value for methane measured in the solar system.\"",
+    "The usual reading is that such heavy enrichment betrays an extraordinarily cold, cosmic-ray-soaked birthplace, whether around another star or in the molecular cloud that preceded it, with the methane perhaps forming later than the water. Prudence is warranted, however. The deuterated signal is faint and emerged only after other gases were modelled and subtracted; benchmarks from distant star-forming regions are lacking; and the handful of chemical models available undershoot the measurement. The comet, in short, is less a verdict than a stern examination for theorists, and a reminder that a plausible story is not the same as an identified home."
+  ],
+  "questions": [
+    {
+      "q": "What does the phrase \"a stern examination for theorists\" imply?",
+      "a": "The result is hard for current models to explain."
+    },
+    {
+      "q": "How do the authors view the methane's timing relative to the water?",
+      "a": "They suggest it may have formed later."
+    },
+    {
+      "q": "Why should the findings be treated cautiously?",
+      "a": "The signal is faint, benchmarks are lacking and models fall short of the value."
+    }
+  ]
+}

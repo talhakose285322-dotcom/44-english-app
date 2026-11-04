@@ -1,0 +1,24 @@
+{
+  "id": "reading-skills-beyond-intelligence-study",
+  "level": "B1",
+  "title": "Two Overlooked Skills Predict Children's Reading Success",
+  "paragraphs": [
+    "Many parents and teachers believe that children who struggle with reading are simply less intelligent. A new analysis led by Dr. Daniel Hajovsky of Texas A&M University suggests the real picture is different. The team, which included researchers from four other universities, combined about 50,000 correlations from 137 cognitive and achievement test batteries into one statistical model.",
+    "Two skills predicted reading better than anything else. Auditory processing is the ability to recognise and separate the sounds in spoken words. Comprehension-knowledge means the vocabulary and background knowledge a child has built up. General intelligence was linked to reading as well, but less strongly than earlier research suggested, and visual processing showed no meaningful link. Memory, reasoning and processing speed played smaller supporting roles.",
+    "The researchers say this means a reading problem often points to one specific skill that needs help, not to low ability overall. There are limits, though. The study combines earlier data, and it shows links between abilities rather than proof that one skill causes another. The report we read does not mention funding."
+  ],
+  "questions": [
+    {
+      "q": "What did the visual processing results show?",
+      "a": "No meaningful link with reading."
+    },
+    {
+      "q": "What is comprehension-knowledge?",
+      "a": "The vocabulary and background knowledge a child has built up."
+    },
+    {
+      "q": "Why can the study not prove cause and effect?",
+      "a": "It shows links between abilities, not that one causes another."
+    }
+  ]
+}
