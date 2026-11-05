@@ -1,0 +1,24 @@
+{
+  "id": "skin-patch-reads-pulse-without-electronics",
+  "level": "C2",
+  "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+  "paragraphs": [
+    "Researchers at the Norwegian University of Science and Technology (NTNU) have devised a skin patch that takes a pulse without a single electronic component, they report in Advanced Materials (29 October 2026). The device is a sliver of silicone rubber printed with a nanoscale pattern that changes colour under strain, backed by an adhesive microstructure borrowed from the octopus’s suction cups.",
+    "The mechanism is disarmingly simple. Each heartbeat sends a faint ripple through the skin; the patch flexes with it, and its hue shifts by a hair’s breadth, just enough for an ordinary smartphone camera to register, with no spectrometer, laser or battery in sight. The team says the readings track the pulse and carry information on arterial stiffness, a recognised marker of cardiovascular risk. Because the method reads movement rather than light absorbed by tissue, it ought to sidestep the skin-tone bias that dogs optical wearables, a point underscored by associate professor Angelos Xomalis: “Optical measurements are not equally accurate for all skin types.”",
+    "Enthusiasm should nonetheless be tempered. The coverage available so far is silent on how many people were tested, how closely the readings match clinical equipment and who paid for the work. Until independent trials fill those gaps, the patch is an intriguing prototype, not a proven diagnostic tool."
+  ],
+  "questions": [
+    {
+      "q": "What is the patch made of?",
+      "a": "Silicone rubber with a nanoscale colour-changing pattern."
+    },
+    {
+      "q": "Why might it avoid skin-tone bias?",
+      "a": "It reads skin movement, not light absorbed by the tissue."
+    },
+    {
+      "q": "What is missing from the available coverage?",
+      "a": "Sample size, agreement with clinical equipment and funding details."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "skin-patch-reads-pulse-without-electronics",
+  "level": "A1",
+  "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+  "paragraphs": [
+    "A new patch can show your pulse. It has no battery. It has no wires.",
+    "The patch is made of soft rubber. It sticks to your skin. When your pulse moves your skin, the patch changes colour a little.",
+    "A phone camera can see the colour change. Scientists in Norway made the patch. They want to help people check their hearts."
+  ],
+  "questions": [
+    {
+      "q": "Does the patch have a battery?",
+      "a": "No."
+    },
+    {
+      "q": "What can see the colour change?",
+      "a": "A phone camera."
+    },
+    {
+      "q": "Where did the scientists work?",
+      "a": "In Norway."
+    }
+  ]
+}

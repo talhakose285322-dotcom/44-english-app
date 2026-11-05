@@ -1,0 +1,55 @@
+{
+  "id": "madagascar-flying-foxes-getting-smaller",
+  "category": "news",
+  "title": "Madagascar’s Giant Bats Are Getting Smaller",
+  "summary": "Madagaskar’daki dev uçan tilki yarasalarının kafatasları 1980’lerden sonra küçüldü; bilim insanları av baskısından şüpheleniyor ama bunu kanıtlayamıyor.",
+  "published": "2026-11-05",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Mavi gökyüzünde uçan Madagaskar uçan tilki yarasaları (Pteropus rufus), örnek görsel.",
+    "credit": "linkie (iNaturalist)",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pteropus_rufus_31221439.jpg"
+  },
+  "sources": [
+    {
+      "title": "Science News: Some of the world’s biggest bats are getting smaller",
+      "url": "https://sciencenews.org/article/bats-get-smaller-madagascan-flying-fox"
+    },
+    {
+      "title": "Popular Science: The puppy-sized bats of Madagascar are shrinking",
+      "url": "https://www.popsci.com/environment/madagascar-bats-shrinking/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "bat",
+      "tr": "yarasa"
+    },
+    {
+      "w": "skull",
+      "tr": "kafatası"
+    },
+    {
+      "w": "specimen",
+      "tr": "örnek (müze örneği)"
+    },
+    {
+      "w": "hunting",
+      "tr": "avcılık"
+    },
+    {
+      "w": "population",
+      "tr": "nüfus, popülasyon"
+    },
+    {
+      "w": "cause",
+      "tr": "neden"
+    },
+    {
+      "w": "shrink",
+      "tr": "küçülmek"
+    }
+  ]
+}

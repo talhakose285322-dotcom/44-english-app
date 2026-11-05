@@ -1,0 +1,24 @@
+{
+  "id": "madagascar-flying-foxes-getting-smaller",
+  "level": "C1",
+  "title": "Madagascar’s Giant Bats Are Getting Smaller",
+  "paragraphs": [
+    "A study from the Field Museum in Chicago, published in the Journal of Mammalogy, suggests that the Malagasy flying fox, one of the world’s largest bats, has been shrinking for roughly four decades. The research grew out of a hunch: a scientist handling museum specimens felt that the older animals were simply bigger than the bats captured in the field today.",
+    "To put the hunch to the test, the team measured twelve skull and tooth features on 121 specimens from nine museums, spanning more than 150 years. Skulls from before the 1980s averaged 3.6 millimetres, or about 6 percent, longer than later ones. The decline coincides with the period in which hunting grew from a modest, community-level practice into a commercial trade supplying markets and restaurants. Lead author Emily Cornelius Ruhs offered a plausible explanation: “If you’re the biggest bat in the sky, you might be the easiest target.” Selective hunting of the largest individuals could, over time, leave a population of smaller animals. The overall population is also reported to have fallen from about 300,000 in the early 2000s by roughly two-thirds.",
+    "Several caveats apply. The evidence rests on the timing of two trends, not on proof of cause and effect, and habitat loss and climate change cannot be ruled out. Whether smaller bodies make the species more vulnerable remains an open question that future genetic studies may help to answer."
+  ],
+  "questions": [
+    {
+      "q": "What was the sample used in the study?",
+      "a": "121 museum specimens from nine museums, collected over more than 150 years."
+    },
+    {
+      "q": "How could hunting lead to smaller bats?",
+      "a": "Hunters may target the largest bats, so smaller animals are left to breed."
+    },
+    {
+      "q": "Which factors does the article say cannot be ruled out?",
+      "a": "Habitat loss and climate change."
+    }
+  ]
+}
