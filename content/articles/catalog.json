@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "skin-patch-reads-pulse-without-electronics",
+      "category": "news",
+      "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+      "summary": "NTNU araştırmacıları, pil ve elektronik içermeyen, telefon kamerasıyla okunan bir nabız yaması geliştirdi; yöntem henüz erken aşamada.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-05",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 61,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 117,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 184,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 211,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 209,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 213,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "skin-patch-reads-pulse-without-electronics/image.jpg",
+        "alt": "Bir kişi başka bir kişinin bileğinden nabzını kontrol ediyor, örnek görsel.",
+        "credit": "ABD Hava Kuvvetleri, Astsb. Jeanette Copeland",
+        "license": "Kamu malı (ABD hükûmeti)",
+        "source": "https://commons.wikimedia.org/wiki/File:Radial_pulse.jpg"
+      },
+      "sources": [
+        {
+          "title": "News-Medical: New smartphone patch accurately measures heart health without electronics",
+          "url": "https://www.news-medical.net/news/20261029/New-smartphone-patch-accurately-measures-heart-health-without-electronics.aspx"
+        },
+        {
+          "title": "arXiv: Circuit-free cardiovascular monitoring via skin-interfaced nanophotonics",
+          "url": "https://arxiv.org/abs/2512.24820v1"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "patch",
+          "tr": "yama, bant"
+        },
+        {
+          "w": "pulse",
+          "tr": "nabız"
+        },
+        {
+          "w": "battery",
+          "tr": "pil"
+        },
+        {
+          "w": "stiffness",
+          "tr": "sertlik"
+        },
+        {
+          "w": "blood vessel",
+          "tr": "kan damarı"
+        },
+        {
+          "w": "sensor",
+          "tr": "sensör, algılayıcı"
+        },
+        {
+          "w": "accurate",
+          "tr": "doğru, isabetli"
+        }
+      ]
+    },
+    {
+      "id": "madagascar-flying-foxes-getting-smaller",
+      "category": "news",
+      "title": "Madagascar’s Giant Bats Are Getting Smaller",
+      "summary": "Madagaskar’daki dev uçan tilki yarasalarının kafatasları 1980’lerden sonra küçüldü; bilim insanları av baskısından şüpheleniyor ama bunu kanıtlayamıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-05",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 62,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 111,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 198,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 219,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 232,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 235,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "madagascar-flying-foxes-getting-smaller/image.jpg",
+        "alt": "Mavi gökyüzünde uçan Madagaskar uçan tilki yarasaları (Pteropus rufus), örnek görsel.",
+        "credit": "linkie (iNaturalist)",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Pteropus_rufus_31221439.jpg"
+      },
+      "sources": [
+        {
+          "title": "Science News: Some of the world’s biggest bats are getting smaller",
+          "url": "https://sciencenews.org/article/bats-get-smaller-madagascan-flying-fox"
+        },
+        {
+          "title": "Popular Science: The puppy-sized bats of Madagascar are shrinking",
+          "url": "https://www.popsci.com/environment/madagascar-bats-shrinking/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "bat",
+          "tr": "yarasa"
+        },
+        {
+          "w": "skull",
+          "tr": "kafatası"
+        },
+        {
+          "w": "specimen",
+          "tr": "örnek (müze örneği)"
+        },
+        {
+          "w": "hunting",
+          "tr": "avcılık"
+        },
+        {
+          "w": "population",
+          "tr": "nüfus, popülasyon"
+        },
+        {
+          "w": "cause",
+          "tr": "neden"
+        },
+        {
+          "w": "shrink",
+          "tr": "küçülmek"
+        }
+      ]
+    },
     {
       "id": "interstellar-comet-3i-atlas-heavy-methane",
       "category": "news",

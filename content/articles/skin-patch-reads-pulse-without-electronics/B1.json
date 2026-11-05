@@ -1,0 +1,24 @@
+{
+  "id": "skin-patch-reads-pulse-without-electronics",
+  "level": "B1",
+  "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+  "paragraphs": [
+    "Researchers at the Norwegian University of Science and Technology (NTNU) have developed a skin patch that can measure a person’s pulse without any electronics. The work was reported on 29 October 2026 in the journal Advanced Materials.",
+    "The patch is made of silicone rubber. One side carries a nanoscale pattern that changes colour when it is stretched, and the other has a sticky structure inspired by octopus suction cups. Each pulse moves the skin slightly, the patch stretches, and its colour shifts. An ordinary smartphone camera can detect this change, so no laser or special instrument is needed. The patch can follow the pulse and give information about how stiff the blood vessels are, which is linked to several heart diseases.",
+    "The team says the method does not depend on light absorption, so it should work equally well on different skin colours. This is a claim by the researchers, though. The public reports give few details about how many people were tested or how accurate the patch is compared with medical devices, so more studies are needed before it could be used in clinics."
+  ],
+  "questions": [
+    {
+      "q": "Why does the patch not need a battery?",
+      "a": "It changes colour when stretched by the pulse, and a phone camera reads it."
+    },
+    {
+      "q": "What does stiffness of the blood vessels show?",
+      "a": "It is linked to several heart diseases."
+    },
+    {
+      "q": "What information is missing from the reports?",
+      "a": "How many people were tested and how accurate it is."
+    }
+  ]
+}

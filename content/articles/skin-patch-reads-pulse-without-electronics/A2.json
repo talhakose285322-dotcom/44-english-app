@@ -1,0 +1,24 @@
+{
+  "id": "skin-patch-reads-pulse-without-electronics",
+  "level": "A2",
+  "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+  "paragraphs": [
+    "Scientists in Norway have made a small patch that can measure your pulse. It has no battery, no wires and no electronics inside. They shared the work in the journal Advanced Materials on 29 October 2026.",
+    "The patch is made of soft silicone rubber. One side has a tiny pattern that changes colour when the rubber stretches. The other side sticks to the skin and was inspired by the suction cups of an octopus.",
+    "Each heartbeat makes the skin move a little. The patch stretches and its colour changes. A normal phone camera can see this change, so no special machine is needed. The patch can show your pulse and also how stiff your blood vessels are."
+  ],
+  "questions": [
+    {
+      "q": "Why does the patch change colour?",
+      "a": "Because the skin moves with each pulse and the rubber stretches."
+    },
+    {
+      "q": "What animal inspired the sticky side?",
+      "a": "The octopus."
+    },
+    {
+      "q": "What does the phone do?",
+      "a": "Its camera sees the colour change."
+    }
+  ]
+}
