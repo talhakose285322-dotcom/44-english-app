@@ -1,0 +1,24 @@
+{
+  "id": "hera-sees-asteroid-pair-separately",
+  "level": "C1",
+  "title": "Europe’s Hera Probe Sees Two Asteroids Instead of One",
+  "paragraphs": [
+    "Two years after its launch, Europe’s Hera spacecraft has delivered what amounts to a first date with its destination: an image, taken in October 2026 from about 1,280 kilometres out, in which the asteroids Didymos and Dimorphos finally appear as two separate objects. Only days earlier, in early October, the probe had merely detected Didymos as a speck smaller than a pixel from roughly 236,500 kilometres away.",
+    "The mission exists to examine the aftermath of NASA’s DART experiment of September 2022, when a spacecraft slammed into Dimorphos and nudged its orbit around the 780-metre Didymos. The roughly 150-metre moonlet thereby became the first Solar System body whose orbit has been measurably shifted by human action. What remains unclear is what the impact did to the asteroid itself, and that is where Hera comes in.",
+    "Expectations should be tempered for now: Dimorphos is still a single pixel, and no surface features can be made out. The European Space Agency has pencilled in the first detailed images for 25 November. Beyond that, two shoebox-sized CubeSats, Milani and Juventas, will survey the impact site and use radar to establish whether Dimorphos is solid rock or a loosely bound rubble pile, knowledge that could turn a spectacular one-off into a repeatable planetary-defence tool."
+  ],
+  "questions": [
+    {
+      "q": "What did Hera detect in early October?",
+      "a": "Didymos as a speck smaller than a pixel."
+    },
+    {
+      "q": "What is unclear about the DART impact?",
+      "a": "What it did to the asteroid itself."
+    },
+    {
+      "q": "What could the CubeSats’ findings help create?",
+      "a": "A repeatable planetary-defence tool."
+    }
+  ]
+}

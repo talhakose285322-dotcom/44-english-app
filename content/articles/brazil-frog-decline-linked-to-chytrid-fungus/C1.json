@@ -1,0 +1,24 @@
+{
+  "id": "brazil-frog-decline-linked-to-chytrid-fungus",
+  "level": "C1",
+  "title": "A 50-Year-Old Frog Mystery Points to a Fungus",
+  "paragraphs": [
+    "Few ecological puzzles have lingered as long as the disappearance of frogs from Brazil’s Atlantic Forest, which began in the 1970s and was never convincingly explained. A study in Molecular Ecology now implicates chytrid, an amphibian fungus that was not formally described until 1999, by which time much of the damage had already been done.",
+    "The researchers, from the Smithsonian’s National Zoo and Conservation Biology Institute and Penn State, turned to a tried-and-tested resource: museum jars. Hundreds of amphibians from 17 species, collected at São Paulo’s Boracéia Biological Station by Ronald Heyer over five expeditions, were screened for the pathogen. Nothing turned up in specimens collected before 1979, whereas more than half of those gathered in the 1980s were infected, a timeline that fits the crash recorded between 1979 and 1982. Paradoxically, the worst-affected species showed no infection at all, which the team attributes to susceptible animals dying before collectors could reach them.",
+    "The story has a more hopeful second act. Surveys in 2022–2024 turned up 12 of the 17 species, and most populations appear to have bounced back despite the fungus still being around, perhaps because tolerance has evolved. The authors are careful to call that a proposal, not a proven mechanism; five species remain unaccounted for, and findings from a single site cannot simply be extended across the forest."
+  ],
+  "questions": [
+    {
+      "q": "What resource did the researchers use?",
+      "a": "Preserved museum specimens."
+    },
+    {
+      "q": "Why might the worst-hit species show no infection?",
+      "a": "Susceptible animals may have died before collection."
+    },
+    {
+      "q": "What is the hopeful part of the story?",
+      "a": "Most populations appear to have recovered."
+    }
+  ]
+}

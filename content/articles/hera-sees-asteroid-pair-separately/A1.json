@@ -1,0 +1,24 @@
+{
+  "id": "hera-sees-asteroid-pair-separately",
+  "level": "A1",
+  "title": "Europe’s Hera Probe Sees Two Asteroids Instead of One",
+  "paragraphs": [
+    "A space probe called Hera is flying to two asteroids. They are named Didymos and Dimorphos. Dimorphos is the small one.",
+    "In 2022, a NASA probe hit Dimorphos on purpose. Its path around Didymos changed. Now Hera wants to look at the result.",
+    "In October 2026, Hera took a new photo. For the first time, it showed two asteroids, not one. Hera will come closer soon."
+  ],
+  "questions": [
+    {
+      "q": "What is Hera?",
+      "a": "A space probe."
+    },
+    {
+      "q": "What did the NASA probe hit in 2022?",
+      "a": "Dimorphos."
+    },
+    {
+      "q": "What did the new photo show?",
+      "a": "Two asteroids, not one."
+    }
+  ]
+}

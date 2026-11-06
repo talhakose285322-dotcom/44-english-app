@@ -1,0 +1,24 @@
+{
+  "id": "hera-sees-asteroid-pair-separately",
+  "level": "B2",
+  "title": "Europe’s Hera Probe Sees Two Asteroids Instead of One",
+  "paragraphs": [
+    "The European Space Agency’s Hera spacecraft has returned its first image in which the asteroids Didymos and Dimorphos appear as two distinct objects rather than a single dot. Taken in October 2026 from about 1,280 kilometres away, the picture follows an earlier milestone in the same month, when the probe first spotted Didymos from roughly 236,500 kilometres, as a point of light smaller than a single pixel.",
+    "Hera, launched in October 2024, is meant to follow up on NASA’s DART experiment of September 2022, in which a spacecraft deliberately struck Dimorphos and altered its orbit around the larger Didymos. It remains the first occasion on which humans measurably changed the path of a natural body in the Solar System. Didymos measures about 780 metres across, while its companion is roughly 150 metres wide.",
+    "For now, the new image is more a proof of progress than a scientific result: Dimorphos still occupies only about one pixel, so nothing can be said about its surface. ESA expects to release the first detailed pictures on 25 November. Later, the CubeSats Milani and Juventas are due to analyse the impact site and probe whether Dimorphos is solid rock or a loose pile of rubble, which would help turn a one-off test into a technique that could be repeated."
+  ],
+  "questions": [
+    {
+      "q": "What milestone came earlier in October?",
+      "a": "Hera first spotted Didymos from about 236,500 km."
+    },
+    {
+      "q": "Why is the new image not yet a scientific result?",
+      "a": "Dimorphos is still only about one pixel."
+    },
+    {
+      "q": "What will Milani and Juventas investigate?",
+      "a": "The impact site and whether Dimorphos is solid or rubble."
+    }
+  ]
+}
