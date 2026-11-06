@@ -1,0 +1,24 @@
+{
+  "id": "hera-sees-asteroid-pair-separately",
+  "level": "C2",
+  "title": "Europe’s Hera Probe Sees Two Asteroids Instead of One",
+  "paragraphs": [
+    "For a spacecraft that has spent two years in transit, Hera’s latest picture is a modest affair, yet it marks a threshold: from about 1,280 kilometres out, in October 2026, the asteroids Didymos and Dimorphos at last register as two objects rather than one. Not long before, in early October, the probe had managed only to coax a sub-pixel glimmer of Didymos out of the starfield from roughly 236,500 kilometres.",
+    "The destination matters because of what happened there in September 2022, when NASA’s DART spacecraft ploughed into Dimorphos and altered its orbit around the 780-metre Didymos, making the roughly 150-metre moonlet the first Solar System body to have its path measurably changed by human hands. The deflection is established; its mechanics are not. How the impact reshaped the asteroid, and how much of the push came from the debris it threw up, are questions only a close inspection can settle.",
+    "Patience is therefore the order of the day, since Dimorphos still amounts to a single pixel. The European Space Agency has pencilled in 25 November for the first detailed views, after which the CubeSats Milani and Juventas will examine the impact site and use radar to determine whether Dimorphos is monolithic or merely a rubble pile held together by gravity. The answer will decide how far a one-off demonstration can be converted into a dependable planetary-defence technique."
+  ],
+  "questions": [
+    {
+      "q": "What is modest about Hera’s latest picture?",
+      "a": "Dimorphos is still just one pixel."
+    },
+    {
+      "q": "What is established and what is not about the DART deflection?",
+      "a": "The deflection is established; its mechanics are not."
+    },
+    {
+      "q": "What will decide if the test can become a technique?",
+      "a": "Whether Dimorphos is solid or a rubble pile."
+    }
+  ]
+}

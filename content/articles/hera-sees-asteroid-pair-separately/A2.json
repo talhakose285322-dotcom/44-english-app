@@ -1,0 +1,24 @@
+{
+  "id": "hera-sees-asteroid-pair-separately",
+  "level": "A2",
+  "title": "Europe’s Hera Probe Sees Two Asteroids Instead of One",
+  "paragraphs": [
+    "The European Space Agency probe Hera is travelling to a pair of asteroids called Didymos and Dimorphos. Didymos is about 780 metres wide, and Dimorphos is about 150 metres wide. Hera was launched in October 2024.",
+    "In 2022, a NASA spacecraft called DART hit Dimorphos on purpose. This changed how Dimorphos moves around the bigger asteroid. It was the first time people moved an asteroid in a test like this.",
+    "In October 2026, Hera took a picture from about 1,280 kilometres away. For the first time, it showed Didymos and Dimorphos as two separate objects. Dimorphos still looks very small. Scientists plan to share closer pictures on 25 November."
+  ],
+  "questions": [
+    {
+      "q": "How wide is Didymos?",
+      "a": "About 780 metres."
+    },
+    {
+      "q": "Why did DART hit Dimorphos?",
+      "a": "To test changing an asteroid’s movement."
+    },
+    {
+      "q": "When will closer pictures come?",
+      "a": "On 25 November."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "brazil-frog-decline-linked-to-chytrid-fungus",
+  "level": "B2",
+  "title": "A 50-Year-Old Frog Mystery Points to a Fungus",
+  "paragraphs": [
+    "For roughly half a century, the disappearance of frogs from Brazil’s Atlantic Forest in the 1970s and 1980s remained unexplained. A study published in the journal Molecular Ecology now makes a strong case that an amphibian fungus, known as chytrid, played a central role, even though the disease was only formally described in 1999, after many declines had already taken place.",
+    "Researchers from the Smithsonian’s National Zoo and Conservation Biology Institute and Penn State, led by Jack Boyette, tested hundreds of preserved amphibians from 17 species. The animals had been gathered at the Boracéia Biological Station in São Paulo by Ronald Heyer, who led five expeditions in the 1970s and 1980s. None of the specimens collected before 1979 tested positive, whereas more than half of those from the 1980s did, matching the severe declines recorded between 1979 and 1982. Curiously, the hardest-hit species showed no detectable infection, while stable species often carried the fungus, which suggests that highly susceptible frogs may have died before they could be collected.",
+    "Surveys between 2022 and 2024 located 12 of the 17 species, and most populations appear to have recovered even though chytrid persists, possibly because tolerance has grown over generations. The authors stress that this tolerance explanation is an interpretation rather than a confirmed mechanism, that the status of five species is still unresolved, and that the results from one site cannot automatically be applied to the rest of the forest."
+  ],
+  "questions": [
+    {
+      "q": "Why was chytrid hard to link to the declines at first?",
+      "a": "It was described only in 1999, after many declines had happened."
+    },
+    {
+      "q": "What did the hardest-hit species show?",
+      "a": "No detectable infection."
+    },
+    {
+      "q": "What do the authors say about the tolerance explanation?",
+      "a": "It is an interpretation, not a confirmed mechanism."
+    }
+  ]
+}

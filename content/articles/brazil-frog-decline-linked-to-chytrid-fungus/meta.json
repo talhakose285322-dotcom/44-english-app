@@ -1,0 +1,55 @@
+{
+  "id": "brazil-frog-decline-linked-to-chytrid-fungus",
+  "category": "news",
+  "title": "A 50-Year-Old Frog Mystery Points to a Fungus",
+  "summary": "Smithsonian ve Penn State araştırmacıları, Brezilya'daki müze kurbağalarını test ederek 1970–80'lerdeki kurbağa kayıplarında chytrid mantarının rolüne işaret etti; çoğu tür bugün toparlanmış görünüyor.",
+  "published": "2026-11-06",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir mantarın üzerinde duran küçük, turuncu bir Brachycephalus kurbağası; Brezilya'nın Atlantik Ormanı'ndan örnek görsel.",
+    "credit": "Diogo Luiz",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Brachycephalus_didactylus.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (Smithsonian): A 50-year-old mystery of vanishing frogs reveals a hidden killer",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261102202838.htm"
+    },
+    {
+      "title": "Molecular Ecology (DOI 10.1111/mec.70573)",
+      "url": "https://doi.org/10.1111/mec.70573"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "fungus",
+      "tr": "mantar"
+    },
+    {
+      "w": "amphibian",
+      "tr": "iki yaşamlı (kurbağa vb.)"
+    },
+    {
+      "w": "specimen",
+      "tr": "örnek (müze örneği)"
+    },
+    {
+      "w": "decline",
+      "tr": "azalma, düşüş"
+    },
+    {
+      "w": "tolerance",
+      "tr": "tolerans, dayanıklılık"
+    },
+    {
+      "w": "recover",
+      "tr": "toparlanmak, iyileşmek"
+    },
+    {
+      "w": "survey",
+      "tr": "saha taraması, anket"
+    }
+  ]
+}

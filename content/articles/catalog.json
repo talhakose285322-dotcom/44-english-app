@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "brazil-frog-decline-linked-to-chytrid-fungus",
+      "category": "news",
+      "title": "A 50-Year-Old Frog Mystery Points to a Fungus",
+      "summary": "Smithsonian ve Penn State araştırmacıları, Brezilya'daki müze kurbağalarını test ederek 1970–80'lerdeki kurbağa kayıplarında chytrid mantarının rolüne işaret etti; çoğu tür bugün toparlanmış görünüyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-06",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 68,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 125,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 189,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 238,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 221,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 229,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "brazil-frog-decline-linked-to-chytrid-fungus/image.jpg",
+        "alt": "Bir mantarın üzerinde duran küçük, turuncu bir Brachycephalus kurbağası; Brezilya'nın Atlantik Ormanı'ndan örnek görsel.",
+        "credit": "Diogo Luiz",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Brachycephalus_didactylus.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (Smithsonian): A 50-year-old mystery of vanishing frogs reveals a hidden killer",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261102202838.htm"
+        },
+        {
+          "title": "Molecular Ecology (DOI 10.1111/mec.70573)",
+          "url": "https://doi.org/10.1111/mec.70573"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "fungus",
+          "tr": "mantar"
+        },
+        {
+          "w": "amphibian",
+          "tr": "iki yaşamlı (kurbağa vb.)"
+        },
+        {
+          "w": "specimen",
+          "tr": "örnek (müze örneği)"
+        },
+        {
+          "w": "decline",
+          "tr": "azalma, düşüş"
+        },
+        {
+          "w": "tolerance",
+          "tr": "tolerans, dayanıklılık"
+        },
+        {
+          "w": "recover",
+          "tr": "toparlanmak, iyileşmek"
+        },
+        {
+          "w": "survey",
+          "tr": "saha taraması, anket"
+        }
+      ]
+    },
+    {
+      "id": "hera-sees-asteroid-pair-separately",
+      "category": "news",
+      "title": "Europe’s Hera Probe Sees Two Asteroids Instead of One",
+      "summary": "ESA'nın Hera sondası, Ekim 2026'da Didymos ve Dimorphos asteroitlerini ilk kez ayrı iki cisim olarak görüntüledi; ayrıntılı görüntüler 25 Kasım'a planlanıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-06",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 66,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 109,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 162,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 214,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 209,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 227,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "hera-sees-asteroid-pair-separately/image.jpg",
+        "alt": "Hubble Uzay Teleskobu'nun DART çarpmasından sonra Dimorphos'tan çıkan toz ve kaya bulutunu gösteren üç görüntüsü; örnek görsel.",
+        "credit": "NASA, ESA ve STScI",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Hubble_Captures_DART_Impact_(weic2215b).jpeg"
+      },
+      "sources": [
+        {
+          "title": "ESA: Destination sighted – Hera’s first glimpse of Didymos",
+          "url": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Destination_sighted_Hera_s_first_glimpse_of_Didymos"
+        },
+        {
+          "title": "Universe Today: Hera probe sees asteroid pair separately for first time",
+          "url": "https://universetoday.com/articles/hera-probe-sees-asteroid-pair-separately-for-first-time"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "asteroid",
+          "tr": "asteroit, küçük gezegen"
+        },
+        {
+          "w": "spacecraft",
+          "tr": "uzay aracı"
+        },
+        {
+          "w": "orbit",
+          "tr": "yörünge"
+        },
+        {
+          "w": "pixel",
+          "tr": "piksel"
+        },
+        {
+          "w": "impact",
+          "tr": "çarpma, etki"
+        },
+        {
+          "w": "deflect",
+          "tr": "yönünü değiştirmek"
+        },
+        {
+          "w": "rubble",
+          "tr": "moloz, döküntü"
+        }
+      ]
+    },
     {
       "id": "skin-patch-reads-pulse-without-electronics",
       "category": "news",

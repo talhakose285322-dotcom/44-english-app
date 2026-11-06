@@ -1,0 +1,24 @@
+{
+  "id": "brazil-frog-decline-linked-to-chytrid-fungus",
+  "level": "C2",
+  "title": "A 50-Year-Old Frog Mystery Points to a Fungus",
+  "paragraphs": [
+    "It is rare for a half-century-old ecological whodunnit to be settled with a shelf of museum jars, yet that is essentially what a new study in Molecular Ecology attempts. Its subject is the collapse of frog populations in Brazil’s Atlantic Forest from the 1970s onward, a decline for which chytrid, an amphibian fungus formally described only in 1999, has long been the prime suspect but lacked a historical alibi.",
+    "Researchers at the Smithsonian’s National Zoo and Conservation Biology Institute and Penn State screened hundreds of preserved amphibians from 17 species, gathered at São Paulo’s Boracéia Biological Station by Ronald Heyer across five expeditions. The pattern is telling: no infections before 1979, more than half of the 1980s specimens positive, and a crash between 1979 and 1982. The twist is that the hardest-hit species showed no detectable infection while resilient ones often carried the fungus, an apparent contradiction the authors reconcile by proposing that the most vulnerable frogs were already dead by the time collectors arrived.",
+    "The epilogue is gentler than the prologue. Visits in 2022–2024 found 12 of the 17 species, and most populations seem to have rebounded even with chytrid still circulating, possibly thanks to tolerance built up over generations. The authors are admirably circumspect: that explanation remains a hypothesis, the fate of five species is unresolved, and a single site cannot stand in for an entire biome."
+  ],
+  "questions": [
+    {
+      "q": "Why had chytrid lacked a ‘historical alibi’?",
+      "a": "It was formally described only in 1999, after many declines."
+    },
+    {
+      "q": "How do the authors explain the missing infections in hard-hit species?",
+      "a": "The most vulnerable frogs were probably dead before collection."
+    },
+    {
+      "q": "Why should the findings be treated with caution?",
+      "a": "They come from one site, and the tolerance idea and five species’ fate are unresolved."
+    }
+  ]
+}
