@@ -1,0 +1,59 @@
+{
+  "id": "dinosaur-blood-cells-found-in-115-million-year-old-bone",
+  "category": "news",
+  "title": "Scientists Report Blood Traces in a 115-Million-Year-Old Dinosaur Bone",
+  "summary": "Curtin Üniversitesi liderliğindeki ekip, Brezilya'daki 115 milyon yıllık bir dinozor kemiğinde kırmızı kan hücreleri ve hemoglobin izleri bulduğunu bildirdi; bulgular tek bir örneğe dayanıyor.",
+  "published": "2026-11-07",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir müzede sergilenen etçil (theropod) dinozor Cryolophosaurus'un kafatası fosili; örnek görsel.",
+    "credit": "James St. John",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cryolophosaurus_ellioti_holotype.jpg"
+  },
+  "sources": [
+    {
+      "title": "Curtin University: Dinosaur blood discovery rewrites what fossils can reveal about the past",
+      "url": "https://www.curtin.edu.au/news/media-release/dinosaur-blood-oldest-discovery-rewrites-what-fossils-can-reveal-about-the-past/"
+    },
+    {
+      "title": "ScienceDaily (Curtin University): Scientists just found dinosaur blood that survived 115 million years",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261105224542.htm"
+    },
+    {
+      "title": "PNAS paper (DOI 10.1073/pnas.2614248123)",
+      "url": "https://doi.org/10.1073/pnas.2614248123"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "red blood cell",
+      "tr": "kırmızı kan hücresi"
+    },
+    {
+      "w": "fossil",
+      "tr": "fosil"
+    },
+    {
+      "w": "bone",
+      "tr": "kemik"
+    },
+    {
+      "w": "oxygen",
+      "tr": "oksijen"
+    },
+    {
+      "w": "preserve",
+      "tr": "korumak, sağlam kalmasını sağlamak"
+    },
+    {
+      "w": "mineral",
+      "tr": "mineral"
+    },
+    {
+      "w": "bury",
+      "tr": "gömmek"
+    }
+  ]
+}

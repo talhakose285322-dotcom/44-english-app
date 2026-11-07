@@ -1,0 +1,24 @@
+{
+  "id": "nasa-announces-x-70-experimental-aircraft",
+  "level": "A1",
+  "title": "NASA Announces the X-70, a New Experimental Aircraft",
+  "paragraphs": [
+    "NASA has a new plane. It is called the X-70. NASA showed it on 4 November.",
+    "The X-70 is for research. It has a pilot. Scientists will test new ideas in the air. The plane can fly very high and carry things for tests.",
+    "It has not flown yet. NASA hopes it will fly in two years. The picture in the news is not a real photo."
+  ],
+  "questions": [
+    {
+      "q": "What is the new plane called?",
+      "a": "The X-70."
+    },
+    {
+      "q": "Has it flown yet?",
+      "a": "No, it has not flown yet."
+    },
+    {
+      "q": "When does NASA hope it will fly?",
+      "a": "In two years."
+    }
+  ]
+}

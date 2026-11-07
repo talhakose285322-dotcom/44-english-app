@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "nasa-announces-x-70-experimental-aircraft",
+      "category": "news",
+      "title": "NASA Announces the X-70, a New Experimental Aircraft",
+      "summary": "NASA, Kennedy Uzay Merkezi'nde X-70 Fractal adlı yeni deneysel araştırma uçağını tanıttı; uçak henüz uçmadı, ilk uçuşun iki yıl içinde yapılması bekleniyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-07",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 67,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 109,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 159,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 201,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 210,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 212,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "nasa-announces-x-70-experimental-aircraft/image.jpg",
+        "alt": "NASA'nın X-59 deneysel uçağı, bir F-15 eşliğinde uçuşta; X-70 henüz uçmadığı için örnek görsel.",
+        "credit": "NASA / Jim Ross",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:NASA%E2%80%99s_X-59_in_Flight_with_F-15_Research_Aircraft_Monitoring_(AFRC2025-0168-035).jpg"
+      },
+      "sources": [
+        {
+          "title": "NASA: NASA Announces X-70 Experimental Aircraft to Advance Flight Research",
+          "url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "experimental",
+          "tr": "deneysel"
+        },
+        {
+          "w": "aircraft",
+          "tr": "uçak, hava aracı"
+        },
+        {
+          "w": "research",
+          "tr": "araştırma"
+        },
+        {
+          "w": "payload",
+          "tr": "taşınan yük, test donanımı"
+        },
+        {
+          "w": "cruise speed",
+          "tr": "seyir hızı"
+        },
+        {
+          "w": "first flight",
+          "tr": "ilk uçuş"
+        },
+        {
+          "w": "unveil",
+          "tr": "tanıtmak, perdesini kaldırmak"
+        }
+      ]
+    },
+    {
+      "id": "dinosaur-blood-cells-found-in-115-million-year-old-bone",
+      "category": "news",
+      "title": "Scientists Report Blood Traces in a 115-Million-Year-Old Dinosaur Bone",
+      "summary": "Curtin Üniversitesi liderliğindeki ekip, Brezilya'daki 115 milyon yıllık bir dinozor kemiğinde kırmızı kan hücreleri ve hemoglobin izleri bulduğunu bildirdi; bulgular tek bir örneğe dayanıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-07",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 62,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 102,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 169,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 199,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 198,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 209,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "dinosaur-blood-cells-found-in-115-million-year-old-bone/image.jpg",
+        "alt": "Bir müzede sergilenen etçil (theropod) dinozor Cryolophosaurus'un kafatası fosili; örnek görsel.",
+        "credit": "James St. John",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cryolophosaurus_ellioti_holotype.jpg"
+      },
+      "sources": [
+        {
+          "title": "Curtin University: Dinosaur blood discovery rewrites what fossils can reveal about the past",
+          "url": "https://www.curtin.edu.au/news/media-release/dinosaur-blood-oldest-discovery-rewrites-what-fossils-can-reveal-about-the-past/"
+        },
+        {
+          "title": "ScienceDaily (Curtin University): Scientists just found dinosaur blood that survived 115 million years",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261105224542.htm"
+        },
+        {
+          "title": "PNAS paper (DOI 10.1073/pnas.2614248123)",
+          "url": "https://doi.org/10.1073/pnas.2614248123"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "red blood cell",
+          "tr": "kırmızı kan hücresi"
+        },
+        {
+          "w": "fossil",
+          "tr": "fosil"
+        },
+        {
+          "w": "bone",
+          "tr": "kemik"
+        },
+        {
+          "w": "oxygen",
+          "tr": "oksijen"
+        },
+        {
+          "w": "preserve",
+          "tr": "korumak, sağlam kalmasını sağlamak"
+        },
+        {
+          "w": "mineral",
+          "tr": "mineral"
+        },
+        {
+          "w": "bury",
+          "tr": "gömmek"
+        }
+      ]
+    },
     {
       "id": "brazil-frog-decline-linked-to-chytrid-fungus",
       "category": "news",
