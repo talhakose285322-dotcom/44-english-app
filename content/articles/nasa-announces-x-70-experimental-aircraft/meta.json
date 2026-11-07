@@ -1,0 +1,51 @@
+{
+  "id": "nasa-announces-x-70-experimental-aircraft",
+  "category": "news",
+  "title": "NASA Announces the X-70, a New Experimental Aircraft",
+  "summary": "NASA, Kennedy Uzay Merkezi'nde X-70 Fractal adlı yeni deneysel araştırma uçağını tanıttı; uçak henüz uçmadı, ilk uçuşun iki yıl içinde yapılması bekleniyor.",
+  "published": "2026-11-07",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "NASA'nın X-59 deneysel uçağı, bir F-15 eşliğinde uçuşta; X-70 henüz uçmadığı için örnek görsel.",
+    "credit": "NASA / Jim Ross",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:NASA%E2%80%99s_X-59_in_Flight_with_F-15_Research_Aircraft_Monitoring_(AFRC2025-0168-035).jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA: NASA Announces X-70 Experimental Aircraft to Advance Flight Research",
+      "url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "experimental",
+      "tr": "deneysel"
+    },
+    {
+      "w": "aircraft",
+      "tr": "uçak, hava aracı"
+    },
+    {
+      "w": "research",
+      "tr": "araştırma"
+    },
+    {
+      "w": "payload",
+      "tr": "taşınan yük, test donanımı"
+    },
+    {
+      "w": "cruise speed",
+      "tr": "seyir hızı"
+    },
+    {
+      "w": "first flight",
+      "tr": "ilk uçuş"
+    },
+    {
+      "w": "unveil",
+      "tr": "tanıtmak, perdesini kaldırmak"
+    }
+  ]
+}

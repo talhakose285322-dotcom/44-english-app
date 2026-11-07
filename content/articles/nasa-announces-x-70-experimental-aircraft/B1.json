@@ -1,0 +1,24 @@
+{
+  "id": "nasa-announces-x-70-experimental-aircraft",
+  "level": "B1",
+  "title": "NASA Announces the X-70, a New Experimental Aircraft",
+  "paragraphs": [
+    "NASA has announced the X-70 Fractal, a new experimental aircraft, at an event at the Kennedy Space Center in Florida on 4 November. It is a crewed research plane that the agency describes as highly adaptable and designed to speed up the testing of new aviation technology.",
+    "According to NASA, the X-70 can carry up to 2,000 pounds of experimental equipment, inside and outside the plane, and the equipment can be swapped quickly. It has a takeoff weight of 10,000 pounds, cruises at Mach 0.75, can reach 45,000 feet and has a range of about 1,500 nautical miles. Scientists plan to test flight-control and manoeuvring technologies.",
+    "However, the plane has not flown yet. NASA leader Jared Isaacman said the first flight under the NASA name should happen within the next two years, which is an expectation, not a fixed date. The agency's pictures are computer-generated, and NASA has not shared who builds the plane or how much it costs."
+  ],
+  "questions": [
+    {
+      "q": "What will the X-70 be used for?",
+      "a": "To test new flight-control and manoeuvring technologies."
+    },
+    {
+      "q": "What are two of its performance numbers?",
+      "a": "Cruise speed of Mach 0.75 and a maximum height of 45,000 feet."
+    },
+    {
+      "q": "What information has NASA not shared?",
+      "a": "Who builds the plane and how much it costs."
+    }
+  ]
+}

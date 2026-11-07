@@ -1,0 +1,24 @@
+{
+  "id": "nasa-announces-x-70-experimental-aircraft",
+  "level": "C2",
+  "title": "NASA Announces the X-70, a New Experimental Aircraft",
+  "paragraphs": [
+    "With little fanfare beyond a stage at the Kennedy Space Center, NASA on 4 November introduced the X-70 Fractal, the newest heir to a lineage that runs from the Bell X-1 through the X-15 to the X-59. The crewed aircraft is pitched as a nimble research platform whose chief virtue is adaptability: a means of hurrying promising aviation technologies out of the laboratory and into the unforgiving test of real flight.",
+    "The numbers are unglamorous but telling. It can carry up to 2,000 pounds of experimental payloads, inside or out, swapped at short notice; it weighs 10,000 pounds at takeoff, cruises at Mach 0.75, climbs to 45,000 feet and flies about 1,500 nautical miles. NASA says its flight-control and manoeuvrability experiments will go beyond anything shown in crewed flight, and Laurie Grindle, who leads the agency's aeronautics division, said it was \"exciting to bring on another X-plane\".",
+    "For all that, the X-70 remains a paper aeroplane in everything but name. It has not flown, and Administrator Jared Isaacman would say only that a first flight under NASA's banner is expected within two years, an estimate rather than a commitment. The release names neither a builder nor a price tag, and the accompanying images are computer-generated, which leaves observers weighing ambition against evidence."
+  ],
+  "questions": [
+    {
+      "q": "What is the central appeal of the X-70?",
+      "a": "Its adaptability for rapidly testing new aviation technologies."
+    },
+    {
+      "q": "How firm is the first-flight date?",
+      "a": "Not firm; it is an expectation of within two years."
+    },
+    {
+      "q": "What does 'a paper aeroplane in everything but name' suggest?",
+      "a": "That the plane exists mostly as a plan and has not yet flown."
+    }
+  ]
+}
