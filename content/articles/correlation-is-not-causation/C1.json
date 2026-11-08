@@ -1,0 +1,25 @@
+{
+  "id": "correlation-is-not-causation",
+  "level": "C1",
+  "title": "Correlation Is Not Causation",
+  "paragraphs": [
+    "Few errors of reasoning are as persistent as the inference from association to causation. A statistical correlation merely records that two variables tend to move together; it is silent on why they do so, and treating it as proof of influence is a long-recognised fallacy.",
+    "At least three rival explanations must be excluded before a causal claim can be sustained. The first is confounding, whereby a third variable drives both of the observed ones. The seasonal rise in ice cream sales and in drowning deaths is the textbook case: warm weather increases swimming, and swimming increases exposure to risk, whereas ice cream plays no part. The second is reverse causation, in which the presumed effect is in fact the cause; a serious illness may reduce cholesterol and simultaneously raise mortality, so that low cholesterol appears hazardous. The third is coincidence, which becomes increasingly probable when large datasets are searched for any pattern at all.",
+    "The strongest safeguard is random assignment. By allocating participants to treatment and control groups by chance, researchers distribute both measured and unmeasured confounders approximately evenly, so that a difference in outcomes can be attributed to the intervention with far greater confidence.",
+    "Where such experiments are impracticable or unethical, investigators turn to natural experiments and to statistical control, techniques that reduce, but never wholly eliminate, the risk of bias. Consequently, responsible authors hedge their conclusions, and discerning readers examine the study design before accepting any claim that one thing leads to another."
+  ],
+  "questions": [
+    {
+      "q": "What does a correlation fail to explain?",
+      "a": "Why the two variables move together."
+    },
+    {
+      "q": "What does random assignment achieve?",
+      "a": "It spreads measured and unmeasured confounders roughly evenly across the groups."
+    },
+    {
+      "q": "Why do responsible authors hedge their conclusions?",
+      "a": "Statistical control cannot completely remove the risk of bias."
+    }
+  ]
+}

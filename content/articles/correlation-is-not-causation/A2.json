@@ -1,0 +1,25 @@
+{
+  "id": "correlation-is-not-causation",
+  "level": "A2",
+  "title": "Correlation Is Not Causation",
+  "paragraphs": [
+    "When two things change together, we say there is a correlation. For example, when one number goes up, the other number goes up too. But a correlation does not show that one thing causes the other.",
+    "A famous example is ice cream. In hot months, shops sell more ice cream. In the same months, more people swim, and some of them have accidents in the water. The two numbers rise together, but ice cream is not the reason.",
+    "The real reason is the weather. Hot days make people want ice cream, and they also make people go swimming. Scientists call the weather a hidden third factor, or a confounder.",
+    "How can we find the truth? Researchers often do an experiment. They put people into two groups by chance and change only one thing. If the groups are different at the end, that one change is probably the cause."
+  ],
+  "questions": [
+    {
+      "q": "What is a correlation?",
+      "a": "Two things change together."
+    },
+    {
+      "q": "Why do ice cream sales and swimming accidents rise together?",
+      "a": "Both rise on hot days."
+    },
+    {
+      "q": "How do researchers put people into groups in an experiment?",
+      "a": "By chance."
+    }
+  ]
+}

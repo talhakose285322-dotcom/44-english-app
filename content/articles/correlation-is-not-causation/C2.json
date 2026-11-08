@@ -1,0 +1,25 @@
+{
+  "id": "correlation-is-not-causation",
+  "level": "C2",
+  "title": "Correlation Is Not Causation",
+  "paragraphs": [
+    "The slide from association to causation is among the most resilient fallacies in public discourse, and its persistence owes much to the intuitive appeal of a tidy narrative. A correlation, properly understood, is a descriptive statistic: it quantifies covariation and is agnostic about mechanism, direction and origin.",
+    "Before any causal interpretation can be entertained, at least three rival hypotheses demand scrutiny. Confounding occurs when a lurking variable generates both of the observed quantities; the parallel summer rise in ice cream consumption and in drownings is attributable to warm weather and the greater exposure to water that it invites, not to any influence of the dessert. Reverse causation obtains when the supposed outcome is in fact the antecedent: a grave illness may depress cholesterol while elevating mortality, lending low cholesterol a spurious air of danger. Finally, sheer coincidence becomes ever more likely as analysts trawl through large datasets for some pattern, however meaningless.",
+    "The randomised controlled experiment is widely regarded as the gold standard precisely because chance allocation neutralises confounding in expectation, irrespective of whether the confounders have been identified. Its evidential force, moreover, derives not from the elegance of the arithmetic but from the design itself.",
+    "Where randomisation is infeasible or ethically indefensible, researchers fall back on natural experiments and statistical adjustment, whose conclusions remain contingent on assumptions that cannot be wholly verified. The mature response is neither credulity nor blanket scepticism, but calibrated judgement: scrutinising design, weighing alternatives and qualifying claims accordingly."
+  ],
+  "questions": [
+    {
+      "q": "What does a correlation quantify?",
+      "a": "The covariation of two variables, without saying anything about mechanism or direction."
+    },
+    {
+      "q": "Why is chance allocation so valuable?",
+      "a": "It neutralises confounding in expectation, even for unidentified confounders."
+    },
+    {
+      "q": "What is the 'mature response' described in the text?",
+      "a": "Calibrated judgement: examine the design, weigh alternatives and qualify claims."
+    }
+  ]
+}

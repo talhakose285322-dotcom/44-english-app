@@ -1,0 +1,25 @@
+{
+  "id": "correlation-is-not-causation",
+  "level": "B1",
+  "title": "Correlation Is Not Causation",
+  "paragraphs": [
+    "News stories often say that one thing is linked to another: people who drink coffee live longer, or children who watch more television behave worse. A link of this kind is a correlation, which means that two things change together. However, a correlation alone does not prove that one of them causes the other.",
+    "There are three common reasons for this. The first is a hidden third factor, called a confounder. Ice cream sales and swimming accidents both rise in summer, but the hot weather explains both of them. The second reason is reverse causation: the cause may work in the opposite direction. Windmills turn when the wind blows, not the other way round. The third reason is simple coincidence, because some patterns appear by chance.",
+    "To test a cause, scientists prefer a controlled experiment. They divide people into groups at random, so that age, diet and other differences are spread evenly. Then they change only one thing and compare the groups.",
+    "This is not always possible. Sometimes an experiment would be too difficult or unfair, so researchers use careful observation and statistics instead. Even then, a good reader asks: could something else explain this result?"
+  ],
+  "questions": [
+    {
+      "q": "What is a confounder?",
+      "a": "A hidden third factor that affects both things."
+    },
+    {
+      "q": "Why do windmills show reverse causation?",
+      "a": "The wind makes them turn, not the other way round."
+    },
+    {
+      "q": "Why do scientists divide people into groups at random?",
+      "a": "So that other differences are spread evenly between the groups."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "correlation-is-not-causation",
+  "category": "academic",
+  "title": "Correlation Is Not Causation",
+  "summary": "İki şey birlikte değiştiğinde biri diğerinin nedeni midir? Korelasyon, gizli üçüncü etken, ters nedensellik ve rastgele deneyin neden önemli olduğunu öğrenin.",
+  "published": "2026-11-08",
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Kaşıkla birlikte bir külah dondurma (örnek görsel).",
+    "credit": "Thegreatmutata",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ice_cream_cone_with_spoon.jpg"
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Correlation does not imply causation",
+      "url": "https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation"
+    },
+    {
+      "title": "Wikipedia: Confounding",
+      "url": "https://en.wikipedia.org/wiki/Confounding"
+    },
+    {
+      "title": "Stanford STATS 60: Randomized Experiments",
+      "url": "https://web.stanford.edu/class/stats60/lectures/19-lecture-experiments.html"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "correlation",
+      "tr": "korelasyon, ilişki"
+    },
+    {
+      "w": "cause",
+      "tr": "neden; neden olmak"
+    },
+    {
+      "w": "confounder",
+      "tr": "karıştırıcı (gizli üçüncü) etken"
+    },
+    {
+      "w": "coincidence",
+      "tr": "tesadüf"
+    },
+    {
+      "w": "random",
+      "tr": "rastgele"
+    },
+    {
+      "w": "evidence",
+      "tr": "kanıt"
+    },
+    {
+      "w": "reverse",
+      "tr": "ters, tersine"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "correlation-is-not-causation",
+  "level": "A1",
+  "title": "Correlation Is Not Causation",
+  "paragraphs": [
+    "Two things can happen together. This does not mean one causes the other.",
+    "Here is an example. In summer, people buy more ice cream. In summer, more people also swim. Sometimes swimmers are in danger in the water.",
+    "Ice cream does not cause this danger. The hot weather is the real reason. It makes people buy ice cream, and it makes people go to the water.",
+    "Scientists know this. They ask a simple question: is there a third thing? Then they test the idea with care."
+  ],
+  "questions": [
+    {
+      "q": "When do people buy more ice cream?",
+      "a": "In summer."
+    },
+    {
+      "q": "Does ice cream cause danger in the water?",
+      "a": "No, it does not."
+    },
+    {
+      "q": "What is the real reason in the example?",
+      "a": "The hot weather."
+    }
+  ]
+}
