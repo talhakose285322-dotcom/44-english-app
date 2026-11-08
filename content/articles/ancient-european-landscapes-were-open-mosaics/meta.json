@@ -1,0 +1,55 @@
+{
+  "id": "ancient-european-landscapes-were-open-mosaics",
+  "category": "news",
+  "title": "Europe’s Ancient Landscapes May Have Been More Open Than We Thought",
+  "summary": "Danimarka’daki Aarhus Üniversitesi’nden araştırmacılar, Avrupa’nın tarih öncesinde kesintisiz koyu orman değil; ağaçlar, açık alanlar ve çiçekli bitkilerden oluşan değişken bir mozaik olduğunu savunuyor. Çalışma Biological Conservation dergisinde yayımlandı.",
+  "published": "2026-11-08",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Açık bir çayırda duran Avrupa bizonu (Białowieża, Polonya); örnek görsel.",
+    "credit": "Charles J. Sharp",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:European_bison_(Bison_bonasus)_male_Bia%C5%82owieza.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (Aarhus University): Scientists discover Europe’s ancient forests were nothing like we imagined",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261104012333.htm"
+    },
+    {
+      "title": "Biological Conservation (2026): Revisiting Europe’s temperate forests",
+      "url": "https://doi.org/10.1016/j.biocon.2026.111749"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "canopy",
+      "tr": "yaprak örtüsü, ağaç tepeleri"
+    },
+    {
+      "w": "herbivore",
+      "tr": "otçul hayvan"
+    },
+    {
+      "w": "grazing",
+      "tr": "otlama"
+    },
+    {
+      "w": "pollen",
+      "tr": "polen, çiçek tozu"
+    },
+    {
+      "w": "reforestation",
+      "tr": "ağaçlandırma"
+    },
+    {
+      "w": "biodiversity",
+      "tr": "biyoçeşitlilik"
+    },
+    {
+      "w": "mosaic",
+      "tr": "mozaik, karışık yapı"
+    }
+  ]
+}

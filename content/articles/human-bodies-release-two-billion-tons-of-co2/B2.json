@@ -1,0 +1,24 @@
+{
+  "id": "human-bodies-release-two-billion-tons-of-co2",
+  "level": "B2",
+  "title": "Human Bodies Release About 2 Billion Tons of CO2 a Year",
+  "paragraphs": [
+    "We all produce carbon dioxide simply by turning food into energy, yet until now nobody had a good idea of how much that adds up to worldwide. A large team led by Professor Javier Gonzalez at the University of Bath in the United Kingdom has tried to answer the question, and the results have been published in The Lancet Planetary Health.",
+    "The researchers gathered thousands of measurements of CO2 production by individuals across the lifespan, from infants to older adults, and combined them with global population figures and body weight data to build a model. According to it, human metabolism produced roughly 1.18 billion metric tons of CO2 in 1985 and about 2.05 billion in 2015, a rise of 74 percent. More than 60 percent of the increase is attributed to population growth rather than higher output per person.",
+    "The authors are careful about the meaning of the figures. Because this carbon comes from food that plants recently took from the air, it is part of the natural carbon cycle, whereas fossil fuels release carbon that has been stored underground for millions of years. “We’re not saying that breathing is driving climate change,” Gonzalez said, and the team does not recommend changing diet or activity. Their aim is to improve carbon budgets and forecasts of how well reduction strategies will work. As a model-based estimate, it can only be as reliable as the measurements behind it."
+  ],
+  "questions": [
+    {
+      "q": "What was the estimate for 2015?",
+      "a": "About 2.05 billion metric tons."
+    },
+    {
+      "q": "Why is this CO2 part of the natural cycle?",
+      "a": "It comes from food that plants recently took from the air."
+    },
+    {
+      "q": "What is the aim of the study?",
+      "a": "To improve carbon budgets and forecasts of reduction strategies."
+    }
+  ]
+}

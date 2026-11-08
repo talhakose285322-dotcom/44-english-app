@@ -1,0 +1,24 @@
+{
+  "id": "human-bodies-release-two-billion-tons-of-co2",
+  "level": "A2",
+  "title": "Human Bodies Release About 2 Billion Tons of CO2 a Year",
+  "paragraphs": [
+    "Scientists from the University of Bath in the United Kingdom asked a simple question: how much carbon dioxide do all human bodies make? We produce CO2 when our body changes food into energy, and we breathe it out.",
+    "The team used thousands of measurements from people of all ages, together with data on world population and body weight. They found that people produced about 1.18 billion tons of CO2 in 1985 and about 2.05 billion tons in 2015. That is 74 percent more. More than 60 percent of the increase came from population growth.",
+    "The scientists say this CO2 is part of the natural carbon cycle. Fuels like coal and oil are different, because they release carbon that was stored underground for millions of years. The study, in The Lancet Planetary Health, does not say that breathing causes climate change."
+  ],
+  "questions": [
+    {
+      "q": "Which university did the study?",
+      "a": "The University of Bath."
+    },
+    {
+      "q": "How much did the number grow from 1985 to 2015?",
+      "a": "By 74 percent."
+    },
+    {
+      "q": "Why is body CO2 different from coal and oil?",
+      "a": "It is part of the natural carbon cycle."
+    }
+  ]
+}

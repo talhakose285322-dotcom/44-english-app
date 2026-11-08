@@ -1,0 +1,24 @@
+{
+  "id": "human-bodies-release-two-billion-tons-of-co2",
+  "level": "C2",
+  "title": "Human Bodies Release About 2 Billion Tons of CO2 a Year",
+  "paragraphs": [
+    "Each of us is a small but unceasing source of carbon dioxide, since converting food into energy releases CO2 that we breathe out. What that adds up to across the planet, though, has never been pinned down, and a large team led by Professor Javier Gonzalez at the University of Bath in the United Kingdom has set out to do so, reporting in The Lancet Planetary Health.",
+    "Drawing on thousands of measurements of CO2 production by individuals from infancy to old age, the researchers fed the data into a model alongside global population and body weight figures. It puts the total at roughly 1.18 billion metric tons in 1985 and about 2.05 billion in 2015, a 74 percent rise, more than 60 percent of which is attributed to population growth rather than to any increase in what each person emits.",
+    "The authors take pains to forestall a misreading. This carbon belongs to the natural carbon cycle, in contrast to fossil fuels, which release carbon locked underground for millions of years. “We’re not saying that breathing is driving climate change,” Gonzalez insists, and the team does not urge anyone to alter their activity or diet. Their ambition is humbler: to sharpen carbon budgets and the forecasts of how far reduction strategies will deliver. As with any modelled estimate, the figures stand or fall with the measurements and assumptions beneath them."
+  ],
+  "questions": [
+    {
+      "q": "How do the authors describe fossil fuels in contrast?",
+      "a": "They release carbon locked underground for millions of years."
+    },
+    {
+      "q": "What is the team’s stated ambition?",
+      "a": "To sharpen carbon budgets and forecasts of reduction strategies."
+    },
+    {
+      "q": "Why should the figures be treated with caution?",
+      "a": "They come from a model that depends on its measurements and assumptions."
+    }
+  ]
+}
