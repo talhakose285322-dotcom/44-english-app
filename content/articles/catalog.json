@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "ancient-european-landscapes-were-open-mosaics",
+      "category": "news",
+      "title": "Europe’s Ancient Landscapes May Have Been More Open Than We Thought",
+      "summary": "Danimarka’daki Aarhus Üniversitesi’nden araştırmacılar, Avrupa’nın tarih öncesinde kesintisiz koyu orman değil; ağaçlar, açık alanlar ve çiçekli bitkilerden oluşan değişken bir mozaik olduğunu savunuyor. Çalışma Biological Conservation dergisinde yayımlandı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-08",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 70,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 129,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 178,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 209,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 217,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 233,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "ancient-european-landscapes-were-open-mosaics/image.jpg",
+        "alt": "Açık bir çayırda duran Avrupa bizonu (Białowieża, Polonya); örnek görsel.",
+        "credit": "Charles J. Sharp",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:European_bison_(Bison_bonasus)_male_Białowieza.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (Aarhus University): Scientists discover Europe’s ancient forests were nothing like we imagined",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261104012333.htm"
+        },
+        {
+          "title": "Biological Conservation (2026): Revisiting Europe’s temperate forests",
+          "url": "https://doi.org/10.1016/j.biocon.2026.111749"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "canopy",
+          "tr": "yaprak örtüsü, ağaç tepeleri"
+        },
+        {
+          "w": "herbivore",
+          "tr": "otçul hayvan"
+        },
+        {
+          "w": "grazing",
+          "tr": "otlama"
+        },
+        {
+          "w": "pollen",
+          "tr": "polen, çiçek tozu"
+        },
+        {
+          "w": "reforestation",
+          "tr": "ağaçlandırma"
+        },
+        {
+          "w": "biodiversity",
+          "tr": "biyoçeşitlilik"
+        },
+        {
+          "w": "mosaic",
+          "tr": "mozaik, karışık yapı"
+        }
+      ]
+    },
+    {
+      "id": "human-bodies-release-two-billion-tons-of-co2",
+      "category": "news",
+      "title": "Human Bodies Release About 2 Billion Tons of CO2 a Year",
+      "summary": "Bath Üniversitesi’nden araştırmacılar, insan vücudunun metabolizma sonucu 2015’te yaklaşık 2,05 milyar ton CO2 ürettiğini hesapladı. Bu miktar 1985’e göre %74 fazla; artışın %60’tan fazlası nüfus artışından kaynaklanıyor. Araştırmacılar bunun iklim değişikliğinin nedeni olmadığını vurguluyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-08",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 75,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 140,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 200,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 236,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 230,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 229,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "human-bodies-release-two-billion-tons-of-co2/image.jpg",
+        "alt": "Açık havada yürüyen bir grup insanın ayakları ve bacakları; örnek görsel.",
+        "credit": "Luke (Wikimedia Commons)",
+        "license": "Kamu malı",
+        "source": "https://commons.wikimedia.org/wiki/File:Group_of_people_walking_down_the_street.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (University of Bath): Human bodies produce 2 billion metric tons of CO2 a year just by staying alive",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261104012305.htm"
+        },
+        {
+          "title": "The Lancet Planetary Health (2026)",
+          "url": "https://doi.org/10.1016/j.lanplh.2026.101546"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "carbon dioxide",
+          "tr": "karbondioksit"
+        },
+        {
+          "w": "metabolism",
+          "tr": "metabolizma"
+        },
+        {
+          "w": "emissions",
+          "tr": "emisyonlar, salımlar"
+        },
+        {
+          "w": "population",
+          "tr": "nüfus"
+        },
+        {
+          "w": "estimate",
+          "tr": "tahmin; tahmin etmek"
+        },
+        {
+          "w": "budget",
+          "tr": "bütçe"
+        },
+        {
+          "w": "fossil fuel",
+          "tr": "fosil yakıt"
+        }
+      ]
+    },
     {
       "id": "nasa-announces-x-70-experimental-aircraft",
       "category": "news",
