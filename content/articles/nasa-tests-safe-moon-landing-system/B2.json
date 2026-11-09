@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "level": "B2",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "paragraphs": [
+    "NASA has announced that SPLICE, short for Safe and Precise Landing – Integrated Capabilities Evolution, completed simulated lunar descent and landing manoeuvres aboard a drone. The guidance, navigation and control package was developed at NASA’s Johnson Space Center in Houston, while personnel at the Armstrong Flight Research Center in Edwards, California, helped integrate, test and fly it.",
+    "The decisive flight was carried out on 27 August 2026 at Rogers Dry Lake, using an Alta-X, a remotely piloted aircraft with four rotors. As it descended, SPLICE gathered light-detection and other sensor data to produce high-resolution elevation maps and assess potential landing areas. When the intended site proved unsafe, the system diverted the aircraft to a safer location, which is exactly the capability a crewed or robotic lander would need on rough lunar ground.",
+    "Project manager Davis Adams described the flight as “the culmination of almost a decade of work” and said it raised the technology’s readiness level, preparing it for future robotic and crewed lunar flights. The guidance software is due to enter NASA’s software catalog this fall. Caution is nonetheless warranted: a drone flying over a desert lakebed is only a stand-in for a spacecraft descending through the Moon’s lighting, dust and gravity, and the results so far come from NASA’s own announcement."
+  ],
+  "questions": [
+    {
+      "q": "What does SPLICE stand for?",
+      "a": "Safe and Precise Landing – Integrated Capabilities Evolution."
+    },
+    {
+      "q": "What did the system do when the intended site was unsafe?",
+      "a": "It diverted the aircraft to a safer location."
+    },
+    {
+      "q": "Why should the results be treated with some caution?",
+      "a": "A drone over a desert lakebed is not the same as a spacecraft landing on the Moon, and the results come from NASA itself."
+    }
+  ]
+}

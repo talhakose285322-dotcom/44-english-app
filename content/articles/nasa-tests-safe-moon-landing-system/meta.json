@@ -1,0 +1,51 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "category": "news",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "summary": "NASA, ay yüzeyine daha güvenli iniş için geliştirdiği SPLICE sistemini bir drone ile test etti.",
+  "published": "2026-11-09",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir Alta-X drone, SPLICE iniş sistemi deneyini taşıyarak Edwards, Kaliforniya yakınlarında uçuyor (27 Ağustos 2026).",
+    "credit": "NASA/Ryan Kline (NASA Armstrong Flight Research Center)",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:An_Alta-X_drone_flies_an_advanced_guidance_and_navigation_system_known_as_the_Safe_and_Precise_Landing_%E2%80%93_Integrated_Capabilities_Evolution_(SPLICE)_experiment_near_NASA%E2%80%99s_Armstrong_Flight_Research_Center_in_Edwa_(AFRC2026-0179-18).jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA: NASA Navigation Experiment Shows Promise for Planetary Landings",
+      "url": "https://www.nasa.gov/centers-and-facilities/armstrong/nasa-navigation-experiment-shows-promise-for-planetary-landings/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "landing",
+      "tr": "iniş"
+    },
+    {
+      "w": "drone",
+      "tr": "drone, insansız hava aracı"
+    },
+    {
+      "w": "hazard",
+      "tr": "tehlike, risk"
+    },
+    {
+      "w": "terrain",
+      "tr": "arazi, yer şekli"
+    },
+    {
+      "w": "navigation",
+      "tr": "seyrüsefer, yön bulma"
+    },
+    {
+      "w": "divert",
+      "tr": "yönünü değiştirmek"
+    },
+    {
+      "w": "proxy",
+      "tr": "vekil, yerine geçen şey"
+    }
+  ]
+}

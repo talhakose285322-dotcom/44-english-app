@@ -1,0 +1,24 @@
+{
+  "id": "skull-shaped-island-loses-snow-cover",
+  "level": "B1",
+  "title": "Antarctic ‘Skull’ Island Loses Its Snow Cover",
+  "paragraphs": [
+    "Satellite images released by NASA’s Earth Observatory show how Vega Island, east of the Antarctic Peninsula, has lost much of its snow cover. The island attracted attention because, from above, its ice and rock resemble a skull in profile. A rock peak that sticks out of the ice forms the eye, a ridge of debris along a glacier forms the mouth, and the Devil’s Bay Glacier forms the jaw.",
+    "Two pictures from the Landsat 9 satellite tell the story. On 22 March 2025, snow covered the ice. On 10 October 2026, large areas were free of snow and dark ice was exposed. Glaciologist Mauri Pelto of Nichols College explained that temperatures in winter 2026, particularly in June, were above average, and little fresh snow fell. Some of what did fall was removed by wind and by sublimation, when snow turns straight into vapour.",
+    "Because dark ice absorbs more sunlight than snow, melting could speed up as spring continues, although new snowfall could help in the short run. There are limits to what the pictures show: clouds hid the island in March 2026, so the two images come from different seasons, and the expected changes to the ‘skull’ are predictions, not measurements."
+  ],
+  "questions": [
+    {
+      "q": "What forms the ‘eye’ of the skull?",
+      "a": "A rock peak sticking out of the ice."
+    },
+    {
+      "q": "Why does dark ice matter?",
+      "a": "It absorbs more sunlight, so melting could speed up."
+    },
+    {
+      "q": "Why is the comparison between the two pictures limited?",
+      "a": "Clouds hid the island in March 2026, so the images are from different seasons."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "level": "B1",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "paragraphs": [
+    "NASA has reported a successful test of SPLICE, a guidance and navigation system designed to help spacecraft land exactly where they intend to. Engineers at NASA’s Johnson Space Center in Houston developed it, and staff at NASA’s Armstrong Flight Research Center in California helped to connect it to an aircraft and to fly it.",
+    "The test took place on 27 August 2026 at Rogers Dry Lake, close to Armstrong, where an Alta-X drone with four rotors carried the system. The drone performed simulated lunar descents and landings. During each one, SPLICE used light-detection sensors to measure the ground and build a detailed digital map. It then judged which areas were safe. If the planned landing site looked dangerous, the system redirected the drone to a better one.",
+    "According to project manager Davis Adams, the flight was the result of almost ten years of work. NASA plans to add the software to its public catalog this fall, and several companies that build lunar landers are already using versions of the technology. The report describes the results of NASA’s own tests, so independent checks will still be needed before the system is used on a real mission."
+  ],
+  "questions": [
+    {
+      "q": "Who developed SPLICE?",
+      "a": "NASA’s Johnson Space Center."
+    },
+    {
+      "q": "What did SPLICE do when the planned landing site looked dangerous?",
+      "a": "It redirected the drone to a better site."
+    },
+    {
+      "q": "Why are independent checks still needed?",
+      "a": "Because the report describes NASA’s own tests."
+    }
+  ]
+}

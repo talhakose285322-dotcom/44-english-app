@@ -1,0 +1,24 @@
+{
+  "id": "skull-shaped-island-loses-snow-cover",
+  "level": "B2",
+  "title": "Antarctic ‘Skull’ Island Loses Its Snow Cover",
+  "paragraphs": [
+    "Images released by NASA’s Earth Observatory reveal that Vega Island, which lies in the Weddell Sea east of the Antarctic Peninsula, has lost much of its seasonal snow cover. The island is notable because, seen from orbit, its features form the profile of a skull: a rock peak protruding through the ice, called a nunatak, makes the eye socket; a lateral moraine, a ridge of debris left along a glacier’s edge, forms the mouth; and the Devil’s Bay Glacier outlines the jaw.",
+    "Two Landsat 9 images frame the change. On 22 March 2025, snow blanketed the ice, as is typical for what is normally the region’s wettest month. By 10 October 2026, extensive areas were bare and darker ice was visible. Glaciologist Mauri Pelto of Nichols College attributes this partly to above-average temperatures in winter 2026, particularly in June, together with scant snowfall and further losses to wind and sublimation. “The winter season was no treat for these glaciers,” he said.",
+    "The concern is a feedback effect: bare ice absorbs more solar energy than snow, so melting may accelerate as the days lengthen, though a thin spring snowfall could offer short-term relief. The evidence has limits, however. Clouds obscured the island in March 2026, so the comparison involves different seasons, and the forecast that the skull’s jawline and eye socket will gradually change is a projection rather than an observation."
+  ],
+  "questions": [
+    {
+      "q": "What is a nunatak?",
+      "a": "A rock peak that sticks out through the ice."
+    },
+    {
+      "q": "How does bare ice make melting worse?",
+      "a": "It absorbs more solar energy than snow, so melting may accelerate."
+    },
+    {
+      "q": "Why is the year-to-year comparison imperfect?",
+      "a": "Clouds hid the island in March 2026, so the images show different seasons."
+    }
+  ]
+}
