@@ -1,0 +1,24 @@
+{
+  "id": "skull-shaped-island-loses-snow-cover",
+  "level": "A1",
+  "title": "Antarctic ‘Skull’ Island Loses Its Snow Cover",
+  "paragraphs": [
+    "A NASA satellite took photos of Vega Island. It is a small island in Antarctica. From above, the ice looks like a skull.",
+    "The first photo is from March 2025. Snow covers the ice. The second photo is from October 2026. In many places, the snow is gone. You can see dark ice.",
+    "The winter of 2026 was warm. Not much new snow fell. Dark ice takes more sun than snow, so it can melt faster."
+  ],
+  "questions": [
+    {
+      "q": "What does Vega Island look like from above?",
+      "a": "A skull."
+    },
+    {
+      "q": "What is gone in many places in October 2026?",
+      "a": "The snow."
+    },
+    {
+      "q": "Why can dark ice melt faster?",
+      "a": "It takes more sun than snow."
+    }
+  ]
+}

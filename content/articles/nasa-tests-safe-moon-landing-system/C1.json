@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "level": "C1",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "paragraphs": [
+    "NASA has reported that SPLICE – Safe and Precise Landing – Integrated Capabilities Evolution – has passed a key test, completing simulated lunar descent and landing manoeuvres on board a drone. Conceived at the Johnson Space Center in Houston, the guidance, navigation and control payload was integrated, tested and flown by staff at the Armstrong Flight Research Center in Edwards, California.",
+    "The flight that attracted attention took place on 27 August 2026 over Rogers Dry Lake, where an Alta-X, a four-rotor remotely piloted aircraft, carried the payload. En route to its target, SPLICE harvested light-detection and other sensor data to compile high-resolution digital elevation maps and appraise prospective landing zones. Once the intended site was deemed hazardous, the system steered the aircraft towards a safer spot, precisely the sort of split-second judgement a lander will have to make without a human at the controls.",
+    "Davis Adams, the project manager, called the flight “the culmination of almost a decade of work” and said it had raised the technology’s readiness level, “priming it for integration into future robotic and crewed lunar flights”. The software is slated to join NASA’s public catalogue this fall, and several commercial lander developers have already built on earlier versions. Yet a drone above a desert lakebed is no more than a proxy for a vehicle contending with lunar glare, dust and low gravity, and the evidence so far rests on NASA’s own account."
+  ],
+  "questions": [
+    {
+      "q": "What kind of aircraft carried SPLICE?",
+      "a": "An Alta-X, a four-rotor remotely piloted aircraft."
+    },
+    {
+      "q": "How did Davis Adams describe the flight?",
+      "a": "As the culmination of almost a decade of work."
+    },
+    {
+      "q": "Why is the drone test only a proxy?",
+      "a": "The real Moon has glare, dust and low gravity that a desert lakebed cannot copy."
+    }
+  ]
+}

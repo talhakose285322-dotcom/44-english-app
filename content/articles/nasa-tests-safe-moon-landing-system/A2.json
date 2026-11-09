@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "level": "A2",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "paragraphs": [
+    "NASA has tested a new system that could help spacecraft land safely on the Moon. It is called SPLICE. Scientists at NASA’s Johnson Space Center in Houston built it.",
+    "For the test, a small drone with four rotors carried SPLICE. The drone flew near NASA’s Armstrong Flight Research Center in California on 27 August 2026. It practised the movements of a landing on the Moon.",
+    "During the flight, SPLICE looked at the ground and made a detailed map. It checked for dangerous places, like rocks or holes. When a place was not safe, the system guided the drone to a safer one. NASA says the technology could help future missions to the Moon and to Mars."
+  ],
+  "questions": [
+    {
+      "q": "Who built SPLICE?",
+      "a": "Scientists at NASA’s Johnson Space Center."
+    },
+    {
+      "q": "What carried SPLICE during the test?",
+      "a": "A small drone with four rotors."
+    },
+    {
+      "q": "What can SPLICE do when a landing place is not safe?",
+      "a": "It can guide the vehicle to a safer place."
+    }
+  ]
+}

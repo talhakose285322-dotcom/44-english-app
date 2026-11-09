@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "level": "C2",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "paragraphs": [
+    "Having spent the better part of a decade in development, SPLICE – Safe and Precise Landing – Integrated Capabilities Evolution – has cleared a notable hurdle: NASA reports that it completed simulated lunar descent and landing manoeuvres aboard a drone. The guidance, navigation and control payload originated at the Johnson Space Center in Houston, and staff at the Armstrong Flight Research Center in Edwards, California, helped to integrate, test and fly it.",
+    "The flight in question took place on 27 August 2026 over Rogers Dry Lake, with an Alta-X – a remotely piloted, four-rotor aircraft – serving as the testbed. On its way down, SPLICE drew on light-detection and other sensor data to assemble high-resolution elevation maps and size up candidate landing zones. When the intended site was judged unsafe, the system simply nudged the aircraft elsewhere, the kind of split-second call a lander must make with no one at the controls.",
+    "Project manager Davis Adams spoke of “the culmination of almost a decade of work” and said the flight had raised the technology’s readiness level, “priming it for integration into future robotic and crewed lunar flights”. The software is expected to enter NASA’s public catalogue this fall, and some commercial lander builders have already worked with earlier iterations. Still, a drone above a desert lakebed is at best a proxy for a spacecraft grappling with harsh lunar lighting, dust and low gravity, and for now the evidence rests largely on the agency’s own account."
+  ],
+  "questions": [
+    {
+      "q": "Where did the test flight take place?",
+      "a": "Over Rogers Dry Lake near Edwards, California."
+    },
+    {
+      "q": "What did SPLICE do when the intended site was unsafe?",
+      "a": "It steered the aircraft to a safer location."
+    },
+    {
+      "q": "What is the main caveat about the evidence?",
+      "a": "It rests largely on NASA’s own account, and a drone is only a proxy for a lunar lander."
+    }
+  ]
+}

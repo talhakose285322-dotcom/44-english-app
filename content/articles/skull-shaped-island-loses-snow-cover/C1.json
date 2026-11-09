@@ -1,0 +1,24 @@
+{
+  "id": "skull-shaped-island-loses-snow-cover",
+  "level": "C1",
+  "title": "Antarctic ‘Skull’ Island Loses Its Snow Cover",
+  "paragraphs": [
+    "Satellite imagery published by NASA’s Earth Observatory shows that Vega Island, in the Weddell Sea east of the Antarctic Peninsula, has shed much of its seasonal snow. The island has drawn notice because, viewed from orbit, its terrain forms the profile of a grinning skull: a nunatak – a rock peak thrusting through the ice – serves as the eye socket, a lateral moraine, the ridge of debris left along a glacier’s flank, traces the mouth, and the Devil’s Bay Glacier supplies the jawbone.",
+    "Two Landsat 9 scenes bracket the change. On 22 March 2025, a mantle of snow lay over the ice, as is usual in what is ordinarily the region’s wettest month. By 10 October 2026, sizeable stretches were bare and darker ice was showing. Glaciologist Mauri Pelto of Nichols College puts this down partly to above-average temperatures in winter 2026, particularly in June, compounded by meagre snowfall and further losses to wind scouring and sublimation. “The winter season was no treat for these glaciers,” he remarked.",
+    "The worry is a self-reinforcing cycle: bare ice soaks up more solar energy than snow, so melting could gather pace as the days lengthen, although a thin spring snowfall might provide brief respite. Some caution is due. Cloud obscured the island in March 2026, so the two images are from different seasons, and the suggestion that the skull’s jawline and eye socket will gradually change is a projection rather than an observation."
+  ],
+  "questions": [
+    {
+      "q": "What forms the skull’s mouth?",
+      "a": "A lateral moraine, a ridge of debris along a glacier’s edge."
+    },
+    {
+      "q": "What did Mauri Pelto blame for the bare ice?",
+      "a": "Above-average winter temperatures, scant snowfall, and losses to wind and sublimation."
+    },
+    {
+      "q": "What is the main limit of the evidence?",
+      "a": "The images come from different seasons, and future changes are projections."
+    }
+  ]
+}

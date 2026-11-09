@@ -1,0 +1,24 @@
+{
+  "id": "skull-shaped-island-loses-snow-cover",
+  "level": "C2",
+  "title": "Antarctic ‘Skull’ Island Loses Its Snow Cover",
+  "paragraphs": [
+    "Fresh satellite imagery from NASA’s Earth Observatory shows Vega Island, in the Weddell Sea east of the Antarctic Peninsula, stripped of much of its seasonal snow. The island has an eerie claim to fame: from orbit, its terrain reads as a grinning skull in profile, with a nunatak – a rocky summit poking through the ice – as the eye socket, a lateral moraine, the ridge of debris a glacier leaves along its flank, as the mouth, and the Devil’s Bay Glacier as the jawbone.",
+    "Two Landsat 9 scenes bookend the change. On 22 March 2025, a blanket of snow lay over the ice, as is customary in what is normally the region’s wettest month. By 10 October 2026, broad swathes were bare and darker ice was on show. Glaciologist Mauri Pelto of Nichols College lays the blame partly on above-average temperatures in winter 2026, June in particular, compounded by sparse snowfall and further attrition from wind scouring and sublimation. “The winter season was no treat for these glaciers,” he remarked dryly.",
+    "The unease stems from a vicious circle: bare ice drinks in more solar energy than snow, so melt may gather pace as the days lengthen, though a thin dusting of spring snow could buy some breathing space. A pinch of salt is in order, however. Cloud obscured the island in March 2026, so the two scenes capture different seasons, and talk of the skull’s jawline and eye socket slowly changing is a projection, not an observation – and the resemblance itself is, after all, a quirk of perspective."
+  ],
+  "questions": [
+    {
+      "q": "What forms the skull’s jawbone?",
+      "a": "The Devil’s Bay Glacier."
+    },
+    {
+      "q": "What vicious circle does the text describe?",
+      "a": "Bare ice absorbs more energy than snow, which can speed up melting."
+    },
+    {
+      "q": "Why does the text say to take the findings with a pinch of salt?",
+      "a": "The images are from different seasons, and future changes are projections."
+    }
+  ]
+}
