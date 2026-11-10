@@ -1,0 +1,24 @@
+{
+  "id": "lonely-brain-waves-in-sleep-weaker-memory",
+  "level": "B2",
+  "title": "'Lonely' Brain Waves in Sleep Linked to Weaker Memory",
+  "paragraphs": [
+    "Why do our memories fade as we age? A new study from the University of California, Berkeley, published in Nature Neuroscience, suggests that part of the answer may lie in the way the brain behaves during sleep. The researchers focused on slow waves, patterns of electrical activity in deep sleep that normally sweep across the brain and are believed to help consolidate new memories.",
+    "Comparing young adults with older adults in their mid-60s to mid-70s, the team found that the waves of older participants travelled shorter distances and were more independent, a pattern they called 'lonely waves'. Brain scans showed that more tau, a protein linked to Alzheimer's disease, in the frontal cortex went hand in hand with a breakdown of the longer, travelling waves. Those with the most isolated waves also remembered fewer word associations the following day, even though they did not have Alzheimer's.",
+    "The authors are cautious. The findings reveal a correlation, and it is unknown whether tau disrupts the waves, whether disrupted waves allow tau to build up, or whether another process drives both. “We can see tau and lonely waves rising together over time,” Omer Sharon said. “What we cannot yet say is which leads.” The report also did not give sample sizes, so readers should treat the results as an early signal rather than a proven mechanism."
+  ],
+  "questions": [
+    {
+      "q": "What did the older participants' slow waves look like?",
+      "a": "They travelled shorter distances and were more isolated."
+    },
+    {
+      "q": "Why can't the researchers say tau causes the changes?",
+      "a": "The study shows only a correlation; the direction of cause is unknown."
+    },
+    {
+      "q": "Why should readers be careful with the results?",
+      "a": "The causal link is unproven and sample sizes were not reported."
+    }
+  ]
+}

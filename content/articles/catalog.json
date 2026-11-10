@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "lonely-brain-waves-in-sleep-weaker-memory",
+      "category": "news",
+      "title": "'Lonely' Brain Waves in Sleep Linked to Weaker Memory",
+      "summary": "Berkeley araştırmacılarına göre uykuda beynin ön bölgesinde biriken tau proteini, beyin dalgalarının koordinasyonunu bozuyor ve ertesi gün hatırlamayı zayıflatıyor olabilir; ama bu bir nedensellik kanıtı değil.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-10",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 70,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 117,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 195,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 223,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 243,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 237,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "lonely-brain-waves-in-sleep-weaker-memory/image.jpg",
+        "alt": "32 elektrotlu bir EEG başlığında elektrotların yerlerini gösteren şema (örnek görsel).",
+        "credit": "Abigail Swain",
+        "license": "Kamu malı",
+        "source": "https://commons.wikimedia.org/wiki/File:Elecmontage32.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (UC Berkeley): Lonely brain waves linked to memory loss",
+          "url": "https://sciencedaily.com/releases/2026/11/261101010556.htm"
+        },
+        {
+          "title": "Nature Neuroscience (DOI): Human tau pathology is associated with lonely, nontraveling slow waves linked to memory impairment",
+          "url": "https://doi.org/10.1038/s41593-026-02415-9"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "brain wave",
+          "tr": "beyin dalgası"
+        },
+        {
+          "w": "memory",
+          "tr": "hafıza, bellek"
+        },
+        {
+          "w": "slow wave",
+          "tr": "yavaş dalga (derin uykuda görülen)"
+        },
+        {
+          "w": "protein",
+          "tr": "protein"
+        },
+        {
+          "w": "correlation",
+          "tr": "ilişki, korelasyon"
+        },
+        {
+          "w": "older adult",
+          "tr": "yaşlı yetişkin"
+        },
+        {
+          "w": "overnight",
+          "tr": "gece boyunca"
+        }
+      ]
+    },
+    {
+      "id": "pompeii-wardrobe-opens-after-2000-years",
+      "category": "news",
+      "title": "Pompeii Wardrobe Opens After Almost 2,000 Years",
+      "summary": "Pompei'deki bir evde yaklaşık 2.000 yıl kapalı kalan ahşap bir dolap açıldı; içinden kolye, madeni para ve günlük eşyalar çıktı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-10",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 74,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 114,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 184,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 235,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 263,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 271,
+          "minutes": 2
+        }
+      },
+      "image": {
+        "src": "pompeii-wardrobe-opens-after-2000-years/image.jpg",
+        "alt": "Pompei antik kentinde Via dell’Abbondanza caddesi (örnek görsel).",
+        "credit": "Rabax63",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Via_dell%27Abbondanza_(Pompeii).jpg"
+      },
+      "sources": [
+        {
+          "title": "Smithsonian Magazine: This wooden wardrobe in Pompeii remained sealed for nearly 2,000 years",
+          "url": "https://www.smithsonianmag.com/smart-news/this-wooden-wardrobe-in-pompeii-remained-sealed-for-nearly-2000-years-archaeologists-just-opened-it-for-the-first-time-180989831/"
+        },
+        {
+          "title": "Reuters: Pompeii cupboard opens window onto life before Vesuvius erupted",
+          "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/10/29/pompeii-cupboard-opens-window-onto-life-before-vesuvius-erupted"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "wardrobe",
+          "tr": "gardırop, giysi dolabı"
+        },
+        {
+          "w": "sealed",
+          "tr": "mühürlü, sıkıca kapalı"
+        },
+        {
+          "w": "amulet",
+          "tr": "muska, uğur getiren küçük nesne"
+        },
+        {
+          "w": "archaeologist",
+          "tr": "arkeolog"
+        },
+        {
+          "w": "erupt",
+          "tr": "(yanardağ) patlamak, püskürmek"
+        },
+        {
+          "w": "in a hurry",
+          "tr": "aceleyle"
+        },
+        {
+          "w": "daily life",
+          "tr": "günlük yaşam"
+        }
+      ]
+    },
     {
       "id": "skull-shaped-island-loses-snow-cover",
       "category": "news",

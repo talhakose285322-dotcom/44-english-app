@@ -1,0 +1,24 @@
+{
+  "id": "lonely-brain-waves-in-sleep-weaker-memory",
+  "level": "C1",
+  "title": "'Lonely' Brain Waves in Sleep Linked to Weaker Memory",
+  "paragraphs": [
+    "Memory decline is usually discussed in terms of what happens while we are awake, but a study in Nature Neuroscience from the University of California, Berkeley, directs attention to the night. The team examined slow waves, the rhythmic pulses of activity in deep sleep that normally ripple across the brain and are thought to help fix the day's learning in place.",
+    "In young adults, these waves travelled over a stretch of scalp roughly the width of a hand. In older adults they covered less ground and behaved more independently, which the authors dubbed 'lonely waves'. PET scans revealed that the more tau, a protein associated with Alzheimer's disease, a person carried in the frontal cortex, the more these travelling waves broke down. Strikingly, this was seen in people without Alzheimer's, whose memory was within the normal range for their age; those with the loneliest waves remembered fewer word pairs after a night's sleep.",
+    "The researchers are careful not to overstate the case. The data point to an association rather than a cause, and it is an open question whether tau disrupts the waves, the waves influence tau, or a third process lies behind both. “We can see tau and lonely waves rising together over time,” lead author Omer Sharon said, “What we cannot yet say is which leads.” Sleep quality, moreover, is notoriously hard to measure, and the report gave no sample sizes, so the findings are best viewed as a promising lead."
+  ],
+  "questions": [
+    {
+      "q": "What is surprising about the participants studied?",
+      "a": "They did not have Alzheimer's, yet showed tau and weaker waves."
+    },
+    {
+      "q": "What three explanations remain open?",
+      "a": "Tau disrupts waves, waves affect tau, or another process drives both."
+    },
+    {
+      "q": "Why is the conclusion described as 'a promising lead'?",
+      "a": "The link is correlational and sample sizes were not reported."
+    }
+  ]
+}
