@@ -1,0 +1,24 @@
+{
+  "id": "lonely-brain-waves-in-sleep-weaker-memory",
+  "level": "C2",
+  "title": "'Lonely' Brain Waves in Sleep Linked to Weaker Memory",
+  "paragraphs": [
+    "The usual narrative of memory decline is written in daylight, but a study in Nature Neuroscience from the University of California, Berkeley, suggests that an important chapter unfolds after dark. The researchers studied slow waves, the rolling pulses of neural activity in deep sleep that ordinarily sweep across the cortex and are believed to help cement the day's learning.",
+    "In young adults those waves travelled across roughly a hand's width of scalp; in older adults they covered less ground and acted more on their own, a pattern the authors have christened 'lonely waves'. PET imaging showed that the more tau, the protein tied to Alzheimer's disease, accumulated in the frontal cortex, the more the travelling waves unravelled. Remarkably, this happened in people who did not have Alzheimer's and whose memory sat within the normal range for their age, yet those with the loneliest waves recalled fewer word pairs the next morning.",
+    "To their credit, the authors resist the obvious leap. The findings are correlational, and whether tau undermines the waves, the waves permit tau to build up, or some third process drives both is, for now, unresolved. “We can see tau and lonely waves rising together over time,” Omer Sharon said. “What we cannot yet say is which leads.” Add the elusive nature of sleep quality, and a write-up that reported no sample sizes, and the sensible reading is of a tantalising signal, not a settled mechanism."
+  ],
+  "questions": [
+    {
+      "q": "What does the phrase 'written in daylight' imply?",
+      "a": "That memory decline is usually discussed in terms of waking life, not sleep."
+    },
+    {
+      "q": "Why is the finding about people without Alzheimer's remarkable?",
+      "a": "Tau and wave changes appeared even in people with normal memory for their age."
+    },
+    {
+      "q": "What is the sensible reading of the results?",
+      "a": "A tantalising signal rather than a settled mechanism."
+    }
+  ]
+}

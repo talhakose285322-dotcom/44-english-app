@@ -1,0 +1,55 @@
+{
+  "id": "pompeii-wardrobe-opens-after-2000-years",
+  "category": "news",
+  "title": "Pompeii Wardrobe Opens After Almost 2,000 Years",
+  "summary": "Pompei'deki bir evde yaklaşık 2.000 yıl kapalı kalan ahşap bir dolap açıldı; içinden kolye, madeni para ve günlük eşyalar çıktı.",
+  "published": "2026-11-10",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Pompei antik kentinde Via dell’Abbondanza caddesi (örnek görsel).",
+    "credit": "Rabax63",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Via_dell%27Abbondanza_(Pompeii).jpg"
+  },
+  "sources": [
+    {
+      "title": "Smithsonian Magazine: This wooden wardrobe in Pompeii remained sealed for nearly 2,000 years",
+      "url": "https://www.smithsonianmag.com/smart-news/this-wooden-wardrobe-in-pompeii-remained-sealed-for-nearly-2000-years-archaeologists-just-opened-it-for-the-first-time-180989831/"
+    },
+    {
+      "title": "Reuters: Pompeii cupboard opens window onto life before Vesuvius erupted",
+      "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/10/29/pompeii-cupboard-opens-window-onto-life-before-vesuvius-erupted"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "wardrobe",
+      "tr": "gardırop, giysi dolabı"
+    },
+    {
+      "w": "sealed",
+      "tr": "mühürlü, sıkıca kapalı"
+    },
+    {
+      "w": "amulet",
+      "tr": "muska, uğur getiren küçük nesne"
+    },
+    {
+      "w": "archaeologist",
+      "tr": "arkeolog"
+    },
+    {
+      "w": "erupt",
+      "tr": "(yanardağ) patlamak, püskürmek"
+    },
+    {
+      "w": "in a hurry",
+      "tr": "aceleyle"
+    },
+    {
+      "w": "daily life",
+      "tr": "günlük yaşam"
+    }
+  ]
+}

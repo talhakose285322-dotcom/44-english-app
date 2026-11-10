@@ -1,0 +1,24 @@
+{
+  "id": "lonely-brain-waves-in-sleep-weaker-memory",
+  "level": "B1",
+  "title": "'Lonely' Brain Waves in Sleep Linked to Weaker Memory",
+  "paragraphs": [
+    "Researchers at the University of California, Berkeley have found a possible link between a protein called tau and the way the brain works during sleep. Their study, published in the journal Nature Neuroscience, looked at slow brain waves, which appear in deep sleep and are thought to help the brain store new memories.",
+    "In young adults, these waves travelled across a large part of the brain. In older adults, the waves were more isolated, which the team called 'lonely waves'. Brain scans showed that older people with more tau in the front of the brain had more of these lonely waves. These people had normal memory for their age and did not have Alzheimer's disease. In a memory test, they also remembered fewer word pairs after a night of sleep.",
+    "However, the study shows a correlation, not a cause. It is not yet clear whether tau changes the waves, whether the waves affect tau, or whether something else is involved. The main author, Omer Sharon, said that tau and lonely waves rise together over time, but it is not yet possible to say which comes first. The study was funded by US health research grants."
+  ],
+  "questions": [
+    {
+      "q": "What are 'lonely waves'?",
+      "a": "Slow brain waves that stay isolated instead of travelling across the brain."
+    },
+    {
+      "q": "Did the participants have Alzheimer's disease?",
+      "a": "No, their memory was normal for their age."
+    },
+    {
+      "q": "What can the study not show?",
+      "a": "That tau causes the changes in the waves or in memory."
+    }
+  ]
+}
