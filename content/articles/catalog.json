@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,88 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "fossil-co2-emissions-fall-in-2026",
+      "category": "news",
+      "title": "Fossil CO2 Emissions Are Set to Fall Slightly in 2026",
+      "summary": "2026 Küresel Karbon Bütçesi, fosil yakıt kaynaklı CO2'nin bu yıl yüzde 0,4 azalacağını öngörüyor; ancak araştırmacılara göre bu düşüş kalıcı bir dönüm noktası sayılmaz.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-11",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 68,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 123,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 181,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 239,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 253,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 248,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "fossil-co2-emissions-fall-in-2026/image.jpg",
+        "alt": "Bir tarlada yan yana duran rüzgâr türbinleri ve güneş panelleri (örnek görsel).",
+        "credit": "Geographer (geograph.org.uk)",
+        "license": "CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Wind_Turbines_%5E_Solar_Panels_at_Upper_Holton_Wind_%5E_Solar_Farm_-_geograph.org.uk_-_4618332.jpg"
+      },
+      "sources": [
+        {
+          "title": "University of Exeter: Fossil CO2 emissions decrease in 2026",
+          "url": "https://news.exeter.ac.uk/faculty-of-environment-science-and-economy/fossil-co2-emissions-decrease-in-2026/"
+        },
+        {
+          "title": "ScienceDaily: Global fossil fuel emissions set to fall in 2026, but total CO2 keeps rising",
+          "url": "https://sciencedaily.com/releases/2026/11/261109205358.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "emissions",
+          "tr": "salımlar, emisyonlar"
+        },
+        {
+          "w": "fossil fuel",
+          "tr": "fosil yakıt"
+        },
+        {
+          "w": "clean energy",
+          "tr": "temiz enerji"
+        },
+        {
+          "w": "peak",
+          "tr": "zirve yapmak"
+        },
+        {
+          "w": "preprint",
+          "tr": "hakem değerlendirmesi öncesi makale"
+        },
+        {
+          "w": "carbon budget",
+          "tr": "karbon bütçesi"
+        },
+        {
+          "w": "sustainable",
+          "tr": "sürdürülebilir"
+        }
+      ]
+    },
     {
       "id": "lonely-brain-waves-in-sleep-weaker-memory",
       "category": "news",

@@ -1,0 +1,24 @@
+{
+  "id": "fossil-co2-emissions-fall-in-2026",
+  "level": "B2",
+  "title": "Fossil CO2 Emissions Are Set to Fall Slightly in 2026",
+  "paragraphs": [
+    "The 2026 Global Carbon Budget, an annual assessment produced by more than 140 scientists and published on 10 November, projects that global CO2 emissions from fossil fuels will fall by 0.4 percent this year, to roughly 38.2 billion tonnes. A companion paper in the journal Nature Climate Change argues that clean energy needs to speed up further before emissions can peak and then decline for good.",
+    "The picture is mixed. Solar, wind and electric vehicles are meeting about two thirds of rising energy demand, and 59 countries emitted less in 2025 than in 2019 while their economies grew. Oil use is projected to fall by 1.9 percent, which the authors attribute mainly to a short-term energy shock linked to the conflict with Iran, while coal is up 0.6 percent. China (down 0.9 percent), the United States (down 1.3 percent) and the European Union (down 1.5 percent) are expected to cut emissions, whereas India's are forecast to grow by 4.4 percent.",
+    "Project lead Pierre Friedlingstein stressed that \"a reduction driven partly by geopolitical shocks is not a sustainable climate solution\". There are other caveats: emissions from land use are rising because of peat fires and forest degradation, pushing total CO2 to 43.3 billion tonnes, and the full report has so far appeared only as a preprint awaiting peer review. The remaining carbon budget for limiting warming to 1.5°C is about 150 billion tonnes, less than four years at current rates."
+  ],
+  "questions": [
+    {
+      "q": "What does the report project for fossil CO2 in 2026?",
+      "a": "A fall of 0.4 percent, to roughly 38.2 billion tonnes."
+    },
+    {
+      "q": "What caution does Pierre Friedlingstein give?",
+      "a": "A reduction driven partly by geopolitical shocks is not a sustainable climate solution."
+    },
+    {
+      "q": "What limits confidence in the full report?",
+      "a": "It is only a preprint so far, awaiting peer review."
+    }
+  ]
+}
