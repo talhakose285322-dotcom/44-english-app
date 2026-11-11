@@ -1,0 +1,24 @@
+{
+  "id": "fossil-co2-emissions-fall-in-2026",
+  "level": "C2",
+  "title": "Fossil CO2 Emissions Are Set to Fall Slightly in 2026",
+  "paragraphs": [
+    "At first glance, the 2026 Global Carbon Budget, released on 10 November by more than 140 scientists, brings tidings that climate watchers have waited years to hear: fossil CO2 emissions are projected to ease by 0.4 percent this year, to about 38.2 billion tonnes. A companion paper in Nature Climate Change, led by Corinne Le Quéré, is nonetheless blunt that a further acceleration of clean energy is required before emissions can genuinely peak and decline.",
+    "The details resist a triumphant reading. Solar, wind and electric vehicles are covering roughly two thirds of the rise in energy demand, and 59 countries have decoupled growth from emissions since 2019, yet coal creeps up 0.6 percent and India's emissions are forecast to surge 4.4 percent. The 1.9 percent fall in oil consumption owes much to an energy shock linked to the conflict with Iran, which prompted project lead Pierre Friedlingstein to remark that \"a reduction driven partly by geopolitical shocks is not a sustainable climate solution\".",
+    "The arithmetic of the wider carbon cycle is less forgiving still. Land-use emissions are climbing on the back of peat fires and forest degradation, lifting total CO2 to 43.3 billion tonnes from 42.8 billion in 2025, and the remaining 1.5°C budget of about 150 billion tonnes would be spent in under four years at current rates. The report remains a preprint awaiting peer review, and its projections are, by nature, provisional. A single good year, in short, is a data point rather than a trend."
+  ],
+  "questions": [
+    {
+      "q": "What does the Nature Climate Change paper say is needed?",
+      "a": "A further acceleration of clean energy before emissions can peak and decline."
+    },
+    {
+      "q": "What explains much of the 1.9 percent fall in oil use?",
+      "a": "An energy shock linked to the conflict with Iran."
+    },
+    {
+      "q": "Why should the projections be treated cautiously?",
+      "a": "The report is still a preprint awaiting peer review and the projections are provisional."
+    }
+  ]
+}

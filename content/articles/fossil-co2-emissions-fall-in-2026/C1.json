@@ -1,0 +1,24 @@
+{
+  "id": "fossil-co2-emissions-fall-in-2026",
+  "level": "C1",
+  "title": "Fossil CO2 Emissions Are Set to Fall Slightly in 2026",
+  "paragraphs": [
+    "The latest Global Carbon Budget, compiled by more than 140 scientists and released on 10 November, offers a rare piece of cautiously encouraging arithmetic: fossil CO2 emissions are projected to dip by 0.4 percent in 2026, to around 38.2 billion tonnes. A companion paper in Nature Climate Change, led by Corinne Le Quéré of the University of East Anglia, concludes that a further acceleration of clean energy would be needed for emissions to peak and begin a sustained decline.",
+    "Beneath the headline lies a patchwork. Solar, wind and electric vehicles are absorbing roughly two thirds of the growth in energy demand, and 59 countries have grown their economies while emitting less than in 2019. Yet coal is up 0.6 percent, India's emissions are forecast to climb 4.4 percent, and the 1.9 percent drop in oil use is attributed largely to a short-lived energy shock linked to the conflict with Iran rather than to structural change. As Glen Peters of the CICERO research centre put it, a one-year drop is not a peak unless it is driven by structural change.",
+    "Other numbers temper the optimism. Land-use emissions are rising, lifted by peat fires and forest degradation in Southeast Asia, so total CO2 is expected to reach 43.3 billion tonnes, up from 42.8 billion in 2025. What remains of the carbon budget for 1.5°C, around 150 billion tonnes, would be exhausted in under four years at today's rate. The full report is, for now, an unreviewed preprint, and the projections themselves rest on early-year data."
+  ],
+  "questions": [
+    {
+      "q": "What is projected for fossil CO2 in 2026?",
+      "a": "A 0.4 percent dip, to around 38.2 billion tonnes."
+    },
+    {
+      "q": "Why does the fall in oil use not signal a lasting trend?",
+      "a": "It is attributed mainly to a short-lived energy shock rather than structural change."
+    },
+    {
+      "q": "What caveat applies to the full report?",
+      "a": "It is an unreviewed preprint."
+    }
+  ]
+}
