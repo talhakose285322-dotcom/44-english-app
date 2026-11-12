@@ -71,6 +71,11 @@ test('sw.js: kurulum isteğe bağlı dosya hatasında durmuyor, zorunlu dosya ha
   assert.equal((await off.run('fetch', req('https://app.test/icon.svg'))).body, 'cached icon');
   assert.equal((await off.run('fetch', req('https://app.test/some/page', {mode: 'navigate'}))).body, 'cached app');
 
+  // the update check (unique URL, cache "no-store") goes straight to the network and is never stored
+  assert.equal(await s.run('fetch', req('https://app.test/version.json?check=123', {cache: 'no-store'})), null);
+  await new Promise(r => setTimeout(r, 0));
+  assert.ok(![...s.store[CACHE].keys()].some(k => k.includes('version.json?check=')), 'sürüm kontrolü önbelleğe yazılmadı');
+
   // other sites and non-GET requests are not touched
   assert.equal(await s.run('fetch', req('https://en.wiktionary.org/w/api.php')), null);
   assert.equal(await s.run('fetch', {request: {method: 'POST', url: 'https://app.test/x'}}), null);
