@@ -1,0 +1,24 @@
+{
+  "id": "antarctic-ozone-hole-seventh-largest",
+  "level": "B2",
+  "title": "Antarctic Ozone Hole Is the Seventh Largest in 48 Years",
+  "paragraphs": [
+    "NOAA and NASA have published their measurements of the 2026 Antarctic ozone hole, which ranks as the seventh largest in the 48 years of observations. During the main season, from September 7 to October 13, the hole averaged about 25 million square kilometers, more than twice the area of the United States, and it peaked on September 18 at roughly 27.1 million square kilometers, about 90 percent of the record set on September 9, 2000.",
+    "According to the agencies, weather rather than new pollution explains the size. An unusually strong polar vortex, sustained by weak planetary-scale waves in the atmosphere during August and September, kept conditions favourable for ozone destruction over a wider area. Ozone directly above the South Pole fell to 105 Dobson units on October 17; the lowest value ever recorded there is 92 units, in October 2006. Measurements came from weather balloons and a ground spectrophotometer at the South Pole, together with several satellites.",
+    "The scientists stress that the picture would be worse without the 1987 Montreal Protocol: they estimate the hole could have been one to two million square miles larger had ozone-depleting substances stayed at their 2000 peak. Chlorine in the Antarctic stratosphere has dropped by roughly a third from its 1980s maximum. Because these compounds persist for decades, however, a full recovery is not expected before the 2070s, and each year's size will keep varying with the weather."
+  ],
+  "questions": [
+    {
+      "q": "What does the hole's size in 2026 mostly depend on, according to the agencies?",
+      "a": "Weather, especially a strong polar vortex."
+    },
+    {
+      "q": "What would the hole probably have been like at the 2000 peak of harmful substances?",
+      "a": "One to two million square miles larger."
+    },
+    {
+      "q": "Why will each year's size keep varying?",
+      "a": "Because the weather affects it."
+    }
+  ]
+}

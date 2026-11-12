@@ -1,0 +1,24 @@
+{
+  "id": "heat-cuts-carb-use-in-cyclists",
+  "level": "C1",
+  "title": "Heat Reduces How Cyclists Use Carbohydrate",
+  "paragraphs": [
+    "Conventional wisdom in endurance sport holds that athletes should keep taking in carbohydrate throughout long efforts, but it has long been suspected that the body handles this fuel less well in sweltering conditions. A study published on 11 November 2026 in the Journal of Physiology, led by Tim Podlogar of the University of Exeter with Gareth Wallis of the University of Birmingham as senior author, set out to test whether heat acclimation can close the gap.",
+    "Seventeen cyclists completed 90-minute submaximal rides on a stationary bike while consuming carbohydrate: two at 40 degrees Celsius and 20 percent humidity, and one at a controlled 20 degrees. The second hot trial came after nine days of heat acclimation. To trace the fate of the carbohydrate, the team combined blood sampling, muscle biopsies and stable-isotope tracers.",
+    "Whether or not the riders were acclimated, they oxidised about 27 percent less of the carbohydrate they ingested in the heat. Acclimation delivered its usual benefits, including a lower core temperature, expanded plasma volume, a slower heart rate and less perceived strain, but it did nothing for fuel use. The bottleneck appears to lie in the removal of glucose from the bloodstream rather than in the gut, as previously assumed. The findings come with caveats: the group was small, a single hot climate was tested, the underlying mechanism is unresolved, and the US Army Medical Research and Development Command funded the work. Podlogar's practical advice is not to trim carbohydrate intake in the heat while keeping fluids up for cooling."
+  ],
+  "questions": [
+    {
+      "q": "What did acclimation improve, and what did it fail to improve?",
+      "a": "Heat tolerance measures like temperature and heart rate, but not carbohydrate use."
+    },
+    {
+      "q": "Where did earlier assumptions place the problem?",
+      "a": "In the gut, rather than in the removal of glucose from the blood."
+    },
+    {
+      "q": "Which caveats does the summary list?",
+      "a": "Small group, a single hot climate, an unresolved mechanism, and military funding."
+    }
+  ]
+}

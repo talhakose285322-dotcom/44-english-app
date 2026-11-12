@@ -1,0 +1,55 @@
+{
+  "id": "antarctic-ozone-hole-seventh-largest",
+  "category": "news",
+  "title": "Antarctic Ozone Hole Is the Seventh Largest in 48 Years",
+  "summary": "NOAA ve NASA'ya göre 2026 Antarktika ozon deliği 48 yılın yedinci büyüğü oldu; güçlü hava akımları büyüttü, Montreal Protokolü ise daha kötüsünü önledi.",
+  "published": "2026-11-12",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Antarktika'daki Amundsen-Scott Güney Kutbu İstasyonu, karlı düzlükte. Örnek görsel (2007-2008).",
+    "credit": "Bill Spindler, U.S. Antarctic Program, National Science Foundation",
+    "license": "Kamu malı (ABD hükümeti)",
+    "source": "https://commons.wikimedia.org/wiki/File:Amundsen-scott-south_pole_station_2007.jpg"
+  },
+  "sources": [
+    {
+      "title": "NOAA: NOAA and NASA release measurements of the 2026 ozone hole",
+      "url": "https://www.noaa.gov/news-release/noaa-nasa-release-measurements-of-2026-ozone-hole"
+    },
+    {
+      "title": "ScienceDaily (NOAA): NASA reveals Earth's ozone hole has grown to a size not seen in a decade",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261110042546.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "ozone layer",
+      "tr": "ozon tabakası"
+    },
+    {
+      "w": "hole",
+      "tr": "delik"
+    },
+    {
+      "w": "polar vortex",
+      "tr": "kutup girdabı"
+    },
+    {
+      "w": "chemical",
+      "tr": "kimyasal madde"
+    },
+    {
+      "w": "recover",
+      "tr": "toparlanmak, iyileşmek"
+    },
+    {
+      "w": "harmful",
+      "tr": "zararlı"
+    },
+    {
+      "w": "stratosphere",
+      "tr": "stratosfer"
+    }
+  ]
+}

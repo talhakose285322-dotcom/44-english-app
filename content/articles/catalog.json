@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "antarctic-ozone-hole-seventh-largest",
+      "category": "news",
+      "title": "Antarctic Ozone Hole Is the Seventh Largest in 48 Years",
+      "summary": "NOAA ve NASA'ya göre 2026 Antarktika ozon deliği 48 yılın yedinci büyüğü oldu; güçlü hava akımları büyüttü, Montreal Protokolü ise daha kötüsünü önledi.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-12",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 71,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 134,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 193,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 234,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 265,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 283,
+          "minutes": 2
+        }
+      },
+      "image": {
+        "src": "antarctic-ozone-hole-seventh-largest/image.jpg",
+        "alt": "Antarktika'daki Amundsen-Scott Güney Kutbu İstasyonu, karlı düzlükte. Örnek görsel (2007-2008).",
+        "credit": "Bill Spindler, U.S. Antarctic Program, National Science Foundation",
+        "license": "Kamu malı (ABD hükümeti)",
+        "source": "https://commons.wikimedia.org/wiki/File:Amundsen-scott-south_pole_station_2007.jpg"
+      },
+      "sources": [
+        {
+          "title": "NOAA: NOAA and NASA release measurements of the 2026 ozone hole",
+          "url": "https://www.noaa.gov/news-release/noaa-nasa-release-measurements-of-2026-ozone-hole"
+        },
+        {
+          "title": "ScienceDaily (NOAA): NASA reveals Earth's ozone hole has grown to a size not seen in a decade",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261110042546.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "ozone layer",
+          "tr": "ozon tabakası"
+        },
+        {
+          "w": "hole",
+          "tr": "delik"
+        },
+        {
+          "w": "polar vortex",
+          "tr": "kutup girdabı"
+        },
+        {
+          "w": "chemical",
+          "tr": "kimyasal madde"
+        },
+        {
+          "w": "recover",
+          "tr": "toparlanmak, iyileşmek"
+        },
+        {
+          "w": "harmful",
+          "tr": "zararlı"
+        },
+        {
+          "w": "stratosphere",
+          "tr": "stratosfer"
+        }
+      ]
+    },
+    {
+      "id": "heat-cuts-carb-use-in-cyclists",
+      "category": "news",
+      "title": "Heat Reduces How Cyclists Use Carbohydrate",
+      "summary": "Journal of Physiology'de yayımlanan küçük bir çalışmaya göre 40 °C'de bisikletçiler içtikleri karbonhidratın yaklaşık %27'sini daha az kullandı; dokuz günlük sıcağa alışma bunu düzeltmedi.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-12",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 67,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 137,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 192,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 222,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 253,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 246,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "heat-cuts-carb-use-in-cyclists/image.jpg",
+        "alt": "Karayolu bisiklet yarışında zamana karşı yarışan bir bisikletçi. Örnek görsel (2018 UCI Yol Dünya Şampiyonası).",
+        "credit": "Granada (Wikimedia Commons)",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:20180924_UCI_Road_World_Championships_Innsbruck_Men_U23_ITT_Callum_Scotson_850_8281.jpg"
+      },
+      "sources": [
+        {
+          "title": "EurekAlert (University of Birmingham): Extreme heat creates hurdle for athletes getting carbohydrates into muscles",
+          "url": "https://www.eurekalert.org/news-releases/1151532"
+        },
+        {
+          "title": "Journal of Physiology: Heat acclimation does not alleviate the reduction in exogenous glucose oxidation that occurs when exercising in hot conditions (DOI)",
+          "url": "https://doi.org/10.1113/JP289304"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "carbohydrate",
+          "tr": "karbonhidrat"
+        },
+        {
+          "w": "endurance",
+          "tr": "dayanıklılık"
+        },
+        {
+          "w": "heat acclimation",
+          "tr": "sıcağa alışma"
+        },
+        {
+          "w": "muscle",
+          "tr": "kas"
+        },
+        {
+          "w": "humidity",
+          "tr": "nem"
+        },
+        {
+          "w": "participant",
+          "tr": "katılımcı"
+        },
+        {
+          "w": "fuel",
+          "tr": "yakıt, enerji kaynağı"
+        }
+      ]
+    },
     {
       "id": "fossil-co2-emissions-fall-in-2026",
       "category": "news",
