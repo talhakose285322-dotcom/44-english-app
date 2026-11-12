@@ -1,7 +1,7 @@
 const { app, BrowserWindow, shell } = require("electron");
 const path = require("node:path");
 
-const APP_URL = "https://44-english-app.pages.dev/";
+const APP_URL = "https://words44.words44.workers.dev/";
 const APP_ORIGIN = new URL(APP_URL).origin;
 
 function createWindow() {
