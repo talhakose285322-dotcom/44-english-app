@@ -73,6 +73,14 @@ test('Cloudflare Worker config publishes exactly the production build output', (
   assert.ok(fs.existsSync(path.join(out, '_headers')), 'cache headers must ship with the assets');
 });
 
+test('desktop app opens the primary Worker host', () => {
+  // *.pages.dev is blocked on Turkish networks, so the desktop window must load the same host as the web app.
+  const main = fs.readFileSync(path.join(root, 'desktop', 'main.cjs'), 'utf8');
+  const url = main.match(/const APP_URL = "([^"]+)"/);
+  assert.ok(url, 'desktop APP_URL must be discoverable');
+  assert.equal(url[1], 'https://words44.words44.workers.dev/');
+});
+
 test('primary build advertises the Worker host; backup build uses its own canonical host', () => {
   const primary = 'https://words44.words44.workers.dev', base = 'https://talhakose285322-dotcom.github.io/44-english-app';
   const pages = ['welcome.html', 'terms.html', 'privacy.html', 'sitemap.xml', 'robots.txt'];
