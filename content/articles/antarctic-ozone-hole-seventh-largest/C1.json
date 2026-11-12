@@ -1,0 +1,24 @@
+{
+  "id": "antarctic-ozone-hole-seventh-largest",
+  "level": "C1",
+  "title": "Antarctic Ozone Hole Is the Seventh Largest in 48 Years",
+  "paragraphs": [
+    "NOAA and NASA have released their annual tally for the Antarctic ozone hole, and the 2026 season turns out to be sizeable without being exceptional: it ranks seventh largest in 48 years of monitoring. Over the core period from September 7 to October 13, the hole averaged about 25 million square kilometres, more than twice the area of the United States, before peaking on September 18 at around 27.1 million square kilometres, roughly 90 percent of the record recorded on September 9, 2000.",
+    "The agencies attribute the expansion to meteorology rather than to any new surge in pollution. A vigorous polar vortex, which persisted because planetary-scale atmospheric waves were unusually feeble in August and September, allowed ozone-destroying chemistry to proceed over a broader area. At the South Pole itself, total ozone bottomed out at 105 Dobson units on October 17, compared with the all-time low of 92 units in October 2006. Evidence came from balloon-borne sensors, a ground-based Dobson spectrophotometer and satellites including Aura, NOAA-20, NOAA-21 and Suomi NPP.",
+    "Researchers are keen to keep the result in perspective. Had ozone-depleting substances remained at their year-2000 peak, they estimate, the hole would have been one to two million square miles larger, and chlorine in the Antarctic stratosphere has already fallen by about a third since the 1980s. That progress is credited to the Montreal Protocol of 1987. Yet the offending compounds linger for decades, so a full recovery is not projected before the 2070s, and individual years will continue to swing with the weather, a reminder that one large season does not reverse a long-term trend."
+  ],
+  "questions": [
+    {
+      "q": "What explains the size of the 2026 hole, according to the agencies?",
+      "a": "An unusually strong polar vortex linked to weak atmospheric waves."
+    },
+    {
+      "q": "Which international agreement is credited with the progress?",
+      "a": "The Montreal Protocol of 1987."
+    },
+    {
+      "q": "What does the phrase 'one large season does not reverse a long-term trend' mean here?",
+      "a": "A single big hole does not mean the ozone layer has stopped recovering."
+    }
+  ]
+}

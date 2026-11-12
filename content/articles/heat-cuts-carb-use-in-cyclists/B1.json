@@ -1,0 +1,24 @@
+{
+  "id": "heat-cuts-carb-use-in-cyclists",
+  "level": "B1",
+  "title": "Heat Reduces How Cyclists Use Carbohydrate",
+  "paragraphs": [
+    "Endurance athletes are told to take in carbohydrates during long events, because muscles use them as fuel. A study published on 11 November 2026 in the Journal of Physiology asks whether this fuel works as well when the weather is very hot, and whether getting used to the heat can fix the problem.",
+    "Seventeen cyclists took part. Each completed a 90-minute ride on a stationary bike at a moderate effort, twice at 40 degrees Celsius with 20 percent humidity and once at 20 degrees. Between the two hot trials they spent nine days adapting to the heat. Blood samples, muscle biopsies and special tracer molecules let the team follow the carbohydrate the cyclists swallowed.",
+    "In the heat, the cyclists used roughly 27 percent less of the swallowed carbohydrate, even after acclimation. Their bodies did adapt in other ways, with lower body temperature and heart rate. The researchers think the loss happens when sugar leaves the blood and enters the tissues, not in the gut. There are limits: the group was small, only one hot condition was tested, the exact cause is unknown, and the US Army research command paid for the work."
+  ],
+  "questions": [
+    {
+      "q": "What did the study test?",
+      "a": "Whether heat changes how the body uses carbohydrate during exercise."
+    },
+    {
+      "q": "Where does the loss seem to happen?",
+      "a": "When sugar moves from the blood into the tissues."
+    },
+    {
+      "q": "Name one limit of the study.",
+      "a": "The group was small, or only one hot condition was tested."
+    }
+  ]
+}
