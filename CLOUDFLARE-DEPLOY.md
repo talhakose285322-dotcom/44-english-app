@@ -1,9 +1,19 @@
-# Cloudflare Pages deployment
+# Cloudflare deployment
 
-> **Migration status:** Do not treat Cloudflare as production until the deployed `pages.dev` site serves the current GitHub `main` commit and the production domain is verified. Keep Netlify available until that check passes. The existence of a `pages.dev` URL alone does not prove GitHub auto-deploy is connected.
+Words 44 is a static PWA. `scripts/build-static.mjs` creates a production-only `dist/` folder from the source app.
 
+## Güncel durum (12 Kasım 2026; Cloudflare API ve canlı `version.json` ile doğrulandı)
 
-Words 44 is a static PWA. This repository now includes a build script that creates a production-only `dist/` folder without changing the source app or the current Netlify setup.
+| Adres | Rolü | Nasıl yayımlanıyor | Durum |
+|---|---|---|---|
+| https://words44.words44.workers.dev | **Ana adres (production).** Kullanıcıya bu verilir. | Worker `words44`, `wrangler.jsonc` (yalnızca statik dosyalar, `./dist`; betik, API ya da binding yok). Workers Builds her `main` push'unda `node scripts/build-static.mjs` + `npx wrangler deploy` çalıştırır. | `main` ile aynı (1.3.0) |
+| https://talhakose285322-dotcom.github.io/44-english-app | Yedek | `.github/workflows/pages-backup.yml` | `main` ile aynı (1.3.0) |
+| https://44-english-app.pages.dev | İkincil; kullanıcıya verilmez | Cloudflare Pages `44-english-app`, Git'e bağlı, `main` + tüm dallar için önizleme. Cloudflare'daki build command ve output directory **boş** (aşağıdaki ayarlarla uyuşmuyor; #130). | `*.pages.dev` Türkiye ağlarında engelli. Masaüstü uygulaması hâlâ bu adrese bağlı (#129). |
+| https://symphonious-donut-1c09bc.netlify.app | Eski | Güncellenmiyor | Service worker `v10`; depo dosyalarını ham sunuyor (#131) |
+
+Google girişi dönüşü `location.origin + location.pathname` olduğundan her adres Supabase izin listesinde ayrıca bulunmalıdır; liste doğrulanmadı (#132). Veriler adrese göre ayrı tutulur: adres değişirse kullanıcı verisi yedekle taşınır.
+
+Aşağıdaki bölümler geçmiş kayıttır; o tarihteki ölçümleri ve Pages'e geçiş planını anlatır.
 
 
 ## 24 Ekim 2026 — erişim ve yayın durumu (geliştirici bilgisayarının Türkiye bağlantısından ölçüldü)
