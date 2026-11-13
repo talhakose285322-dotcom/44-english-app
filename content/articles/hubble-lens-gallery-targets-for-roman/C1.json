@@ -1,0 +1,24 @@
+{
+  "id": "hubble-lens-gallery-targets-for-roman",
+  "level": "C1",
+  "title": "Hubble's Gravitational Lens Gallery Sets Targets for Roman",
+  "paragraphs": [
+    "NASA has unveiled a gallery of strong gravitational lenses captured by the Hubble Space Telescope, a showcase that doubles as a shopping list for the Nancy Grace Roman Space Telescope, launched in August 2026. The phenomenon, predicted by Albert Einstein, arises when a massive foreground object, be it a galaxy or a cluster, bends and magnifies the light of a more distant galaxy behind it.",
+    "The systems were first picked out by the Dark Energy Spectroscopic Instrument at Kitt Peak, and Hubble then brought them into sharp focus. Among them are a nearly complete Einstein ring, a galaxy replicated four times and a foreground galaxy whose unusual dust lane may fragment what would otherwise be a ring. Colour tells a story as well: blue arcs betray young stars, red ones older populations, allowing astronomers to trace how galaxies evolved.",
+    "The larger prize is dark matter. By modelling each lens, researchers hope to weigh the foreground galaxy, dark matter included, and put cold dark matter theory to the test. That theory foresees numerous clumps of between a million and a billion solar masses, which could appear as tiny blemishes in the lensed arcs. Roman, observing chiefly in infrared across a far broader field, should uncover many more such lenses, and the team intends to build an AI tool to find them."
+  ],
+  "questions": [
+    {
+      "q": "Why does the text call the gallery a \"shopping list\"?",
+      "a": "It lists targets for Roman to observe."
+    },
+    {
+      "q": "What may the dust lane do?",
+      "a": "Fragment what could be an Einstein ring."
+    },
+    {
+      "q": "What do the researchers plan to build?",
+      "a": "An AI tool to search Roman's images for lenses."
+    }
+  ]
+}

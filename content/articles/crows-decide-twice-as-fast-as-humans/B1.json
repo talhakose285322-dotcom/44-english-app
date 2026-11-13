@@ -1,0 +1,24 @@
+{
+  "id": "crows-decide-twice-as-fast-as-humans",
+  "level": "B1",
+  "title": "Crows Decide About Twice as Fast as Humans",
+  "paragraphs": [
+    "Researchers at the University of Tübingen in Germany have found that crows can make a simple decision remarkably fast. The study, by Philipp Schmidbauer and Professor Andreas Nieder, was published in the journal Science.",
+    "Two carrion crows watched moving dots on a touchscreen. They had to judge whether most of the dots moved left or right and then peck a target on the matching side. With clear movement, the birds were almost always correct, and with unclear movement they still performed better than chance. On average, they needed 235 milliseconds, which the scientists describe as about twice as fast as humans and monkeys.",
+    "The team also recorded brain cells in an area called the nidopallium caudolaterale, which works somewhat like the human prefrontal cortex. About 70 milliseconds after the dots appeared, some cells already showed which direction the bird would choose. The study has a clear limit: only two birds took part, and the reason for their speed is still unknown."
+  ],
+  "questions": [
+    {
+      "q": "Which brain area did the team record from?",
+      "a": "The nidopallium caudolaterale."
+    },
+    {
+      "q": "How long did the crows need on average?",
+      "a": "235 milliseconds."
+    },
+    {
+      "q": "What is one limit of the study?",
+      "a": "Only two birds were tested."
+    }
+  ]
+}
