@@ -1,0 +1,25 @@
+{
+  "id": "what-makes-a-contract-binding",
+  "level": "B1",
+  "title": "What Makes a Contract Binding?",
+  "paragraphs": [
+    "A contract is an agreement that creates duties which a court will enforce. Many people imagine long documents full of small print, but contracts can be much simpler. Buying a train ticket or ordering food online already creates one, even though nobody signs anything.",
+    "In common-law countries such as England and the United States, lawyers usually look for several elements. There must be an offer and an acceptance, and the acceptance must match the offer. If someone replies with different terms, the reply counts as a counter-offer, and the first offer disappears. Each side must also give something of value, which is called consideration. A simple promise to give a gift is normally not enforceable for this reason.",
+    "Other conditions matter too. In ordinary business deals, the parties are assumed to intend a legal relationship, while casual family or social arrangements are usually not treated as contracts. The people involved must have the capacity to agree, which means that minors and people who cannot understand the deal may have special protection. Finally, the purpose of the contract must be lawful.",
+    "Many civil-law systems do not require consideration and focus on whether the parties truly agreed, so the rules differ between countries. When a contract is broken, the usual remedy is damages: money intended to put the injured side in the position it would have been in if the promise had been kept. Courts order the promise to be performed only when money would not be enough."
+  ],
+  "questions": [
+    {
+      "q": "What happens if someone answers an offer with different terms?",
+      "a": "It becomes a counter-offer and the first offer disappears."
+    },
+    {
+      "q": "Why is a simple promise of a gift usually not enforceable?",
+      "a": "Because nothing of value is given in return (no consideration)."
+    },
+    {
+      "q": "What is the usual remedy for a broken contract?",
+      "a": "Damages, which means money."
+    }
+  ]
+}

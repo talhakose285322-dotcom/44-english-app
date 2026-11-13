@@ -1,0 +1,24 @@
+{
+  "id": "crocodile-kin-survived-by-staying-warm",
+  "level": "B1",
+  "title": "Warm Climates May Have Helped Crocodile Kin Outlast the Dinosaurs",
+  "paragraphs": [
+    "When an asteroid hit Earth 66 million years ago, most dinosaurs disappeared, but crocodiles and their relatives survived. A study led by University College London, published in the journal Science Advances, suggests that a love of warm climates may have helped them.",
+    "The team collected more than 7,000 fossils and records from over 400 living and extinct species. From these, they worked out which temperatures and rainfall each species preferred. They then ran computer models of Earth's climate and geography over 245 million years, and also tested what happened if dust and ash reduced sunlight after the impact.",
+    "If sunlight dropped by 5% or 10%, warm areas near the equator stayed suitable for crocodile relatives. A drop of 15% removed suitable climates, but the authors think this is unlikely. Earlier modelling by the same team showed that dinosaur habitats shrank much more. The results come from computer models, so they are not direct proof, and the scientists say that small bodies, life in water and flexible diets probably helped too."
+  ],
+  "questions": [
+    {
+      "q": "What helped crocodile relatives, according to the study?",
+      "a": "Their preference for warm climates."
+    },
+    {
+      "q": "What happened if sunlight dropped by 5% or 10%?",
+      "a": "Warm areas near the equator stayed suitable."
+    },
+    {
+      "q": "Why is the result not direct proof?",
+      "a": "It comes from computer models."
+    }
+  ]
+}

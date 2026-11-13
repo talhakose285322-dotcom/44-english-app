@@ -1,0 +1,24 @@
+{
+  "id": "blood-vessel-clue-in-preeclampsia",
+  "level": "C2",
+  "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",
+  "paragraphs": [
+    "For a condition that touches up to one pregnancy in twelve, preeclampsia still offers clinicians a strikingly blunt remedy: delivering the baby and placenta. A study from the University of Manchester, published in Circulation Research, may begin to explain why the mother's circulation misbehaves in the first place, by pinpointing a flaw in how her smallest arteries relax.",
+    "Using small arteries taken from abdominal fatty tissue from patients at Saint Mary's Hospital, the researchers pressurised the vessels in the laboratory and compared women with and without the disorder. Among those with preeclampsia, calcium sparks, the minute signals that coax arteries to relax, were cut by as much as 75% at normal physiological pressures, and the cells' calcium reserves were drained and slow to replenish. Lead author Dr Stephanie Worton describes the pathway as \"profoundly impaired\".",
+    "Yet the picture is not wholly bleak. A peptide, HBD2, could not mend the faulty sparks but still relaxed the vessels by acting on a different part of the same pathway, which hints at new drug targets that might prolong pregnancy. It would be premature to read this as a breakthrough, however: the work was done on isolated vessels, the release does not reveal how many women took part, and the authors concede that safety in pregnancy remains to be established. Funding came from Tommy's, the Alzheimer's Society, the British Heart Foundation and the NIHR Manchester BRC."
+  ],
+  "questions": [
+    {
+      "q": "What does the study try to explain?",
+      "a": "Why the mother's small blood vessels fail to relax properly in preeclampsia."
+    },
+    {
+      "q": "Why is HBD2 interesting despite not repairing the sparks?",
+      "a": "It still relaxed the vessels by acting on a different part of the pathway."
+    },
+    {
+      "q": "Why is it premature to call this a breakthrough?",
+      "a": "It used isolated vessels, the sample size is unknown, and safety in pregnancy is unproven."
+    }
+  ]
+}

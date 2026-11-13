@@ -1,0 +1,51 @@
+{
+  "id": "lucy-enters-jupiter-trojan-region",
+  "category": "news",
+  "title": "NASA’s Lucy Enters the Jupiter Trojan Region",
+  "summary": "NASA’nın Lucy uzay aracı, Jüpiter Truva asteroitleri bölgesine giren ilk uzay aracı oldu; ilk yakın geçiş Ağustos 2027’de planlanıyor.",
+  "published": "2026-11-01",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Lucy’nın ziyaret edeceği Patroclus ve Menoetius ikili asteroidinin sanatçı çizimi (örnek görsel).",
+    "credit": "NASA’s Goddard Space Flight Center/Conceptual Image Lab",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:Lucy-PatroclusMenoetius-art.png"
+  },
+  "sources": [
+    {
+      "title": "NASA: Lucy Reaches Jupiter Trojan Region",
+      "url": "https://science.nasa.gov/blogs/lucy/2026/10/28/nasas-lucy-reaches-trojan-asteroid-region-5-years-after-launch/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "spacecraft",
+      "tr": "uzay aracı"
+    },
+    {
+      "w": "asteroid",
+      "tr": "asteroit"
+    },
+    {
+      "w": "launch",
+      "tr": "fırlatma"
+    },
+    {
+      "w": "orbit",
+      "tr": "yörünge"
+    },
+    {
+      "w": "flyby",
+      "tr": "yakın geçiş"
+    },
+    {
+      "w": "primitive",
+      "tr": "ilkel, ilk çağlara ait"
+    },
+    {
+      "w": "gravity assist",
+      "tr": "kütleçekim yardımı"
+    }
+  ]
+}

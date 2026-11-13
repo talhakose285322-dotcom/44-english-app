@@ -1,0 +1,24 @@
+{
+  "id": "hubble-lens-gallery-targets-for-roman",
+  "level": "C2",
+  "title": "Hubble's Gravitational Lens Gallery Sets Targets for Roman",
+  "paragraphs": [
+    "Einstein predicted that gravity would bend light; a century on, NASA has gathered a gallery of Hubble images in which that prediction is writ large. Each shows a strong gravitational lens, in which a massive foreground galaxy or cluster warps and magnifies the light of a more distant galaxy, and together they serve as a curated shortlist for the Nancy Grace Roman Space Telescope, launched in August 2026.",
+    "Spotted initially by the Dark Energy Spectroscopic Instrument at Kitt Peak, the lenses range from a near-perfect Einstein ring to a galaxy conjured into four images and a foreground galaxy whose rare dust lane may split what might otherwise be a closed ring. The hues are instructive in their own right, blue arcs pointing to youthful stars and red to older ones, and so offer a window on how galaxies matured.",
+    "What astronomers ultimately covet, however, is a better grip on dark matter. Modelling each lens should yield the mass of the foreground galaxy, dark matter included, and allow cold dark matter theory to be tested: it predicts countless clumps of a million to a billion solar masses, which Hubble's acuity might expose as slight irregularities in the arcs. Roman, which looks mainly in the infrared across a vastly wider field, is expected to turn up many more lenses, and an AI search tool is already planned to sift them."
+  ],
+  "questions": [
+    {
+      "q": "What does \"writ large\" suggest?",
+      "a": "The prediction is shown on a grand, obvious scale."
+    },
+    {
+      "q": "What may the dust lane do to the ring?",
+      "a": "Split what might be a closed ring."
+    },
+    {
+      "q": "What does cold dark matter theory predict?",
+      "a": "Many clumps of one million to one billion solar masses."
+    }
+  ]
+}

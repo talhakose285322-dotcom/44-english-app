@@ -1,0 +1,51 @@
+{
+  "id": "hubble-lens-gallery-targets-for-roman",
+  "category": "news",
+  "title": "Hubble's Gravitational Lens Gallery Sets Targets for Roman",
+  "summary": "NASA, Hubble'ın çektiği güçlü kütleçekim mercekleri galerisini yayımladı; Roman teleskobu bu hedefleri karanlık madde araştırması için izleyecek.",
+  "published": "2026-11-13",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Hubble'ın görüntülediği bir Einstein halkası, kütleçekim merceği örneği (örnek görsel; haberdeki galeriden değil).",
+    "credit": "ESA/Hubble & NASA",
+    "license": "Kamu malı (ESA/Hubble & NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:A_Horseshoe_Einstein_Ring_from_Hubble.JPG"
+  },
+  "sources": [
+    {
+      "title": "NASA: Hubble Offers Cosmic Sampler of Targets for Roman",
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-offers-cosmic-sampler-of-targets-for-roman/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "gravitational lens",
+      "tr": "kütleçekim merceği"
+    },
+    {
+      "w": "dark matter",
+      "tr": "karanlık madde"
+    },
+    {
+      "w": "magnify",
+      "tr": "büyütmek"
+    },
+    {
+      "w": "foreground",
+      "tr": "ön plan"
+    },
+    {
+      "w": "telescope",
+      "tr": "teleskop"
+    },
+    {
+      "w": "arc",
+      "tr": "yay"
+    },
+    {
+      "w": "predict",
+      "tr": "öngörmek"
+    }
+  ]
+}

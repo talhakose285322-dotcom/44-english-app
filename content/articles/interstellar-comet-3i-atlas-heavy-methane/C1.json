@@ -1,0 +1,24 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "level": "C1",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "paragraphs": [
+    "Astronomers analysing observations from the James Webb Space Telescope have reported a striking chemical signature in 3I/ATLAS, only the third interstellar object known to have crossed our solar system. The findings, published in Nature Astronomy by a team led by Nathan Roth of American University and NASA's Goddard Space Flight Center, concern the comet's methane.",
+    "Webb examined the comet's coma on 22 and 23 December 2025, when it lay about 2.4 times as far from the Sun as Earth does. Roughly 3.2 percent of the hydrogen in the methane turned out to be deuterium, around 13 times the value linked to comet 67P and about three times the ratio earlier measured in the comet's own water. In the authors' words, the figure \"exceeds any other value for methane measured in the solar system.\"",
+    "Chemists associate such enrichment with frigid, radiation-rich settings, perhaps around a distant star or in the dense cloud from which it formed, where cosmic rays can drive deuterium-enriching reactions. The team even suggests the methane may have formed after the water. Yet the picture remains provisional: the deuterated signal is faint and depended on modelling out other gases, comparison data from distant star-forming regions are scarce, and the few available models cannot reproduce the observed value. For now, the comet offers a demanding test for theory rather than a settled origin story."
+  ],
+  "questions": [
+    {
+      "q": "What was unusual about the methane in 3I/ATLAS?",
+      "a": "Its deuterium share was higher than any methane measured in the solar system."
+    },
+    {
+      "q": "What do the authors suggest about when the methane formed?",
+      "a": "It may have formed after the water."
+    },
+    {
+      "q": "Why is the origin still uncertain?",
+      "a": "The signal is faint, comparison data are scarce and existing models cannot match the value."
+    }
+  ]
+}

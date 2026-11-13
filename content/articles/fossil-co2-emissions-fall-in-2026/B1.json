@@ -1,0 +1,24 @@
+{
+  "id": "fossil-co2-emissions-fall-in-2026",
+  "level": "B1",
+  "title": "Fossil CO2 Emissions Are Set to Fall Slightly in 2026",
+  "paragraphs": [
+    "Every year, more than 140 scientists work together to measure how much carbon dioxide people release. The 2026 Global Carbon Budget, published on 10 November by researchers led from the University of Exeter, projects that emissions from fossil fuels will fall by 0.4 percent this year, to about 38.2 billion tonnes.",
+    "Solar and wind power, together with electric vehicles, now supply about two thirds of the growth in energy demand. Oil use is expected to drop by 1.9 percent, probably as a short-term reaction to an energy price shock linked to the conflict with Iran. At the same time, coal use is rising by 0.6 percent. Among big emitters, China, the United States and the European Union are expected to emit less, but India's emissions are rising by 4.4 percent.",
+    "The authors warn that one year of decline is not a turning point. Total CO2, including emissions from land use such as forest fires, is still expected to rise to 43.3 billion tonnes. The full report is also a preprint, which means that other scientists have not finished reviewing it yet."
+  ],
+  "questions": [
+    {
+      "q": "How much will fossil CO2 fall in 2026?",
+      "a": "By 0.4 percent, to about 38.2 billion tonnes."
+    },
+    {
+      "q": "Why is oil use expected to drop?",
+      "a": "Probably as a short-term reaction to an energy price shock linked to the conflict with Iran."
+    },
+    {
+      "q": "Why is the report not final yet?",
+      "a": "It is a preprint, so peer review is not finished."
+    }
+  ]
+}

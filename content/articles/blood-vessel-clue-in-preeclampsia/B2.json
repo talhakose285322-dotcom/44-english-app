@@ -1,0 +1,24 @@
+{
+  "id": "blood-vessel-clue-in-preeclampsia",
+  "level": "B2",
+  "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",
+  "paragraphs": [
+    "Preeclampsia, a pregnancy condition marked by high blood pressure, affects roughly 2% to 8% of pregnancies worldwide, and delivering the baby and placenta is still the only definitive treatment. A study from the University of Manchester, published in Circulation Research, now points to a defect in the way tiny maternal blood vessels relax.",
+    "Researchers recruited patients at Saint Mary's Hospital and pressurised small arteries taken from abdominal fatty tissue in the laboratory. In women with preeclampsia, the calcium signals that help vessels relax, known as calcium sparks, fell by as much as 75% at normal physiological pressures, and the cells' calcium stores were depleted and slow to recover. Lead author Dr Stephanie Worton said the work \"reveals, for the first time, a major defect\" in how these vessels regulate their own relaxation.",
+    "There was a hopeful finding too: a peptide called HBD2 could not restore the faulty sparks, yet it still relaxed the vessels by acting elsewhere on the same pathway. The team suggests this could open new targets for drugs that prolong pregnancy. The caveats are considerable, though. The experiments used isolated vessels, the press release does not give the number of women involved, and the authors stress that further research must show whether such drugs could be used safely in pregnancy. The study was funded by Tommy's, the Alzheimer's Society, the British Heart Foundation and the NIHR Manchester BRC."
+  ],
+  "questions": [
+    {
+      "q": "What did the researchers measure in the arteries?",
+      "a": "Calcium sparks, the signals that help vessels relax."
+    },
+    {
+      "q": "What was surprising about HBD2?",
+      "a": "It did not restore the sparks but still relaxed the vessels."
+    },
+    {
+      "q": "Name one limitation of the study.",
+      "a": "It used isolated vessels in a laboratory and the sample size was not reported."
+    }
+  ]
+}

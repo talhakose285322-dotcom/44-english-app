@@ -1,0 +1,24 @@
+{
+  "id": "heat-cuts-carb-use-in-cyclists",
+  "level": "C2",
+  "title": "Heat Reduces How Cyclists Use Carbohydrate",
+  "paragraphs": [
+    "Received wisdom in endurance sport urges athletes to keep topping up on carbohydrate throughout long efforts, yet it has long been suspected that the body makes poorer use of this fuel in oppressive heat. A paper published on 11 November 2026 in the Journal of Physiology, by Tim Podlogar of the University of Exeter and Gareth Wallis of the University of Birmingham, among others, asked whether acclimating to the heat might close that gap.",
+    "Seventeen cyclists completed three 90-minute submaximal rides on a stationary bike while consuming carbohydrate: two at 40 degrees Celsius and 20 percent humidity, and one in a controlled 20 degrees. The second hot trial followed nine days of heat acclimation. To trace the carbohydrate's journey, the team combined blood sampling, muscle biopsies and stable-isotope tracers.",
+    "Acclimated or not, the riders oxidised roughly 27 percent less of the carbohydrate they swallowed when it was hot. Acclimation did deliver its customary dividends, including a lower core temperature, expanded plasma volume, a slower pulse and less perceived strain, yet it left fuel use untouched. The bottleneck seems to lie in the passage of glucose from the bloodstream into tissue, not in the gut, as had been supposed. Prudence is in order: the group was small, only one hot climate was examined, the precise mechanism is unidentified, and the US Army Medical Research and Development Command bankrolled the work. Podlogar's takeaway is pragmatic: do not cut carbohydrate in the heat, and keep drinking to stay cool."
+  ],
+  "questions": [
+    {
+      "q": "What does 'customary dividends' refer to?",
+      "a": "The usual benefits of heat acclimation, such as lower temperature and heart rate."
+    },
+    {
+      "q": "How does the finding overturn an earlier assumption?",
+      "a": "The problem lies in glucose leaving the blood for tissue, not in gut absorption."
+    },
+    {
+      "q": "Why does the writer say 'prudence is in order'?",
+      "a": "Because the study was small, tested one climate, left the mechanism unknown and had military funding."
+    }
+  ]
+}

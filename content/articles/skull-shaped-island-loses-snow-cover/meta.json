@@ -1,0 +1,55 @@
+{
+  "id": "skull-shaped-island-loses-snow-cover",
+  "category": "news",
+  "title": "Antarctic ‘Skull’ Island Loses Its Snow Cover",
+  "summary": "NASA uydu görüntüleri, Antarktika’daki ‘kafatası’ görünümlü Vega Adası’nın kar örtüsünün büyük ölçüde azaldığını gösteriyor.",
+  "published": "2026-11-09",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Antarktika’daki Vega Adası’nda dağ zirvesinden görünüm (örnek görsel).",
+    "credit": "Joseph W. Holliday",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vega_island_Antarctica.jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA Earth Observatory: Vega Island Frozen in Fright",
+      "url": "https://science.nasa.gov/earth/earth-observatory/vega-island-frozen-in-fright/"
+    },
+    {
+      "title": "ScienceDaily (NASA Earth Observatory): Antarctica’s skull-shaped island loses snow",
+      "url": "https://sciencedaily.com/releases/2026/11/261101010538.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "satellite",
+      "tr": "uydu"
+    },
+    {
+      "w": "glacier",
+      "tr": "buzul"
+    },
+    {
+      "w": "snow cover",
+      "tr": "kar örtüsü"
+    },
+    {
+      "w": "melt",
+      "tr": "erimek"
+    },
+    {
+      "w": "exposed",
+      "tr": "açıkta kalmış"
+    },
+    {
+      "w": "moraine",
+      "tr": "moren (buzul kalıntısı yığını)"
+    },
+    {
+      "w": "sublimation",
+      "tr": "süblimleşme"
+    }
+  ]
+}

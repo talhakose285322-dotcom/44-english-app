@@ -1,0 +1,24 @@
+{
+  "id": "oldest-mars-meteorite-teghaza-001",
+  "level": "C1",
+  "title": "One of the Oldest Mars Meteorites Ever Found",
+  "paragraphs": [
+    "A rose-coloured rock picked up in the Sahara Desert in 2022 has now been ranked among the three oldest Martian meteorites ever found. According to NASA-funded researchers, Teghaza 001, which weighs nearly 800 grams and takes its name from a salt plain in Mali, crystallised more than 4.1 billion years ago; the main study appeared in the journal Science.",
+    "Its Martian origin was first established at the University of New Mexico through oxygen isotopes, while its age came from in-situ rubidium-strontium dating, a method pioneered by Francois Tissot’s team at Caltech. Because it targets single mineral grains on a sliver smaller than a fingernail, the technique spares most of the specimen. The igneous minerals chronicle how Mars’s crust solidified from molten rock and was later reworked by groundwater, evidence the authors read as pointing to a livelier early water cycle.",
+    "That reading deserves some caution. The meteorite’s birthplace is unknown; matching its chemistry against data from orbiters, landers and rovers yielded only 13 candidate sites in the southern highlands. The water story is, by the researchers’ own account, interpretive, and the paper is an initial characterisation. As lead author Yang Liu of NASA’s Jet Propulsion Laboratory put it, “We’ve only scratched the surface.” Few labs worldwide can carry out such dating, so replication may take time."
+  ],
+  "questions": [
+    {
+      "q": "What did the University of New Mexico team establish?",
+      "a": "That the rock is Martian."
+    },
+    {
+      "q": "Why is the water conclusion interpretive?",
+      "a": "The authors say the evidence suggests and points to it, not proves it."
+    },
+    {
+      "q": "Why might replication take time?",
+      "a": "Few labs can carry out this dating."
+    }
+  ]
+}

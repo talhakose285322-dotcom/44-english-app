@@ -1,0 +1,24 @@
+{
+  "id": "skin-patch-reads-pulse-without-electronics",
+  "level": "C1",
+  "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+  "paragraphs": [
+    "Engineers at the Norwegian University of Science and Technology (NTNU) have unveiled a skin patch that reads the pulse with no electronics at all, according to research published on 29 October 2026 in Advanced Materials. The device is a piece of silicone rubber bearing a nanoscale pattern that changes colour when stretched; its underside carries a three-dimensional adhesive structure modelled on octopus suction cups.",
+    "The principle is elegant. Each heartbeat sends a tiny ripple through the skin, the patch stretches in sympathy, and its colour shifts almost imperceptibly. An ordinary smartphone camera can pick up that shift, dispensing with spectrometers, lasers and other specialist equipment. The researchers say the patch tracks the pulse and yields information about arterial stiffness, a risk marker for cardiovascular disease. Since it depends on mechanical movement rather than on light absorbed by the skin, it should, they argue, be less sensitive to skin pigment, a known weakness of optical sensors in smartwatches. “Optical measurements are not equally accurate for all skin types,” said associate professor Angelos Xomalis.",
+    "Those claims deserve scrutiny, however. The published coverage offers no data on sample size, accuracy against clinical reference devices or funding, so the patch is best viewed as a promising prototype that still awaits independent, large-scale validation."
+  ],
+  "questions": [
+    {
+      "q": "What makes the patch change colour?",
+      "a": "Stretching of the rubber when the skin moves with each pulse."
+    },
+    {
+      "q": "What advantage over smartwatch sensors do the researchers claim?",
+      "a": "It should be less affected by skin pigment."
+    },
+    {
+      "q": "Why is the patch called a prototype?",
+      "a": "There is no public data on sample size, accuracy or independent validation."
+    }
+  ]
+}

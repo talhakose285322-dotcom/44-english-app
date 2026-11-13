@@ -1,0 +1,24 @@
+{
+  "id": "neptune-trojans-found-by-rubin",
+  "level": "C2",
+  "title": "Rubin Observatory Finds Two New Neptune Trojans",
+  "paragraphs": [
+    "Neptune keeps company with a retinue of minor bodies, the Trojans, which hold station some sixty degrees ahead of and behind the planet along its orbit. Upwards of thirty have been catalogued, yet the leading cloud accounts for the lion’s share; its trailing counterpart has remained conspicuously underrepresented in the census.",
+    "Celestial geometry, rather than any real scarcity, was to blame. For years the trailing cloud lay across the glare of the Milky Way’s star-choked plane, where faint and sluggish specks are all but impossible to winnow out. In 2025 it drifted clear of that backdrop and into the footprint of the Rubin Observatory in Chile, an instrument conceived to photograph the heavens over and over again.",
+    "Combing through early survey data, a team led by Meg Schwamb of Queen’s University Belfast confirmed two new Trojans, 2025 MH348 and 2025 NN80, whose orbits should endure over very long timescales, and flagged a third candidate, 2025 MD138. Reported in The Astrophysical Journal Letters, the finding doubles the known stable sample in the trailing cloud to four, and hints that its members share the surface character of their leading cousins. A note of restraint is warranted: a handful of objects is thin ground for sweeping claims, and the candidate rests on a mere 38 days of observations. As the survey runs on, the picture should sharpen considerably."
+  ],
+  "questions": [
+    {
+      "q": "What does “the lion’s share” mean?",
+      "a": "The largest part."
+    },
+    {
+      "q": "According to the text, what was to blame for the gap in the census?",
+      "a": "Celestial geometry: the cloud sat in front of the Milky Way’s dense star fields."
+    },
+    {
+      "q": "Why does the author call for “restraint”?",
+      "a": "Only a few objects were found, and one has just 38 days of data."
+    }
+  ]
+}

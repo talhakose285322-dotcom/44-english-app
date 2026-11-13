@@ -1,0 +1,24 @@
+{
+  "id": "oldest-mars-meteorite-teghaza-001",
+  "level": "C2",
+  "title": "One of the Oldest Mars Meteorites Ever Found",
+  "paragraphs": [
+    "Plucked from the Sahara in 2022, a rose-hued stone weighing barely 800 grams has been placed among the three oldest Martian meteorites known. Teghaza 001, named for a salt plain in Mali, is more than 4.1 billion years old, NASA-funded scientists report in the journal Science, making it a rare witness to the red planet’s earliest chapters.",
+    "Its Martian pedigree was first confirmed at the University of New Mexico by way of oxygen isotopes, whereas its age was pinned down through in-situ rubidium-strontium dating, a technique developed by Francois Tissot’s group at Caltech that interrogates individual grains on a fragment smaller than a fingernail and so leaves the bulk of the sample untouched. The igneous minerals preserve a record of crust cooling from magma and being altered by water underground, which the team takes to suggest a more dynamic early water cycle than once assumed.",
+    "Yet the picture is far from complete. Nobody knows where on Mars the rock was blasted from; comparison with orbiter, lander and rover data produced just 13 candidate sites among the cratered southern highlands. The conclusions on water remain interpretive, and the paper offers only a first characterisation. “We’ve only scratched the surface,” admitted lead author Yang Liu of NASA’s Jet Propulsion Laboratory, and with so few laboratories able to repeat the dating, independent confirmation may be slow in coming."
+  ],
+  "questions": [
+    {
+      "q": "What makes Teghaza 001 notable?",
+      "a": "It is among the three oldest known Martian meteorites."
+    },
+    {
+      "q": "What did the dating method spare?",
+      "a": "The bulk of the sample."
+    },
+    {
+      "q": "Why may independent confirmation be slow?",
+      "a": "Very few laboratories can repeat the dating."
+    }
+  ]
+}

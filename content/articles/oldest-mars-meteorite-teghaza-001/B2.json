@@ -1,0 +1,24 @@
+{
+  "id": "oldest-mars-meteorite-teghaza-001",
+  "level": "B2",
+  "title": "One of the Oldest Mars Meteorites Ever Found",
+  "paragraphs": [
+    "A rose-coloured stone found in the Sahara Desert in 2022 has been described as one of the three oldest Martian meteorites ever discovered. Named Teghaza 001 after a salt plain in Mali, the nearly 800-gram rock formed more than 4.1 billion years ago, according to NASA-funded researchers whose main paper appeared in the journal Science.",
+    "Scientists at the University of New Mexico first recognised it as Martian by analysing its oxygen isotopes. Its age was then measured with in-situ rubidium-strontium dating, a technique developed by Francois Tissot’s group at Caltech, which examines individual mineral grains on a fragment smaller than a fingernail and therefore leaves the sample largely intact. The minerals record how the crust cooled from magma and was later altered by water underground, and they hint at a more dynamic early Martian water cycle.",
+    "Caution is nevertheless needed. The rock’s exact origin remains unknown: the team could only identify 13 candidate sites in the cratered southern highlands whose chemistry matches it, using data from orbiters, landers and rovers. The conclusions about water are interpretations, and lead author Yang Liu of NASA’s Jet Propulsion Laboratory said, “We’ve only scratched the surface.” Few laboratories can perform this kind of dating."
+  ],
+  "questions": [
+    {
+      "q": "Why is the meteorite called Teghaza 001?",
+      "a": "It is named after a salt plain in Mali."
+    },
+    {
+      "q": "What does the dating technique leave intact?",
+      "a": "Most of the sample."
+    },
+    {
+      "q": "How many possible source locations did the team find?",
+      "a": "13."
+    }
+  ]
+}

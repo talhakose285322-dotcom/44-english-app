@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-safe-moon-landing-system",
+  "level": "A1",
+  "title": "NASA Tests a System for Safer Moon Landings",
+  "paragraphs": [
+    "NASA tested a new landing system. It is called SPLICE. It helps a spacecraft land safely.",
+    "The test was on 27 August 2026. It was in California. A small drone flew with the system. The drone has four rotors.",
+    "SPLICE looks at the ground. It makes a map. It finds rocks and holes. If the place is not safe, it moves the drone to a better place."
+  ],
+  "questions": [
+    {
+      "q": "What is SPLICE?",
+      "a": "A new landing system."
+    },
+    {
+      "q": "Where was the test?",
+      "a": "In California."
+    },
+    {
+      "q": "What does SPLICE do if a place is not safe?",
+      "a": "It moves the drone to a better place."
+    }
+  ]
+}

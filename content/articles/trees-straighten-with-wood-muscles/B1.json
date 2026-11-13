@@ -1,0 +1,24 @@
+{
+  "id": "trees-straighten-with-wood-muscles",
+  "level": "B1",
+  "title": "Trees Can Sense Their Shape and Straighten Up",
+  "paragraphs": [
+    "Most people know that trees use light and gravity to grow upward. A new study by the French research institute INRAE, published in the journal New Phytologist, shows that trees also sense their own shape, and that they correct it with a kind of muscle made of wood.",
+    "The researchers worked with young poplar trees. They first let the trees grow sideways for about ten days, until their stems curved upward. Then they placed the trees on a horizontal platform that turns slowly inside a sphere lit from every direction. This removed the usual clues from gravity and light, so the trees could only feel their own curve.",
+    "Over the following weeks, the stems straightened almost completely. Tension wood, which normally forms on the upper side of a stem, stopped forming there and appeared on the opposite side instead. The two sides acted against each other, like muscles. The study is promising, but the report does not say how many trees were tested, and ideas such as better timber or crops that fall over less are only possible future uses, not results."
+  ],
+  "questions": [
+    {
+      "q": "What did the trees sense in this study?",
+      "a": "Their own shape, called proprioception."
+    },
+    {
+      "q": "What happened to tension wood during the experiment?",
+      "a": "It stopped forming on the upper side and formed on the opposite side."
+    },
+    {
+      "q": "Why should we be careful with the possible uses?",
+      "a": "They are only ideas and were not tested in this study."
+    }
+  ]
+}

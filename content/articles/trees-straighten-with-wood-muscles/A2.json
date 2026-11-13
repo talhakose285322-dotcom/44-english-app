@@ -1,0 +1,24 @@
+{
+  "id": "trees-straighten-with-wood-muscles",
+  "level": "A2",
+  "title": "Trees Can Sense Their Shape and Straighten Up",
+  "paragraphs": [
+    "Scientists in France have found that trees can sense their own shape. A tree does not only use light and gravity to stand straight. It also feels how bent it is.",
+    "The team from the research institute INRAE used young poplar trees. The trees grew sideways for about ten days, and their stems curved upward. Then the scientists put them on a platform that turns slowly inside a lit sphere. This took away the signals from gravity and light.",
+    "Over the next weeks, the stems became almost straight again. The trees stopped making tension wood on the upper side and made the same wood on the opposite side. The two sides worked against each other, like muscles, and pulled the stem straight."
+  ],
+  "questions": [
+    {
+      "q": "Who did the study?",
+      "a": "Scientists from the French institute INRAE."
+    },
+    {
+      "q": "Why did the scientists use a turning platform?",
+      "a": "It removed the signals from gravity and light."
+    },
+    {
+      "q": "How did the stems become straight?",
+      "a": "Tension wood on the opposite side pulled them back."
+    }
+  ]
+}

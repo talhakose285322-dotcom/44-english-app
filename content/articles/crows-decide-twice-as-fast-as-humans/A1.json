@@ -1,0 +1,24 @@
+{
+  "id": "crows-decide-twice-as-fast-as-humans",
+  "level": "A1",
+  "title": "Crows Decide About Twice as Fast as Humans",
+  "paragraphs": [
+    "Scientists studied two crows in Germany. They wanted to know how fast crows think.",
+    "The birds looked at a screen with moving dots. They had to see if the dots moved left or right. Then they touched the screen.",
+    "The crows answered in about 235 milliseconds. That is very fast. The scientists say it is about twice as fast as people. Only two birds were in the study, so more tests are needed."
+  ],
+  "questions": [
+    {
+      "q": "How many crows were in the study?",
+      "a": "Two."
+    },
+    {
+      "q": "What did the birds look at?",
+      "a": "Moving dots on a screen."
+    },
+    {
+      "q": "About how fast did the crows answer?",
+      "a": "About 235 milliseconds."
+    }
+  ]
+}

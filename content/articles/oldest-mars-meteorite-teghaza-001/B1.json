@@ -1,0 +1,24 @@
+{
+  "id": "oldest-mars-meteorite-teghaza-001",
+  "level": "B1",
+  "title": "One of the Oldest Mars Meteorites Ever Found",
+  "paragraphs": [
+    "A rose-coloured rock found in the Sahara Desert in 2022 has turned out to be one of the oldest Martian meteorites ever discovered. The rock, called Teghaza 001, weighs nearly 800 grams, and NASA-funded scientists report that its minerals formed more than 4.1 billion years ago.",
+    "Researchers first identified it as Martian by measuring its oxygen isotopes. To find its age, they used a technique developed by a team at Caltech that dates single mineral grains on a piece smaller than a fingernail, so most of the sample is preserved. The rock appears to have been changed by water on Mars about 4.1 billion years ago, which suggests that the early planet had a more active water cycle than expected.",
+    "There are limits to the findings. Scientists do not know exactly where on Mars the rock came from; they only found 13 possible locations that match its minerals. The water conclusions are also interpretations, and more studies are needed. Teghaza 001 is one of roughly 435 known Martian meteorites."
+  ],
+  "questions": [
+    {
+      "q": "How did the researchers date the rock?",
+      "a": "By dating single mineral grains on a very small piece."
+    },
+    {
+      "q": "What does the rock suggest about early Mars?",
+      "a": "That it had a more active water cycle."
+    },
+    {
+      "q": "What is one limit of the findings?",
+      "a": "The exact place on Mars where it came from is unknown."
+    }
+  ]
+}

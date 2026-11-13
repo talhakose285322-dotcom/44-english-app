@@ -1,0 +1,25 @@
+{
+  "id": "what-makes-a-contract-binding",
+  "level": "A1",
+  "title": "What Makes a Contract Binding?",
+  "paragraphs": [
+    "A contract is a promise between people. The law can make people keep this promise. You make contracts every day. You buy a bus ticket. You rent a flat.",
+    "A contract needs an offer. One person says, “I will sell you my bike for 50 pounds.” The other person must say yes. This is acceptance.",
+    "Both people must give something. The seller gives a bike. The buyer gives money. Both people must also be adults and understand the deal.",
+    "Sometimes one person breaks the promise. Then a judge can help. Often the judge asks that person to pay money. A small contract can be spoken. A big one is better on paper."
+  ],
+  "questions": [
+    {
+      "q": "What is a contract?",
+      "a": "A promise between people that the law can enforce."
+    },
+    {
+      "q": "What does the other person say in an acceptance?",
+      "a": "Yes."
+    },
+    {
+      "q": "What does a buyer give in a bike deal?",
+      "a": "Money."
+    }
+  ]
+}

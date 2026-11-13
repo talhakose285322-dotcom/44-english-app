@@ -1,0 +1,24 @@
+{
+  "id": "antarctic-ozone-hole-seventh-largest",
+  "level": "B1",
+  "title": "Antarctic Ozone Hole Is the Seventh Largest in 48 Years",
+  "paragraphs": [
+    "The American agencies NOAA and NASA have released their measurements of this year's Antarctic ozone hole. The ozone layer is a thin region of the upper atmosphere that absorbs much of the sun's harmful ultraviolet light, so scientists track the hole that opens above Antarctica every southern spring.",
+    "The 2026 hole ranked seventh largest in 48 years of satellite and ground observations. Between September 7 and October 13 its average area was about 25 million square kilometers, more than twice the size of the United States. It was widest on September 18, at about 27.1 million square kilometers. The thinnest ozone over the South Pole, 105 Dobson units, was measured on October 17; the record low is 92 units, from October 2006.",
+    "The scientists explain that a strong polar vortex, a ring of fast winds around the pole, stayed large because weather waves were unusually weak in August and September. They also say that the Montreal Protocol, signed in 1987, is still working: chlorine from harmful chemicals in the Antarctic sky has fallen by about a third since the 1980s. These substances last for decades, so recovery by the 2070s will be slow."
+  ],
+  "questions": [
+    {
+      "q": "What caused the larger hole in 2026?",
+      "a": "A strong polar vortex and weak weather waves."
+    },
+    {
+      "q": "How much has chlorine fallen since the 1980s?",
+      "a": "By about a third."
+    },
+    {
+      "q": "Why will recovery be slow?",
+      "a": "Harmful chemicals stay in the air for decades."
+    }
+  ]
+}

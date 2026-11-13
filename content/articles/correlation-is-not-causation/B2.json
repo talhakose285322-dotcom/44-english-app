@@ -1,0 +1,25 @@
+{
+  "id": "correlation-is-not-causation",
+  "level": "B2",
+  "title": "Correlation Is Not Causation",
+  "paragraphs": [
+    "Headlines regularly announce that one habit is “linked to” some outcome, and readers are tempted to conclude that the first thing causes the second. Yet a correlation, in the statistical sense, only describes how two measurements vary together. Establishing a causal relationship requires considerably more evidence.",
+    "Three alternative explanations should always be considered. First, a confounder may influence both variables: ice cream sales and drowning deaths both increase in summer, but temperature, which encourages swimming, accounts for the pattern. Second, the direction of causation may be reversed. A serious illness, for instance, can lower a person’s cholesterol level and raise the risk of death, which makes low cholesterol look dangerous when it may be a symptom. Third, the pattern may be pure coincidence, especially when researchers search through many variables.",
+    "The most convincing way to separate cause from correlation is a randomised controlled experiment. Because participants are assigned to groups by chance, known and unknown confounders are, on average, balanced between the groups, so any systematic difference in the outcome can more reasonably be attributed to the treatment.",
+    "Many important questions, however, cannot be tested this way for practical or ethical reasons. In those cases, scientists rely on natural experiments and statistical adjustment, and they state their conclusions cautiously. A critical reader should therefore ask what else could explain a result and how the researchers dealt with that possibility."
+  ],
+  "questions": [
+    {
+      "q": "What does a correlation describe?",
+      "a": "How two measurements vary together."
+    },
+    {
+      "q": "Why can low cholesterol look dangerous in the example?",
+      "a": "Serious illness can lower cholesterol and also raise the risk of death."
+    },
+    {
+      "q": "Why are randomised experiments convincing?",
+      "a": "Random assignment balances confounders between the groups on average."
+    }
+  ]
+}

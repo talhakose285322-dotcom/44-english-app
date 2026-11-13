@@ -1,0 +1,24 @@
+{
+  "id": "blood-vessel-clue-in-preeclampsia",
+  "level": "A2",
+  "title": "A Blood Vessel Clue in Pregnancy Blood Pressure",
+  "paragraphs": [
+    "Preeclampsia is a serious problem in pregnancy. The mother's blood pressure becomes high. It affects between 2% and 8% of pregnancies around the world. Today, the only real cure is to deliver the baby.",
+    "Scientists at the University of Manchester studied tiny blood vessels from pregnant women, with and without preeclampsia. They found that a calcium signal, called a calcium spark, was weaker in women with preeclampsia. It was lower by up to 75%.",
+    "This signal helps the vessels relax. The scientists also tested a small protein called HBD2. It did not repair the signal, but it still helped the vessels relax in another way. More research is needed before there is any new medicine."
+  ],
+  "questions": [
+    {
+      "q": "How many pregnancies does preeclampsia affect?",
+      "a": "Between 2% and 8%."
+    },
+    {
+      "q": "What was weaker in women with preeclampsia?",
+      "a": "A calcium signal called a calcium spark."
+    },
+    {
+      "q": "Did HBD2 repair the signal?",
+      "a": "No, but it still helped the vessels relax."
+    }
+  ]
+}

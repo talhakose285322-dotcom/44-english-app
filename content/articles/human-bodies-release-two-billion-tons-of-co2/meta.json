@@ -1,0 +1,55 @@
+{
+  "id": "human-bodies-release-two-billion-tons-of-co2",
+  "category": "news",
+  "title": "Human Bodies Release About 2 Billion Tons of CO2 a Year",
+  "summary": "Bath Üniversitesi’nden araştırmacılar, insan vücudunun metabolizma sonucu 2015’te yaklaşık 2,05 milyar ton CO2 ürettiğini hesapladı. Bu miktar 1985’e göre %74 fazla; artışın %60’tan fazlası nüfus artışından kaynaklanıyor. Araştırmacılar bunun iklim değişikliğinin nedeni olmadığını vurguluyor.",
+  "published": "2026-11-08",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Açık havada yürüyen bir grup insanın ayakları ve bacakları; örnek görsel.",
+    "credit": "Luke (Wikimedia Commons)",
+    "license": "Kamu malı",
+    "source": "https://commons.wikimedia.org/wiki/File:Group_of_people_walking_down_the_street.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (University of Bath): Human bodies produce 2 billion metric tons of CO2 a year just by staying alive",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261104012305.htm"
+    },
+    {
+      "title": "The Lancet Planetary Health (2026)",
+      "url": "https://doi.org/10.1016/j.lanplh.2026.101546"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "carbon dioxide",
+      "tr": "karbondioksit"
+    },
+    {
+      "w": "metabolism",
+      "tr": "metabolizma"
+    },
+    {
+      "w": "emissions",
+      "tr": "emisyonlar, salımlar"
+    },
+    {
+      "w": "population",
+      "tr": "nüfus"
+    },
+    {
+      "w": "estimate",
+      "tr": "tahmin; tahmin etmek"
+    },
+    {
+      "w": "budget",
+      "tr": "bütçe"
+    },
+    {
+      "w": "fossil fuel",
+      "tr": "fosil yakıt"
+    }
+  ]
+}

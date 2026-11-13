@@ -1,0 +1,24 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "level": "A1",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "paragraphs": [
+    "A comet is visiting our solar system. It comes from another star. Its name is 3I/ATLAS.",
+    "Scientists used the Webb space telescope. They looked at gas around the comet. The gas is called methane.",
+    "The methane has a lot of heavy hydrogen. This is very unusual. It may mean the comet was made in a very cold place."
+  ],
+  "questions": [
+    {
+      "q": "Where does the comet come from?",
+      "a": "From another star."
+    },
+    {
+      "q": "Which telescope did scientists use?",
+      "a": "The Webb space telescope."
+    },
+    {
+      "q": "What may the heavy hydrogen mean?",
+      "a": "The comet was made in a very cold place."
+    }
+  ]
+}

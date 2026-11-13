@@ -1,0 +1,25 @@
+{
+  "id": "what-makes-a-contract-binding",
+  "level": "C1",
+  "title": "What Makes a Contract Binding?",
+  "paragraphs": [
+    "Few legal institutions are as pervasive, or as easily overlooked, as the contract. Whenever a commuter boards a bus or a freelancer accepts a commission, an exchange of promises is concluded whose breach exposes the defaulting party to judicial sanction. It is this enforceability, rather than any particular formality, that separates a contract from a mere expression of intent.",
+    "Common-law courts conventionally analyse formation by reference to several requirements. Mutual assent is established through an offer and a corresponding acceptance; under the so-called mirror-image rule, a response that departs from the terms proposed operates as a counter-offer and extinguishes the original proposal. Consideration, which Lord Dunedin famously described as the price for which the promise of the other is bought, distinguishes bargains from gratuitous undertakings. In addition, the parties must have intended to create legal relations, a presumption that applies readily to commercial dealings but is typically rebutted in domestic and social contexts, and they must possess the capacity to contract.",
+    "The significance of formality is frequently overstated. In Lucy v. Zehmer (Virginia, 1954), an agreement scribbled on a restaurant napkin was held binding because the substantive elements were satisfied, notwithstanding the informal setting. Conversely, statutes of frauds in many jurisdictions require writing for particular categories of agreement, in order to reduce the risk of fabricated claims.",
+    "It would be mistaken to regard these requirements as universal. Civil-law systems, along with the UNIDROIT Principles of 2016, dispense with consideration and treat the meeting of minds as sufficient, which suggests that the doctrine is a historical peculiarity of the common law rather than a logical necessity. Remedies reflect a similar pragmatism: damages are compensatory, seeking to place the claimant in the position performance would have secured, while specific performance remains exceptional and punitive damages are unavailable."
+  ],
+  "questions": [
+    {
+      "q": "What separates a contract from a mere expression of intent?",
+      "a": "Its enforceability by a court."
+    },
+    {
+      "q": "What does the mirror-image rule say?",
+      "a": "A reply that changes the terms is a counter-offer, not an acceptance."
+    },
+    {
+      "q": "Why do some statutes require certain contracts to be in writing?",
+      "a": "To reduce the risk of fabricated claims."
+    }
+  ]
+}

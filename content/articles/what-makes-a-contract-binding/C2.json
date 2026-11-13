@@ -1,0 +1,25 @@
+{
+  "id": "what-makes-a-contract-binding",
+  "level": "C2",
+  "title": "What Makes a Contract Binding?",
+  "paragraphs": [
+    "The contract is arguably the most ubiquitous of legal instruments, yet its ubiquity tends to obscure its distinctive feature: a contract is not simply an agreement, but an agreement to which the law attaches a coercive consequence. The commuter who boards a bus and the freelancer who accepts a commission alike enter reciprocal obligations whose non-performance may be met with judicial sanction.",
+    "The common law has traditionally analysed formation through a cluster of doctrines. Assent is manifested by offer and acceptance, the latter being effective only if it mirrors the former; any variation operates as a counter-offer and extinguishes the proposal it answers. The requirement of consideration, encapsulated in Lord Dunedin's description of it as the price for which the promise of the other is bought, serves to separate enforceable bargains from gratuitous promises. A presumption concerning the intention to create legal relations, readily accepted in commercial settings yet generally displaced in domestic and social ones, and the requirement of capacity complete the orthodox account.",
+    "Perhaps the most instructive lesson lies in how little ceremony the doctrine demands. In Lucy v. Zehmer (Virginia, 1954), an agreement written on a restaurant napkin was upheld, the court looking to the parties' outward manifestations of assent rather than to the informality of the document. Nevertheless, statutes of frauds, found in many jurisdictions, insist on a writing for specified categories of transaction, reflecting a legislative anxiety about perjured testimony.",
+    "Comparative scrutiny cautions against treating the common-law framework as inevitable. Civil-law systems, together with the UNIDROIT Principles of International Commercial Contracts (2016), reject consideration as a condition of validity and are content with a meeting of minds, which implies that the doctrine owes more to history than to logic. The law of remedies is likewise measured: damages are compensatory rather than punitive, aspiring to vindicate the claimant's expectation interest, while specific performance is confined to cases in which monetary relief would prove inadequate."
+  ],
+  "questions": [
+    {
+      "q": "What distinguishes a contract from any agreement, according to the text?",
+      "a": "The law attaches a coercive consequence to it."
+    },
+    {
+      "q": "Why might consideration be called a historical peculiarity?",
+      "a": "Civil-law systems and the UNIDROIT Principles do without it."
+    },
+    {
+      "q": "When is specific performance available?",
+      "a": "Only when money would be an inadequate remedy."
+    }
+  ]
+}

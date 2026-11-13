@@ -1,0 +1,55 @@
+{
+  "id": "lonely-brain-waves-in-sleep-weaker-memory",
+  "category": "news",
+  "title": "'Lonely' Brain Waves in Sleep Linked to Weaker Memory",
+  "summary": "Berkeley araştırmacılarına göre uykuda beynin ön bölgesinde biriken tau proteini, beyin dalgalarının koordinasyonunu bozuyor ve ertesi gün hatırlamayı zayıflatıyor olabilir; ama bu bir nedensellik kanıtı değil.",
+  "published": "2026-11-10",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "32 elektrotlu bir EEG başlığında elektrotların yerlerini gösteren şema (örnek görsel).",
+    "credit": "Abigail Swain",
+    "license": "Kamu malı",
+    "source": "https://commons.wikimedia.org/wiki/File:Elecmontage32.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (UC Berkeley): Lonely brain waves linked to memory loss",
+      "url": "https://sciencedaily.com/releases/2026/11/261101010556.htm"
+    },
+    {
+      "title": "Nature Neuroscience (DOI): Human tau pathology is associated with lonely, nontraveling slow waves linked to memory impairment",
+      "url": "https://doi.org/10.1038/s41593-026-02415-9"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "brain wave",
+      "tr": "beyin dalgası"
+    },
+    {
+      "w": "memory",
+      "tr": "hafıza, bellek"
+    },
+    {
+      "w": "slow wave",
+      "tr": "yavaş dalga (derin uykuda görülen)"
+    },
+    {
+      "w": "protein",
+      "tr": "protein"
+    },
+    {
+      "w": "correlation",
+      "tr": "ilişki, korelasyon"
+    },
+    {
+      "w": "older adult",
+      "tr": "yaşlı yetişkin"
+    },
+    {
+      "w": "overnight",
+      "tr": "gece boyunca"
+    }
+  ]
+}

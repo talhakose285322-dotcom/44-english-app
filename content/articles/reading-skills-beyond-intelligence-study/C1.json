@@ -1,0 +1,24 @@
+{
+  "id": "reading-skills-beyond-intelligence-study",
+  "level": "C1",
+  "title": "Two Overlooked Skills Predict Children's Reading Success",
+  "paragraphs": [
+    "The notion that poor readers are simply less intelligent has proved remarkably stubborn, but a sweeping analysis led by Dr. Daniel Hajovsky of Texas A&M University suggests it deserves to be retired. Working with colleagues at the University of Kansas, St. John's University, Montclair State University and Temple University, he combined roughly 50,000 correlations from 137 cognitive and achievement test batteries into one statistical model, reported in the Journal of Intelligence.",
+    "The results point elsewhere. Auditory processing, the capacity to perceive and tell apart the sounds of spoken words, and comprehension-knowledge, the reservoir of vocabulary and background understanding a child has built, predicted reading more reliably than any other ability examined. General intelligence was associated with reading, yet far less strongly than some earlier studies had implied, and visual processing showed no meaningful bearing on it. Memory, reasoning and processing speed played a more supporting part.",
+    "Hajovsky's takeaway is that reading struggles are no indication of low ability; they frequently stem from a single skill that needs targeted help. Several caveats apply, however. Pooling data from many tests inherits their differences in quality and design, the associations are correlational and cannot settle what causes what, and the report we consulted says nothing about funding. The study therefore sharpens the questions teachers should ask rather than prescribing a cure."
+  ],
+  "questions": [
+    {
+      "q": "What do the authors conclude about reading struggles?",
+      "a": "They are not a sign of low ability and often reflect one skill needing support."
+    },
+    {
+      "q": "How did visual processing fare?",
+      "a": "It showed no meaningful relationship with reading."
+    },
+    {
+      "q": "Name one limitation of the study.",
+      "a": "It is correlational, relies on pooled data from many tests, and the report does not mention funding."
+    }
+  ]
+}

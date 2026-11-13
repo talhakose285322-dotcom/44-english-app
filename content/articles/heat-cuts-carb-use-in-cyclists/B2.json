@@ -1,0 +1,24 @@
+{
+  "id": "heat-cuts-carb-use-in-cyclists",
+  "level": "B2",
+  "title": "Heat Reduces How Cyclists Use Carbohydrate",
+  "paragraphs": [
+    "Sports nutrition guidelines urge endurance athletes to take in carbohydrate during long efforts, yet researchers have long suspected that this fuel is used less efficiently in hot weather. A study in the Journal of Physiology, published on 11 November 2026 by teams from the universities of Exeter and Birmingham, tested whether heat acclimation can reverse the effect.",
+    "Seventeen cyclists rode for 90 minutes at a submaximal effort on a stationary bike while drinking carbohydrate. They completed two trials at 40 degrees Celsius with 20 percent humidity and one at 20 degrees; the second hot trial followed nine days of heat acclimation. Blood sampling, muscle biopsies and stable-isotope tracers allowed the researchers to follow the ingested carbohydrate through the body.",
+    "Compared with the cool trial, the cyclists oxidised about 27 percent less of the carbohydrate they had swallowed in the heat, with or without acclimation, although acclimation did lower core temperature, heart rate and perceived effort. The data point to the stage at which glucose leaves the blood for the tissues, rather than gut absorption, as the bottleneck. The authors caution that the sample was small, only one hot climate was examined, the mechanism remains unidentified, and the work was funded by the US Army Medical Research and Development Command. Lead author Tim Podlogar advises athletes not to cut carbohydrate in the heat."
+  ],
+  "questions": [
+    {
+      "q": "What was the main result for the hot trials?",
+      "a": "About 27 percent less of the swallowed carbohydrate was used."
+    },
+    {
+      "q": "What did acclimation change, and what did it not change?",
+      "a": "It lowered core temperature and heart rate but did not restore carbohydrate use."
+    },
+    {
+      "q": "Why should the result be treated with caution?",
+      "a": "The sample was small, one hot condition was tested, and the mechanism is unknown."
+    }
+  ]
+}

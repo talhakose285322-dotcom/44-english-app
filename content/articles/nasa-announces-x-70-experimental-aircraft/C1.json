@@ -1,0 +1,24 @@
+{
+  "id": "nasa-announces-x-70-experimental-aircraft",
+  "level": "C1",
+  "title": "NASA Announces the X-70, a New Experimental Aircraft",
+  "paragraphs": [
+    "NASA has taken the wraps off the X-70 Fractal, the latest entry in its storied X-plane lineage, which stretches from the Bell X-1 to the X-59. The announcement was made on 4 November at an event at the Kennedy Space Center in Florida. The agency bills the crewed aircraft as a highly adaptable testbed meant to shorten the road from laboratory idea to flight-proven technology.",
+    "The headline specifications are modest but practical: space for up to 2,000 pounds of experimental payloads, mounted inside or outside and exchangeable at short notice, a takeoff weight of 10,000 pounds, a cruise speed of Mach 0.75, a ceiling of 45,000 feet and a range of roughly 1,500 nautical miles. Its research focus is flight control and manoeuvrability, which NASA says will be pushed in ways never before demonstrated in crewed flight. Laurie Grindle, who heads the agency's aeronautics division, said it was \"exciting to bring on another X-plane\".",
+    "Much remains unsaid, however. The aircraft has yet to leave the ground, and Administrator Jared Isaacman would commit only to a first flight within two years, hardly a firm date. The release names no builder and no cost, and the illustrations are computer-generated, so for now the X-70 is a promise rather than a proven machine."
+  ],
+  "questions": [
+    {
+      "q": "What is the X-70 meant to do?",
+      "a": "Speed up the testing of advanced flight-control and manoeuvring technologies."
+    },
+    {
+      "q": "How is it flexible?",
+      "a": "It carries up to 2,000 pounds of payloads that can be swapped quickly."
+    },
+    {
+      "q": "Why does the article call it a promise?",
+      "a": "It has not flown, has no named builder or cost, and the images are computer-generated."
+    }
+  ]
+}

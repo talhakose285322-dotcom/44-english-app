@@ -1,0 +1,24 @@
+{
+  "id": "skin-patch-reads-pulse-without-electronics",
+  "level": "B2",
+  "title": "A Skin Patch That Reads Your Pulse Without Electronics",
+  "paragraphs": [
+    "A team at the Norwegian University of Science and Technology (NTNU) has designed a skin patch that can read a person’s pulse without batteries, cables or electronics, according to a paper published on 29 October 2026 in Advanced Materials. The patch is made of silicone rubber and has a nanoscale pattern that changes colour when it is stretched. On the other side, a three-dimensional adhesive structure, inspired by octopus suction cups, helps it stay on the skin.",
+    "Every heartbeat makes the skin move slightly. The patch stretches with it, and the resulting colour shift can be captured by an ordinary smartphone camera, without a spectrometer or a laser. According to the researchers, the patch can track the pulse and provide information about arterial stiffness, a marker linked to cardiovascular disease. Because it relies on movement rather than on light absorbed by the skin, it should be less affected by skin pigment; as associate professor Angelos Xomalis put it, “optical measurements are not equally accurate for all skin types.”",
+    "Some caution is needed. The press reports give no figures on how many people were tested, on accuracy compared with medical equipment, or on funding. Until independent studies provide such evidence, the patch remains a promising early-stage technology rather than a clinical tool."
+  ],
+  "questions": [
+    {
+      "q": "How is the patch attached to the skin?",
+      "a": "With an adhesive structure inspired by octopus suction cups."
+    },
+    {
+      "q": "Why might it work on all skin types?",
+      "a": "It uses skin movement, not light absorbed by the skin."
+    },
+    {
+      "q": "What details are missing from the reports?",
+      "a": "The number of people tested, accuracy and funding."
+    }
+  ]
+}

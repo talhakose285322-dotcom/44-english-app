@@ -1,0 +1,24 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "level": "B2",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "paragraphs": [
+    "An international team has used the James Webb Space Telescope to measure an unusual chemical fingerprint in 3I/ATLAS, the third interstellar object ever detected passing through our solar system. The study, led by Nathan Roth of American University and NASA's Goddard Space Flight Center, appeared in Nature Astronomy.",
+    "Looking at the comet's gas cloud in December 2025, the researchers found that about 3.2 percent of the hydrogen in its methane is deuterium, a heavier form of hydrogen. That is roughly 13 times the value associated with comet 67P, which most likely formed in our own solar system, and about three times the ratio previously found in the comet's water. The authors write that the ratio \"exceeds any other value for methane measured in the solar system.\"",
+    "Such enrichment is thought to arise in extremely cold conditions, possibly bathed in cosmic rays, around another star or in the cloud that preceded it. Caution is needed, though: the deuterated methane signal is faint and had to be isolated by modelling and subtracting other gases, and existing chemical models fall short of the measured value. The data support a plausible formation history rather than a single proven birthplace."
+  ],
+  "questions": [
+    {
+      "q": "What makes the methane in 3I/ATLAS unusual?",
+      "a": "It contains far more deuterium than any methane measured in the solar system."
+    },
+    {
+      "q": "How did the team isolate the signal?",
+      "a": "By modelling and subtracting light from other gases."
+    },
+    {
+      "q": "Why do the authors not name a definite birthplace?",
+      "a": "The evidence fits a cold environment but cannot point to one unique place."
+    }
+  ]
+}

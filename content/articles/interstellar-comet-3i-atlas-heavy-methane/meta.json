@@ -1,0 +1,55 @@
+{
+  "id": "interstellar-comet-3i-atlas-heavy-methane",
+  "category": "news",
+  "title": "A Visitor From Another Star Carries Unusual Heavy Methane",
+  "summary": "James Webb Uzay Teleskobu, yıldızlararası kuyruklu yıldız 3I/ATLAS'ın metanında olağandışı yüksek miktarda ağır hidrojen buldu; bu, buzun çok soğuk bir ortamda oluştuğuna işaret ediyor.",
+  "published": "2026-11-04",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "James Webb Uzay Teleskobu'nun NASA çizimi (örnek görsel).",
+    "credit": "NASA",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:JWST_spacecraft_model_2.png"
+  },
+  "sources": [
+    {
+      "title": "Nature Astronomy: An enriched methane D/H ratio in the interstellar object 3I/ATLAS",
+      "url": "https://www.nature.com/articles/s41550-026-03002-5"
+    },
+    {
+      "title": "Phys.org: Heavy hydrogen in 3I/ATLAS's methane points to a frigid birthplace",
+      "url": "https://phys.org/news/2026-10-heavy-hydrogen-3iatlas-methane-frigid.html"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "comet",
+      "tr": "kuyruklu yıldız"
+    },
+    {
+      "w": "interstellar",
+      "tr": "yıldızlararası"
+    },
+    {
+      "w": "methane",
+      "tr": "metan"
+    },
+    {
+      "w": "deuterium",
+      "tr": "döteryum (ağır hidrojen)"
+    },
+    {
+      "w": "frigid",
+      "tr": "dondurucu soğuk"
+    },
+    {
+      "w": "telescope",
+      "tr": "teleskop"
+    },
+    {
+      "w": "cosmic rays",
+      "tr": "kozmik ışınlar"
+    }
+  ]
+}

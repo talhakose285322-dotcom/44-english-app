@@ -1,0 +1,24 @@
+{
+  "id": "trees-straighten-with-wood-muscles",
+  "level": "C1",
+  "title": "Trees Can Sense Their Shape and Straighten Up",
+  "paragraphs": [
+    "Botanists have long understood that trees orient themselves by reading light and gravity. A study by the French research institute INRAE, published in New Phytologist, now argues that there is a third source of guidance: trees monitor their own curvature, a capacity known as proprioception, and use it to put right a crooked trunk.",
+    "To isolate that sense, the researchers first grew young poplars on their sides for roughly ten days, until the stems had bent noticeably upward. They then transferred them to a horizontal platform rotating slowly within a sphere lit evenly from every direction, which stripped away consistent gravitational and light cues. Over the following weeks the stems all but straightened. Tension wood, previously thought to form only on the upper side of a stem, ceased to form there and appeared instead on the opposite side, so that two sets of tissue worked against one another in the manner of antagonistic muscles. Bruno Moulia, a research director at INRAE, called it \"a genuine sensorimotor loop operating in the woody parts of trees\".",
+    "The implications, such as straighter timber, cereals less prone to toppling before harvest and trees that recover more readily after storms, are the authors' own projections rather than demonstrated outcomes. The report also gives no sample size, relies on a single young tree type grown under artificial conditions, and was financed by French space and agroecology research bodies, so the findings will need to be replicated before they are applied in forestry or farming."
+  ],
+  "questions": [
+    {
+      "q": "What third source of guidance does the study propose?",
+      "a": "Proprioception: trees sense their own curvature."
+    },
+    {
+      "q": "How did tension wood behave in the experiment?",
+      "a": "It stopped forming on the upper side and formed on the opposite side."
+    },
+    {
+      "q": "What caveats does the passage mention?",
+      "a": "No sample size, a single young tree type, artificial conditions, and untested applications."
+    }
+  ]
+}

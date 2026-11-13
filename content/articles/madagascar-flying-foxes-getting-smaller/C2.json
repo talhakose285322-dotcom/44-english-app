@@ -1,0 +1,24 @@
+{
+  "id": "madagascar-flying-foxes-getting-smaller",
+  "level": "C2",
+  "title": "Madagascar’s Giant Bats Are Getting Smaller",
+  "paragraphs": [
+    "Madagascar’s flying foxes, which rank among the largest bats on the planet, seem to have been dwindling in stature for some forty years, according to researchers at Chicago’s Field Museum writing in the Journal of Mammalogy. The inquiry began with an observation rather than a hypothesis: bats preserved in museum collections struck one scientist as conspicuously bulkier than the animals she met in the field.",
+    "Measuring twelve skull and tooth features across 121 specimens from nine institutions, some more than a century and a half old, the team found that pre-1980s skulls were on average 3.6 millimetres, roughly 6 percent, longer than later ones. That shift lines up with the moment when hunting ceased to be a small-scale, community affair and became a commercial enterprise supplying markets and restaurants. Lead author Emily Cornelius Ruhs put the logic bluntly: “If you’re the biggest bat in the sky, you might be the easiest target.” Should hunters keep removing the largest animals, the survivors, and their offspring, would be correspondingly smaller. The species’ numbers are meanwhile reported to have slumped from about 300,000 in the early 2000s by around two-thirds.",
+    "None of this amounts to proof. The study establishes a temporal correlation, and habitat loss and a changing climate remain candidate culprits. Nor is it clear that a smaller body spells greater danger for the species in itself; genetic work on living populations may eventually settle the matter."
+  ],
+  "questions": [
+    {
+      "q": "How did the study begin?",
+      "a": "A scientist noticed that museum bats looked bigger than bats seen in the field."
+    },
+    {
+      "q": "What mechanism do the researchers propose?",
+      "a": "Hunters may take the largest bats first, leaving smaller animals to reproduce."
+    },
+    {
+      "q": "Why is the link to hunting not proven?",
+      "a": "It is only a correlation in time, and habitat loss and climate change remain possible causes."
+    }
+  ]
+}

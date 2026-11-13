@@ -1,0 +1,59 @@
+{
+  "id": "trees-straighten-with-wood-muscles",
+  "category": "news",
+  "title": "Trees Can Sense Their Shape and Straighten Up",
+  "summary": "Fransız araştırmacılar, ağaçların kendi eğriliklerini hissedip karşıt taraflarda oluşan 'gerilim odunu' ile gövdelerini düzelttiğini buldu; sonuçların sınırları var.",
+  "published": "2026-11-02",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Colorado'da kavak ağaçlarından oluşan bir koru (örnek görsel).",
+    "credit": "Calibas",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Populus_angustifolia_CO.jpg"
+  },
+  "sources": [
+    {
+      "title": "INRAE: Newly discovered role of tension wood: the muscle trees use to correct their posture",
+      "url": "https://www.inrae.fr/en/news/newly-discovered-role-tension-wood-muscle-trees-use-correct-their-posture"
+    },
+    {
+      "title": "ScienceDaily: Scientists discover the hidden muscles trees use to straighten themselves",
+      "url": "https://www.sciencedaily.com/releases/2026/10/261030003006.htm"
+    },
+    {
+      "title": "New Phytologist (Caulus et al.): Proprioception drives tension wood formation",
+      "url": "https://doi.org/10.1111/nph.71238"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "proprioception",
+      "tr": "kendi vücut/şekil duyusu"
+    },
+    {
+      "w": "tension wood",
+      "tr": "gerilim odunu"
+    },
+    {
+      "w": "trunk",
+      "tr": "gövde"
+    },
+    {
+      "w": "straighten",
+      "tr": "düzeltmek, doğrultmak"
+    },
+    {
+      "w": "gravity",
+      "tr": "yer çekimi"
+    },
+    {
+      "w": "replicate",
+      "tr": "(deneyi) tekrarlamak"
+    },
+    {
+      "w": "opposite",
+      "tr": "karşıt, zıt"
+    }
+  ]
+}

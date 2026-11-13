@@ -1,0 +1,25 @@
+{
+  "id": "what-makes-a-contract-binding",
+  "level": "A2",
+  "title": "What Makes a Contract Binding?",
+  "paragraphs": [
+    "A contract is an agreement that the law will enforce. People often think contracts are only long papers with signatures, but you also make simple contracts every day when you buy a coffee or take a taxi.",
+    "Most legal systems look for a few basic parts. First, there is an offer: one person proposes a deal. Then there is acceptance: the other person agrees to exactly the same deal. If the second person changes the terms, this is a new offer, not acceptance.",
+    "In many countries, each side must also give something of value. Lawyers call this consideration. A pure gift is usually not a contract. The people must be able to make the agreement, so a very young child or a person who cannot understand it is usually not bound. The goal must also be legal.",
+    "If one side breaks a contract, the other side can go to court. The court usually orders the guilty person to pay money for the loss. Only in special cases does it order the person to do what was promised. A written contract is easier to prove, but a spoken agreement can also be binding."
+  ],
+  "questions": [
+    {
+      "q": "What is acceptance?",
+      "a": "Agreeing to exactly the same deal that was offered."
+    },
+    {
+      "q": "What do lawyers call the value that each side gives?",
+      "a": "Consideration."
+    },
+    {
+      "q": "What does a court usually order after a broken contract?",
+      "a": "Payment of money for the loss."
+    }
+  ]
+}
