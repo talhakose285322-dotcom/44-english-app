@@ -383,7 +383,7 @@ label.chip{display:flex;align-items:center;gap:7px;margin:0;background:var(--sof
 @media (min-width:980px){.rabar{bottom:20px}}
 #ltabs{margin:4px 0 14px}#lcards{padding-top:4px}#lcards .lc-n{font-weight:500;opacity:.65;margin-left:2px}#lcards .lnew{color:var(--accent);border-style:dashed}
 .lbar{display:flex;gap:8px;align-items:center;margin-bottom:8px}.lbar input{flex:1;min-width:0;margin:0}.lbar select{flex:none;width:auto;max-width:46%;margin:0}
-#list{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh1)}#list>.btn{border-radius:0;border-top:1px solid var(--line)}#list>.empty{padding:16px}
+#list{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh1)}#list>.btn{border-radius:0;border-top:1px solid var(--line)}#list>.empty{padding:16px;margin:0;border:0;border-radius:0;box-shadow:none}
 .witem{border-bottom:1px solid var(--line)}.witem:last-of-type{border-bottom:0}.witem.open{background:color-mix(in srgb,var(--accent) 5%,transparent)}
 .wrow{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border:0;background:none;font:inherit;color:var(--ink);text-align:left;cursor:pointer}
 .wrow b{flex:none;max-width:46%;font-size:16px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -816,7 +816,7 @@ body.reading .sheet{max-width:740px}
       if(sess&&(sess.n>0||sess.ended)){summary();return}
       var none=!words.length,inCo=p.col?words.filter(function(x){return inCol(x,p.col)}).length:words.length;
       d.innerHTML='<div class="empty"><div class="eic">'+ic(none?'spark':'layers')+'</div><h1>'+(none?"Kelime ekle":inCo?"Çalışılacak kart yok":"Koleksiyon boş")+'</h1><p>'+
-        (none?"Ekle sekmesinden kelimelerini ekle ya da Profil → Ayarlar’dan yedeğini geri yükle.":!inCo?"Bu koleksiyona henüz kelime eklenmemiş.":p.f==='due'?"Bu koleksiyonda tekrar zamanı gelen kelime yok. “Hepsi” ile istediğin kadar çalışabilirsin.":"Bu koleksiyondaki bütün kelimeleri öğrenmişsin. “Hepsi” ile istediğin kadar tekrar edebilirsin.")+
+        (none?"Kelimeler → Kelime ekle bölümünden kelimelerini ekle ya da Profil → Ayarlar’dan yedeğini geri yükle.":!inCo?"Bu koleksiyona henüz kelime eklenmemiş.":p.f==='due'?"Bu koleksiyonda tekrar zamanı gelen kelime yok. “Hepsi” ile istediğin kadar çalışabilirsin.":"Bu koleksiyondaki bütün kelimeleri öğrenmişsin. “Hepsi” ile istediğin kadar tekrar edebilirsin.")+
         '</p>'+(none?'<button class="btn main" id="smp">Örnek kelimeleri ekle</button><div style="height:10px"></div><button class="btn ghost" id="gobk" style="width:100%">Yedekten geri yükle</button>':inCo?'<button class="btn main" id="again">Hepsini çalış</button>':'')+'</div>';
       var a=$("again");if(a)a.onclick=function(){SP().f='all';saveS();build()};
       if($('smp'))$('smp').onclick=function(){
@@ -3163,7 +3163,7 @@ body.reading .sheet{max-width:740px}
     $('wcol').value=p.col;if($('wcol').value!==p.col){p.col='';$('wcol').value=''}
     $('wun').checked=!!p.un;
     var pool=wheelPool();
-    $('wnote').textContent=pool.length?pool.length+' kelime arasından rastgele seçilir. Çarkta her seferinde en fazla 12 tanesi görünür.':(words.length?'Bu seçimde kelime yok. Başka bir koleksiyon seç ya da “Sadece öğrenmediklerim”i kapat.':'Henüz kelime yok. Ekle sekmesinden kelime ekleyebilirsin.');
+    $('wnote').textContent=pool.length?pool.length+' kelime arasından rastgele seçilir. Çarkta her seferinde en fazla 12 tanesi görünür.':(words.length?'Bu seçimde kelime yok. Başka bir koleksiyon seç ya da “Sadece öğrenmediklerim”i kapat.':'Henüz kelime yok. Kelimeler → Kelime ekle bölümünden kelime ekleyebilirsin.');
     $('wspin').disabled=!pool.length||WH.spinning;
     if(!WH.spinning){WH.slices=pickSlices(pool,null);drawWheel()}
   }
