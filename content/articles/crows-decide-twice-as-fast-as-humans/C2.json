@@ -1,0 +1,24 @@
+{
+  "id": "crows-decide-twice-as-fast-as-humans",
+  "level": "C2",
+  "title": "Crows Decide About Twice as Fast as Humans",
+  "paragraphs": [
+    "The notion that crows are the intellectual aristocrats of the bird world has long been a commonplace; a study from the University of Tübingen now adds speed to their credentials. Reporting in Science, Philipp Schmidbauer and Professor Andreas Nieder found that two carrion crows needed an average of only 235 milliseconds to decide whether a field of dots was drifting left or right and to peck the corresponding target, which the team puts at around twice as fast as humans and monkeys.",
+    "Accuracy was close to perfect when the motion was clear and remained above chance when the signal was faint. Recordings from the nidopallium caudolaterale, a structure that functions much like the human prefrontal cortex, showed neurons discriminating the two directions some 70 milliseconds after the dots appeared, their firing building to a threshold before the bird committed itself. The pattern tracked both the clarity of the stimulus and the eventual choice, and, in the authors' view, it dovetails with the models of decision-making established for humans and other primates, notwithstanding the absence of a layered cortex in the avian brain.",
+    "Such tidy parallels invite enthusiasm, yet it would be premature to treat two birds as the measure of a species. The researchers themselves acknowledge that the mechanisms underlying the crows' turn of speed remain a mystery, leaving it to future studies to determine whether the finding is a quirk of this pair or a general trait."
+  ],
+  "questions": [
+    {
+      "q": "What is meant by \"adds speed to their credentials\"?",
+      "a": "The study shows crows are fast as well as clever."
+    },
+    {
+      "q": "What do the authors say the pattern fits?",
+      "a": "Decision-making models from humans and primates."
+    },
+    {
+      "q": "Why is it premature to generalise?",
+      "a": "Only two birds were studied and the mechanism is unknown."
+    }
+  ]
+}

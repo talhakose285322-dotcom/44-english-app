@@ -1,0 +1,24 @@
+{
+  "id": "hubble-lens-gallery-targets-for-roman",
+  "level": "B2",
+  "title": "Hubble's Gravitational Lens Gallery Sets Targets for Roman",
+  "paragraphs": [
+    "NASA has published a gallery of strong gravitational lenses photographed by the Hubble Space Telescope, chosen as targets for the newly launched Nancy Grace Roman Space Telescope. The effect, first predicted by Albert Einstein, occurs when a massive foreground object such as a galaxy or galaxy cluster bends and magnifies the light of a more distant background galaxy.",
+    "The lenses were originally detected with the Dark Energy Spectroscopic Instrument at Kitt Peak and then imaged by Hubble. The collage includes an almost complete Einstein ring, a galaxy lensed into four images and a foreground galaxy with a rare dust lane that may break up what could otherwise be a ring. The colours carry information too: blue arcs indicate young stars and red arcs indicate older ones.",
+    "Astronomers will use lens models to weigh each foreground galaxy, dark matter included, and to test cold dark matter theory. That theory predicts many clumps of roughly one million to one billion solar masses, which Hubble's sharp detail could reveal as small imperfections in the arcs. Roman, which observes mostly infrared light over a much wider field, should find far more lenses, and researchers plan to build an AI tool to search its images for them."
+  ],
+  "questions": [
+    {
+      "q": "How were the lenses first detected?",
+      "a": "With the Dark Energy Spectroscopic Instrument."
+    },
+    {
+      "q": "What might Hubble reveal in the arcs?",
+      "a": "Small imperfections from dark matter clumps."
+    },
+    {
+      "q": "How does Roman differ from Hubble?",
+      "a": "It sees mostly infrared light over a much wider field."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,166 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "crows-decide-twice-as-fast-as-humans",
+      "category": "news",
+      "title": "Crows Decide About Twice as Fast as Humans",
+      "summary": "Tübingen Üniversitesi'nin Science dergisinde yayımlanan çalışmasına göre iki karga, hareketli noktaların yönüne ortalama 235 milisaniyede karar verdi; ama çalışmada yalnızca iki kuş vardı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-13",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 73,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 128,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 161,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 204,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 214,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 238,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "crows-decide-twice-as-fast-as-humans/image.jpg",
+        "alt": "Bir leş kargası (örnek görsel).",
+        "credit": "Alexis Lours",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Carrion_Crow_2025_09_30.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (University of Tübingen): Crows can make decisions twice as fast as humans",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261111005850.htm"
+        },
+        {
+          "title": "Science: Ultrarapid decision-making in an avian brain (DOI)",
+          "url": "https://doi.org/10.1126/science.aed6459"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "decision",
+          "tr": "karar"
+        },
+        {
+          "w": "carrion crow",
+          "tr": "leş kargası"
+        },
+        {
+          "w": "millisecond",
+          "tr": "milisaniye"
+        },
+        {
+          "w": "neuron",
+          "tr": "sinir hücresi"
+        },
+        {
+          "w": "prefrontal cortex",
+          "tr": "prefrontal korteks"
+        },
+        {
+          "w": "sample",
+          "tr": "örneklem"
+        },
+        {
+          "w": "threshold",
+          "tr": "eşik"
+        }
+      ]
+    },
+    {
+      "id": "hubble-lens-gallery-targets-for-roman",
+      "category": "news",
+      "title": "Hubble's Gravitational Lens Gallery Sets Targets for Roman",
+      "summary": "NASA, Hubble'ın çektiği güçlü kütleçekim mercekleri galerisini yayımladı; Roman teleskobu bu hedefleri karanlık madde araştırması için izleyecek.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-13",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 65,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 115,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 157,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 202,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 220,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 228,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "hubble-lens-gallery-targets-for-roman/image.jpg",
+        "alt": "Hubble'ın görüntülediği bir Einstein halkası, kütleçekim merceği örneği (örnek görsel; haberdeki galeriden değil).",
+        "credit": "ESA/Hubble & NASA",
+        "license": "Kamu malı (ESA/Hubble & NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:A_Horseshoe_Einstein_Ring_from_Hubble.JPG"
+      },
+      "sources": [
+        {
+          "title": "NASA: Hubble Offers Cosmic Sampler of Targets for Roman",
+          "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-offers-cosmic-sampler-of-targets-for-roman/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "gravitational lens",
+          "tr": "kütleçekim merceği"
+        },
+        {
+          "w": "dark matter",
+          "tr": "karanlık madde"
+        },
+        {
+          "w": "magnify",
+          "tr": "büyütmek"
+        },
+        {
+          "w": "foreground",
+          "tr": "ön plan"
+        },
+        {
+          "w": "telescope",
+          "tr": "teleskop"
+        },
+        {
+          "w": "arc",
+          "tr": "yay"
+        },
+        {
+          "w": "predict",
+          "tr": "öngörmek"
+        }
+      ]
+    },
     {
       "id": "antarctic-ozone-hole-seventh-largest",
       "category": "news",

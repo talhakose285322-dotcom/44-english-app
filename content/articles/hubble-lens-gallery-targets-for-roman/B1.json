@@ -1,0 +1,24 @@
+{
+  "id": "hubble-lens-gallery-targets-for-roman",
+  "level": "B1",
+  "title": "Hubble's Gravitational Lens Gallery Sets Targets for Roman",
+  "paragraphs": [
+    "NASA has released a collection of Hubble Space Telescope images showing strong gravitational lenses. Albert Einstein predicted the effect: a massive object, such as a galaxy or a cluster of galaxies, bends and magnifies the light of a more distant galaxy behind it.",
+    "The lenses were first spotted with the Dark Energy Spectroscopic Instrument at Kitt Peak and were then photographed by Hubble. Some pictures show an Einstein ring, where the background galaxy almost completely circles the foreground one, and others show a galaxy repeated four times. Blue arcs point to young stars, while red arcs point to older ones.",
+    "The Nancy Grace Roman Space Telescope, launched in August 2026, will now follow up. Astronomers will build models to measure the mass of each foreground galaxy, including its dark matter. They hope to test cold dark matter theory, which predicts many small clumps of dark matter that might show up as tiny flaws in the lensed arcs."
+  ],
+  "questions": [
+    {
+      "q": "What is an Einstein ring?",
+      "a": "A ring where the background galaxy almost circles the foreground galaxy."
+    },
+    {
+      "q": "What do blue arcs suggest?",
+      "a": "Young stars."
+    },
+    {
+      "q": "What will astronomers measure with lens models?",
+      "a": "The mass of each foreground galaxy, including dark matter."
+    }
+  ]
+}

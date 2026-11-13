@@ -1,0 +1,24 @@
+{
+  "id": "crows-decide-twice-as-fast-as-humans",
+  "level": "C1",
+  "title": "Crows Decide About Twice as Fast as Humans",
+  "paragraphs": [
+    "Crows are famously clever, but a new study suggests they are also strikingly quick. Researchers at the University of Tübingen, Philipp Schmidbauer and Professor Andreas Nieder, report in the journal Science that two carrion crows took an average of just 235 milliseconds to judge which way a cloud of dots was moving and to peck the matching side of a touchscreen. That is roughly twice as fast as humans and monkeys, the team says.",
+    "The birds were nearly flawless when the motion was unambiguous and still beat chance when it was murky. Electrodes in the nidopallium caudolaterale, a region that performs a role akin to the human prefrontal cortex, revealed neurons that told the two directions apart about 70 milliseconds after the dots appeared. Their activity climbed steadily to a decision threshold before the bird acted, mirroring both the strength of the signal and the animal's eventual choice.",
+    "The authors point out that this closely resembles the decision-making models developed for humans and other primates, despite the fact that avian brains lack a layered cortex. Yet a sample of two birds is hardly a sound basis for sweeping claims, and the researchers concede that the biological basis of the crows' edge remains unexplained. Further work will need to establish how far the result generalises."
+  ],
+  "questions": [
+    {
+      "q": "What does the phrase \"beat chance\" mean here?",
+      "a": "The birds performed better than random guessing."
+    },
+    {
+      "q": "What did the neural activity mirror?",
+      "a": "Signal strength and the bird's choice."
+    },
+    {
+      "q": "What do the researchers admit about the crows' speed?",
+      "a": "Its biological basis is still unexplained."
+    }
+  ]
+}

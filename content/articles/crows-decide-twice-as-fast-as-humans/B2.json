@@ -1,0 +1,24 @@
+{
+  "id": "crows-decide-twice-as-fast-as-humans",
+  "level": "B2",
+  "title": "Crows Decide About Twice as Fast as Humans",
+  "paragraphs": [
+    "A study from the University of Tübingen suggests that crows can make perceptual decisions about twice as fast as humans and monkeys. Philipp Schmidbauer and Professor Andreas Nieder report in the journal Science that two carrion crows needed only 235 milliseconds, on average, to judge the direction of moving dots on a touchscreen and to peck the matching target.",
+    "When the dots moved clearly in one direction, the birds were almost perfectly accurate; when the signal was weak, they still performed above chance. Meanwhile, recordings from the nidopallium caudolaterale, a region that plays a role comparable to the prefrontal cortex in humans, showed neurons separating the two directions roughly 70 milliseconds after the dots appeared. Their activity rose steadily towards a threshold before the bird responded, reflecting both how clear the signal was and which side the animal chose.",
+    "According to the authors, this pattern matches well-established decision-making models in humans and other primates, even though bird brains lack a layered cerebral cortex. The findings should be read cautiously, however. Only two birds were tested, and the biological mechanisms behind the speed advantage are not yet understood, so further studies will have to show whether the result holds for other crows and other tasks."
+  ],
+  "questions": [
+    {
+      "q": "What did the neurons do about 70 milliseconds after the dots appeared?",
+      "a": "They distinguished the two directions."
+    },
+    {
+      "q": "What does the neural activity reflect?",
+      "a": "Both the clarity of the signal and the bird's choice."
+    },
+    {
+      "q": "Why should the findings be read cautiously?",
+      "a": "Only two birds were tested and the mechanisms are unknown."
+    }
+  ]
+}
