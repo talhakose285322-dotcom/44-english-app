@@ -96,7 +96,8 @@ Commit, başarılı CI, yayın ve gerçek cihaz davranışı ayrı şeylerdir; b
   geçince kendiliğinden birleşir. Uygulama kodu, testler, veritabanı (`supabase/`), otomasyon, `.claude/` ve belgeler
   depo sahibinin incelemesi ve **`onay`** etiketi olmadan birleşemez (Koruma denetler). Ajanlar `onay` ve
   `workflow-onay` etiketlerini eklemez, `gh pr merge --admin` kullanmaz, dal korumasını değiştirmez. Etiket yalnızca
-  depo sahibi eklediyse sayılır (bot, uygulama ya da iş akışı eklerse sayılmaz); onaydan sonra yeni commit gelirse
+  depo sahibi kendisi eklediyse sayılır (bot, iş akışı ya da sahibin hesabıyla çalışan bir uygulama — örneğin
+  ChatGPT'nin GitHub bağlantısı — eklerse sayılmaz); onaydan sonra yeni commit gelirse
   Koruma etiketi kaldırır ve yeniden onay gerekir.
 - **Claude Code güvenlik hook'u:** `.claude/settings.json` → `.claude/hooks/guard.mjs` yasak git/gh işlemlerini,
   `pending-app-changes` dalındaki klasörde dosya düzenlemeyi ve gizli anahtar yazmayı işlemden önce engeller
