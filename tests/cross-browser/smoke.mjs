@@ -2,6 +2,8 @@
 // tests/*.test.mjs cover the details; these check that the same app works in the other browser engines.
 // Run: node --test tests/cross-browser/smoke.mjs   (Playwright and its browsers must be installed; see the
 // "Tarayıcılar" workflow. PW_MODULE may point to a playwright module outside the repository.)
+// BASE_URL: test the live site at that address instead of a local server (the "Canlı denetim" workflow); every test
+// runs in a fresh, empty browser profile, so no real user's data is touched.
 import {describe, test, before, after, beforeEach} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -17,13 +19,14 @@ import {makePng} from '../fixtures/png.mjs';
 const pw = await import(process.env.PW_MODULE ? pathToFileURL(process.env.PW_MODULE).href : 'playwright');
 const FAKES = ['supabase', 'tts', 'ocr'].map(f => fs.readFileSync(path.join(ROOT, 'tests', 'fakes', f + '.js'), 'utf8'));
 const ENGINES = (process.env.ENGINES || 'webkit,firefox').split(',');
-const DEVICE = {webkit: pw.devices['iPhone 13'], firefox: {viewport: {width: 390, height: 844}}};
+const DEVICE = {webkit: pw.devices['iPhone 13'], firefox: {viewport: {width: 390, height: 844}}, chromium: pw.devices['Pixel 7']};
+const BASE = process.env.BASE_URL ? process.env.BASE_URL.replace(/\/?$/, '/') : '';
 
 for (const engine of ENGINES) describe(engine, () => {
   let srv, browser, ctx, page, dir, errors;
   before(async () => {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'w44-xb-'));
-    srv = await startServer();
+    srv = BASE ? {url: BASE, stop() {}} : await startServer();
     browser = await pw[engine].launch();
     // service workers are blocked: in WebKit and Firefox a request made by the app's service worker is not routed below
     // and would reach the real internet (the service worker itself is covered by the Chrome tests)

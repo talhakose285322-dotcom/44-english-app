@@ -1,0 +1,64 @@
+# Canlı denetim: every morning the live app is opened in Chrome, Safari's engine (WebKit, as an iPhone) and Firefox
+# and its main paths are tried (tests/cross-browser/smoke.mjs with BASE_URL, each test in a fresh empty browser, so no
+# real user's data is touched). It also checks that the live version matches main and that news arrived recently.
+# On failure the GitHub bot opens an issue that mentions the owner, so GitHub e-mails them. No secrets.
+name: Canlı denetim
+
+on:
+  schedule:
+    - cron: '30 5 * * *'   # 08:30 Istanbul, after the daily news
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  live:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      LIVE: https://words44.words44.workers.dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Canlı sürüm ve haberler
+        run: |
+          set -euo pipefail
+          want=$(node -e "console.log(require('./version.json').version)")
+          live=$(curl -fsS "$LIVE/version.json?t=$(date +%s)" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).version))")
+          echo "main: $want  canlı: $live"
+          [ "$want" = "$live" ] || { echo "::error::Canlı sürüm ($live) main ile ($want) aynı değil"; exit 1; }
+          curl -fsS "$LIVE/content/articles/catalog.json?t=$(date +%s)" | node -e "
+            let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{
+              const c=JSON.parse(s),a=Array.isArray(c)?c:(c.articles||[]);
+              const news=a.filter(x=>x.category==='news').map(x=>x.published).sort().reverse();
+              const days=(Date.now()-Date.parse(news[0]))/864e5;
+              console.log('makale:',a.length,'haber:',news.length,'son haber:',news[0]);
+              if(!(days<=2.5)){console.log('::error::Son 2 günde yeni haber yok (son: '+news[0]+')');process.exit(1)}
+            })"
+      - name: Playwright (yalnızca test makinesine)
+        run: |
+          mkdir -p "$RUNNER_TEMP/pw" && cd "$RUNNER_TEMP/pw"
+          npm init -y > /dev/null
+          npm install --no-audit --no-fund playwright@1.52.0
+          npx playwright install --with-deps chromium webkit firefox
+      - name: Canlı sitede Chrome, Safari motoru (WebKit) ve Firefox
+        run: node --test --test-concurrency=1 --test-timeout=90000 tests/cross-browser/smoke.mjs
+        env:
+          PW_MODULE: ${{ runner.temp }}/pw/node_modules/playwright/index.mjs
+          BASE_URL: ${{ env.LIVE }}
+          ENGINES: chromium,webkit,firefox
+      - name: Sorun varsa sahibine e-posta bildirimi
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          printf '@%s canlı uygulamanın sabah denetimi başarısız oldu.\n\nAyrıntılar: %s\n\nUygulama: %s\n' "$OWNER" "$RUN_URL" "$LIVE" > body.md
+          gh issue create --repo "$REPO" --title "Canlı denetim başarısız: $(date -u +%Y-%m-%d)" --body-file body.md
