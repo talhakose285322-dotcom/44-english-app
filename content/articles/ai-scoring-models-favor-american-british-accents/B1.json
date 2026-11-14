@@ -1,0 +1,24 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "level": "B1",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "paragraphs": [
+    "Researchers at the University of Washington have found that popular AI models can treat English accents unequally. The team tested four models: Google's Gemini 2.5 Pro and Gemini 2.5 Flash, OpenAI's GPT-Audio 1.5 and the open-source Qwen 3 Omni. The models scored speech in job interviews, conference presentations and spoken English tests.",
+    "The speeches were read from identical scripts by AI-generated voices with American, British, Chinese, Indian and Nigerian accents. Even when the content was the same and the words were transcribed correctly, the models generally gave the highest scores to American and British accents and the lowest to Chinese and Nigerian ones. Some explanations called these speakers hard to understand. The researchers also tested 52 human speakers, and the gaps between accents were even larger.",
+    "There are limits. The study covered only five accents and did not look at regional differences inside each country. It was also partly funded by gifts from Google and OpenAI, whose models were among those tested. The team now wants to test more accents and other settings."
+  ],
+  "questions": [
+    {
+      "q": "Which accents were scored highest?",
+      "a": "American and British accents."
+    },
+    {
+      "q": "How many human speakers were tested?",
+      "a": "52."
+    },
+    {
+      "q": "Name one limit of the study.",
+      "a": "It covered only five accents, or it did not study regional differences."
+    }
+  ]
+}

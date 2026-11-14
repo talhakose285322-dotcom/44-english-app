@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,178 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "ai-scoring-models-favor-american-british-accents",
+      "category": "news",
+      "title": "AI Models Score Some English Accents Lower, Study Finds",
+      "summary": "Washington Üniversitesi’nin çalışmasına göre dört yapay zekâ modeli, aynı konuşmayı Amerikan ve İngiliz aksanlarına daha yüksek, Çinli ve Nijeryalı aksanlarına daha düşük puanlıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-14",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 74,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 108,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 173,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 243,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 260,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 271,
+          "minutes": 2
+        }
+      },
+      "image": {
+        "src": "ai-scoring-models-favor-american-british-accents/image.jpg",
+        "alt": "Bir mikrofonun yakın çekimi (örnek görsel).",
+        "credit": "Dennis Hill (Flickr)",
+        "license": "CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Close-up_of_a_microphone.jpg"
+      },
+      "sources": [
+        {
+          "title": "UW News: Leading AI models are biased against certain accents when scoring interviews, presentations and tests",
+          "url": "https://www.washington.edu/news/?p=93740"
+        },
+        {
+          "title": "GeekWire: Accent bias — AI models penalize certain speakers in interviews and tests, UW study finds",
+          "url": "https://www.geekwire.com/2026/accent-bias-ai-models-penalize-certain-speakers-in-interviews-and-tests-uw-study-finds/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "accent",
+          "tr": "aksan"
+        },
+        {
+          "w": "bias",
+          "tr": "yanlılık, önyargı"
+        },
+        {
+          "w": "score",
+          "tr": "puan vermek; puan"
+        },
+        {
+          "w": "fair",
+          "tr": "adil"
+        },
+        {
+          "w": "researcher",
+          "tr": "araştırmacı"
+        },
+        {
+          "w": "tested",
+          "tr": "test edildi"
+        },
+        {
+          "w": "transcribe",
+          "tr": "yazıya dökmek"
+        },
+        {
+          "w": "funded",
+          "tr": "finanse edilmiş"
+        }
+      ]
+    },
+    {
+      "id": "webb-flip-method-reveals-hidden-planet",
+      "category": "news",
+      "title": "New Method Pulls Faint Planets Out of Webb Images",
+      "summary": "Caltech öncülüğündeki ekip, Webb teleskobunun mevcut görüntülerinde yıldız parıltısını çıkararak soluk gezegenleri 2–15 kat daha iyi tespit eden FLIP yöntemini Nature dergisinde tanıttı.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-14",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 73,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 113,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 191,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 243,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 259,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 267,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "webb-flip-method-reveals-hidden-planet/image.jpg",
+        "alt": "Webb teleskobunun NIRCam kamerasıyla 2025’te görüntülediği 51 Eridani b gezegeni (örnek görsel; yeni yöntemle işlenmiş görüntü değildir).",
+        "credit": "NASA, ESA, CSA, STScI, W. Balmer (JHU), L. Pueyo (STScI), M. Perrin (STScI)",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:51_Eri_b_(NIRcam_image)_(weic2504b).jpg"
+      },
+      "sources": [
+        {
+          "title": "Caltech: Erasing the Stars to Find Exoplanets",
+          "url": "https://www.caltech.edu/about/news/erasing-the-stars-to-find-exoplanets"
+        },
+        {
+          "title": "ScienceDaily: Astronomers discover hidden alien planet in James Webb images",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261108233028.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "glare",
+          "tr": "göz kamaştıran parıltı"
+        },
+        {
+          "w": "faint",
+          "tr": "soluk, zayıf"
+        },
+        {
+          "w": "exoplanet",
+          "tr": "ötegezegen"
+        },
+        {
+          "w": "subtract",
+          "tr": "çıkarmak"
+        },
+        {
+          "w": "digital twin",
+          "tr": "dijital ikiz"
+        },
+        {
+          "w": "sensitivity",
+          "tr": "hassasiyet"
+        },
+        {
+          "w": "imperfection",
+          "tr": "kusur"
+        },
+        {
+          "w": "telescope",
+          "tr": "teleskop"
+        }
+      ]
+    },
     {
       "id": "crows-decide-twice-as-fast-as-humans",
       "category": "news",

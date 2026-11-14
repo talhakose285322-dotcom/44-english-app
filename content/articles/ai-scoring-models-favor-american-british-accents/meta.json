@@ -1,0 +1,59 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "category": "news",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "summary": "Washington Üniversitesi’nin çalışmasına göre dört yapay zekâ modeli, aynı konuşmayı Amerikan ve İngiliz aksanlarına daha yüksek, Çinli ve Nijeryalı aksanlarına daha düşük puanlıyor.",
+  "published": "2026-11-14",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir mikrofonun yakın çekimi (örnek görsel).",
+    "credit": "Dennis Hill (Flickr)",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Close-up_of_a_microphone.jpg"
+  },
+  "sources": [
+    {
+      "title": "UW News: Leading AI models are biased against certain accents when scoring interviews, presentations and tests",
+      "url": "https://www.washington.edu/news/?p=93740"
+    },
+    {
+      "title": "GeekWire: Accent bias — AI models penalize certain speakers in interviews and tests, UW study finds",
+      "url": "https://www.geekwire.com/2026/accent-bias-ai-models-penalize-certain-speakers-in-interviews-and-tests-uw-study-finds/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "accent",
+      "tr": "aksan"
+    },
+    {
+      "w": "bias",
+      "tr": "yanlılık, önyargı"
+    },
+    {
+      "w": "score",
+      "tr": "puan vermek; puan"
+    },
+    {
+      "w": "fair",
+      "tr": "adil"
+    },
+    {
+      "w": "researcher",
+      "tr": "araştırmacı"
+    },
+    {
+      "w": "tested",
+      "tr": "test edildi"
+    },
+    {
+      "w": "transcribe",
+      "tr": "yazıya dökmek"
+    },
+    {
+      "w": "funded",
+      "tr": "finanse edilmiş"
+    }
+  ]
+}

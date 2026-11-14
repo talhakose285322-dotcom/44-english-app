@@ -1,0 +1,24 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "level": "A1",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "paragraphs": [
+    "A new computer method helps find planets. It works with pictures from the Webb space telescope. Bright stars hide small planets in the pictures.",
+    "The method makes a copy of the camera on the computer. Then it finds the light of the star and removes it. The planets are easier to see.",
+    "In tests, it found planets two to 15 times better than old methods. Scientists wrote about it in the journal Nature."
+  ],
+  "questions": [
+    {
+      "q": "What telescope took the pictures?",
+      "a": "The Webb space telescope."
+    },
+    {
+      "q": "What does the method remove?",
+      "a": "The light of the star."
+    },
+    {
+      "q": "Where did scientists write about it?",
+      "a": "In the journal Nature."
+    }
+  ]
+}

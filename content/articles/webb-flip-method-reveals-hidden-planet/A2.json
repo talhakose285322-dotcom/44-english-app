@@ -1,0 +1,24 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "level": "A2",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "paragraphs": [
+    "Astronomers have a new way to find planets in pictures from the James Webb Space Telescope. The problem is that a bright star can hide a faint planet next to it. The star's glare is much stronger than the light of the planet.",
+    "The new method is called FLIP. Scientists built a digital copy of Webb's NIRCam camera. The copy shows many tiny problems in the camera, so the computer can guess the star's glare and subtract it from the picture.",
+    "In tests on known planets, FLIP found them two to 15 times better than usual methods. A team led by Caltech published the work in the journal Nature on 4 November 2026."
+  ],
+  "questions": [
+    {
+      "q": "What is the new method called?",
+      "a": "FLIP."
+    },
+    {
+      "q": "What did scientists build on a computer?",
+      "a": "A digital copy of Webb's NIRCam camera."
+    },
+    {
+      "q": "When was the work published?",
+      "a": "On 4 November 2026."
+    }
+  ]
+}
