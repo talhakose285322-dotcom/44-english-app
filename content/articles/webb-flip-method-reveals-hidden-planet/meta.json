@@ -1,0 +1,59 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "category": "news",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "summary": "Caltech öncülüğündeki ekip, Webb teleskobunun mevcut görüntülerinde yıldız parıltısını çıkararak soluk gezegenleri 2–15 kat daha iyi tespit eden FLIP yöntemini Nature dergisinde tanıttı.",
+  "published": "2026-11-14",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Webb teleskobunun NIRCam kamerasıyla 2025’te görüntülediği 51 Eridani b gezegeni (örnek görsel; yeni yöntemle işlenmiş görüntü değildir).",
+    "credit": "NASA, ESA, CSA, STScI, W. Balmer (JHU), L. Pueyo (STScI), M. Perrin (STScI)",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:51_Eri_b_(NIRcam_image)_(weic2504b).jpg"
+  },
+  "sources": [
+    {
+      "title": "Caltech: Erasing the Stars to Find Exoplanets",
+      "url": "https://www.caltech.edu/about/news/erasing-the-stars-to-find-exoplanets"
+    },
+    {
+      "title": "ScienceDaily: Astronomers discover hidden alien planet in James Webb images",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261108233028.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "glare",
+      "tr": "göz kamaştıran parıltı"
+    },
+    {
+      "w": "faint",
+      "tr": "soluk, zayıf"
+    },
+    {
+      "w": "exoplanet",
+      "tr": "ötegezegen"
+    },
+    {
+      "w": "subtract",
+      "tr": "çıkarmak"
+    },
+    {
+      "w": "digital twin",
+      "tr": "dijital ikiz"
+    },
+    {
+      "w": "sensitivity",
+      "tr": "hassasiyet"
+    },
+    {
+      "w": "imperfection",
+      "tr": "kusur"
+    },
+    {
+      "w": "telescope",
+      "tr": "teleskop"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "level": "B1",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "paragraphs": [
+    "A team led by Caltech has developed a new way to see planets that earlier Webb images could not show clearly. The problem is simple: a star is far brighter than any planet next to it, and its glare can hide the planet. The team's paper was published in the journal Nature on 4 November 2026.",
+    "The method is called FLIP, short for Physics-based Learning for Imaging Planets. The scientists built a digital twin of Webb's NIRCam camera that models millions of possible small imperfections. With it, they predict the star's glare and subtract it from existing pictures. An earlier idea, training machine learning to predict starlight, did not work. In tests on known planets, FLIP detected them two to 15 times better than standard methods, and Caltech says it brought out a planet in the star system 51 Eridani that the original analysis had missed.",
+    "There are limits. So far FLIP has been shown only on Webb data. The team plans to try it on the Roman Space Telescope and on telescopes on the ground, but those results do not exist yet. Finding Earth-like planets is still a distant goal."
+  ],
+  "questions": [
+    {
+      "q": "What does a digital twin do in this study?",
+      "a": "It models the camera's imperfections so the star's glare can be predicted."
+    },
+    {
+      "q": "How much better did FLIP detect known planets?",
+      "a": "Two to 15 times better."
+    },
+    {
+      "q": "Name one limit of FLIP.",
+      "a": "It has so far been shown only on Webb data."
+    }
+  ]
+}

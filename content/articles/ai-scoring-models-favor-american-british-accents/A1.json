@@ -1,0 +1,24 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "level": "A1",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "paragraphs": [
+    "Some computers can score speech. They listen to a person and give points. Researchers at the University of Washington tested four of these AI models.",
+    "The AI models gave American and British speakers the highest points. They gave Chinese and Nigerian speakers the lowest points. The words in each speech were the same.",
+    "This is not fair. The researchers want AI makers to check their tools. They should test many accents, not only one."
+  ],
+  "questions": [
+    {
+      "q": "Who tested the AI models?",
+      "a": "Researchers at the University of Washington."
+    },
+    {
+      "q": "Which accents got the highest points?",
+      "a": "American and British accents."
+    },
+    {
+      "q": "What do the researchers want?",
+      "a": "They want AI makers to check their tools for many accents."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "level": "B2",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "paragraphs": [
+    "Astronomers at Caltech and partner institutions have described a technique that squeezes more out of the James Webb Space Telescope's existing images. The central difficulty of photographing exoplanets is contrast: a planet can be billions of times fainter than its star, and the star's glare swamps it. The study, titled \"Imaging exoplanets below the telescope stability limit\", appeared in Nature on 4 November 2026.",
+    "The approach, called FLIP (Physics-based Learning for Imaging Planets), builds a digital twin of Webb's NIRCam camera and solves for millions of possible physical imperfections. The model then predicts the star's glare so it can be subtracted. A first attempt, training machine learning directly to predict starlight patterns, failed, so the team used machine-learning optimisation tools to model the physics instead. In tests on known planets, sensitivity was two to 15 times greater than with conventional approaches, and Caltech reports that FLIP revealed a planet in the 51 Eridani system that the original analysis had missed. Co-author Jason Wang said the team had gone beyond the telescope's stability limit for the first time.",
+    "Caveats remain. FLIP has been demonstrated only on Webb data, even though Webb is stable to the nanometre. Tests on the Roman Space Telescope and ground-based instruments are planned but not yet done, and imaging a truly Earth-like world is still a goal, not a result. Funders included the Space Telescope Science Institute, the Sloan Foundation, an Amazon AI4Science Discovery Award and the National Science Foundation."
+  ],
+  "questions": [
+    {
+      "q": "Why are exoplanets hard to photograph?",
+      "a": "They are far fainter than their stars, whose glare swamps them."
+    },
+    {
+      "q": "What happened to the first attempt?",
+      "a": "Training machine learning to predict starlight failed."
+    },
+    {
+      "q": "What has not been done yet?",
+      "a": "Tests on the Roman Space Telescope and ground-based instruments."
+    }
+  ]
+}

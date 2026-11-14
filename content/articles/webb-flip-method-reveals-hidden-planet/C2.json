@@ -1,0 +1,24 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "level": "C2",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "paragraphs": [
+    "Photographing a planet beside its star is a little like spotting a candle next to a searchlight: an Earth-like world can be some ten billion times fainter than its host. A team led by Caltech reports in Nature (4 November 2026) that computation can claw back part of that gap, by squeezing fresh information out of images the James Webb Space Telescope has already captured.",
+    "Their method, FLIP (Physics-based Learning for Imaging Planets), builds a digital twin of Webb's NIRCam instrument and solves for millions of possible physical imperfections, so that the star's glare can be predicted and subtracted from archival pictures. The first approach, teaching machine learning to anticipate starlight patterns directly, came to nothing; the breakthrough came from using machine-learning optimisation tools to model the underlying physics. On known planets, sensitivity rose by a factor of two to 15, and Caltech says the technique brought out a planet in the 51 Eridani system that the original analysis had missed. Jason Wang said the team had gone beyond the telescope's stability limit for the first time.",
+    "The achievement should be kept in proportion. Webb is stable to the nanometre, which the authors still regard as a constraint, and FLIP has so far been proven only on Webb data. Trials on the Roman Space Telescope and ground-based observatories lie ahead, and imaging genuinely Earth-like planets with future missions such as the proposed Habitable Worlds Observatory is an ambition rather than a result. The work was supported by, among others, the Space Telescope Science Institute, the Sloan Foundation, an Amazon AI4Science Discovery Award and the National Science Foundation."
+  ],
+  "questions": [
+    {
+      "q": "What does the candle-and-searchlight comparison illustrate?",
+      "a": "The huge brightness gap between a planet and its star."
+    },
+    {
+      "q": "What made the final method succeed?",
+      "a": "Using machine-learning optimisation to model the physics, not to guess starlight directly."
+    },
+    {
+      "q": "Why should the result be kept in proportion?",
+      "a": "It has only been shown on Webb data; Earth-like imaging is still an ambition."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "webb-flip-method-reveals-hidden-planet",
+  "level": "C1",
+  "title": "New Method Pulls Faint Planets Out of Webb Images",
+  "paragraphs": [
+    "Hunting for planets around other stars is a contrast problem: an Earth-like world can be roughly ten billion times fainter than its star, so the glare tends to drown it out. A team led by Caltech now reports in Nature (4 November 2026) that clever computation can partly overcome this, by extracting detail from images the James Webb Space Telescope has already taken.",
+    "The technique, FLIP, short for Physics-based Learning for Imaging Planets, constructs a digital twin of Webb's NIRCam instrument and solves for millions of possible physical imperfections. Once the model can predict the star's glare, that glare is subtracted from existing pictures, leaving faint companions visible. The route was not smooth: an earlier attempt to train machine learning to predict starlight patterns failed, and only a physics-based use of optimisation tools worked. On known planets, detection sensitivity improved by a factor of two to 15, and Caltech says the method revealed a planet in the 51 Eridani system that the original analysis had missed. Co-author Katherine Bouman said it shows how computation can help overcome limitations of the telescope itself.",
+    "Some caution is due. Webb is already stable to the nanometre, and the researchers describe that as still limiting. FLIP has so far been demonstrated only on Webb data; trials on the Roman Space Telescope and ground-based facilities are planned, and its application to future missions such as the proposed Habitable Worlds Observatory remains an aspiration. Funding came from the Space Telescope Science Institute, the Sloan Foundation, an Amazon AI4Science Discovery Award and the National Science Foundation."
+  ],
+  "questions": [
+    {
+      "q": "What is the main challenge in imaging exoplanets?",
+      "a": "The extreme contrast between a faint planet and its bright star."
+    },
+    {
+      "q": "What finally worked after the first attempt failed?",
+      "a": "A physics-based use of machine-learning optimisation tools."
+    },
+    {
+      "q": "Which future mission is mentioned as a goal?",
+      "a": "The proposed Habitable Worlds Observatory."
+    }
+  ]
+}

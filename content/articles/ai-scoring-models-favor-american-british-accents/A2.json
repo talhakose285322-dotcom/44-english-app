@@ -1,0 +1,24 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "level": "A2",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "paragraphs": [
+    "Researchers at the University of Washington tested how four AI models score spoken English. The models listened to speeches about job interviews, conference talks and English tests. Then they gave each speech points from 1 to 7.",
+    "The speeches had the same words, but the accents were different. The AI models usually gave American and British speakers the highest scores. Indian accents were in the middle. Chinese and Nigerian accents got the lowest scores.",
+    "The models understood the words well, but they still called some speakers hard to understand. The team says developers should test their tools on many accents, so that the tools are fair to everyone."
+  ],
+  "questions": [
+    {
+      "q": "How many AI models did the team test?",
+      "a": "Four."
+    },
+    {
+      "q": "Which accents got the lowest scores?",
+      "a": "Chinese and Nigerian accents."
+    },
+    {
+      "q": "What should developers do, according to the team?",
+      "a": "Test their tools on many accents."
+    }
+  ]
+}

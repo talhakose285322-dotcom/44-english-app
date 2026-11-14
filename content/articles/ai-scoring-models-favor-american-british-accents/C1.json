@@ -1,0 +1,24 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "level": "C1",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "paragraphs": [
+    "Researchers at the University of Washington have produced evidence that leading AI models, when asked to grade spoken English, can quietly reward some accents and penalise others. The team put four systems, Google's Gemini 2.5 Pro and Gemini 2.5 Flash, OpenAI's GPT-Audio 1.5 and the open-source Qwen 3 Omni, through three scenarios: job interviews, conference presentations and English proficiency tests. Their paper, \"The Cost of Sounding Different\", was presented at the EMNLP conference in Budapest.",
+    "To isolate accent, the authors had AI-generated voices in American, British, Chinese, Indian and Nigerian English read identical scripts, then asked each model to score delivery and content from 1 to 7 and justify the mark. The pattern was consistent: American and British voices came out on top, Indian voices in the middle, and Chinese and Nigerian voices at the bottom, even though the models transcribed everything accurately. Their explanations often labelled the lower-scoring speakers as hard to follow. Notably, English is an official language in Nigeria and a medium of teaching in India, yet both accents were rated below the American and British ones. A parallel experiment with 52 human speakers showed the same preference, with a wider gap than among the AI voices.",
+    "The findings come with caveats: just five accents were tested, regional varieties within countries were left out, and the research was partly funded by gifts from Google and OpenAI, two of the companies whose models were examined. Senior author Yulia Tsvetkov argues that developers should report performance by dialect and subgroup rather than hide weak spots behind a flattering average."
+  ],
+  "questions": [
+    {
+      "q": "Why did the authors use identical scripts?",
+      "a": "To isolate the effect of accent."
+    },
+    {
+      "q": "What did the models do despite transcribing accurately?",
+      "a": "They still scored some accents lower and called them hard to follow."
+    },
+    {
+      "q": "What does Tsvetkov recommend?",
+      "a": "Reporting performance by dialect and subgroup, not just averages."
+    }
+  ]
+}

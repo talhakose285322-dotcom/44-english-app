@@ -1,0 +1,24 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "level": "B2",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "paragraphs": [
+    "A team at the University of Washington reports that leading AI models can score the same English speech differently depending on the speaker's accent. The researchers tested four models, Google's Gemini 2.5 Pro and Gemini 2.5 Flash, OpenAI's GPT-Audio 1.5 and the open-source Qwen 3 Omni, on job interviews, conference presentations and spoken English proficiency tests. The work, titled \"The Cost of Sounding Different\", was presented at a major natural language processing conference in Budapest.",
+    "AI-generated voices with American, British, Chinese, Indian and Nigerian accents read identical scripts, and the models rated delivery and content on a scale of 1 to 7. Although the models transcribed the speech accurately, they generally rated Chinese and Nigerian accents lowest, Indian ones in the middle, and American and British ones highest. Accents that sounded acoustically further from American English tended to score lower, and some explanations described speakers as hard to understand. A test with 52 human speakers also favoured American and British accents, with an even bigger gap than the AI voices showed. Lead author Orevaoghene Ahia said the models seemed to have an implicit sense of hierarchy.",
+    "Several caveats apply. Only five accents were studied, regional variation was not examined, and the article does not report exact scores. Funding came partly from gifts from Google and OpenAI. The team plans to test more accents and settings such as emergency response, and urges developers to publish results for specific groups rather than only overall averages."
+  ],
+  "questions": [
+    {
+      "q": "What scale did the models use?",
+      "a": "1 to 7."
+    },
+    {
+      "q": "What did the human test show?",
+      "a": "Human scores also favoured American and British accents, with a larger gap."
+    },
+    {
+      "q": "What do the researchers ask developers to publish?",
+      "a": "Results for specific groups and dialects, not only averages."
+    }
+  ]
+}

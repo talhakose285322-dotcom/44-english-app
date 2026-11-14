@@ -1,0 +1,24 @@
+{
+  "id": "ai-scoring-models-favor-american-british-accents",
+  "level": "C2",
+  "title": "AI Models Score Some English Accents Lower, Study Finds",
+  "paragraphs": [
+    "A study from the University of Washington suggests that the AI systems increasingly used to grade spoken English may carry an implicit pecking order of accents. The researchers examined four models, Google's Gemini 2.5 Pro and Gemini 2.5 Flash, OpenAI's GPT-Audio 1.5 and the open-source Qwen 3 Omni, across job interviews, conference talks and proficiency tests, and presented the results, under the title \"The Cost of Sounding Different\", at the EMNLP conference in Budapest.",
+    "Holding the script constant, the team had AI-generated American, British, Chinese, Indian and Nigerian voices deliver the same material, and the models scored delivery and content from 1 to 7 with a short rationale. Despite near-flawless transcription, the systems ranked American and British speakers highest, Indian speakers in the middle and Chinese and Nigerian speakers lowest, with accents acoustically farther from American English tending to fare worse. The rationales betrayed the bias: speakers whose words had been transcribed perfectly were nonetheless dismissed as hard to understand. That Nigerian and Indian English, both rooted in institutional use of the language, sank below the American and British varieties is telling. A check with 52 human speakers yielded the same ordering and an even wider gulf, which cautions against treating machines as uniquely culpable.",
+    "Several qualifications temper the headline. Only five accents were sampled, regional variation was ignored, exact scores were not reported in the coverage, and gifts from Google and OpenAI helped fund the work. Even so, senior author Yulia Tsvetkov's point stands: a respectable overall average can mask a group the system fails badly, so developers should publish breakdowns by dialect before such tools gatekeep jobs or exams."
+  ],
+  "questions": [
+    {
+      "q": "What does the ordering of human scores suggest?",
+      "a": "That the bias is not unique to machines."
+    },
+    {
+      "q": "Why is the Nigerian and Indian result notable?",
+      "a": "English has an institutional role there, yet those accents ranked below American and British."
+    },
+    {
+      "q": "What is Tsvetkov's main argument?",
+      "a": "Overall averages can hide groups the system fails, so results should be broken down by dialect."
+    }
+  ]
+}
