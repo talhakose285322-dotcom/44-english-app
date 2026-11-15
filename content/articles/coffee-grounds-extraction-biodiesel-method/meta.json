@@ -1,0 +1,55 @@
+{
+  "id": "coffee-grounds-extraction-biodiesel-method",
+  "category": "news",
+  "title": "Spanish Team Tests a Simple Way to Get Oil From Coffee Grounds",
+  "summary": "İspanyol araştırmacılar, kullanılmış kahve telvesinden yağı basit bir yöntemle çıkarmayı denedi; yöntem laboratuvar aşamasında ve biyodizel için umut verici.",
+  "published": "2026-11-15",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir fincanın dibinde kalan kahve telvesi (örnek görsel).",
+    "credit": "Membeth",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kaffeesatz.Tassenboden.jpg"
+  },
+  "sources": [
+    {
+      "title": "Universitat Rovira i Virgili: Coffee grounds can be converted into a raw material for producing biofuels",
+      "url": "https://diaridigital.urv.cat/en/coffee-grounds-can-be-converted-into-a-raw-material-for-producing-biofuels/"
+    },
+    {
+      "title": "ScienceDaily: Scientists discover a surprisingly simple way to turn coffee waste into fuel",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261112025544.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "coffee grounds",
+      "tr": "kahve telvesi"
+    },
+    {
+      "w": "waste",
+      "tr": "atık"
+    },
+    {
+      "w": "biodiesel",
+      "tr": "biyodizel"
+    },
+    {
+      "w": "solvent",
+      "tr": "çözücü"
+    },
+    {
+      "w": "extract",
+      "tr": "çıkarmak; özüt"
+    },
+    {
+      "w": "yield",
+      "tr": "verim"
+    },
+    {
+      "w": "impurity",
+      "tr": "safsızlık"
+    }
+  ]
+}

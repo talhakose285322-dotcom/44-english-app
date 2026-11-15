@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,166 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "mangroves-regrow-worldwide-since-2010",
+      "category": "news",
+      "title": "Mangrove Forests Are Growing Back Worldwide",
+      "summary": "Uydu görüntülerini inceleyen yeni bir Science çalışmasına göre mangrov ormanları 2010'dan sonra dünya genelinde yeniden büyüyor; ancak bazı bölgelerde kayıplar sürüyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-15",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 73,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 126,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 193,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 217,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 222,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 230,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "mangroves-regrow-worldwide-since-2010/image.jpg",
+        "alt": "Sığ suda duran mangrov ağaçlarının kökleri (örnek görsel).",
+        "credit": "Wilfredor",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mangrove_roots_in_the_Laguna_de_La_Restinga.jpg"
+      },
+      "sources": [
+        {
+          "title": "NASA Earth Observatory: A Global Rebound for Mangroves",
+          "url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "mangrove",
+          "tr": "mangrov (kıyıda tuzlu suda yetişen ağaç)"
+        },
+        {
+          "w": "satellite image",
+          "tr": "uydu görüntüsü"
+        },
+        {
+          "w": "restoration",
+          "tr": "yeniden canlandırma, onarım"
+        },
+        {
+          "w": "colonise",
+          "tr": "yeni bir alana yerleşmek"
+        },
+        {
+          "w": "erosion",
+          "tr": "erozyon, aşınma"
+        },
+        {
+          "w": "complacency",
+          "tr": "rehavet"
+        },
+        {
+          "w": "store carbon",
+          "tr": "karbon depolamak"
+        }
+      ]
+    },
+    {
+      "id": "coffee-grounds-extraction-biodiesel-method",
+      "category": "news",
+      "title": "Spanish Team Tests a Simple Way to Get Oil From Coffee Grounds",
+      "summary": "İspanyol araştırmacılar, kullanılmış kahve telvesinden yağı basit bir yöntemle çıkarmayı denedi; yöntem laboratuvar aşamasında ve biyodizel için umut verici.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-15",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 81,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 149,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 206,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 232,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 218,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 229,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "coffee-grounds-extraction-biodiesel-method/image.jpg",
+        "alt": "Bir fincanın dibinde kalan kahve telvesi (örnek görsel).",
+        "credit": "Membeth",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Kaffeesatz.Tassenboden.jpg"
+      },
+      "sources": [
+        {
+          "title": "Universitat Rovira i Virgili: Coffee grounds can be converted into a raw material for producing biofuels",
+          "url": "https://diaridigital.urv.cat/en/coffee-grounds-can-be-converted-into-a-raw-material-for-producing-biofuels/"
+        },
+        {
+          "title": "ScienceDaily: Scientists discover a surprisingly simple way to turn coffee waste into fuel",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261112025544.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "coffee grounds",
+          "tr": "kahve telvesi"
+        },
+        {
+          "w": "waste",
+          "tr": "atık"
+        },
+        {
+          "w": "biodiesel",
+          "tr": "biyodizel"
+        },
+        {
+          "w": "solvent",
+          "tr": "çözücü"
+        },
+        {
+          "w": "extract",
+          "tr": "çıkarmak; özüt"
+        },
+        {
+          "w": "yield",
+          "tr": "verim"
+        },
+        {
+          "w": "impurity",
+          "tr": "safsızlık"
+        }
+      ]
+    },
     {
       "id": "ai-scoring-models-favor-american-british-accents",
       "category": "news",

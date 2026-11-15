@@ -1,0 +1,24 @@
+{
+  "id": "coffee-grounds-extraction-biodiesel-method",
+  "level": "C1",
+  "title": "Spanish Team Tests a Simple Way to Get Oil From Coffee Grounds",
+  "paragraphs": [
+    "Coffee may be a daily ritual, but its production, around 10 million tonnes of beans a year, leaves a mountain of solid waste in its wake. Spent grounds still hold roughly 15 percent oil, making them a promising feedstock for biodiesel, provided that the oil can be extracted cheaply and cleanly.",
+    "Researchers at the Universitat Rovira i Virgili in Spain, writing in Biomass and Bioenergy, systematically varied temperature, processing time and the ratio of the solvent hexane to the grounds. Their optimum, 45 degrees Celsius for 60 minutes with 35 millilitres of hexane per gram of dry material, recovered about 90 percent of the oil obtained by the benchmark Soxhlet method, and the extract carried just 0.3 percent impurities against 3.9 percent. Ultrasound and microwaves hastened the early stages but offered no clear overall advantage. Co-author Francesc Medina stressed that \"extracting the oil does not mean that the rest of the material cannot be used for something else\", because the leftover solids remain suitable for bioethanol and other products.",
+    "Caution is nonetheless warranted. The method trails the benchmark on yield, it has been tested only in the laboratory with no industrial trial or economic analysis, the article does not address the safety of hexane, and the proposed uses for the oil and residue remain prospective rather than proven."
+  ],
+  "questions": [
+    {
+      "q": "What was the optimal setting?",
+      "a": "45 degrees Celsius for 60 minutes with 35 millilitres of hexane per gram of dry grounds."
+    },
+    {
+      "q": "Why does Medina say the leftover material matters?",
+      "a": "It can still be used for other products such as bioethanol."
+    },
+    {
+      "q": "Why is caution warranted?",
+      "a": "Only laboratory work so far, lower yield, no economic analysis, and the uses are not yet proven."
+    }
+  ]
+}
