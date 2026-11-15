@@ -71,6 +71,11 @@ test('Cloudflare Worker config publishes exactly the production build output', (
   // pull requests run `wrangler preview`, which refuses to start without a previews block (an empty one is enough)
   assert.deepEqual(config.previews, {}, 'previews block for pull-request preview builds');
   assert.ok(fs.existsSync(path.join(out, '_headers')), 'cache headers must ship with the assets');
+  // the installed app opens at / (the Worker redirects /index.html there), so / needs the same no-cache rule
+  const rules = fs.readFileSync(path.join(out, '_headers'), 'utf8').replace(/\r/g, '');
+  for (const p of ['/', '/index.html', '/sw.js', '/version.json']) {
+    assert.match(rules, new RegExp('^' + p.replace(/\./g, '\\.') + '\\n  Cache-Control: no-(cache|store)', 'm'), p);
+  }
 });
 
 test('primary build advertises the Worker host; backup build uses its own canonical host', () => {

@@ -41,3 +41,18 @@ Recent changes are mostly desktop navigation hardening and install/download inst
 
 ## First concrete task for Claude Code
 Inspect current source and latest deployment state, then fix the actual iPhone update path with the smallest safe change. Check what Cloudflare serves versus repository HEAD and current PWA cache/version logic. Only change cache/service-worker/manifest files if evidence supports it. Commit the fix and verify deployment/version separately. Then address the iPhone OAuth callback. Avoid broad scans and do not stop after merely proposing a plan.
+
+## Issue #126 update-path check (2026-11-13, factory branch)
+- Source review of the update path (`sw.js`, the registration script at the end of `index.html`, `_headers`,
+  `manifest.json`, `scripts/build-static.mjs`). The logic itself (network-first worker, `updateViaCache: 'none'`,
+  `version.json` `builtAt` check, ETag check, guarded reload) has no defect that would block an update on its own.
+- Fixed two source-supported problems: (1) every update check (`version.json?check=<time>`, `no-store`) was stored in
+  the app cache as a new entry, growing forever; the worker now passes `no-store` requests straight to the network
+  (cache `english-app-v19`, which also drops the accumulated v18 entries). (2) `_headers` had the no-cache rule only for
+  `/index.html`, while the installed app is served at `/`; `/` now has the same rule.
+- NOT verified: production headers/version (no network access from the factory), Cloudflare's handling of the new
+  `/` rule, and real iPhone behaviour. Most likely remaining cause is still the installed address (Netlify v10 or
+  blocked `*.pages.dev`), see CLAUDE.md section 3.
+- Next verification: after merge+deploy, `curl -sI https://words44.words44.workers.dev/` should show
+  `Cache-Control: no-cache`, `/sw.js` should contain `english-app-v19`; on the iPhone, note the address the Home Screen
+  app opens and the version in Profil ("Words 44 · Sürüm"), then background it 5+ minutes and reopen.

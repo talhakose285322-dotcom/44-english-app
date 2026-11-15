@@ -1,4 +1,4 @@
-﻿const CACHE = "english-app-v18";
+﻿const CACHE = "english-app-v19";
 // Article photos go to their own cache, which keeps only the IMG_MAX most recently stored ones: new photos arrive every
 // day and would otherwise fill the phone's storage. Its name does not start with "english-app-", so a new release does
 // not throw the photos away.
@@ -45,6 +45,9 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+  // The app's update check asks for version.json?check=<time> with cache "no-store"; each URL is new, so storing it
+  // would add one entry per check forever. Such requests go straight to the network.
+  if (event.request.cache === "no-store") return;
 
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
