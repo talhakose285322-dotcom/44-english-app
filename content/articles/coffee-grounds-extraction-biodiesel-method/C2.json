@@ -1,0 +1,24 @@
+{
+  "id": "coffee-grounds-extraction-biodiesel-method",
+  "level": "C2",
+  "title": "Spanish Team Tests a Simple Way to Get Oil From Coffee Grounds",
+  "paragraphs": [
+    "Coffee may be a daily ritual, but its production, some 10 million tonnes of beans a year, leaves a mountain of solid waste in its wake. Spent grounds still hold roughly 15 percent oil, which makes them a tempting feedstock for biodiesel, provided that the oil can be coaxed out cheaply and cleanly.",
+    "Researchers at the Universitat Rovira i Virgili in Spain, writing in Biomass and Bioenergy, methodically varied temperature, processing time and the ratio of the solvent hexane to the grounds. Their optimum, 45 degrees Celsius for 60 minutes with 35 millilitres of hexane per gram of dry material, recovered about 90 percent of the oil yielded by the benchmark Soxhlet method, and the extract carried a mere 0.3 percent impurities against 3.9 percent. Ultrasound and microwaves hastened the early stages but conferred no clear overall advantage. Co-author Francesc Medina stressed that \"extracting the oil does not mean that the rest of the material cannot be used for something else\", since the residual solids remain fit for bioethanol and other products.",
+    "Yet the enthusiasm deserves a pinch of salt. The method falls short of the benchmark on yield, it has been tried only on the laboratory bench with no industrial trial or economic analysis, the article is silent on the safety of hexane, and the proposed uses for the oil and the residue remain prospective rather than proven."
+  ],
+  "questions": [
+    {
+      "q": "How does the new extract compare with the benchmark?",
+      "a": "Slightly lower yield (about 90 percent) but far fewer impurities (0.3 vs 3.9 percent)."
+    },
+    {
+      "q": "What does the phrase 'a pinch of salt' signal?",
+      "a": "That the claims should be treated with some scepticism."
+    },
+    {
+      "q": "Name two reasons the findings are preliminary.",
+      "a": "Laboratory-only testing and no economic analysis or industrial trial."
+    }
+  ]
+}

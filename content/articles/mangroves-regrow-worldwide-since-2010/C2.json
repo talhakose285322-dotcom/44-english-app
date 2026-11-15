@@ -1,0 +1,24 @@
+{
+  "id": "mangroves-regrow-worldwide-since-2010",
+  "level": "C2",
+  "title": "Mangrove Forests Are Growing Back Worldwide",
+  "paragraphs": [
+    "Mangrove forests, perched at the salty margin between land and sea, repay their modest footprint many times over. They blunt erosion and storm surges, nurse young fish, shrimp and crabs, and can lock away up to four times as much carbon as the loftier forests of the tropical interior. Their long retreat has accordingly been a source of persistent unease among scientists and coastal communities alike.",
+    "A study in the journal Science, led by environmental scientist Zhang of Tulane University, now argues that the tide has begun to turn. Working from Landsat satellite imagery spanning 1984 to 2023, the team found that global mangrove area shrank by nearly 3,000 square kilometres until 2010 before expanding by nearly 2,000 square kilometres, with Asia, Australia and South America in the vanguard. Roughly two thirds of the rebound reflects mangroves colonising fresh ground, such as river-borne mud, while about one third reflects restoration. In Myanmar, area fell by 28.6 percent before 2010 and has crept up by about 10 percent since.",
+    "Zhang is careful not to overstate the case: the gains \"should not be seen as grounds for complacency\". The Niger Delta is still haemorrhaging forest, and cyclones have left lasting scars in North America and southern Africa. Since the conclusions rest on satellite mapping, regional detail merits cautious reading, and the net recovery has yet to offset what was lost before 2010."
+  ],
+  "questions": [
+    {
+      "q": "How does the article describe the turnaround?",
+      "a": "Global mangrove area shrank until 2010 and then expanded, led by Asia, Australia and South America."
+    },
+    {
+      "q": "What do the two thirds and one third refer to?",
+      "a": "Two thirds of the gain came from colonising new ground, one third from restoration."
+    },
+    {
+      "q": "Why is the recovery not a complete success?",
+      "a": "Losses continue in places like the Niger Delta, and the net gain has not yet offset earlier losses."
+    }
+  ]
+}

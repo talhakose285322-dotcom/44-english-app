@@ -1,0 +1,24 @@
+{
+  "id": "coffee-grounds-extraction-biodiesel-method",
+  "level": "B1",
+  "title": "Spanish Team Tests a Simple Way to Get Oil From Coffee Grounds",
+  "paragraphs": [
+    "Every year the world produces about 10 million tonnes of coffee beans, and most of the material ends up as solid waste once the drink is made. Used coffee grounds contain roughly 15 percent oil, which can be turned into biodiesel. Researchers at the Universitat Rovira i Virgili in Spain wanted to find a simple and scalable way to collect that oil.",
+    "In a paper in the journal Biomass and Bioenergy, the team tested how temperature, time and the amount of the solvent hexane affect the result. The best conditions were 45 degrees Celsius for 60 minutes, with 35 millilitres of hexane for each gram of dry grounds. This recovered about 90 percent of the oil collected by Soxhlet extraction, a standard laboratory method, and the oil contained only 0.3 percent impurities compared with 3.9 percent. The leftover solid material stayed largely intact, so it could still be used to make other products such as bioethanol.",
+    "There are limits to the findings. The method gets slightly less oil than the standard one, and the work was done in a laboratory, with no test at industrial scale and no cost analysis. The uses of the oil and the leftovers are also still possibilities rather than finished products."
+  ],
+  "questions": [
+    {
+      "q": "What percentage of used coffee grounds is oil?",
+      "a": "Roughly 15 percent."
+    },
+    {
+      "q": "Which conditions worked best?",
+      "a": "45 degrees Celsius for 60 minutes with 35 millilitres of hexane per gram."
+    },
+    {
+      "q": "Name one limitation of the study.",
+      "a": "It was only done in a laboratory, with no industrial test or cost analysis."
+    }
+  ]
+}

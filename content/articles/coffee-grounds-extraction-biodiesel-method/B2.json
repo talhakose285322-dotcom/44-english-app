@@ -1,0 +1,24 @@
+{
+  "id": "coffee-grounds-extraction-biodiesel-method",
+  "level": "B2",
+  "title": "Spanish Team Tests a Simple Way to Get Oil From Coffee Grounds",
+  "paragraphs": [
+    "Coffee is one of the world's favourite drinks, yet the bean production behind it, about 10 million tonnes a year, leaves behind huge amounts of solid waste. Used grounds still contain roughly 15 percent oil, which makes them an attractive raw material for biodiesel. The challenge is to extract that oil cheaply and cleanly.",
+    "Researchers at the Universitat Rovira i Virgili in Spain, writing in Biomass and Bioenergy, systematically tested how temperature, processing time and the ratio of the solvent hexane to the grounds influence the yield. Their best setting, 45 degrees Celsius for 60 minutes with 35 millilitres of hexane per gram of dry material, recovered about 90 percent of the oil obtained by the standard Soxhlet method, and the extract contained only 0.3 percent impurities, against 3.9 percent for Soxhlet. Ultrasound and microwaves sped up the start of the process but did not clearly improve the overall result. Co-author Francesc Medina stressed that \"extracting the oil does not mean that the rest of the material cannot be used for something else\", since the leftover solids remain suitable for products such as bioethanol.",
+    "Several caveats apply. The new method yields somewhat less oil than the benchmark, it was assessed in the laboratory without an industrial trial or economic analysis, the article does not discuss the safety of hexane, and the uses of the oil and the residue are still potential applications."
+  ],
+  "questions": [
+    {
+      "q": "What did ultrasound and microwaves do in the experiments?",
+      "a": "They sped up the start of extraction but did not clearly improve the overall result."
+    },
+    {
+      "q": "How does the purity of the new extract compare with Soxhlet?",
+      "a": "0.3 percent impurities against 3.9 percent."
+    },
+    {
+      "q": "Name two caveats mentioned.",
+      "a": "Slightly lower yield and no industrial or economic testing (or no discussion of hexane safety)."
+    }
+  ]
+}

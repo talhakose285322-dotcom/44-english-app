@@ -1,0 +1,24 @@
+{
+  "id": "mangroves-regrow-worldwide-since-2010",
+  "level": "B2",
+  "title": "Mangrove Forests Are Growing Back Worldwide",
+  "paragraphs": [
+    "Mangrove forests, which grow in salty water along tropical coasts, punch well above their weight. They shield shorelines from erosion and storm surges, they act as nurseries for fish, shrimp and crabs, and they can hold up to four times as much carbon as the taller forests that grow further inland. That is why their steady loss in past decades worried scientists and coastal communities alike.",
+    "A new study in the journal Science, led by environmental scientist Zhang of Tulane University, offers a more hopeful picture. By analysing Landsat satellite images from 1984 to 2023, the team found that global mangrove area shrank by nearly 3,000 square kilometres until 2010 and then grew by nearly 2,000 square kilometres, mainly in Asia, Australia and South America. Roughly two thirds of the gain came from mangroves colonising new ground, such as river mud, while about one third came from restoration. In Myanmar, area fell by 28.6 percent before 2010 and has since risen by about 10 percent.",
+    "Zhang warns that the gains \"should not be seen as grounds for complacency\". Losses continue in places such as the Niger Delta, and storms have damaged forests in North America and southern Africa. Because the findings rest on satellite mapping, local details may differ from what researchers would count on the ground."
+  ],
+  "questions": [
+    {
+      "q": "Why are mangroves valuable?",
+      "a": "They protect coasts, shelter young sea animals and store a lot of carbon."
+    },
+    {
+      "q": "What mainly explains the growth since 2010?",
+      "a": "Mangroves colonising new ground, plus restoration of damaged forests."
+    },
+    {
+      "q": "What does Zhang warn about?",
+      "a": "That the gains should not lead to complacency."
+    }
+  ]
+}

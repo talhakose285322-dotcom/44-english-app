@@ -1,0 +1,24 @@
+{
+  "id": "mangroves-regrow-worldwide-since-2010",
+  "level": "C1",
+  "title": "Mangrove Forests Are Growing Back Worldwide",
+  "paragraphs": [
+    "Mangrove forests, which cling to tropical shorelines in salty water, deliver benefits far out of proportion to their size. They blunt erosion and storm surges, serve as nurseries for fish, shrimp and crabs, and can store up to four times as much carbon as the taller forests that grow inland. Their steady decline over the past decades has therefore been a persistent concern for scientists and coastal communities alike.",
+    "A study in the journal Science, led by environmental scientist Zhang of Tulane University, now suggests the trend has turned. Drawing on Landsat satellite imagery from 1984 to 2023, the team found that global mangrove area shrank by nearly 3,000 square kilometres until 2010, then expanded by nearly 2,000 square kilometres, with Asia, Australia and South America leading the recovery. About two thirds of the gain reflects mangroves colonising fresh ground, such as river-deposited mud, and about one third reflects restoration. In Myanmar, area fell by 28.6 percent before 2010 and has risen by roughly 10 percent since.",
+    "Zhang cautions that the gains \"should not be seen as grounds for complacency\". The Niger Delta continues to lose forest, and cyclones have left lasting damage in North America and southern Africa. Because the conclusions rest on satellite mapping, regional detail deserves cautious reading, and the net recovery is still smaller than the earlier losses."
+  ],
+  "questions": [
+    {
+      "q": "What turned the global trend around after 2010?",
+      "a": "Mangroves spread to new ground and damaged forests were restored."
+    },
+    {
+      "q": "Which regions led the recovery?",
+      "a": "Asia, Australia and South America."
+    },
+    {
+      "q": "Why should the findings be read cautiously?",
+      "a": "They rely on satellite mapping, losses continue in some areas, and the net gain is still smaller than the earlier loss."
+    }
+  ]
+}
