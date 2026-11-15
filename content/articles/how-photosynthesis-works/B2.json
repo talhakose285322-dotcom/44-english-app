@@ -1,0 +1,25 @@
+{
+  "id": "how-photosynthesis-works",
+  "level": "B2",
+  "title": "How Does Photosynthesis Work?",
+  "paragraphs": [
+    "Every meal, whether it consists of bread, beef or fish, can ultimately be traced back to photosynthesis, the process by which plants, algae and some bacteria turn light into chemical energy. Its discovery was gradual: in 1779 the Dutch physician Jan Ingenhousz demonstrated that plants release the gas we call oxygen only when they are exposed to light, which overturned the old assumption that soil alone feeds them.",
+    "In summary, the process converts carbon dioxide and water into sugar and oxygen, using light as the energy source. In plants it takes place in chloroplasts, where the pigment chlorophyll absorbs mainly red and blue wavelengths and reflects green ones. The reactions are usually divided into two linked stages. During the light-dependent stage, which occurs in the membranes of the thylakoids, light energy is used to split water molecules, and the energy is temporarily stored in the carrier molecules ATP and NADPH.",
+    "These carriers then power the Calvin cycle, which runs in the fluid of the chloroplast, called the stroma. There, an enzyme known as RuBisCO attaches carbon dioxide to a five-carbon molecule, and a sequence of reactions eventually produces a three-carbon sugar from which glucose and other substances are built. Although this stage needs no light itself, it stops soon after the light is switched off, because it relies on the ATP and NADPH supplied by the first stage.",
+    "A common misunderstanding is that the released oxygen comes from the carbon dioxide; in fact, it originates from the split water. The scale of the process is remarkable. Estimates suggest that photosynthesis captures energy at a rate of roughly 130 terawatts, around eight times the power used by all of human civilisation. Nevertheless, plants convert only a small part of the sunlight that falls on them, and scientists are studying whether this efficiency can be improved to help produce more food."
+  ],
+  "questions": [
+    {
+      "q": "What did Ingenhousz's experiments overturn?",
+      "a": "The assumption that plants are fed by soil alone."
+    },
+    {
+      "q": "Where does the Calvin cycle take place?",
+      "a": "In the stroma of the chloroplast."
+    },
+    {
+      "q": "Why does the Calvin cycle stop soon after the light goes off?",
+      "a": "It needs the ATP and NADPH made in the light-dependent stage."
+    }
+  ]
+}

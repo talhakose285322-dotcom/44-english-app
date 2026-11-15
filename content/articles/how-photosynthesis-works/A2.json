@@ -1,0 +1,25 @@
+{
+  "id": "how-photosynthesis-works",
+  "level": "A2",
+  "title": "How Does Photosynthesis Work?",
+  "paragraphs": [
+    "Most animals must eat food to get energy, but plants can make their own food. They do this in a process called photosynthesis. The word means \"making things with light\".",
+    "A plant uses three simple ingredients. Its roots take in water from the soil. Its leaves take in a gas called carbon dioxide from the air. The third ingredient is light from the sun.",
+    "The work happens in small green parts inside the leaf cells. They are called chloroplasts. They contain a green substance called chlorophyll, which catches the light. This is also the reason why most leaves look green.",
+    "With the energy from light, the plant changes water and carbon dioxide into sugar. The plant uses the sugar to grow and to live. Oxygen is made at the same time, and it goes out into the air. Almost all the life on Earth depends on this process, because it gives food and oxygen to other living things."
+  ],
+  "questions": [
+    {
+      "q": "What does the word photosynthesis mean?",
+      "a": "It means making things with light."
+    },
+    {
+      "q": "Which part of the cell contains chlorophyll?",
+      "a": "The chloroplast."
+    },
+    {
+      "q": "What does a plant make from water and carbon dioxide?",
+      "a": "It makes sugar (and oxygen)."
+    }
+  ]
+}

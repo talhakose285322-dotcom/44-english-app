@@ -1,0 +1,25 @@
+{
+  "id": "how-photosynthesis-works",
+  "level": "C1",
+  "title": "How Does Photosynthesis Work?",
+  "paragraphs": [
+    "Virtually all the energy that sustains complex life on Earth can be traced to photosynthesis, the mechanism by which plants, algae and cyanobacteria convert light into chemical energy. The process was first recognised in 1779, when Jan Ingenhousz established that green plants release oxygen only in the presence of light, a finding that undermined the prevailing view that soil alone nourished them.",
+    "The net reaction is deceptively simple: carbon dioxide and water, driven by light, yield sugar and oxygen. Beneath this summary lies a carefully organised sequence that is customarily divided into two stages. In the light-dependent reactions, which take place in the thylakoid membranes of the chloroplast, chlorophyll absorbs chiefly red and blue wavelengths, thereby reflecting the green light responsible for the colour of foliage. The captured energy is used to split water, releasing oxygen as a by-product and generating the energy carriers ATP and NADPH.",
+    "These carriers are subsequently consumed in the Calvin cycle, which proceeds in the stroma. Here the enzyme RuBisCO fixes carbon dioxide onto a five-carbon acceptor; further reactions then reduce the product to a three-carbon sugar, a fraction of which is exported to build glucose, while the remainder regenerates the acceptor so that the cycle can continue. Although this stage requires no light directly, it is wholly dependent on the output of the first, so the two stages should be regarded as interdependent rather than separate.",
+    "It is frequently assumed that the oxygen released derives from carbon dioxide; in reality, it originates from water. The global implications are considerable. Photosynthetic organisms are estimated to capture energy at an average rate of about 130 terawatts, roughly eight times the power consumed by human civilisation, and geological evidence suggests that oxygen-producing photosynthesis became significant in the Paleoproterozoic era, approximately two billion years ago, thereby reshaping the planet's atmosphere. Yet the conversion of sunlight into biomass is far from perfectly efficient, which explains why researchers continue to investigate ways of improving it."
+  ],
+  "questions": [
+    {
+      "q": "What belief did Ingenhousz's finding undermine?",
+      "a": "That soil alone nourished plants."
+    },
+    {
+      "q": "What is the role of RuBisCO?",
+      "a": "It fixes carbon dioxide onto a five-carbon acceptor."
+    },
+    {
+      "q": "Why should the two stages be regarded as interdependent?",
+      "a": "The second stage depends wholly on the ATP and NADPH produced by the first."
+    }
+  ]
+}

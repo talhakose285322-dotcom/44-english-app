@@ -1,0 +1,75 @@
+{
+  "id": "how-photosynthesis-works",
+  "category": "science",
+  "title": "How Does Photosynthesis Work?",
+  "summary": "Fotosentez nasıl çalışır? Bitkiler ışık, su ve karbondioksitten şeker ve oksijeni nasıl üretir; ışığa bağlı evre ve Calvin döngüsü.",
+  "published": "2026-11-15",
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "vocab": [
+    {
+      "w": "photosynthesis",
+      "tr": "fotosentez"
+    },
+    {
+      "w": "chloroplast",
+      "tr": "kloroplast"
+    },
+    {
+      "w": "chlorophyll",
+      "tr": "klorofil"
+    },
+    {
+      "w": "carbon dioxide",
+      "tr": "karbondioksit"
+    },
+    {
+      "w": "oxygen",
+      "tr": "oksijen"
+    },
+    {
+      "w": "pigment",
+      "tr": "pigment, boya maddesi"
+    },
+    {
+      "w": "absorb",
+      "tr": "emmek"
+    },
+    {
+      "w": "reflect",
+      "tr": "yansıtmak"
+    },
+    {
+      "w": "molecule",
+      "tr": "molekül"
+    },
+    {
+      "w": "enzyme",
+      "tr": "enzim"
+    },
+    {
+      "w": "by-product",
+      "tr": "yan ürün"
+    },
+    {
+      "w": "biomass",
+      "tr": "biyokütle"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Photosynthesis — Biology 1 (SUNY, Lumen Learning)",
+      "url": "https://courses.lumenlearning.com/suny-wmopen-biology1/chapter/photosynthesis/"
+    },
+    {
+      "title": "Photosynthesis — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Photosynthesis"
+    }
+  ],
+  "image": {
+    "file": "image.jpg",
+    "alt": "Mikroskopta yosun hücrelerinin içindeki yeşil kloroplastlar (örnek görsel).",
+    "credit": "Kristian Peters",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Plagiomnium_affine_laminazellen.jpeg"
+  }
+}
