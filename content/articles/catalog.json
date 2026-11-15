@@ -26,6 +26,108 @@
   },
   "articles": [
     {
+      "id": "how-photosynthesis-works",
+      "category": "science",
+      "title": "How Does Photosynthesis Work?",
+      "summary": "Fotosentez nasıl çalışır? Bitkiler ışık, su ve karbondioksitten şeker ve oksijeni nasıl üretir; ışığa bağlı evre ve Calvin döngüsü.",
+      "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-15",
+      "paragraphs": 4,
+      "levels": {
+        "A1": {
+          "words": 90,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 158,
+          "minutes": 2
+        },
+        "B1": {
+          "words": 268,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 309,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 325,
+          "minutes": 2
+        },
+        "C2": {
+          "words": 317,
+          "minutes": 2
+        }
+      },
+      "image": {
+        "src": "how-photosynthesis-works/image.jpg",
+        "alt": "Mikroskopta yosun hücrelerinin içindeki yeşil kloroplastlar (örnek görsel).",
+        "credit": "Kristian Peters",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Plagiomnium_affine_laminazellen.jpeg"
+      },
+      "sources": [
+        {
+          "title": "Photosynthesis — Biology 1 (SUNY, Lumen Learning)",
+          "url": "https://courses.lumenlearning.com/suny-wmopen-biology1/chapter/photosynthesis/"
+        },
+        {
+          "title": "Photosynthesis — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Photosynthesis"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "photosynthesis",
+          "tr": "fotosentez"
+        },
+        {
+          "w": "chloroplast",
+          "tr": "kloroplast"
+        },
+        {
+          "w": "chlorophyll",
+          "tr": "klorofil"
+        },
+        {
+          "w": "carbon dioxide",
+          "tr": "karbondioksit"
+        },
+        {
+          "w": "oxygen",
+          "tr": "oksijen"
+        },
+        {
+          "w": "pigment",
+          "tr": "pigment, boya maddesi"
+        },
+        {
+          "w": "absorb",
+          "tr": "emmek"
+        },
+        {
+          "w": "reflect",
+          "tr": "yansıtmak"
+        },
+        {
+          "w": "molecule",
+          "tr": "molekül"
+        },
+        {
+          "w": "enzyme",
+          "tr": "enzim"
+        },
+        {
+          "w": "by-product",
+          "tr": "yan ürün"
+        },
+        {
+          "w": "biomass",
+          "tr": "biyokütle"
+        }
+      ]
+    },
+    {
       "id": "mangroves-regrow-worldwide-since-2010",
       "category": "news",
       "title": "Mangrove Forests Are Growing Back Worldwide",

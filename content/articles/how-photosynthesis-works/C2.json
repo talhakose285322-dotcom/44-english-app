@@ -1,0 +1,25 @@
+{
+  "id": "how-photosynthesis-works",
+  "level": "C2",
+  "title": "How Does Photosynthesis Work?",
+  "paragraphs": [
+    "That nearly every calorie consumed on Earth can be traced to a single biochemical pathway is a striking observation. Photosynthesis, performed by plants, algae and cyanobacteria, converts radiant energy into chemical energy, and its elucidation was a gradual affair: it was Jan Ingenhousz who, in 1779, demonstrated that green plants evolve oxygen solely in the presence of light, thereby dislodging the view that soil by itself nourished them.",
+    "The net equation, in which carbon dioxide and water yield sugar and oxygen under illumination, conceals a finely orchestrated sequence conventionally partitioned into two stages. In the light-dependent reactions, localised in the thylakoid membranes, chlorophyll absorbs predominantly red and blue wavelengths; the green light it reflects accounts for the hue of foliage. The harvested energy drives the oxidation of water, which liberates oxygen as a by-product and furnishes the carriers ATP and NADPH.",
+    "Those carriers are expended in the Calvin cycle, which unfolds in the stroma. The enzyme RuBisCO fixes carbon dioxide onto a five-carbon acceptor, the resulting intermediates are reduced to a three-carbon sugar, and whereas a fraction of this sugar is exported for the synthesis of glucose, the remainder regenerates the acceptor, sustaining the cycle. Although the stage consumes no photons directly, it is wholly contingent on the products of the first, so treating the two as discrete would be misleading.",
+    "A persistent misconception holds that the oxygen emitted derives from carbon dioxide, whereas it in fact originates from water. The planetary consequences are difficult to overstate. Photosynthetic life is estimated to capture energy at an average rate of some 130 terawatts, roughly eight times the power demands of human civilisation, and geological evidence suggests that oxygenic photosynthesis became significant around two billion years ago, in the Paleoproterozoic era, profoundly transforming the atmosphere. Paradoxically, the conversion of sunlight into biomass remains far from optimal, a shortfall that continues to motivate research into whether it can be remedied."
+  ],
+  "questions": [
+    {
+      "q": "What did Ingenhousz demonstrate in 1779?",
+      "a": "That green plants release oxygen only in the presence of light."
+    },
+    {
+      "q": "Where do the light-dependent reactions occur?",
+      "a": "In the thylakoid membranes."
+    },
+    {
+      "q": "What does the text call the claim that oxygen comes from carbon dioxide?",
+      "a": "A persistent misconception."
+    }
+  ]
+}

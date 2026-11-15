@@ -1,0 +1,25 @@
+{
+  "id": "how-photosynthesis-works",
+  "level": "A1",
+  "title": "How Does Photosynthesis Work?",
+  "paragraphs": [
+    "Plants make their own food. They do this with light from the sun. This is called photosynthesis.",
+    "A plant needs three things. It takes water from the soil. It takes air through small holes in its leaves. And it needs sunlight.",
+    "Inside the leaf, there are tiny green parts. They catch the light. Then the plant makes sugar. The sugar gives the plant energy to grow.",
+    "The plant also makes oxygen. It lets the oxygen go into the air. We need this oxygen to breathe. So plants help us live."
+  ],
+  "questions": [
+    {
+      "q": "What do plants make with light?",
+      "a": "They make sugar."
+    },
+    {
+      "q": "Where does the plant take water from?",
+      "a": "From the soil."
+    },
+    {
+      "q": "Why do we need plants?",
+      "a": "They make oxygen for us to breathe."
+    }
+  ]
+}

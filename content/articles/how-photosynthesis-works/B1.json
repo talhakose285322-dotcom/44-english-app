@@ -1,0 +1,25 @@
+{
+  "id": "how-photosynthesis-works",
+  "level": "B1",
+  "title": "How Does Photosynthesis Work?",
+  "paragraphs": [
+    "Plants do not eat in the way that animals do. Instead, they build their own food from very simple materials, using energy from sunlight. This process is called photosynthesis, and it is the starting point of most food chains on Earth. It was first described in 1779, when the Dutch scientist Jan Ingenhousz showed that plants need light, not only soil and water.",
+    "The overall idea can be written as a short equation: carbon dioxide plus water, with the help of light, gives sugar and oxygen. In a leaf, the carbon dioxide enters through tiny openings, while the water arrives from the roots. The reactions take place in chloroplasts, which are small structures inside the cells. Their green pigment, chlorophyll, absorbs mostly red and blue light and reflects green light, so we see leaves as green.",
+    "Photosynthesis has two main stages. In the first stage, which needs light, the plant splits water molecules. This releases oxygen and stores energy in two small molecules called ATP and NADPH. In the second stage, known as the Calvin cycle, the plant uses that stored energy to turn carbon dioxide into sugar. This stage does not use light directly, but it depends on the products of the first one.",
+    "The oxygen that comes out of a leaf does not come from carbon dioxide. It comes from the water that was split. Plants use some of the sugar immediately, and they keep the rest as starch or build it into new leaves, stems and fruit. Algae and some bacteria do the same job, which is why photosynthesis supports life far beyond the land."
+  ],
+  "questions": [
+    {
+      "q": "What did Jan Ingenhousz show in 1779?",
+      "a": "That plants need light, not only soil and water."
+    },
+    {
+      "q": "Why do leaves look green?",
+      "a": "Chlorophyll reflects green light."
+    },
+    {
+      "q": "Where does the oxygen come from?",
+      "a": "From the split water molecules."
+    }
+  ]
+}
