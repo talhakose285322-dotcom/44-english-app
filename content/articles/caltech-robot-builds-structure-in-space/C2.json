@@ -1,0 +1,24 @@
+{
+  "id": "caltech-robot-builds-structure-in-space",
+  "level": "C2",
+  "title": "Caltech Robot Builds Part of a Structure in Orbit",
+  "paragraphs": [
+    "Building in space has long meant building on the ground and then cramming the result into a rocket. A robot from Caltech has just taken a modest but telling step away from that habit: it has assembled part of a truss in orbit with no astronaut anywhere near it. Sergio Pellegrino, who leads the ASTRA project, calls it “the first time that a structure has been autonomously constructed in space”, a boast that rests, for now, on the researchers' own word.",
+    "ASTRA rode to orbit on 30 March 2026 aboard Momentus Inc.'s Vigoride 7, carried by a SpaceX Transporter-16 mission. It started with two prebuilt bays and put a third into place. The finished eleven-bay truss was to support a 1.4-metre reflector antenna of composite tubes, aluminium connectors and perforated film, a stepping stone, in the words of DARPA's Andrew Detor, towards “efficient, scalable construction of very large structures in space.”",
+    "The victory is therefore partial. The antenna remains unfinished, and the team expects the mission to end in December well short of eleven bays. Operating the robot through seven or eight 15-minute contact windows a day, the controllers wrestled with a string of surprises. Their verdict is nonetheless upbeat: the concept holds water, even if the design must be pared down and polished. For a field accustomed to launching ambition in one piece, that is no small admission."
+  ],
+  "questions": [
+    {
+      "q": "What habit in space engineering does the robot challenge?",
+      "a": "Building on the ground and launching the finished object in one piece."
+    },
+    {
+      "q": "Why is the 'victory' called partial?",
+      "a": "The antenna is unfinished and eleven bays will not be built."
+    },
+    {
+      "q": "What is the final verdict of the team?",
+      "a": "The concept works, but the design must be simplified and refined."
+    }
+  ]
+}

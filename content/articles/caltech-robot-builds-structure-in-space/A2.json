@@ -1,0 +1,24 @@
+{
+  "id": "caltech-robot-builds-structure-in-space",
+  "level": "A2",
+  "title": "Caltech Robot Builds Part of a Structure in Orbit",
+  "paragraphs": [
+    "A robot from Caltech has built part of a structure in space. The scientists say this is the first time a structure was built in space without people. The robot works alone, and the team sends it commands from Earth.",
+    "The robot left Earth on 30 March 2026 on a SpaceX rocket. It started with two parts of a frame and built a third one. The whole frame needs eleven parts. At the end, it will hold an antenna that is 1.4 metres wide.",
+    "The team could not finish the antenna. The mission ends in December, and there is not enough time. Also, the team can talk to the robot only seven or eight times a day, for about 15 minutes. Still, the scientists think the idea can work."
+  ],
+  "questions": [
+    {
+      "q": "When did the robot leave Earth?",
+      "a": "On 30 March 2026."
+    },
+    {
+      "q": "How many parts does the whole frame need?",
+      "a": "Eleven."
+    },
+    {
+      "q": "Why is the antenna not finished?",
+      "a": "The mission ends in December and there is not enough time."
+    }
+  ]
+}

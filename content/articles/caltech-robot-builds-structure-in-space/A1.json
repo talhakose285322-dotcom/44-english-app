@@ -1,0 +1,24 @@
+{
+  "id": "caltech-robot-builds-structure-in-space",
+  "level": "A1",
+  "title": "Caltech Robot Builds Part of a Structure in Orbit",
+  "paragraphs": [
+    "A robot built something in space. The robot is from Caltech. Caltech is a university in the United States.",
+    "The team sent the robot to space in March 2026. It was a test. The robot had two parts of a frame. Then it built a third part by itself. No astronaut helped.",
+    "The team wants to build a big antenna. It is not ready now. The robot built only a small part. But the test works."
+  ],
+  "questions": [
+    {
+      "q": "Who made the robot?",
+      "a": "Caltech."
+    },
+    {
+      "q": "Did an astronaut help?",
+      "a": "No."
+    },
+    {
+      "q": "Is the antenna ready?",
+      "a": "No, only a small part is ready."
+    }
+  ]
+}

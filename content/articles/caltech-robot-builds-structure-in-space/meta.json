@@ -1,0 +1,55 @@
+{
+  "id": "caltech-robot-builds-structure-in-space",
+  "category": "news",
+  "title": "Caltech Robot Builds Part of a Structure in Orbit",
+  "summary": "Caltech'in ASTRA robotu, uzayda insansız olarak bir anten yapısının bir bölümünü kurdu; proje tamamlanmadı ama yöntemin işe yaradığını gösterdi.",
+  "published": "2026-11-16",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Uluslararası Uzay İstasyonu'nun Canadarm2 robot kolu (örnek görsel; ASTRA robotu değil).",
+    "credit": "NASA Johnson Space Center",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:The_57_7-foot-long_Canadarm2_robotic_arm_extends_from_the_International_Space_Station_(iss071e403651).jpg"
+  },
+  "sources": [
+    {
+      "title": "Caltech: Caltech robotic space demo successfully builds in space",
+      "url": "https://www.caltech.edu/about/news/caltech-robotic-space-demo-successfully-builds-in-space"
+    },
+    {
+      "title": "ScienceDaily (Caltech): Caltech robot makes history by building a structure in space",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261108233043.htm"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "robot",
+      "tr": "robot"
+    },
+    {
+      "w": "structure",
+      "tr": "yapı"
+    },
+    {
+      "w": "antenna",
+      "tr": "anten"
+    },
+    {
+      "w": "orbit",
+      "tr": "yörünge"
+    },
+    {
+      "w": "launch",
+      "tr": "fırlatmak"
+    },
+    {
+      "w": "assemble",
+      "tr": "monte etmek"
+    },
+    {
+      "w": "feasible",
+      "tr": "uygulanabilir"
+    }
+  ]
+}

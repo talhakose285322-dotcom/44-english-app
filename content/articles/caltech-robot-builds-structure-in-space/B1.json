@@ -1,0 +1,24 @@
+{
+  "id": "caltech-robot-builds-structure-in-space",
+  "level": "B1",
+  "title": "Caltech Robot Builds Part of a Structure in Orbit",
+  "paragraphs": [
+    "Engineers at Caltech say their robot has built part of a structure in space on its own, with no astronauts involved. The project is called ASTRA and is funded by DARPA, a research agency of the United States. Sergio Pellegrino, who leads the team, calls it “the first time that a structure has been autonomously constructed in space.”",
+    "ASTRA was launched on 30 March 2026 from California. It travelled on a Momentus vehicle that was carried by a SpaceX rocket. The robot began with two prebuilt sections of a frame and then assembled a third. The full design needs eleven sections and will hold a reflector antenna 1.4 metres across.",
+    "There are limits, however. The team could not complete the antenna, and the mission ends in December, so all eleven sections are unlikely. Communication windows were short, about seven or eight of 15 minutes each day, which made it hard to solve problems. The team says the idea works but the design needs to be simpler."
+  ],
+  "questions": [
+    {
+      "q": "What does ASTRA do?",
+      "a": "It builds a structure in space without astronauts."
+    },
+    {
+      "q": "How many sections did the robot add?",
+      "a": "One, a third section."
+    },
+    {
+      "q": "Why was troubleshooting difficult?",
+      "a": "Communication windows were short."
+    }
+  ]
+}

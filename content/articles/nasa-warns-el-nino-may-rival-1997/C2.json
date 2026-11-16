@@ -1,0 +1,24 @@
+{
+  "id": "nasa-warns-el-nino-may-rival-1997",
+  "level": "C2",
+  "title": "NASA: This El Niño May Rival the 1997 Giant",
+  "paragraphs": [
+    "If the satellites are to be believed, the Pacific is once again winding itself up for something extraordinary. NASA's Earth Observatory reports that the 2026 El Niño, which has intensified with startling speed, could end up rivalling or even eclipsing the 1997–98 behemoth that has long served as the yardstick for such events.",
+    "The claim rests on an unusually clean dataset: 35 years of altimetry gathered by near-twin spacecraft on almost the same ground track, from TOPEX/Poseidon in October 1997 through Jason-2 in 2015 to Sentinel-6 Michael Freilich this October. The 2026 sea-level pattern, with elevated water banked up against South America, mirrors 1997 and not 2015, when the warm pool lingered farther offshore and rain was funnelled instead towards Central America, the southeastern United States and flood-prone Mexico. NOAA's 8 October outlook accordingly puts the odds of a strong to very strong event in early 2027 at 83 percent.",
+    "Still, the researchers resist the temptation to treat history as destiny. Josh Willis of NASA's Jet Propulsion Laboratory admits that “there's always a bit of a dice roll here” and describes the 1997 comparison as “just our best guess at the moment.” Distance from the tropics blurs the picture, since other atmospheric processes can bend the familiar pattern, and nothing in the forecast pins down where the worst weather will strike. In short, the resemblance is a warning, not a verdict."
+  ],
+  "questions": [
+    {
+      "q": "Why is the satellite dataset described as clean?",
+      "a": "Near-identical spacecraft followed almost the same ground track for 35 years."
+    },
+    {
+      "q": "Which past event does 2026 resemble more closely, and why?",
+      "a": "1997, because high water reaches South America as it did then."
+    },
+    {
+      "q": "What does the final sentence mean?",
+      "a": "The similarity is a reason for caution, not proof of the outcome."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "caltech-robot-builds-structure-in-space",
+  "level": "B2",
+  "title": "Caltech Robot Builds Part of a Structure in Orbit",
+  "paragraphs": [
+    "A robot built by engineers at the California Institute of Technology has assembled part of a truss in orbit without any help from astronauts, which the team describes as the first autonomous construction of a structure in space. The project, called ASTRA, is led by Sergio Pellegrino and funded through DARPA's NOM4D programme, which aims to make very large structures in space.",
+    "ASTRA was launched on 30 March 2026 aboard Momentus Inc.'s Vigoride 7 vehicle on a SpaceX Transporter-16 mission. Starting with two prebuilt bays, the robot built a third. The finished truss, planned to have eleven bays, is meant to carry a reflector antenna 1.4 metres across, made from composite tubes, aluminium connectors and a perforated plastic film. DARPA's Andrew Detor says the goal is “efficient, scalable construction of very large structures in space.”",
+    "The results should be read carefully. The antenna was not finished, and the team does not expect all eleven bays to be built before the mission ends in December. Ground controllers had only about seven or eight 15-minute contact windows a day and met many unexpected problems. The researchers conclude that the concept is viable, but that the design needs simplification and refinement."
+  ],
+  "questions": [
+    {
+      "q": "What is the aim of DARPA's NOM4D programme?",
+      "a": "To build very large structures in space efficiently."
+    },
+    {
+      "q": "What did the robot start with and what did it add?",
+      "a": "Two prebuilt bays, and it built a third."
+    },
+    {
+      "q": "Why is the result only a partial success?",
+      "a": "The antenna was not finished and only a small part was built."
+    }
+  ]
+}
