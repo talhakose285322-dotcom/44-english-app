@@ -1,0 +1,24 @@
+{
+  "id": "nasa-warns-el-nino-may-rival-1997",
+  "level": "B2",
+  "title": "NASA: This El Niño May Rival the 1997 Giant",
+  "paragraphs": [
+    "Scientists at NASA's Earth Observatory warn that the El Niño now building in the Pacific could rival, or even exceed, the legendary 1997–98 event. The assessment rests on 35 years of satellite altimetry, which tracks the height of the ocean surface using nearly identical spacecraft flying almost the same track, from TOPEX/Poseidon in 1997 to Sentinel-6 Michael Freilich, whose October 2026 data show a strikingly similar pattern.",
+    "What is unusual this year is speed: the sea-level signal grew much more abruptly than it did in 1997. Both 1997–98 and 2015–16 are remembered for fires in Indonesia and the Amazon, crop failures in southern Africa and heavy rain in Southern California, but the two events were not identical. In 2015 the warm water stayed farther from South America, and the rain fell mainly over Central America and the southeastern United States.",
+    "NOAA's 8 October outlook put the chance of a strong to very strong El Niño in the first quarter of 2027 at 83 percent. Josh Willis of NASA's Jet Propulsion Laboratory is cautious, though: “There's always a bit of a dice roll here.” The 1997 analogy, he says, is “just our best guess at the moment,” and it cannot show exactly where the worst effects will fall."
+  ],
+  "questions": [
+    {
+      "q": "What data does the comparison rely on?",
+      "a": "35 years of satellite measurements of sea-surface height."
+    },
+    {
+      "q": "How did the 2015 event differ from 1997?",
+      "a": "The warm water stayed farther from South America, so the rain fell elsewhere."
+    },
+    {
+      "q": "What does Josh Willis say about the forecast?",
+      "a": "That it is a bit of a dice roll and only a best guess."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "nasa-warns-el-nino-may-rival-1997",
+  "level": "C1",
+  "title": "NASA: This El Niño May Rival the 1997 Giant",
+  "paragraphs": [
+    "With a decade-defining climate swing apparently under way, NASA's Earth Observatory has cautioned that the 2026 El Niño may match, or even surpass, the benchmark event of 1997–98. The warning draws on a 35-year record of satellite altimetry, in which nearly identical spacecraft, from TOPEX/Poseidon in October 1997 to Sentinel-6 Michael Freilich in October 2026, have followed almost the same ground track, making like-for-like comparisons unusually reliable.",
+    "The similarity is striking: swollen, warm water has pressed up against the South American coast, as it did in 1997, and it has done so far more abruptly. The 2015–16 episode, by contrast, kept its warm pool farther offshore, which helps explain why two events of comparable strength delivered different weather. Rain fell mainly over Central America and the southeastern United States in 2015, whereas 1997 drenched California and the wider southern United States.",
+    "NOAA's outlook of 8 October assigns an 83 percent probability to a strong or very strong El Niño in the first three months of 2027. Yet the researchers stop short of promising a rerun. Josh Willis of NASA's Jet Propulsion Laboratory concedes that “there's always a bit of a dice roll here,” calling the 1997 analogy “just our best guess at the moment.” Beyond the tropical Pacific, other atmospheric processes can bend expected patterns, and the forecast cannot say where the worst impacts will land."
+  ],
+  "questions": [
+    {
+      "q": "What makes the satellite record reliable for comparison?",
+      "a": "Nearly identical satellites followed almost the same track for 35 years."
+    },
+    {
+      "q": "Why did 2015 and 1997 bring different weather?",
+      "a": "In 2015 the warm water stayed farther offshore."
+    },
+    {
+      "q": "What caveat do the researchers give?",
+      "a": "Other atmospheric processes can change patterns, so exact impacts cannot be predicted."
+    }
+  ]
+}

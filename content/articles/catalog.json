@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,88 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "nasa-warns-el-nino-may-rival-1997",
+      "category": "news",
+      "title": "NASA: This El Niño May Rival the 1997 Giant",
+      "summary": "NASA uydu verileri, 2026 El Niño'sunun 1997'deki büyük olaya benzediğini gösteriyor; ama etkilerin nerede olacağı belirsiz.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-16",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 78,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 118,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 155,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 207,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 226,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 231,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "nasa-warns-el-nino-may-rival-1997/image.jpg",
+        "alt": "2025 ve 2026'da tropikal Pasifik'teki deniz yüzeyi sıcaklık farkını karşılaştıran iki küre; kırmızı sıcak, mavi soğuk bölgeleri gösteriyor.",
+        "credit": "NASA Scientific Visualization Studio / Kel Elkins",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:El_Ni%C3%B1o_2026-_Sea_Surface_Temperature_Anomaly_(2025_vs_2026)_%E2%80%93_Updated_Daily_(SVS5688).jpg"
+      },
+      "sources": [
+        {
+          "title": "NASA Earth Observatory: El Niño, Then and Now",
+          "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-then-and-now/"
+        },
+        {
+          "title": "ScienceDaily (NASA): NASA warns this year's monster El Niño could be even bigger than legendary 1997 event",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261114202227.htm"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "El Niño",
+          "tr": "El Niño (Pasifik'in ısınması)"
+        },
+        {
+          "w": "satellite",
+          "tr": "uydu"
+        },
+        {
+          "w": "sea level",
+          "tr": "deniz seviyesi"
+        },
+        {
+          "w": "forecast",
+          "tr": "tahmin"
+        },
+        {
+          "w": "flooding",
+          "tr": "sel"
+        },
+        {
+          "w": "strong",
+          "tr": "güçlü"
+        },
+        {
+          "w": "impact",
+          "tr": "etki"
+        }
+      ]
+    },
     {
       "id": "how-photosynthesis-works",
       "category": "science",

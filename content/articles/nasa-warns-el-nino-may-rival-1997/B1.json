@@ -1,0 +1,24 @@
+{
+  "id": "nasa-warns-el-nino-may-rival-1997",
+  "level": "B1",
+  "title": "NASA: This El Niño May Rival the 1997 Giant",
+  "paragraphs": [
+    "NASA's Earth Observatory reports that the 2026 El Niño is developing so quickly that it may become as large as the powerful event of 1997–98. El Niño is a warming of the tropical Pacific that appears every two to seven years and changes rainfall patterns around the world.",
+    "The comparison is based on 35 years of satellite measurements of sea level. Nearly identical satellites, TOPEX/Poseidon in October 1997 and Sentinel-6 Michael Freilich in October 2026, show the same pattern: high, warm water pressing against South America. In 2015, by contrast, the warm water stayed farther offshore, so that strong event had different effects.",
+    "NOAA's outlook from 8 October 2026 gave an 83 percent chance of a strong to very strong El Niño in early 2027. However, this is a forecast, not a certainty. Effects far from the tropical Pacific are hard to predict, and the 1997 comparison only shows what could happen, not what will."
+  ],
+  "questions": [
+    {
+      "q": "Why is the 2026 El Niño unusual?",
+      "a": "It developed much faster than the one in 1997."
+    },
+    {
+      "q": "What did the 2015 event look like?",
+      "a": "The warm water stayed farther offshore."
+    },
+    {
+      "q": "Why should the forecast be read with care?",
+      "a": "Effects far from the Pacific are hard to predict."
+    }
+  ]
+}
