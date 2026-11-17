@@ -1,0 +1,55 @@
+{
+  "id": "mummified-egyptian-cats-lived-hard-lives",
+  "category": "news",
+  "title": "Egypt's Mummified Cats Lived Hard Lives, Skulls Show",
+  "summary": "Beni Hassan'dan gelen 131 mumyalanmış kedi kafatası, hayvanların kalabalık ve zor koşullarda yaşadığını düşündürüyor; yine de sonuçlar yorum niteliğinde.",
+  "published": "2026-11-17",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "credit": "Daderot (Fitchburg Art Museum)",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mummified_cat,_Egypt,_Beni_Hassen,_Middle_Kingdom,_2040-1782_BC,_site_of_Khnumhotep_II,_linen_and_pigments_-_Fitchburg_Art_Museum_-_DSC08616.JPG",
+    "file": "image.jpg",
+    "alt": "Beni Hassan'dan Orta Krallık dönemine ait bir kedi mumyası (müze sergisi)."
+  },
+  "sources": [
+    {
+      "title": "Archaeology Magazine: Health of Mummified Egyptian Cats Evaluated",
+      "url": "https://archaeology.org/news/2026/11/13/health-of-mummified-egyptian-cats-evaluated/"
+    },
+    {
+      "title": "Gizmodo: Scientists Expected Egypt's Sacred Cats to Have Lived Pampered Lives. Their Skulls Say Otherwise.",
+      "url": "https://gizmodo.com/scientists-expected-egypts-sacred-cats-to-have-lived-pampered-lives-their-skulls-say-otherwise-2000837899"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "skull",
+      "tr": "kafatası"
+    },
+    {
+      "w": "mummy",
+      "tr": "mumya"
+    },
+    {
+      "w": "injury",
+      "tr": "yaralanma"
+    },
+    {
+      "w": "crowded",
+      "tr": "kalabalık"
+    },
+    {
+      "w": "adult",
+      "tr": "yetişkin"
+    },
+    {
+      "w": "disease",
+      "tr": "hastalık"
+    },
+    {
+      "w": "stress",
+      "tr": "stres, baskı"
+    }
+  ]
+}
