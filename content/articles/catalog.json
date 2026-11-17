@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,174 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "keepsakes-may-date-back-500000-years",
+      "category": "news",
+      "title": "Did Early Humans Keep Souvenirs 500,000 Years Ago?",
+      "summary": "Tel Aviv Üniversitesi araştırmacılarına göre insanlar yaklaşık 500 bin yıl önce hatıra eşyaları biriktirmiş olabilir; ancak bu bir varsayım, kanıt değil.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-17",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 60,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 99,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 170,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 207,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 229,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 220,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "keepsakes-may-date-back-500000-years/image.jpg",
+        "alt": "Taş çağına ait bir el baltası (örnek görsel).",
+        "credit": "Sussex Archaeological Society (Portable Antiquities Scheme)",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Palaeolithic_handaxe_(FindID_277003).jpg"
+      },
+      "sources": [
+        {
+          "title": "Tel Aviv University news release (EurekAlert): Were humans collecting keepsakes as early as half a million years ago?",
+          "url": "https://www.eurekalert.org/news-releases/1151072"
+        },
+        {
+          "title": "Archaeology Magazine: Souvenir Collection May Have Begun 500,000 Years Ago",
+          "url": "https://archaeology.org/news/2026/11/16/souvenir-collection-may-have-begun-500000-years-ago/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "keepsake",
+          "tr": "hatıra eşyası"
+        },
+        {
+          "w": "pebble",
+          "tr": "çakıl taşı"
+        },
+        {
+          "w": "handaxe",
+          "tr": "el baltası (taş alet)"
+        },
+        {
+          "w": "memory",
+          "tr": "hafıza, bellek"
+        },
+        {
+          "w": "hypothesis",
+          "tr": "varsayım, hipotez"
+        },
+        {
+          "w": "evidence",
+          "tr": "kanıt"
+        },
+        {
+          "w": "cave",
+          "tr": "mağara"
+        },
+        {
+          "w": "fossil",
+          "tr": "fosil"
+        }
+      ]
+    },
+    {
+      "id": "mummified-egyptian-cats-lived-hard-lives",
+      "category": "news",
+      "title": "Egypt's Mummified Cats Lived Hard Lives, Skulls Show",
+      "summary": "Beni Hassan'dan gelen 131 mumyalanmış kedi kafatası, hayvanların kalabalık ve zor koşullarda yaşadığını düşündürüyor; yine de sonuçlar yorum niteliğinde.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-17",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 57,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 91,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 156,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 212,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 223,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 222,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "mummified-egyptian-cats-lived-hard-lives/image.jpg",
+        "alt": "Beni Hassan'dan Orta Krallık dönemine ait bir kedi mumyası (müze sergisi).",
+        "credit": "Daderot (Fitchburg Art Museum)",
+        "license": "CC0",
+        "source": "https://commons.wikimedia.org/wiki/File:Mummified_cat,_Egypt,_Beni_Hassen,_Middle_Kingdom,_2040-1782_BC,_site_of_Khnumhotep_II,_linen_and_pigments_-_Fitchburg_Art_Museum_-_DSC08616.JPG"
+      },
+      "sources": [
+        {
+          "title": "Archaeology Magazine: Health of Mummified Egyptian Cats Evaluated",
+          "url": "https://archaeology.org/news/2026/11/13/health-of-mummified-egyptian-cats-evaluated/"
+        },
+        {
+          "title": "Gizmodo: Scientists Expected Egypt's Sacred Cats to Have Lived Pampered Lives. Their Skulls Say Otherwise.",
+          "url": "https://gizmodo.com/scientists-expected-egypts-sacred-cats-to-have-lived-pampered-lives-their-skulls-say-otherwise-2000837899"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "skull",
+          "tr": "kafatası"
+        },
+        {
+          "w": "mummy",
+          "tr": "mumya"
+        },
+        {
+          "w": "injury",
+          "tr": "yaralanma"
+        },
+        {
+          "w": "crowded",
+          "tr": "kalabalık"
+        },
+        {
+          "w": "adult",
+          "tr": "yetişkin"
+        },
+        {
+          "w": "disease",
+          "tr": "hastalık"
+        },
+        {
+          "w": "stress",
+          "tr": "stres, baskı"
+        }
+      ]
+    },
     {
       "id": "nasa-warns-el-nino-may-rival-1997",
       "category": "news",
