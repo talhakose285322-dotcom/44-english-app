@@ -1,0 +1,24 @@
+{
+  "id": "weekly-park-visits-linked-to-child-wellbeing",
+  "level": "B1",
+  "title": "Weekly Park Visits Linked to Children's Wellbeing",
+  "paragraphs": [
+    "A new study suggests that taking children to a park or playground at least once a week may be good for their mental health. Researchers from the Universities of Exeter and Bristol published the work in the Journal of Epidemiology and Community Health.",
+    "They used data from Children of the 90s, a long UK study that follows the same people for many years. The analysis covered 4,219 children aged 4 to 11. Children who visited parks at least weekly from birth to age 11 scored, on average, 16.5 percent better on mental health assessments than children who went less often. Their social and emotional development was also better during periods when they visited more. The team took family difficulties and income into account.",
+    "However, this is an observational study, so it shows a link but not a cause. The data also come from one UK study, and the researchers say more work is needed in areas with more diverse communities. Lead researcher Mark Ferguson said that communities need \"good-quality parks that are safe, accessible and welcoming to families from all backgrounds.\""
+  ],
+  "questions": [
+    {
+      "q": "How many children did the analysis cover?",
+      "a": "4,219 children aged 4 to 11."
+    },
+    {
+      "q": "What did the team take into account?",
+      "a": "Family difficulties and income."
+    },
+    {
+      "q": "Why is the result not proof?",
+      "a": "It is an observational study showing a link, not a cause."
+    }
+  ]
+}

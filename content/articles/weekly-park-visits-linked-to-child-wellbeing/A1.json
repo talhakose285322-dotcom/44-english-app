@@ -1,0 +1,24 @@
+{
+  "id": "weekly-park-visits-linked-to-child-wellbeing",
+  "level": "A1",
+  "title": "Weekly Park Visits Linked to Children's Wellbeing",
+  "paragraphs": [
+    "Do children need parks? A new study says yes. Parks may help children feel better.",
+    "Scientists in England looked at 4,219 children. The children were between 4 and 11 years old. Some went to the park every week. Some went less often.",
+    "The children who went every week did better in mental health tests. But this does not prove the park is the reason."
+  ],
+  "questions": [
+    {
+      "q": "How many children were in the study?",
+      "a": "4,219 children."
+    },
+    {
+      "q": "How old were the children?",
+      "a": "Between 4 and 11 years old."
+    },
+    {
+      "q": "Does the study prove the park is the reason?",
+      "a": "No, it does not prove it."
+    }
+  ]
+}

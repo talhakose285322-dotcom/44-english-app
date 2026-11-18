@@ -1,0 +1,24 @@
+{
+  "id": "weekly-park-visits-linked-to-child-wellbeing",
+  "level": "C2",
+  "title": "Weekly Park Visits Linked to Children's Wellbeing",
+  "paragraphs": [
+    "It may seem a modest prescription, but a weekly outing to the local park could carry real weight for a child's emotional life, if a study from the Universities of Exeter and Bristol is to be believed. Published in the Journal of Epidemiology and Community Health, it finds that children who visit parks regularly tend to have better mental health and sturdier social-emotional development as they grow up.",
+    "The researchers mined Children of the 90s, the UK's long-running birth cohort, for 4,219 children aged 4 to 11. Children taken to a park at least once a week from birth to age 11 scored, on average, 16.5 percent better on mental health assessments than those who went less often, and their social-emotional development was stronger in the stretches when visits were more frequent. Socioeconomic status and family adversity were accounted for. Tellingly, children from more advantaged homes visited more often when small, while some from less advantaged backgrounds closed the gap with age.",
+    "Yet the authors do not oversell the finding. An observational design can reveal an association but cannot establish cause, and the data stem from one UK cohort, so applying them to more diverse communities needs further work. Lead researcher Mark Ferguson of Exeter said that communities need \"good-quality parks that are safe, accessible and welcoming to families from all backgrounds,\" a reminder that access matters as much as the grass itself. The Medical Research Council and the National Institute for Health and Care Research funded the work."
+  ],
+  "questions": [
+    {
+      "q": "What is the main difference reported between weekly and less frequent visitors?",
+      "a": "About 16.5 percent better mental health scores for weekly visitors."
+    },
+    {
+      "q": "What caveat applies to cause and effect?",
+      "a": "The design is observational, so only an association is shown."
+    },
+    {
+      "q": "What point does Ferguson's quote make?",
+      "a": "Parks must be safe, accessible and welcoming to everyone to help."
+    }
+  ]
+}

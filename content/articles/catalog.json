@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-16",
+  "updated": "2026-11-18",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "poisoned-stone-points-found-in-arabia",
+      "category": "news",
+      "title": "Stone Points From Arabia May Have Carried Poison",
+      "summary": "Suudi Arabistan'daki 125 bin yıllık bir göl kıyısında bulunan taş uçlar, avcıların karma silahlar kullandığını ve belki zehir sürdüğünü düşündürüyor; ancak zehir kullanımı kanıtlanmış değil.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-18",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 68,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 99,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 161,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 217,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 229,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 233,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "poisoned-stone-points-found-in-arabia/image.jpg",
+        "alt": "Suudi Arabistan'ın da içinde yer aldığı Rub' al Khali (Boş Çeyrek) çölünde kum tepeleri (örnek görsel).",
+        "credit": "Nepenthes",
+        "license": "CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Rub_al_Khali_002.JPG"
+      },
+      "sources": [
+        {
+          "title": "EurekAlert (Griffith University news release): Poisoned hunting weapons, megafauna and plant use at a 125,000-year-old Arabian paleolakeshore",
+          "url": "https://www.eurekalert.org/news-releases/1150817"
+        },
+        {
+          "title": "Live Science: 125,000-year-old poisoned stone points discovered on shore of ancient lake in Saudi Arabia",
+          "url": "https://www.livescience.com/archaeology/middle-east/125-000-year-old-poisoned-stone-points-discovered-on-shore-of-ancient-lake-in-saudi-arabia"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "lakeshore",
+          "tr": "göl kıyısı"
+        },
+        {
+          "w": "stone point",
+          "tr": "taş uç (ok/mızrak ucu)"
+        },
+        {
+          "w": "resin",
+          "tr": "reçine"
+        },
+        {
+          "w": "composite",
+          "tr": "bileşik, birkaç malzemeden yapılmış"
+        },
+        {
+          "w": "poison",
+          "tr": "zehir"
+        },
+        {
+          "w": "hypothesis",
+          "tr": "varsayım, hipotez"
+        },
+        {
+          "w": "fossil",
+          "tr": "fosil"
+        }
+      ]
+    },
+    {
+      "id": "weekly-park-visits-linked-to-child-wellbeing",
+      "category": "news",
+      "title": "Weekly Park Visits Linked to Children's Wellbeing",
+      "summary": "Exeter ve Bristol üniversitelerinin çalışmasına göre haftada en az bir kez parka giden çocukların ruh sağlığı puanları daha yüksek; ancak bu gözlemsel bir çalışma ve neden-sonuç kanıtlamıyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-18",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 64,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 116,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 181,
+          "minutes": 2
+        },
+        "B2": {
+          "words": 232,
+          "minutes": 2
+        },
+        "C1": {
+          "words": 234,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 249,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "weekly-park-visits-linked-to-child-wellbeing/image.jpg",
+        "alt": "Güneşli bir hafta içi günü boş bir çocuk oyun parkı (örnek görsel).",
+        "credit": "Jim.henderson",
+        "license": "CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Grandview_Playground_by_Nikon_jeh.jpg"
+      },
+      "sources": [
+        {
+          "title": "University of Bristol (ALSPAC): Going to the park at least once a week can improve children's mental health",
+          "url": "https://www.bristol.ac.uk/alspac/news/2026/going-to-the-park-at-least-once-a-week-can-improve-childrens-mental-health.html"
+        },
+        {
+          "title": "News-Medical: Weekly park visits boost children's mental health and social skills",
+          "url": "https://www.news-medical.net/news/20261111/Weekly-park-visits-boost-childrens-mental-health-and-social-skills.aspx"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "playground",
+          "tr": "oyun parkı"
+        },
+        {
+          "w": "mental health",
+          "tr": "ruh sağlığı"
+        },
+        {
+          "w": "social-emotional",
+          "tr": "sosyal-duygusal"
+        },
+        {
+          "w": "observational",
+          "tr": "gözlemsel"
+        },
+        {
+          "w": "association",
+          "tr": "ilişki, bağlantı"
+        },
+        {
+          "w": "accessible",
+          "tr": "erişilebilir"
+        },
+        {
+          "w": "participant",
+          "tr": "katılımcı"
+        }
+      ]
+    },
     {
       "id": "nasa-warns-el-nino-may-rival-1997",
       "category": "news",

@@ -1,0 +1,55 @@
+{
+  "id": "weekly-park-visits-linked-to-child-wellbeing",
+  "category": "news",
+  "title": "Weekly Park Visits Linked to Children's Wellbeing",
+  "summary": "Exeter ve Bristol üniversitelerinin çalışmasına göre haftada en az bir kez parka giden çocukların ruh sağlığı puanları daha yüksek; ancak bu gözlemsel bir çalışma ve neden-sonuç kanıtlamıyor.",
+  "published": "2026-11-18",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Güneşli bir hafta içi günü boş bir çocuk oyun parkı (örnek görsel).",
+    "credit": "Jim.henderson",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Grandview_Playground_by_Nikon_jeh.jpg"
+  },
+  "sources": [
+    {
+      "title": "University of Bristol (ALSPAC): Going to the park at least once a week can improve children's mental health",
+      "url": "https://www.bristol.ac.uk/alspac/news/2026/going-to-the-park-at-least-once-a-week-can-improve-childrens-mental-health.html"
+    },
+    {
+      "title": "News-Medical: Weekly park visits boost children's mental health and social skills",
+      "url": "https://www.news-medical.net/news/20261111/Weekly-park-visits-boost-childrens-mental-health-and-social-skills.aspx"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "playground",
+      "tr": "oyun parkı"
+    },
+    {
+      "w": "mental health",
+      "tr": "ruh sağlığı"
+    },
+    {
+      "w": "social-emotional",
+      "tr": "sosyal-duygusal"
+    },
+    {
+      "w": "observational",
+      "tr": "gözlemsel"
+    },
+    {
+      "w": "association",
+      "tr": "ilişki, bağlantı"
+    },
+    {
+      "w": "accessible",
+      "tr": "erişilebilir"
+    },
+    {
+      "w": "participant",
+      "tr": "katılımcı"
+    }
+  ]
+}
