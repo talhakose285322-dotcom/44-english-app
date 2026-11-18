@@ -1,0 +1,24 @@
+{
+  "id": "weekly-park-visits-linked-to-child-wellbeing",
+  "level": "B2",
+  "title": "Weekly Park Visits Linked to Children's Wellbeing",
+  "paragraphs": [
+    "Taking a child to the park once a week may do more than tire them out. According to a study from the Universities of Exeter and Bristol, published in the Journal of Epidemiology and Community Health, children who visit parks regularly tend to have better mental health and stronger social-emotional development as they grow up.",
+    "The researchers analysed data on 4,219 children aged 4 to 11 from Children of the 90s, a long-running UK study. Those who went to a park at least once a week from birth to age 11 scored, on average, 16.5 percent better on mental health assessments than those who went less often, and their social-emotional development was stronger in periods when they visited more. The analysis accounted for factors such as socioeconomic status and family adversity. Children from more advantaged families visited parks more often when they were younger, while some from less advantaged families visited more as they grew older.",
+    "Important limits apply. The study is observational, so it cannot show that park visits cause the benefits, and the data come from a single UK project, which means the findings may not apply to more diverse communities. Mark Ferguson of Exeter stressed that communities need \"good-quality parks that are safe, accessible and welcoming to families from all backgrounds.\" The work was funded by the Medical Research Council and the National Institute for Health and Care Research."
+  ],
+  "questions": [
+    {
+      "q": "What was the average difference in mental health scores?",
+      "a": "Weekly visitors scored 16.5 percent better."
+    },
+    {
+      "q": "What limits does the study have?",
+      "a": "It is observational and uses data from one UK project."
+    },
+    {
+      "q": "What does Mark Ferguson say communities need?",
+      "a": "Good-quality parks that are safe, accessible and welcoming to all families."
+    }
+  ]
+}

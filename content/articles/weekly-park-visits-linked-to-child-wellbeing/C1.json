@@ -1,0 +1,24 @@
+{
+  "id": "weekly-park-visits-linked-to-child-wellbeing",
+  "level": "C1",
+  "title": "Weekly Park Visits Linked to Children's Wellbeing",
+  "paragraphs": [
+    "A weekly trip to the swings or the local green may leave a lasting mark on a child's wellbeing, according to researchers at the Universities of Exeter and Bristol. Their paper, in the Journal of Epidemiology and Community Health, reports that children who visit parks regularly tend to enjoy better mental health and stronger social-emotional development as they grow up.",
+    "The team drew on Children of the 90s, the long-running UK cohort study, analysing 4,219 children aged 4 to 11. Those taken to a park at least once a week from birth to age 11 scored, on average, 16.5 percent better on mental health assessments than peers who went less often, and development tended to be stronger in the periods when visits were more frequent. The analysis adjusted for socioeconomic status and family adversity. Notably, children from more advantaged families visited more often when young, whereas some from less advantaged backgrounds caught up later.",
+    "The authors are careful about what the evidence can bear. This is an observational study, so it shows an association rather than causation, and the data come from a single UK cohort, so more work is needed in more diverse communities. Lead researcher Mark Ferguson of Exeter argued that communities need \"good-quality parks that are safe, accessible and welcoming to families from all backgrounds.\" Funding came from the Medical Research Council and the National Institute for Health and Care Research."
+  ],
+  "questions": [
+    {
+      "q": "What does the analysis adjust for?",
+      "a": "Socioeconomic status and family adversity."
+    },
+    {
+      "q": "How did park use differ by family background?",
+      "a": "Advantaged families visited more when children were young; some less advantaged families visited more later."
+    },
+    {
+      "q": "Why is causation not established?",
+      "a": "The study is observational and uses one UK cohort."
+    }
+  ]
+}
