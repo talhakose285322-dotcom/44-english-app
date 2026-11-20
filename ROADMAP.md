@@ -2,6 +2,34 @@
 
 Bu, Words 44'ü güvenilir, veri kaybına dayanıklı ve ileride ücretli sunulabilecek bir ürüne dönüştürmek için ana takip listesidir. Bir madde yalnızca kod eklendiğinde değil, uygun test veya kanıt elde edilince tamamlandı sayılır. Gerçek cihaz, mağaza veya ödeme sağlayıcısı gerektiren adımlar masaüstü otomatik testleriyle tamamlanmış kabul edilmez.
 
+## Satışa giden yol (S1–S6) — çalışma sırası
+Eklenme: 2026-11-13, sahibinin isteğiyle. Kalıcı talimat `CLAUDE.md` bölüm 10'dadır. Aşağıdaki Faz 0–8 ve W1–W7
+listeleri ayrıntı olarak kalır; **hangi işin ne zaman yapılacağını bu bölüm belirler.** Her aşama GitHub'da aynı adlı
+bir milestone'dur; işler o milestone'daki issue'lardır.
+
+**Durum:** Aktif aşama **S1**.
+
+| Aşama | Çıkış ölçütü | Issue'lar | İlgili maddeler |
+|---|---|---|---|
+| **S1 Sağlam temel** | Ana adres tek ve doğru, Google girişi gerçek cihazda çalışıyor, iPhone ana ekran uygulaması güncelleme alıyor, eski adresler ve birikmiş PR'lar temizlendi, bulut yedeği izolasyonu gerçek projede doğrulandı. | #126 #128 #129 #130 #131 #132 #137 #138 | Faz 1.4, 2, 3 |
+| **S2 Kalıcı adres** | Kendi alan adı Worker'a bağlı, orada Google girişi çalışıyor, mevcut kullanıcılar verisini taşıdı. | #139 #140 | Faz 6.6, W1.5 |
+| **S3 Ürün ve fiyat kararı** | Paketler, fiyat ve ödeme sağlayıcısı sahibi tarafından yazılı olarak kararlaştırıldı. | #141 #142 | Faz 5.1–5.5, W4 |
+| **S4 Ödeme ve ücretli özellik** | Test modunda satın alma, yenileme, iptal ve ücretli AI makale (kota) sunucu tarafı kontrolle uçtan uca çalışıyor. | #143 #144 | Faz 5.6–5.7 |
+| **S5 Güven ve vitrin** | Tanıtım sitesi, gizlilik/koşullar, destek ve hata bildirimi gerçek ürünle tutarlı; temel akışlarda kritik hata yok. | #145 #146 #147 | Faz 4, 6, W1–W3, W5–W6 |
+| **S6 Lansman** | İlk 20–50 test kullanıcısı; canlı modda ilk ücretli kullanıcılar; mahremiyete uygun ölçüm. | #148 #149 | Faz 8, W7 |
+
+App Store / Google Play (Faz 7, `APP_STORE_ROADMAP.md`) web satışı başladıktan sonra ayrı karar olarak ele alınır.
+
+### Her iş için akış
+1. İş, aktif aşamanın milestone'unda bir issue olarak yazılı ("Bitti sayılması için" maddeleriyle).
+2. Ayrı dal → küçük, tek amaçlı commit'ler → `Closes #N` içeren PR.
+3. Otomatik testler ve Koruma çalışır; sahibi inceler ve `onay` etiketini ekler.
+4. Birleşmeden sonra canlı adreste `version.json` ve değişiklik doğrulanır; gerçek cihaz gerektiren maddeler sahibiyle denenir.
+5. Issue, "Bitti" maddelerinin kanıtı yazılınca kapanır. Milestone'daki tüm issue'lar kapanınca aşamanın çıkış ölçütü
+   kontrol edilir ve yukarıdaki **Durum** satırı bir sonraki aşamaya geçirilir (PR ile).
+
+Sahibinin kararı gereken işler issue'da açıkça "Karar gerekiyor" diye yazılır; karar verilmeden uygulanmaz.
+
 ## Çalışma ilkeleri
 - Mevcut arayüzü sebepsiz yere yeniden tasarlama.
 - Kelimeleri, listeleri, makaleleri, öğrenme ilerlemesini ve yedekleri koru.

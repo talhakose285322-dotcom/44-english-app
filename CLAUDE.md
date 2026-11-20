@@ -159,3 +159,15 @@ Kurallar:
 - Git kuralları (bölüm 4 ve 8) aynen geçerlidir: korumalı `main` doğrudan değiştirilmez; her iş ayrı dal + PR ile gelir.
 - Bir aşamanın maddesi ancak kanıtı (test, ekran görüntüsü, canlı adres kontrolü) görülünce işaretlenir; aktif aşama
   ROADMAP'teki "Durum" satırında güncellenir.
+
+## 10. Satışa giden yol S1–S6 (kalıcı talimat, 2026-11-13)
+Sahibi, Words 44'ü satışa hazır hale getirmek için tek bir çalışma sırası belirledi ve buna bağlı kalınmasını istedi.
+Sıra, çıkış ölçütleri, issue'lar ve iş akışı `ROADMAP.md` → "Satışa giden yol (S1–S6)" bölümündedir; her aşama GitHub'da
+aynı adlı milestone'dur.
+- Her işten önce o bölümün **Durum** satırı okunur. Yalnızca aktif aşamanın milestone'undaki issue'lar üzerinde çalışılır.
+- Aktif aşamaya ait olmayan bir istek ya da fikir gelirse yapılmaz; ilgili aşamaya issue olarak yazılır ve sahibine
+  söylenir. Sahibi açıkça "şimdi yap" derse yapılır ve bu, issue'ya not edilir.
+- Hata düzeltmeleri ve günlük içerik (haber, haftalık makale) aşamadan bağımsız sürer.
+- Bu sıra Faz 0–8'in ve W1–W7'nin maddelerini değiştirmez, yalnızca ne zaman yapılacaklarını belirler. W aşamaları
+  S5–S6 içinde yürür; bölüm 9'daki site kuralları aynen geçerlidir.
+- Aşama geçişi ancak milestone'daki issue'lar kanıtla kapanınca ve sahibi onaylayınca yapılır.
