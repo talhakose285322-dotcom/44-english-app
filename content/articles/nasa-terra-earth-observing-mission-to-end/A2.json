@@ -1,0 +1,24 @@
+{
+  "id": "nasa-terra-earth-observing-mission-to-end",
+  "level": "A2",
+  "title": "NASA's Terra Satellite Prepares to End Its Mission",
+  "paragraphs": [
+    "Terra is a NASA satellite that has circled Earth since December 1999. It was built to work for six years, but it has worked for more than four times that long.",
+    "Its five instruments measure many things on our planet. They show how people use land, how wildfires move, where dust and smoke travel, what is in the air, and how much ice there is.",
+    "Now the satellite is getting old and its path in space is slowly changing. NASA says Terra will stop collecting science data on December 1. Then the team will lower its orbit with the fuel that is left and turn off all systems in January 2027. The good news is that all of Terra's data will stay free and open to everyone."
+  ],
+  "questions": [
+    {
+      "q": "How long was Terra planned to work?",
+      "a": "Six years."
+    },
+    {
+      "q": "What will the team do with the remaining fuel?",
+      "a": "Lower the orbit."
+    },
+    {
+      "q": "What will happen to the data?",
+      "a": "It will stay free and open to everyone."
+    }
+  ]
+}

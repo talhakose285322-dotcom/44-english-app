@@ -1,0 +1,24 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "level": "A1",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "paragraphs": [
+    "A pulsar is a star that spins very fast. It sends out light like a lighthouse. Scientists want to find more pulsars.",
+    "A team of scientists made a new way to look for pulsars. They used 15 years of data from a NASA space telescope. The telescope is called Fermi.",
+    "They found one new pulsar. It spins 261 times in one second. The computer needed only about 10 hours. Scientists say the new way is much faster."
+  ],
+  "questions": [
+    {
+      "q": "What is a pulsar?",
+      "a": "A star that spins very fast."
+    },
+    {
+      "q": "How many years of data did the team use?",
+      "a": "Fifteen years."
+    },
+    {
+      "q": "How long did the computer work?",
+      "a": "About 10 hours."
+    }
+  ]
+}

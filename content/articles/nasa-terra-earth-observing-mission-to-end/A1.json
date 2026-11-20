@@ -1,0 +1,24 @@
+{
+  "id": "nasa-terra-earth-observing-mission-to-end",
+  "level": "A1",
+  "title": "NASA's Terra Satellite Prepares to End Its Mission",
+  "paragraphs": [
+    "Terra is a NASA satellite. It looks at Earth from space. It started its work in December 1999.",
+    "Terra has five tools. They watch fires, ice, dust and smoke. They also watch how people use the land.",
+    "Now Terra is old. It will stop its science work on December 1. The data will stay free for everyone."
+  ],
+  "questions": [
+    {
+      "q": "Who owns Terra?",
+      "a": "NASA."
+    },
+    {
+      "q": "When will Terra stop its science work?",
+      "a": "On December 1."
+    },
+    {
+      "q": "Will the data stay free?",
+      "a": "Yes, for everyone."
+    }
+  ]
+}

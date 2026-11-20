@@ -1,0 +1,51 @@
+{
+  "id": "nasa-terra-earth-observing-mission-to-end",
+  "category": "news",
+  "title": "NASA's Terra Satellite Prepares to End Its Mission",
+  "summary": "NASA, Dünya'yı yaklaşık 26 yıldır izleyen Terra uydusunun 1 Aralık'ta bilim verisi toplamayı bırakacağını duyurdu; veriler herkese açık kalacak.",
+  "published": "2026-11-20",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Terra uydusunun sanatçı çizimi (örnek görsel).",
+    "credit": "NASA JPL",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:TERRA_am1.jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA Science: NASA's Terra Mission to End",
+      "url": "https://science.nasa.gov/blogs/science-news/2026/11/17/nasas-terra-mission-to-end/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "satellite",
+      "tr": "uydu"
+    },
+    {
+      "w": "mission",
+      "tr": "görev"
+    },
+    {
+      "w": "orbit",
+      "tr": "yörünge"
+    },
+    {
+      "w": "wildfire",
+      "tr": "orman yangını"
+    },
+    {
+      "w": "aging",
+      "tr": "yaşlanan, eskiyen"
+    },
+    {
+      "w": "instrument",
+      "tr": "alet, cihaz"
+    },
+    {
+      "w": "publicly available",
+      "tr": "herkese açık"
+    }
+  ]
+}

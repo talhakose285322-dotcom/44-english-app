@@ -1,0 +1,24 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "level": "C1",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "paragraphs": [
+    "Gamma-ray astronomy has a data problem that is the reverse of the usual one: there is plenty of information, but too little computing power to sift it. NASA's Fermi telescope has been logging the sky for 15 years and has made all of it public, yet pulsars, the spinning stellar remnants that flash like cosmic lighthouses, still slip through the net. Fermi gathers only a few photons from each, swamped by background gamma rays.",
+    "The trouble is compounded by the fact that a candidate must be tested against three unknowns at once: spin frequency, spin-down rate and sky position. The resulting four-dimensional grid grows unmanageably dense. \"There's just not enough computing power on Earth to do it,\" said Daniel Pook-Kolb of the Max Planck Institute for Gravitational Physics, who led the work.",
+    "His team's way round the obstacle was to restate the search as finding the shortest vector in a lattice, borrowing techniques honed by cryptographers, though no cryptography is involved. Published in Physical Review Letters, the approach unearthed PSR J1622−7204, an isolated pulsar rotating 261 times a second, in about 10 hours on a standard processor; NASA puts the speedup at around a million times. Caveats abound, however. Pulsars orbiting a companion remain essentially undetectable, because the partner's gravity warps the signal, and co-author Colin Clark's suggestion that \"tens or maybe even hundreds\" more lurk in the data is, for now, an educated guess rather than a finding."
+  ],
+  "questions": [
+    {
+      "q": "What is the main obstacle in searching Fermi's data?",
+      "a": "Very few photons per pulsar, mixed with noise, and a huge four-dimensional search grid."
+    },
+    {
+      "q": "How did the team get round the obstacle?",
+      "a": "By recasting the search as finding the shortest vector in a lattice."
+    },
+    {
+      "q": "Why does the estimate of more pulsars deserve caution?",
+      "a": "It is an educated guess that has not yet been demonstrated."
+    }
+  ]
+}

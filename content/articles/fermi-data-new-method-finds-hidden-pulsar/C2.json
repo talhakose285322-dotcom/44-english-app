@@ -1,0 +1,24 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "level": "C2",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "paragraphs": [
+    "For all the talk of a deluge of astronomical data, the bottleneck in Fermi's gamma-ray archive is not information but arithmetic. Fifteen years of freely available observations contain a trickle of photons from each pulsar, the rapidly rotating stellar remnants whose beams sweep past Earth like lighthouse lamps, and that trickle is drowned out by background emission.",
+    "Teasing out a faint periodic signal means trying out combinations of spin frequency, spin-down rate and sky position, a four-dimensional haystack that has defeated brute force. \"There's just not enough computing power on Earth to do it,\" admitted Daniel Pook-Kolb, who led an international team based at the Max Planck Institute for Gravitational Physics. By NASA's account, a standard processor would need about 600 years to run the previous best method on the target they picked, and that method still missed it.",
+    "The team's ingenuity lay in reframing the hunt as the search for the shortest vector in a high-dimensional lattice, a problem familiar from cryptographic research, although the work itself is not cryptography. In Physical Review Letters they report PSR J1622−7204, an isolated pulsar spinning 261 times a second, uncovered with roughly 10 hours of processing, a speedup NASA reckons at a million-fold. Yet the achievement should be read soberly: binary pulsars, whose signals are smeared by a companion's gravity, still elude the technique, and Colin Clark's hunch that \"tens or maybe even hundreds\" more are waiting remains a projection. One new object is a proof of concept, not yet a harvest."
+  ],
+  "questions": [
+    {
+      "q": "What does the article suggest is the real bottleneck in Fermi's archive?",
+      "a": "Computing power, not the amount of information."
+    },
+    {
+      "q": "What does the \"haystack\" metaphor refer to?",
+      "a": "The four-dimensional space of spin frequency, spin-down rate and sky position that must be searched."
+    },
+    {
+      "q": "Why does the writer call the result a proof of concept?",
+      "a": "Only one new pulsar has been reported, and the larger harvest is still a projection."
+    }
+  ]
+}

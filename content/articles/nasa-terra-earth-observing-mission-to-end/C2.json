@@ -1,0 +1,24 @@
+{
+  "id": "nasa-terra-earth-observing-mission-to-end",
+  "level": "C2",
+  "title": "NASA's Terra Satellite Prepares to End Its Mission",
+  "paragraphs": [
+    "It is rare for a machine to outstay its design life by a factor of four, rarer still for it to remain scientifically useful throughout. Terra, NASA's Earth-watching workhorse, did both. Launched in December 1999 for a six-year stint, it will stop collecting science data on December 1, after which the team will use its remaining fuel to lower the orbit and switch everything off in January 2027.",
+    "No dramatic breakdown prompted the decision; the spacecraft is simply growing old, its systems frail and its orbit drifting. Over the years its five instruments, MODIS, MISR, CERES, ASTER and MOPITT among them, have followed land-use change, wildfire behaviour, the passage of dust and smoke, atmospheric composition and ice cover, and NASA credits the resulting record with informing choices on public safety, agriculture and water resources.",
+    "The agency is at pains to stress that Terra's data will remain free and publicly available, so the archive is safe even as the observer goes dark. Yet the real loss is subtler than any single dataset. Climate science leans heavily on unbroken records, long enough for a genuine signal to emerge from year-to-year noise, and the announcement is silent on how the thread Terra has spun for a generation will be picked up. Its departure is a reminder that continuity in observation is something that has to be planned, not assumed."
+  ],
+  "questions": [
+    {
+      "q": "What two things did Terra do that the writer calls rare?",
+      "a": "It outlived its design life fourfold and stayed scientifically useful throughout."
+    },
+    {
+      "q": "Was a breakdown behind the decision?",
+      "a": "No, the spacecraft is simply ageing and its orbit is drifting."
+    },
+    {
+      "q": "What is the writer's closing point?",
+      "a": "Continuity in observation has to be planned, not assumed."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "nasa-terra-earth-observing-mission-to-end",
+  "level": "C1",
+  "title": "NASA's Terra Satellite Prepares to End Its Mission",
+  "paragraphs": [
+    "Few spacecraft outlive their warranty as handsomely as Terra. Launched in December 1999 with a design life of six years, NASA's Earth-observing satellite has now worked for more than four times that span, and the agency has confirmed that it will stop collecting science data on December 1.",
+    "The retirement will be orderly: the team intends to lower the orbit with the remaining fuel and power down every system in January 2027. The cause is wear rather than any single fault, as the spacecraft's systems age and its orbit drifts. Over a quarter of a century, five instruments aboard Terra, including MODIS, CERES and MISR, have charted land-use change, wildfire behaviour, the movement of dust and smoke, atmospheric composition and ice cover, feeding decisions on public safety, agriculture and water resources.",
+    "Some consolation lies in the fact that the archive will not disappear with the satellite; NASA says Terra's data records will stay free and publicly available. Still, a lost vantage point is more than a line on a spreadsheet. Scientists value long, unbroken series of measurements precisely because they allow trends to be told from noise, and the announcement leaves open how that continuity will be maintained once Terra falls silent."
+  ],
+  "questions": [
+    {
+      "q": "What does \"outlive their warranty\" mean here?",
+      "a": "Terra has worked far longer than its planned six-year life."
+    },
+    {
+      "q": "What will happen to Terra's data?",
+      "a": "It will stay free and publicly available."
+    },
+    {
+      "q": "Why do scientists value unbroken measurements?",
+      "a": "They help tell trends from noise."
+    }
+  ]
+}
