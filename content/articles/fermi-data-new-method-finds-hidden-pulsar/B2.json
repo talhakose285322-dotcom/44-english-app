@@ -1,0 +1,24 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "level": "B2",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "paragraphs": [
+    "NASA's Fermi Gamma-ray Space Telescope has been scanning the sky for 15 years, and its data are open to anyone. Even so, pulsars, the rapidly spinning cores of dead stars, remain hard to spot. Fermi detects only a handful of gamma-ray photons from each one, buried in background noise, and the search must estimate the spin rate, the rate at which the spin slows, and the position on the sky all at the same time.",
+    "Searching that four-dimensional space is so costly that it has been out of reach. According to the researchers, a standard processor would need about 600 years to run the best previous method on the target they tackled, and that method did not find it. \"There's just not enough computing power on Earth to do it,\" said Daniel Pook-Kolb, who led the team at the Max Planck Institute for Gravitational Physics.",
+    "His group recast the problem as a geometric one, finding the shortest vector in a high-dimensional lattice, using ideas from algorithms developed in cryptography. The result, reported in Physical Review Letters, was PSR J1622−7204, an isolated pulsar spinning 261 times per second, found with about 10 hours of computing. NASA calls the method roughly a million times faster. The approach has clear limits, though: pulsars in binary systems, whose signals are distorted by a companion star, remain essentially invisible to it, and the claim that dozens or hundreds more pulsars are hiding in the data is still an estimate, not a demonstrated result."
+  ],
+  "questions": [
+    {
+      "q": "Why has searching the data been out of reach until now?",
+      "a": "The four-dimensional search space is so large that it would take far too much computing time."
+    },
+    {
+      "q": "What kind of ideas did the team borrow?",
+      "a": "Algorithms developed in cryptography, applied to a geometry problem."
+    },
+    {
+      "q": "Why should we be careful about the claim of many more pulsars?",
+      "a": "It is only an estimate and has not yet been demonstrated."
+    }
+  ]
+}

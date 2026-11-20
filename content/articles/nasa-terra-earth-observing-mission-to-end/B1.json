@@ -1,0 +1,24 @@
+{
+  "id": "nasa-terra-earth-observing-mission-to-end",
+  "level": "B1",
+  "title": "NASA's Terra Satellite Prepares to End Its Mission",
+  "paragraphs": [
+    "NASA has announced that its Terra Earth-observing satellite will end its mission. Terra launched in December 1999 and was designed for a six-year mission, but it has now been running for more than four times as long. On December 1, it will stop collecting science data.",
+    "Over the years, Terra's five instruments have tracked changes in land use, the behaviour of wildfires, the movement of dust and smoke, the makeup of the atmosphere and the extent of ice. NASA says the information has helped with decisions about public safety, farming and water resources.",
+    "The reason for the end is age: the spacecraft's systems are getting older and its orbit is drifting. After the science work stops, the team will use the remaining fuel to lower the orbit and then switch off all systems in January 2027. Terra's data records will remain free and publicly available, so researchers can keep using them. The announcement does not describe which satellites will continue the same long records, so that question is not answered here."
+  ],
+  "questions": [
+    {
+      "q": "Why is the mission ending?",
+      "a": "The spacecraft is aging and its orbit is drifting."
+    },
+    {
+      "q": "What did the data help people decide about?",
+      "a": "Public safety, agriculture and water resources."
+    },
+    {
+      "q": "When will all systems be turned off?",
+      "a": "In January 2027."
+    }
+  ]
+}

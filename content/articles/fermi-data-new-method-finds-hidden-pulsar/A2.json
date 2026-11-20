@@ -1,0 +1,24 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "level": "A2",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "paragraphs": [
+    "A pulsar is a very small, dead star that spins quickly and sends out a beam of light. Fermi, a NASA space telescope, has looked at the sky for 15 years. Its data is free for everyone, but many pulsars are still hidden in it.",
+    "Fermi catches only a few particles of light from each pulsar, and they are mixed with a lot of noise. To find a pulsar, scientists must guess three things at the same time: how fast it spins, how fast it slows down, and where it is in the sky.",
+    "A team led by Daniel Pook-Kolb in Germany found a clever way to do this. They treated the search like a puzzle in geometry. The method found a new pulsar that spins 261 times every second. The search took about 10 hours on a normal computer. The team says it is about a million times faster than older methods."
+  ],
+  "questions": [
+    {
+      "q": "Who leads the team?",
+      "a": "Daniel Pook-Kolb."
+    },
+    {
+      "q": "What did the new method find?",
+      "a": "A new pulsar that spins 261 times every second."
+    },
+    {
+      "q": "How is the new method compared with older methods?",
+      "a": "It is about a million times faster."
+    }
+  ]
+}

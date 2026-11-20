@@ -1,0 +1,24 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "level": "B1",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "paragraphs": [
+    "Pulsars are the fast-spinning remains of dead stars, and each one sends out a regular beam of radiation. NASA's Fermi Gamma-ray Space Telescope has collected 15 years of public data, but finding pulsars in it is difficult. Fermi records very few gamma-ray photons from any single pulsar, and they are mixed with background noise.",
+    "To make things harder, scientists must guess several unknown values at once: the spin rate, the rate at which the spin slows down, and the position in the sky. Together these form a four-dimensional grid that is far too large to search with older methods. Researchers say that a standard processor would need about 600 years to repeat the best earlier approach on this pulsar, which that approach did not find anyway.",
+    "A team led by Daniel Pook-Kolb of the Max Planck Institute for Gravitational Physics turned the search into a geometry problem: finding the shortest vector in a lattice. Their results, published in Physical Review Letters, led to the discovery of PSR J1622−7204, a lonely pulsar that spins 261 times per second. The search took about 10 hours of computing time, and NASA describes the method as roughly a million times faster. However, it cannot yet find pulsars that orbit another star, and the team has only reported one new object so far."
+  ],
+  "questions": [
+    {
+      "q": "Why is it hard to find pulsars in Fermi's data?",
+      "a": "Fermi records very few photons from each pulsar, and they are mixed with background noise."
+    },
+    {
+      "q": "What did the team turn the search into?",
+      "a": "A geometry problem about the shortest vector in a lattice."
+    },
+    {
+      "q": "What can the method not do yet?",
+      "a": "It cannot find pulsars that orbit another star."
+    }
+  ]
+}

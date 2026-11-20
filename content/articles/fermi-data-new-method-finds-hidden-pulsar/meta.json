@@ -1,0 +1,51 @@
+{
+  "id": "fermi-data-new-method-finds-hidden-pulsar",
+  "category": "news",
+  "title": "A Faster Way to Find Hidden Pulsars in NASA Fermi Data",
+  "summary": "Araştırmacılar, NASA'nın Fermi teleskobunun 15 yıllık verisinde gizli kalmış bir pulsarı bulmak için eskisinden çok daha hızlı bir yöntem geliştirdi; yöntemin sınırları da var.",
+  "published": "2026-11-20",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Fermi teleskobunun gama ışını görüntüsünde Yengeç Bulutsusu (örnek görsel; haberdeki pulsar değil).",
+    "credit": "NASA/DOE/Fermi LAT/R. Buehler",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fermi_Gamma_Ray_Space_Telescope_Image_of_the_Crab_Nebula_(M1-Comparison-Gamma-Fermi-LAT-cc).jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA Science: NASA Science Data Powers New Method to Discover Hard-to-Find Pulsars",
+      "url": "https://science.nasa.gov/open-science/fermi-data-pulsar-discovery/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "pulsar",
+      "tr": "pulsar (hızla dönen, ışın yayan nötron yıldızı)"
+    },
+    {
+      "w": "telescope",
+      "tr": "teleskop"
+    },
+    {
+      "w": "method",
+      "tr": "yöntem"
+    },
+    {
+      "w": "signal",
+      "tr": "sinyal"
+    },
+    {
+      "w": "gamma ray",
+      "tr": "gama ışını"
+    },
+    {
+      "w": "search",
+      "tr": "aramak; arama"
+    },
+    {
+      "w": "faster",
+      "tr": "daha hızlı"
+    }
+  ]
+}
