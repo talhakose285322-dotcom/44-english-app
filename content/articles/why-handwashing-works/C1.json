@@ -1,0 +1,25 @@
+{
+  "id": "why-handwashing-works",
+  "level": "C1",
+  "title": "Why Does Handwashing Work?",
+  "paragraphs": [
+    "It is easy to overlook handwashing as a mundane routine, yet it remains among the most cost-effective interventions available to public health. Pathogens deposited on the skin can be transferred to the mucous membranes of the mouth, nose and eyes, and shared surfaces allow a single contamination to spread through an entire household or workplace.",
+    "The intellectual history of the practice is instructive. In 1840s Vienna, Ignaz Semmelweis observed that the maternity ward staffed by physicians suffered roughly three times the mortality of the ward staffed by midwives. The death of a colleague, who had been cut during an autopsy and developed symptoms resembling those of the stricken mothers, led him to hypothesise that doctors were conveying some invisible 'cadaverous material' to their patients on their hands.",
+    "His remedy, introduced in 1847, was to require washing in chlorinated lime before every examination. By most accounts, mortality in his ward fell from around 18 per cent to under 2 per cent within a year. That he nonetheless failed to persuade his peers is often attributed to the absence of a germ theory capable of explaining his findings, as well as to his abrasive manner; he was dismissed in 1849 and died in 1865, before his approach was vindicated.",
+    "Contemporary research has largely confirmed his intuition while refining the detail. Soap proves more effective than water alone, whereas water temperature appears largely irrelevant; a scrub of roughly 20 seconds removes more germs than a perfunctory rinse, and hands should be dried thoroughly because moisture facilitates transfer. Estimates suggest that handwashing prevents about a third of diarrhoeal illnesses and a fifth of respiratory infections, although such figures vary considerably with the population studied."
+  ],
+  "questions": [
+    {
+      "q": "What did Semmelweis hypothesise after his colleague's death?",
+      "a": "That doctors transferred an invisible material from corpses to patients on their hands."
+    },
+    {
+      "q": "Why did his peers reject his findings?",
+      "a": "There was no germ theory to explain them, and his manner was abrasive."
+    },
+    {
+      "q": "What does research say about water temperature?",
+      "a": "It appears largely irrelevant."
+    }
+  ]
+}

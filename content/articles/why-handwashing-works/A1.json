@@ -1,0 +1,25 @@
+{
+  "id": "why-handwashing-works",
+  "level": "A1",
+  "title": "Why Does Handwashing Work?",
+  "paragraphs": [
+    "Germs are very small. We cannot see them. They live on our hands. They can make us sick.",
+    "Soap helps a lot. Soap takes germs off your skin. Water alone does not do this well.",
+    "Wash your hands for 20 seconds. Rub the front, the back and between your fingers. Then rinse them well and dry them with a clean towel.",
+    "A doctor named Semmelweis learned this long ago. In 1847, he asked doctors to wash their hands. Fewer mothers died after that. Today we wash our hands before we eat and after we use the toilet."
+  ],
+  "questions": [
+    {
+      "q": "Why is soap important?",
+      "a": "It takes germs off your skin."
+    },
+    {
+      "q": "How long should you wash your hands?",
+      "a": "For 20 seconds."
+    },
+    {
+      "q": "Who asked doctors to wash their hands in 1847?",
+      "a": "Semmelweis."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "why-handwashing-works",
+  "level": "B1",
+  "title": "Why Does Handwashing Work?",
+  "paragraphs": [
+    "Washing your hands looks like a small habit, but public health experts count it among the most effective ways to prevent infection. Germs can travel from our hands to our mouth, nose and eyes, and they can also move from person to person through shared objects such as door handles and phones.",
+    "The story of how we learned this begins in 1847 in Vienna. Ignaz Semmelweis, a doctor at the city's main hospital, noticed that a ward run by doctors had about three times as many deaths among new mothers as a ward run by midwives. After a colleague died from an infection that looked very similar, he suspected that doctors were carrying something harmful from dead bodies to patients on their hands.",
+    "Semmelweis ordered doctors and students to wash their hands in a chlorine solution before examining patients. Deaths in his ward fell from roughly 18 per cent to under 2 per cent in 1848. Yet many colleagues rejected his explanation, and he lost his position in 1849. The germ theory that could explain his results became widely accepted only later.",
+    "Today we know how to wash well. Soap lifts germs and grease off the skin better than water alone, and about 20 seconds of rubbing removes more germs than a quick rinse. Public health agencies say that handwashing can prevent around one in three stomach illnesses and one in five respiratory infections. Drying your hands properly matters too, because germs move more easily from wet skin."
+  ],
+  "questions": [
+    {
+      "q": "What did Semmelweis notice in Vienna?",
+      "a": "One ward had about three times as many deaths as the other."
+    },
+    {
+      "q": "What did he ask doctors to do?",
+      "a": "Wash their hands in a chlorine solution before examining patients."
+    },
+    {
+      "q": "Why does drying matter?",
+      "a": "Germs move more easily from wet skin."
+    }
+  ]
+}

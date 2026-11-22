@@ -1,0 +1,63 @@
+{
+  "id": "why-handwashing-works",
+  "category": "health",
+  "title": "Why Does Handwashing Work?",
+  "summary": "El yıkama neden bu kadar etkili? Semmelweis'in 1847'deki keşfi, sabunun işlevi ve doğru el yıkama.",
+  "published": "2026-11-22",
+  "license": "Words 44 için özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Sabunla ellerini yıkayan bir kişinin elleri.",
+    "credit": "MarkBuckawicki",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hand_washing_man.jpg"
+  },
+  "sources": [
+    {
+      "title": "Science History Institute: Ignaz Semmelweis",
+      "url": "https://www.sciencehistory.org/education/scientific-biographies/ignaz-semmelweis/"
+    },
+    {
+      "title": "CDC: Clean Hands facts and stats",
+      "url": "https://www.cdc.gov/clean-hands/data-research/facts-stats"
+    },
+    {
+      "title": "National Geographic: 'Wash your hands' was once controversial medical advice",
+      "url": "https://www.nationalgeographic.com/history/article/handwashing-once-controversial-medical-advice"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "germ",
+      "tr": "mikrop"
+    },
+    {
+      "w": "soap",
+      "tr": "sabun"
+    },
+    {
+      "w": "infection",
+      "tr": "enfeksiyon, bulaşma"
+    },
+    {
+      "w": "ward",
+      "tr": "hastane koğuşu"
+    },
+    {
+      "w": "mortality",
+      "tr": "ölüm oranı"
+    },
+    {
+      "w": "hygiene",
+      "tr": "hijyen"
+    },
+    {
+      "w": "prevent",
+      "tr": "önlemek"
+    },
+    {
+      "w": "vindicate",
+      "tr": "haklı çıkarmak"
+    }
+  ]
+}
