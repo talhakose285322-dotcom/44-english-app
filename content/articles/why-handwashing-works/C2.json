@@ -1,0 +1,25 @@
+{
+  "id": "why-handwashing-works",
+  "level": "C2",
+  "title": "Why Does Handwashing Work?",
+  "paragraphs": [
+    "Handwashing is so thoroughly woven into everyday life that its significance is easily taken for granted; yet few interventions in public health deliver so much protection for so little expense. Microbes lodged on the skin migrate readily to the mucous membranes of the mouth, nose and eyes, and a single contaminated surface can seed infection across an entire household, ward or office.",
+    "The practice owes its place in medicine to a confrontation between evidence and orthodoxy. In 1840s Vienna, Ignaz Semmelweis noticed that the maternity ward staffed by physicians recorded roughly three times the mortality of the ward staffed by midwives. When a colleague died after a scalpel wound sustained during an autopsy, presenting symptoms uncannily like those of the afflicted mothers, Semmelweis inferred that doctors were ferrying some invisible 'cadaverous material' from the dissecting room to the delivery room.",
+    "His countermeasure, introduced in 1847, was the compulsory washing of hands in chlorinated lime before each examination. By the figures usually cited, mortality in his ward collapsed from about 18 per cent to under 2 per cent in 1848. That he nonetheless failed to carry his colleagues with him is commonly ascribed to the lack of any germ theory capable of explaining the result, compounded by his own combative temperament; he lost his post in 1849 and died in 1865, long before the principle he championed was vindicated.",
+    "Modern research has substantiated his intuition while qualifying its detail. Soap outperforms water alone, whereas water temperature seems largely immaterial; some twenty seconds of scrubbing dislodges appreciably more microbes than a cursory rinse, and thorough drying matters because damp skin transmits them more readily. Public health bodies estimate that the practice averts roughly a third of diarrhoeal illnesses and a fifth of respiratory infections, though such estimates are sensitive to the population studied and should be read with appropriate caution."
+  ],
+  "questions": [
+    {
+      "q": "What did Semmelweis infer from his colleague's death?",
+      "a": "That doctors carried an invisible material from the dissecting room to the delivery room."
+    },
+    {
+      "q": "Why did his colleagues not accept his results?",
+      "a": "No germ theory existed to explain them, and his temperament was combative."
+    },
+    {
+      "q": "Why should the figures be read with caution?",
+      "a": "They vary with the population studied."
+    }
+  ]
+}

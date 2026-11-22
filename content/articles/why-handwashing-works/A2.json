@@ -1,0 +1,25 @@
+{
+  "id": "why-handwashing-works",
+  "level": "A2",
+  "title": "Why Does Handwashing Work?",
+  "paragraphs": [
+    "Germs are tiny living things that we cannot see. When we touch a dirty surface, germs can stay on our hands. Later, we touch our mouth, nose or eyes, and the germs get into our body.",
+    "Soap is important because it pulls germs and dirt away from the skin. Water alone does not clean as well. Health experts say that you should rub your hands with soap for about 20 seconds, then rinse them and dry them with a clean towel.",
+    "The idea is not new. In 1847, a doctor named Ignaz Semmelweis worked in a big hospital in Vienna. He saw that many new mothers died in the ward where doctors worked. He asked the doctors to clean their hands with a special liquid, and many fewer mothers died.",
+    "Other doctors did not like his idea, because nobody knew about germs yet. Years later, scientists showed that germs really cause many illnesses. Today, washing hands is one of the cheapest ways to stay healthy."
+  ],
+  "questions": [
+    {
+      "q": "Where can germs get into the body?",
+      "a": "Through the mouth, nose or eyes."
+    },
+    {
+      "q": "How long should you rub your hands with soap?",
+      "a": "About 20 seconds."
+    },
+    {
+      "q": "Why did other doctors dislike Semmelweis's idea?",
+      "a": "Nobody knew about germs yet."
+    }
+  ]
+}

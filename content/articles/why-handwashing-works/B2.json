@@ -1,0 +1,25 @@
+{
+  "id": "why-handwashing-works",
+  "level": "B2",
+  "title": "Why Does Handwashing Work?",
+  "paragraphs": [
+    "Few health habits are as simple, cheap and effective as washing your hands. Germs that stay on the skin can reach the mouth, nose and eyes, and they can also be passed on through shared surfaces, which is why one unwashed hand can start a chain of infections.",
+    "The first person to prove this systematically was Ignaz Semmelweis, a Hungarian doctor working in Vienna in the 1840s. He noticed that a maternity ward staffed by doctors recorded roughly three times as many deaths among new mothers as the neighbouring ward staffed by midwives. When a colleague died after a cut received during an autopsy, with symptoms resembling those of the women, Semmelweis concluded that doctors were carrying infectious material from the dead room to the delivery room.",
+    "In 1847 he required everyone to wash their hands in chlorinated lime before examining patients. According to the figures usually quoted, mortality in his ward fell from about 18 per cent to below 2 per cent the following year. Nevertheless, his explanation clashed with the medical beliefs of the time, which blamed bad air rather than microscopic organisms, and he was dismissed in 1849. His ideas were vindicated only after Louis Pasteur and others established germ theory.",
+    "Modern evidence supports his instinct, although the numbers depend on the setting. Health agencies estimate that hand hygiene can prevent roughly a third of diarrhoeal illnesses and a fifth of respiratory infections. Soap is more effective than water alone, the temperature of the water makes little difference, and scrubbing for about 20 seconds followed by thorough drying gives the best results."
+  ],
+  "questions": [
+    {
+      "q": "What did Semmelweis conclude after his colleague's death?",
+      "a": "That doctors carried infectious material from dead bodies to patients."
+    },
+    {
+      "q": "Why did doctors resist his idea?",
+      "a": "It clashed with the belief that bad air caused disease, and germ theory did not exist yet."
+    },
+    {
+      "q": "Does water temperature matter for handwashing?",
+      "a": "No, it makes little difference."
+    }
+  ]
+}
