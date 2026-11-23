@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "C2",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "At 2:16 a.m. Pacific time on 18 November 2026, NASA's Voyager 1 passed a milestone that is more poetic than practical: it is now one light-day from Earth, about 25.9 billion kilometres distant. The scale defies intuition. Sunlight covers the gap to the Moon in about 1.3 seconds and to Neptune in around four hours, while the probe, launched in 1977 and now in its fiftieth year of flight, lies some 20 light-hours beyond Neptune's distance.",
+    "Such remoteness turns every exchange into a slow conversation. A command takes a day to arrive and its reply a day to return, so engineers at the Jet Propulsion Laboratory inferred the crossing from the carrier signal and orbital calculations rather than witnessing it directly. \"We listen to Voyager 1 every day and send commands to the spacecraft weekly,\" said project manager Suzanne Dodd. The craft, which entered interstellar space in 2012, is travelling at roughly 61,155 kilometres per hour.",
+    "Yet the anniversary arrives under a cloud. No science or engineering data have reached Earth since 14 November, though the carrier signal endures and the team is investigating. Power is dwindling by about four watts a year on each Voyager, prompting NASA to switch off three devices in favour of lower-power substitutes, a stopgap intended to sustain the current instruments until at least next summer's 50th launch anniversaries. Whatever the diagnosis, the probe's eventual silence is not in doubt; the release itself calls it humanity's \"silent ambassador to the stars.\""
+  ],
+  "questions": [
+    {
+      "q": "Why does the article say the milestone is 'more poetic than practical'?",
+      "a": "It is a symbolic distance with no direct operational use."
+    },
+    {
+      "q": "How did engineers learn of the crossing?",
+      "a": "They inferred it from the carrier signal and orbital calculations."
+    },
+    {
+      "q": "What is a 'stopgap'?",
+      "a": "A temporary measure used until a better solution is found."
+    }
+  ]
+}

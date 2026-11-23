@@ -1,7 +1,7 @@
 {
   "format": "words44-articles",
   "version": 1,
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "levels": [
     "A1",
     "A2",
@@ -25,6 +25,170 @@
     "other": "Diğer"
   },
   "articles": [
+    {
+      "id": "stonehenge-altar-stone-origin-still-a-mystery",
+      "category": "news",
+      "title": "Stonehenge Altar Stone: Origin Still a Mystery",
+      "summary": "Yeni bir jeoloji çalışması, Stonehenge'in Altar Taşı'nın kökenini aradı; incelenen yerlerin hiçbirinde aynı kayaç bulunamadı, gizem sürüyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-23",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 81,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 116,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 177,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 199,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 203,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 224,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "stonehenge-altar-stone-origin-still-a-mystery/image.jpg",
+        "alt": "Stonehenge'deki Altar Taşı'nın fotoğrafı.",
+        "credit": "The Stones of Stonehenge",
+        "license": "CC BY 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Stonehenge-Altar-Stone_P1110732.jpg"
+      },
+      "sources": [
+        {
+          "title": "ScienceDaily (Aberystwyth University): Stonehenge's six-ton mystery deepens",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261117033914.htm"
+        },
+        {
+          "title": "Journal of the Geological Society: Searching for the origin of the Stonehenge Altar Stone (DOI)",
+          "url": "https://doi.org/10.1144/jgs2026-090"
+        },
+        {
+          "title": "Sci.News: Stonehenge's Altar Stone Still Has No Home, Geologists Say",
+          "url": "https://www.sci.news/archaeology/stonehenges-altar-stone-15179.html"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "slab",
+          "tr": "kalın taş levha"
+        },
+        {
+          "w": "sandstone",
+          "tr": "kumtaşı"
+        },
+        {
+          "w": "origin",
+          "tr": "köken"
+        },
+        {
+          "w": "fragment",
+          "tr": "parça"
+        },
+        {
+          "w": "isotope",
+          "tr": "izotop"
+        },
+        {
+          "w": "narrow down",
+          "tr": "daraltmak"
+        },
+        {
+          "w": "geological",
+          "tr": "jeolojik"
+        }
+      ]
+    },
+    {
+      "id": "voyager-1-reaches-one-light-day-from-earth",
+      "category": "news",
+      "title": "Voyager 1 Reaches One Light-Day From Earth",
+      "summary": "NASA'nın Voyager 1 uzay aracı, Dünya'dan bir ışık günü uzaklığa ulaştı; araçtan 14 Kasım'dan beri bilim verisi gelmiyor.",
+      "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+      "published": "2026-11-23",
+      "paragraphs": 3,
+      "levels": {
+        "A1": {
+          "words": 72,
+          "minutes": 1
+        },
+        "A2": {
+          "words": 109,
+          "minutes": 1
+        },
+        "B1": {
+          "words": 175,
+          "minutes": 1
+        },
+        "B2": {
+          "words": 209,
+          "minutes": 1
+        },
+        "C1": {
+          "words": 229,
+          "minutes": 1
+        },
+        "C2": {
+          "words": 246,
+          "minutes": 1
+        }
+      },
+      "image": {
+        "src": "voyager-1-reaches-one-light-day-from-earth/image.jpg",
+        "alt": "Voyager uzay aracının yıldızlar arasında ilerlediğini gösteren sanatçı çizimi (örnek görsel).",
+        "credit": "NASA/JPL-Caltech",
+        "license": "Kamu malı (NASA)",
+        "source": "https://commons.wikimedia.org/wiki/File:NASA%E2%80%99s_Voyager_Probe_Speeds_Through_Space_(Artist%E2%80%99s_Concept)_(PIA26353).jpg"
+      },
+      "sources": [
+        {
+          "title": "NASA: NASA's Voyager 1 Makes History Reaching One Light-Day From Earth",
+          "url": "https://www.nasa.gov/news-release/nasas-voyager-1-makes-history-reaching-one-light-day-from-earth/"
+        }
+      ],
+      "vocab": [
+        {
+          "w": "light-day",
+          "tr": "ışık günü (ışığın bir günde aldığı yol)"
+        },
+        {
+          "w": "probe",
+          "tr": "uzay sondası"
+        },
+        {
+          "w": "interstellar",
+          "tr": "yıldızlar arası"
+        },
+        {
+          "w": "signal",
+          "tr": "sinyal"
+        },
+        {
+          "w": "milestone",
+          "tr": "dönüm noktası, önemli aşama"
+        },
+        {
+          "w": "launch",
+          "tr": "fırlatmak; fırlatma"
+        },
+        {
+          "w": "engineer",
+          "tr": "mühendis"
+        }
+      ]
+    },
     {
       "id": "nasa-warns-el-nino-may-rival-1997",
       "category": "news",

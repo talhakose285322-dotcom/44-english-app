@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "A2",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "On 18 November 2026, NASA's Voyager 1 reached one light-day from Earth. A light-day is the distance that light travels in 24 hours. It is about 25.9 billion kilometres.",
+    "Voyager 1 left Earth in 1977, so it has travelled for more than 49 years. It entered interstellar space in 2012. Today it moves at about 61,155 kilometres per hour.",
+    "Because of the huge distance, a radio message takes one day to reach the probe. The answer needs another day to come back. NASA says it has not received science data from the probe since 14 November, but the spacecraft still sends a signal. Engineers are checking what is wrong."
+  ],
+  "questions": [
+    {
+      "q": "What is a light-day?",
+      "a": "The distance that light travels in 24 hours."
+    },
+    {
+      "q": "When did Voyager 1 enter interstellar space?",
+      "a": "In 2012."
+    },
+    {
+      "q": "What does the spacecraft still send?",
+      "a": "A carrier signal."
+    }
+  ]
+}

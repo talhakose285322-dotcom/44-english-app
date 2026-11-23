@@ -1,0 +1,24 @@
+{
+  "id": "stonehenge-altar-stone-origin-still-a-mystery",
+  "level": "B1",
+  "title": "Stonehenge Altar Stone: Origin Still a Mystery",
+  "paragraphs": [
+    "The Altar Stone at Stonehenge is a sandstone slab about 4.9 metres long that weighs around six tons. For roughly a century, experts believed it came from Wales, like the smaller bluestones. Earlier research then suggested north-east Scotland, which would mean a much longer journey.",
+    "A new study in the Journal of the Geological Society, led by Professor Duncan Pirrie of the University of South Wales, has tested that idea. The team combined new observations of the monument with analysis of stone fragments kept in museum collections. They looked at the rock's structure, minerals, chemistry and isotopes to create a kind of geological fingerprint, and they compared it with rocks from the Orcadian Basin in Scotland.",
+    "The conclusion is cautious. None of the places examined so far has the same combination of features as the Altar Stone, so its origin is still unknown. However, the results do not completely rule out Scotland, and every place that is eliminated helps to narrow the search. The study also did not find the real source, so the mystery remains open."
+  ],
+  "questions": [
+    {
+      "q": "What did experts believe for about a century?",
+      "a": "That the Altar Stone came from Wales."
+    },
+    {
+      "q": "What did the team compare the stone with?",
+      "a": "Rocks from the Orcadian Basin in Scotland."
+    },
+    {
+      "q": "Did the study find the stone's origin?",
+      "a": "No, it is still unknown."
+    }
+  ]
+}

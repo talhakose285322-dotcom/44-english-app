@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "A1",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "Voyager 1 is a small space probe. It is from NASA. It left Earth in 1977.",
+    "On 18 November 2026, Voyager 1 reached a new place. It is now one light-day from Earth. Light needs one day to go that far.",
+    "The probe is very far away. A radio message takes one day to reach it. NASA got a signal back one day later. Voyager 1 is still sending a simple signal."
+  ],
+  "questions": [
+    {
+      "q": "When did Voyager 1 leave Earth?",
+      "a": "In 1977."
+    },
+    {
+      "q": "How far is Voyager 1 now?",
+      "a": "One light-day from Earth."
+    },
+    {
+      "q": "How long does a radio message need to reach it?",
+      "a": "One day."
+    }
+  ]
+}
