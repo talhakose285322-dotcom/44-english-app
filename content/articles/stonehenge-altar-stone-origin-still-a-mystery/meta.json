@@ -1,0 +1,59 @@
+{
+  "id": "stonehenge-altar-stone-origin-still-a-mystery",
+  "category": "news",
+  "title": "Stonehenge Altar Stone: Origin Still a Mystery",
+  "summary": "Yeni bir jeoloji çalışması, Stonehenge'in Altar Taşı'nın kökenini aradı; incelenen yerlerin hiçbirinde aynı kayaç bulunamadı, gizem sürüyor.",
+  "published": "2026-11-23",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Stonehenge'deki Altar Taşı'nın fotoğrafı.",
+    "credit": "The Stones of Stonehenge",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Stonehenge-Altar-Stone_P1110732.jpg"
+  },
+  "sources": [
+    {
+      "title": "ScienceDaily (Aberystwyth University): Stonehenge's six-ton mystery deepens",
+      "url": "https://www.sciencedaily.com/releases/2026/11/261117033914.htm"
+    },
+    {
+      "title": "Journal of the Geological Society: Searching for the origin of the Stonehenge Altar Stone (DOI)",
+      "url": "https://doi.org/10.1144/jgs2026-090"
+    },
+    {
+      "title": "Sci.News: Stonehenge's Altar Stone Still Has No Home, Geologists Say",
+      "url": "https://www.sci.news/archaeology/stonehenges-altar-stone-15179.html"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "slab",
+      "tr": "kalın taş levha"
+    },
+    {
+      "w": "sandstone",
+      "tr": "kumtaşı"
+    },
+    {
+      "w": "origin",
+      "tr": "köken"
+    },
+    {
+      "w": "fragment",
+      "tr": "parça"
+    },
+    {
+      "w": "isotope",
+      "tr": "izotop"
+    },
+    {
+      "w": "narrow down",
+      "tr": "daraltmak"
+    },
+    {
+      "w": "geological",
+      "tr": "jeolojik"
+    }
+  ]
+}

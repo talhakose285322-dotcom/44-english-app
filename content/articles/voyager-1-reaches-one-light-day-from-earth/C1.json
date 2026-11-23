@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "C1",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "In the early hours of 18 November 2026, NASA's Voyager 1 crossed a threshold that is as symbolic as it is scientific: it is now a full light-day from Earth, some 25.9 billion kilometres away. The yardstick is humbling. Sunlight reaches the Moon in roughly 1.3 seconds and Neptune in about four hours, yet the probe lies roughly 20 hours of light-travel time beyond Neptune's orbit, after more than 49 years in flight.",
+    "The distance has practical consequences. A command from Earth takes a day to arrive and its acknowledgement a day to return, so engineers at the Jet Propulsion Laboratory relied on the probe's carrier signal and trajectory calculations to confirm the milestone. Project manager Suzanne Dodd noted: \"We listen to Voyager 1 every day and send commands to the spacecraft weekly.\" Launched in 1977, the spacecraft entered interstellar space in 2012 and travels at about 61,155 kilometres per hour.",
+    "The celebration is tempered by uncertainty. Since 14 November the team has received neither science nor engineering data, although the carrier signal persists and an investigation is under way. Meanwhile, the ageing power supply shrinks by about four watts a year; to cope, NASA turned off three devices and substituted lower-power ones, a measure expected to keep the current instruments running until at least the probes' 50th anniversaries next summer. Eventually, Voyager 1 will go silent for good."
+  ],
+  "questions": [
+    {
+      "q": "What makes the distance a practical problem for operators?",
+      "a": "Commands and replies each need a day to travel."
+    },
+    {
+      "q": "What does the article suggest about the milestone's mood?",
+      "a": "It is a celebration tempered by uncertainty, because data stopped on 14 November."
+    },
+    {
+      "q": "What does 'substituted' mean here?",
+      "a": "Replaced with something else."
+    }
+  ]
+}

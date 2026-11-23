@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "B1",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "NASA announced that Voyager 1 reached a distance of one light-day from Earth at 2:16 a.m. Pacific time on 18 November 2026. A light-day is the distance light travels in 24 hours, about 25.9 billion kilometres. For comparison, sunlight takes about four hours to reach Neptune.",
+    "The probe was launched in 1977, together with its twin Voyager 2, and it entered interstellar space in 2012. It now travels at around 61,155 kilometres per hour. Because radio signals move at the speed of light, a message from Earth needs a full day to arrive, and the reply takes another day. Engineers confirmed the milestone using the probe's carrier signal and calculations of its path.",
+    "There is also a problem. NASA has received no science or engineering data from Voyager 1 since 14 November, although the carrier signal continues and the team is investigating. In addition, both Voyagers lose about four watts of power every year. A recent energy-saving effort should keep their current instruments running until at least the 50th anniversary of the launches in 2027."
+  ],
+  "questions": [
+    {
+      "q": "How long does light travel to cover one light-day?",
+      "a": "24 hours."
+    },
+    {
+      "q": "When did NASA last receive data from Voyager 1?",
+      "a": "On 14 November."
+    },
+    {
+      "q": "Why is power a problem for the Voyagers?",
+      "a": "They lose about four watts every year."
+    }
+  ]
+}
