@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "A1",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "Voyager 1 is a small space probe. It left Earth in 1977.",
+    "On 18 November 2026, it was one light-day from Earth. Light needs one day to travel this far.",
+    "Radio signals take about 24 hours to reach us. Engineers on Earth do not get new data now. But they still hear a weak signal."
+  ],
+  "questions": [
+    {
+      "q": "When did Voyager 1 leave Earth?",
+      "a": "In 1977."
+    },
+    {
+      "q": "How long does a radio signal take to reach Earth?",
+      "a": "About 24 hours."
+    },
+    {
+      "q": "Does the team still hear a signal?",
+      "a": "Yes, a weak signal."
+    }
+  ]
+}

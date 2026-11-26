@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "C2",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "There is a certain poetry in the fact that Voyager 1, a machine built with 1970s technology, has now drifted one light-day from home: at 2:16 a.m. Pacific time on 18 November 2026, roughly 25.9 billion kilometres separated it from Earth. Moving at about 61,000 kilometres per hour, it lives in a place where even a simple instruction takes a day to arrive and a day to be answered – a conversation conducted at the pace of a postal service.",
+    "That it is still conversing at all is remarkable. The probe left in 1977, grazed Jupiter and Saturn, slipped into interstellar space in 2012 and has since kept watch, alongside its twin, over the Sun's magnetic influence. But its plutonium-fuelled generator dwindles by about four watts every year, so engineers have been quietly retiring components – three devices on Voyager 1 have been swapped for lower-power alternatives – in a bid to coax the instruments through next summer's 50th anniversary.",
+    "The timing of the milestone is, however, bittersweet. No science or engineering data has arrived since 14 November, and the team is still hunting for the cause; only a persistent carrier signal, married to trajectory calculations, allowed the distance to be certified. Whether this is a passing fault or the first sign of the end, the project manager's words ring true: Voyager 1 \"will become humanity's silent ambassador to the stars\"."
+  ],
+  "questions": [
+    {
+      "q": "What does the phrase 'at the pace of a postal service' suggest?",
+      "a": "That messages to and from the probe are very slow, taking about a day each way."
+    },
+    {
+      "q": "What are engineers doing to extend the mission?",
+      "a": "Replacing devices with lower-power ones to save energy."
+    },
+    {
+      "q": "Why is the milestone described as bittersweet?",
+      "a": "Because the probe has stopped sending science and engineering data since 14 November."
+    }
+  ]
+}

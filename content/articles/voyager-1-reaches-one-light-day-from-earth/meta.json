@@ -1,0 +1,51 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "category": "news",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "summary": "Voyager 1, 18 Kasım 2026'da Dünya'dan bir ışık günü uzaklığa ulaşan ilk insan yapımı cisim oldu; ekip ise sondadan 14 Kasım'dan beri veri alamıyor.",
+  "published": "2026-11-26",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Voyager uzay aracının çizimi: büyük çanak anten ve uzun bir bom üzerindeki aletler (örnek görsel).",
+    "credit": "NASA/JPL",
+    "license": "Kamu malı (NASA)",
+    "source": "https://commons.wikimedia.org/wiki/File:Voyager_spacecraft.jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA: NASA's Voyager 1 Makes History Reaching One Light-Day From Earth",
+      "url": "https://www.nasa.gov/news-release/nasas-voyager-1-makes-history-reaching-one-light-day-from-earth/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "light-day",
+      "tr": "ışık günü (ışığın bir günde aldığı yol)"
+    },
+    {
+      "w": "spacecraft",
+      "tr": "uzay aracı"
+    },
+    {
+      "w": "interstellar",
+      "tr": "yıldızlar arası"
+    },
+    {
+      "w": "signal",
+      "tr": "sinyal"
+    },
+    {
+      "w": "milestone",
+      "tr": "dönüm noktası, önemli aşama"
+    },
+    {
+      "w": "launch",
+      "tr": "fırlatmak; fırlatma"
+    },
+    {
+      "w": "engineer",
+      "tr": "mühendis"
+    }
+  ]
+}

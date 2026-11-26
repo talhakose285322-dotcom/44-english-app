@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "B1",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "On 18 November 2026, NASA's Voyager 1 became the first human-made object to reach one light-day from Earth. This is the distance that light travels in 24 hours, about 25.9 billion kilometres. The probe was launched in 1977 and is now travelling at about 61,000 kilometres per hour.",
+    "A radio message from Voyager 1 therefore needs around one day to reach Earth. For comparison, sunlight reaches the Moon in about 1.3 seconds and Neptune in about four hours. In 2012, Voyager 1 also became the first spacecraft to enter interstellar space, the area between the stars.",
+    "However, there is a technical problem. NASA has received no science or engineering data from the probe since 14 November. The spacecraft still sends a carrier signal, and engineers used this signal together with flight calculations to confirm the milestone. The team is now studying the data problem. Because the spacecraft is so old and so far away, such problems are difficult to solve."
+  ],
+  "questions": [
+    {
+      "q": "What is special about 18 November 2026?",
+      "a": "Voyager 1 became the first human-made object to reach one light-day from Earth."
+    },
+    {
+      "q": "What happened in 2012?",
+      "a": "Voyager 1 entered interstellar space."
+    },
+    {
+      "q": "Why is the data problem hard to solve?",
+      "a": "The spacecraft is very old and extremely far away."
+    }
+  ]
+}

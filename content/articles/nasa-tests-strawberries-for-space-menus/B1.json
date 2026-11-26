@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "level": "B1",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "paragraphs": [
+    "NASA is studying which crops could give astronauts fresh food, nutrition and variety on the Moon and Mars. Plants also absorb carbon dioxide, produce oxygen and help to recycle water, which matters more as missions travel farther from Earth. A new experiment with a prototype growth chamber is planned for the International Space Station.",
+    "Strawberries are a top candidate because they are nutritious, aromatic and self-pollinating. Researchers from NASA's Kennedy Space Center and two Australian universities compared a wild strawberry with NASA's favourite, 'Delizz', in simulated space conditions. Grown from seed, the wild plant produced twice as many buds, flowers and fruit, but it also made too many runners, which would take up valuable space. Delizz therefore stayed in first place.",
+    "Other crops are being tested too. Cucumbers could be the first plants from the gourd family grown in space, and one study found that they gave a steady supply of edible fruit. Lemon basil has passed seed cleaning checks. However, the strawberry results come from simulated conditions, not real spaceflight, and the reports give few details, so more research is needed."
+  ],
+  "questions": [
+    {
+      "q": "Why are strawberries a top candidate?",
+      "a": "They are nutritious, aromatic and self-pollinating."
+    },
+    {
+      "q": "Why did Delizz stay in first place?",
+      "a": "The wild strawberry made too many runners that would take up space."
+    },
+    {
+      "q": "What is a limit of the strawberry results?",
+      "a": "They come from simulated conditions, not real spaceflight."
+    }
+  ]
+}

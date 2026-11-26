@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "level": "A2",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "paragraphs": [
+    "NASA is looking for plants that can feed astronauts on the Moon and Mars. Plants give fresh food, but they also take in carbon dioxide, make oxygen and help recycle water. This is important on long missions.",
+    "Scientists compared two strawberries in a test that copied space conditions. The wild strawberry made twice as many flowers and fruit as the leading plant, Delizz. But it also made too many runners, and these would take too much space on a spacecraft. So Delizz is still the best choice.",
+    "Cucumbers could become the first plants of their family grown in space. In one study, the plants made fruit that people could eat. NASA is also testing lemon basil. It has passed the first test, and next scientists will grow it in special \"plant pillows\"."
+  ],
+  "questions": [
+    {
+      "q": "Why do plants help on long missions?",
+      "a": "They give food, take in carbon dioxide, make oxygen and help recycle water."
+    },
+    {
+      "q": "Why did the wild strawberry lose?",
+      "a": "It made too many runners that need space."
+    },
+    {
+      "q": "What will scientists grow in plant pillows next?",
+      "a": "Lemon basil."
+    }
+  ]
+}
