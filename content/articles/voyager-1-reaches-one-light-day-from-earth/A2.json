@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "A2",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "Voyager 1 is a small NASA space probe. It left Earth in 1977, and it has now travelled for more than 49 years. On 18 November 2026, it reached a distance of one light-day from Earth.",
+    "A light-day is the distance that light travels in 24 hours. This is about 25.9 billion kilometres. A radio signal from Voyager 1 needs about one day to reach Earth, but sunlight reaches Neptune in only about four hours.",
+    "There is also a problem. Since 14 November, the team has not received science or engineering data from the probe. Engineers can still hear its carrier signal, so they know that it is working. They are now trying to understand the problem."
+  ],
+  "questions": [
+    {
+      "q": "What is a light-day?",
+      "a": "The distance light travels in 24 hours."
+    },
+    {
+      "q": "Since when has the team had no data?",
+      "a": "Since 14 November."
+    },
+    {
+      "q": "How do engineers know the probe is still working?",
+      "a": "They can still hear its carrier signal."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "B2",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "On 18 November 2026, at 2:16 a.m. Pacific time, NASA's Voyager 1 became the first human-made object to be one light-day away from Earth – roughly 25.9 billion kilometres, or the distance light covers in 24 hours. Launched in 1977, the probe is moving at about 61,000 kilometres per hour, and a radio signal sent from it needs about a day to arrive.",
+    "Voyager 1 entered interstellar space in 2012, and its twin, Voyager 2, followed in 2018. Both still measure changes in the Sun's magnetic field, but their plutonium-powered generators lose about four watts of power every year. To save energy, engineers switched off three devices on Voyager 1 and replaced them with lower-power alternatives, which should keep the current instruments running until at least the probes' 50th launch anniversaries next summer.",
+    "The milestone comes with a caveat. NASA has received no science or engineering data from Voyager 1 since 14 November, and engineers are analysing the cause. They could confirm the distance only because the spacecraft kept transmitting a carrier signal, which they combined with trajectory calculations. Project manager Suzanne Dodd said the probe will become \"humanity's silent ambassador to the stars\"."
+  ],
+  "questions": [
+    {
+      "q": "How did engineers confirm the milestone despite the missing data?",
+      "a": "They used the carrier signal together with trajectory calculations."
+    },
+    {
+      "q": "What did engineers do to save power on Voyager 1?",
+      "a": "They turned off three devices and replaced them with lower-power ones."
+    },
+    {
+      "q": "When did the last science and engineering data arrive?",
+      "a": "On 14 November."
+    }
+  ]
+}

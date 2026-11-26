@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "level": "A1",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "paragraphs": [
+    "NASA wants fresh food for astronauts. Plants can grow in space. They make oxygen and clean the air.",
+    "Scientists test strawberries. A strawberry called Delizz has big red fruit. It is the best choice now.",
+    "They also test cucumbers and lemon basil. Nobody has grown a cucumber in space yet. Fresh food can make astronauts happy."
+  ],
+  "questions": [
+    {
+      "q": "What does NASA want for astronauts?",
+      "a": "Fresh food."
+    },
+    {
+      "q": "Which strawberry is the best choice now?",
+      "a": "Delizz."
+    },
+    {
+      "q": "Has anyone grown a cucumber in space?",
+      "a": "No."
+    }
+  ]
+}

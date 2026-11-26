@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "level": "B2",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "paragraphs": [
+    "As agencies plan longer stays on the Moon and Mars, NASA is investigating which crops could supply astronauts with fresh food, nutrition and some welcome variety. Plants also absorb carbon dioxide, produce oxygen and recycle water, benefits that become more valuable the farther a mission goes from Earth. A new investigation using a first-of-its-kind prototype growth chamber is set to fly to the International Space Station.",
+    "Strawberries are among the few sweet fruits considered for spaceflight. In a study published in Life Sciences in Space Research, NASA Kennedy, the University of Melbourne and the University of Western Australia compared a wild strawberry with NASA's leading candidate, 'Delizz', under simulated space conditions. Grown from seed, the wild plant produced twice as many buds, flowers and fruit, yet its excessive runners would occupy precious room on a spacecraft, so Delizz kept its top spot.",
+    "Cucumbers could become the first gourd-family crop grown in orbit: a NASA-funded study in HortScience reported some enlarged leaves but a steady stream of edible fruit. Lemon basil has also cleared seed sanitisation and will next be grown in \"plant pillows\". These findings should be read with care, however. The strawberry data come from simulated rather than real spaceflight, and the cucumber results are described only in general terms."
+  ],
+  "questions": [
+    {
+      "q": "What did the wild strawberry do better than Delizz?",
+      "a": "It produced twice as many buds, flowers and fruit."
+    },
+    {
+      "q": "Why did Delizz still win?",
+      "a": "The wild plant made too many runners that would take up space."
+    },
+    {
+      "q": "Why should the results be read with care?",
+      "a": "The data are from simulations, and some results are described only generally."
+    }
+  ]
+}

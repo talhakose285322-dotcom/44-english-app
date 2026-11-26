@@ -1,0 +1,24 @@
+{
+  "id": "voyager-1-reaches-one-light-day-from-earth",
+  "level": "C1",
+  "title": "Voyager 1 Reaches One Light-Day From Earth",
+  "paragraphs": [
+    "Nearly half a century after its launch, Voyager 1 has crossed another threshold: at 2:16 a.m. Pacific time on 18 November 2026, NASA's veteran probe became the first human-made object to sit one light-day from Earth, about 25.9 billion kilometres away. Travelling at roughly 61,000 kilometres per hour, it is so remote that a radio command takes a full day to reach it – and another day for any reply to come back.",
+    "The achievement is all the more striking given the spacecraft's age. Launched in 1977, Voyager 1 swept past Jupiter and Saturn, entered interstellar space in 2012 and, together with Voyager 2, still measures how the Sun's magnetic field shapes that environment. Yet its plutonium power source fades by about four watts a year, which has forced engineers to retire three devices in favour of lower-power substitutes in order to keep the instruments alive until at least next summer's 50th anniversary.",
+    "The celebration is tempered by a setback. Since 14 November, no science or engineering data has reached Earth, and the team is still investigating why. Only a faint carrier signal, combined with trajectory calculations, allowed NASA to verify the milestone. Project manager Suzanne Dodd has described the probe as destined to become \"humanity's silent ambassador to the stars\" – an apt phrase for a craft that may soon fall literally silent."
+  ],
+  "questions": [
+    {
+      "q": "Why does communication with Voyager 1 take two days for a question and answer?",
+      "a": "A signal needs about one day each way."
+    },
+    {
+      "q": "Why did engineers retire three devices?",
+      "a": "To save power as the generator weakens by about four watts a year."
+    },
+    {
+      "q": "What made the milestone harder to verify?",
+      "a": "No data had arrived since 14 November, so they relied on the carrier signal and calculations."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "category": "news",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "summary": "NASA, Ay ve Mars görevlerinde astronotlara taze gıda sağlayabilecek bitkileri inceliyor: çilek, salatalık ve limon fesleğeni.",
+  "published": "2026-11-26",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bahçede olgun ve olgunlaşmamış meyveleri olan çilek bitkileri (örnek görsel).",
+    "credit": "Shixart1985",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Strawberry_plants_with_ripe_and_unripe_fruit_growing_in_a_garden.jpg"
+  },
+  "sources": [
+    {
+      "title": "NASA Science: NASA Eyes Crop Candidates for Future Menus",
+      "url": "https://science.nasa.gov/directorates/smd/nasa-eyes-crop-candidates-for-future-menus/"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "crop",
+      "tr": "ekin, tarım ürünü"
+    },
+    {
+      "w": "astronaut",
+      "tr": "astronot"
+    },
+    {
+      "w": "strawberry",
+      "tr": "çilek"
+    },
+    {
+      "w": "cucumber",
+      "tr": "salatalık"
+    },
+    {
+      "w": "growth chamber",
+      "tr": "yetiştirme odası"
+    },
+    {
+      "w": "nutrition",
+      "tr": "beslenme, besin değeri"
+    },
+    {
+      "w": "simulated",
+      "tr": "benzetilmiş, simüle edilmiş"
+    },
+    {
+      "w": "runner",
+      "tr": "(bitkide) stolon, yer üstü sürgünü"
+    }
+  ]
+}

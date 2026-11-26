@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "level": "C2",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "paragraphs": [
+    "A mission to Mars will be a long way from the nearest grocery shop, so NASA is quietly drawing up a shortlist of plants that could keep astronauts fed – and sane. Beyond supplying fresh food and variety, crops absorb carbon dioxide, release oxygen and help recycle water, benefits that multiply with distance from Earth. A prototype growth chamber is scheduled to be put through its paces on the International Space Station.",
+    "The strawberry, one of the few sweet fruits in contention, shows how a seemingly simple choice can hide awkward compromises. In research published in Life Sciences in Space Research, scientists from NASA Kennedy and the universities of Melbourne and Western Australia set a wild strawberry against the agency's favourite, 'Delizz', under simulated space conditions. From seed, the wild plant made twice as many buds, flowers and fruit, but its runners spread so freely that they threatened to crowd a cramped spacecraft; Delizz, with its large red fruit, retained pole position.",
+    "Elsewhere on the menu, cucumbers may become the first gourd-family crop grown off Earth, a NASA-funded HortScience study reporting enlarged leaves but a reliable harvest, while lemon basil has cleared seed sanitisation and awaits trials in \"plant pillows\". Still, these are early days: the strawberry evidence is drawn from simulations, not flight, and the cucumber work is described in broad strokes, so the real test lies ahead."
+  ],
+  "questions": [
+    {
+      "q": "What does 'sane' hint at in the first paragraph?",
+      "a": "That fresh food and variety may also support astronauts' wellbeing."
+    },
+    {
+      "q": "Why was the wild strawberry a problem despite its yield?",
+      "a": "Its runners would crowd a cramped spacecraft."
+    },
+    {
+      "q": "What does 'the real test lies ahead' mean here?",
+      "a": "The evidence comes from simulations, so actual spaceflight tests are still to come."
+    }
+  ]
+}

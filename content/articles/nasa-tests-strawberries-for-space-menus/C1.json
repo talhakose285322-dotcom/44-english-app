@@ -1,0 +1,24 @@
+{
+  "id": "nasa-tests-strawberries-for-space-menus",
+  "level": "C1",
+  "title": "NASA Studies Strawberries and Cucumbers for Space Menus",
+  "paragraphs": [
+    "If humans are to live on the Moon or travel to Mars, they will need more than packaged meals. NASA is therefore evaluating crops that could deliver fresh food, nutrition and a little variety, while also absorbing carbon dioxide, releasing oxygen and helping to recycle water – services that grow ever more valuable as missions move away from Earth. A prototype growth chamber is due to be tested aboard the International Space Station.",
+    "Strawberries, among the few sweet fruits under consideration, illustrate the trade-offs. A study in Life Sciences in Space Research, by NASA Kennedy and the universities of Melbourne and Western Australia, pitted a wild strawberry against NASA's frontrunner, 'Delizz', in simulated space conditions. Raised from seed, the wild plant produced twice as many buds, flowers and fruit, yet it also sent out so many runners that it would hog scarce cabin space, which allowed Delizz to hold its position.",
+    "The wider menu includes cucumbers, which could become the first gourd-family crop grown in space; a NASA-funded paper in HortScience found modest leaf enlargement but a steady yield of edible fruit. Lemon basil has also passed seed sanitisation and will be trialled in \"plant pillows\". Yet caution is warranted: the strawberry findings rest on simulations rather than actual spaceflight, and the cucumber conditions are only vaguely described."
+  ],
+  "questions": [
+    {
+      "q": "What is the trade-off in the strawberry comparison?",
+      "a": "The wild plant gave more fruit but produced too many runners."
+    },
+    {
+      "q": "Which crop could be the first of its family in space?",
+      "a": "The cucumber."
+    },
+    {
+      "q": "Why is caution warranted?",
+      "a": "The strawberry findings come from simulations and some details are vague."
+    }
+  ]
+}
