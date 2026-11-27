@@ -1,0 +1,24 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "level": "A1",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "paragraphs": [
+    "Data centers use a lot of electricity. Many power plants make this electricity. Some plants burn gas and make dirty air.",
+    "Scientists at MIT made a computer model. They studied the United States in 2023. They say dirty air from this power caused about 650 early deaths.",
+    "The model shows that people far from data centers can also be hurt. The air moves a long way. Scientists want to learn more."
+  ],
+  "questions": [
+    {
+      "q": "Which university made the model?",
+      "a": "MIT."
+    },
+    {
+      "q": "How many early deaths did the study find for 2023?",
+      "a": "About 650."
+    },
+    {
+      "q": "Can people far from data centers be hurt?",
+      "a": "Yes, the air moves a long way."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "nasa-seeks-partners-for-moon-reactor",
+  "level": "C2",
+  "title": "NASA Seeks Partners to Build a Nuclear Reactor for the Moon",
+  "paragraphs": [
+    "Nuclear power may soon follow astronauts to the Moon. On November 23 NASA invited industry to help design and test Lunar Reactor-1 (LR-1), billed as the first reactor intended to produce electricity on the lunar surface. The Space Reactors Division is running the effort jointly with the Department of Energy, and the call forms part of a wider solicitation on space power and reactor capabilities that may yield further task orders for other space nuclear systems.",
+    "At 20 kilowatts, LR-1 would match the annual consumption of about 16 average American households: a small figure on Earth, but a considerable one for a base that must power habitats, communications links, rovers and instruments. The strategic logic is that, unlike solar arrays, a reactor does not go dark when the Sun does, and the lunar night lasts roughly two weeks. Program manager Brian Giblin framed the stakes plainly: “A reliable source of safe and abundant energy will be vital to future exploration of the lunar and Martian surface.”",
+    "Still, caution is in order. What NASA has issued is a request for partners, not a contract or a finished design. The agency targets a launch-ready system by 2030 and at least five years of operation once deployed, proposals are due on December 21, and any design must satisfy Department of Energy safety standards for nuclear operations. Whether that timetable survives contact with real engineering remains to be seen."
+  ],
+  "questions": [
+    {
+      "q": "What does the comparison with 16 households convey?",
+      "a": "That the output is small on Earth but meaningful for a lunar base."
+    },
+    {
+      "q": "Why is a reactor strategically attractive compared with solar arrays?",
+      "a": "It keeps working during the two-week lunar night."
+    },
+    {
+      "q": "What does “survives contact with real engineering” imply?",
+      "a": "The schedule may change once design and testing difficulties appear."
+    }
+  ]
+}

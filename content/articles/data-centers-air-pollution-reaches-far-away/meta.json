@@ -1,0 +1,55 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "category": "news",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "summary": "MIT araştırmacıları, ABD’de veri merkezlerinin elektrik talebinin 2023’te yaklaşık 650 erken ölümle ilişkili hava kirliliğine yol açtığını tahmin ediyor; etki çoğunlukla santrallerin uzağında hissediliyor. Sonuçlar bir modele dayanıyor.",
+  "published": "2026-11-27",
+  "license": "Words 44 için kaynaklardaki bilgilerden özgün olarak yazılmıştır. © Words 44.",
+  "image": {
+    "file": "image.jpg",
+    "alt": "Bir veri merkezinde sıra sıra sunucu dolapları (örnek görsel).",
+    "credit": "Ana Las Heras",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Data_Center_2_(UNC).jpg"
+  },
+  "sources": [
+    {
+      "title": "EurekAlert (MIT): Study reveals data centers’ long-distance damage to air quality",
+      "url": "https://www.eurekalert.org/news-releases/1153067"
+    },
+    {
+      "title": "Environmental Research Letters (DOI): Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "url": "https://doi.org/10.1088/1748-9326/aebbd4"
+    }
+  ],
+  "vocab": [
+    {
+      "w": "data center",
+      "tr": "veri merkezi"
+    },
+    {
+      "w": "air quality",
+      "tr": "hava kalitesi"
+    },
+    {
+      "w": "premature death",
+      "tr": "erken ölüm"
+    },
+    {
+      "w": "emissions",
+      "tr": "emisyonlar, salımlar"
+    },
+    {
+      "w": "power grid",
+      "tr": "elektrik şebekesi"
+    },
+    {
+      "w": "assumption",
+      "tr": "varsayım"
+    },
+    {
+      "w": "per capita",
+      "tr": "kişi başına"
+    }
+  ]
+}

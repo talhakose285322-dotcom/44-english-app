@@ -1,0 +1,24 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "level": "B2",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "paragraphs": [
+    "When people discuss the harm done by data centers, they usually think of the neighbours. A new study from the Massachusetts Institute of Technology, with co-authors at the University of California, Irvine, and Yale University, argues that the bigger effect may be felt far away, at the power plants that supply them. It appears in Environmental Research Letters.",
+    "The researchers linked a model of hourly electricity generation and transmission, emissions data for more than 10,000 U.S. generators, an atmospheric chemistry model and epidemiological findings. Their estimate is about 650 premature deaths in 2023 (513 linked to fine particles and 137 to smog), or roughly 5.3 percent of the country’s electricity-related mortality. Deaths per person were highest in Iowa, Nevada, South Dakota and Kansas, while Virginia and Texas, where demand is concentrated, had about half the rate of most Midwestern states, partly because the generators that respond to extra demand are often gas plants and power mixes differ by region.",
+    "The conclusions carry caveats. The model assumes data centers draw power around the clock, as many earlier studies do, and the mortality figures rest on existing epidemiological literature. The work was funded by two MIT programmes, and the authors plan to examine onsite generation and flexible demand next."
+  ],
+  "questions": [
+    {
+      "q": "Where did the study say the biggest effect may be felt?",
+      "a": "Far away, near the power plants supplying the data centers."
+    },
+    {
+      "q": "Why were rates lower in Virginia and Texas?",
+      "a": "Power mixes and the generators that respond to demand differ by region."
+    },
+    {
+      "q": "What assumption could affect the results?",
+      "a": "That data centers draw power around the clock."
+    }
+  ]
+}
