@@ -1,0 +1,24 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "level": "B1",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "paragraphs": [
+    "Researchers at the Massachusetts Institute of Technology have estimated how the electricity used by data centers affects air quality and health across the United States. Their study was published in the journal Environmental Research Letters, with co-authors from the University of California, Irvine, and Yale University.",
+    "The team combined a model of the power grid, emissions data from more than 10,000 generators, and a model of how pollution moves through the air. They estimate that data center electricity caused about 650 early deaths in 2023, around 5.3 percent of all electricity-related deaths in the country. Senior author Noelle Selin says people usually think about the neighbours of data centers, but the pollution can come from power plants far away.",
+    "The results also show that the places hit hardest are not always where the data centers are. Virginia and Texas have many data centers, but their death rate per person was about half that of most Midwestern states. The study assumes data centers run all day and night, and the health numbers depend on earlier research, so the real figures may differ."
+  ],
+  "questions": [
+    {
+      "q": "Where was the study published?",
+      "a": "In Environmental Research Letters."
+    },
+    {
+      "q": "Which states had many data centers but a lower death rate per person?",
+      "a": "Virginia and Texas."
+    },
+    {
+      "q": "Name one limit of the study.",
+      "a": "It assumes data centers run all day and night."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "level": "A2",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "paragraphs": [
+    "Data centers are large buildings full of computers. They use a lot of electricity, and many power plants make that electricity. Some of these plants burn gas, and that makes the air dirty.",
+    "Scientists at MIT made a computer model to study the United States in 2023. They found that the dirty air from this extra electricity may have caused about 650 early deaths. That is about 5.3 percent of all deaths linked to electricity in the country.",
+    "The study says people far from data centers can also be hurt, because the pollution travels in the wind. The scientists used one big idea: data centers work all day and all night. Real life may be different."
+  ],
+  "questions": [
+    {
+      "q": "What did the scientists study?",
+      "a": "How data centers’ electricity affects air and health in the US."
+    },
+    {
+      "q": "How many early deaths did they estimate for 2023?",
+      "a": "About 650."
+    },
+    {
+      "q": "Why can people far away be hurt?",
+      "a": "The pollution travels in the air."
+    }
+  ]
+}

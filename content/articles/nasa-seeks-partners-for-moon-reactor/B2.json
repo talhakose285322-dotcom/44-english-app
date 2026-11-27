@@ -1,0 +1,24 @@
+{
+  "id": "nasa-seeks-partners-for-moon-reactor",
+  "level": "B2",
+  "title": "NASA Seeks Partners to Build a Nuclear Reactor for the Moon",
+  "paragraphs": [
+    "NASA said on November 23 that it is seeking industry partners to design and test what would be the first nuclear reactor built to supply electricity on the Moon. The project, Lunar Reactor-1 (LR-1), is managed by NASA’s Space Reactors Division in partnership with the Department of Energy, and the request is part of a wider solicitation for space power and reactor capabilities that may also lead to further task orders for other space nuclear systems.",
+    "The planned output is 20 kilowatts, which NASA compares to the yearly needs of about 16 average American households. That power would serve future Moon Base infrastructure, including habitats, communications, rovers and scientific instruments. Unlike solar panels, a reactor can deliver electricity continuously, including through the lunar night, which lasts roughly two weeks. In the words of program manager Brian Giblin, “A reliable source of safe and abundant energy will be vital to future exploration of the lunar and Martian surface.”",
+    "The timetable is ambitious: NASA aims for a launch-ready system by 2030 and at least five years of operation after deployment, with proposals due on December 21 and compliance with Department of Energy safety standards required. It is worth remembering that this is a call for partners rather than a finished design, so the schedule depends on choices and tests that have not yet taken place."
+  ],
+  "questions": [
+    {
+      "q": "What does the solicitation allow beyond LR-1?",
+      "a": "Additional task orders for other space nuclear power systems."
+    },
+    {
+      "q": "Why is a reactor useful during the lunar night?",
+      "a": "It does not depend on sunlight, so it keeps producing power."
+    },
+    {
+      "q": "Why should the 2030 date be treated carefully?",
+      "a": "The project is still a call for partners, and design and testing have not happened yet."
+    }
+  ]
+}

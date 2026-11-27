@@ -1,0 +1,24 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "level": "C2",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "paragraphs": [
+    "The conventional wisdom holds that data centers hurt mainly the people who live beside them. A study from the Massachusetts Institute of Technology, with co-authors at the University of California, Irvine, and Yale University, turns that picture on its head: the larger toll, it argues, lands downwind of the power plants that feed them. The paper appears in Environmental Research Letters.",
+    "To trace the chain, the researchers linked an hourly electricity-system model, emissions data for more than 10,000 U.S. generators, an atmospheric chemistry model and epidemiological estimates. They arrive at about 650 premature deaths in 2023 (513 attributed to fine particles, 137 to smog), some 5.3 percent of the nation’s electricity-related mortality. Rates per person peaked in Iowa, Nevada, South Dakota and Kansas, while Virginia and Texas, home to most of the demand, recorded about half the rate of most Midwestern states. Rural populations, the authors expect, face markedly higher risk than urban ones, and the marginal generators that answer extra demand are often natural gas plants.",
+    "Even so, these are model outputs, not body counts. They rest on the assumption that data centers draw power around the clock, a convention shared with many earlier studies, and on the epidemiological literature chosen to convert pollution into deaths. The authors say follow-up work will examine onsite generation and demand flexibility, which could shift the picture considerably."
+  ],
+  "questions": [
+    {
+      "q": "How does the study challenge conventional wisdom?",
+      "a": "It says the larger harm is near distant power plants, not next to data centers."
+    },
+    {
+      "q": "What does “marginal generators” refer to?",
+      "a": "The plants that increase output when extra demand appears."
+    },
+    {
+      "q": "Why are “model outputs, not body counts” a caution?",
+      "a": "The deaths are estimated by calculation, not counted directly."
+    }
+  ]
+}

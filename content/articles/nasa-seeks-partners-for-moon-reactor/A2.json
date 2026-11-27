@@ -1,0 +1,24 @@
+{
+  "id": "nasa-seeks-partners-for-moon-reactor",
+  "level": "A2",
+  "title": "NASA Seeks Partners to Build a Nuclear Reactor for the Moon",
+  "paragraphs": [
+    "On November 23, NASA said it is looking for partners to design the first nuclear reactor for the Moon. The project is called Lunar Reactor-1, or LR-1.",
+    "The reactor should make 20 kilowatts of electricity. That is enough for about 16 average homes in the United States for a year. The power could help run a future Moon base, for example its homes for astronauts, radios, rovers and science tools.",
+    "NASA wants a system that is ready to launch by 2030. After it lands, it should work for at least five years. Companies must send their proposals by December 21. The reactor must also follow the safety rules of the US Department of Energy."
+  ],
+  "questions": [
+    {
+      "q": "What does NASA want to build?",
+      "a": "The first nuclear reactor for the Moon."
+    },
+    {
+      "q": "How long should it work on the Moon?",
+      "a": "At least five years."
+    },
+    {
+      "q": "Who must the reactor’s safety follow?",
+      "a": "The rules of the US Department of Energy."
+    }
+  ]
+}

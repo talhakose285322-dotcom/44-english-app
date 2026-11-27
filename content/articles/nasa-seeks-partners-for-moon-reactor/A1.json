@@ -1,0 +1,24 @@
+{
+  "id": "nasa-seeks-partners-for-moon-reactor",
+  "level": "A1",
+  "title": "NASA Seeks Partners to Build a Nuclear Reactor for the Moon",
+  "paragraphs": [
+    "NASA wants to build a power plant for the Moon. It is a small nuclear reactor. NASA calls it Lunar Reactor-1.",
+    "The reactor makes 20 kilowatts of power. That is enough for about 16 homes in the United States for one year. It can help a future Moon base.",
+    "NASA wants the reactor ready to launch by 2030. It should work on the Moon for five years. NASA asks companies to send ideas by December 21."
+  ],
+  "questions": [
+    {
+      "q": "What is the reactor called?",
+      "a": "Lunar Reactor-1."
+    },
+    {
+      "q": "How much power does it make?",
+      "a": "20 kilowatts."
+    },
+    {
+      "q": "When must companies send ideas?",
+      "a": "By December 21."
+    }
+  ]
+}

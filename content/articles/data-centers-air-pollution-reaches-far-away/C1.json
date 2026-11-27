@@ -1,0 +1,24 @@
+{
+  "id": "data-centers-air-pollution-reaches-far-away",
+  "level": "C1",
+  "title": "Study: Data Centers’ Air Pollution Harm Reaches Far From Their Walls",
+  "paragraphs": [
+    "Debates about data centers tend to fixate on their immediate neighbours, but a new study from the Massachusetts Institute of Technology suggests that the heaviest toll may fall well away from the buildings themselves. Published in Environmental Research Letters, with co-authors at the University of California, Irvine, and Yale University, the work traces the health consequences of data center electricity demand back through the power grid.",
+    "The team stitched together an hourly electricity-system model, emissions data covering more than 10,000 U.S. generators, an atmospheric chemistry model and epidemiological estimates. The upshot is about 650 premature deaths in 2023 (513 from fine particles and 137 from smog), roughly 5.3 percent of electricity-related mortality nationwide. Per-capita deaths were highest in Iowa, Nevada, South Dakota and Kansas, whereas Virginia and Texas, where demand is concentrated, saw about half the rate of most Midwestern states. As senior author Noelle Selin observed, “Different regions have different mixes of power.” Rural residents are expected to bear a notably higher risk than urban ones.",
+    "That said, the figures are modelled, not measured. They hinge on the assumption that data centers run around the clock and on the epidemiological literature used, and the release does not list further limitations. The authors intend to look next at onsite generation and at how flexible demand might ease the burden."
+  ],
+  "questions": [
+    {
+      "q": "What is the main point of the study?",
+      "a": "Data centers’ health harm may fall far from the buildings, near power plants."
+    },
+    {
+      "q": "What does “modelled, not measured” mean here?",
+      "a": "The numbers are estimates from simulations, not direct observations."
+    },
+    {
+      "q": "What do the authors plan to study next?",
+      "a": "Onsite generation and flexible demand."
+    }
+  ]
+}

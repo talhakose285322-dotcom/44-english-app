@@ -1,0 +1,24 @@
+{
+  "id": "nasa-seeks-partners-for-moon-reactor",
+  "level": "C1",
+  "title": "NASA Seeks Partners to Build a Nuclear Reactor for the Moon",
+  "paragraphs": [
+    "NASA has opened the door to nuclear power on the lunar surface. On November 23 the agency announced that it is looking for industry partners to design and test Lunar Reactor-1 (LR-1), which would be the first reactor built to generate electricity on the Moon. Managed by NASA’s Space Reactors Division in partnership with the Department of Energy, the effort sits within a broader solicitation for space power and reactor capabilities that could spawn further task orders for other space nuclear systems.",
+    "The headline figure is 20 kilowatts, roughly what about 16 average American households use in a year. Modest by terrestrial standards, that output is meant to underpin Moon Base infrastructure, from habitats and communications to rovers and scientific instruments. The appeal over solar power is obvious: a reactor keeps running through the lunar night, which lasts about two weeks. As program manager Brian Giblin put it, “A reliable source of safe and abundant energy will be vital to future exploration of the lunar and Martian surface.”",
+    "Yet the project is still on the drawing board. NASA is aiming for a launch-ready system by 2030 and at least five years of operation after deployment, with proposals due on December 21 and designs required to meet Department of Energy safety standards for nuclear operations. Until partners are chosen and hardware is tested, the timetable remains an aspiration rather than a commitment."
+  ],
+  "questions": [
+    {
+      "q": "What is the main advantage over solar power?",
+      "a": "It can keep producing electricity through the roughly two-week lunar night."
+    },
+    {
+      "q": "What does “on the drawing board” suggest?",
+      "a": "The plan exists only as an idea or design, not as finished hardware."
+    },
+    {
+      "q": "What must happen before the 2030 target is realistic?",
+      "a": "Partners must be chosen and hardware must be built and tested."
+    }
+  ]
+}
